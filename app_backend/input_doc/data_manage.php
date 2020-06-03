@@ -1,3 +1,20 @@
+<?php session_start();
+$_SESSION['status'] = '';
+if($_SESSION['status'] == 'Admin')
+{ 
+}
+elseif($_SESSION['status'] == 'Person')
+{  
+}
+else
+{
+    // echo "<script>";
+    // echo "alert(\"คุณไม่มีสิทธิ์เข้าสู่ระบบ\");";
+    // echo "</script>";
+    // echo "<meta http-equiv='refresh' content='0;url=../../administrator/logout.php'>";
+}
+?>
+<!-- --------------------------------------------------------------------------- -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -38,10 +55,10 @@
             <div class="container-fluid">
                 <div class="row page-titles">
                     <div class="col-md-5 align-self-center">
-                        <h3 class="text-themecolor">เอกสารล้างหนี้</h3>
+                        <h3 class="text-themecolor">จัดการข้อมูลเอกสาร</h3>
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                            <li class="breadcrumb-item active">เอกสารล้างหนี้</li>
+                            <li class="breadcrumb-item active">จัดการข้อมูลเอกสาร</li>
                         </ol>
                     </div>
                     <div class="col-md-7 align-self-center">
@@ -77,29 +94,25 @@
 <div class="row">
 <div class="col-md-3">
 <div class="form-group">
-<label>Full Name</label>
-<input type="text" placeholder="Johnathan Doe" class="form-control form-control-line">
+
 </div>
 </div>
 
 <div class="col-md-3">
 <div class="form-group">
-<label>Full Name</label>
-<input type="text" placeholder="Johnathan Doe" class="form-control form-control-line">
+
 </div>
 </div>
 
 <div class="col-md-3">
 <div class="form-group">
-<label>Full Name</label>
-<input type="text" placeholder="Johnathan Doe" class="form-control form-control-line">
+
 </div>
 </div>
 
 <div class="col-md-3">
 <div class="form-group">
-<label>Full Name</label>
-<input type="text" placeholder="Johnathan Doe" class="form-control form-control-line">
+
     </div>
 </div>
 </div>
@@ -109,30 +122,22 @@
 <div class="row">
 <div class="col-md-3">
 <div class="form-group">
-<label>Full Name</label>
-<input type="text" placeholder="Johnathan Doe" class="form-control form-control-line">
-    </div>
+
 </div>
 
 <div class="col-md-3">
 <div class="form-group">
-<label>Full Name</label>
-<input type="text" placeholder="Johnathan Doe" class="form-control form-control-line">
-    </div>
+
 </div>
 
 <div class="col-md-3">
 <div class="form-group">
-<label>Full Name</label>
-<input type="text" placeholder="Johnathan Doe" class="form-control form-control-line">
-    </div>
+
 </div>
 
 <div class="col-md-3">
 <div class="form-group">
-<label>Full Name</label>
-<input type="text" placeholder="Johnathan Doe" class="form-control form-control-line">
-    </div>
+
 </div>
 </div>
    
