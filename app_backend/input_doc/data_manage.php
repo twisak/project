@@ -1,5 +1,4 @@
 <?php session_start();
-$_SESSION['status'] = '';
 if($_SESSION['status'] == 'Admin')
 { 
 }
@@ -8,13 +7,12 @@ elseif($_SESSION['status'] == 'Person')
 }
 else
 {
-    // echo "<script>";
-    // echo "alert(\"คุณไม่มีสิทธิ์เข้าสู่ระบบ\");";
-    // echo "</script>";
-    // echo "<meta http-equiv='refresh' content='0;url=../../administrator/logout.php'>";
+    echo "<script>";
+    echo "alert(\"คุณไม่มีสิทธิ์เข้าสู่ระบบ\");";
+    echo "</script>";
+    echo "<meta http-equiv='refresh' content='0;url=../../administrator/logout.php'>";
 }
 ?>
-<!-- --------------------------------------------------------------------------- -->
 <!DOCTYPE html>
 <html lang="en">
 
