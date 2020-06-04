@@ -75,31 +75,41 @@
                                 <form class="form-horizontal form-material">
 
 <div class="row">
-<div class="col-md-3">
+<div class="col-md-2">
 <div class="form-group">
-<label>Full Name</label>
-<input type="text" placeholder="Johnathan Doe" class="form-control form-control-line">
+<label>รหัสเอกสารล้างหนี้</label>
+<input type="text"  class="form-control form-control-line" name="clean_id">
 </div>
 </div>
 
 <div class="col-md-3">
 <div class="form-group">
-<label>Full Name</label>
-<input type="text" placeholder="Johnathan Doe" class="form-control form-control-line">
+<label>ชื่อเอกสารล้างหนี้</label>
+<input type="text"  class="form-control form-control-line" name="clean_name">
 </div>
-</div>
-
-<div class="col-md-3">
-<div class="form-group">
-<label>Full Name</label>
-<input type="text" placeholder="Johnathan Doe" class="form-control form-control-line">
 </div>
 </div>
 
-<div class="col-md-3">
+<div class="row">
+
+<div class="col-md-2">
 <div class="form-group">
-<label>Full Name</label>
-<input type="text" placeholder="Johnathan Doe" class="form-control form-control-line">
+<label>รหัสบุคลากร</label>
+<input type="text"  class="form-control form-control-line" name="preson_id">
+</div>
+</div>
+
+<div class="col-md-4">
+<div class="form-group">
+<label>ชื่อบุคลากร</label>
+<input type="text"  class="form-control form-control-line" name="firstname">
+    </div>
+</div>
+
+<div class="col-md-5">
+<div class="form-group">
+<label>ที่อยู่</label>
+<input type="text"  class="form-control form-control-line" name="address">
     </div>
 </div>
 </div>
@@ -107,31 +117,26 @@
 
 
 <div class="row">
-<div class="col-md-3">
+
+
+<div class="col-md-2">
 <div class="form-group">
-<label>Full Name</label>
-<input type="text" placeholder="Johnathan Doe" class="form-control form-control-line">
+<label>เริ่มต้นวันที่</label>
+<input type="date"  class="form-control form-control-line" name="str-date">
     </div>
 </div>
 
-<div class="col-md-3">
+<div class="col-md-2">
 <div class="form-group">
-<label>Full Name</label>
-<input type="text" placeholder="Johnathan Doe" class="form-control form-control-line">
+<label>สิ้นสุดวันที่</label>
+<input type="date" class="form-control form-control-line" name="stp-date">
     </div>
 </div>
 
-<div class="col-md-3">
+<div class="col-md-4">
 <div class="form-group">
-<label>Full Name</label>
-<input type="text" placeholder="Johnathan Doe" class="form-control form-control-line">
-    </div>
-</div>
-
-<div class="col-md-3">
-<div class="form-group">
-<label>Full Name</label>
-<input type="text" placeholder="Johnathan Doe" class="form-control form-control-line">
+<label>ชื่อโครงการ</label>
+<input type="text" class="form-control form-control-line" name="project_name">
     </div>
 </div>
 </div>
