@@ -1,3 +1,23 @@
+<?php 
+
+    include '../../administrator/connect.php';
+    $id = $_SESSION['username'];
+    //echo $id;
+// $sql ="SELECT * FROM tb_personnel WHERE username = '".$id."' ";
+// $query = mysqli_query($conn,$sql);
+// while($row = mysqli_fetch_array($query,MYSQLI_ASSOC)){
+    
+//     $id = $row['id'];
+//     $name = $row['name'];
+//     $lasname = $row['lasname'];
+//     $address = $row['address'];
+//     $mail = $row['mail'];
+//     $tel = $row['tel'];
+//     $username = $row['username'];
+//     $password = $row['password'];
+//     $status = $row['status'];
+//}
+?>
 <header class="topbar">
             <nav class="navbar top-navbar navbar-expand-md navbar-light">
                 <!-- ============================================================== -->
@@ -43,8 +63,24 @@
                         <!-- ============================================================== -->
                         <!-- Profile -->
                         <!-- ============================================================== -->
-                        <li class="nav-item dropdown u-pro">
+                        <!-- <li class="nav-item dropdown u-pro">
                             <a class="nav-link dropdown-toggle waves-effect waves-dark profile-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="../assets/images/users/1.jpg" alt="user" class="" /> <span class="hidden-md-down">Mark Sanders &nbsp;</span> </a>
+                        </li> -->
+                        <li class="dropdown no-arrow">
+                        <a class="nav-link dropdown-toggle waves-effect waves-dark profile-pic" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="hidden-md-down">
+                                <?php echo $id; ?>&nbsp;
+                            </span>
+                            <i class="fa fa-user-circle-o"></i> 
+                        </a>
+                            
+                        <!-- Dropdown - User Information -->
+                        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                            <a class="dropdown-item" href="logout.php">
+                            <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-900"></i>
+                            ออกจากระบบ
+                            </a>
+                        </div>
                         </li>
                     </ul>
                 </div>
@@ -64,13 +100,28 @@
                     <ul id="sidebarnav">
                         <li> <a class="waves-effect waves-dark" href="../dashboard/index.php" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">Dashboard</span></a>
                         </li>
-                        <li> <a class="waves-effect waves-dark" href="../input_doc/data_manage.php" aria-expanded="false"><i class="fa fa-user-circle-o"></i><span class="hide-menu">จัดการข้อมูลเอกสาร</span></a>
+                        <!-- <li> <a class="waves-effect waves-dark" href="../input_doc/data_manage.php" aria-expanded="false"><i class="fa fa-user-circle-o"></i><span class="hide-menu">จัดการข้อมูลเอกสาร</span></a>
+                        </li> -->
+                        <li class="nav-item">
+                            <a class="nav-link waves-effect waves-dark collapsed" href="#" data-toggle="collapse" data-target="#collapseB" aria-expanded="false" aria-controls="collapseB">
+                                <i class="fa fa-sun-o"></i>
+                                <span>จัดการข้อมูลเอกสาร</span>
+                            </a>
+                            <div id="collapseB" class="collapse" aria-labelledby="headingB" data-parent="#accordionSidebar">
+                                <div class="bg-white py-2 collapse-inner rounded col-lg-12">
+                                    <a class="waves-effect waves-dark" href="../tb_admin/tb_doc_agreement.php"><i class="fa fa-caret-right"></i> เอกสารสัญญาณยืม</a>
+                                    <a class="waves-effect waves-dark" href="../tb_admin/tb_doc_salary.php"><i class="fa fa-caret-right"></i> เอกสารเงินเดือน</a>
+                                    <a class="waves-effect waves-dark" href="../tb_admin/tb_doc_cleansing.php"><i class="fa fa-caret-right"></i> เอกสารล้างหนี้</a>
+                                    <a class="waves-effect waves-dark" href="../tb_admin/tb_doc_contract.php"><i class="fa fa-caret-right"></i> เอกสารจ้างเหมาบริการ</a>
+                                    <a class="waves-effect waves-dark" href="../tb_admin/tb_doc_note.php"><i class="fa fa-caret-right"></i>    เอกสารบันทึกข้อความอื่นๆ</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li> <a class="waves-effect waves-dark" href="../user/form_user.php" aria-expanded="false"><i class="fa fa-smile-o"></i><span class="hide-menu">สมัครสมาชิก</span></a>
                         </li>
                         <li> <a class="waves-effect waves-dark" href="../../administrator/logout.php" aria-expanded="false"><i class="fa fa-table"></i><span class="hide-menu">Logout</span></a>
                         </li>
-                        <!-- <li> <a class="waves-effect waves-dark" href="icon-fontawesome.html" aria-expanded="false"><i class="fa fa-smile-o"></i><span class="hide-menu">Icons</span></a>
-                        </li>
-                        <li> <a class="waves-effect waves-dark" href="map-google.html" aria-expanded="false"><i class="fa fa-globe"></i><span class="hide-menu">Map</span></a>
+                        <!-- <li> <a class="waves-effect waves-dark" href="map-google.html" aria-expanded="false"><i class="fa fa-globe"></i><span class="hide-menu">Map</span></a>
                         </li>
                         <li> <a class="waves-effect waves-dark" href="pages-blank.html" aria-expanded="false"><i class="fa fa-bookmark-o"></i><span class="hide-menu">Blank</span></a>
                         </li>
@@ -85,3 +136,4 @@
             </div>
             <!-- End Sidebar scroll-->
         </aside>
+        

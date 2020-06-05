@@ -89,16 +89,27 @@ else
                             <div class="card-body">
                                 <form class="form-horizontal form-material">
 
-<div class="row">
+            <div class="row">
 <div class="col-md-3">
 <div class="form-group">
 
 </div>
 </div>
 
-<div class="col-md-3">
+<div class="col-md-6">
 <div class="form-group">
-
+<form>
+  <div class="form-group">
+    <label for="exampleFormControlSelect1">รายการเอกสาร</label>
+    <select class="form-control" id="exampleFormControlSelect1">
+      <option>เอกสารสัญญาณยืม</option>
+      <option>เอกสารเงินเดือน</option>
+      <option>เอกสารล้างหนี้</option>
+      <option>เอกสารจ้างเหมาบริการ</option>
+      <option>เอกสารบันทึกข้อความอื่นๆ</option>
+    </select>
+  </div>
+</form>
 </div>
 </div>
 
