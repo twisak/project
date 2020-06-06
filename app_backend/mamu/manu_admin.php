@@ -100,8 +100,8 @@
                     <ul id="sidebarnav">
                         <li> <a class="waves-effect waves-dark" href="../dashboard/index.php" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">Dashboard</span></a>
                         </li>
-                        <!-- <li> <a class="waves-effect waves-dark" href="../input_doc/data_manage.php" aria-expanded="false"><i class="fa fa-user-circle-o"></i><span class="hide-menu">จัดการข้อมูลเอกสาร</span></a>
-                        </li> -->
+                        <li> <a class="waves-effect waves-dark" href="../tb_user/tb_user.php" aria-expanded="false"><i class="fa fa-user-circle-o"></i><span class="hide-menu">จัดการข้อมูลบุคลากร</span></a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link waves-effect waves-dark collapsed" href="#" data-toggle="collapse" data-target="#collapseB" aria-expanded="false" aria-controls="collapseB">
                                 <i class="fa fa-sun-o"></i>

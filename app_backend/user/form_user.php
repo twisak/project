@@ -1,8 +1,8 @@
 <?php session_start();
-if($_SESSION['status'] == 'Admin')
+if($_SESSION['position'] == 'admin')
 { 
 }
-elseif($_SESSION['status'] == 'Person')
+elseif($_SESSION['position'] == 'staff')
 {  
 }
 else
@@ -88,87 +88,79 @@ else
                         <div class="card">
                             <!-- Tab panes -->
                             <div class="card-body">
-                                <form class="form-horizontal form-material">
+                            <?php
+                                        include '../../administrator/connect.php';
+                                        $sql = "Select Max(substr(id,3)+1) as MaxID from account_login WHERE id = 'staff'";
+                                        $query = mysqli_query($conn,$sql);
+                                        $table_id = mysqli_fetch_assoc($query);
+                                        $testid = $table_id['MaxID'];
+                                                if($testid=='')
+                                                {
+                                                    $id="PS001";
+                                                }else
+                                                {
+                                                    $id="PS".sprintf("%04d",$testid);   
+                                                }
+                                                    
+                            ?>
+                                <form class="form-horizontal form-material" action="INSERT_Person.php" name="form_user" method="post">
                                     <div class="form-group">
                                     <div class="row col-md-12">
-                                        <div class="col-md-6">
-                                            <label class="col-md-6">ชื่อ</label>
-                                            <input type="text" placeholder="Johnathan Doe" class="form-control form-control-line">
-                                        </div>
-                                        
-                                        <div class="col-md-6">
-                                            <label for="example-email" class="col-md-6">นานสกุล</label>
-                                            <input type="text" placeholder="" class="form-control form-control-line" name="example-email" id="example-email">
-                                        </div>
-                                    </div>
-                                    </div>
-                                    <div class="form-group">
-                                    <div class="row col-md-12">
-                                        <div class="col-md-6">
-                                            <label class="col-md-6">เลขบัตรประชาชน</label>
-                                            <input type="text" placeholder="" class="form-control form-control-line">
-                                        </div>
-                                        
-                                        <div class="col-md-6">
-                                            <label for="example-email" class="col-md-6">Email</label>
-                                            <input type="email" placeholder="johnathan@admin.com" class="form-control form-control-line" name="example-email" id="example-email">
+                                        <div class="col-md-4">
+                                            <label class="">รหัสเจ้าหน้าที่</label>
+                                            <input type="text" name="position_id" value="<?=$id?>" placeholder="" class="form-control form-control-line">
                                         </div>
                                     </div>
                                     </div>
                                     <div class="form-group">
                                     <div class="row col-md-12">
-                                        <div class="col-md-6">
-                                            <label class="col-md-6">Full Name</label>
-                                            <input type="text" placeholder="Johnathan Doe" class="form-control form-control-line">
+                                        <div class="col-md-2">
+                                            <label class="">คำนำหน้า</label>
+                                            <input type="text" name="prefix" placeholder="" class="form-control form-control-line">
                                         </div>
-                                        
-                                        <div class="col-md-6">
-                                            <label for="example-email" class="col-md-6">Email</label>
-                                            <input type="email" placeholder="johnathan@admin.com" class="form-control form-control-line" name="example-email" id="example-email">
+                                        <div class="col-md-5">
+                                            <label class="">ชื่อ</label>
+                                            <input type="text" name="firtname" placeholder="" class="form-control form-control-line">
                                         </div>
-                                    </div>
-                                    </div>
-                                    <div class="form-group">
-                                    <div class="row col-md-12">
-                                        <div class="col-md-6">
-                                            <label class="col-md-6">Full Name</label>
-                                            <input type="text" placeholder="Johnathan Doe" class="form-control form-control-line">
-                                        </div>
-                                        
-                                        <div class="col-md-6">
-                                            <label for="example-email" class="col-md-6">Email</label>
-                                            <input type="email" placeholder="johnathan@admin.com" class="form-control form-control-line" name="example-email" id="example-email">
+                                        <div class="col-md-5">
+                                            <label class="">นานสกุล</label>
+                                            <input type="text" name="lastname" placeholder="" class="form-control form-control-line" name="example-email" id="example-email">
                                         </div>
                                     </div>
                                     </div>
                                     <div class="form-group">
                                     <div class="row col-md-12">
                                         <div class="col-md-6">
-                                            <label class="col-md-6">Full Name</label>
-                                            <input type="text" placeholder="Johnathan Doe" class="form-control form-control-line">
-                                        </div>
-                                        
-                                        <div class="col-md-6">
-                                        <label class="col-md-6">Password</label>
-                                            <input type="password" value="password" class="form-control form-control-line">
+                                            <label class="">เลขบัตรประชาชน</label>
+                                            <input type="text" name="idcard" placeholder="" class="form-control form-control-line">
                                         </div>
                                     </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12">Message</label>
+                                        <label class="col-md-12">Address</label>
                                         <div class="col-md-12">
-                                            <textarea rows="5" class="form-control form-control-line"></textarea>
+                                            <textarea rows="5" name="address" class="form-control form-control-line"></textarea>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-sm-12">Select Country</label>
-                                        <div class="col-sm-12">
-                                            <select class="form-control form-control-line">
-                                                <option>London</option>
-                                                <option>India</option>
-                                                <option>Usa</option>
-                                                <option>Canada</option>
-                                                <option>Thailand</option>
+                                    <div class="row col-md-12">
+                                        <div class="col-md-6">
+                                            <label class="">Username</label>
+                                            <input type="text" name="username" placeholder="" class="form-control form-control-line">
+                                        </div>
+                                        
+                                        <div class="col-md-6">
+                                            <label class="">Psaaword</label>
+                                            <input type="password" name="password" class="form-control form-control-line">
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-6">สถานะ</label>
+                                        <div class="col-sm-6">
+                                            <select class="form-control form-control-line" name="position">
+                                                <option value="admin">admin</option>
+                                                <option value="staff">staff</option>
                                             </select>
                                         </div>
                                     </div>
@@ -177,8 +169,8 @@ else
                                         <div class="col-md-3">  
                                         </div>
                                         <div class="col-md-3">  
-                                        <div class="form-group">
-                                        <button type="button" class="btn btn-primary btn-block">บันทึก</button>
+                                            <div class="form-group">
+                                                <input type="submit" name="submit" value="บันทึก" class="btn btn-primary btn-block"/>
                                             </div>
                                         </div>
 

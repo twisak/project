@@ -65,10 +65,10 @@ else
                 <!-- ============================================================== -->
                 <div class="row page-titles">
                     <div class="col-md-5 align-self-center">
-                        <h3 class="text-themecolor">ตารางเอกสารสัญญายืม</h3>
+                        <h3 class="text-themecolor">ข้อมูลบุคลากร</h3>
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                            <li class="breadcrumb-item active">Table Basic</li>
+                            <li class="breadcrumb-item active">ข้อมูลบุคลากร</li>
                         </ol>
                     </div>
                     <div class="col-md-7 align-self-center">
@@ -87,7 +87,7 @@ else
 
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">เอกสารสัญญายืม</h4>
+                                <h4 class="card-title">ข้อมูลบุคลากร</h4>
                                 <!-- <h6 class="card-subtitle">Add class <code>.table</code></h6> -->
 <!-- 
                                 <div class="container">
@@ -102,24 +102,60 @@ else
                                     <table class="table text-center">
                                         <thead>
                                         <tr>
-                                                <th class="text-center">#</th>
-                                                <th class="text-center">First Name</th>
-                                                <th class="text-center">Last Name</th>
-                                                <th class="text-center">Username</th>
+                                                <th class="text-center">ลำดับ</th>
+                                                <th class="text-center">ชื่อ-สกุล</th>
+                                                <th class="text-center">เลขบัตรประชาชน</th>
+                                                <th class="text-center">Address</th>
+                                                <th class="text-center">username</th>
+                                                <th class="text-center">password</th>
+                                                <th class="text-center">สถานะ</th>
                                                 <th class="text-center">แก้ไข</th>
                                                 <th class="text-center">ลบ</th>
                                             </tr>
                                         </thead>
+                                        <?php 
+                                            $i=1;
+                                            $i<="";
+
+                                            include '../../administrator/connect.php';
+                                            $sql ="SELECT * FROM tb_person";
+                                            $query = mysqli_query($conn,$sql);
+                                            while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
+                                            {
+                                                $prefix = $row['prefix'];
+                                                $firtname = $row['firtname'];
+                                                $lastname = $row['lastname'];
+                                                $idcard = $row['idcard'];
+                                                $address = $row['address'];
+                                                $position_id = $row['position_id'];
+                                            }
+                                            
+                                            $sql1 ="SELECT * FROM account_login WHERE position_id = '".$position_id."' ";
+                                            $query1 = mysqli_query($conn,$sql1);
+                                            while($row1 = mysqli_fetch_array($query1,MYSQLI_ASSOC))
+                                            {
+                                                $position_id = $row1['position_id'];
+                                                $username = $row1['username'];
+                                                $password = $row1['password'];
+                                                $position = $row1['position'];
+                                            }
+                                            //echo $query1;
+                                        ?>
                                         <tbody>
                                             <tr>
-                                                <td>1</td>
-                                                <td>Deshmukh</td>
-                                                <td>Prohaska</td>
-                                                <td>@Genelia</td>
+                                                <td><?php echo $i;?></td>
+                                                <td><?php echo $prefix;?><?php echo $firtname;?>&nbsp;&nbsp;<?php echo $lastname;?></td>
+                                                <td><?php echo $idcard;?></td>
+                                                <td><?php echo $address;?></td>
+                                                <td><?php echo $username;?></td>
+                                                <td><?php echo $password;?></td>
+                                                <td><?php echo $position;?></td>
                                                 <td><button type="button" class="btn btn-warning">แก้ไข</button></td>
                                                 <td><button type="button" class="btn btn-danger">ลบ</button></td>
                                             </tr>
-
+                                            <?php
+                                                $i++;
+                                            ?>
 
 
                                         </tbody>

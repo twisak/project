@@ -1,8 +1,8 @@
 <?php session_start();
-if($_SESSION['status'] == 'Admin')
+if($_SESSION['position'] == 'admin')
 { 
 }
-elseif($_SESSION['status'] == 'Person')
+elseif($_SESSION['position'] == 'staff')
 {  
 }
 else
