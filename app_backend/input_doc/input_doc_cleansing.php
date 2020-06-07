@@ -45,7 +45,10 @@
                         </ol>
                     </div>
                     <div class="col-md-7 align-self-center">
-                        <a href="https://wrappixel.com/templates/adminwrap/" class="btn waves-effect waves-light btn btn-info pull-right hidden-sm-down"> Upgrade to Pro</a>
+                        <a href="../input_doc/report_cleansing.php" class="btn waves-effect waves-light btn btn-info pull-right hidden-sm-down">
+                            <i class="fa-fw fa fa-print"></i> 
+                            ส่งออกแบบฟอร์ม
+                        </a>
                     </div>
                 </div>
                 <div class="row">

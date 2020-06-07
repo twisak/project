@@ -90,7 +90,7 @@ else
                             <div class="card-body">
                             <?php
                                         include '../../administrator/connect.php';
-                                        $sql = "Select Max(substr(id,3)+1) as MaxID from account_login WHERE id = 'staff'";
+                                        $sql = "Select Max(substr(id,3)+1) as MaxID from account_login WHERE position = 'staff'";
                                         $query = mysqli_query($conn,$sql);
                                         $table_id = mysqli_fetch_assoc($query);
                                         $testid = $table_id['MaxID'];

@@ -41,7 +41,7 @@
                      case 'admin': header('location:http://localhost/project_student/app_backend/dashboard/index.php');
 							break;
                          
-				     case 'staff': header('location:');
+				     case 'staff': header('location:http://localhost/project_student/app_frontend/dashboard/index.php');
 							break;
 				
 				 default : header("location:login.php?res=username หรือ password ผิดพลาด");

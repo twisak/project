@@ -139,7 +139,6 @@ else
                                                 $password = $row1['password'];
                                                 $position = $row1['position'];
                                             }
-                                            //echo $query1;
                                         ?>
                                         <tbody>
                                             <tr>

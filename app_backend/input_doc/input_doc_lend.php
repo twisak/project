@@ -1,3 +1,18 @@
+<?php session_start();
+if($_SESSION['position'] == 'admin')
+{ 
+}
+elseif($_SESSION['position'] == 'staff')
+{  
+}
+else
+{
+    echo "<script>";
+    echo "alert(\"คุณไม่มีสิทธิ์เข้าสู่ระบบ\");";
+    echo "</script>";
+    echo "<meta http-equiv='refresh' content='0;url=../../administrator/logout.php'>";
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,7 +49,7 @@
     </div>
     <div id="main-wrapper">
     <?php include '../mamu/manu_admin.php'; ?>
-    <?php include '../conn_db.php'; ?>
+    <?php include '../../administrator/connect.php'; ?>
 
         <div class="page-wrapper">
             <div class="container-fluid">
@@ -47,7 +62,10 @@
                         </ol>
                     </div>
                     <div class="col-md-7 align-self-center">
-                        <a href="https://wrappixel.com/templates/adminwrap/" class="btn waves-effect waves-light btn btn-info pull-right hidden-sm-down"> Upgrade to Pro</a>
+                        <a href="../input_doc/report_lend.php" class="btn waves-effect waves-light btn btn-info pull-right hidden-sm-down">
+                        <i class="fa-fw fa fa-print"></i> 
+                            ส่งออกแบบฟอร์ม
+                        </a>
                     </div>
                 </div>
                 <div class="row">
