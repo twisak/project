@@ -34,6 +34,8 @@
     </div>
     <div id="main-wrapper">
     <?php include '../mamu/manu_admin.php'; ?>
+    <?php include '../conn_db.php'; ?>
+
         <div class="page-wrapper">
             <div class="container-fluid">
                 <div class="row page-titles">
@@ -89,66 +91,70 @@
 </div>
 </div>
 
-</div>
-
-<div class="row">
-<div class="col-md-2">
-<div class="form-group">
-<label>รหัสบุคลากร</label>
-<input type="text" class="form-control form-control-line" name="Person_id">
-</div>
-</div>
+<?php 
+$sql_person = "select * from tb_person";
+$query_person = mysqli_query($conn,$sql_person);
+?>
 
 <div class="col-md-4">
 <div class="form-group">
 <label>ชื่อบุคลากร</label>
-<input type="text" class="form-control form-control-line" name="firstname">
+<select class="form-control" name="person_id">
+            <option value="">-- เลือกรายชื่อ --</option>
+    <?php
+    while($result_person=mysqli_fetch_array($query_person))
+    {
+    ?>
+         <option value='<?php echo $result_person['person_id'];?>'><?php echo $result_person['prefix'];?><?php echo $result_person['firtname'];?>&nbsp;&nbsp;<?php echo $result_person['lastname'];?></option>
+    <?php
+    }
+     ?>
+            </select>
     </div>
 </div>
 
-<div class="col-md-3">
-<div class="form-group">
-<label>ตำแหน่ง</label>
-<input type="text" class="form-control form-control-line" name="position">
-    </div>
 </div>
 
-</div>
 
 <div class="row">
 
 <div class="col-md-2">
 <div class="form-group">
 <label>เริ่มต้นวันที่</label>
-<input type="date"  class="form-control form-control-line" name="str-date">
+<input type="date"  class="form-control form-control-line" name="str_date">
     </div>
 </div>
 
 <div class="col-md-2">
 <div class="form-group">
 <label>สิ้นสุดวันที่</label>
-<input type="date"  class="form-control form-control-line" name="stp-date">
+<input type="date"  class="form-control form-control-line" name="stp_date">
     </div>
 </div>
-</div>
 
-<div class="row">
+<?php 
+$sql_project = "select * from tb_project";
+$query_project = mysqli_query($conn,$sql_project);
+?>
 
 <div class="col-md-4">
 <div class="form-group">
 <label>ชื่อโครงการ</label>
-<input type="text" class="form-control form-control-line" name="project_id">
+            <select class="form-control" name="project_id">
+            <option value="">-- เลือกชื่อโครงการ --</option>
+    <?php
+    while($result_project=mysqli_fetch_array($query_project))
+    {
+    ?>
+      <option value='<?php echo $result_project['project_id'];?>'><?php echo $result_project['project_name'];?></option>
+    <?php
+    }
+     ?>
+            </select>
     </div>
 </div>
 
-<div class="col-md-4">
-<div class="form-group">
-<label>ชื่อกิจกรรม</label>
-<input type="text" class="form-control form-control-line" name="active">
-    </div>
 </div>
-</div>
-   
 
    
 <div class="row">
@@ -167,56 +173,7 @@
 </div>
 
 </div>
- 
-<!-- 
-                                    <div class="form-group">
-                                        <label class="col-md-2">Full Name</label>
-                                        <div class="col-md-2">
-                                            <input type="text" placeholder="Johnathan Doe" class="form-control form-control-line">
-                                        </div>
-                                        
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="example-email" class="col-md-2">Email</label>
-                                        <div class="col-md-2">
-                                            <input type="email" placeholder="johnathan@admin.com" class="form-control form-control-line" name="example-email" id="example-email">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-12">Password</label>
-                                        <div class="col-md-12">
-                                            <input type="password" value="password" class="form-control form-control-line">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-12">Phone No</label>
-                                        <div class="col-md-12">
-                                            <input type="text" placeholder="123 456 7890" class="form-control form-control-line">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-12">Message</label>
-                                        <div class="col-md-12">
-                                            <textarea rows="5" class="form-control form-control-line"></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-sm-12">Select Country</label>
-                                        <div class="col-sm-12">
-                                            <select class="form-control form-control-line">
-                                                <option>London</option>
-                                                <option>India</option>
-                                                <option>Usa</option>
-                                                <option>Canada</option>
-                                                <option>Thailand</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="col-sm-12">
-                                            <button class="btn btn-success">Update Profile</button>
-                                        </div>
-                                    </div> -->
+
                                 </form>
                             </div>
                         </div>

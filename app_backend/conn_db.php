@@ -2,7 +2,7 @@
     $serverName = "localhost";
 	$userName = "root";
 	$userPassword = "";
-	$dbName = "db_student";
+	$dbName = "db_document";
     
     $conn = mysqli_connect($serverName,$userName,$userPassword,$dbName);
     mysqli_query($conn,"SET NAMES 'utf8'");
