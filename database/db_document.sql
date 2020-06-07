@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 05, 2020 at 08:03 PM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.6
+-- Generation Time: Jun 07, 2020 at 05:31 PM
+-- Server version: 10.3.16-MariaDB
+-- PHP Version: 7.2.20
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -18,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `db_student`
+-- Database: `db_document`
 --
 
 -- --------------------------------------------------------
@@ -29,6 +30,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `account_login` (
   `id` int(11) NOT NULL COMMENT 'ออโต้ไอดี',
+  `position_id` varchar(20) NOT NULL COMMENT 'รหัสตำแหน่ง',
   `username` varchar(50) DEFAULT NULL COMMENT 'username',
   `password` varchar(50) DEFAULT NULL COMMENT 'pass',
   `position` varchar(20) DEFAULT NULL COMMENT 'ตำแหน่ง'
@@ -38,9 +40,10 @@ CREATE TABLE `account_login` (
 -- Dumping data for table `account_login`
 --
 
-INSERT INTO `account_login` (`id`, `username`, `password`, `position`) VALUES
-(1, '594407088', '123456', 'staff'),
-(2, '594407058', '123456', 'admin');
+INSERT INTO `account_login` (`id`, `position_id`, `username`, `password`, `position`) VALUES
+(1, '', '594407088', '123456', 'staff'),
+(2, '', '594407058', '123456', 'admin'),
+(14, 'PS001', 'ma', '123', 'staff');
 
 -- --------------------------------------------------------
 
@@ -108,11 +111,20 @@ CREATE TABLE `tb_note` (
 
 CREATE TABLE `tb_person` (
   `id` int(11) NOT NULL COMMENT 'ออโต้',
+  `prefix` varchar(20) NOT NULL COMMENT 'คำนำหน้า',
   `firtname` varchar(30) DEFAULT NULL COMMENT 'ชื่อ',
   `lastname` varchar(30) DEFAULT NULL COMMENT 'นามสกุล',
+  `idcard` varchar(13) NOT NULL COMMENT 'บัตรประชาชน',
   `address` varchar(50) DEFAULT NULL COMMENT 'ที่อยู่',
-  `position_id` int(11) DEFAULT NULL COMMENT 'รหัสตำแหน่ง'
+  `position_id` varchar(11) DEFAULT NULL COMMENT 'รหัสตำแหน่ง'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `tb_person`
+--
+
+INSERT INTO `tb_person` (`id`, `prefix`, `firtname`, `lastname`, `idcard`, `address`, `position_id`) VALUES
+(12, 'ศาสตราจารย์', 'มามะ', 'การี', '1234567891234', '2410/88', 'PS001');
 
 -- --------------------------------------------------------
 
@@ -263,7 +275,7 @@ ALTER TABLE `tb_typedoc`
 -- AUTO_INCREMENT for table `account_login`
 --
 ALTER TABLE `account_login`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้ไอดี', AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้ไอดี', AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `tb_contract`
@@ -293,7 +305,7 @@ ALTER TABLE `tb_note`
 -- AUTO_INCREMENT for table `tb_person`
 --
 ALTER TABLE `tb_person`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้';
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้', AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `tb_position`
