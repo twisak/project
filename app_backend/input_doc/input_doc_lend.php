@@ -78,7 +78,7 @@
 <div class="col-md-2">
 <div class="form-group">
 <label>รหัสเอกสารสัญญายืม</label>
-<input type="text" class="form-control form-control-line" name="agree_id">
+<input type="text" class="form-control form-control-line" name="doc_id">
 </div>
 </div>
 
