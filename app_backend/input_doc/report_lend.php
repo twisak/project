@@ -1,9 +1,9 @@
 <!-- <?php session_start();
 if($_SESSION['position'] == 'admin')
-{ 
+{
 }
 elseif($_SESSION['position'] == 'staff')
-{  
+{
 }
 else
 {
@@ -40,7 +40,7 @@ else
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
 </head>
-<?php 
+<?php
 
      include '../../administrator/connect.php';
      $sql ="SELECT * FROM tb_person";
@@ -54,7 +54,7 @@ else
             $address = $row['address'];
             $position_id = $row['position_id'];
         }
-                                            
+
         $sql1 ="SELECT * FROM account_login WHERE position_id = '".$position_id."' ";
         $query1 = mysqli_query($conn,$sql1);
         while($row1 = mysqli_fetch_array($query1,MYSQLI_ASSOC))
@@ -178,7 +178,7 @@ else
             <tr>
                 <td colspan="3">
                     <table width="100%" border="0">
-                        <?php 
+                        <?php
                         //$r = 1;
                         //foreach ($borrow->items as $index => $item) {?>
                         <tr>
@@ -509,5 +509,5 @@ else
 
     <script src="<?php //echo site_common_node_modules_url('jquery/dist/jquery.min.js');?>"></script>
 </body>
-    
+
 </html>
