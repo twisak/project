@@ -1,7 +1,7 @@
 <?php 
 
     include '../../administrator/connect.php';
-    $id = $_SESSION['username'];
+    //$id = $_SESSION['username'];
     //echo $id;
 // $sql ="SELECT * FROM tb_personnel WHERE username = '".$id."' ";
 // $query = mysqli_query($conn,$sql);
@@ -69,7 +69,7 @@
                         <li class="dropdown no-arrow">
                         <a class="nav-link dropdown-toggle waves-effect waves-dark profile-pic" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span class="hidden-md-down">
-                                <?php echo $id; ?>&nbsp;
+                                <?php //echo $id; ?>&nbsp;
                             </span>
                             <i class="fa fa-user-circle-o"></i> 
                         </a>
@@ -117,13 +117,13 @@
                                 </div>
                             </div>
                         </li>
+                        <li> <a class="waves-effect waves-dark" href="../project/tb_project.php" aria-expanded="false"><i class="fa fa-globe"></i><span class="hide-menu">จัดการข้อมูลโครงการ</span></a>
+                        </li>
                         <li> <a class="waves-effect waves-dark" href="../user/form_user.php" aria-expanded="false"><i class="fa fa-smile-o"></i><span class="hide-menu">สมัครสมาชิก</span></a>
                         </li>
                         <li> <a class="waves-effect waves-dark" href="../../administrator/logout.php" aria-expanded="false"><i class="fa fa-table"></i><span class="hide-menu">Logout</span></a>
                         </li>
-                        <!-- <li> <a class="waves-effect waves-dark" href="map-google.html" aria-expanded="false"><i class="fa fa-globe"></i><span class="hide-menu">Map</span></a>
-                        </li>
-                        <li> <a class="waves-effect waves-dark" href="pages-blank.html" aria-expanded="false"><i class="fa fa-bookmark-o"></i><span class="hide-menu">Blank</span></a>
+                        <!-- <li> <a class="waves-effect waves-dark" href="pages-blank.html" aria-expanded="false"><i class="fa fa-bookmark-o"></i><span class="hide-menu">Blank</span></a>
                         </li>
                         <li> <a class="waves-effect waves-dark" href="pages-error-404.html" aria-expanded="false"><i class="fa fa-question-circle"></i><span class="hide-menu">404</span></a>
                         </li> -->
