@@ -116,38 +116,34 @@ else
                                             $i<="";
 
                                             include '../../administrator/connect.php';
-                                            $sql ="SELECT * FROM tb_person";
-                                            $query = mysqli_query($conn,$sql);
-                                            while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
-                                            {
-                                                $prefix = $row['prefix'];
-                                                $firtname = $row['firtname'];
-                                                $lastname = $row['lastname'];
-                                                $idcard = $row['idcard'];
-                                                $address = $row['address'];
-                                                $position_id = $row['position_id'];
-                                            }
-                                            
-                                            $sql1 ="SELECT * FROM account_login WHERE position_id = '".$position_id."' ";
+                                            $sql1 ="SELECT * FROM tb_activity GROUP BY project_id";
                                             $query1 = mysqli_query($conn,$sql1);
                                             while($row1 = mysqli_fetch_array($query1,MYSQLI_ASSOC))
                                             {
-                                                $position_id = $row1['position_id'];
-                                                $username = $row1['username'];
-                                                $password = $row1['password'];
-                                                $position = $row1['position'];
+                                                $activity = $row1['activity'];
+                                                $project_id = $row1['project_id'];
+                                            
+
+                                            $sql ="SELECT * FROM tb_project WHERE project_id = '".$project_id."'";
+                                            $query = mysqli_query($conn,$sql);
+                                            while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
+                                            {
+                                                $project_id1 = $row['project_id'];
+                                                $project_name = $row['project_name'];
                                             }
+                                           
                                         ?>
                                         <tbody>
                                             <tr>
                                                 <td><?php echo $i;?></td>
-                                                <td><?php echo $prefix;?><?php echo $firtname;?>&nbsp;&nbsp;<?php echo $lastname;?></td>
-                                                <td><?php echo $idcard;?></td>
+                                                <td><?php echo $project_name;?></td>
+                                                <td><?php //echo $activity;?></td>
                                                 <td><button type="button" class="btn btn-warning">แก้ไข</button></td>
                                                 <td><button type="button" class="btn btn-danger">ลบ</button></td>
                                             </tr>
                                             <?php
                                                 $i++;
+                                        }
                                             ?>
 
 

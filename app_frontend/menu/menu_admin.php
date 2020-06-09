@@ -103,15 +103,15 @@
                         <li class="nav-item">
                             <a class="nav-link waves-effect waves-dark collapsed" href="#" data-toggle="collapse" data-target="#collapseB" aria-expanded="false" aria-controls="collapseB">
                                 <i class="fa fa-sun-o"></i>
-                                <span>จัดการข้อมูลเอกสาร</span>
+                                <span>ข้อมูลเอกสาร</span>
                             </a>
                             <div id="collapseB" class="collapse" aria-labelledby="headingB" data-parent="#accordionSidebar">
                                 <div class="bg-white py-2 collapse-inner rounded col-lg-12">
-                                    <a class="waves-effect waves-dark" href="../tb_admin/tb_doc_agreement.php"><i class="fa fa-caret-right"></i> เอกสารสัญญาณยืม</a>
-                                    <a class="waves-effect waves-dark" href="../tb_admin/tb_doc_salary.php"><i class="fa fa-caret-right"></i> เอกสารเงินเดือน</a>
-                                    <a class="waves-effect waves-dark" href="../tb_admin/tb_doc_cleansing.php"><i class="fa fa-caret-right"></i> เอกสารล้างหนี้</a>
-                                    <a class="waves-effect waves-dark" href="../tb_admin/tb_doc_contract.php"><i class="fa fa-caret-right"></i> เอกสารจ้างเหมาบริการ</a>
-                                    <a class="waves-effect waves-dark" href="../tb_admin/tb_doc_note.php"><i class="fa fa-caret-right"></i>    เอกสารบันทึกข้อความอื่นๆ</a>
+                                    <a class="waves-effect waves-dark" href="../input_doc/input_doc_lend.php"><i class="fa fa-caret-right"></i> เอกสารสัญญาณยืม</a>
+                                    <a class="waves-effect waves-dark" href="../input_doc/input_doc_salary.php"><i class="fa fa-caret-right"></i> เอกสารเงินเดือน</a>
+                                    <a class="waves-effect waves-dark" href="../input_doc/input_doc_cleansing.php"><i class="fa fa-caret-right"></i> เอกสารล้างหนี้</a>
+                                    <a class="waves-effect waves-dark" href="../input_doc/input_doc_contract.php"><i class="fa fa-caret-right"></i> เอกสารจ้างเหมาบริการ</a>
+                                    <a class="waves-effect waves-dark" href="../input_doc/input_doc_note.php"><i class="fa fa-caret-right"></i>    เอกสารบันทึกข้อความอื่นๆ</a>
                                 </div>
                             </div>
                         </li>

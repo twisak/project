@@ -83,12 +83,17 @@ else
                     var rows = 1;
                     $("#createRows").click(function(){
                                         var tr = "<tr>";
-                                        tr = tr + "<td><input type='text' class='form-control form-control-line' name='txtCustomerID"+rows+"' id='txtCustomerID"+rows+"' size='5'></td>";
+                                        tr = tr + "<td class='col-md-5'><input type='text' class='form-control form-control-line' name='activity"+rows+"' id='activity"+rows+"' size='5'></td>";
                                         tr = tr + "</tr>";
                                         $('#myTable > tbody:last').append(tr);
                                     
                                         $('#hdnCount').val(rows);
                                         rows = rows + 1;
+                        });
+                        $("#deleteRows").click(function(){
+                                if ($("#myTable tr").length != 1) {
+                                    $("#myTable tr:last").remove();
+                                }
                         });
 
                     });
@@ -102,25 +107,25 @@ else
                             <div class="card-body">
                             <?php
                                         include '../../administrator/connect.php';
-                                        $sql = "Select Max(substr(id,3)+1) as MaxID from account_login WHERE position = 'staff'";
+                                        $sql = "Select Max(substr(project_id,3)+1) as MaxID from tb_project ";
                                         $query = mysqli_query($conn,$sql);
                                         $table_id = mysqli_fetch_assoc($query);
                                         $testid = $table_id['MaxID'];
                                                 if($testid=='')
                                                 {
-                                                    $id="001";
+                                                    $id="P001";
                                                 }else
                                                 {
                                                     $id="P".sprintf("%03d",$testid);   
                                                 }
                                                     
                             ?>
-                                <form class="form-horizontal form-material" action="INSERT_Person.php" name="form_user" method="post">
+                                <form class="form-horizontal form-material" action="INSERT_project.php" name="form_user" method="post">
                                     <div class="form-group">
                                     <div class="row col-md-12">
                                         <div class="col-md-4">
                                             <label class="">รหัสโครงการ</label>
-                                            <input type="text" name="position_id" value="<?=$id?>" placeholder="" class="form-control form-control-line">
+                                            <input type="text" name="project_id" value="<?=$id?>" placeholder="" class="form-control form-control-line">
                                         </div>
                                     </div>
                                     </div>
@@ -128,7 +133,7 @@ else
                                     <div class="row col-md-12">
                                         <div class="col-md-5">
                                             <label class="">ชื่อโครงการ</label>
-                                            <input type="text" name="firtname" placeholder="" class="form-control form-control-line">
+                                            <input type="text" name="project_name" placeholder="" class="form-control form-control-line">
                                         </div>
                                         <div class="col-md-5">
                                             <label class="">ชื่อกิจกรรม</label>
@@ -136,9 +141,13 @@ else
                                                 <!-- head table -->
                                                 <thead>
                                                 <tr>
-                                                    <td class="col-md-5"><input type="text" name="lastname" placeholder="" class="form-control form-control-line"></td>
-                                                    <td>
+                                                <td class="col-md-5">
+                                               </td>
+                                                <td>
                                                     <button type="button" class="btn btn-success btn-block" id="createRows"><i class="fa fa-plus"></i></button>
+                                                </td>
+                                                <td>
+                                                    <button type="button" class="btn btn-danger btn-block" id="deleteRows"><i class="fa fa-plus"></i></button>
                                                 </td>
                                                 </tr>
                                                 </thead>
@@ -146,7 +155,6 @@ else
                                                 <tbody></tbody>
                                                 <input type="hidden" id="hdnCount" name="hdnCount">
                                             </table>
-                                        <input type="hidden" id="hdnCount" name="hdnCount">
                                         </div>
                                     </div>
                                     </div>
@@ -156,6 +164,7 @@ else
                                         </div>
                                         <div class="col-md-3">  
                                             <div class="form-group">
+                                                <!-- <input type="hidden" id="hdnCount" name="hdnCount"> -->
                                                 <input type="submit" name="submit" value="บันทึก" class="btn btn-primary btn-block"/>
                                             </div>
                                         </div>
