@@ -102,13 +102,6 @@ else
 </div>
 </div>
 
-<div class="col-md-3">
-<div class="form-group">
-<label>ชื่อเอกสารสัญญายืม</label>
-<input type="text" class="form-control form-control-line" name="fomrm">
-</div>
-</div>
-
 <?php
 $sql_person = "select * from tb_person";
 $query_person = mysqli_query($conn,$sql_person);
@@ -128,25 +121,6 @@ $query_person = mysqli_query($conn,$sql_person);
     }
      ?>
             </select>
-    </div>
-</div>
-
-</div>
-
-
-<div class="row">
-
-<div class="col-md-2">
-<div class="form-group">
-<label>เริ่มต้นวันที่</label>
-<input type="date"  class="form-control form-control-line" name="str_date">
-    </div>
-</div>
-
-<div class="col-md-2">
-<div class="form-group">
-<label>สิ้นสุดวันที่</label>
-<input type="date"  class="form-control form-control-line" name="stp_date">
     </div>
 </div>
 
@@ -176,11 +150,120 @@ $query_project = mysqli_query($conn,$sql_project);
 
 
 <div class="row">
+
+<div class="col-md-2">
+<div class="form-group">
+<label>เริ่มต้นวันที่</label>
+<input type="date"  class="form-control form-control-line" name="str_date">
+    </div>
+</div>
+
+<div class="col-md-2">
+<div class="form-group">
+<label>สิ้นสุดวันที่</label>
+<input type="date"  class="form-control form-control-line" name="stp_date">
+    </div>
+</div>
+
+</div>
+
+<div class="row">
+
+<div class="col-md-2">
+<div class="form-group">
+<label>ค่าเบี้ยเลี้ยง</label>
+<input type="input"  class="form-control form-control-line" name="allowance">
+    </div>
+</div>
+
+<div class="col-md-2">
+<div class="form-group">
+<label>จำนวนเงิน</label>
+<input type="input"  class="form-control form-control-line" name="allowance_price">
+    </div>
+</div>
+
+</div>
+
+<div class="row">
+
+<div class="col-md-2">
+<div class="form-group">
+<label>ค่าที่พัก</label>
+<input type="input"  class="form-control form-control-line" name="rest">
+    </div>
+</div>
+
+<div class="col-md-2">
+<div class="form-group">
+<label>จำนวนเงิน</label>
+<input type="input"  class="form-control form-control-line" name="rest_price">
+    </div>
+</div>
+
+</div>
+
+<div class="row">
+
+<div class="col-md-2">
+<div class="form-group">
+<label>ค่าพาหนะ</label>
+<input type="input"  class="form-control form-control-line" name="vehicle">
+    </div>
+</div>
+
+<div class="col-md-2">
+<div class="form-group">
+<label>จำนวนเงิน</label>
+<input type="input"  class="form-control form-control-line" name="vehicle_price">
+    </div>
+</div>
+
+</div>
+
+<div class="row">
+
+<div class="col-md-2">
+<div class="form-group">
+<label>ลงทะเบียน</label>
+<input type="input"  class="form-control form-control-line" name="regis">
+    </div>
+</div>
+
+<div class="col-md-2">
+<div class="form-group">
+<label>จำนวนคน</label>
+<input type="input"  class="form-control form-control-line" name="regis_num">
+    </div>
+</div>
+
+</div>
+
+<div class="row">
+
+<div class="col-md-2">
+<div class="form-group">
+<label>อื่นๆ</label>
+<input type="input"  class="form-control form-control-line" name="other">
+    </div>
+</div>
+
+<div class="col-md-2">
+<div class="form-group">
+<label>จำนวนเงิน</label>
+<input type="input"  class="form-control form-control-line" name="other_price">
+    </div>
+</div>
+
+</div>
+
+
+<div class="row">
 <div class="col-md-3">
 </div>
 <div class="col-md-3">
 <div class="form-group">
-<button type="button" class="btn btn-primary btn-block">บันทึก</button>
+<button type="submit" class="btn btn-primary btn-block">บันทึก</button>
     </div>
 </div>
 
