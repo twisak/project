@@ -1,9 +1,9 @@
-<?php session_start();
+<!-- <?php session_start();
 if($_SESSION['position'] == 'admin')
-{ 
+{
 }
 elseif($_SESSION['position'] == 'staff')
-{  
+{
 }
 else
 {
@@ -12,7 +12,7 @@ else
     echo "</script>";
     echo "<meta http-equiv='refresh' content='0;url=../../administrator/logout.php'>";
 }
-?>
+?> -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -75,7 +75,7 @@ else
                         <a href="https://wrappixel.com/templates/adminwrap/" class="btn waves-effect waves-light btn btn-info pull-right hidden-sm-down"> Upgrade to Pro</a>
                     </div>
                 </div>
-                
+
                 <script src="http://code.jquery.com/jquery-latest.js"></script>
                 <script type="text/javascript">
                 $(document).ready(function(){
@@ -86,7 +86,7 @@ else
                                         tr = tr + "<td class='col-md-5'><input type='text' class='form-control form-control-line' name='activity"+rows+"' id='activity"+rows+"' size='5'></td>";
                                         tr = tr + "</tr>";
                                         $('#myTable > tbody:last').append(tr);
-                                    
+
                                         $('#hdnCount').val(rows);
                                         rows = rows + 1;
                         });
@@ -100,7 +100,7 @@ else
                 </script>
 
                 <div class="row">
-                    
+
                     <div class="col-lg-12 col-xlg-9 col-md-7">
                         <div class="card">
                             <!-- Tab panes -->
@@ -116,11 +116,58 @@ else
                                                     $id="P001";
                                                 }else
                                                 {
-                                                    $id="P".sprintf("%03d",$testid);   
+                                                    $id="P".sprintf("%03d",$testid);
                                                 }
-                                                    
+
                             ?>
                                 <form class="form-horizontal form-material" action="INSERT_project.php" name="form_user" method="post">
+
+
+<div class="row">
+  <div class="col-md-2">
+  <div class="form-group">
+  <label>รหัสโครงการ</label>
+<input type="text" name="project_id" value="<?=$id?>" placeholder="" class="form-control form-control-line">
+  </div>
+  </div>
+
+  <div class="col-md-4">
+  <div class="form-group">
+  <label>ชื่อโครงการ</label>
+  <input type="text" name="project_name" placeholder="" class="form-control form-control-line">
+  </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-5">
+  <div class="form-group">
+  <label>เพิ่มหัวข้อกิจกรรม</label>
+  <table border="0" id="myTable">
+      <!-- head table -->
+      <thead>
+      <tr>
+      <td>
+          <button type="button" class="btn btn-success" id="createRows">เพิ่มหัวข้อกิจกรรม</button>
+      </td>
+      <td>
+          <button type="button" class="btn btn-danger" id="deleteRows">ลบหัวข้อกิจกรรม</button>
+      </td>
+      </tr>
+      </thead>
+      <!-- body dynamic rows -->
+      <tbody></tbody>
+      <input type="hidden" id="hdnCount" name="hdnCount">
+  </table>
+  </div>
+  </div>
+</div>
+
+
+
+
+
+
                                     <div class="form-group">
                                     <div class="row col-md-12">
                                         <div class="col-md-4">
@@ -160,16 +207,16 @@ else
                                     </div>
                                     <div class="form-group">
                                     <div class="row">
-                                        <div class="col-md-3">  
+                                        <div class="col-md-3">
                                         </div>
-                                        <div class="col-md-3">  
+                                        <div class="col-md-3">
                                             <div class="form-group">
                                                 <!-- <input type="hidden" id="hdnCount" name="hdnCount"> -->
                                                 <input type="submit" name="submit" value="บันทึก" class="btn btn-primary btn-block"/>
                                             </div>
                                         </div>
 
-                                        <div class="col-md-3">  
+                                        <div class="col-md-3">
                                         <div class="form-group">
                                         <button type="button" class="btn btn-danger btn-block">ยกเลิก</button>
                                             </div>
@@ -221,7 +268,7 @@ else
     <script src="../js/sidebarmenu.js"></script>
     <!--Custom JavaScript -->
     <script src="../js/custom.min.js"></script>
-    
+
 </body>
 
 </html>

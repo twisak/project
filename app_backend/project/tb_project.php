@@ -1,9 +1,9 @@
-<?php session_start();
+<!-- <?php session_start();
 if($_SESSION['position'] == 'admin')
-{ 
+{
 }
 elseif($_SESSION['position'] == 'staff')
-{  
+{
 }
 else
 {
@@ -12,7 +12,7 @@ else
     echo "</script>";
     echo "<meta http-equiv='refresh' content='0;url=../../administrator/logout.php'>";
 }
-?>
+?> -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -89,7 +89,7 @@ else
                             <div class="card-body">
                                 <h4 class="card-title">ข้อมูลโครงการ/กิจกรรม</h4>
                                 <!-- <h6 class="card-subtitle">Add class <code>.table</code></h6> -->
-<!-- 
+<!--
                                 <div class="container">
                                 <div class="row">
                                     <div class="col-md-1 offset-md-10">ssss</div>
@@ -111,7 +111,7 @@ else
                                                 <th class="text-center">ลบ</th>
                                             </tr>
                                         </thead>
-                                        <?php 
+                                        <?php
                                             $i=1;
                                             $i<="";
 
@@ -122,7 +122,7 @@ else
                                             {
                                                 $activity = $row1['activity'];
                                                 $project_id = $row1['project_id'];
-                                            
+
 
                                             $sql ="SELECT * FROM tb_project WHERE project_id = '".$project_id."'";
                                             $query = mysqli_query($conn,$sql);
@@ -131,7 +131,7 @@ else
                                                 $project_id1 = $row['project_id'];
                                                 $project_name = $row['project_name'];
                                             }
-                                           
+
                                         ?>
                                         <tbody>
                                             <tr>
