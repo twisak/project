@@ -100,7 +100,7 @@ else
                                                 }
 
                             ?>
-                                <form class="form-horizontal form-material" action="INSERT_project.php" name="form_user" method="post">
+                                <form class="form-horizontal form-material" action="INSERT_project1.php" name="form_user" method="post">
 
 
 <div class="row">
@@ -133,6 +133,28 @@ else
 
 <tbody></tbody>
 </table>
+<br/>
+<center>
+<br>
+<input type="hidden" id="hdnCount_activity" name="hdnCount_activity">
+</center>
+
+<div class="row">
+<div class="col-md-3">
+</div>
+<div class="col-md-3">
+<div class="form-group">
+<button type="submit" class="btn btn-primary btn-block">บันทึก</button>
+    </div>
+</div>
+
+<div class="col-md-3">
+<div class="form-group">
+<button type="button" class="btn btn-danger btn-block">ยกเลิก</button>
+    </div>
+</div>
+
+</div>
 
 
 
@@ -196,7 +218,7 @@ $(document).ready(function(){
 
 
         var tr = "<tr>";
-tr = tr + "<td><div class='row'><div class='col-md-4'><div class='form-group'><label>หัวข้อกิจกรรม</label><input type='text' class='form-control p_input'  name='title"+rows+"'></div></div></td>";
+tr = tr + "<td><div class='row'><div class='col-md-4'><div class='form-group'><label>หัวข้อกิจกรรม</label><input type='text' class='form-control p_input'  name='activity"+rows+"'></div></div></td>";
         tr = tr + "</tr>";
         $('#myTable_activity > tbody:last').append(tr);
 
