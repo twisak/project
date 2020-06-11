@@ -5,14 +5,6 @@ if($_SESSION['status'] == 'admin')
 }
 elseif($_SESSION['status'] == 'staff')
 {  
-=======
-<!-- <?php session_start();
-if($_SESSION['position'] == 'admin')
-{
-}
-elseif($_SESSION['position'] == 'staff')
-{
->>>>>>> 5fb6d8c9854ac9951f27d728435f2fe61465be3f
 }
 else
 {
