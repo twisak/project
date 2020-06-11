@@ -1,8 +1,8 @@
 <?php session_start();
-if($_SESSION['position'] == 'admin')
+if($_SESSION['status'] == 'admin')
 { 
 }
-elseif($_SESSION['position'] == 'staff')
+elseif($_SESSION['status'] == 'staff')
 {  
 }
 else
@@ -43,27 +43,27 @@ else
 <?php 
 
      include '../../administrator/connect.php';
-     $sql ="SELECT * FROM tb_person";
-     $query = mysqli_query($conn,$sql);
-     while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
-        {
-            $prefix = $row['prefix'];
-            $firtname = $row['firtname'];
-            $lastname = $row['lastname'];
-            $idcard = $row['idcard'];
-            $address = $row['address'];
-            $position_id = $row['position_id'];
-        }
+    //  $sql ="SELECT * FROM tb_person";
+    //  $query = mysqli_query($conn,$sql);
+    //  while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
+    //     {
+    //         $prefix = $row['prefix'];
+    //         $firtname = $row['firtname'];
+    //         $lastname = $row['lastname'];
+    //         $idcard = $row['idcard'];
+    //         $address = $row['address'];
+    //         $position_id = $row['position_id'];
+    //     }
                                             
-        $sql1 ="SELECT * FROM account_login WHERE position_id = '".$position_id."' ";
-        $query1 = mysqli_query($conn,$sql1);
-        while($row1 = mysqli_fetch_array($query1,MYSQLI_ASSOC))
-        {
-            $position_id = $row1['position_id'];
-            $username = $row1['username'];
-            $password = $row1['password'];
-            $position = $row1['position'];
-        }
+    //     $sql1 ="SELECT * FROM account_login WHERE position_id = '".$position_id."' ";
+    //     $query1 = mysqli_query($conn,$sql1);
+    //     while($row1 = mysqli_fetch_array($query1,MYSQLI_ASSOC))
+    //     {
+    //         $position_id = $row1['position_id'];
+    //         $username = $row1['username'];
+    //         $password = $row1['password'];
+    //         $position = $row1['position'];
+    //     }
 ?>
 <body id="<?php //echo $body['name'];?>">
     <div class="page">
@@ -130,7 +130,7 @@ else
                                     <tr>
                                         <td width="1" class="text-nowrap border-0 padding-0"><strong>ชื่อ-สกุล</strong></td>
                                         <td class="border-0 padding-0 text-center">
-                                            <?php echo $prefix;?><?php echo $firtname;?>&nbsp;&nbsp;<?php echo $lastname;?>
+                                            
                                             <div class="line-bottom-dashed"></div>
                                         </td>
                                     </tr>

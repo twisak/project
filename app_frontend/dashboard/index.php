@@ -1,8 +1,8 @@
 <?php session_start();
-if($_SESSION['position'] == 'admin')
+if($_SESSION['status'] == 'admin')
 { 
 }
-elseif($_SESSION['position'] == 'staff')
+elseif($_SESSION['status'] == 'staff')
 {  
 }
 else
@@ -60,7 +60,7 @@ else
     <!-- Main wrapper - style you can find in pages.scss -->
     <!-- ============================================================== -->
     <div id="main-wrapper">
-    <?php include '../mamu/manu_admin.php'; ?>
+    <?php include '../menu/menu_admin.php'; ?>
         <div class="page-wrapper">
             <!-- ============================================================== -->
             <!-- Container fluid  -->

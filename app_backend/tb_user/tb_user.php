@@ -1,8 +1,8 @@
 <?php session_start();
-if($_SESSION['position'] == 'admin')
+if($_SESSION['status'] == 'admin')
 { 
 }
-elseif($_SESSION['position'] == 'staff')
+elseif($_SESSION['status'] == 'staff')
 {  
 }
 else
@@ -127,17 +127,17 @@ else
                                                 $lastname = $row['lastname'];
                                                 $idcard = $row['idcard'];
                                                 $address = $row['address'];
-                                                $position_id = $row['position_id'];
+                                                $person_id = $row['person_id'];
                                             }
                                             
-                                            $sql1 ="SELECT * FROM account_login WHERE position_id = '".$position_id."' ";
+                                            $sql1 ="SELECT * FROM account_login WHERE person_id = '".$person_id."' ";
                                             $query1 = mysqli_query($conn,$sql1);
                                             while($row1 = mysqli_fetch_array($query1,MYSQLI_ASSOC))
                                             {
-                                                $position_id = $row1['position_id'];
+                                                $person_id = $row1['person_id'];
                                                 $username = $row1['username'];
                                                 $password = $row1['password'];
-                                                $position = $row1['position'];
+                                                $status = $row1['status'];
                                             }
                                         ?>
                                         <tbody>
@@ -148,7 +148,7 @@ else
                                                 <td><?php echo $address;?></td>
                                                 <td><?php echo $username;?></td>
                                                 <td><?php echo $password;?></td>
-                                                <td><?php echo $position;?></td>
+                                                <td><?php echo $status;?></td>
                                                 <td><button type="button" class="btn btn-warning">แก้ไข</button></td>
                                                 <td><button type="button" class="btn btn-danger">ลบ</button></td>
                                             </tr>

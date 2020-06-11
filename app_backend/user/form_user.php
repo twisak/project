@@ -1,8 +1,8 @@
 <?php session_start();
-if($_SESSION['position'] == 'admin')
+if($_SESSION['status'] == 'admin')
 { 
 }
-elseif($_SESSION['position'] == 'staff')
+elseif($_SESSION['status'] == 'staff')
 {  
 }
 else
@@ -90,7 +90,7 @@ else
                             <div class="card-body">
                             <?php
                                         include '../../administrator/connect.php';
-                                        $sql = "Select Max(substr(id,3)+1) as MaxID from account_login WHERE position = 'staff'";
+                                        $sql = "Select Max(substr(id,3)+1) as MaxID from account_login WHERE status = 'staff'";
                                         $query = mysqli_query($conn,$sql);
                                         $table_id = mysqli_fetch_assoc($query);
                                         $testid = $table_id['MaxID'];
@@ -99,7 +99,7 @@ else
                                                     $id="PS001";
                                                 }else
                                                 {
-                                                    $id="PS".sprintf("%04d",$testid);   
+                                                    $id="PS".sprintf("%03d",$testid);   
                                                 }
                                                     
                             ?>
@@ -108,7 +108,7 @@ else
                                     <div class="row col-md-12">
                                         <div class="col-md-4">
                                             <label class="">รหัสเจ้าหน้าที่</label>
-                                            <input type="text" name="position_id" value="<?=$id?>" placeholder="" class="form-control form-control-line">
+                                            <input type="text" name="person_id" value="<?=$id?>" placeholder="" class="form-control form-control-line">
                                         </div>
                                     </div>
                                     </div>
@@ -158,7 +158,7 @@ else
                                     <div class="form-group">
                                         <label class="col-sm-6">สถานะ</label>
                                         <div class="col-sm-6">
-                                            <select class="form-control form-control-line" name="position">
+                                            <select class="form-control form-control-line" name="status">
                                                 <option value="admin">admin</option>
                                                 <option value="staff">staff</option>
                                             </select>

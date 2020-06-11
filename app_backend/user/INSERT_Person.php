@@ -9,7 +9,7 @@
 <?php
 		include '../../administrator/connect.php';
         
-        $position_id = $_POST['position_id'];
+        $person_id = $_POST['person_id'];
 		$prefix = $_POST['prefix'];
 		$firtname = $_POST['firtname'];
 		$lastname = $_POST['lastname'];
@@ -17,7 +17,7 @@
 		$address = $_POST['address'];
 		$username = $_POST['username'];
 		$password = $_POST['password'];
-       	$position = $_POST['position'];
+       	$status = $_POST['status'];
 		
 		
     
@@ -35,20 +35,20 @@
         // }else
         // { 
             
-        $sql = "INSERT INTO tb_person (prefix,firtname,lastname,idcard,address,position_id) 
-        VALUES('$prefix','$firtname','$lastname','$idcard','$address','$position_id')";
+        $sql = "INSERT INTO tb_person (prefix,firtname,lastname,idcard,address,person_id) 
+        VALUES('$prefix','$firtname','$lastname','$idcard','$address','$person_id')";
          
         $db_query = mysqli_query($conn,$sql);
             
-        $sql1 = "INSERT INTO account_login (position_id,username,password,position) 
-        VALUES('$position_id','$username','$password','$position')";
+        $sql1 = "INSERT INTO account_login (person_id,username,password,position) 
+        VALUES('$person_id','$username','$password','$position')";
          
         $db_query1 = mysqli_query($conn,$sql1);
            
-            echo $sql;
-            echo $db_query;
-            echo $sql1;
-            echo $db_query1;
+            // echo $sql;
+            // echo $db_query;
+            // echo $sql1;
+            // echo $db_query1;
 		if($db_query) 
         {
             echo "<script>";

@@ -15,7 +15,8 @@
     $str_date = $_POST['str_date'];
     $stp_date = $_POST['stp_date'];
 
-    $sql_tb_contract = "INSERT INTO tb_contract(doc_id,person_id,project_id,str_date,stp_date) VALUES ('".$doc_id."','".$person_id."','".$project_id."','".$str_date."','".$stp_date."')";
+    $sql_tb_contract = "INSERT INTO tb_contract(doc_id,person_id,project_id,str_date,stp_date) 
+                        VALUES ('".$doc_id."','".$person_id."','".$project_id."','".$str_date."','".$stp_date."')";
 
     $query_tb_contract = mysqli_query($conn,$sql_tb_contract);
 

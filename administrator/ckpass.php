@@ -10,7 +10,7 @@
 <?php 
 	$username = $_POST['username'];
 	$password = $_POST['password'];
-    $position = $_POST['position'];
+    $status = $_POST['status'];
     
 	
 	if(isset($username)&&($password))
@@ -25,18 +25,18 @@
 				
 				 $Username 	= $rsuser['username'];
 				 $Userpass 	= $rsuser['password'];
-				 $position = $rsuser['position'];
+				 $status = $rsuser['status'];
 				 
 			}
 			
 				 $_SESSION['username'] 	= $_POST['username'];
 			     $_SESSION['password'] 	= $_POST['password'];
-				 $_SESSION['position'] 	= $position;
+				 $_SESSION['status'] 	= $status;
 				 
 			
 			
 			
-				 switch($position){
+				 switch($status){
 				
                      case 'admin': header('location:http://localhost/project_student/app_backend/dashboard/index.php');
 							break;
