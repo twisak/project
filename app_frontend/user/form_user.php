@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?php session_start();
 if($_SESSION['status'] == 'admin')
 { 
@@ -13,7 +12,7 @@ else
     echo "</script>";
     echo "<meta http-equiv='refresh' content='0;url=../../administrator/logout.php'>";
 }
-?> -->
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -55,7 +54,7 @@ else
     <!-- Main wrapper - style you can find in pages.scss -->
     <!-- ============================================================== -->
     <div id="main-wrapper">
-    <?php include '../mamu/manu_admin.php'; ?>
+    <?php include '../menu/menu_admin.php'; ?>
         <div class="page-wrapper">
             <!-- ============================================================== -->
             <!-- Container fluid  -->
@@ -66,158 +65,127 @@ else
                 <!-- ============================================================== -->
                 <div class="row page-titles">
                     <div class="col-md-5 align-self-center">
-                        <h3 class="text-themecolor">เพิ่มโครงการ</h3>
+                        <h3 class="text-themecolor">สมัครสมาชิก</h3>
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                            <li class="breadcrumb-item active">เพิ่มโครงการ</li>
+                            <li class="breadcrumb-item active">สมัครสมาชิก</li>
                         </ol>
                     </div>
                     <div class="col-md-7 align-self-center">
                         <a href="https://wrappixel.com/templates/adminwrap/" class="btn waves-effect waves-light btn btn-info pull-right hidden-sm-down"> Upgrade to Pro</a>
                     </div>
                 </div>
-
-                <script src="http://code.jquery.com/jquery-latest.js"></script>
-                <script type="text/javascript">
-                $(document).ready(function(){
-
-                    var rows = 1;
-                    $("#createRows").click(function(){
-                                        var tr = "<tr>";
-                                        tr = tr + "<td class='col-md-5'><input type='text' class='form-control form-control-line' name='activity"+rows+"' id='activity"+rows+"' size='5'></td>";
-                                        tr = tr + "</tr>";
-                                        $('#myTable > tbody:last').append(tr);
-
-                                        $('#hdnCount').val(rows);
-                                        rows = rows + 1;
-                        });
-                        $("#deleteRows").click(function(){
-                                if ($("#myTable tr").length != 1) {
-                                    $("#myTable tr:last").remove();
-                                }
-                        });
-
-                    });
-                </script>
-
+                <!-- ============================================================== -->
+                <!-- End Bread crumb and right sidebar toggle -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- Start Page Content -->
+                <!-- ============================================================== -->
+                <!-- Row -->
                 <div class="row">
-
+                    
                     <div class="col-lg-12 col-xlg-9 col-md-7">
                         <div class="card">
                             <!-- Tab panes -->
                             <div class="card-body">
                             <?php
-                                        include '../../administrator/connect.php';
-                                        $sql = "Select Max(substr(project_id,3)+1) as MaxID from tb_project ";
-                                        $query = mysqli_query($conn,$sql);
-                                        $table_id = mysqli_fetch_assoc($query);
-                                        $testid = $table_id['MaxID'];
-                                                if($testid=='')
-                                                {
-                                                    $id="P001";
-                                                }else
-                                                {
-                                                    $id="P".sprintf("%03d",$testid);
-                                                }
-
+                                            include '../../administrator/connect.php';
+                                            $sql ="SELECT * FROM tb_person";
+                                            $query = mysqli_query($conn,$sql);
+                                            while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
+                                            {
+                                                $prefix = $row['prefix'];
+                                                $firtname = $row['firtname'];
+                                                $lastname = $row['lastname'];
+                                                $idcard = $row['idcard'];
+                                                $address = $row['address'];
+                                                $person_id = $row['person_id'];
+                                            }
+                                            
+                                            $sql1 ="SELECT * FROM account_login WHERE person_id = '".$person_id."' ";
+                                            $query1 = mysqli_query($conn,$sql1);
+                                            while($row1 = mysqli_fetch_array($query1,MYSQLI_ASSOC))
+                                            {
+                                                $person_id = $row1['person_id'];
+                                                $username = $row1['username'];
+                                                $password = $row1['password'];
+                                                $status = $row1['status'];
+                                            }
+                                        
+                                                    
                             ?>
-                                <form class="form-horizontal form-material" action="INSERT_project.php" name="form_user" method="post">
-
-
-<div class="row">
-  <div class="col-md-2">
-  <div class="form-group">
-  <label>รหัสโครงการ</label>
-<input type="text" name="project_id" value="<?=$id?>" placeholder="" class="form-control form-control-line">
-  </div>
-  </div>
-
-  <div class="col-md-4">
-  <div class="form-group">
-  <label>ชื่อโครงการ</label>
-  <input type="text" name="project_name" placeholder="" class="form-control form-control-line">
-  </div>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-md-5">
-  <div class="form-group">
-  <label>เพิ่มหัวข้อกิจกรรม</label>
-  <table border="0" id="myTable">
-      <!-- head table -->
-      <thead>
-      <tr>
-      <td>
-          <button type="button" class="btn btn-success" id="createRows">เพิ่มหัวข้อกิจกรรม</button>
-      </td>
-      <td>
-          <button type="button" class="btn btn-danger" id="deleteRows">ลบหัวข้อกิจกรรม</button>
-      </td>
-      </tr>
-      </thead>
-      <!-- body dynamic rows -->
-      <tbody></tbody>
-      <input type="hidden" id="hdnCount" name="hdnCount">
-  </table>
-  </div>
-  </div>
-</div>
-
-
-
-
-
-
+                                <form class="form-horizontal form-material" action="INSERT_Person.php" name="form_user" method="post">
                                     <div class="form-group">
                                     <div class="row col-md-12">
                                         <div class="col-md-4">
-                                            <label class="">รหัสโครงการ</label>
-                                            <input type="text" name="project_id" value="<?=$id?>" placeholder="" class="form-control form-control-line">
+                                            <label class="">รหัสเจ้าหน้าที่</label>
+                                            <input type="text" name="person_id" value="<?php echo $person_id?>" class="form-control form-control-line">
                                         </div>
                                     </div>
                                     </div>
                                     <div class="form-group">
                                     <div class="row col-md-12">
-                                        <div class="col-md-5">
-                                            <label class="">ชื่อโครงการ</label>
-                                            <input type="text" name="project_name" placeholder="" class="form-control form-control-line">
+                                        <div class="col-md-2">
+                                            <label class="">คำนำหน้า</label>
+                                            <input type="text" name="prefix" value="<?php echo $prefix?>" class="form-control form-control-line">
                                         </div>
                                         <div class="col-md-5">
-                                            <label class="">ชื่อกิจกรรม</label>
-                                            <table border="0" id="myTable">
-                                                <!-- head table -->
-                                                <thead>
-                                                <tr>
-                                                <td class="col-md-5">
-                                               </td>
-                                                <td>
-                                                    <button type="button" class="btn btn-success btn-block" id="createRows"><i class="fa fa-plus"></i></button>
-                                                </td>
-                                                <td>
-                                                    <button type="button" class="btn btn-danger btn-block" id="deleteRows"><i class="fa fa-plus"></i></button>
-                                                </td>
-                                                </tr>
-                                                </thead>
-                                                <!-- body dynamic rows -->
-                                                <tbody></tbody>
-                                                <input type="hidden" id="hdnCount" name="hdnCount">
-                                            </table>
+                                            <label class="">ชื่อ</label>
+                                            <input type="text" name="firtname" value="<?php echo $firtname?>" class="form-control form-control-line">
+                                        </div>
+                                        <div class="col-md-5">
+                                            <label class="">นานสกุล</label>
+                                            <input type="text" name="lastname" value="<?php echo $lastname?>" class="form-control form-control-line" name="example-email" id="example-email">
                                         </div>
                                     </div>
                                     </div>
                                     <div class="form-group">
-                                    <div class="row">
-                                        <div class="col-md-3">
+                                    <div class="row col-md-12">
+                                        <div class="col-md-6">
+                                            <label class="">เลขบัตรประชาชน</label>
+                                            <input type="text" name="idcard" value="<?php echo $idcard?>" class="form-control form-control-line">
                                         </div>
-                                        <div class="col-md-3">
+                                    </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-12">Address</label>
+                                        <div class="col-md-12">
+                                            <textarea rows="5" name="address" value="<?php echo $person_id?>" class="form-control form-control-line"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                    <div class="row col-md-12">
+                                        <div class="col-md-6">
+                                            <label class="">Username</label>
+                                            <input type="text" name="username" value="<?php echo $username?>" class="form-control form-control-line">
+                                        </div>
+                                        
+                                        <div class="col-md-6">
+                                            <label class="">Psaaword</label>
+                                            <input type="password" name="password" value="<?php echo $password?>" class="form-control form-control-line">
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-6">สถานะ</label>
+                                        <div class="col-sm-6">
+                                            <select class="form-control form-control-line" name="status">
+                                                <option value="admin">admin</option>
+                                                <option value="staff">staff</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-3">  
+                                        </div>
+                                        <div class="col-md-3">  
                                             <div class="form-group">
-                                                <!-- <input type="hidden" id="hdnCount" name="hdnCount"> -->
                                                 <input type="submit" name="submit" value="บันทึก" class="btn btn-primary btn-block"/>
                                             </div>
                                         </div>
 
-                                        <div class="col-md-3">
+                                        <div class="col-md-3">  
                                         <div class="form-group">
                                         <button type="button" class="btn btn-danger btn-block">ยกเลิก</button>
                                             </div>
@@ -269,7 +237,6 @@ else
     <script src="../js/sidebarmenu.js"></script>
     <!--Custom JavaScript -->
     <script src="../js/custom.min.js"></script>
-
 </body>
 
 </html>

@@ -100,6 +100,8 @@
                     <ul id="sidebarnav">
                         <li> <a class="waves-effect waves-dark" href="../dashboard/index.php" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">Dashboard</span></a>
                         </li>
+                        <li> <a class="waves-effect waves-dark" href="../user/form_user.php" aria-expanded="false"><i class="fa fa-globe"></i><span class="hide-menu">ข้อมูลส่วนตัว</span></a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link waves-effect waves-dark collapsed" href="#" data-toggle="collapse" data-target="#collapseB" aria-expanded="false" aria-controls="collapseB">
                                 <i class="fa fa-sun-o"></i>
@@ -117,9 +119,7 @@
                         </li>
                         <li> <a class="waves-effect waves-dark" href="../../administrator/logout.php" aria-expanded="false"><i class="fa fa-table"></i><span class="hide-menu">Logout</span></a>
                         </li>
-                        <!-- <li> <a class="waves-effect waves-dark" href="map-google.html" aria-expanded="false"><i class="fa fa-globe"></i><span class="hide-menu">Map</span></a>
-                        </li>
-                        <li> <a class="waves-effect waves-dark" href="pages-blank.html" aria-expanded="false"><i class="fa fa-bookmark-o"></i><span class="hide-menu">Blank</span></a>
+                        <!-- <li> <a class="waves-effect waves-dark" href="pages-blank.html" aria-expanded="false"><i class="fa fa-bookmark-o"></i><span class="hide-menu">Blank</span></a>
                         </li>
                         <li> <a class="waves-effect waves-dark" href="pages-error-404.html" aria-expanded="false"><i class="fa fa-question-circle"></i><span class="hide-menu">404</span></a>
                         </li> -->
