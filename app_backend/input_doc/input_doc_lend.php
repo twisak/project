@@ -1,9 +1,9 @@
-<?php session_start();
+<!-- <?php session_start();
 if($_SESSION['position'] == 'admin')
-{ 
+{
 }
 elseif($_SESSION['position'] == 'staff')
-{  
+{
 }
 else
 {
@@ -12,7 +12,7 @@ else
     echo "</script>";
     echo "<meta http-equiv='refresh' content='0;url=../../administrator/logout.php'>";
 }
-?>
+?> -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -63,7 +63,7 @@ else
                     </div>
                     <div class="col-md-7 align-self-center">
                         <a href="../input_doc/report_lend.php" class="btn waves-effect waves-light btn btn-info pull-right hidden-sm-down">
-                        <i class="fa-fw fa fa-print"></i> 
+                        <i class="fa-fw fa fa-print"></i>
                             ส่งออกแบบฟอร์ม
                         </a>
                     </div>
@@ -109,7 +109,7 @@ else
 </div>
 </div>
 
-<?php 
+<?php
 $sql_person = "select * from tb_person";
 $query_person = mysqli_query($conn,$sql_person);
 ?>
@@ -150,7 +150,7 @@ $query_person = mysqli_query($conn,$sql_person);
     </div>
 </div>
 
-<?php 
+<?php
 $sql_project = "select * from tb_project";
 $query_project = mysqli_query($conn,$sql_project);
 ?>
@@ -174,17 +174,17 @@ $query_project = mysqli_query($conn,$sql_project);
 
 </div>
 
-   
+
 <div class="row">
-<div class="col-md-3">  
+<div class="col-md-3">
 </div>
-<div class="col-md-3">  
+<div class="col-md-3">
 <div class="form-group">
 <button type="button" class="btn btn-primary btn-block">บันทึก</button>
     </div>
 </div>
 
-<div class="col-md-3">  
+<div class="col-md-3">
 <div class="form-group">
 <button type="button" class="btn btn-danger btn-block">ยกเลิก</button>
     </div>
