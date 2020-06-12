@@ -1,12 +1,10 @@
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<?php session_start();
+
+<!-- <?php session_start();
 if($_SESSION['status'] == 'admin')
-{ 
+{
 }
 elseif($_SESSION['status'] == 'staff')
-{  
+{
 }
 else
 {
@@ -15,8 +13,7 @@ else
     echo "</script>";
     echo "<meta http-equiv='refresh' content='0;url=../../administrator/logout.php'>";
 }
-?> -->
->>>>>>> ac45238c0a3612dfb7731c8d1d547800f33bd7e6
+?>  -->
 <!DOCTYPE html>
 <html lang="en">
 
