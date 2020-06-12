@@ -97,7 +97,11 @@ else
                                 </div> -->
 
 
-                                <div class="text-right"><button type="button" class="btn btn-primary">กรอกเอกสารเพิ่ม</button></div>
+                                <div class="text-right">
+                                <a href="form_user.php">
+                                    <button type="button" class="btn btn-primary">กรอกเอกสารเพิ่ม</button>
+                                </a>
+                                </div>
                                 <div class="table-responsive">
                                     <table class="table text-center">
                                         <thead>

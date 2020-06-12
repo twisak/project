@@ -1,10 +1,9 @@
-<<<<<<< HEAD
-<?php session_start();
-if($_SESSION['status'] == 'admin')
-{ 
+<!-- <?php session_start();
+if($_SESSION['position'] == 'admin')
+{
 }
-elseif($_SESSION['status'] == 'staff')
-{  
+elseif($_SESSION['position'] == 'staff')
+{
 }
 else
 {
@@ -78,27 +77,7 @@ else
                 </div>
 
                 <script src="http://code.jquery.com/jquery-latest.js"></script>
-                <script type="text/javascript">
-                $(document).ready(function(){
 
-                    var rows = 1;
-                    $("#createRows").click(function(){
-                                        var tr = "<tr>";
-                                        tr = tr + "<td class='col-md-5'><input type='text' class='form-control form-control-line' name='activity"+rows+"' id='activity"+rows+"' size='5'></td>";
-                                        tr = tr + "</tr>";
-                                        $('#myTable > tbody:last').append(tr);
-
-                                        $('#hdnCount').val(rows);
-                                        rows = rows + 1;
-                        });
-                        $("#deleteRows").click(function(){
-                                if ($("#myTable tr").length != 1) {
-                                    $("#myTable tr:last").remove();
-                                }
-                        });
-
-                    });
-                </script>
 
                 <div class="row">
 
@@ -121,7 +100,7 @@ else
                                                 }
 
                             ?>
-                                <form class="form-horizontal form-material" action="INSERT_project.php" name="form_user" method="post">
+                                <form class="form-horizontal form-material" action="insert_project.php" name="form_user" method="post">
 
 
 <div class="row">
@@ -141,27 +120,40 @@ else
 </div>
 
 <div class="row">
-  <div class="col-md-5">
+  <div class="col-md-8">
   <div class="form-group">
-  <label>เพิ่มหัวข้อกิจกรรม</label>
-  <table border="0" id="myTable">
-      <!-- head table -->
-      <thead>
-      <tr>
-      <td>
-          <button type="button" class="btn btn-success" id="createRows">เพิ่มหัวข้อกิจกรรม</button>
-      </td>
-      <td>
-          <button type="button" class="btn btn-danger" id="deleteRows">ลบหัวข้อกิจกรรม</button>
-      </td>
-      </tr>
-      </thead>
-      <!-- body dynamic rows -->
-      <tbody></tbody>
-      <input type="hidden" id="hdnCount" name="hdnCount">
-  </table>
+  <div class="col-md-7"><div class="form-group"><button type="button" class="btn btn-info" id="createRows_activity" value="Add">เพิ่มกิจกรรม</button>&nbsp;&nbsp;<button type="button" class="btn btn-warning" id="deleteRows_activity" value="Del">ลบกิจกรรม</button>&nbsp;&nbsp;<button type="button" class="btn btn-danger" id="clearRows_activity" value="Clear">ลบทั้งหมด</button></div></div>
   </div>
   </div>
+</div>
+<table width="100%" border="0" id="myTable_activity">
+
+<thead>
+</thead>
+
+<tbody></tbody>
+</table>
+<br/>
+<center>
+<br>
+<input type="hidden" id="hdnCount_activity" name="hdnCount_activity">
+</center>
+
+<div class="row">
+<div class="col-md-3">
+</div>
+<div class="col-md-3">
+<div class="form-group">
+<button type="submit" class="btn btn-primary btn-block">บันทึก</button>
+    </div>
+</div>
+
+<div class="col-md-3">
+<div class="form-group">
+<button type="button" class="btn btn-danger btn-block">ยกเลิก</button>
+    </div>
+</div>
+
 </div>
 
 
@@ -169,62 +161,7 @@ else
 
 
 
-                                    <div class="form-group">
-                                    <div class="row col-md-12">
-                                        <div class="col-md-4">
-                                            <label class="">รหัสโครงการ</label>
-                                            <input type="text" name="project_id" value="<?=$id?>" placeholder="" class="form-control form-control-line">
-                                        </div>
-                                    </div>
-                                    </div>
-                                    <div class="form-group">
-                                    <div class="row col-md-12">
-                                        <div class="col-md-5">
-                                            <label class="">ชื่อโครงการ</label>
-                                            <input type="text" name="project_name" placeholder="" class="form-control form-control-line">
-                                        </div>
-                                        <div class="col-md-5">
-                                            <label class="">ชื่อกิจกรรม</label>
-                                            <table border="0" id="myTable">
-                                                <!-- head table -->
-                                                <thead>
-                                                <tr>
-                                                <td class="col-md-5">
-                                               </td>
-                                                <td>
-                                                    <button type="button" class="btn btn-success btn-block" id="createRows"><i class="fa fa-plus"></i></button>
-                                                </td>
-                                                <td>
-                                                    <button type="button" class="btn btn-danger btn-block" id="deleteRows"><i class="fa fa-plus"></i></button>
-                                                </td>
-                                                </tr>
-                                                </thead>
-                                                <!-- body dynamic rows -->
-                                                <tbody></tbody>
-                                                <input type="hidden" id="hdnCount" name="hdnCount">
-                                            </table>
-                                        </div>
-                                    </div>
-                                    </div>
-                                    <div class="form-group">
-                                    <div class="row">
-                                        <div class="col-md-3">
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="form-group">
-                                                <!-- <input type="hidden" id="hdnCount" name="hdnCount"> -->
-                                                <input type="submit" name="submit" value="บันทึก" class="btn btn-primary btn-block"/>
-                                            </div>
-                                        </div>
 
-                                        <div class="col-md-3">
-                                        <div class="form-group">
-                                        <button type="button" class="btn btn-danger btn-block">ยกเลิก</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
                         </div>
                     </div>
                     <!-- Column -->
@@ -273,3 +210,33 @@ else
 </body>
 
 </html>
+<script type="text/javascript">
+$(document).ready(function(){
+
+    var rows = 1;
+    $("#createRows_activity").click(function(){
+
+
+        var tr = "<tr>";
+tr = tr + "<td><div class='row'><div class='col-md-4'><div class='form-group'><label>หัวข้อกิจกรรม</label><input type='text' class='form-control p_input'  name='activity"+rows+"'></div></div></td>";
+        tr = tr + "</tr>";
+        $('#myTable_activity > tbody:last').append(tr);
+
+        $('#hdnCount_activity').val(rows);
+        rows = rows + 1;
+    });
+
+    $("#deleteRows_activity").click(function(){
+        if ($("#myTable_activity tr").length != 1) {
+            $("#myTable_activity tr:last").remove();
+        }
+    });
+
+    $("#clearRows_activity").click(function(){
+        rows = 1;
+        $('#hdnCount_activity').val(rows);
+        $('#myTable_activity > tbody:last').empty(); // remove all
+    });
+
+});
+</script>
