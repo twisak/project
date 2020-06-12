@@ -19,7 +19,7 @@
 		$query_tb_project = mysqli_query($conn,$sql_tb_project);
 
 		echo "<script>alert('บันทึกข้อมูลของท่านเรียบร้อยแล้ว')</script>";
-		echo "<script>window.location='form_project.php'</script>";
+		echo "<script>window.location='tb_project.php'</script>";
 
 ?>
 </body>

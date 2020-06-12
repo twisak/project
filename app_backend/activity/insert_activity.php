@@ -13,7 +13,7 @@
 		$query_tb_activity = mysqli_query($conn,$sql_tb_activity);
 
 		echo "<script>alert('บันทึกข้อมูลของท่านเรียบร้อยแล้ว')</script>";
-		echo "<script>window.location='form_activity.php'</script>";
+		echo "<script>window.location='tb_activity.php'</script>";
 
 ?>
 </body>
