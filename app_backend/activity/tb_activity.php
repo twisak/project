@@ -66,10 +66,10 @@ else
                 <!-- ============================================================== -->
                 <div class="row page-titles">
                     <div class="col-md-5 align-self-center">
-                        <h3 class="text-themecolor">ข้อมูลโครงการ/กิจกรรม</h3>
+                        <h3 class="text-themecolor">ข้อมูลกิจกรรม</h3>
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                            <li class="breadcrumb-item active">ข้อมูลโครงการ/กิจกรรม</li>
+                            <li class="breadcrumb-item active">ข้อมูลกิจกรรม</li>
                         </ol>
                     </div>
                     <div class="col-md-7 align-self-center">
@@ -88,7 +88,7 @@ else
 
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">ข้อมูลโครงการ/กิจกรรม</h4>
+                                <h4 class="card-title">ข้อมูลกิจกรรม</h4>
                                 <!-- <h6 class="card-subtitle">Add class <code>.table</code></h6> -->
 <!--
                                 <div class="container">
@@ -99,15 +99,15 @@ else
 
 
                                 <div class="text-right">
-                                    <a href="../project/form_project.php"><button type="button" class="btn btn-primary">เพิ่มโครงการ</button></a>
+                                    <a href="form_activity.php"><button type="button" class="btn btn-primary">เพิ่มกิจกรรม</button></a>
                                 </div>
                                 <div class="table-responsive">
                                     <table class="table text-center">
                                         <thead>
                                         <tr>
                                                 <th class="text-center">ลำดับ</th>
-                                                <th class="text-center">รหัสโครงการ</th>
-                                                <th class="text-center">ชื่อโครงการ</th>
+                                                <th class="text-center">รหัสกิจกรรม</th>
+                                                <th class="text-center">ชื่อกิจกรรม</th>
                                                 <th class="text-center">แก้ไข</th>
                                                 <th class="text-center">ลบ</th>
                                             </tr>
@@ -117,19 +117,19 @@ else
                                             $i<="";
 
                                             include '../../administrator/connect.php';
-                                            $sql_project ="SELECT * FROM tb_project";
-                                            $query_project = mysqli_query($conn,$sql_project);
-                                            while($row_project = mysqli_fetch_array($query_project,MYSQLI_ASSOC))
+                                            $sql_tb_activity ="SELECT * FROM tb_activity";
+                                            $query_tb_activity = mysqli_query($conn,$sql_tb_activity);
+                                            while($row_tb_activity = mysqli_fetch_array($query_tb_activity,MYSQLI_ASSOC))
                                             {
-                                                $project_id = $row_project['project_id'];
-                                                $project_name = $row_project['project_name'];
+                                                $activity_id = $row_tb_activity['activity_id'];
+                                                $activity = $row_tb_activity['activity'];
 
                                         ?>
                                         <tbody>
                                             <tr>
                                                 <td><?php echo $i;?></td>
-                                                <td><?php echo $project_id;?></td>
-                                                <td><?php echo $project_name;?></td>
+                                                <td><?php echo $activity_id; ?></td>
+                                                <td><?php echo $activity; ?></td>
                                                 <td><button type="button" class="btn btn-warning">แก้ไข</button></td>
                                                 <td><button type="button" class="btn btn-danger">ลบ</button></td>
                                             </tr>
