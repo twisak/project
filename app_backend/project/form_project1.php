@@ -117,27 +117,131 @@ else
   <input type="text" name="project_name" placeholder="" class="form-control form-control-line">
   </div>
   </div>
+
+  <div class="col-md-2">
+  <div class="form-group">
+  <label>ปีงบประมาณ</label>
+  <select class="form-control" name="fiscal_year" id="fiscal_year">
+  <?php
+  $xYear=date('Y'); // เก็บค่าปีปัจจุบันไว้ในตัวแปร
+          echo '<option value="'.$xYear.'">'.$xYear.'</option>'; // ปีปัจจุบัน
+  for($i=1;$i<=30;$i++){
+  echo '<option value="'.($xYear-$i).'">'.($xYear-$i).'</option>';
+    }
+  ?>
+  </select>
+
+  </div>
+  </div>
 </div>
 
 <div class="row">
-  <div class="col-md-8">
+
+  <?php
+  $sql_budget_type = "select * from tb_budget_type";
+  $query_budget_type = mysqli_query($conn,$sql_budget_type);
+  ?>
+
+  <div class="col-md-3">
   <div class="form-group">
-  <div class="col-md-7"><div class="form-group"><button type="button" class="btn btn-info" id="createRows_activity" value="Add">เพิ่มกิจกรรม</button>&nbsp;&nbsp;<button type="button" class="btn btn-warning" id="deleteRows_activity" value="Del">ลบกิจกรรม</button>&nbsp;&nbsp;<button type="button" class="btn btn-danger" id="clearRows_activity" value="Clear">ลบทั้งหมด</button></div></div>
+  <label>ประเภทงบประมาณ</label>
+  <select class="form-control" name="budget_id">
+              <option value="">-- เลือกประเภทงบประมาณ --</option>
+      <?php
+      while($result_budget_type=mysqli_fetch_array($query_budget_type))
+      {
+      ?>
+           <option value='<?php echo $result_budget_type['budget_id'];?>'><?php echo $result_budget_type['budget_name'];?></option>
+      <?php
+      }
+       ?>
+              </select>
+  </div>
+  </div>
+
+
+  <?php
+  $sql_product = "select * from tb_product";
+  $query_product = mysqli_query($conn,$sql_product);
+  ?>
+
+  <div class="col-md-3">
+  <div class="form-group">
+  <label>ผลผลิต</label>
+  <select class="form-control" name="product_id">
+              <option value="">-- เลือกผลผลิต --</option>
+      <?php
+      while($result_product=mysqli_fetch_array($query_product))
+      {
+      ?>
+           <option value='<?php echo $result_product['product_id'];?>'><?php echo $result_product['product_name'];?></option>
+      <?php
+      }
+       ?>
+              </select>
+  </div>
+  </div>
+
+  <?php
+  $sql_mission = "select * from tb_mission";
+  $query_mission = mysqli_query($conn,$sql_mission);
+  ?>
+
+  <div class="col-md-3">
+  <div class="form-group">
+  <label>พันธกิจ</label>
+  <select class="form-control" name="mission_id">
+              <option value="">-- เลือกพันธกิจ --</option>
+      <?php
+      while($result_mission=mysqli_fetch_array($query_mission))
+      {
+      ?>
+           <option value='<?php echo $result_mission['mission_id'];?>'><?php echo $result_mission['mission_name'];?></option>
+      <?php
+      }
+       ?>
+              </select>
+  </div>
+  </div>
+
+  <?php
+  $sql_strategic = "select * from tb_strategic";
+  $query_strategic = mysqli_query($conn,$sql_strategic);
+  ?>
+
+  <div class="col-md-3">
+  <div class="form-group">
+  <label>ยุทธศาสตร์</label>
+  <select class="form-control" name="strategic_id">
+              <option value="">-- เลือกยุทธศาสตร์ --</option>
+      <?php
+      while($result_strategic=mysqli_fetch_array($query_strategic))
+      {
+      ?>
+           <option value='<?php echo $result_strategic['strategic_id'];?>'><?php echo $result_strategic['strategic_name'];?></option>
+      <?php
+      }
+       ?>
+              </select>
   </div>
   </div>
 </div>
-<table width="100%" border="0" id="myTable_activity">
 
-<thead>
-</thead>
+<div class="row">
+  <div class="col-md-3">
+  <div class="form-group">
+  <label>หลักการและเหตุผล</label>
+<input type="text" name="principle"  class="form-control form-control-line">
+  </div>
+  </div>
 
-<tbody></tbody>
-</table>
-<br/>
-<center>
-<br>
-<input type="hidden" id="hdnCount_activity" name="hdnCount_activity">
-</center>
+  <div class="col-md-3">
+  <div class="form-group">
+  <label>งบประมาณ</label>
+  <input type="text" name="budget"  class="form-control form-control-line">
+  </div>
+  </div>
+</div>
 
 <div class="row">
 <div class="col-md-3">
@@ -210,33 +314,3 @@ else
 </body>
 
 </html>
-<script type="text/javascript">
-$(document).ready(function(){
-
-    var rows = 1;
-    $("#createRows_activity").click(function(){
-
-
-        var tr = "<tr>";
-tr = tr + "<td><div class='row'><div class='col-md-4'><div class='form-group'><label>หัวข้อกิจกรรม</label><input type='text' class='form-control p_input'  name='activity"+rows+"'></div></div></td>";
-        tr = tr + "</tr>";
-        $('#myTable_activity > tbody:last').append(tr);
-
-        $('#hdnCount_activity').val(rows);
-        rows = rows + 1;
-    });
-
-    $("#deleteRows_activity").click(function(){
-        if ($("#myTable_activity tr").length != 1) {
-            $("#myTable_activity tr:last").remove();
-        }
-    });
-
-    $("#clearRows_activity").click(function(){
-        rows = 1;
-        $('#hdnCount_activity').val(rows);
-        $('#myTable_activity > tbody:last').empty(); // remove all
-    });
-
-});
-</script>
