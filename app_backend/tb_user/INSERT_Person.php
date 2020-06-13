@@ -17,7 +17,11 @@
         $house_num = $_POST['house_num'];
         $amphures_id = $_POST['amphures_id'];
         $districts_id = $_POST['districts_id'];
+<<<<<<< HEAD
         $provincen_id = $_POST['province_id'];
+=======
+        $provincen_id = $_POST['provincen_id'];
+>>>>>>> f2da13d1680d51ce1d58180594bda59cd1d03c16
 		$username = $_POST['username'];
 		$password = $_POST['password'];
        	$status = 'staff';

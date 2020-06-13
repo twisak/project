@@ -228,40 +228,6 @@ else
 </div>
 
 <div class="row">
-<<<<<<< HEAD
-  <div class="col-md-8">
-  <div class="form-group">
-  <div class="col-md-7"><div class="form-group"><button type="button" class="btn btn-info" id="createRows_activity" value="Add">เพิ่มกิจกรรม</button>&nbsp;&nbsp;<button type="button" class="btn btn-warning" id="deleteRows_activity" value="Del">ลบกิจกรรม</button>&nbsp;&nbsp;<button type="button" class="btn btn-danger" id="clearRows_activity" value="Clear">ลบทั้งหมด</button></div></div>
-=======
-  <div class="col-md-3">
-  <div class="form-group">
-  <label>หลักการและเหตุผล</label>
-<input type="text" name="principle"  class="form-control form-control-line">
-  </div>
-  </div>
-
-  <div class="col-md-3">
-  <div class="form-group">
-  <label>งบประมาณ</label>
-  <input type="text" name="budget"  class="form-control form-control-line">
->>>>>>> 5e22eedc7eeb6b8a4daf8d8f361dfbadd7bb085e
-  </div>
-  </div>
-</div>
-<table width="100%" border="0" id="myTable_activity">
-
-<thead>
-</thead>
-
-<tbody></tbody>
-</table>
-<br/>
-<center>
-<br>
-<input type="hidden" id="hdnCount_activity" name="hdnCount_activity">
-</center>
-
-<div class="row">
 <div class="col-md-3">
 </div>
 <div class="col-md-3">
@@ -277,30 +243,6 @@ else
 </div>
 
 </div>
-
-
-<div class="row">
-<div class="col-md-3">
-</div>
-<div class="col-md-3">
-<div class="form-group">
-<button type="submit" class="btn btn-primary btn-block">บันทึก</button>
-    </div>
-</div>
-
-<div class="col-md-3">
-<div class="form-group">
-<button type="button" class="btn btn-danger btn-block">ยกเลิก</button>
-    </div>
-</div>
-
-</div>
-
-
-
-
-
-
 
                         </div>
                     </div>
@@ -350,7 +292,7 @@ else
 </body>
 
 </html>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 $(document).ready(function(){
 
     var rows = 1;
@@ -379,4 +321,4 @@ tr = tr + "<td><div class='row'><div class='col-md-4'><div class='form-group'><l
     });
 
 });
-</script>
+</script> -->
