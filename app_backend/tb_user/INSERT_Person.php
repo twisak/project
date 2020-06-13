@@ -15,9 +15,9 @@
 		$lastname = $_POST['lastname'];
         $idcard = $_POST['idcard'];
         $house_num = $_POST['house_num'];
-        $amphures_id = $_GET['amphures'];
-        $districts_id = $_GET['districts'];
-        $provincen_id = $_GET['provincen'];
+        $amphures_id = $_POST['amphures_id'];
+        $districts_id = $_POST['districts_id'];
+        $provincen_id = $_POST['provincen_id'];
 		$username = $_POST['username'];
 		$password = $_POST['password'];
        	$status = 'staff';
