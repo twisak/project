@@ -1,9 +1,10 @@
-<!-- <?php session_start();
-if($_SESSION['position'] == 'admin')
-{
+<<<<<<< HEAD
+<?php session_start();
+if($_SESSION['status'] == 'admin')
+{ 
 }
-elseif($_SESSION['position'] == 'staff')
-{
+elseif($_SESSION['status'] == 'staff')
+{  
 }
 else
 {
@@ -77,7 +78,27 @@ else
                 </div>
 
                 <script src="http://code.jquery.com/jquery-latest.js"></script>
+                <script type="text/javascript">
+                $(document).ready(function(){
 
+                    var rows = 1;
+                    $("#createRows").click(function(){
+                                        var tr = "<tr>";
+                                        tr = tr + "<td class='col-md-5'><input type='text' class='form-control form-control-line' name='activity"+rows+"' id='activity"+rows+"' size='5'></td>";
+                                        tr = tr + "</tr>";
+                                        $('#myTable > tbody:last').append(tr);
+
+                                        $('#hdnCount').val(rows);
+                                        rows = rows + 1;
+                        });
+                        $("#deleteRows").click(function(){
+                                if ($("#myTable tr").length != 1) {
+                                    $("#myTable tr:last").remove();
+                                }
+                        });
+
+                    });
+                </script>
 
                 <div class="row">
 
@@ -100,7 +121,7 @@ else
                                                 }
 
                             ?>
-                                <form class="form-horizontal form-material" action="insert_project.php" name="form_user" method="post">
+                                <form class="form-horizontal form-material" action="INSERT_project.php" name="form_user" method="post">
 
 
 <div class="row">
@@ -117,191 +138,93 @@ else
   <input type="text" name="project_name" placeholder="" class="form-control form-control-line">
   </div>
   </div>
-
-  <div class="col-md-2">
-  <div class="form-group">
-  <label>ปีงบประมาณ</label>
-  <select class="form-control" name="fiscal_year" id="fiscal_year">
-  <?php
-  $xYear=date('Y'); // เก็บค่าปีปัจจุบันไว้ในตัวแปร
-          echo '<option value="'.$xYear.'">'.$xYear.'</option>'; // ปีปัจจุบัน
-  for($i=1;$i<=30;$i++){
-  echo '<option value="'.($xYear-$i).'">'.($xYear-$i).'</option>';
-    }
-  ?>
-  </select>
-
-  </div>
-  </div>
 </div>
 
 <div class="row">
-
-  <?php
-  $sql_budget_type = "select * from tb_budget_type";
-  $query_budget_type = mysqli_query($conn,$sql_budget_type);
-  ?>
-
-  <div class="col-md-3">
+  <div class="col-md-5">
   <div class="form-group">
-  <label>ประเภทงบประมาณ</label>
-  <select class="form-control" name="budget_id">
-              <option value="">-- เลือกประเภทงบประมาณ --</option>
-      <?php
-      while($result_budget_type=mysqli_fetch_array($query_budget_type))
-      {
-      ?>
-           <option value='<?php echo $result_budget_type['budget_id'];?>'><?php echo $result_budget_type['budget_name'];?></option>
-      <?php
-      }
-       ?>
-              </select>
-  </div>
-  </div>
-
-
-  <?php
-  $sql_product = "select * from tb_product";
-  $query_product = mysqli_query($conn,$sql_product);
-  ?>
-
-  <div class="col-md-3">
-  <div class="form-group">
-  <label>ผลผลิต</label>
-  <select class="form-control" name="product_id">
-              <option value="">-- เลือกผลผลิต --</option>
-      <?php
-      while($result_product=mysqli_fetch_array($query_product))
-      {
-      ?>
-           <option value='<?php echo $result_product['product_id'];?>'><?php echo $result_product['product_name'];?></option>
-      <?php
-      }
-       ?>
-              </select>
-  </div>
-  </div>
-
-  <?php
-  $sql_mission = "select * from tb_mission";
-  $query_mission = mysqli_query($conn,$sql_mission);
-  ?>
-
-  <div class="col-md-3">
-  <div class="form-group">
-  <label>พันธกิจ</label>
-  <select class="form-control" name="mission_id">
-              <option value="">-- เลือกพันธกิจ --</option>
-      <?php
-      while($result_mission=mysqli_fetch_array($query_mission))
-      {
-      ?>
-           <option value='<?php echo $result_mission['mission_id'];?>'><?php echo $result_mission['mission_name'];?></option>
-      <?php
-      }
-       ?>
-              </select>
-  </div>
-  </div>
-
-  <?php
-  $sql_strategic = "select * from tb_strategic";
-  $query_strategic = mysqli_query($conn,$sql_strategic);
-  ?>
-
-  <div class="col-md-3">
-  <div class="form-group">
-  <label>ยุทธศาสตร์</label>
-  <select class="form-control" name="strategic_id">
-              <option value="">-- เลือกยุทธศาสตร์ --</option>
-      <?php
-      while($result_strategic=mysqli_fetch_array($query_strategic))
-      {
-      ?>
-           <option value='<?php echo $result_strategic['strategic_id'];?>'><?php echo $result_strategic['strategic_name'];?></option>
-      <?php
-      }
-       ?>
-              </select>
+  <label>เพิ่มหัวข้อกิจกรรม</label>
+  <table border="0" id="myTable">
+      <!-- head table -->
+      <thead>
+      <tr>
+      <td>
+          <button type="button" class="btn btn-success" id="createRows">เพิ่มหัวข้อกิจกรรม</button>
+      </td>
+      <td>
+          <button type="button" class="btn btn-danger" id="deleteRows">ลบหัวข้อกิจกรรม</button>
+      </td>
+      </tr>
+      </thead>
+      <!-- body dynamic rows -->
+      <tbody></tbody>
+      <input type="hidden" id="hdnCount" name="hdnCount">
+  </table>
   </div>
   </div>
 </div>
 
-<div class="row">
-<<<<<<< HEAD
-  <div class="col-md-8">
-  <div class="form-group">
-  <div class="col-md-7"><div class="form-group"><button type="button" class="btn btn-info" id="createRows_activity" value="Add">เพิ่มกิจกรรม</button>&nbsp;&nbsp;<button type="button" class="btn btn-warning" id="deleteRows_activity" value="Del">ลบกิจกรรม</button>&nbsp;&nbsp;<button type="button" class="btn btn-danger" id="clearRows_activity" value="Clear">ลบทั้งหมด</button></div></div>
-=======
-  <div class="col-md-3">
-  <div class="form-group">
-  <label>หลักการและเหตุผล</label>
-<input type="text" name="principle"  class="form-control form-control-line">
-  </div>
-  </div>
-
-  <div class="col-md-3">
-  <div class="form-group">
-  <label>งบประมาณ</label>
-  <input type="text" name="budget"  class="form-control form-control-line">
->>>>>>> 5e22eedc7eeb6b8a4daf8d8f361dfbadd7bb085e
-  </div>
-  </div>
-</div>
-<table width="100%" border="0" id="myTable_activity">
-
-<thead>
-</thead>
-
-<tbody></tbody>
-</table>
-<br/>
-<center>
-<br>
-<input type="hidden" id="hdnCount_activity" name="hdnCount_activity">
-</center>
-
-<div class="row">
-<div class="col-md-3">
-</div>
-<div class="col-md-3">
-<div class="form-group">
-<button type="submit" class="btn btn-primary btn-block">บันทึก</button>
-    </div>
-</div>
-
-<div class="col-md-3">
-<div class="form-group">
-<button type="button" class="btn btn-danger btn-block">ยกเลิก</button>
-    </div>
-</div>
-
-</div>
-
-
-<div class="row">
-<div class="col-md-3">
-</div>
-<div class="col-md-3">
-<div class="form-group">
-<button type="submit" class="btn btn-primary btn-block">บันทึก</button>
-    </div>
-</div>
-
-<div class="col-md-3">
-<div class="form-group">
-<button type="button" class="btn btn-danger btn-block">ยกเลิก</button>
-    </div>
-</div>
-
-</div>
 
 
 
 
 
+                                    <div class="form-group">
+                                    <div class="row col-md-12">
+                                        <div class="col-md-4">
+                                            <label class="">รหัสโครงการ</label>
+                                            <input type="text" name="project_id" value="<?=$id?>" placeholder="" class="form-control form-control-line">
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <div class="form-group">
+                                    <div class="row col-md-12">
+                                        <div class="col-md-5">
+                                            <label class="">ชื่อโครงการ</label>
+                                            <input type="text" name="project_name" placeholder="" class="form-control form-control-line">
+                                        </div>
+                                        <div class="col-md-5">
+                                            <label class="">ชื่อกิจกรรม</label>
+                                            <table border="0" id="myTable">
+                                                <!-- head table -->
+                                                <thead>
+                                                <tr>
+                                                <td class="col-md-5">
+                                               </td>
+                                                <td>
+                                                    <button type="button" class="btn btn-success btn-block" id="createRows"><i class="fa fa-plus"></i></button>
+                                                </td>
+                                                <td>
+                                                    <button type="button" class="btn btn-danger btn-block" id="deleteRows"><i class="fa fa-plus"></i></button>
+                                                </td>
+                                                </tr>
+                                                </thead>
+                                                <!-- body dynamic rows -->
+                                                <tbody></tbody>
+                                                <input type="hidden" id="hdnCount" name="hdnCount">
+                                            </table>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <!-- <input type="hidden" id="hdnCount" name="hdnCount"> -->
+                                                <input type="submit" name="submit" value="บันทึก" class="btn btn-primary btn-block"/>
+                                            </div>
+                                        </div>
 
-
+                                        <div class="col-md-3">
+                                        <div class="form-group">
+                                        <button type="button" class="btn btn-danger btn-block">ยกเลิก</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                     </div>
                     <!-- Column -->
@@ -350,33 +273,3 @@ else
 </body>
 
 </html>
-<script type="text/javascript">
-$(document).ready(function(){
-
-    var rows = 1;
-    $("#createRows_activity").click(function(){
-
-
-        var tr = "<tr>";
-tr = tr + "<td><div class='row'><div class='col-md-4'><div class='form-group'><label>หัวข้อกิจกรรม</label><input type='text' class='form-control p_input'  name='activity"+rows+"'></div></div></td>";
-        tr = tr + "</tr>";
-        $('#myTable_activity > tbody:last').append(tr);
-
-        $('#hdnCount_activity').val(rows);
-        rows = rows + 1;
-    });
-
-    $("#deleteRows_activity").click(function(){
-        if ($("#myTable_activity tr").length != 1) {
-            $("#myTable_activity tr:last").remove();
-        }
-    });
-
-    $("#clearRows_activity").click(function(){
-        rows = 1;
-        $('#hdnCount_activity').val(rows);
-        $('#myTable_activity > tbody:last').empty(); // remove all
-    });
-
-});
-</script>

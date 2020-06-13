@@ -119,7 +119,7 @@
                         </li>
                         <li> <a class="waves-effect waves-dark" href="../project/tb_project.php" aria-expanded="false"><i class="fa fa-globe"></i><span class="hide-menu">จัดการข้อมูลโครงการ</span></a>
                         </li>
-                        <li> <a class="waves-effect waves-dark" href="../user/form_user.php" aria-expanded="false"><i class="fa fa-smile-o"></i><span class="hide-menu">สมัครสมาชิก</span></a>
+                        <li> <a class="waves-effect waves-dark" href="../activity/tb_activity.php" aria-expanded="false"><i class="fa fa-globe"></i><span class="hide-menu">จัดการข้อมูลกิจกรรม</span></a>
                         </li>
                         <li> <a class="waves-effect waves-dark" href="../../administrator/logout.php" aria-expanded="false"><i class="fa fa-table"></i><span class="hide-menu">Logout</span></a>
                         </li>

@@ -97,7 +97,11 @@ else
                                 </div> -->
 
 
-                                <div class="text-right"><button type="button" class="btn btn-primary">กรอกเอกสารเพิ่ม</button></div>
+                                <div class="text-right">
+                                <a href="form_user.php">
+                                    <button type="button" class="btn btn-primary">กรอกเอกสารเพิ่ม</button>
+                                </a>
+                                </div>
                                 <div class="table-responsive">
                                     <table class="table text-center">
                                         <thead>
@@ -126,7 +130,10 @@ else
                                                 $firtname = $row['firtname'];
                                                 $lastname = $row['lastname'];
                                                 $idcard = $row['idcard'];
-                                                $address = $row['address'];
+                                                $house_num = $row['house_num'];
+                                                $amphures_id = $row['amphures_id'];
+                                                $districts_id = $row['districts_id'];
+                                                $provincen_id = $row['provincen_id'];
                                                 $person_id = $row['person_id'];
                                             }
                                             
@@ -139,13 +146,33 @@ else
                                                 $password = $row1['password'];
                                                 $status = $row1['status'];
                                             }
+
+                                            $sql2 ="SELECT * FROM provinces WHERE code = '".$provincen_id."' ";
+                                            $query2 = mysqli_query($conn,$sql2);
+                                            while($row2 = mysqli_fetch_array($query2,MYSQLI_ASSOC))
+                                            {
+                                                $provincen = $row2['name_th'];
+                                            }
+                                            $sql3 ="SELECT * FROM districts WHERE zip_code = '".$amphures_id."' ";
+                                            $query3 = mysqli_query($conn,$sql3);
+                                            while($row3 = mysqli_fetch_array($query3,MYSQLI_ASSOC))
+                                            {
+                                                $districts = $row3['name_th'];
+                                            }
+                                            $sql4 ="SELECT * FROM amphures WHERE code = '".$districts_id."' ";
+                                            $query4 = mysqli_query($conn,$sql4);
+                                            while($row4 = mysqli_fetch_array($query4,MYSQLI_ASSOC))
+                                            {
+                                                $amphures = $row4['name_th'];
+                                            }
+                                            echo $districts;
                                         ?>
                                         <tbody>
                                             <tr>
                                                 <td><?php echo $i;?></td>
                                                 <td><?php echo $prefix;?><?php echo $firtname;?>&nbsp;&nbsp;<?php echo $lastname;?></td>
                                                 <td><?php echo $idcard;?></td>
-                                                <td><?php echo $address;?></td>
+                                                <td><?php echo $house_num;?>&nbsp;<?php echo $provincen;?>&nbsp;<?php echo $districts;?>&nbsp;<?php echo $amphures;?></td>
                                                 <td><?php echo $username;?></td>
                                                 <td><?php echo $password;?></td>
                                                 <td><?php echo $status;?></td>

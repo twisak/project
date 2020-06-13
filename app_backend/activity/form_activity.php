@@ -85,58 +85,54 @@ else
                         <div class="card">
                             <!-- Tab panes -->
                             <div class="card-body">
-                            <?php
-                                        include '../../administrator/connect.php';
-
-                                        $sql = "Select Max(substr(activity_id,3)+1) as MaxID from tb_activity ";
-                                        $query = mysqli_query($conn,$sql);
-                                        $table_id = mysqli_fetch_assoc($query);
-                                        $testid = $table_id['MaxID'];
-                                                if($testid=='')
+                            <form class="form-horizontal form-material" action="insert_activity.php" name="form_activity" method="post">
+                                <div class="row">
+                                <div class="col-md-2">
+                                <div class="form-group">
+                                <label>โครงการ</label>
+                                    <select class="form-control col-md-12" required name="project_id">
+                                            <option>เลือกโครงการ</option>
+                                            <?php 
+                                                $sql ="SELECT * FROM tb_project ";
+                                                $query = mysqli_query($conn,$sql);
+                                                while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
                                                 {
-                                                    $id="A001";
-                                                }else
-                                                {
-                                                    $id="A".sprintf("%03d",$testid);
-                                                }
+                                                    $project_id = $row['project_id'];
+                                                    $project_name = $row['project_name'];
 
-                            ?>
-                                <form class="form-horizontal form-material" action="insert_activity.php" name="form_user" method="post">
+                                            ?>
+                                            <option value="<?php echo $project_id;?>" ><?php echo $project_name;?></option>
+                                            <?php }?>
+								    </select>
+                                </div>
+                                </div>
 
+                                <div class="col-md-4">
+                                <div class="form-group">
+                                <label>ชื่อกิจกรรม</label>
+                                <input type="text" name="activity" placeholder="" class="form-control form-control-line">
+                                </div>
+                                </div>
 
-<div class="row">
-  <div class="col-md-2">
-  <div class="form-group">
-  <label>รหัสกิจกรรม</label>
-<input type="text" name="activity_id" value="<?=$id?>" placeholder="" class="form-control form-control-line">
-  </div>
-  </div>
+                                </div>
 
-  <div class="col-md-4">
-  <div class="form-group">
-  <label>ชื่อกิจกรรม</label>
-  <input type="text" name="activity" placeholder="" class="form-control form-control-line">
-  </div>
-  </div>
+                                <div class="row">
+                                <div class="col-md-3">
+                                </div>
+                                <div class="col-md-3">
+                                <div class="form-group">
+                                <button type="submit" class="btn btn-primary btn-block">บันทึก</button>
+                                    </div>
+                                </div>
 
-</div>
+                                <div class="col-md-3">
+                                <div class="form-group">
+                                <button type="button" class="btn btn-danger btn-block">ยกเลิก</button>
+                                    </div>
+                                </div>
 
-<div class="row">
-<div class="col-md-3">
-</div>
-<div class="col-md-3">
-<div class="form-group">
-<button type="submit" class="btn btn-primary btn-block">บันทึก</button>
-    </div>
-</div>
-
-<div class="col-md-3">
-<div class="form-group">
-<button type="button" class="btn btn-danger btn-block">ยกเลิก</button>
-    </div>
-</div>
-
-</div>
+                                </div>
+                                </form>
 
 
 
