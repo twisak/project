@@ -124,6 +124,15 @@ else
                                                 $activity_id = $row_tb_activity['activity_id'];
                                                 $activity = $row_tb_activity['activity'];
 
+                                            $sql_tb_activity ="SELECT * FROM tb_activity";
+                                            $query_tb_activity = mysqli_query($conn,$sql_tb_activity);
+                                            while($row_tb_activity = mysqli_fetch_array($query_tb_activity,MYSQLI_ASSOC))
+                                            {
+                                                $activity_id = $row_tb_activity['activity_id'];
+                                                $activity = $row_tb_activity['activity'];
+                                            }
+    
+
                                         ?>
                                         <tbody>
                                             <tr>
