@@ -1,4 +1,4 @@
-<!-- <?php session_start();
+<?php session_start();
 if($_SESSION['position'] == 'admin')
 {
 }
@@ -12,7 +12,7 @@ else
     echo "</script>";
     echo "<meta http-equiv='refresh' content='0;url=../../administrator/logout.php'>";
 }
-?> -->
+?>
 <!DOCTYPE html>
 <html lang="en">
 

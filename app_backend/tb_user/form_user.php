@@ -1,9 +1,9 @@
 <?php session_start();
 if($_SESSION['status'] == 'admin')
-{ 
+{
 }
 elseif($_SESSION['status'] == 'staff')
-{  
+{
 }
 else
 {
@@ -83,7 +83,7 @@ else
                 <!-- ============================================================== -->
                 <!-- Row -->
                 <div class="row">
-                    
+
                     <div class="col-lg-12 col-xlg-9 col-md-7">
                         <div class="card">
                             <!-- Tab panes -->
@@ -99,12 +99,12 @@ else
                                                     $person_id="PS001";
                                                 }else
                                                 {
-                                                    $person_id="PS".sprintf("%03d",$testid);   
+                                                    $person_id="PS".sprintf("%03d",$testid);
                                                 }
-                                                    
+
                             ?>
                                 <form class="form-horizontal form-material" action="INSERT_Person.php" name="form_user" method="post">
-                                
+
                                     <div class="form-group">
                                     <div class="row col-md-12">
                                         <div class="col-md-4">
@@ -146,8 +146,8 @@ else
                                     </div>
                                     </div>
                                 </div>
-                                <?php 
-                                    
+                                <?php
+
                                 ?>
                                 <div class="row col-md-12">
                                     <div class="form-group">
@@ -163,10 +163,10 @@ else
                                             <label for="province">จังหวัด</label>
                                             <select name="province_id" id="province" class="form-control">
                                                 <option value="">เลือกจังหวัด</option>
-                                                <?php 
+                                                <?php
                                                     $sql = "SELECT * FROM provinces";
                                                     $query = mysqli_query($conn, $sql);
-                                                    while($result = mysqli_fetch_assoc($query)): 
+                                                    while($result = mysqli_fetch_assoc($query)):
                                                 ?>
                                                     <option value="<?=$result['id']?>"><?=$result['name_th']?></option>
                                                 <?php endwhile; ?>
@@ -174,13 +174,13 @@ else
                                         </div>
                                         <div class="col-md-4">
                                             <label for="amphure">อำเภอ/เขต</label>
-                                            <select name="amphure_id" id="amphure" class="form-control">
+                                            <select name="amphures_id" id="amphure" class="form-control">
                                                 <option value="">เลือกอำเภอ</option>
                                             </select>
                                         </div>
                                         <div class="col-md-4">
                                             <label for="district">ตำบล/แขวง</label>
-                                            <select name="district_id" id="district" class="form-control">
+                                            <select name="districts_id" id="district" class="form-control">
                                                 <option value="">เลือกตำบล</option>
                                             </select>
                                         </div>
@@ -192,7 +192,7 @@ else
                                             <label class="">Username</label>
                                             <input type="text" name="username" placeholder="" class="form-control form-control-line">
                                         </div>
-                                        
+
                                         <div class="col-md-6">
                                             <label class="">Psaaword</label>
                                             <input type="password" name="password" class="form-control form-control-line">
@@ -204,11 +204,11 @@ else
                                         <label class="col-md-6">สถานะ</label>
                                         <div class="col-md-6">
                                             <input type="text" value="staff" disabled class="form-control form-control-line">
-                                            <input type="hidden" class="form-control" name="staff" /> 
+                                            <input type="hidden" class="form-control" name="staff" />
                                         </div>
                                     </div>
                                 </div>
-                                
+
 
                                 <div class="row">
                                     <div class="col-md-3">
