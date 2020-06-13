@@ -1,5 +1,5 @@
 
-<!-- <?php session_start();
+<?php session_start();
 if($_SESSION['status'] == 'admin')
 {
 }
@@ -13,7 +13,7 @@ else
     echo "</script>";
     echo "<meta http-equiv='refresh' content='0;url=../../administrator/logout.php'>";
 }
-?>  -->
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -130,7 +130,7 @@ else
                                                 <td><?php echo $i;?></td>
                                                 <td><?php echo $project_id;?></td>
                                                 <td><?php echo $project_name;?></td>
-                                                <td><button type="button" class="btn btn-warning">แก้ไข</button></td>
+                                                <td><a href="edit_form_project.php?id=<?php echo $row_project['id'];?>" class="btn btn-warning">แก้ไข</a></td>
                                                 <td><button type="button" class="btn btn-danger">ลบ</button></td>
                                             </tr>
                                             <?php
