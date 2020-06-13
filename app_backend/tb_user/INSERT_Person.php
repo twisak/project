@@ -15,12 +15,12 @@
 		$lastname = $_POST['lastname'];
         $idcard = $_POST['idcard'];
         $house_num = $_POST['house_num'];
-        $amphures_id = $_POST['amphures_id'];
-        $districts_id = $_POST['districts_id'];
-        $provincen_id = $_POST['provincen_id'];
+        $amphures_id = $_GET['amphures'];
+        $districts_id = $_GET['districts'];
+        $provincen_id = $_GET['provincen'];
 		$username = $_POST['username'];
 		$password = $_POST['password'];
-       	$status = $_POST['status'];
+       	$status = 'staff';
 		
 		
     
@@ -38,28 +38,28 @@
         // }else
         // { 
             
-        $sql = "INSERT INTO tb_person (prefix,firtname,lastname,idcard,house_num,provincen_id,districts_id,districts_id,person_id) 
+        $sql = "INSERT INTO tb_person (prefix,firtname,lastname,idcard,house_num,provincen_id,districts_id,amphures_id,person_id) 
         VALUES('$prefix','$firtname','$lastname','$idcard','$house_num','$provincen_id','$districts_id','$amphures_id','$person_id')";
          
-        $db_query = mysqli_query($conn,$sql);
+        //$db_query = mysqli_query($conn,$sql);
         // echo $sql;
         // echo "<br>";   
         $sql1 = "INSERT INTO account_login (person_id,username,password,status) 
         VALUES('$person_id','$username','$password','$status')";
          
-        $db_query1 = mysqli_query($conn,$sql1);
+        //$db_query1 = mysqli_query($conn,$sql1);
            
             echo $sql;
-            echo $db_query;
+            //echo $db_query;
             echo $sql1;
-            echo $db_query1;
+            //echo $db_query1;
 		// if($db_query) 
         // {
         //     echo "<script>";
         //     echo "alert(\" สมัครสมาชิกเรียบร้อย\");"; 
         //     echo "</script>";
         //     echo "<meta http-equiv='refresh'content='0;url=http://localhost/project_student/app_backend/tb_user/tb_user.php'>";
-        // }
+        //}
         //}
 	?>
 </body>

@@ -121,14 +121,21 @@ else
                                             $query_tb_activity = mysqli_query($conn,$sql_tb_activity);
                                             while($row_tb_activity = mysqli_fetch_array($query_tb_activity,MYSQLI_ASSOC))
                                             {
-                                                $activity_id = $row_tb_activity['activity_id'];
+                                                $project_id = $row_tb_activity['project_id'];
                                                 $activity = $row_tb_activity['activity'];
+
+                                            $sql_tb_project ="SELECT * FROM tb_project WHERE project_id = '".$project_id."' ";
+                                            $query_tb_project = mysqli_query($conn,$sql_tb_project);
+                                            while($row_tb_project = mysqli_fetch_array($query_tb_project,MYSQLI_ASSOC))
+                                            {
+                                                $project_name = $row_tb_project['project_name'];
+                                            }
 
                                         ?>
                                         <tbody>
                                             <tr>
                                                 <td><?php echo $i;?></td>
-                                                <td><?php echo $activity_id; ?></td>
+                                                <td><?php echo $project_name; ?></td>
                                                 <td><?php echo $activity; ?></td>
                                                 <td><button type="button" class="btn btn-warning">แก้ไข</button></td>
                                                 <td><button type="button" class="btn btn-danger">ลบ</button></td>
