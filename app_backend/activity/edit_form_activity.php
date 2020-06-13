@@ -1,9 +1,8 @@
-
 <!-- <?php session_start();
-if($_SESSION['status'] == 'admin')
+if($_SESSION['position'] == 'admin')
 {
 }
-elseif($_SESSION['status'] == 'staff')
+elseif($_SESSION['position'] == 'staff')
 {
 }
 else
@@ -13,7 +12,7 @@ else
     echo "</script>";
     echo "<meta http-equiv='refresh' content='0;url=../../administrator/logout.php'>";
 }
-?>  -->
+?> -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,7 +24,7 @@ else
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
     <title>AdminWrap - Easy to Customize Bootstrap 4 Admin Template</title>
     <!-- Bootstrap Core CSS -->
     <link href="../assets/node_modules/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -66,86 +65,88 @@ else
                 <!-- ============================================================== -->
                 <div class="row page-titles">
                     <div class="col-md-5 align-self-center">
-                        <h3 class="text-themecolor">ข้อมูลกิจกรรม</h3>
+                        <h3 class="text-themecolor">เพิ่มกิจกรรม</h3>
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                            <li class="breadcrumb-item active">ข้อมูลกิจกรรม</li>
+                            <li class="breadcrumb-item active">เพิ่มกิจกรรม</li>
                         </ol>
                     </div>
                     <div class="col-md-7 align-self-center">
                         <a href="https://wrappixel.com/templates/adminwrap/" class="btn waves-effect waves-light btn btn-info pull-right hidden-sm-down"> Upgrade to Pro</a>
                     </div>
                 </div>
-                <!-- ============================================================== -->
-                <!-- End Bread crumb and right sidebar toggle -->
-                <!-- ============================================================== -->
-                <!-- ============================================================== -->
-                <!-- Start Page Content -->
-                <!-- ============================================================== -->
+
+                <script src="http://code.jquery.com/jquery-latest.js"></script>
+
+
                 <div class="row">
-                    <!-- column -->
-                    <div class="col-12">
 
+                    <div class="col-lg-12 col-xlg-9 col-md-7">
                         <div class="card">
+                            <!-- Tab panes -->
                             <div class="card-body">
-                                <h4 class="card-title">ข้อมูลกิจกรรม</h4>
-                                <!-- <h6 class="card-subtitle">Add class <code>.table</code></h6> -->
-<!--
-                                <div class="container">
-                                <div class="row">
-                                    <div class="col-md-1 offset-md-10">ssss</div>
-                                </div>
-                                </div> -->
+                            <?php
+                                        include '../../administrator/connect.php';
 
 
-                                <div class="text-right">
-                                    <a href="form_activity.php"><button type="button" class="btn btn-primary">เพิ่มกิจกรรม</button></a>
-                                </div>
-                                <div class="table-responsive">
-                                    <table class="table text-center">
-                                        <thead>
-                                        <tr>
-                                                <th class="text-center">ลำดับ</th>
-                                                <th class="text-center">รหัสกิจกรรม</th>
-                                                <th class="text-center">ชื่อกิจกรรม</th>
-                                                <th class="text-center">แก้ไข</th>
-                                                <th class="text-center">ลบ</th>
-                                            </tr>
-                                        </thead>
-                                        <?php
-                                            $i=1;
-                                            $i<="";
-
-                                            include '../../administrator/connect.php';
-                                            $sql_tb_activity ="SELECT * FROM tb_activity";
-                                            $query_tb_activity = mysqli_query($conn,$sql_tb_activity);
-                                            while($row_tb_activity = mysqli_fetch_array($query_tb_activity,MYSQLI_ASSOC))
-                                            {
-                                                $activity_id = $row_tb_activity['activity_id'];
-                                                $activity = $row_tb_activity['activity'];
-
-                                        ?>
-                                        <tbody>
-                                            <tr>
-                                                <td><?php echo $i;?></td>
-                                                <td><?php echo $activity_id; ?></td>
-                                                <td><?php echo $activity; ?></td>
-                                                <td><a href="edit_form_activity.php?id=<?php echo $row_tb_activity['id'];?>" class="btn btn-warning">แก้ไข</a></td>
-                                                <td><button type="button" class="btn btn-danger">ลบ</button></td>
-                                            </tr>
-                                            <?php
-                                                $i++;
-                                        }
-                                            ?>
+                                        $id = $_GET['id'];
+                                        // echo $id;
+                                        $sql_activity = "SELECT * FROM tb_activity WHERE id = '".$id."' ";
+                                        $query_activity = mysqli_query($conn,$sql_activity);
+                                        $result_activity = mysqli_fetch_array($query_activity);
 
 
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
+
+                            ?>
+                                <form class="form-horizontal form-material" action="edit_activity.php" name="form_user" method="post">
+
+<input type="hidden" name="id" value="<?php echo $id; ?>">
+
+<div class="row">
+  <div class="col-md-2">
+  <div class="form-group">
+  <label>รหัสกิจกรรม</label>
+<input type="text" name="activity_id" value="<?php echo $result_activity['activity_id']; ?>"  class="form-control form-control-line" readonly>
+  </div>
+  </div>
+
+  <div class="col-md-4">
+  <div class="form-group">
+  <label>ชื่อกิจกรรม</label>
+  <input type="text" name="activity" value="<?php echo $result_activity['activity']; ?>" class="form-control form-control-line">
+  </div>
+  </div>
+
+</div>
+
+<div class="row">
+<div class="col-md-3">
+</div>
+<div class="col-md-3">
+<div class="form-group">
+<button type="submit" class="btn btn-primary btn-block">บันทึก</button>
+    </div>
+</div>
+
+<div class="col-md-3">
+<div class="form-group">
+<button type="button" class="btn btn-danger btn-block">ยกเลิก</button>
+    </div>
+</div>
+
+</div>
+
+
+
+
+
+
+
                         </div>
                     </div>
+                    <!-- Column -->
                 </div>
+                <!-- Row -->
                 <!-- ============================================================== -->
                 <!-- End PAge Content -->
                 <!-- ============================================================== -->
@@ -185,9 +186,7 @@ else
     <script src="../js/sidebarmenu.js"></script>
     <!--Custom JavaScript -->
     <script src="../js/custom.min.js"></script>
-    <!-- jQuery peity -->
-    <script src="../assets/node_modules/peity/jquery.peity.min.js"></script>
-    <script src="../assets/node_modules/peity/jquery.peity.init.js"></script>
+
 </body>
 
 </html>
