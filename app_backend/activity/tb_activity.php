@@ -131,8 +131,6 @@ else
                                                 $project_id = $row_tb_project['project_id'];
                                                 $project_name = $row_tb_project['project_name'];
                                             }
-    
-
                                         ?>
                                         <tbody>
                                             <tr>

@@ -118,27 +118,25 @@ else
                                         <div class="col-md-4">
                                         <div class="form-group">
                                         <label>โครงการ</label>
-                                            <select class="form-control col-md-12" required name="project_id">
-                                                    <option>เลือกโครงการ</option>
-                                                    <?php 
-                                                        $sql ="SELECT * FROM tb_project ";
-                                                        $query = mysqli_query($conn,$sql);
-                                                        while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
-                                                        {
-                                                            $project_id = $row['project_id'];
-                                                            $project_name = $row['project_name'];
-
-                                                    ?>
-                                                    <option value="<?php echo $project_id;?>" ><?php echo $project_name;?></option>
-                                                    <?php }?>
+                                            <select name="project_id" id="project" class="form-control">
+                                                <option value="">เลือกโครงการ</option>
+                                                <?php
+                                                    $sql = "SELECT * FROM tb_project";
+                                                    $query = mysqli_query($conn, $sql);
+                                                    while($result = mysqli_fetch_assoc($query)):
+                                                ?>
+                                                    <option value="<?=$result['project_id']?>"><?=$result['project_name']?></option>
+                                                <?php endwhile; ?>
                                             </select>
                                         </div>
                                         </div>
 
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label>ชื่อกิจกรรม</label>
-                                                <input type="text" class="form-control form-control-line" name="active">
+                                                <label for="activity">ชื่อกิจกรรม</label>
+                                                    <select name="activity" id="activity" class="form-control">
+                                                        <option value="">ชื่อกิจกรรม</option>
+                                                    </select>
                                             </div>
                                         </div>
                                     </div>
@@ -245,6 +243,7 @@ else
     <script src="../js/sidebarmenu.js"></script>
     <!--Custom JavaScript -->
     <script src="../js/custom.min.js"></script>
+    <script src="../js/script.js"></script>
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {

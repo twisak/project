@@ -14,7 +14,8 @@
 		$principle = $_POST['principle'];
 		$budget = $_POST['budget'];
 
-		$sql_tb_project = "INSERT INTO tb_project(project_id,project_name,fiscal_year,budget_id,product_id,mission_id,strategic_id,principle,budget) VALUES ('".$project_id."','".$project_name."','".$fiscal_year."','".$budget_id."','".$product_id."','".$mission_id."','".$strategic_id."','".$principle."','".$budget."')";
+		$sql_tb_project = "INSERT INTO tb_project(project_id,project_name,fiscal_year,budget_id,product_id,mission_id,strategic_id,principle,budget) 
+        VALUES ('".$project_id."','".$project_name."','".$fiscal_year."','".$budget_id."','".$product_id."','".$mission_id."','".$strategic_id."','".$principle."','".$budget."')";
 
 		$query_tb_project = mysqli_query($conn,$sql_tb_project);
 

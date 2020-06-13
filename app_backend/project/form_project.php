@@ -1,8 +1,8 @@
 <?php session_start();
-if($_SESSION['position'] == 'admin')
+if($_SESSION['status'] == 'admin')
 {
 }
-elseif($_SESSION['position'] == 'staff')
+elseif($_SESSION['status'] == 'staff')
 {
 }
 else
@@ -54,7 +54,7 @@ else
     <!-- Main wrapper - style you can find in pages.scss -->
     <!-- ============================================================== -->
     <div id="main-wrapper">
-    <?php include '../mamu/manu_admin.php'; ?>
+        <?php include '../mamu/manu_admin.php'; ?>
         <div class="page-wrapper">
             <!-- ============================================================== -->
             <!-- Container fluid  -->
@@ -85,7 +85,7 @@ else
                         <div class="card">
                             <!-- Tab panes -->
                             <div class="card-body">
-                            <?php
+                                <?php
                                         include '../../administrator/connect.php';
                                         $sql = "Select Max(substr(project_id,3)+1) as MaxID from tb_project ";
                                         $query = mysqli_query($conn,$sql);
@@ -103,191 +103,207 @@ else
                                 <form class="form-horizontal form-material" action="insert_project.php" name="form_user" method="post">
 
 
-<div class="row">
-  <div class="col-md-2">
-  <div class="form-group">
-  <label>รหัสโครงการ</label>
-<input type="text" name="project_id" value="<?=$id?>" placeholder="" class="form-control form-control-line">
-  </div>
-  </div>
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label>รหัสโครงการ</label>
+                                                <input type="text" name="project_id" value="<?=$id?>" placeholder="" class="form-control form-control-line">
+                                            </div>
+                                        </div>
 
-  <div class="col-md-4">
-  <div class="form-group">
-  <label>ชื่อโครงการ</label>
-  <input type="text" name="project_name" placeholder="" class="form-control form-control-line">
-  </div>
-  </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>ชื่อโครงการ</label>
+                                                <input type="text" name="project_name" placeholder="" class="form-control form-control-line">
+                                            </div>
+                                        </div>
 
-  <div class="col-md-2">
-  <div class="form-group">
-  <label>ปีงบประมาณ</label>
-  <select class="form-control" name="fiscal_year" id="fiscal_year">
-  <?php
-  $xYear=date('Y'); // เก็บค่าปีปัจจุบันไว้ในตัวแปร
-          echo '<option value="'.$xYear.'">'.$xYear.'</option>'; // ปีปัจจุบัน
-  for($i=1;$i<=30;$i++){
-  echo '<option value="'.($xYear-$i).'">'.($xYear-$i).'</option>';
-    }
-  ?>
-  </select>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label>ปีงบประมาณ</label>
+                                                <select class="form-control" name="fiscal_year" id="fiscal_year">
+                                                    <?php
+                                                        $xYear=date('Y'); // เก็บค่าปีปัจจุบันไว้ในตัวแปร
+                                                                echo '<option value="'.$xYear.'">'.$xYear.'</option>'; // ปีปัจจุบัน
+                                                        for($i=1;$i<=30;$i++){
+                                                        echo '<option value="'.($xYear-$i).'">'.($xYear-$i).'</option>';
+                                                            }
+                                                    ?>
+                                                </select>
 
-  </div>
-  </div>
-</div>
+                                            </div>
+                                        </div>
+                                    </div>
 
-<div class="row">
+                                    <div class="row">
 
-  <?php
-  $sql_budget_type = "select * from tb_budget_type";
-  $query_budget_type = mysqli_query($conn,$sql_budget_type);
-  ?>
+                                        <?php
+                                            $sql_budget_type = "select * from tb_budget_type";
+                                            $query_budget_type = mysqli_query($conn,$sql_budget_type);
+                                        ?>
 
-  <div class="col-md-3">
-  <div class="form-group">
-  <label>ประเภทงบประมาณ</label>
-  <select class="form-control" name="budget_id">
-              <option value="">-- เลือกประเภทงบประมาณ --</option>
-      <?php
-      while($result_budget_type=mysqli_fetch_array($query_budget_type))
-      {
-      ?>
-           <option value='<?php echo $result_budget_type['budget_id'];?>'><?php echo $result_budget_type['budget_name'];?></option>
-      <?php
-      }
-       ?>
-              </select>
-  </div>
-  </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>ประเภทงบประมาณ</label>
+                                                <select class="form-control" name="budget_id">
+                                                    <option value="">-- เลือกประเภทงบประมาณ --</option>
+                                                    <?php
+                                                        while($result_budget_type=mysqli_fetch_array($query_budget_type))
+                                                        {
+                                                        ?>
+                                                    <option value='<?php echo $result_budget_type['budget_id'];?>'><?php echo $result_budget_type['budget_name'];?></option>
+                                                    <?php
+                                                        }
+                                                        ?>
+                                                </select>
+                                            </div>
+                                        </div>
 
 
-  <?php
-  $sql_product = "select * from tb_product";
-  $query_product = mysqli_query($conn,$sql_product);
-  ?>
+                                        <?php
+                                            $sql_product = "select * from tb_product";
+                                            $query_product = mysqli_query($conn,$sql_product);
+                                            ?>
 
-  <div class="col-md-3">
-  <div class="form-group">
-  <label>ผลผลิต</label>
-  <select class="form-control" name="product_id">
-              <option value="">-- เลือกผลผลิต --</option>
-      <?php
-      while($result_product=mysqli_fetch_array($query_product))
-      {
-      ?>
-           <option value='<?php echo $result_product['product_id'];?>'><?php echo $result_product['product_name'];?></option>
-      <?php
-      }
-       ?>
-              </select>
-  </div>
-  </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>ผลผลิต</label>
+                                                <select class="form-control" name="product_id">
+                                                    <option value="">-- เลือกผลผลิต --</option>
+                                                    <?php
+                                                        while($result_product=mysqli_fetch_array($query_product))
+                                                        {
+                                                        ?>
+                                                    <option value='<?php echo $result_product['product_id'];?>'><?php echo $result_product['product_name'];?></option>
+                                                    <?php
+                                                        }
+                                                        ?>
+                                                </select>
+                                            </div>
+                                        </div>
 
-  <?php
-  $sql_mission = "select * from tb_mission";
-  $query_mission = mysqli_query($conn,$sql_mission);
-  ?>
+                                        <?php
+                                            $sql_mission = "select * from tb_mission";
+                                            $query_mission = mysqli_query($conn,$sql_mission);
+                                            ?>
 
-  <div class="col-md-3">
-  <div class="form-group">
-  <label>พันธกิจ</label>
-  <select class="form-control" name="mission_id">
-              <option value="">-- เลือกพันธกิจ --</option>
-      <?php
-      while($result_mission=mysqli_fetch_array($query_mission))
-      {
-      ?>
-           <option value='<?php echo $result_mission['mission_id'];?>'><?php echo $result_mission['mission_name'];?></option>
-      <?php
-      }
-       ?>
-              </select>
-  </div>
-  </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>พันธกิจ</label>
+                                                <select class="form-control" name="mission_id">
+                                                    <option value="">-- เลือกพันธกิจ --</option>
+                                                    <?php
+                                                        while($result_mission=mysqli_fetch_array($query_mission))
+                                                        {
+                                                        ?>
+                                                    <option value='<?php echo $result_mission['mission_id'];?>'><?php echo $result_mission['mission_name'];?></option>
+                                                    <?php
+                                                        }
+                                                        ?>
+                                                </select>
+                                            </div>
+                                        </div>
 
-  <?php
-  $sql_strategic = "select * from tb_strategic";
-  $query_strategic = mysqli_query($conn,$sql_strategic);
-  ?>
+                                        <?php
+                                            $sql_strategic = "select * from tb_strategic";
+                                            $query_strategic = mysqli_query($conn,$sql_strategic);
+                                            ?>
 
-  <div class="col-md-3">
-  <div class="form-group">
-  <label>ยุทธศาสตร์</label>
-  <select class="form-control" name="strategic_id">
-              <option value="">-- เลือกยุทธศาสตร์ --</option>
-      <?php
-      while($result_strategic=mysqli_fetch_array($query_strategic))
-      {
-      ?>
-           <option value='<?php echo $result_strategic['strategic_id'];?>'><?php echo $result_strategic['strategic_name'];?></option>
-      <?php
-      }
-       ?>
-              </select>
-  </div>
-  </div>
-</div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>ยุทธศาสตร์</label>
+                                                <select class="form-control" name="strategic_id">
+                                                    <option value="">-- เลือกยุทธศาสตร์ --</option>
+                                                    <?php
+                                                        while($result_strategic=mysqli_fetch_array($query_strategic))
+                                                        {
+                                                        ?>
+                                                    <option value='<?php echo $result_strategic['strategic_id'];?>'><?php echo $result_strategic['strategic_name'];?></option>
+                                                    <?php
+                                                        }
+                                                        ?>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
 
-<div class="row">
-<div class="col-md-3">
-</div>
-<div class="col-md-3">
-<div class="form-group">
-<button type="submit" class="btn btn-primary btn-block">บันทึก</button>
-    </div>
-</div>
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label>หลักการและเหตุ</label>
+                                                <input type="text" name="principle" placeholder="" class="form-control form-control-line">
+                                            </div>
+                                        </div>
 
-<div class="col-md-3">
-<div class="form-group">
-<button type="button" class="btn btn-danger btn-block">ยกเลิก</button>
-    </div>
-</div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>งบประมาณ</label>
+                                                <input type="text" name="budget" placeholder="" class="form-control form-control-line">
+                                            </div>
+                                        </div>
+                                    </div>
 
-</div>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <button type="submit" class="btn btn-primary btn-block">บันทึก</button>
+                                            </div>
+                                        </div>
 
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <button type="button" class="btn btn-danger btn-block">ยกเลิก</button>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                            </div>
                         </div>
+                        <!-- Column -->
                     </div>
-                    <!-- Column -->
+                    <!-- Row -->
+                    <!-- ============================================================== -->
+                    <!-- End PAge Content -->
+                    <!-- ============================================================== -->
                 </div>
-                <!-- Row -->
                 <!-- ============================================================== -->
-                <!-- End PAge Content -->
+                <!-- End Container fluid  -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- footer -->
+                <!-- ============================================================== -->
+                <footer class="footer">
+                    © 2018 Adminwrap by wrappixel.com
+                </footer>
+                <!-- ============================================================== -->
+                <!-- End footer -->
                 <!-- ============================================================== -->
             </div>
             <!-- ============================================================== -->
-            <!-- End Container fluid  -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- footer -->
-            <!-- ============================================================== -->
-            <footer class="footer">
-                © 2018 Adminwrap by wrappixel.com
-            </footer>
-            <!-- ============================================================== -->
-            <!-- End footer -->
+            <!-- End Page wrapper  -->
             <!-- ============================================================== -->
         </div>
         <!-- ============================================================== -->
-        <!-- End Page wrapper  -->
+        <!-- End Wrapper -->
         <!-- ============================================================== -->
-    </div>
-    <!-- ============================================================== -->
-    <!-- End Wrapper -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- All Jquery -->
-    <!-- ============================================================== -->
-    <script src="../assets/node_modules/jquery/jquery.min.js"></script>
-    <!-- Bootstrap tether Core JavaScript -->
-    <script src="../assets/node_modules/bootstrap/js/popper.min.js"></script>
-    <script src="../assets/node_modules/bootstrap/js/bootstrap.min.js"></script>
-    <!-- slimscrollbar scrollbar JavaScript -->
-    <script src="../js/perfect-scrollbar.jquery.min.js"></script>
-    <!--Wave Effects -->
-    <script src="../js/waves.js"></script>
-    <!--Menu sidebar -->
-    <script src="../js/sidebarmenu.js"></script>
-    <!--Custom JavaScript -->
-    <script src="../js/custom.min.js"></script>
+        <!-- ============================================================== -->
+        <!-- All Jquery -->
+        <!-- ============================================================== -->
+        <script src="../assets/node_modules/jquery/jquery.min.js"></script>
+        <!-- Bootstrap tether Core JavaScript -->
+        <script src="../assets/node_modules/bootstrap/js/popper.min.js"></script>
+        <script src="../assets/node_modules/bootstrap/js/bootstrap.min.js"></script>
+        <!-- slimscrollbar scrollbar JavaScript -->
+        <script src="../js/perfect-scrollbar.jquery.min.js"></script>
+        <!--Wave Effects -->
+        <script src="../js/waves.js"></script>
+        <!--Menu sidebar -->
+        <script src="../js/sidebarmenu.js"></script>
+        <!--Custom JavaScript -->
+        <script src="../js/custom.min.js"></script>
 
 </body>
 
