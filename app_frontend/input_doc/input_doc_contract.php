@@ -62,7 +62,7 @@ else
                     </div>
                     <div class="col-md-7 align-self-center">
                         <a href="../input_doc/report_contract.php" class="btn waves-effect waves-light btn btn-info pull-right hidden-sm-down">
-                            <i class="fa-fw fa fa-print"></i> 
+                            <i class="fa-fw fa fa-print"></i>
                             ส่งออกแบบฟอร์ม
                         </a>
                     </div>
@@ -91,138 +91,114 @@ else
                         <div class="card">
                             <!-- Tab panes -->
                             <div class="card-body">
-                                <form class="form-horizontal form-material">
-
-<div class="row">
-<div class="col-md-2">
-<div class="form-group">
-<label>รหัสเอกสารจ้างเหมาบริการ</label>
-<input type="text"  class="form-control form-control-line" name="Con_id">
-</div>
-</div>
-
-<div class="col-md-2">
-<div class="form-group">
-<label>รหัสบุคลากร</label>
-<input type="text" class="form-control form-control-line" name="person_id">
-</div>
-</div>
-
-<div class="col-md-2">
-<div class="form-group">
-<label>รหัสตำแหน่ง</label>
-<input type="text" class="form-control form-control-line" name="prosition_id">
-</div>
-</div>
-
-
-</div>
-
-
-
-<div class="row">
-
-<div class="col-md-4">
-<div class="form-group">
-<label>ชื่อโครงการ</label>
-<input type="text" class="form-control form-control-line" name="project_name">
-    </div>
-</div>
-
-<div class="col-md-4">
-<div class="form-group">
-<label>ชื่อกิจกรรม</label>
-<input type="text" class="form-control form-control-line" name="active">
-    </div>
-</div>
-</div>
-
-<div class="row">
-
-<div class="col-md-2">
-<div class="form-group">
-<label>เริ่มต้นวันที่</label>
-<input type="date"  class="form-control form-control-line" name="str-date">
-    </div>
-</div>
-
-<div class="col-md-2">
-<div class="form-group">
-<label>สิ้นสุดวันที่</label>
-<input type="date" class="form-control form-control-line" name="stp-date">
-    </div>
-</div>
-
-</div>
-   
-
-   
-<div class="row">
-<div class="col-md-3">  
-</div>
-<div class="col-md-3">  
-<div class="form-group">
-<button type="button" class="btn btn-primary btn-block">บันทึก</button>
-    </div>
-</div>
-
-<div class="col-md-3">  
-<div class="form-group">
-<button type="button" class="btn btn-danger btn-block">ยกเลิก</button>
-    </div>
-</div>
-
-</div>
- 
-<!-- 
-                                    <div class="form-group">
-                                        <label class="col-md-2">Full Name</label>
+                                <form class="form-horizontal form-material" action="INSERT_contract.php" method="post">
+                                    <div class="row">
                                         <div class="col-md-2">
-                                            <input type="text" placeholder="Johnathan Doe" class="form-control form-control-line">
+                                            <div class="form-group">
+                                                <label>รหัสเอกสารจ้างเหมาบริการ</label>
+                                                <input type="text" class="form-control form-control-line" name="doc_id">
+                                            </div>
                                         </div>
-                                        
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="example-email" class="col-md-2">Email</label>
-                                        <div class="col-md-2">
-                                            <input type="email" placeholder="johnathan@admin.com" class="form-control form-control-line" name="example-email" id="example-email">
+
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>รหัสบุคลากร</label>
+                                                <input type="text" class="form-control form-control-line" name="person_id">
+                                            </div>
                                         </div>
+
+                                        <!-- <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label>รหัสตำแหน่ง</label>
+                                                <input type="text" class="form-control form-control-line" name="prosition_id">
+                                            </div>
+                                        </div> -->
                                     </div>
-                                    <div class="form-group">
-                                        <label class="col-md-12">Password</label>
-                                        <div class="col-md-12">
-                                            <input type="password" value="password" class="form-control form-control-line">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-12">Phone No</label>
-                                        <div class="col-md-12">
-                                            <input type="text" placeholder="123 456 7890" class="form-control form-control-line">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-12">Message</label>
-                                        <div class="col-md-12">
-                                            <textarea rows="5" class="form-control form-control-line"></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-sm-12">Select Country</label>
-                                        <div class="col-sm-12">
-                                            <select class="form-control form-control-line">
-                                                <option>London</option>
-                                                <option>India</option>
-                                                <option>Usa</option>
-                                                <option>Canada</option>
-                                                <option>Thailand</option>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                        <div class="form-group">
+                                        <label>โครงการ</label>
+                                            <select class="form-control col-md-12" required name="project_id">
+                                                    <option>เลือกโครงการ</option>
+                                                    <?php 
+                                                        $sql ="SELECT * FROM tb_project ";
+                                                        $query = mysqli_query($conn,$sql);
+                                                        while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
+                                                        {
+                                                            $project_id = $row['project_id'];
+                                                            $project_name = $row['project_name'];
+
+                                                    ?>
+                                                    <option value="<?php echo $project_id;?>" ><?php echo $project_name;?></option>
+                                                    <?php }?>
                                             </select>
                                         </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="col-sm-12">
-                                            <button class="btn btn-success">Update Profile</button>
                                         </div>
-                                    </div> -->
+
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>ชื่อกิจกรรม</label>
+                                                <input type="text" class="form-control form-control-line" name="active">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <div class="form-group">
+                                                <div class="col-md-7">
+                                                    <div class="form-group">
+                                                        <button type="button" class="btn btn-info" id="createRows" value="Add">เพิ่มกิจกรรม</button>
+                                                        &nbsp;&nbsp;<button type="button" class="btn btn-warning" id="deleteRows" value="Del">ลบกิจกรรม</button>
+                                                        &nbsp;&nbsp;<button type="button" class="btn btn-danger" id="clearRows" value="Clear">ลบทั้งหมด</button>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <table width="100%" border="0" id="myTable">
+                                                <thead>
+                                                </thead>
+                                                <tbody></tbody>
+                                            </table>
+                                            <br />
+                                            <center>
+                                                <br>
+                                                <input type="hidden" id="hdnCount" name="hdnCount">
+                                            </center>
+
+                                            <div class="row">
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label>เริ่มต้นวันที่</label>
+                                                        <input type="date" class="form-control form-control-line" name="str-date">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label>สิ้นสุดวันที่</label>
+                                                        <input type="date" class="form-control form-control-line" name="stp-date">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <input type="submit" name="submit" value="บันทึก" class="btn btn-primary btn-block"/>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <button type="button" class="btn btn-danger btn-block">ยกเลิก</button>
+                                                    </div>
+                                                </div>
+                                            </div>
                                 </form>
                             </div>
                         </div>
@@ -269,6 +245,37 @@ else
     <script src="../js/sidebarmenu.js"></script>
     <!--Custom JavaScript -->
     <script src="../js/custom.min.js"></script>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            var rows = 1;
+            $("#createRows").click(function () {
+
+
+                var tr = "<tr>";
+                tr = tr + "<td><div class='row'><div class='col-md-4'><div class='form-group'><label>หัวข้อกิจกรรม</label><input type='text' class='form-control p_input' name='foreword" + rows + "'></div></div></td>";
+                tr = tr + "</tr>";
+                $('#myTable > tbody:last').append(tr);
+
+                $('#hdnCount').val(rows);
+                rows = rows + 1;
+            });
+
+            $("#deleteRows").click(function () {
+                if ($("#myTable tr").length != 1) {
+                    $("#myTable tr:last").remove();
+                }
+            });
+
+            $("#clearRows").click(function () {
+                rows = 1;
+                $('#hdnCount').val(rows);
+                $('#myTable > tbody:last').empty(); // remove all
+            });
+
+        });
+    </script>
 </body>
 
 </html>
