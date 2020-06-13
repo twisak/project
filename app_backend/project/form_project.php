@@ -244,12 +244,6 @@ else
 
 </div>
 
-
-
-
-
-
-
                         </div>
                     </div>
                     <!-- Column -->

@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 12, 2020 at 07:51 PM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.6
+-- Generation Time: Jun 13, 2020 at 07:02 PM
+-- Server version: 10.3.16-MariaDB
+-- PHP Version: 7.2.20
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -40,9 +41,10 @@ CREATE TABLE `account_login` (
 --
 
 INSERT INTO `account_login` (`id`, `person_id`, `username`, `password`, `status`) VALUES
-(1, 'PS001', '594407088', '123456', 'staff'),
-(2, 'PS002', '594407058', '123456', 'admin'),
-(14, 'PS003', 'ma', '123', 'staff');
+(1, '', '594407088', '123456', 'staff'),
+(2, '', '594407058', '123456', 'admin'),
+(23, 'PS001', 'admin', '123', 'staff'),
+(24, 'PS001', 'admin', '333', '');
 
 -- --------------------------------------------------------
 
@@ -10082,7 +10084,8 @@ INSERT INTO `tb_activity` (`id`, `project_id`, `activity`) VALUES
 (11, 'P005', 'DD'),
 (12, 'P006', 'FF'),
 (13, 'P007', 'แจกโตโต้'),
-(14, 'P007', 'แจกพัดลม');
+(14, 'P007', 'แจกพัดลม'),
+(16, 'P003', 'บ้าาา');
 
 -- --------------------------------------------------------
 
@@ -10135,18 +10138,12 @@ INSERT INTO `tb_contract` (`id`, `doc_id`, `str_date`, `stp_date`, `project_id`,
 CREATE TABLE `tb_debt` (
   `id` int(11) NOT NULL COMMENT 'ออโต้ไอดี',
   `doc_id` int(11) DEFAULT NULL COMMENT 'รหัสเอกสารล้างหนี้	',
+  `foreword` varchar(200) NOT NULL COMMENT 'คำนำ',
   `str_date` date DEFAULT NULL COMMENT 'วันที่เริ่มต้น',
   `stp_date` date DEFAULT NULL COMMENT 'วันที่สิ้นสุด',
   `project_id` varchar(20) DEFAULT NULL COMMENT 'รหัสโครงการ',
   `person_id` varchar(20) DEFAULT NULL COMMENT 'รหัสบุคลากร'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `tb_debt`
---
-
-INSERT INTO `tb_debt` (`id`, `doc_id`, `str_date`, `stp_date`, `project_id`, `person_id`) VALUES
-(1, 1456, '2020-06-17', '2020-06-20', '2', '594407058');
 
 -- --------------------------------------------------------
 
@@ -10241,7 +10238,8 @@ CREATE TABLE `tb_person` (
 --
 
 INSERT INTO `tb_person` (`id`, `person_id`, `prefix`, `firtname`, `lastname`, `idcard`, `position_id`, `house_num`, `road`, `village`, `alley`, `provincen_id`, `districts_id`, `amphures_id`) VALUES
-(12, '594407058', 'ศาสตราจารย์', 'มามะ', 'การี', '1234567891234', 'PS001', NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+(16, 'PS001', 'ศาสตราจารย์', 'มามะ', 'การี', '1234567891234', NULL, '2', NULL, NULL, NULL, '26', '1018', '10300'),
+(17, 'PS001', 'ศาสตราจารย์', 'asdasd', 'การี', '1234567891234', NULL, '2', NULL, NULL, NULL, '', '', '');
 
 -- --------------------------------------------------------
 
@@ -10306,7 +10304,9 @@ INSERT INTO `tb_project` (`id`, `project_id`, `project_name`, `fiscal_year`, `bu
 (12, 'P005', 'AA', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (13, 'P006', 'AA', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (14, 'P007', 'แข่งนกกรงหัวจุก', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(15, 'P008', 'พัฒนาโรงเรียน', '2018', 'B2', 'P1', 'M2', 'S1', 'ไม่มี', '2000');
+(15, 'P008', 'พัฒนาโรงเรียน', '2018', 'B2', 'P1', 'M2', 'S1', 'ไม่มี', '2000'),
+(16, 'P005', 'การบ้าน', '2020', '', '', '', '', 'ddd', 'fff'),
+(17, 'P009', 'การบ้าน', '2018', 'B1', 'P1', 'M1', 'S2', 'ddd', '2000');
 
 -- --------------------------------------------------------
 
@@ -10493,7 +10493,7 @@ ALTER TABLE `tb_strategic`
 -- AUTO_INCREMENT for table `account_login`
 --
 ALTER TABLE `account_login`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้ไอดี', AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้ไอดี', AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `amphures`
@@ -10517,7 +10517,7 @@ ALTER TABLE `provinces`
 -- AUTO_INCREMENT for table `tb_activity`
 --
 ALTER TABLE `tb_activity`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้', AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้', AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `tb_budget_type`
@@ -10559,7 +10559,7 @@ ALTER TABLE `tb_note`
 -- AUTO_INCREMENT for table `tb_person`
 --
 ALTER TABLE `tb_person`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้', AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้', AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `tb_position`
@@ -10577,7 +10577,7 @@ ALTER TABLE `tb_product`
 -- AUTO_INCREMENT for table `tb_project`
 --
 ALTER TABLE `tb_project`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้ไอดี', AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้ไอดี', AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `tb_salary`
