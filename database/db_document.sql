@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 13, 2020 at 07:02 PM
+-- Generation Time: Jun 14, 2020 at 01:36 PM
 -- Server version: 10.3.16-MariaDB
 -- PHP Version: 7.2.20
 
@@ -43,8 +43,7 @@ CREATE TABLE `account_login` (
 INSERT INTO `account_login` (`id`, `person_id`, `username`, `password`, `status`) VALUES
 (1, '', '594407088', '123456', 'staff'),
 (2, '', '594407058', '123456', 'admin'),
-(23, 'PS001', 'admin', '123', 'staff'),
-(24, 'PS001', 'admin', '333', '');
+(23, 'PS001', 'admin', '123', 'staff');
 
 -- --------------------------------------------------------
 
@@ -10070,7 +10069,7 @@ INSERT INTO `provinces` (`id`, `code`, `name_th`, `name_en`, `geography_id`) VAL
 CREATE TABLE `tb_activity` (
   `id` int(11) NOT NULL COMMENT 'ออโต้',
   `project_id` varchar(20) NOT NULL COMMENT 'รหัสโครงการ',
-  `activity` varchar(100) NOT NULL COMMENT 'ชื่อกิจกรรม'
+  `activity` varchar(500) NOT NULL COMMENT 'ชื่อกิจกรรม'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -10078,14 +10077,21 @@ CREATE TABLE `tb_activity` (
 --
 
 INSERT INTO `tb_activity` (`id`, `project_id`, `activity`) VALUES
-(7, 'P004', 'DDD'),
-(8, 'P004', 'FFF'),
-(10, 'P005', 'SS'),
-(11, 'P005', 'DD'),
-(12, 'P006', 'FF'),
-(13, 'P007', 'แจกโตโต้'),
-(14, 'P007', 'แจกพัดลม'),
-(16, 'P003', 'บ้าาา');
+(20, 'P001', 'พัฒนาศักยภาพครู ผู้บริหารและสถานศึกษาในพื้นที่เสริมสร้างความมั่นคง(สีแสด) พื้นที่เร่งรัดพัฒนา (สีเหลือง) ในการจัดการเรียนรู้ที่ส่งเสริมความสามารถด้านการอ่านออกเขียนได้ ทักษะการรู้หนังสือ ด้วยการ Coaching Mentoring'),
+(21, 'P001', 'พัฒนาสถานศึกษาต้นแบบพหุภาษา ศึกษา:พัฒนาศักยภาพครู นักเรียนครูและสถานศึกษาในการจัดการเรียนรู้แบบพหุภาษาศึกษา (Multilingual Education) เพื่อให้สามารถจัดการเรียนรู้แก้ปัญหาการอ่านออกเขียนได้'),
+(22, 'P001', 'พัฒนาศักยภาพครูและบุคลากรทางการศึกษาด้านการศึกษาและพัฒนาเด็กที่มีความต้องการพิเศษในพื้นที่ชายแดนใต้'),
+(23, 'P001', 'พัฒนาครูสอนไม่ตรงสายจากสถานศึกษาในพื้นที่ชายแดนใต้'),
+(24, 'P002', 'พัฒนาศักยภาพครูและผู้ดูแลเด็กในระดับการศึกษาปฐมวัยในพื้นที่ชายแดนใต้ ในการจัดการการเรียนรู้เพื่อพัฒนาผู้เรียนให้มีทักษะในศตวรรษที่21'),
+(25, 'P001', 'พัฒนาศักยภาพผู้เรียนและครูในพื้นที่ชายแดนใต้โดยใช้แหล่งเรียนรู้ภายในมหาวิทยาลัยราชภัฏยะลา'),
+(26, 'P002', 'พัฒนาหน่วยให้บริการและให้คำปรึกษาสำหรับครูและบุคลากรทางการศึกษาในพื้นที่ชายแดนใต้'),
+(27, 'P002', 'พัฒนาสถานศึกษาให้เป็นแหล่งเรียนรู้เพื่อการส่งเสริมความสามารถด้านภาษาสำหรับเด็กในชุมชนในพื้นที่ชายแดนใต้'),
+(28, 'P003', 'พัฒนาศักยภาพนักศึกษาสายครุศาสตร์บัณฑิตนอกเวลาเรียน (Extra time) โดยใช้หอพักเป็นฐาน'),
+(29, 'P003', 'พัฒนาระบบข้อมูลการศึกษาชายแดนใต้ เพื่อการให้บริการทางการศึกษา'),
+(30, 'P003', 'พัฒนาศักยภาพครูในการวิเคราะห์โจทย์กาีทดสอบทางการศึกษาระดับชาติขั้นพื้นฐาน เพื่อการพัฒนาการจัดการเรียนรู้สำหรับผู้เรียนในพื้นที่ชายแดนใต้'),
+(31, 'P003', 'ผลิตบัณฑิตและบุคลากรเฉพาะสาขาที่ขาดแคลนและสาขาที่สร้างความเข้มแข็งของชุมชน'),
+(32, 'P004', 'สนับสนุนทุนแก่นักศึกษาสายครุศาสตร์'),
+(34, 'P004', 'พัฒนาสถานศึกษาให้เป็นแหล่งเรียนรู้ด้านพฤกษศาสตร์ในพื้นที่ความหลากหลายทางชีวภาพสามจังหวัดชายแดนใต้'),
+(35, 'P004', 'พัฒนาเครือข่ายครูนักสร้างแรงบันดาลใจในสถาบันผลิตครู มหาวิทยาลัยราชภัฏยะลา');
 
 -- --------------------------------------------------------
 
@@ -10104,8 +10110,7 @@ CREATE TABLE `tb_budget_type` (
 --
 
 INSERT INTO `tb_budget_type` (`id`, `budget_id`, `budget_name`) VALUES
-(1, 'B1', 'ชื่องบประมาณ1'),
-(2, 'B2', 'ชื่องบประมาณ2');
+(1, 'B1', 'งบประมาณแผ่นดิน');
 
 -- --------------------------------------------------------
 
@@ -10115,7 +10120,8 @@ INSERT INTO `tb_budget_type` (`id`, `budget_id`, `budget_name`) VALUES
 
 CREATE TABLE `tb_contract` (
   `id` int(11) NOT NULL COMMENT 'ออโต้ไอดี',
-  `doc_id` int(11) DEFAULT NULL COMMENT 'รหัสเอกสารจ้างเหมาบริการ	',
+  `doc_id` varchar(11) DEFAULT NULL COMMENT 'รหัสเอกสารจ้างเหมาบริการ	',
+  `foreword` varchar(300) NOT NULL COMMENT 'คำนำ',
   `str_date` date DEFAULT NULL COMMENT 'วันที่เริ่มต้น',
   `stp_date` date DEFAULT NULL COMMENT 'วันที่สิ้นสุด',
   `project_id` varchar(20) DEFAULT NULL COMMENT 'รหัสโครงการ',
@@ -10126,8 +10132,12 @@ CREATE TABLE `tb_contract` (
 -- Dumping data for table `tb_contract`
 --
 
-INSERT INTO `tb_contract` (`id`, `doc_id`, `str_date`, `stp_date`, `project_id`, `person_id`) VALUES
-(1, 1111, '0000-00-00', '0000-00-00', '2', '594407058');
+INSERT INTO `tb_contract` (`id`, `doc_id`, `foreword`, `str_date`, `stp_date`, `project_id`, `person_id`) VALUES
+(12, 'D001', '3256', '2020-06-14', '2020-06-16', 'P001', 'PS001'),
+(13, 'D001', '6666', '2020-06-14', '2020-06-16', 'P001', 'PS001'),
+(14, 'D001', '7899', '2020-06-14', '2020-06-16', 'P001', 'PS001'),
+(15, 'D002', ' พจนานุกรมข้อมูล (Data Dictionary) เป็นแผนภาพที่ใช้แสดงรายละเอียดต่าง ๆ ของข้อมูลที่ใช้งานในระบบการจัดการเอกสารสำหรับสถาบันพัฒนาครูและบุคลากรทางการศึกษาชายแดนใต้ ซึ่งประกอบด้วย ชื่อฟิลด์, คีย์, คำอธิบาย,ชนิดข้อมูล, ขนาดข้อมูล, หมายเหตุ ดังต่อไปนี้', '2020-06-17', '2020-06-20', 'P001', 'PS001'),
+(16, 'D002', ' แผนภาพกระแสข้อมูลระดับที่ 4 ของกระบวนการที่ 1', '2020-06-17', '2020-06-20', 'P001', 'PS001');
 
 -- --------------------------------------------------------
 
@@ -10138,7 +10148,6 @@ INSERT INTO `tb_contract` (`id`, `doc_id`, `str_date`, `stp_date`, `project_id`,
 CREATE TABLE `tb_debt` (
   `id` int(11) NOT NULL COMMENT 'ออโต้ไอดี',
   `doc_id` int(11) DEFAULT NULL COMMENT 'รหัสเอกสารล้างหนี้	',
-  `foreword` varchar(200) NOT NULL COMMENT 'คำนำ',
   `str_date` date DEFAULT NULL COMMENT 'วันที่เริ่มต้น',
   `stp_date` date DEFAULT NULL COMMENT 'วันที่สิ้นสุด',
   `project_id` varchar(20) DEFAULT NULL COMMENT 'รหัสโครงการ',
@@ -10187,8 +10196,7 @@ CREATE TABLE `tb_mission` (
 --
 
 INSERT INTO `tb_mission` (`id`, `mission_id`, `mission_name`) VALUES
-(1, 'M1', 'พันธกิจ1'),
-(2, 'M2', 'พันธกิจ2');
+(1, 'M1', 'ผลิตบัณฑิตให้เป็นนักปฎิบัติ');
 
 -- --------------------------------------------------------
 
@@ -10270,8 +10278,7 @@ CREATE TABLE `tb_product` (
 --
 
 INSERT INTO `tb_product` (`id`, `product_id`, `product_name`) VALUES
-(1, 'P1', 'ผลผลิต1'),
-(2, 'P2', 'ผลผลิต2');
+(1, 'P1', 'ค่าใช้จ่ายบุคลากรภาครัฐ');
 
 -- --------------------------------------------------------
 
@@ -10297,16 +10304,10 @@ CREATE TABLE `tb_project` (
 --
 
 INSERT INTO `tb_project` (`id`, `project_id`, `project_name`, `fiscal_year`, `budget_id`, `product_id`, `mission_id`, `strategic_id`, `principle`, `budget`) VALUES
-(1, '001', 'โครงการขายเสื้อ', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(2, '002', 'เสื้อนอตเฟสแท้', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(3, 'P003', 'โครงการบริจาค', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(10, 'P004', 'AAA', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(12, 'P005', 'AA', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(13, 'P006', 'AA', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(14, 'P007', 'แข่งนกกรงหัวจุก', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(15, 'P008', 'พัฒนาโรงเรียน', '2018', 'B2', 'P1', 'M2', 'S1', 'ไม่มี', '2000'),
-(16, 'P005', 'การบ้าน', '2020', '', '', '', '', 'ddd', 'fff'),
-(17, 'P009', 'การบ้าน', '2018', 'B1', 'P1', 'M1', 'S2', 'ddd', '2000');
+(20, 'P001', 'โครงการพัฒนาครูและบุคลากรทางการศึกษาเพื่อลดความเหลื่อมล้ำจากผลกระทบเหตุการณ์ความไม่สงบในพื้นทีชายแดนใต้', '2020', 'B1', 'P1', 'M1', 'S1', 'เพื่อผลประโยชน์ของมหาวิยทลัย', '2000'),
+(21, 'P002', 'โครงการ ยกระดับคุณภาพการเรียนรู้ด้านการอ่าน การเขียนและการคิดวิเคราะห์ของนักเรียนในระดับการศึกษาขั้นพื้นฐานในพื้นที่ชายแดนใต้', '2020', 'B1', 'P1', 'M1', 'S1', 'เพื่อผลประโยชน์ของมหาวิยทลัย', '3000'),
+(22, 'P003', 'โครงการส่งเสริมและเผยแพร่ความจริงที่ถูกต้องเพื่อสนับสนุนการแก้ไขปัญหา', '2020', 'B1', 'P1', 'M1', 'S1', 'เพื่อผลประโยชน์ของมหาวิยทลัย', '1000'),
+(23, 'P004', 'โครงการจัดตั้งสถาบันพัฒนาครูและบุคลากรทางการศึกษาชายแดนใต้ มหาวิทยาลัยราชภัฏยะลา', '2020', 'B1', 'P1', 'M1', 'S1', 'เพื่อผลประโยชน์ของมหาวิยทลัย', '4000');
 
 -- --------------------------------------------------------
 
@@ -10364,8 +10365,7 @@ CREATE TABLE `tb_strategic` (
 --
 
 INSERT INTO `tb_strategic` (`id`, `strategic_id`, `strategic_name`) VALUES
-(1, 'S1', 'ยุทศาสตร์1'),
-(2, 'S2', 'ยุทศาสตร์2');
+(1, 'S1', 'ยกระดับคุณภาพมาตรฐานการผลิตบัณฑิต');
 
 --
 -- Indexes for dumped tables
@@ -10517,7 +10517,7 @@ ALTER TABLE `provinces`
 -- AUTO_INCREMENT for table `tb_activity`
 --
 ALTER TABLE `tb_activity`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้', AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้', AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT for table `tb_budget_type`
@@ -10529,7 +10529,7 @@ ALTER TABLE `tb_budget_type`
 -- AUTO_INCREMENT for table `tb_contract`
 --
 ALTER TABLE `tb_contract`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้ไอดี', AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้ไอดี', AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `tb_debt`
@@ -10577,7 +10577,7 @@ ALTER TABLE `tb_product`
 -- AUTO_INCREMENT for table `tb_project`
 --
 ALTER TABLE `tb_project`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้ไอดี', AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้ไอดี', AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `tb_salary`
