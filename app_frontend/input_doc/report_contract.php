@@ -43,27 +43,43 @@ else
 <?php
 
      include '../../administrator/connect.php';
-    //  $sql ="SELECT * FROM tb_person";
-    //  $query = mysqli_query($conn,$sql);
-    //  while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
-    //     {
-    //         $prefix = $row['prefix'];
-    //         $firtname = $row['firtname'];
-    //         $lastname = $row['lastname'];
-    //         $idcard = $row['idcard'];
-    //         $address = $row['address'];
-    //         $position_id = $row['position_id'];
-    //     }
+     $doc_id =$_GET['id'];
+     $sql ="SELECT * FROM tb_contract WHERE doc_id = '".$doc_id."'";
+     $query = mysqli_query($conn,$sql);
+     while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
+     {
+         $doc_id = $row['doc_id'];
+         $foreword = $row['foreword'];
+         $str_date = $row['str_date'];
+         $stp_date = $row['stp_date'];
+         $project_id = $row['project_id'];
+         $person_id = $row['person_id'];
+     }
 
-    //     $sql1 ="SELECT * FROM account_login WHERE position_id = '".$position_id."' ";
-    //     $query1 = mysqli_query($conn,$sql1);
-    //     while($row1 = mysqli_fetch_array($query1,MYSQLI_ASSOC))
-    //     {
-    //         $position_id = $row1['position_id'];
-    //         $username = $row1['username'];
-    //         $password = $row1['password'];
-    //         $position = $row1['position'];
-    //     }
+     $sql1 ="SELECT * FROM tb_project WHERE project_id = '".$project_id."' ";
+     $query1 = mysqli_query($conn,$sql1);
+     while($row1 = mysqli_fetch_array($query1,MYSQLI_ASSOC))
+     {
+         $project_name = $row1['project_name'];
+         $project_id = $row1['project_id'];
+     }
+
+     $sql3 ="SELECT * FROM tb_activity WHERE project_id = '".$project_id."' ";
+     $query3 = mysqli_query($conn,$sql3);
+     while($row3 = mysqli_fetch_array($query3,MYSQLI_ASSOC))
+     {
+         $activity = $row3['activity'];
+     }
+
+     $sql2 ="SELECT * FROM tb_person WHERE person_id = '".$person_id."' ";
+     $query2 = mysqli_query($conn,$sql2);
+     while($row2 = mysqli_fetch_array($query2,MYSQLI_ASSOC))
+     {
+         $prefix = $row2['prefix'];
+         $firtname = $row2['firtname'];
+         $lastname = $row2['lastname'];
+         //$prefix = $row2['prefix'];
+     }
 ?>
 <body id="<?php //echo $body['name'];?>">
     <div class="page">
@@ -87,7 +103,7 @@ else
             </tr>
             <tr>
                 <td colspan="3" class="statement-header" align="center">
-                    ชื่อ นายอาฟฟาน สาและ <br>
+                    ชื่อ <?php echo $prefix?><?php echo $firtname?>&nbsp;&nbsp;<?php echo $lastname?> <br>
                 </td>
             </tr>
             <tr>
@@ -105,21 +121,23 @@ else
   <td>
     <br>
     <table border="1" align="center" width="100%" class="statement-view text-gray-900">
+    <?php 
+        $i=1;
+        $i<="";
+
+        $sql ="SELECT * FROM tb_contract WHERE doc_id = '".$doc_id."' ";
+        $query = mysqli_query($conn,$sql);
+        while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
+            {
+                $foreword = $row['foreword'];
+                                                    
+    ?>
     <tr>
         <td colspan="3"  align="left">
-            &nbsp;&nbsp;๑. ประจำเดือน พฤศจิกายน ๒๕๖๒ <br>
+            &nbsp;&nbsp;<?php echo $i;?>.<?php echo $foreword?> <br>
         </td>
     </tr>
-    <tr>
-        <td colspan="3"  align="left">
-            &nbsp;&nbsp;๒. ประจำเดือน พฤศจิกายน ๒๕๖๒ <br>
-        </td>
-    </tr>
-    <tr>
-        <td colspan="3"  align="left">
-            &nbsp;&nbsp;๓. ประจำเดือน พฤศจิกายน ๒๕๖๒ <br>
-        </td>
-    </tr>
+    <?php $i++; }?>
     </table><br>
   </td>
 </tr>

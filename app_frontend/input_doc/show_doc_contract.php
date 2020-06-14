@@ -72,6 +72,54 @@ include '../../administrator/connect.php';
     </div>
     <?php include '../menu/menu_admin.php'; ?>
     <div id="main-wrapper">
+                                    <?php 
+                                        include '../../administrator/connect.php';
+                                        // $username= $_SESSION['username'];
+                                        // $sql ="SELECT * FROM account_login WHERE username = '".$username."' ";
+                                        // $query = mysqli_query($conn,$sql);
+                                        // while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
+                                        // {
+                                        //     $person_id = $row['person_id'];
+                                        // }
+
+                                        $doc_id =$_GET['id'];
+                                        $sql ="SELECT * FROM tb_contract WHERE doc_id = '".$doc_id."'";
+                                        $query = mysqli_query($conn,$sql);
+                                        while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
+                                        {
+                                            $doc_id = $row['doc_id'];
+                                            $foreword = $row['foreword'];
+                                            $str_date = $row['str_date'];
+                                            $stp_date = $row['stp_date'];
+                                            $project_id = $row['project_id'];
+                                            $person_id = $row['person_id'];
+                                        }
+
+                                        $sql1 ="SELECT * FROM tb_project WHERE project_id = '".$project_id."' ";
+                                        $query1 = mysqli_query($conn,$sql1);
+                                        while($row1 = mysqli_fetch_array($query1,MYSQLI_ASSOC))
+                                        {
+                                            $project_name = $row1['project_name'];
+                                            $project_id = $row1['project_id'];
+                                        }
+
+                                        $sql3 ="SELECT * FROM tb_activity WHERE project_id = '".$project_id."' ";
+                                        $query3 = mysqli_query($conn,$sql3);
+                                        while($row3 = mysqli_fetch_array($query3,MYSQLI_ASSOC))
+                                        {
+                                            $activity = $row3['activity'];
+                                        }
+
+                                        $sql2 ="SELECT * FROM tb_person WHERE person_id = '".$person_id."' ";
+                                        $query2 = mysqli_query($conn,$sql2);
+                                        while($row2 = mysqli_fetch_array($query2,MYSQLI_ASSOC))
+                                        {
+                                            $prefix = $row2['prefix'];
+                                            $firtname = $row2['firtname'];
+                                            $lastname = $row2['lastname'];
+                                            //$prefix = $row2['prefix'];
+                                        }
+                                    ?>
         <div class="page-wrapper">
             <div class="container-fluid">
                 <div class="row page-titles">
@@ -83,7 +131,7 @@ include '../../administrator/connect.php';
                         </ol>
                     </div>
                     <div class="col-md-7 align-self-center">
-                        <a href="../input_doc/report_contract.php" class="btn waves-effect waves-light btn btn-info pull-right hidden-sm-down">
+                        <a href="report_contract.php?id=<?php echo $doc_id;?>" class="btn waves-effect waves-light btn btn-info pull-right hidden-sm-down">
                             <i class="fa-fw fa fa-print"></i>
                             ส่งออกแบบฟอร์ม
                         </a>
@@ -94,103 +142,70 @@ include '../../administrator/connect.php';
                         <div class="card">
                             <!-- Tab panes -->
                             <div class="card-body">
-                                <form class="form-horizontal form-material" action="INSERT_contract.php" method="post">
-                                    <?php 
-                                        $sql = "Select Max(substr(project_id,3)+1) as MaxID from tb_contract ";
-                                        $query = mysqli_query($conn,$sql);
-                                        $table_id = mysqli_fetch_assoc($query);
-                                        $testid = $table_id['MaxID'];
-                                                if($testid=='')
-                                                {
-                                                    $id="D001";
-                                                }else
-                                                {
-                                                    $id="D".sprintf("%03d",$testid);
-                                                }
-                                    ?>
                                     <div class="row">
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label>รหัสเอกสารจ้างเหมาบริการ</label>
-                                                <input type="text" value="<?=$id?>" readonly class="form-control form-control-line">
-                                                <input type="hidden" name="doc_id" value="<?=$id?>" />
+                                                <label><b>รหัสเอกสารจ้างเหมาบริการ</b></label>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $doc_id;?>
                                             </div>
                                         </div>
 
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label>ชื่อบุคลากร</label>
-                                                <input type="text" value="<?php echo $prefix?><?php echo $firtname?>&nbsp;&nbsp;<?php echo $lastname?>" class="form-control form-control-line">
-                                                <input type="hidden" class="form-control" name="person_id" value="<?php echo $person_id?>">
+                                                <label><b>ชื่อบุคลากร</b></label><br>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $prefix?><?php echo $firtname?>&nbsp;&nbsp;<?php echo $lastname?>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-4">
                                         <div class="form-group">
-                                        <label>โครงการ</label>
-                                            <select name="project_id" id="project" class="form-control">
-                                                <option value="">เลือกโครงการ</option>
-                                                <?php
-                                                    $sql = "SELECT * FROM tb_project";
-                                                    $query = mysqli_query($conn, $sql);
-                                                    while($result = mysqli_fetch_assoc($query)):
-                                                ?>
-                                                    <option value="<?=$result['project_id']?>"><?=$result['project_name']?></option>
-                                                <?php endwhile; ?>
-                                            </select>
+                                        <label><b>โครงการ</b></label><br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $project_name?>
                                         </div>
                                         </div>
 
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label for="activity">ชื่อกิจกรรม</label>
-                                                    <select name="activity" id="activity" class="form-control">
-                                                        <option value="">ชื่อกิจกรรม</option>
-                                                    </select>
+                                                <label for="activity"><b>ชื่อกิจกรรม</b></label><br>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $activity?>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="row">
+                                    <div class="col-md-8">
                                             <div class="form-group">
-                                                <label><b>ตัวชี้วัด</b></label>
+                                                <label><b>ตัวชี้วัด</b></label><br>
+                                                <?php 
+                                                    $i=1;
+                                                    $i<="";
+
+                                                    $sql ="SELECT * FROM tb_contract WHERE doc_id = '".$doc_id."' ";
+                                                    $query = mysqli_query($conn,$sql);
+                                                    while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
+                                                    {
+                                                        $foreword = $row['foreword'];
+                                                    
+                                                ?>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $i;?>.&nbsp;<?php echo $foreword?><br>
+                                                    <?php $i++; }?>
                                             </div>
                                         </div>
+                                    </div>
                                     <div class="row">
                                         <div class="col-md-8">
-                                            <div class="form-group">
-                                                <div class="col-md-7">
-                                                    <div class="form-group">
-                                                        <button type="button" class="btn btn-info btn-sm" id="createRows" value="Add">เพิ่ม</button>
-                                                        &nbsp;&nbsp;<button type="button" class="btn btn-warning btn-sm" id="deleteRows" value="Del">ลบ</button>
-                                                        &nbsp;&nbsp;<button type="button" class="btn btn-danger btn-sm" id="clearRows" value="Clear">ลบทั้งหมด</button>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                            <table width="100%" border="0" id="myTable">
-                                                <thead>
-                                                </thead>
-                                                <tbody></tbody>
-                                            </table>
-                                            <br />
-                                            <center>
-                                                <br>
-                                                <input type="hidden" id="hdnCount" name="hdnCount">
-                                            </center>
-
                                             <div class="row">
                                                 <div class="col-md-2">
                                                     <div class="form-group">
-                                                        <label>เริ่มต้นวันที่</label>
-                                                        <input type="date" class="form-control form-control-line" name="str_date">
+                                                        <label><b>เริ่มต้นวันที่</b></label><br>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $str_date?>
                                                     </div>
                                                 </div>
 
                                                 <div class="col-md-2">
                                                     <div class="form-group">
-                                                        <label>สิ้นสุดวันที่</label>
-                                                        <input type="date" class="form-control form-control-line" name="stp_date">
+                                                        <label><b>สิ้นสุดวันที่</b></label><br>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $stp_date?>
                                                     </div>
                                                 </div>
                                             </div>
@@ -246,7 +261,7 @@ include '../../administrator/connect.php';
 
 
                 var tr = "<tr>";
-                tr = tr + "<td><div class='row'><div class='col-md-8'><div class='form-group'><input type='text' class='form-control p_input' name='foreword" + rows + "'></div></div></td>";
+                tr = tr + "<td><div class='row'><div class='col-md-4'><div class='form-group'><input type='text' class='form-control p_input' name='foreword" + rows + "'></div></div></td>";
                 tr = tr + "</tr>";
                 $('#myTable > tbody:last').append(tr);
 
