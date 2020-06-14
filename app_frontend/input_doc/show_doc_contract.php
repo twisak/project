@@ -1,9 +1,9 @@
 <?php session_start();
 if($_SESSION['status'] == 'admin')
-{ 
+{
 }
 elseif($_SESSION['status'] == 'staff')
-{  
+{
 }
 else
 {
@@ -72,7 +72,7 @@ include '../../administrator/connect.php';
     </div>
     <?php include '../menu/menu_admin.php'; ?>
     <div id="main-wrapper">
-                                    <?php 
+                                    <?php
                                         include '../../administrator/connect.php';
                                         // $username= $_SESSION['username'];
                                         // $sql ="SELECT * FROM account_login WHERE username = '".$username."' ";
@@ -137,19 +137,31 @@ include '../../administrator/connect.php';
                         </a>
                     </div>
                 </div>
+
+
                 <div class="row">
                     <div class="col-lg-12 col-xlg-9 col-md-7">
                         <div class="card">
                             <!-- Tab panes -->
                             <div class="card-body">
+                              <div class="row">
+                                  <div class="col-md-12 text-center">
+                                      <div class="form-group">
+                                          <label><b><u>รายละเอียดเอกสารจ้างเหมาบริการ</u></b></label>
+                                      </div>
+                                  </div>
+                              </div>
+
                                     <div class="row">
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label><b>รหัสเอกสารจ้างเหมาบริการ</b></label>
+                                                <label><b><u>รหัสเอกสารจ้างเหมาบริการ</u></b></label>
                                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $doc_id;?>
                                             </div>
                                         </div>
+                                    </div>
 
+                                    <div class="row">
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label><b>ชื่อบุคลากร</b></label><br>
@@ -157,15 +169,18 @@ include '../../administrator/connect.php';
                                             </div>
                                         </div>
                                     </div>
+
                                     <div class="row">
-                                        <div class="col-md-4">
+                                        <div class="col-md-12">
                                         <div class="form-group">
                                         <label><b>โครงการ</b></label><br>
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $project_name?>
                                         </div>
                                         </div>
+                                    </div>
 
-                                        <div class="col-md-4">
+                                    <div class="row">
+                                        <div class="col-md-12">
                                             <div class="form-group">
                                                 <label for="activity"><b>ชื่อกิจกรรม</b></label><br>
                                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $activity?>
@@ -176,7 +191,7 @@ include '../../administrator/connect.php';
                                     <div class="col-md-8">
                                             <div class="form-group">
                                                 <label><b>ตัวชี้วัด</b></label><br>
-                                                <?php 
+                                                <?php
                                                     $i=1;
                                                     $i<="";
 
@@ -185,7 +200,7 @@ include '../../administrator/connect.php';
                                                     while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
                                                     {
                                                         $foreword = $row['foreword'];
-                                                    
+
                                                 ?>
                                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $i;?>.&nbsp;<?php echo $foreword?><br>
                                                     <?php $i++; }?>
@@ -210,23 +225,6 @@ include '../../administrator/connect.php';
                                                 </div>
                                             </div>
 
-
-
-                                            <div class="row">
-                                                <div class="col-md-3">
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <div class="form-group">
-                                                        <input type="submit" name="submit" value="บันทึก" class="btn btn-primary btn-block"/>
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-md-3">
-                                                    <div class="form-group">
-                                                        <button type="button" class="btn btn-danger btn-block">ยกเลิก</button>
-                                                    </div>
-                                                </div>
-                                            </div>
                                 </form>
                             </div>
                         </div>
