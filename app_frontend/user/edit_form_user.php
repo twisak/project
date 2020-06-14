@@ -1,9 +1,9 @@
 <?php session_start();
 if($_SESSION['status'] == 'admin')
-{ 
+{
 }
 elseif($_SESSION['status'] == 'staff')
-{  
+{
 }
 else
 {
@@ -65,10 +65,10 @@ else
                 <!-- ============================================================== -->
                 <div class="row page-titles">
                     <div class="col-md-5 align-self-center">
-                        <h3 class="text-themecolor">สมัครสมาชิก</h3>
+                        <h3 class="text-themecolor">แก้ไขข้อมูลส่วนตัว</h3>
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                            <li class="breadcrumb-item active">สมัครสมาชิก</li>
+                            <li class="breadcrumb-item active">แก้ไขข้อมูลส่วนตัว</li>
                         </ol>
                     </div>
                     <div class="col-md-7 align-self-center">
@@ -83,43 +83,81 @@ else
                 <!-- ============================================================== -->
                 <!-- Row -->
                 <div class="row">
-                    
+
                     <div class="col-lg-12 col-xlg-9 col-md-7">
                         <div class="card">
                             <!-- Tab panes -->
                             <div class="card-body">
                             <?php
-                                            include '../../administrator/connect.php';
-                                            $sql ="SELECT * FROM tb_person";
-                                            $query = mysqli_query($conn,$sql);
-                                            while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
-                                            {
-                                                $prefix = $row['prefix'];
-                                                $firtname = $row['firtname'];
-                                                $lastname = $row['lastname'];
-                                                $idcard = $row['idcard'];
-                                                $address = $row['address'];
-                                                $person_id = $row['person_id'];
-                                            }
-                                            
-                                            $sql1 ="SELECT * FROM account_login WHERE person_id = '".$person_id."' ";
-                                            $query1 = mysqli_query($conn,$sql1);
-                                            while($row1 = mysqli_fetch_array($query1,MYSQLI_ASSOC))
-                                            {
-                                                $person_id = $row1['person_id'];
-                                                $username = $row1['username'];
-                                                $password = $row1['password'];
-                                                $status = $row1['status'];
-                                            }
-                                        
-                                                    
+                                        include '../../administrator/connect.php';
+                                        $person_id =$_GET['id'];
+
+                                        $sql ="SELECT * FROM account_login WHERE person_id = '".$person_id."' ";
+                                        $query = mysqli_query($conn,$sql);
+                                        while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
+                                        {
+                                            $person_id = $row['person_id'];
+                                            $username = $row['username'];
+                                            $password= $row['password'];
+                                            $status = $row['status'];
+                                        }
+
+                                        $sql1 ="SELECT * FROM tb_person WHERE person_id = '".$person_id."' ";
+                                        $query1 = mysqli_query($conn,$sql1);
+                                        while($row1 = mysqli_fetch_array($query1,MYSQLI_ASSOC))
+                                        {
+                                            $id = $row1['id'];
+                                            $person_id = $row1['person_id'];
+                                            $prefix = $row1['prefix'];
+                                            $firtname = $row1['firtname'];
+                                            $lastname = $row1['lastname'];
+                                            $person_id = $row1['person_id'];
+                                            $idcard = $row1['idcard'];
+                                            $position_id = $row1['position_id'];
+                                            $house_num = $row1['house_num'];
+                                            $provincen_id = $row1['provincen_id'];
+                                            $districts_id = $row1['districts_id'];
+                                            $amphures_id= $row1['amphures_id'];
+                                        }
+
+                                        $sql2 ="SELECT * FROM provinces WHERE id = '".$provincen_id."' ";
+                                        $query2 = mysqli_query($conn,$sql2);
+                                        while($row2 = mysqli_fetch_array($query2,MYSQLI_ASSOC))
+                                        {
+                                            $name_th = $row2['name_th'];
+                                        }
+                                        $sql3 ="SELECT * FROM districts WHERE id = '".$districts_id."' ";
+                                        $query3 = mysqli_query($conn,$sql3);
+                                        while($row3 = mysqli_fetch_array($query3,MYSQLI_ASSOC))
+                                        {
+                                            $name_th1 = $row3['name_th'];
+                                        }
+                                        $sql4 ="SELECT * FROM amphures WHERE id = '".$amphures_id."' ";
+                                        $query4 = mysqli_query($conn,$sql4);
+                                        while($row4 = mysqli_fetch_array($query4,MYSQLI_ASSOC))
+                                        {
+                                            $name_th2 = $row4['name_th'];
+                                        }
+
+                                        $sql5 ="SELECT * FROM tb_position WHERE position_id = '".$position_id."' ";
+                                        $query5 = mysqli_query($conn,$sql5);
+                                        while($row5 = mysqli_fetch_array($query5,MYSQLI_ASSOC))
+                                        {
+                                            $position_name = $row5['position_name'];
+                                        }
+
                             ?>
-                                <form class="form-horizontal form-material" action="INSERT_Person.php" name="form_user" method="post">
+                                <form class="form-horizontal form-material" action="edit_person.php" name="form_user" method="post">
+                                <input type="hidden" name="id" value="<?php echo $id; ?>">
                                     <div class="form-group">
                                     <div class="row col-md-12">
                                         <div class="col-md-4">
                                             <label class="">รหัสเจ้าหน้าที่</label>
-                                            <input type="text" name="person_id" value="<?php echo $person_id?>" class="form-control form-control-line">
+                                            <input type="text" name="person_id" readonly value="<?php echo $person_id?>" class="form-control form-control-line">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="">ตำแหน่ง</label>
+                                            <input type="text" name="position_id" readonly value="<?php echo $position_id?>" class="form-control form-control-line">
                                         </div>
                                     </div>
                                     </div>
@@ -135,23 +173,63 @@ else
                                         </div>
                                         <div class="col-md-5">
                                             <label class="">นานสกุล</label>
-                                            <input type="text" name="lastname" value="<?php echo $lastname?>" class="form-control form-control-line" name="example-email" id="example-email">
+                                            <input type="text" name="lastname" value="<?php echo $lastname?>" class="form-control form-control-line">
                                         </div>
                                     </div>
                                     </div>
+                                <div class="row col-md-12">
                                     <div class="form-group">
-                                    <div class="row col-md-12">
-                                        <div class="col-md-6">
+                                        <div class="col-md-12">
                                             <label class="">เลขบัตรประชาชน</label>
                                             <input type="text" name="idcard" value="<?php echo $idcard?>" class="form-control form-control-line">
                                         </div>
                                     </div>
                                     </div>
+                                <div class="row">
+                                <div class="row col-md-12">
                                     <div class="form-group">
-                                        <label class="col-md-12">Address</label>
                                         <div class="col-md-12">
-                                            <textarea rows="5" name="address" value="<?php echo $person_id?>" class="form-control form-control-line"></textarea>
+                                            <label class=""><b>ที่อยู่</b></label>
                                         </div>
+                                    </div>
+                                    </div>
+                                </div>
+                                <div class="row col-md-12">
+                                    <div class="form-group">
+                                        <div class="col-md-6">
+                                            <label class="">บ้านเลชที่</label>
+                                            <input type="text" name="house_num" value="<?php echo $house_num?>" class="form-control form-control-line">
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <div class="form-group">
+                                    <div class="row col-md-12">
+                                        <div class="col-md-4">
+                                            <label for="province">จังหวัด</label>
+                                            <select name="province_id" id="province" class="form-control">
+                                                <option value="<?php echo $name_th?>"><?php echo $name_th?></option>
+                                                <?php
+                                                    $sql = "SELECT * FROM provinces";
+                                                    $query = mysqli_query($conn, $sql);
+                                                    while($result = mysqli_fetch_assoc($query)):
+                                                ?>
+                                                    <option value="<?=$result['id']?>"><?=$result['name_th']?></option>
+                                                <?php endwhile; ?>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label for="amphure">อำเภอ/เขต</label>
+                                            <select name="amphures_id" id="amphure" class="form-control">
+                                                <option value="<?php echo $name_th1?>"><?php echo $name_th1?></option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label for="district">ตำบล/แขวง</label>
+                                            <select name="districts_id" id="district" class="form-control">
+                                                <option value="<?php echo $name_th2?>"><?php echo $name_th2?></option>
+                                            </select>
+                                        </div>
+                                    </div>
                                     </div>
                                     <div class="form-group">
                                     <div class="row col-md-12">
@@ -159,38 +237,40 @@ else
                                             <label class="">Username</label>
                                             <input type="text" name="username" value="<?php echo $username?>" class="form-control form-control-line">
                                         </div>
-                                        
+
                                         <div class="col-md-6">
                                             <label class="">Psaaword</label>
-                                            <input type="password" name="password" value="<?php echo $password?>" class="form-control form-control-line">
+                                            <input type="text" name="password" value="<?php echo $password?>" class="form-control form-control-line">
                                         </div>
                                     </div>
                                     </div>
+                                <div class="col-md-6">
                                     <div class="form-group">
-                                        <label class="col-sm-6">สถานะ</label>
-                                        <div class="col-sm-6">
-                                            <select class="form-control form-control-line" name="status">
-                                                <option value="admin">admin</option>
-                                                <option value="staff">staff</option>
-                                            </select>
+                                        <label class="col-md-6">สถานะ</label>
+                                        <div class="col-md-6">
+                                            <input type="text" name="status" readonly value="<?php echo $status?>" class="form-control form-control-line">
+                                            
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                    <div class="row">
-                                        <div class="col-md-3">  
-                                        </div>
-                                        <div class="col-md-3">  
-                                            <div class="form-group">
-                                                <input type="submit" name="submit" value="บันทึก" class="btn btn-primary btn-block"/>
-                                            </div>
-                                        </div>
+                                </div>
 
-                                        <div class="col-md-3">  
-                                        <div class="form-group">
-                                        <button type="button" class="btn btn-danger btn-block">ยกเลิก</button>
-                                            </div>
+
+                                <div class="row">
+                                    <div class="col-md-3">
+                                    </div>
+                                    <div class="col-md-3">
+                                    <div class="form-group">
+                                    <input type="submit" name="submit" value="บันทึก" class="btn btn-primary btn-block"/>
                                         </div>
                                     </div>
+
+                                    <div class="col-md-3">
+                                    <div class="form-group">
+                                    <button type="button" class="btn btn-danger btn-block">ยกเลิก</button>
+                                        </div>
+                                    </div>
+
+                                </div>
                                 </form>
                             </div>
                         </div>
@@ -237,6 +317,7 @@ else
     <script src="../js/sidebarmenu.js"></script>
     <!--Custom JavaScript -->
     <script src="../js/custom.min.js"></script>
+    <script src="../js/script.js"></script>
 </body>
 
 </html>

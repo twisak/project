@@ -100,7 +100,7 @@
                     <ul id="sidebarnav">
                         <li> <a class="waves-effect waves-dark" href="../dashboard/index.php" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">Dashboard</span></a>
                         </li>
-                        <li> <a class="waves-effect waves-dark" href="../user/form_user.php" aria-expanded="false"><i class="fa fa-globe"></i><span class="hide-menu">ข้อมูลส่วนตัว</span></a>
+                        <li> <a class="waves-effect waves-dark" href="../user/tb_user.php" aria-expanded="false"><i class="fa fa-globe"></i><span class="hide-menu">ข้อมูลส่วนตัว</span></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link waves-effect waves-dark collapsed" href="#" data-toggle="collapse" data-target="#collapseB" aria-expanded="false" aria-controls="collapseB">
