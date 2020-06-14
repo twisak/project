@@ -1,9 +1,9 @@
 <?php session_start();
 if($_SESSION['status'] == 'admin')
-{ 
+{
 }
 elseif($_SESSION['status'] == 'staff')
-{  
+{
 }
 else
 {
@@ -63,7 +63,7 @@ else
                     </div>
                     <div class="col-md-7 align-self-center">
                         <a href="../input_doc/report_lend.php" class="btn waves-effect waves-light btn btn-info pull-right hidden-sm-down">
-                        <i class="fa-fw fa fa-print"></i> 
+                        <i class="fa-fw fa fa-print"></i>
                             ส่งออกแบบฟอร์ม
                         </a>
                     </div>
@@ -92,7 +92,7 @@ else
                         <div class="card">
                             <!-- Tab panes -->
                             <div class="card-body">
-                                <form class="form-horizontal form-material">
+                                <form class="form-horizontal form-material" action="INSERT_lend.php" name="insertlend" method="post">
 
 <div class="row">
 <div class="col-md-2">
@@ -109,33 +109,6 @@ else
 </div>
 </div>
 
-<?php 
-$sql_person = "select * from tb_person";
-$query_person = mysqli_query($conn,$sql_person);
-?>
-
-<div class="col-md-4">
-<div class="form-group">
-<label>ชื่อบุคลากร</label>
-<select class="form-control" name="person_id">
-            <option value="">-- เลือกรายชื่อ --</option>
-    <?php
-    while($result_person=mysqli_fetch_array($query_person))
-    {
-    ?>
-         <option value='<?php echo $result_person['person_id'];?>'><?php echo $result_person['prefix'];?><?php echo $result_person['firtname'];?>&nbsp;&nbsp;<?php echo $result_person['lastname'];?></option>
-    <?php
-    }
-     ?>
-            </select>
-    </div>
-</div>
-
-</div>
-
-
-<div class="row">
-
 <div class="col-md-2">
 <div class="form-group">
 <label>เริ่มต้นวันที่</label>
@@ -149,8 +122,32 @@ $query_person = mysqli_query($conn,$sql_person);
 <input type="date"  class="form-control form-control-line" name="stp_date">
     </div>
 </div>
+</div>
 
-<?php 
+<div class="row">
+  <?php
+  $sql_person = "select * from tb_person";
+  $query_person = mysqli_query($conn,$sql_person);
+  ?>
+
+  <div class="col-md-4">
+  <div class="form-group">
+  <label>ชื่อบุคลากร</label>
+  <select class="form-control" name="person_id">
+              <option value="">-- เลือกรายชื่อ --</option>
+      <?php
+      while($result_person=mysqli_fetch_array($query_person))
+      {
+      ?>
+           <option value='<?php echo $result_person['person_id'];?>'><?php echo $result_person['prefix'];?><?php echo $result_person['firtname'];?>&nbsp;&nbsp;<?php echo $result_person['lastname'];?></option>
+      <?php
+      }
+       ?>
+              </select>
+      </div>
+  </div>
+
+<?php
 $sql_project = "select * from tb_project";
 $query_project = mysqli_query($conn,$sql_project);
 ?>
@@ -174,23 +171,106 @@ $query_project = mysqli_query($conn,$sql_project);
 
 </div>
 
-   
 <div class="row">
-<div class="col-md-3">  
-</div>
-<div class="col-md-3">  
+<div class="col-md-5">
 <div class="form-group">
-<button type="button" class="btn btn-primary btn-block">บันทึก</button>
+<label>ค่าเบี้ยเลี้ยง</label>
+<input type="text"  class="form-control form-control-line" name="allowance">
     </div>
 </div>
 
-<div class="col-md-3">  
+<div class="col-md-2">
+<div class="form-group">
+<label>ราคา</label>
+<input type="text"  class="form-control form-control-line" name="allowance_price">
+    </div>
+</div>
+</div>
+
+<div class="row">
+<div class="col-md-5">
+<div class="form-group">
+<label>ค่าที่พัก</label>
+<input type="text"  class="form-control form-control-line" name="rest">
+    </div>
+</div>
+
+<div class="col-md-2">
+<div class="form-group">
+<label>ราคา</label>
+<input type="text"  class="form-control form-control-line" name="rest_price">
+    </div>
+</div>
+</div>
+
+<div class="row">
+<div class="col-md-5">
+<div class="form-group">
+<label>พาหนะ</label>
+<input type="text"  class="form-control form-control-line" name="vehicle">
+    </div>
+</div>
+
+<div class="col-md-2">
+<div class="form-group">
+<label>ราคา</label>
+<input type="text"  class="form-control form-control-line" name="vehicle_price">
+    </div>
+</div>
+</div>
+
+<div class="row">
+<div class="col-md-5">
+<div class="form-group">
+<label>ค่าลงทะเบียน</label>
+<input type="text"  class="form-control form-control-line" name="regis">
+    </div>
+</div>
+
+<div class="col-md-2">
+<div class="form-group">
+<label>จำนวน/คน</label>
+<input type="text"  class="form-control form-control-line" name="regis_num">
+    </div>
+</div>
+</div>
+
+<div class="row">
+<div class="col-md-5">
+<div class="form-group">
+<label>อื่นๆ</label>
+<input type="text"  class="form-control form-control-line" name="other">
+    </div>
+</div>
+
+<div class="col-md-2">
+<div class="form-group">
+<label>ราคา</label>
+<input type="text"  class="form-control form-control-line" name="other_price">
+    </div>
+</div>
+</div>
+
+
+<div class="row">
+<div class="col-md-3">
+</div>
+<div class="col-md-3">
+<div class="form-group">
+<button type="submit" class="btn btn-primary btn-block">บันทึก</button>
+    </div>
+</div>
+
+<div class="col-md-3">
 <div class="form-group">
 <button type="button" class="btn btn-danger btn-block">ยกเลิก</button>
     </div>
 </div>
 
 </div>
+
+
+
 
                                 </form>
                             </div>

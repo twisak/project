@@ -106,7 +106,7 @@ else
   <div class="col-md-2">
   <div class="form-group">
   <label>รหัสกิจกรรม</label>
-<input type="text" name="activity_id" value="<?php echo $result_activity['activity_id']; ?>"  class="form-control form-control-line" readonly>
+<input type="text" name="project_id" value="<?php echo $result_activity['project_id']; ?>"  class="form-control form-control-line" readonly>
   </div>
   </div>
 

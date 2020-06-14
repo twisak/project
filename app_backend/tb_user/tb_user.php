@@ -1,9 +1,9 @@
 <?php session_start();
 if($_SESSION['status'] == 'admin')
-{ 
+{
 }
 elseif($_SESSION['status'] == 'staff')
-{  
+{
 }
 else
 {
@@ -89,7 +89,7 @@ else
                             <div class="card-body">
                                 <h4 class="card-title">ข้อมูลบุคลากร</h4>
                                 <!-- <h6 class="card-subtitle">Add class <code>.table</code></h6> -->
-<!-- 
+<!--
                                 <div class="container">
                                 <div class="row">
                                     <div class="col-md-1 offset-md-10">ssss</div>
@@ -117,7 +117,7 @@ else
                                                 <th class="text-center">ลบ</th>
                                             </tr>
                                         </thead>
-                                        <?php 
+                                        <?php
                                             $i=1;
                                             $i<="";
 
@@ -136,7 +136,7 @@ else
                                                 $provincen_id = $row['provincen_id'];
                                                 $person_id = $row['person_id'];
                                             }
-                                            
+
                                             $sql1 ="SELECT * FROM account_login WHERE person_id = '".$person_id."' ";
                                             $query1 = mysqli_query($conn,$sql1);
                                             while($row1 = mysqli_fetch_array($query1,MYSQLI_ASSOC))
@@ -152,6 +152,7 @@ else
                                             while($row2 = mysqli_fetch_array($query2,MYSQLI_ASSOC))
                                             {
                                                 $provincen = $row2['name_th'];
+                                                echo $provincen;
                                             }
                                             $sql3 ="SELECT * FROM districts WHERE zip_code = '".$amphures_id."' ";
                                             $query3 = mysqli_query($conn,$sql3);

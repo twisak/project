@@ -95,14 +95,14 @@ else
                                         $result_project = mysqli_fetch_array($query_project);
 
                             ?>
-                                <form class="form-horizontal form-material" action="insert_project.php" name="form_user" method="post">
-
+                                <form class="form-horizontal form-material" action="edit_project.php" name="form_user" method="post">
+<input type="hidden" name="id" value="<?php echo $id; ?>">
 
 <div class="row">
   <div class="col-md-2">
   <div class="form-group">
   <label>รหัสโครงการ</label>
-<input type="text" name="project_id" value="<?=$id?>" placeholder="" class="form-control form-control-line">
+<input type="text" name="project_id" value="<?php echo $result_project['project_id'] ?>" readonly class="form-control form-control-line">
   </div>
   </div>
 
@@ -117,10 +117,10 @@ else
   <div class="form-group">
   <label>ปีงบประมาณ</label>
 
-  <select class="form-control" id="exampleFormControlSelect1" name="budget">
+  <select class="form-control" id="exampleFormControlSelect1" name="fiscal_year">
     <?php
-    $budget = $result_project['budget'];
-    echo $budget;
+    $fiscal_year = $result_project['fiscal_year'];
+    echo $fiscal_year;
     $xYear=date('Y'); // เก็บค่าปีปัจจุบันไว้ในตัวแปร
     ?>
 
@@ -128,15 +128,15 @@ else
       for($i=1;$i<=15;$i++){
     ?>
 
-    <option value="<?php echo $budget+$i; ?>"><?php echo $budget+$i; ?></option>
+    <option value="<?php echo $fiscal_year+$i; ?>"><?php echo $fiscal_year+$i; ?></option>
     <?php
   }
   ?>
-    <option value="<?php echo $budget; ?>" selected><?php echo $budget; ?></option>
+    <option value="<?php echo $fiscal_year; ?>" selected><?php echo $fiscal_year; ?></option>
     <?php
       for($i=1;$i<=15;$i++){
     ?>
-    <option value="<?php echo $budget-$i; ?>"><?php echo $budget-$i; ?></option>
+    <option value="<?php echo $fiscal_year-$i; ?>"><?php echo $fiscal_year-$i; ?></option>
     <?php
   }
   ?>
@@ -155,7 +155,7 @@ else
 
   <div class="col-md-3">
   <div class="form-group">
-  <label>ประเภทงบประมาณ<?php echo $budget; ?></label>
+  <label>ประเภทงบประมาณ</label>
               <select class="form-control" name="budget_id" value="<?php echo $result_project['budget_id']; ?>">
 
 <?php
