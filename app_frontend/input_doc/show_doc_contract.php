@@ -209,8 +209,6 @@ include '../../administrator/connect.php';
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-md-8">
                                             <div class="row">
                                                 <div class="col-md-2">
                                                     <div class="form-group">
@@ -228,8 +226,7 @@ include '../../administrator/connect.php';
                                             </div>
 
                                 </form>
-                            </div>
-                        </div>
+
                     </div>
                     <!-- Column -->
                 </div>
