@@ -87,8 +87,8 @@ include '../../administrator/connect.php';
                                         //     $person_id = $row['person_id'];
                                         // }
 
-                                        $doc_id =$_GET['id'];
-                                        $sql ="SELECT * FROM tb_lend WHERE doc_id = '".$doc_id."'";
+                                        $id =$_GET['id'];
+                                        $sql ="SELECT * FROM tb_lend WHERE id = '".$id."'";
                                         $query = mysqli_query($conn,$sql);
                                         while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
                                         {
@@ -138,10 +138,10 @@ include '../../administrator/connect.php';
             <div class="container-fluid">
                 <div class="row page-titles">
                     <div class="col-md-5 align-self-center">
-                        <h3 class="text-themecolor">เอกสารจ้างเหมาบริการ</h3>
+                        <h3 class="text-themecolor">เอกสารสัญญายืม</h3>
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                            <li class="breadcrumb-item active">เอกสารจ้างเหมาบริการ</li>
+                            <li class="breadcrumb-item active">เอกสารสัญญายืม</li>
                         </ol>
                     </div>
                     <div class="col-md-7 align-self-center">
@@ -161,7 +161,7 @@ include '../../administrator/connect.php';
                               <div class="row">
                                   <div class="col-md-12 text-center">
                                       <div class="form-group">
-                                          <label><b><u>รายละเอียดเอกสารจ้างเหมาบริการ</u></b></label>
+                                          <label><b><u>รายละเอียดเอกสารสัญญายืม</u></b></label>
                                       </div>
                                   </div>
                               </div>
@@ -169,7 +169,7 @@ include '../../administrator/connect.php';
                                     <div class="row">
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label><b><u>รหัสเอกสารจ้างเหมาบริการ</u></b></label>
+                                                <label><b><u>รหัสเอกสารสัญญายืม</u></b></label>
                                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $doc_id;?>
                                             </div>
                                         </div>
@@ -291,6 +291,17 @@ include '../../administrator/connect.php';
                                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $other_price; ?>
                                           </div>
                                       </div>
+                                    </div>
+
+                                    <div class="row">
+                                    <div class="col-md-4">
+                                    </div>
+                                    <div class="col-md-4">
+                                    <div class="form-group">
+                                    <!-- <button type="submit" class="btn btn-warning btn-block">แก้ไขข้อมูลเอกสารสัญญายืม</button> -->
+                                    <a href="edit_form_lend.php?id=<?php echo $id; ?>" class="btn btn-warning btn-block">แก้ไขข้อมูลเอกสารสัญญายืม</a>
+                                        </div>
+                                    </div>
                                     </div>
                           </form>
                     </div>

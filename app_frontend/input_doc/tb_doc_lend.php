@@ -135,6 +135,7 @@ else
                                             $query = mysqli_query($conn,$sql);
                                             while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
                                             {
+                                                $id = $row['id'];
                                                 $doc_id = $row['doc_id'];
                                                 $str_date = $row['str_date'];
                                                 $stp_date = $row['stp_date'];
@@ -167,7 +168,7 @@ else
                                                 <td><?php echo $prefix;?><?php echo $firtname;?><?php echo $lastname;?></td>
                                                 <td><?php echo $project_name;?></td>
                                                 <td>
-                                                <a href="show_doc_lend.php?id=<?php echo $doc_id;?>"><button type="button" class="btn btn-info">รายละเอียด</button></a>
+                                                <a href="show_doc_lend.php?id=<?php echo $id;?>"><button type="button" class="btn btn-info">รายละเอียด</button></a>
                                                 </td>
                                                 <td><button type="button" class="btn btn-danger">ลบ</button></td>
                                             </tr>

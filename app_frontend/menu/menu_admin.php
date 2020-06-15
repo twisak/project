@@ -1,4 +1,4 @@
-<?php 
+<?php
 
     include '../../administrator/connect.php';
     $id = $_SESSION['username'];
@@ -6,7 +6,7 @@
 // $sql ="SELECT * FROM tb_personnel WHERE username = '".$id."' ";
 // $query = mysqli_query($conn,$sql);
 // while($row = mysqli_fetch_array($query,MYSQLI_ASSOC)){
-    
+
 //     $id = $row['id'];
 //     $name = $row['name'];
 //     $lasname = $row['lasname'];
@@ -36,7 +36,7 @@
                         <!-- Logo text --><span>
                          <!-- dark Logo text -->
                          <img src="../assets/images/logo-text.png" alt="homepage" class="dark-logo" />
-                         <!-- Light Logo text -->    
+                         <!-- Light Logo text -->
                          <img src="../assets/images/logo-light-text.png" class="light-logo" alt="homepage" /></span> </a>
                 </div>
                 <!-- ============================================================== -->
@@ -71,9 +71,9 @@
                             <span class="hidden-md-down">
                                 <?php echo $id; ?>&nbsp;
                             </span>
-                            <i class="fa fa-user-circle-o"></i> 
+                            <i class="fa fa-user-circle-o"></i>
                         </a>
-                            
+
                         <!-- Dropdown - User Information -->
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                             <a class="dropdown-item" href="logout.php">
@@ -109,7 +109,7 @@
                             </a>
                             <div id="collapseB" class="collapse" aria-labelledby="headingB" data-parent="#accordionSidebar">
                                 <div class="bg-white py-2 collapse-inner rounded col-lg-12">
-                                    <a class="waves-effect waves-dark" href="../input_doc/input_doc_lend.php"><i class="fa fa-caret-right"></i> เอกสารสัญญาณยืม</a>
+                                    <a class="waves-effect waves-dark" href="../input_doc/tb_doc_lend.php"><i class="fa fa-caret-right"></i> เอกสารสัญญาณยืม</a>
                                     <a class="waves-effect waves-dark" href="../input_doc/input_doc_salary.php"><i class="fa fa-caret-right"></i> เอกสารเงินเดือน</a>
                                     <a class="waves-effect waves-dark" href="../input_doc/input_doc_cleansing.php"><i class="fa fa-caret-right"></i> เอกสารล้างหนี้</a>
                                     <a class="waves-effect waves-dark" href="../input_doc/tb_doc_contract.php"><i class="fa fa-caret-right"></i> เอกสารจ้างเหมาบริการ</a>
@@ -132,4 +132,3 @@
             </div>
             <!-- End Sidebar scroll-->
         </aside>
-        

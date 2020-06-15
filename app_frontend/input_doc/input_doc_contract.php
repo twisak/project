@@ -1,9 +1,9 @@
 <?php session_start();
 if($_SESSION['status'] == 'admin')
-{ 
+{
 }
 elseif($_SESSION['status'] == 'staff')
-{  
+{
 }
 else
 {
@@ -54,6 +54,8 @@ include '../../administrator/connect.php';
     <link href="../css/style.css" rel="stylesheet">
     <!-- You can change the theme colors from here -->
     <link href="../css/colors/default.css" id="theme" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Prompt&display=swap" rel="stylesheet">
+    <link href="../css/google_fonts/fonts_prompt.css" rel="stylesheet" />
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -95,7 +97,7 @@ include '../../administrator/connect.php';
                             <!-- Tab panes -->
                             <div class="card-body">
                                 <form class="form-horizontal form-material" action="INSERT_contract.php" method="post">
-                                    <?php 
+                                    <?php
                                         $sql = "Select Max(substr(project_id,3)+1) as MaxID from tb_contract ";
                                         $query = mysqli_query($conn,$sql);
                                         $table_id = mysqli_fetch_assoc($query);
@@ -151,14 +153,18 @@ include '../../administrator/connect.php';
                                             </div>
                                         </div>
                                     </div>
+
+                                    <div class="row">
                                     <div class="col-md-4">
                                             <div class="form-group">
                                                 <label><b>ตัวชี้วัด</b></label>
                                             </div>
                                         </div>
+                                    </div>
+
                                     <div class="row">
-                                        <div class="col-md-8">
-                                            <div class="form-group">
+
+
                                                 <div class="col-md-7">
                                                     <div class="form-group">
                                                         <button type="button" class="btn btn-info btn-sm" id="createRows" value="Add">เพิ่ม</button>
@@ -167,7 +173,7 @@ include '../../administrator/connect.php';
                                                     </div>
                                                 </div>
 
-                                            </div>
+
                                             <table width="100%" border="0" id="myTable">
                                                 <thead>
                                                 </thead>
@@ -178,44 +184,45 @@ include '../../administrator/connect.php';
                                                 <br>
                                                 <input type="hidden" id="hdnCount" name="hdnCount">
                                             </center>
+                        </div>
 
-                                            <div class="row">
-                                                <div class="col-md-2">
-                                                    <div class="form-group">
-                                                        <label>เริ่มต้นวันที่</label>
-                                                        <input type="date" class="form-control form-control-line" name="str_date">
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-md-2">
-                                                    <div class="form-group">
-                                                        <label>สิ้นสุดวันที่</label>
-                                                        <input type="date" class="form-control form-control-line" name="stp_date">
-                                                    </div>
-                                                </div>
-                                            </div>
-
-
-
-                                            <div class="row">
-                                                <div class="col-md-3">
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <div class="form-group">
-                                                        <input type="submit" name="submit" value="บันทึก" class="btn btn-primary btn-block"/>
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-md-3">
-                                                    <div class="form-group">
-                                                        <button type="button" class="btn btn-danger btn-block">ยกเลิก</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                </form>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label>เริ่มต้นวันที่</label>
+                                    <input type="date" class="form-control form-control-line" name="str_date">
+                                </div>
+                            </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label>สิ้นสุดวันที่</label>
+                                <input type="date" class="form-control form-control-line" name="stp_date">
                             </div>
                         </div>
                     </div>
+
+                    <div class="row">
+                        <div class="col-md-3">
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <input type="submit" name="submit" value="บันทึก" class="btn btn-primary btn-block"/>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <button type="button" class="btn btn-danger btn-block">ยกเลิก</button>
+                            </div>
+                        </div>
+                    </div>
+        </form>
+
+
+                    </div>
+
+
+
                     <!-- Column -->
                 </div>
             </div>
