@@ -56,9 +56,9 @@ include '../../administrator/connect.php';
     <link href="../css/colors/default.css" id="theme" rel="stylesheet">
 
     <!-- google fonts -->
-<link href="https://fonts.googleapis.com/css?family=Prompt&display=swap" rel="stylesheet">
-<link href="../css/google_fonts/fonts_prompt.css" rel="stylesheet" />
-<!-- end googlefonts --->
+    <link href="https://fonts.googleapis.com/css?family=Prompt&display=swap" rel="stylesheet">
+    <link href="../css/google_fonts/fonts_prompt.css" rel="stylesheet" />
+    <!-- end googlefonts --->
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -77,7 +77,7 @@ include '../../administrator/connect.php';
     </div>
     <?php include '../menu/menu_admin.php'; ?>
     <div id="main-wrapper">
-                                    <?php
+        <?php
                                         include '../../administrator/connect.php';
                                         // $username= $_SESSION['username'];
                                         // $sql ="SELECT * FROM account_login WHERE username = '".$username."' ";
@@ -145,7 +145,7 @@ include '../../administrator/connect.php';
                         </ol>
                     </div>
                     <div class="col-md-7 align-self-center">
-                        <a href="report_contract.php?id=<?php echo $doc_id;?>" class="btn waves-effect waves-light btn btn-info pull-right hidden-sm-down">
+                        <a href="report_lend.php?id=<?php echo $doc_id;?>" class="btn waves-effect waves-light btn btn-info pull-right hidden-sm-down">
                             <i class="fa-fw fa fa-print"></i>
                             ส่งออกแบบฟอร์ม
                         </a>
@@ -158,222 +158,224 @@ include '../../administrator/connect.php';
                         <div class="card">
                             <!-- Tab panes -->
                             <div class="card-body">
-                              <div class="row">
-                                  <div class="col-md-12 text-center">
-                                      <div class="form-group">
-                                          <label><b><u>รายละเอียดเอกสารสัญญายืม</u></b></label>
-                                      </div>
-                                  </div>
-                              </div>
-
-                                    <div class="row">
-                                        <div class="col-md-2">
-                                            <div class="form-group">
-                                                <label><b><u>รหัสเอกสารสัญญายืม</u></b></label>
-                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $doc_id;?>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                            <div class="row">
-                                                <div class="col-md-2">
-                                                    <div class="form-group">
-                                                        <label><b>เริ่มต้นวันที่</b></label><br>
-                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $str_date?>
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-md-2">
-                                                    <div class="form-group">
-                                                        <label><b>สิ้นสุดวันที่</b></label><br>
-                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $stp_date?>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label><b>ชื่อบุคลากร</b></label><br>
-                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $prefix?><?php echo $firtname?>&nbsp;&nbsp;<?php echo $lastname?>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-md-12 text-center">
                                         <div class="form-group">
-                                        <label><b>โครงการ</b></label><br>
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $project_name?>
-                                        </div>
+                                            <label><b><u>รายละเอียดเอกสารสัญญายืม</u></b></label>
                                         </div>
                                     </div>
+                                </div>
 
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label for="activity"><b>ชื่อกิจกรรม</b></label><br>
-                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $activity?>
-                                            </div>
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label><b><u>รหัสเอกสารสัญญายืม</u></b></label>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $doc_id;?>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label><b>เริ่มต้นวันที่</b></label><br>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $str_date?>
                                         </div>
                                     </div>
 
-                                    <div class="row">
-                                      <div class="col-md-4">
-                                          <div class="form-group">
-                                              <label for="activity"><b>ค่าเบี้ยเลี้ยง</b></label><br>
-                                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $allowance; ?>
-                                          </div>
-                                      </div>
-                                      <div class="col-md-2">
-                                          <div class="form-group">
-                                              <label for="activity"><b>ราคา</b></label><br>
-                                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $allowance_price; ?>
-                                          </div>
-                                      </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label><b>สิ้นสุดวันที่</b></label><br>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $stp_date?>
+                                        </div>
                                     </div>
+                                </div>
 
-                                    <div class="row">
-                                      <div class="col-md-4">
-                                          <div class="form-group">
-                                              <label for="activity"><b>ค่าที่พัก</b></label><br>
-                                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $rest; ?>
-                                          </div>
-                                      </div>
-                                      <div class="col-md-2">
-                                          <div class="form-group">
-                                              <label for="activity"><b>ราคา</b></label><br>
-                                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $rest_price; ?>
-                                          </div>
-                                      </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label><b>ชื่อบุคลากร</b></label><br>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $prefix?><?php echo $firtname?>&nbsp;&nbsp;<?php echo $lastname?>
+                                        </div>
                                     </div>
+                                </div>
 
-                                    <div class="row">
-                                      <div class="col-md-4">
-                                          <div class="form-group">
-                                              <label for="activity"><b>ค่าพาหนะ</b></label><br>
-                                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $vehicle; ?>
-                                          </div>
-                                      </div>
-                                      <div class="col-md-2">
-                                          <div class="form-group">
-                                              <label for="activity"><b>ราคา</b></label><br>
-                                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $vehicle_price; ?>
-                                          </div>
-                                      </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label><b>โครงการ</b></label><br>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $project_name?>
+                                        </div>
                                     </div>
+                                </div>
 
-                                    <div class="row">
-                                      <div class="col-md-4">
-                                          <div class="form-group">
-                                              <label for="activity"><b>ค่าลงทะเบียน</b></label><br>
-                                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $regis; ?>
-                                          </div>
-                                      </div>
-                                      <div class="col-md-2">
-                                          <div class="form-group">
-                                              <label for="activity"><b>จำนวน/คน</b></label><br>
-                                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $regis_num; ?>
-                                          </div>
-                                      </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="activity"><b>ชื่อกิจกรรม</b></label><br>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $activity?>
+                                        </div>
                                     </div>
+                                </div>
 
-                                    <div class="row">
-                                      <div class="col-md-4">
-                                          <div class="form-group">
-                                              <label for="activity"><b>อื่นๆ</b></label><br>
-                                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $other; ?>
-                                          </div>
-                                      </div>
-                                      <div class="col-md-2">
-                                          <div class="form-group">
-                                              <label for="activity"><b>จำนวน/คน</b></label><br>
-                                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $other_price; ?>
-                                          </div>
-                                      </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="activity"><b>ค่าเบี้ยเลี้ยง</b></label><br>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $allowance; ?>
+                                        </div>
                                     </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label for="activity"><b>ราคา</b></label><br>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $allowance_price; ?>
+                                        </div>
+                                    </div>
+                                </div>
 
-                                    <div class="row">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="activity"><b>ค่าที่พัก</b></label><br>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $rest; ?>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label for="activity"><b>ราคา</b></label><br>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $rest_price; ?>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="activity"><b>ค่าพาหนะ</b></label><br>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $vehicle; ?>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label for="activity"><b>ราคา</b></label><br>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $vehicle_price; ?>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="activity"><b>ค่าลงทะเบียน</b></label><br>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $regis; ?>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label for="activity"><b>จำนวน/คน</b></label><br>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $regis_num; ?>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="activity"><b>อื่นๆ</b></label><br>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $other; ?>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label for="activity"><b>จำนวน/คน</b></label><br>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $other_price; ?>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
                                     <div class="col-md-4">
                                     </div>
                                     <div class="col-md-4">
-                                    <div class="form-group">
-                                    <!-- <button type="submit" class="btn btn-warning btn-block">แก้ไขข้อมูลเอกสารสัญญายืม</button> -->
-                                    <a href="edit_form_lend.php?id=<?php echo $id; ?>" class="btn btn-warning btn-block">แก้ไขข้อมูลเอกสารสัญญายืม</a>
+                                        <div class="form-group">
+                                            <!-- <button type="submit" class="btn btn-warning btn-block">แก้ไขข้อมูลเอกสารสัญญายืม</button> -->
+                                            <a href="edit_form_lend.php?id=<?php echo $id; ?>" class="btn btn-warning btn-block">แก้ไขข้อมูลเอกสารสัญญายืม</a>
                                         </div>
                                     </div>
-                                    </div>
-                          </form>
+                                </div>
+                                </form>
+                            </div>
+                            <!-- Column -->
+                        </div>
                     </div>
-                    <!-- Column -->
+                    <footer class="footer">
+                        © 2018 Adminwrap by wrappixel.com
+                    </footer>
                 </div>
             </div>
-            <footer class="footer">
-                © 2018 Adminwrap by wrappixel.com
-            </footer>
-        </div>
-    </div>
-    <script src="../assets/node_modules/jquery/jquery.min.js"></script>
-    <!-- Bootstrap tether Core JavaScript -->
-    <script src="../assets/node_modules/bootstrap/js/popper.min.js"></script>
-    <script src="../assets/node_modules/bootstrap/js/bootstrap.min.js"></script>
-    <!-- slimscrollbar scrollbar JavaScript -->
-    <script src="../js/perfect-scrollbar.jquery.min.js"></script>
-    <!--Wave Effects -->
-    <script src="../js/waves.js"></script>
-    <!--Menu sidebar -->
-    <script src="../js/sidebarmenu.js"></script>
-    <!--Custom JavaScript -->
-    <script src="../js/custom.min.js"></script>
-    <script src="../js/script.js"></script>
-    <script src="http://code.jquery.com/jquery-latest.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function () {
+            <script src="../assets/node_modules/jquery/jquery.min.js"></script>
+            <!-- Bootstrap tether Core JavaScript -->
+            <script src="../assets/node_modules/bootstrap/js/popper.min.js"></script>
+            <script src="../assets/node_modules/bootstrap/js/bootstrap.min.js"></script>
+            <!-- slimscrollbar scrollbar JavaScript -->
+            <script src="../js/perfect-scrollbar.jquery.min.js"></script>
+            <!--Wave Effects -->
+            <script src="../js/waves.js"></script>
+            <!--Menu sidebar -->
+            <script src="../js/sidebarmenu.js"></script>
+            <!--Custom JavaScript -->
+            <script src="../js/custom.min.js"></script>
+            <script src="../js/script.js"></script>
+            <script src="http://code.jquery.com/jquery-latest.js"></script>
+            <script type="text/javascript">
+                $(document).ready(function () {
 
-            var rows = 1;
-            $("#createRows").click(function () {
+                    var rows = 1;
+                    $("#createRows").click(function () {
 
 
-                var tr = "<tr>";
-                tr = tr + "<td><div class='row'><div class='col-md-4'><div class='form-group'><input type='text' class='form-control p_input' name='foreword" + rows + "'></div></div></td>";
-                tr = tr + "</tr>";
-                $('#myTable > tbody:last').append(tr);
+                        var tr = "<tr>";
+                        tr = tr + "<td><div class='row'><div class='col-md-4'><div class='form-group'><input type='text' class='form-control p_input' name='foreword" + rows + "'></div></div></td>";
+                        tr = tr + "</tr>";
+                        $('#myTable > tbody:last').append(tr);
 
-                $('#hdnCount').val(rows);
-                rows = rows + 1;
-            });
+                        $('#hdnCount').val(rows);
+                        rows = rows + 1;
+                    });
 
-            $("#deleteRows").click(function () {
-                if ($("#myTable tr").length != 1) {
-                    $("#myTable tr:last").remove();
-                }
-            });
-
-            $("#clearRows").click(function () {
-                rows = 1;
-                $('#hdnCount').val(rows);
-                $('#myTable > tbody:last').empty(); // remove all
-            });
-
-        });
-    </script>
-    <!-- listbox 2 ชั้น -->
-    <script src="jquery-1.11.1.min.js" type="text/javascript"></script>
-    <script type="text/javascript">
-            $(document).ready(function() {
-                $('#project').change(function() {
-                    $.ajax({
-                        type: 'POST',
-                        data: {project: $(this).val()},
-                        url: 'select_activity.php',
-                        success: function(data) {
-                            $('#activity').html(data);
+                    $("#deleteRows").click(function () {
+                        if ($("#myTable tr").length != 1) {
+                            $("#myTable tr:last").remove();
                         }
                     });
-                    return false;
+
+                    $("#clearRows").click(function () {
+                        rows = 1;
+                        $('#hdnCount').val(rows);
+                        $('#myTable > tbody:last').empty(); // remove all
+                    });
+
                 });
-            });
-        </script>
+            </script>
+            <!-- listbox 2 ชั้น -->
+            <script src="jquery-1.11.1.min.js" type="text/javascript"></script>
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    $('#project').change(function () {
+                        $.ajax({
+                            type: 'POST',
+                            data: {
+                                project: $(this).val()
+                            },
+                            url: 'select_activity.php',
+                            success: function (data) {
+                                $('#activity').html(data);
+                            }
+                        });
+                        return false;
+                    });
+                });
+            </script>
 </body>
 
 </html>
