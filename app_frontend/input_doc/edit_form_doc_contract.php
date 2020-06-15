@@ -1,9 +1,9 @@
 <?php session_start();
 if($_SESSION['status'] == 'admin')
-{
+{ 
 }
 elseif($_SESSION['status'] == 'staff')
-{
+{  
 }
 else
 {
@@ -54,8 +54,6 @@ include '../../administrator/connect.php';
     <link href="../css/style.css" rel="stylesheet">
     <!-- You can change the theme colors from here -->
     <link href="../css/colors/default.css" id="theme" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Prompt&display=swap" rel="stylesheet">
-    <link href="../css/google_fonts/fonts_prompt.css" rel="stylesheet" />
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -74,21 +72,36 @@ include '../../administrator/connect.php';
     </div>
     <?php include '../menu/menu_admin.php'; ?>
     <div id="main-wrapper">
-                                    <?php
-                                        include '../../administrator/connect.php';
-                                        // $username= $_SESSION['username'];
-                                        // $sql ="SELECT * FROM account_login WHERE username = '".$username."' ";
-                                        // $query = mysqli_query($conn,$sql);
-                                        // while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
-                                        // {
-                                        //     $person_id = $row['person_id'];
-                                        // }
-
+        <div class="page-wrapper">
+            <div class="container-fluid">
+                <div class="row page-titles">
+                    <div class="col-md-5 align-self-center">
+                        <h3 class="text-themecolor">เอกสารจ้างเหมาบริการ</h3>
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                            <li class="breadcrumb-item active">เอกสารจ้างเหมาบริการ</li>
+                        </ol>
+                    </div>
+                    <div class="col-md-7 align-self-center">
+                        <a href="../input_doc/report_contract.php" class="btn waves-effect waves-light btn btn-info pull-right hidden-sm-down">
+                            <i class="fa-fw fa fa-print"></i>
+                            ส่งออกแบบฟอร์ม
+                        </a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 col-xlg-9 col-md-7">
+                        <div class="card">
+                            <!-- Tab panes -->
+                            <div class="card-body">
+                            <form class="form-horizontal form-material" action="edit_doc_contract.php" method="post">
+                                <?php 
                                         $doc_id =$_GET['id'];
                                         $sql ="SELECT * FROM tb_contract WHERE doc_id = '".$doc_id."'";
                                         $query = mysqli_query($conn,$sql);
                                         while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
                                         {
+                                            $id = $row['id'];
                                             $doc_id = $row['doc_id'];
                                             $foreword = $row['foreword'];
                                             $str_date = $row['str_date'];
@@ -121,116 +134,127 @@ include '../../administrator/connect.php';
                                             $lastname = $row2['lastname'];
                                             //$prefix = $row2['prefix'];
                                         }
-                                    ?>
-        <div class="page-wrapper">
-            <div class="container-fluid">
-                <div class="row page-titles">
-                    <div class="col-md-5 align-self-center">
-                        <h3 class="text-themecolor">เอกสารจ้างเหมาบริการ</h3>
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                            <li class="breadcrumb-item active">เอกสารจ้างเหมาบริการ</li>
-                        </ol>
-                    </div>
-                    <div class="col-md-7 align-self-center">
-                        <a href="report_contract.php?id=<?php echo $doc_id;?>" class="btn waves-effect waves-light btn btn-info pull-right hidden-sm-down">
-                            <i class="fa-fw fa fa-print"></i>
-                            ส่งออกแบบฟอร์ม
-                        </a>
-                    </div>
-                </div>
-
-
-                <div class="row">
-                    <div class="col-lg-12 col-xlg-9 col-md-7">
-                        <div class="card">
-                            <!-- Tab panes -->
-                            <div class="card-body">
-                              <div class="row">
-                                  <div class="col-md-12 text-center">
-                                      <div class="form-group">
-                                          <label><b><u>รายละเอียดเอกสารจ้างเหมาบริการ</u></b></label>
-                                          <a href="edit_form_doc_contract.php?id=<?php echo $doc_id;?>" class="btn waves-effect waves-light btn btn-warning pull-right hidden-sm-down">
-                                            <i class="fa-fw fa fa-print"></i>
-                                            แก้ไขข้อมูล
-                                         </a>
-                                      </div>
-                                  </div>
-                              </div>
-
+                                ?>
                                     <div class="row">
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label><b><u>รหัสเอกสารจ้างเหมาบริการ</u></b></label>
-                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $doc_id;?>
+                                                <label>รหัสเอกสารจ้างเหมาบริการ</label>
+                                                <input type="text" value="<?php echo $doc_id?>" readonly class="form-control form-control-line">
                                             </div>
                                         </div>
-                                    </div>
-
-                                    <div class="row">
+                                        <input type="hidden" class="form-control" name="id" value="<?php echo $id?>">
+                                        <input type="hidden" class="form-control" name="doc_id" value="<?php echo $doc_id?>">
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label><b>ชื่อบุคลากร</b></label><br>
-                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $prefix?><?php echo $firtname?>&nbsp;&nbsp;<?php echo $lastname?>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                        <div class="form-group">
-                                        <label><b>โครงการ</b></label><br>
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $project_name?>
-                                        </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label for="activity"><b>ชื่อกิจกรรม</b></label><br>
-                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $activity?>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                    <div class="col-md-8">
-                                            <div class="form-group">
-                                                <label><b>ตัวชี้วัด</b></label><br>
-                                                <?php
-                                                    $i=1;
-                                                    $i<="";
-
-                                                    $sql ="SELECT * FROM tb_contract WHERE doc_id = '".$doc_id."' ";
-                                                    $query = mysqli_query($conn,$sql);
-                                                    while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
-                                                    {
-                                                        $foreword = $row['foreword'];
-
-                                                ?>
-                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $i;?>.&nbsp;<?php echo $foreword?><br>
-                                                    <?php $i++; }?>
+                                                <label>ชื่อบุคลากร</label>
+                                                <input type="text" value="<?php echo $prefix?><?php echo $firtname?>&nbsp;&nbsp;<?php echo $lastname?>" class="form-control form-control-line">
+                                                <input type="hidden" class="form-control" name="person_id" value="<?php echo $person_id?>">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-8">
+                                        <div class="form-group">
+                                        <label>โครงการ</label>
+                                            <select name="project_id" id="project" class="form-control">
+                                                <option value="<?php echo $project_id?>"><?php echo $project_name?></option>
+                                                <?php
+                                                    $sql = "SELECT * FROM tb_project";
+                                                    $query = mysqli_query($conn, $sql);
+                                                    while($result = mysqli_fetch_assoc($query)):
+                                                ?>
+                                                    <option value="<?=$result['project_id']?>"><?=$result['project_name']?></option>
+                                                <?php endwhile; ?>
+                                            </select>
+                                        </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <div class="form-group">
+                                                <label for="activity">ชื่อกิจกรรม</label>
+                                                    <select name="activity" id="activity" class="form-control">
+                                                        <option value="<?php echo $activity?>"><?php echo $activity?></option>
+                                                    </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label><b>ตัวชี้วัด</b></label>
+                                            </div>
+                                        </div>
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <div class="form-group">
+                                                <div class="col-md-7">
+                                                    <div class="form-group">
+                                                        <button type="button" class="btn btn-info btn-sm" id="createRows" value="Add">เพิ่ม</button>
+                                                        &nbsp;&nbsp;<button type="button" class="btn btn-warning btn-sm" id="deleteRows" value="Del">ลบ</button>
+                                                        &nbsp;&nbsp;<button type="button" class="btn btn-danger btn-sm" id="clearRows" value="Clear">ลบทั้งหมด</button>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <table width="100%" border="0" id="myTable">
+                                                <thead>
+                                                <?php 
+                                                    $sql ="SELECT * FROM tb_contract WHERE doc_id = '".$doc_id."'";
+                                                    $query = mysqli_query($conn,$sql);
+                                                    while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
+                                                    {
+                                                        $foreword = $row['foreword'];
+                                                ?>
+                                                <tr>
+                                                    <td>
+                                                        <input type='text' value="<?php echo $foreword?>" class='form-control' name='foreword'>
+                                                        &nbsp;
+                                                    </td>
+                                                </tr>
+                                                <?php }?>
+                                                </thead>
+                                                <tbody></tbody>
+                                            </table>
+                                            <br />
+                                            <center>
+                                                <br>
+                                                <input type="hidden" id="hdnCount" name="hdnCount">
+                                            </center>
+
                                             <div class="row">
                                                 <div class="col-md-4">
                                                     <div class="form-group">
-                                                        <label><b>เริ่มต้นวันที่</b></label><br>
-                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $str_date?>
+                                                        <label>เริ่มต้นวันที่</label>
+                                                        <input type="date" value="<?php echo $str_date?>" class="form-control form-control-line" name="str_date">
                                                     </div>
                                                 </div>
 
                                                 <div class="col-md-4">
                                                     <div class="form-group">
-                                                        <label><b>สิ้นสุดวันที่</b></label><br>
-                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $stp_date?>
+                                                        <label>สิ้นสุดวันที่</label>
+                                                        <input type="date" value="<?php echo $stp_date?>" class="form-control form-control-line" name="stp_date">
                                                     </div>
                                                 </div>
                                             </div>
 
+
+
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <input type="submit" name="submit" value="บันทึก" class="btn btn-primary btn-block"/>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <button type="button" class="btn btn-danger btn-block">ยกเลิก</button>
+                                                    </div>
+                                                </div>
+                                            </div>
                                 </form>
                             </div>
                         </div>
@@ -265,7 +289,7 @@ include '../../administrator/connect.php';
 
 
                 var tr = "<tr>";
-                tr = tr + "<td><div class='row'><div class='col-md-4'><div class='form-group'><input type='text' class='form-control p_input' name='foreword" + rows + "'></div></div></td>";
+                tr = tr + "<td><div class='row'><div class='col-md-8'><div class='form-group'><input type='text' class='form-control p_input' name='foreword" + rows + "'></div></div></td>";
                 tr = tr + "</tr>";
                 $('#myTable > tbody:last').append(tr);
 

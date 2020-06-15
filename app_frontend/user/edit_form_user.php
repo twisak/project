@@ -124,18 +124,21 @@ else
                                         $query2 = mysqli_query($conn,$sql2);
                                         while($row2 = mysqli_fetch_array($query2,MYSQLI_ASSOC))
                                         {
+                                            $id3 = $row2['id'];
                                             $name_th = $row2['name_th'];
                                         }
                                         $sql3 ="SELECT * FROM districts WHERE id = '".$districts_id."' ";
                                         $query3 = mysqli_query($conn,$sql3);
                                         while($row3 = mysqli_fetch_array($query3,MYSQLI_ASSOC))
                                         {
+                                            $id1 = $row2['id1'];
                                             $name_th1 = $row3['name_th'];
                                         }
                                         $sql4 ="SELECT * FROM amphures WHERE id = '".$amphures_id."' ";
                                         $query4 = mysqli_query($conn,$sql4);
                                         while($row4 = mysqli_fetch_array($query4,MYSQLI_ASSOC))
                                         {
+                                            $id2 = $row2['id2'];
                                             $name_th2 = $row4['name_th'];
                                         }
 
@@ -207,7 +210,7 @@ else
                                         <div class="col-md-4">
                                             <label for="province">จังหวัด</label>
                                             <select name="province_id" id="province" class="form-control">
-                                                <option value="<?php echo $name_th?>"><?php echo $name_th?></option>
+                                                <option value="<?php echo $id3?>"><?php echo $name_th?></option>
                                                 <?php
                                                     $sql = "SELECT * FROM provinces";
                                                     $query = mysqli_query($conn, $sql);
@@ -220,13 +223,13 @@ else
                                         <div class="col-md-4">
                                             <label for="amphure">อำเภอ/เขต</label>
                                             <select name="amphures_id" id="amphure" class="form-control">
-                                                <option value="<?php echo $name_th1?>"><?php echo $name_th1?></option>
+                                                <option value="<?php echo $id1?>"><?php echo $name_th1?></option>
                                             </select>
                                         </div>
                                         <div class="col-md-4">
                                             <label for="district">ตำบล/แขวง</label>
                                             <select name="districts_id" id="district" class="form-control">
-                                                <option value="<?php echo $name_th2?>"><?php echo $name_th2?></option>
+                                                <option value="<?php echo $id2?>"><?php echo $name_th2?></option>
                                             </select>
                                         </div>
                                     </div>

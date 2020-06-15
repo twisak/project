@@ -18,7 +18,7 @@
         $house_num = $_POST['house_num'];
         $amphures_id = $_POST['amphures_id'];
         $districts_id = $_POST['districts_id'];
-        $provincen_id = $_POST['province_id'];
+        $province_id = $_POST['province_id'];
 		$username = $_POST['username'];
 		$password = $_POST['password'];
        	$status = 'staff';
@@ -39,8 +39,8 @@
         // }else
         // {
 
-        $sql = "INSERT INTO tb_person (prefix,firtname,lastname,idcard,position_id,house_num,provincen_id,districts_id,amphures_id,person_id)
-        VALUES('$prefix','$firtname','$lastname','$idcard','$position_id','$house_num','$provincen_id','$districts_id','$amphures_id','$person_id')";
+        $sql = "INSERT INTO tb_person (prefix,firtname,lastname,idcard,position_id,house_num,province_id,districts_id,amphures_id,person_id)
+        VALUES('$prefix','$firtname','$lastname','$idcard','$position_id','$house_num','$province_id','$districts_id','$amphures_id','$person_id')";
 
         $db_query = mysqli_query($conn,$sql);
         // echo $sql;
@@ -50,10 +50,10 @@
 
         $db_query1 = mysqli_query($conn,$sql1);
 
-            // echo $sql;
-            // echo $db_query;
-            // echo $sql1;
-            // echo $db_query1;
+            echo $sql;
+            echo $db_query;
+            echo $sql1;
+            echo $db_query1;
 		if($db_query)
         {
             echo "<script>";

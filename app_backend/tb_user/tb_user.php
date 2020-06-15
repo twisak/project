@@ -133,9 +133,10 @@ else
                                                 $house_num = $row['house_num'];
                                                 $amphures_id = $row['amphures_id'];
                                                 $districts_id = $row['districts_id'];
-                                                $provincen_id = $row['provincen_id'];
+                                                $province_id = $row['province_id'];
                                                 $person_id = $row['person_id'];
-                                            }
+                                            
+                                            //echo $province_id;
 
                                             $sql1 ="SELECT * FROM account_login WHERE person_id = '".$person_id."' ";
                                             $query1 = mysqli_query($conn,$sql1);
@@ -147,33 +148,32 @@ else
                                                 $status = $row1['status'];
                                             }
 
-                                            $sql2 ="SELECT * FROM provinces WHERE code = '".$provincen_id."' ";
+                                            $sql2 ="SELECT * FROM provinces WHERE id = '".$province_id."' ";
                                             $query2 = mysqli_query($conn,$sql2);
                                             while($row2 = mysqli_fetch_array($query2,MYSQLI_ASSOC))
                                             {
-                                                $provincen = $row2['name_th'];
-                                                echo $provincen;
+                                                $name_th = $row2['name_th'];
                                             }
-                                            $sql3 ="SELECT * FROM districts WHERE zip_code = '".$amphures_id."' ";
+                                            $sql3 ="SELECT * FROM districts WHERE id = '".$districts_id."' ";
                                             $query3 = mysqli_query($conn,$sql3);
                                             while($row3 = mysqli_fetch_array($query3,MYSQLI_ASSOC))
                                             {
-                                                $districts = $row3['name_th'];
+                                                $name_th1 = $row3['name_th'];
                                             }
-                                            $sql4 ="SELECT * FROM amphures WHERE code = '".$districts_id."' ";
+                                            $sql4 ="SELECT * FROM amphures WHERE id = '".$amphures_id."' ";
                                             $query4 = mysqli_query($conn,$sql4);
                                             while($row4 = mysqli_fetch_array($query4,MYSQLI_ASSOC))
                                             {
-                                                $amphures = $row4['name_th'];
+                                                $name_th2 = $row4['name_th'];
                                             }
-                                            echo $districts;
+                                                //echo $sql3;
                                         ?>
                                         <tbody>
                                             <tr>
                                                 <td><?php echo $i;?></td>
                                                 <td><?php echo $prefix;?><?php echo $firtname;?>&nbsp;&nbsp;<?php echo $lastname;?></td>
                                                 <td><?php echo $idcard;?></td>
-                                                <td><?php echo $house_num;?>&nbsp;<?php echo $provincen;?>&nbsp;<?php echo $districts;?>&nbsp;<?php echo $amphures;?></td>
+                                                <td><?php echo $house_num;?>&nbsp;<?php echo $name_th;?>&nbsp;<?php echo $name_th1;?>&nbsp;<?php echo $name_th2;?></td>
                                                 <td><?php echo $username;?></td>
                                                 <td><?php echo $password;?></td>
                                                 <td><?php echo $status;?></td>
@@ -181,7 +181,7 @@ else
                                                 <td><button type="button" class="btn btn-danger">ลบ</button></td>
                                             </tr>
                                             <?php
-                                                $i++;
+                                                $i++; }
                                             ?>
 
 
