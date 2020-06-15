@@ -28,8 +28,8 @@
      echo $sql_tb_lend;
      $query_tb_lend = mysqli_query($conn,$sql_tb_lend);
 
-      // echo "<script>alert('บันทึกข้อมูลของท่านเรียบร้อยแล้ว')</script>";
-      // echo "<script>window.location='tb_activity.php'</script>";
+      echo "<script>alert('บันทึกข้อมูลของท่านเรียบร้อยแล้ว')</script>";
+      echo "<script>window.location='tb_doc_lend.php'</script>";
 
 ?>
 </body>

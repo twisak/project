@@ -1,9 +1,9 @@
 <?php session_start();
 if($_SESSION['status'] == 'admin')
-{ 
+{
 }
 elseif($_SESSION['status'] == 'staff')
-{  
+{
 }
 else
 {
@@ -32,6 +32,8 @@ else
     <link href="../css/style.css" rel="stylesheet">
     <!-- You can change the theme colors from here -->
     <link href="../css/colors/default.css" id="theme" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Prompt&display=swap" rel="stylesheet">
+    <link href="../css/google_fonts/fonts_prompt.css" rel="stylesheet" />
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -61,7 +63,7 @@ else
                     </div>
                     <div class="col-md-7 align-self-center">
                         <a href="../input_doc/report_salary.php" class="btn waves-effect waves-light btn btn-info pull-right hidden-sm-down">
-                            <i class="fa-fw fa fa-print"></i> 
+                            <i class="fa-fw fa fa-print"></i>
                             ส่งออกแบบฟอร์ม
                         </a>
                     </div>
@@ -147,33 +149,33 @@ else
 </div>
 
 </div>
-   
 
-   
+
+
 <div class="row">
-<div class="col-md-3">  
+<div class="col-md-3">
 </div>
-<div class="col-md-3">  
+<div class="col-md-3">
 <div class="form-group">
 <button type="button" class="btn btn-primary btn-block">บันทึก</button>
     </div>
 </div>
 
-<div class="col-md-3">  
+<div class="col-md-3">
 <div class="form-group">
 <button type="button" class="btn btn-danger btn-block">ยกเลิก</button>
     </div>
 </div>
 
 </div>
- 
-<!-- 
+
+<!--
                                     <div class="form-group">
                                         <label class="col-md-2">Full Name</label>
                                         <div class="col-md-2">
                                             <input type="text" placeholder="Johnathan Doe" class="form-control form-control-line">
                                         </div>
-                                        
+
                                     </div>
                                     <div class="form-group">
                                         <label for="example-email" class="col-md-2">Email</label>

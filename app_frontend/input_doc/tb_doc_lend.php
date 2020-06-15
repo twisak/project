@@ -67,7 +67,7 @@ else
                 <!-- ============================================================== -->
                 <div class="row page-titles">
                     <div class="col-md-5 align-self-center">
-                        <h3 class="text-themecolor">ตารางเอกสารจ้างเหมาบริการ</h3>
+                        <h3 class="text-themecolor">ตารางเอกสารสัญญายืม</h3>
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
                             <li class="breadcrumb-item active">Table Basic</li>
@@ -89,7 +89,7 @@ else
 
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">เอกสารจ้างเหมาบริการ</h4>
+                                <h4 class="card-title">ตารางเอกสารสัญญายืม</h4>
                                 <!-- <h6 class="card-subtitle">Add class <code>.table</code></h6> -->
 
 
@@ -103,7 +103,7 @@ else
 
 
                                 <div class="text-right">
-                                <a href="input_doc_contract.php">
+                                <a href="input_doc_lend.php">
                                     <button type="button" class="btn btn-primary">กรอกเอกสารเพิ่ม</button>
                                 </a>
                                 </div>
@@ -131,12 +131,11 @@ else
                                             $i=1;
                                             $i<="";
 
-                                            $sql ="SELECT * FROM tb_contract GROUP BY doc_id";
+                                            $sql ="SELECT * FROM tb_lend GROUP BY doc_id";
                                             $query = mysqli_query($conn,$sql);
                                             while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
                                             {
                                                 $doc_id = $row['doc_id'];
-                                                $foreword = $row['foreword'];
                                                 $str_date = $row['str_date'];
                                                 $stp_date = $row['stp_date'];
                                                 $project_id = $row['project_id'];
@@ -168,7 +167,7 @@ else
                                                 <td><?php echo $prefix;?><?php echo $firtname;?><?php echo $lastname;?></td>
                                                 <td><?php echo $project_name;?></td>
                                                 <td>
-                                                <a href="show_doc_contract.php?id=<?php echo $doc_id;?>"><button type="button" class="btn btn-info">รายละเอียด</button></a>
+                                                <a href="show_doc_lend.php?id=<?php echo $doc_id;?>"><button type="button" class="btn btn-info">รายละเอียด</button></a>
                                                 </td>
                                                 <td><button type="button" class="btn btn-danger">ลบ</button></td>
                                             </tr>

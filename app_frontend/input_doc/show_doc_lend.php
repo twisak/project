@@ -54,8 +54,11 @@ include '../../administrator/connect.php';
     <link href="../css/style.css" rel="stylesheet">
     <!-- You can change the theme colors from here -->
     <link href="../css/colors/default.css" id="theme" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Prompt&display=swap" rel="stylesheet">
-    <link href="../css/google_fonts/fonts_prompt.css" rel="stylesheet" />
+
+    <!-- google fonts -->
+<link href="https://fonts.googleapis.com/css?family=Prompt&display=swap" rel="stylesheet">
+<link href="../css/google_fonts/fonts_prompt.css" rel="stylesheet" />
+<!-- end googlefonts --->
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -85,16 +88,25 @@ include '../../administrator/connect.php';
                                         // }
 
                                         $doc_id =$_GET['id'];
-                                        $sql ="SELECT * FROM tb_contract WHERE doc_id = '".$doc_id."'";
+                                        $sql ="SELECT * FROM tb_lend WHERE doc_id = '".$doc_id."'";
                                         $query = mysqli_query($conn,$sql);
                                         while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
                                         {
                                             $doc_id = $row['doc_id'];
-                                            $foreword = $row['foreword'];
                                             $str_date = $row['str_date'];
                                             $stp_date = $row['stp_date'];
                                             $project_id = $row['project_id'];
                                             $person_id = $row['person_id'];
+                                            $allowance = $row['allowance'];
+                                            $allowance_price = $row['allowance_price'];
+                                            $rest = $row['rest'];
+                                            $rest_price = $row['rest_price'];
+                                            $vehicle = $row['vehicle'];
+                                            $vehicle_price = $row['vehicle_price'];
+                                            $regis = $row['regis'];
+                                            $regis_num = $row['regis_num'];
+                                            $other = $row['other'];
+                                            $other_price = $row['other_price'];
                                         }
 
                                         $sql1 ="SELECT * FROM tb_project WHERE project_id = '".$project_id."' ";
@@ -163,6 +175,22 @@ include '../../administrator/connect.php';
                                         </div>
                                     </div>
 
+                                            <div class="row">
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label><b>เริ่มต้นวันที่</b></label><br>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $str_date?>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label><b>สิ้นสุดวันที่</b></label><br>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $stp_date?>
+                                                    </div>
+                                                </div>
+                                            </div>
+
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="form-group">
@@ -189,47 +217,82 @@ include '../../administrator/connect.php';
                                             </div>
                                         </div>
                                     </div>
+
                                     <div class="row">
-                                    <div class="col-md-8">
-                                            <div class="form-group">
-                                                <label><b>ตัวชี้วัด</b></label><br>
-                                                <?php
-                                                    $i=1;
-                                                    $i<="";
-
-                                                    $sql ="SELECT * FROM tb_contract WHERE doc_id = '".$doc_id."' ";
-                                                    $query = mysqli_query($conn,$sql);
-                                                    while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
-                                                    {
-                                                        $foreword = $row['foreword'];
-
-                                                ?>
-                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $i;?>.&nbsp;<?php echo $foreword?><br>
-                                                    <?php $i++; }?>
-                                            </div>
-                                        </div>
+                                      <div class="col-md-4">
+                                          <div class="form-group">
+                                              <label for="activity"><b>ค่าเบี้ยเลี้ยง</b></label><br>
+                                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $allowance; ?>
+                                          </div>
+                                      </div>
+                                      <div class="col-md-2">
+                                          <div class="form-group">
+                                              <label for="activity"><b>ราคา</b></label><br>
+                                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $allowance_price; ?>
+                                          </div>
+                                      </div>
                                     </div>
+
                                     <div class="row">
-                                        <div class="col-md-8">
-                                            <div class="row">
-                                                <div class="col-md-2">
-                                                    <div class="form-group">
-                                                        <label><b>เริ่มต้นวันที่</b></label><br>
-                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $str_date?>
-                                                    </div>
-                                                </div>
+                                      <div class="col-md-4">
+                                          <div class="form-group">
+                                              <label for="activity"><b>ค่าที่พัก</b></label><br>
+                                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $rest; ?>
+                                          </div>
+                                      </div>
+                                      <div class="col-md-2">
+                                          <div class="form-group">
+                                              <label for="activity"><b>ราคา</b></label><br>
+                                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $rest_price; ?>
+                                          </div>
+                                      </div>
+                                    </div>
 
-                                                <div class="col-md-2">
-                                                    <div class="form-group">
-                                                        <label><b>สิ้นสุดวันที่</b></label><br>
-                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $stp_date?>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                    <div class="row">
+                                      <div class="col-md-4">
+                                          <div class="form-group">
+                                              <label for="activity"><b>ค่าพาหนะ</b></label><br>
+                                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $vehicle; ?>
+                                          </div>
+                                      </div>
+                                      <div class="col-md-2">
+                                          <div class="form-group">
+                                              <label for="activity"><b>ราคา</b></label><br>
+                                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $vehicle_price; ?>
+                                          </div>
+                                      </div>
+                                    </div>
 
-                                </form>
-                            </div>
-                        </div>
+                                    <div class="row">
+                                      <div class="col-md-4">
+                                          <div class="form-group">
+                                              <label for="activity"><b>ค่าลงทะเบียน</b></label><br>
+                                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $regis; ?>
+                                          </div>
+                                      </div>
+                                      <div class="col-md-2">
+                                          <div class="form-group">
+                                              <label for="activity"><b>จำนวน/คน</b></label><br>
+                                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $regis_num; ?>
+                                          </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="row">
+                                      <div class="col-md-4">
+                                          <div class="form-group">
+                                              <label for="activity"><b>อื่นๆ</b></label><br>
+                                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $other; ?>
+                                          </div>
+                                      </div>
+                                      <div class="col-md-2">
+                                          <div class="form-group">
+                                              <label for="activity"><b>จำนวน/คน</b></label><br>
+                                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $other_price; ?>
+                                          </div>
+                                      </div>
+                                    </div>
+                          </form>
                     </div>
                     <!-- Column -->
                 </div>
