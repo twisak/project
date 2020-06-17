@@ -88,7 +88,7 @@ else
 
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">ข้อมูลพัธกิจ</h4>
+                                <h4 class="card-title">ข้อมูลพันธกิจ</h4>
                                 <!-- <h6 class="card-subtitle">Add class <code>.table</code></h6> -->
 <!--
                                 <div class="container">
@@ -99,15 +99,15 @@ else
 
 
                                 <div class="text-right">
-                                    <a href="../project/form_project.php"><button type="button" class="btn btn-primary">เพิ่มพันธกิจ</button></a>
+                                    <a href="../product/form_product.php"><button type="button" class="btn btn-primary">เพิ่มพันธกิจ</button></a>
                                 </div>
                                 <div class="table-responsive">
                                     <table class="table text-center">
                                         <thead>
                                         <tr>
                                                 <th class="text-center">ลำดับ</th>
-                                                <th class="text-center">รหัสพันธกิจ</th>
                                                 <th class="text-center">ชื่อพันธกิจ</th>
+                                                <th class="text-center">ผลผลิต</th>
                                                 <th class="text-center">แก้ไข</th>
                                                 <th class="text-center">ลบ</th>
                                             </tr>
@@ -117,20 +117,26 @@ else
                                             $i<="";
 
                                             include '../../administrator/connect.php';
-                                            $sql_project ="SELECT * FROM tb_project";
-                                            $query_project = mysqli_query($conn,$sql_project);
-                                            while($row_project = mysqli_fetch_array($query_project,MYSQLI_ASSOC))
+                                            $sql_mission ="SELECT * FROM tb_mission";
+                                            $query_mission = mysqli_query($conn,$sql_mission);
+                                            while($row_mission = mysqli_fetch_array($query_mission,MYSQLI_ASSOC))
                                             {
-                                                $project_id = $row_project['project_id'];
-                                                $project_name = $row_project['project_name'];
+                                                $mission = $row_mission['mission'];
+                                                $product_id = $row_mission['product_id'];
+
+                                           $sql_product = "SELECT * FROM tb_product WHERE id = '".$product_id."' ";
+                                           $query_product = mysqli_query($conn,$sql_product);
+                                           $row_product =mysqli_fetch_assoc($query_product);
+                                           $product = $row_product['product'];
+
 
                                         ?>
                                         <tbody>
                                             <tr>
                                                 <td><?php echo $i;?></td>
-                                                <td><?php echo $project_id;?></td>
-                                                <td><?php echo $project_name;?></td>
-                                                <td><a href="edit_form_project.php?id=<?php echo $row_project['id'];?>" class="btn btn-warning">แก้ไข</a></td>
+                                                <td><?php echo $product;?></td>
+                                                <td><?php echo $mission;?></td>
+                                                <td><a href="edit_form_mission.php?id=<?php echo $row_mission['id'];?>" class="btn btn-warning">แก้ไข</a></td>
                                                 <td><button type="button" class="btn btn-danger">ลบ</button></td>
                                             </tr>
                                             <?php

@@ -85,36 +85,36 @@ else
                         <div class="card">
                             <!-- Tab panes -->
                             <div class="card-body">
-                                <?php
-                                        include '../../administrator/connect.php';
-                                        $sql = "Select Max(substr(project_id,3)+1) as MaxID from tb_project ";
-                                        $query = mysqli_query($conn,$sql);
-                                        $table_id = mysqli_fetch_assoc($query);
-                                        $testid = $table_id['MaxID'];
-                                                if($testid=='')
-                                                {
-                                                    $id="P001";
-                                                }else
-                                                {
-                                                    $id="P".sprintf("%03d",$testid);
-                                                }
-
-                            ?>
                                 <form class="form-horizontal form-material" action="insert_product.php" name="form_user" method="post">
 
 
                                     <div class="row">
-                                        <div class="col-md-2">
-                                            <div class="form-group">
-                                                <label>รหัสผลผลิต</label>
-                                                <input type="text" name="project_id" value="<?=$id?>" placeholder="" class="form-control form-control-line">
-                                            </div>
-                                        </div>
+                                      <?php
+                                          $sql_budget = "SELECT * FROM tb_budget";
+                                          $query_budget = mysqli_query($conn,$sql_budget);
+                                      ?>
+
+                                      <div class="col-md-3">
+                                          <div class="form-group">
+                                              <label>ประเภทงบประมาณ</label>
+                                              <select class="form-control" name="budget_id">
+                                                  <option value="">-- เลือกประเภทงบประมาณ --</option>
+                                                  <?php
+                                                      while($result_budget=mysqli_fetch_array($query_budget))
+                                                      {
+                                                      ?>
+                                                  <option value='<?php echo $result_budget['id'];?>'><?php echo $result_budget['budget'];?></option>
+                                                  <?php
+                                                      }
+                                                      ?>
+                                              </select>
+                                          </div>
+                                      </div>
 
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label>ผลผลิต</label>
-                                                <input type="text" name="project_name" placeholder="" class="form-control form-control-line">
+                                                <input type="text" name="product" placeholder="" class="form-control form-control-line">
                                             </div>
                                         </div>
                                     </div>

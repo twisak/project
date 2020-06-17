@@ -99,14 +99,13 @@ else
 
 
                                 <div class="text-right">
-                                    <a href="../project/form_project.php"><button type="button" class="btn btn-primary">เพิ่มประเภทงบประมาณ</button></a>
+                                    <a href="../budget/form_budget.php"><button type="button" class="btn btn-primary">เพิ่มประเภทงบประมาณ</button></a>
                                 </div>
                                 <div class="table-responsive">
                                     <table class="table text-center">
                                         <thead>
                                         <tr>
                                                 <th class="text-center">ลำดับ</th>
-                                                <th class="text-center">รหัสประเภทงบประมาณ</th>
                                                 <th class="text-center">ชื่อประเภทงบประมาณ</th>
                                                 <th class="text-center">แก้ไข</th>
                                                 <th class="text-center">ลบ</th>
@@ -117,19 +116,17 @@ else
                                             $i<="";
 
                                             include '../../administrator/connect.php';
-                                            $sql_project ="SELECT * FROM tb_project";
-                                            $query_project = mysqli_query($conn,$sql_project);
-                                            while($row_project = mysqli_fetch_array($query_project,MYSQLI_ASSOC))
+                                            $sql_tb_budget ="SELECT * FROM tb_budget";
+                                            $query_tb_budget = mysqli_query($conn,$sql_tb_budget);
+                                            while($row_budget = mysqli_fetch_array($query_tb_budget,MYSQLI_ASSOC))
                                             {
-                                                $project_id = $row_project['project_id'];
-                                                $project_name = $row_project['project_name'];
+                                                $budget = $row_budget['budget'];
 
                                         ?>
                                         <tbody>
                                             <tr>
                                                 <td><?php echo $i;?></td>
-                                                <td><?php echo $project_id;?></td>
-                                                <td><?php echo $project_name;?></td>
+                                                <td><?php echo $budget;?></td>
                                                 <td><a href="edit_form_project.php?id=<?php echo $row_project['id'];?>" class="btn btn-warning">แก้ไข</a></td>
                                                 <td><button type="button" class="btn btn-danger">ลบ</button></td>
                                             </tr>

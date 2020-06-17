@@ -99,15 +99,15 @@ else
 
 
                                 <div class="text-right">
-                                    <a href="../project/form_project.php"><button type="button" class="btn btn-primary">เพิ่มผลผลิต</button></a>
+                                    <a href="../product/form_product.php"><button type="button" class="btn btn-primary">เพิ่มผลผลิต</button></a>
                                 </div>
                                 <div class="table-responsive">
                                     <table class="table text-center">
                                         <thead>
                                         <tr>
                                                 <th class="text-center">ลำดับ</th>
-                                                <th class="text-center">รหัสผลผลิต</th>
                                                 <th class="text-center">ชื่อผลผลิต</th>
+                                                <th class="text-center">ประเภทงบประมาณ</th>
                                                 <th class="text-center">แก้ไข</th>
                                                 <th class="text-center">ลบ</th>
                                             </tr>
@@ -117,19 +117,26 @@ else
                                             $i<="";
 
                                             include '../../administrator/connect.php';
-                                            $sql_project ="SELECT * FROM tb_project";
-                                            $query_project = mysqli_query($conn,$sql_project);
-                                            while($row_project = mysqli_fetch_array($query_project,MYSQLI_ASSOC))
+                                            $sql_product ="SELECT * FROM tb_product";
+                                            $query_product = mysqli_query($conn,$sql_product);
+                                            while($row_product = mysqli_fetch_array($query_product,MYSQLI_ASSOC))
                                             {
-                                                $project_id = $row_project['project_id'];
-                                                $project_name = $row_project['project_name'];
+                                                $product = $row_product['product'];
+                                                $budget_id = $row_product['budget_id'];
+
+                                           $sql_budget = "SELECT * FROM tb_budget WHERE id = '".$budget_id."' ";
+                                           echo $sql_budget;
+                                           $query_budget = mysqli_query($conn,$sql_budget);
+                                           $row_budget =mysqli_fetch_assoc($query_budget);
+                                           $budget = $row_budget['budget'];
+
 
                                         ?>
                                         <tbody>
                                             <tr>
                                                 <td><?php echo $i;?></td>
-                                                <td><?php echo $project_id;?></td>
-                                                <td><?php echo $project_name;?></td>
+                                                <td><?php echo $product;?></td>
+                                                <td><?php echo $budget;?></td>
                                                 <td><a href="edit_form_project.php?id=<?php echo $row_project['id'];?>" class="btn btn-warning">แก้ไข</a></td>
                                                 <td><button type="button" class="btn btn-danger">ลบ</button></td>
                                             </tr>

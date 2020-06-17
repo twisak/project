@@ -65,10 +65,10 @@ else
                 <!-- ============================================================== -->
                 <div class="row page-titles">
                     <div class="col-md-5 align-self-center">
-                        <h3 class="text-themecolor">เพิ่มโครงการ</h3>
+                        <h3 class="text-themecolor">เพิ่มประเภทงบประมาณ</h3>
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                            <li class="breadcrumb-item active">เพิ่มโครงการ</li>
+                            <li class="breadcrumb-item active">เพิ่เพิ่มประเภทงบประมาณ</li>
                         </ol>
                     </div>
                     <div class="col-md-7 align-self-center">
@@ -104,17 +104,11 @@ else
 
 
                                     <div class="row">
-                                        <div class="col-md-2">
-                                            <div class="form-group">
-                                                <label>รหัสประเภทงบประมาณ</label>
-                                                <input type="text" name="project_id" value="<?=$id?>" placeholder="" class="form-control form-control-line">
-                                            </div>
-                                        </div>
 
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label>ประเภทงบประมาณ</label>
-                                                <input type="text" name="project_name" placeholder="" class="form-control form-control-line">
+                                                <input type="text" name="budget" placeholder="" class="form-control form-control-line">
                                             </div>
                                         </div>
                                     </div>

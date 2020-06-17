@@ -65,10 +65,10 @@ else
                 <!-- ============================================================== -->
                 <div class="row page-titles">
                     <div class="col-md-5 align-self-center">
-                        <h3 class="text-themecolor">เพิ่มโครงการ</h3>
+                        <h3 class="text-themecolor">เพิ่มยุทธศาสตร์</h3>
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                            <li class="breadcrumb-item active">เพิ่มโครงการ</li>
+                            <li class="breadcrumb-item active">เพิ่มยุทธศาสตร์</li>
                         </ol>
                     </div>
                     <div class="col-md-7 align-self-center">
@@ -85,36 +85,36 @@ else
                         <div class="card">
                             <!-- Tab panes -->
                             <div class="card-body">
-                                <?php
-                                        include '../../administrator/connect.php';
-                                        $sql = "Select Max(substr(project_id,3)+1) as MaxID from tb_project ";
-                                        $query = mysqli_query($conn,$sql);
-                                        $table_id = mysqli_fetch_assoc($query);
-                                        $testid = $table_id['MaxID'];
-                                                if($testid=='')
-                                                {
-                                                    $id="P001";
-                                                }else
-                                                {
-                                                    $id="P".sprintf("%03d",$testid);
-                                                }
-
-                            ?>
                                 <form class="form-horizontal form-material" action="insert_strategic.php" name="form_user" method="post">
 
 
                                     <div class="row">
-                                        <div class="col-md-2">
-                                            <div class="form-group">
-                                                <label>รหัสยุทธศาสตร์</label>
-                                                <input type="text" name="project_id" value="<?=$id?>" placeholder="" class="form-control form-control-line">
-                                            </div>
-                                        </div>
+                                      <?php
+                                          $sql_mission = "SELECT * FROM tb_mission";
+                                          $query_mission = mysqli_query($conn,$sql_mission);
+                                      ?>
+
+                                      <div class="col-md-3">
+                                          <div class="form-group">
+                                              <label>พันธกิจ</label>
+                                              <select class="form-control" name="mission_id">
+                                                  <option value="">-- เลือกพันธกิจ --</option>
+                                                  <?php
+                                                      while($result_mission=mysqli_fetch_array($query_mission))
+                                                      {
+                                                      ?>
+                                                  <option value='<?php echo $result_mission['id'];?>'><?php echo $result_mission['mission'];?></option>
+                                                  <?php
+                                                      }
+                                                      ?>
+                                              </select>
+                                          </div>
+                                      </div>
 
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label>ยุทธศาสตร</label>
-                                                <input type="text" name="project_name" placeholder="" class="form-control form-control-line">
+                                                <label>ยุทธศาสตร์</label>
+                                                <input type="text" name="strategic" placeholder="" class="form-control form-control-line">
                                             </div>
                                         </div>
                                     </div>

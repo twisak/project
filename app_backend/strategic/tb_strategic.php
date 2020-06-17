@@ -99,15 +99,15 @@ else
 
 
                                 <div class="text-right">
-                                    <a href="../project/form_project.php"><button type="button" class="btn btn-primary">เพิ่มยุทธศาสตร์</button></a>
+                                    <a href="../strategic/form_strategic.php"><button type="button" class="btn btn-primary">เพิ่มยุทธศาสตร์</button></a>
                                 </div>
                                 <div class="table-responsive">
                                     <table class="table text-center">
                                         <thead>
                                         <tr>
                                                 <th class="text-center">ลำดับ</th>
-                                                <th class="text-center">รหัสยุทธศาสตร์</th>
                                                 <th class="text-center">ชื่อยุทธศาสตร์</th>
+                                                <th class="text-center">พันธกิจ</th>
                                                 <th class="text-center">แก้ไข</th>
                                                 <th class="text-center">ลบ</th>
                                             </tr>
@@ -117,20 +117,26 @@ else
                                             $i<="";
 
                                             include '../../administrator/connect.php';
-                                            $sql_project ="SELECT * FROM tb_project";
-                                            $query_project = mysqli_query($conn,$sql_project);
-                                            while($row_project = mysqli_fetch_array($query_project,MYSQLI_ASSOC))
+                                            $sql_strategic ="SELECT * FROM tb_strategic";
+                                            $query_strategic = mysqli_query($conn,$sql_strategic);
+                                            while($row_strategic = mysqli_fetch_array($query_strategic,MYSQLI_ASSOC))
                                             {
-                                                $project_id = $row_project['project_id'];
-                                                $project_name = $row_project['project_name'];
+                                                $strategic = $row_strategic['strategic'];
+                                                $mission_id = $row_strategic['mission_id'];
+
+                                           $sql_mission = "SELECT * FROM tb_mission WHERE id = '".$mission_id."' ";
+                                           $query_mission = mysqli_query($conn,$sql_mission);
+                                           $row_mission =mysqli_fetch_assoc($query_mission);
+                                           $mission = $row_mission['mission'];
+
 
                                         ?>
                                         <tbody>
                                             <tr>
                                                 <td><?php echo $i;?></td>
-                                                <td><?php echo $project_id;?></td>
-                                                <td><?php echo $project_name;?></td>
-                                                <td><a href="edit_form_project.php?id=<?php echo $row_project['id'];?>" class="btn btn-warning">แก้ไข</a></td>
+                                                <td><?php echo $strategic;?></td>
+                                                <td><?php echo $mission;?></td>
+                                                <td><a href="edit_form_project.php?id=<?php echo $row_strategic['id'];?>" class="btn btn-warning">แก้ไข</a></td>
                                                 <td><button type="button" class="btn btn-danger">ลบ</button></td>
                                             </tr>
                                             <?php
