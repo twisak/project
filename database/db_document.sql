@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 14, 2020 at 01:36 PM
--- Server version: 10.3.16-MariaDB
--- PHP Version: 7.2.20
+-- Generation Time: Jun 17, 2020 at 11:26 AM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.4.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -10096,21 +10095,23 @@ INSERT INTO `tb_activity` (`id`, `project_id`, `activity`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_budget_type`
+-- Table structure for table `tb_budget`
 --
 
-CREATE TABLE `tb_budget_type` (
+CREATE TABLE `tb_budget` (
   `id` int(11) NOT NULL COMMENT 'ออโต้',
-  `budget_id` varchar(20) DEFAULT NULL COMMENT 'รหัส',
-  `budget_name` varchar(100) DEFAULT NULL COMMENT 'ชื่องบ'
+  `budget` varchar(100) DEFAULT NULL COMMENT 'ชื่องบ'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `tb_budget_type`
+-- Dumping data for table `tb_budget`
 --
 
-INSERT INTO `tb_budget_type` (`id`, `budget_id`, `budget_name`) VALUES
-(1, 'B1', 'งบประมาณแผ่นดิน');
+INSERT INTO `tb_budget` (`id`, `budget`) VALUES
+(1, 'ประเภทงบประมาณ1'),
+(2, 'ประเภทงบประมาณ2'),
+(3, 'ประเภทงบประมาณ3'),
+(4, 'ประเภทงบประมาณ4');
 
 -- --------------------------------------------------------
 
@@ -10162,11 +10163,11 @@ CREATE TABLE `tb_debt` (
 
 CREATE TABLE `tb_lend` (
   `id` int(11) NOT NULL COMMENT 'ออโต้ไอดี',
-  `doc_id` int(11) DEFAULT NULL COMMENT 'รหัสเอกสารสัญญาเงินยืม	',
+  `doc_id` varchar(11) DEFAULT NULL COMMENT 'รหัสเอกสารสัญญาเงินยืม	',
   `str_date` date DEFAULT NULL COMMENT 'วันที่เริ่มต้น',
   `stp_date` date DEFAULT NULL COMMENT 'วันที่สิ้นสุด',
-  `project_id` int(11) DEFAULT NULL COMMENT 'รหัสโครงการ',
-  `person_id` int(11) DEFAULT NULL COMMENT 'รหัสบุคลากร',
+  `project_id` varchar(11) DEFAULT NULL COMMENT 'รหัสโครงการ',
+  `person_id` varchar(11) DEFAULT NULL COMMENT 'รหัสบุคลากร',
   `allowance` varchar(100) DEFAULT NULL COMMENT 'ค่าเบี้ยเลี้ยงกรอก',
   `allowance_price` varchar(20) DEFAULT NULL COMMENT 'ค่าเบี้ยเลี้ยงราคา',
   `rest` varchar(100) DEFAULT NULL COMMENT 'ค่าที่พัก',
@@ -10179,6 +10180,13 @@ CREATE TABLE `tb_lend` (
   `other_price` varchar(10) DEFAULT NULL COMMENT 'ราคาอื่นๆ'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `tb_lend`
+--
+
+INSERT INTO `tb_lend` (`id`, `doc_id`, `str_date`, `stp_date`, `project_id`, `person_id`, `allowance`, `allowance_price`, `rest`, `rest_price`, `vehicle`, `vehicle_price`, `regis`, `regis_num`, `other`, `other_price`) VALUES
+(3, '1598', '2020-06-17', '2020-06-20', 'P001', 'PS001', 'ของกิน ', '400', 'โรงแรม', '500', 'น้ำมันรถ', '200', '200', '15', 'ค่าเที่ยว', '2500');
+
 -- --------------------------------------------------------
 
 --
@@ -10187,16 +10195,18 @@ CREATE TABLE `tb_lend` (
 
 CREATE TABLE `tb_mission` (
   `id` int(11) NOT NULL COMMENT 'ออโต้',
-  `mission_id` varchar(20) DEFAULT NULL COMMENT 'รหัส',
-  `mission_name` varchar(100) DEFAULT NULL COMMENT 'พันธกิจ'
+  `mission` varchar(100) DEFAULT NULL COMMENT 'พันธกิจ',
+  `product_id` int(11) NOT NULL COMMENT 'รหัสผลผลิต'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `tb_mission`
 --
 
-INSERT INTO `tb_mission` (`id`, `mission_id`, `mission_name`) VALUES
-(1, 'M1', 'ผลิตบัณฑิตให้เป็นนักปฎิบัติ');
+INSERT INTO `tb_mission` (`id`, `mission`, `product_id`) VALUES
+(3, 'พันธกิจ1', 2),
+(4, 'พันธกิจ2', 2),
+(5, 'พันธกิจ3', 2);
 
 -- --------------------------------------------------------
 
@@ -10269,16 +10279,18 @@ CREATE TABLE `tb_position` (
 
 CREATE TABLE `tb_product` (
   `id` int(11) NOT NULL COMMENT 'ออโต้',
-  `product_id` varchar(20) DEFAULT NULL COMMENT 'รหัส',
-  `product_name` varchar(100) DEFAULT NULL COMMENT 'ผลผลิต'
+  `product` varchar(100) DEFAULT NULL COMMENT 'ผลผลิต',
+  `budget_id` int(11) NOT NULL COMMENT 'รหัสประเภท'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `tb_product`
 --
 
-INSERT INTO `tb_product` (`id`, `product_id`, `product_name`) VALUES
-(1, 'P1', 'ค่าใช้จ่ายบุคลากรภาครัฐ');
+INSERT INTO `tb_product` (`id`, `product`, `budget_id`) VALUES
+(1, 'ผลผลิต1', 1),
+(2, 'ผลผลิต2', 1),
+(3, 'ผลผลิต3', 1);
 
 -- --------------------------------------------------------
 
@@ -10307,7 +10319,8 @@ INSERT INTO `tb_project` (`id`, `project_id`, `project_name`, `fiscal_year`, `bu
 (20, 'P001', 'โครงการพัฒนาครูและบุคลากรทางการศึกษาเพื่อลดความเหลื่อมล้ำจากผลกระทบเหตุการณ์ความไม่สงบในพื้นทีชายแดนใต้', '2020', 'B1', 'P1', 'M1', 'S1', 'เพื่อผลประโยชน์ของมหาวิยทลัย', '2000'),
 (21, 'P002', 'โครงการ ยกระดับคุณภาพการเรียนรู้ด้านการอ่าน การเขียนและการคิดวิเคราะห์ของนักเรียนในระดับการศึกษาขั้นพื้นฐานในพื้นที่ชายแดนใต้', '2020', 'B1', 'P1', 'M1', 'S1', 'เพื่อผลประโยชน์ของมหาวิยทลัย', '3000'),
 (22, 'P003', 'โครงการส่งเสริมและเผยแพร่ความจริงที่ถูกต้องเพื่อสนับสนุนการแก้ไขปัญหา', '2020', 'B1', 'P1', 'M1', 'S1', 'เพื่อผลประโยชน์ของมหาวิยทลัย', '1000'),
-(23, 'P004', 'โครงการจัดตั้งสถาบันพัฒนาครูและบุคลากรทางการศึกษาชายแดนใต้ มหาวิทยาลัยราชภัฏยะลา', '2020', 'B1', 'P1', 'M1', 'S1', 'เพื่อผลประโยชน์ของมหาวิยทลัย', '4000');
+(23, 'P004', 'โครงการจัดตั้งสถาบันพัฒนาครูและบุคลากรทางการศึกษาชายแดนใต้ มหาวิทยาลัยราชภัฏยะลา', '2020', 'B1', 'P1', 'M1', 'S1', 'เพื่อผลประโยชน์ของมหาวิยทลัย', '4000'),
+(24, 'P001', 'โครงการพัฒนาครูและบุคลากรทางการศึกษาเพื่อลดความเหลื่อมล้ำจากผลกระทบเหตุการณ์ความไม่สงบในพื้นทีชายแดนใต้', '2035', 'B1', 'P1', 'M1', 'S1', '', '');
 
 -- --------------------------------------------------------
 
@@ -10356,16 +10369,18 @@ CREATE TABLE `tb_school` (
 
 CREATE TABLE `tb_strategic` (
   `id` int(11) NOT NULL COMMENT 'ออโต้',
-  `strategic_id` varchar(20) DEFAULT NULL COMMENT 'รหัส',
-  `strategic_name` varchar(100) DEFAULT NULL COMMENT 'ยุทธศาสตร์'
+  `strategic` varchar(100) DEFAULT NULL COMMENT 'ยุทธศาสตร์',
+  `mission_id` int(11) NOT NULL COMMENT 'รหัสพันธกิจ'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `tb_strategic`
 --
 
-INSERT INTO `tb_strategic` (`id`, `strategic_id`, `strategic_name`) VALUES
-(1, 'S1', 'ยกระดับคุณภาพมาตรฐานการผลิตบัณฑิต');
+INSERT INTO `tb_strategic` (`id`, `strategic`, `mission_id`) VALUES
+(3, 'ยุทธศาสตร์1', 4),
+(4, 'ยุทธศาสตร์2', 4),
+(5, 'ยุทธศาสตร์3', 5);
 
 --
 -- Indexes for dumped tables
@@ -10408,9 +10423,9 @@ ALTER TABLE `tb_activity`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tb_budget_type`
+-- Indexes for table `tb_budget`
 --
-ALTER TABLE `tb_budget_type`
+ALTER TABLE `tb_budget`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -10520,10 +10535,10 @@ ALTER TABLE `tb_activity`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้', AUTO_INCREMENT=36;
 
 --
--- AUTO_INCREMENT for table `tb_budget_type`
+-- AUTO_INCREMENT for table `tb_budget`
 --
-ALTER TABLE `tb_budget_type`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้', AUTO_INCREMENT=3;
+ALTER TABLE `tb_budget`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้', AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `tb_contract`
@@ -10541,13 +10556,13 @@ ALTER TABLE `tb_debt`
 -- AUTO_INCREMENT for table `tb_lend`
 --
 ALTER TABLE `tb_lend`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้ไอดี';
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้ไอดี', AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tb_mission`
 --
 ALTER TABLE `tb_mission`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้', AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้', AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tb_note`
@@ -10571,13 +10586,13 @@ ALTER TABLE `tb_position`
 -- AUTO_INCREMENT for table `tb_product`
 --
 ALTER TABLE `tb_product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้', AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้', AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `tb_project`
 --
 ALTER TABLE `tb_project`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้ไอดี', AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้ไอดี', AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `tb_salary`
@@ -10595,7 +10610,7 @@ ALTER TABLE `tb_school`
 -- AUTO_INCREMENT for table `tb_strategic`
 --
 ALTER TABLE `tb_strategic`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้', AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้', AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
