@@ -100,7 +100,7 @@ else
                                                 }
 
                             ?>
-                                <form class="form-horizontal form-material" action="insert_project.php" name="form_user" method="post">
+                                <form class="form-horizontal form-material" action="insert_budget.php" name="form_user" method="post">
 
 
                                     <div class="row">
