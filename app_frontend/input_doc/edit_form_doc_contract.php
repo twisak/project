@@ -198,7 +198,8 @@ include '../../administrator/connect.php';
 
                                             </div>
                                             <table width="100%" border="0" id="myTable">
-                                                <thead>
+                                                <thead></thead>
+                                                <tbody>
                                                 <?php 
                                                     $sql ="SELECT * FROM tb_contract WHERE doc_id = '".$doc_id."'";
                                                     $query = mysqli_query($conn,$sql);
@@ -213,8 +214,7 @@ include '../../administrator/connect.php';
                                                     </td>
                                                 </tr>
                                                 <?php }?>
-                                                </thead>
-                                                <tbody></tbody>
+                                                </tbody>
                                             </table>
                                             <br />
                                             <center>

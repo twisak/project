@@ -102,12 +102,14 @@
                         </li>
                         <li> <a class="waves-effect waves-dark" href="../tb_user/tb_user.php" aria-expanded="false"><i class="fa fa-user-circle-o"></i><span class="hide-menu">จัดการข้อมูลบุคลากร</span></a>
                         </li>
+                        <li> <a class="waves-effect waves-dark" href="" aria-expanded="false"><i class="fa fa-bookmark-o"></i><span class="hide-menu">จัดการข้อมูลอาจารย์</span></a>
+                        </li>
                         <li class="nav-item">
-                            <a class="nav-link waves-effect waves-dark collapsed" href="#" data-toggle="collapse" data-target="#collapseB" aria-expanded="false" aria-controls="collapseB">
+                            <a class="nav-link waves-effect waves-dark collapsed" href="#" data-toggle="collapse" data-target="#collapseA" aria-expanded="false" aria-controls="collapseA">
                                 <i class="fa fa-sun-o"></i>
                                 <span>จัดการข้อมูลเอกสาร</span>
                             </a>
-                            <div id="collapseB" class="collapse" aria-labelledby="headingB" data-parent="#accordionSidebar">
+                            <div id="collapseA" class="collapse" aria-labelledby="headingA" data-parent="#accordionSidebar">
                                 <div class="bg-white py-2 collapse-inner rounded col-lg-12">
                                     <a class="waves-effect waves-dark" href="../tb_admin/tb_doc_agreement.php"><i class="fa fa-caret-right"></i> เอกสารสัญญาณยืม</a>
                                     <a class="waves-effect waves-dark" href="../tb_admin/tb_doc_salary.php"><i class="fa fa-caret-right"></i> เอกสารเงินเดือน</a>
@@ -117,16 +119,29 @@
                                 </div>
                             </div>
                         </li>
+                        
                         <li> <a class="waves-effect waves-dark" href="../project/tb_project.php" aria-expanded="false"><i class="fa fa-globe"></i><span class="hide-menu">จัดการข้อมูลโครงการ</span></a>
                         </li>
                         <li> <a class="waves-effect waves-dark" href="../activity/tb_activity.php" aria-expanded="false"><i class="fa fa-globe"></i><span class="hide-menu">จัดการข้อมูลกิจกรรม</span></a>
                         </li>
+                        <li> <a class="waves-effect waves-dark" href="" aria-expanded="false"><i class="fa fa-question-circle"></i><span class="hide-menu">จัดการข้อมูลหัวข้อเรื่อง</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link waves-effect waves-dark collapsed" href="#" data-toggle="collapse" data-target="#collapseB" aria-expanded="false" aria-controls="collapseB">
+                                <i class="fa fa-sun-o"></i>
+                                <span>จัดการข้อมูลต่างๆ</span>
+                            </a>
+                            <div id="collapseB" class="collapse" aria-labelledby="headingB" data-parent="#accordionSidebar">
+                                <div class="bg-white py-2 collapse-inner rounded col-lg-12">
+                                    <a class="waves-effect waves-dark" href="../budget/tb_budget.php"><i class="fa fa-caret-right"></i> ประเภทงบประมาณ</a>
+                                    <a class="waves-effect waves-dark" href="../product/tb_product.php"><i class="fa fa-caret-right"></i> ผลผลิต</a>
+                                    <a class="waves-effect waves-dark" href="../mission/tb_mission.php"><i class="fa fa-caret-right"></i> พันธกิจ</a>
+                                    <a class="waves-effect waves-dark" href="../strategic/tb_strategic.php"><i class="fa fa-caret-right"></i> ยุทธศาสตร์</a>
+                                </div>
+                            </div>
+                        </li>
                         <li> <a class="waves-effect waves-dark" href="../../administrator/logout.php" aria-expanded="false"><i class="fa fa-table"></i><span class="hide-menu">Logout</span></a>
                         </li>
-                        <!-- <li> <a class="waves-effect waves-dark" href="pages-blank.html" aria-expanded="false"><i class="fa fa-bookmark-o"></i><span class="hide-menu">Blank</span></a>
-                        </li>
-                        <li> <a class="waves-effect waves-dark" href="pages-error-404.html" aria-expanded="false"><i class="fa fa-question-circle"></i><span class="hide-menu">404</span></a>
-                        </li> -->
                     </ul>
                     <!-- <div class="text-center m-t-30">
                         <a href="https://wrappixel.com/templates/adminwrap/" class="btn waves-effect waves-light btn-info hidden-md-down"> Upgrade to Pro</a>
