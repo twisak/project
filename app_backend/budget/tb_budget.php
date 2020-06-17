@@ -123,6 +123,7 @@ else
                                             $query_tb_budget = mysqli_query($conn,$sql_tb_budget);
                                             while($row_budget = mysqli_fetch_array($query_tb_budget,MYSQLI_ASSOC))
                                             {
+                                                $id = $row_budget['id'];
                                                 $budget = $row_budget['budget'];
 
                                         ?>
@@ -130,7 +131,7 @@ else
                                             <tr>
                                                 <td><?php echo $i;?></td>
                                                 <td><?php echo $budget;?></td>
-                                                <td><a href="edit_form_project.php?id=<?php echo $row_project['id'];?>" class="btn btn-warning">แก้ไข</a></td>
+                                                <td><a href="edit_form_budget.php?id=<?php echo $id;?>" class="btn btn-warning">แก้ไข</a></td>
                                                 <td><button type="button" class="btn btn-danger">ลบ</button></td>
                                             </tr>
                                             <?php

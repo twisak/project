@@ -129,6 +129,7 @@ else
                                             $query = mysqli_query($conn,$sql);
                                             while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
                                             {
+                                                $id = $row['id'];
                                                 $prefix = $row['prefix'];
                                                 $firtname = $row['firtname'];
                                                 $lastname = $row['lastname'];
@@ -176,11 +177,13 @@ else
                                                 <td><?php echo $i;?></td>
                                                 <td><?php echo $prefix;?><?php echo $firtname;?>&nbsp;&nbsp;<?php echo $lastname;?></td>
                                                 <td><?php echo $idcard;?></td>
-                                                <td><?php echo $house_num;?>&nbsp;<?php echo $name_th;?>&nbsp;<?php echo $name_th1;?>&nbsp;<?php echo $name_th2;?></td>
+                                                <td><?php echo $house_num;?>&nbsp;<?php echo $province_id;?>&nbsp;<?php echo $name_th1;?>&nbsp;<?php echo $name_th2;?></td>
                                                 <td><?php echo $username;?></td>
                                                 <td><?php echo $password;?></td>
                                                 <td><?php echo $status;?></td>
-                                                <td><button type="button" class="btn btn-warning">แก้ไข</button></td>
+                                                <td>
+                                                <a href="edit_form_user.php?id=<?php echo $person_id;?>"><button type="button" class="btn btn-warning">แก้ไข</button></a>
+                                                </td>
                                                 <td><button type="button" class="btn btn-danger">ลบ</button></td>
                                             </tr>
                                             <?php

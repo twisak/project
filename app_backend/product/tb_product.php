@@ -124,23 +124,25 @@ else
                                             $query_product = mysqli_query($conn,$sql_product);
                                             while($row_product = mysqli_fetch_array($query_product,MYSQLI_ASSOC))
                                             {
+                                                $id = $row_product['id'];
                                                 $product = $row_product['product'];
                                                 $budget_id = $row_product['budget_id'];
 
                                            $sql_budget = "SELECT * FROM tb_budget WHERE id = '".$budget_id."' ";
-                                           echo $sql_budget;
+                                           //echo $sql_budget;
                                            $query_budget = mysqli_query($conn,$sql_budget);
-                                           $row_budget =mysqli_fetch_assoc($query_budget);
-                                           $budget = $row_budget['budget'];
-
-
+                                           while($row_budget =mysqli_fetch_array($query_budget,MYSQLI_ASSOC));
+                                           {
+                                                $budget = $row_budget['budget'];
+                                           }
+echo $budget;
                                         ?>
                                         <tbody>
                                             <tr>
                                                 <td><?php echo $i;?></td>
                                                 <td><?php echo $product;?></td>
                                                 <td><?php echo $budget;?></td>
-                                                <td><a href="edit_form_project.php?id=<?php echo $row_project['id'];?>" class="btn btn-warning">แก้ไข</a></td>
+                                                <td><a href="edit_form_product.php?id=<?php echo $id;?>" class="btn btn-warning">แก้ไข</a></td>
                                                 <td><button type="button" class="btn btn-danger">ลบ</button></td>
                                             </tr>
                                             <?php
