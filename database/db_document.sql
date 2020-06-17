@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 17, 2020 at 11:26 AM
+-- Generation Time: Jun 17, 2020 at 07:41 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.6
 
@@ -10190,6 +10190,17 @@ INSERT INTO `tb_lend` (`id`, `doc_id`, `str_date`, `stp_date`, `project_id`, `pe
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tb_material`
+--
+
+CREATE TABLE `tb_material` (
+  `id` int(11) NOT NULL COMMENT 'ออโต้',
+  `material` varchar(6000) DEFAULT NULL COMMENT 'เนื้อหา'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tb_mission`
 --
 
@@ -10382,6 +10393,31 @@ INSERT INTO `tb_strategic` (`id`, `strategic`, `mission_id`) VALUES
 (4, 'ยุทธศาสตร์2', 4),
 (5, 'ยุทธศาสตร์3', 5);
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_teacher`
+--
+
+CREATE TABLE `tb_teacher` (
+  `id` int(11) NOT NULL COMMENT 'ออโต้',
+  `teacher_id` varchar(20) NOT NULL COMMENT 'รหัสอาจารย์',
+  `t_firtname` varchar(100) NOT NULL COMMENT 'ชื่อ',
+  `t_lastname` varchar(100) NOT NULL COMMENT 'สกุุล',
+  `position_id` varchar(100) NOT NULL COMMENT 'รหัสตำแหน่ง'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_title`
+--
+
+CREATE TABLE `tb_title` (
+  `id` int(11) NOT NULL COMMENT 'ออโต้',
+  `title` varchar(6000) DEFAULT NULL COMMENT 'หัวข้อเรื่อง'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 --
 -- Indexes for dumped tables
 --
@@ -10447,6 +10483,12 @@ ALTER TABLE `tb_lend`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `tb_material`
+--
+ALTER TABLE `tb_material`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `tb_mission`
 --
 ALTER TABLE `tb_mission`
@@ -10498,6 +10540,18 @@ ALTER TABLE `tb_school`
 -- Indexes for table `tb_strategic`
 --
 ALTER TABLE `tb_strategic`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tb_teacher`
+--
+ALTER TABLE `tb_teacher`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tb_title`
+--
+ALTER TABLE `tb_title`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -10559,6 +10613,12 @@ ALTER TABLE `tb_lend`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้ไอดี', AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT for table `tb_material`
+--
+ALTER TABLE `tb_material`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้';
+
+--
 -- AUTO_INCREMENT for table `tb_mission`
 --
 ALTER TABLE `tb_mission`
@@ -10611,6 +10671,18 @@ ALTER TABLE `tb_school`
 --
 ALTER TABLE `tb_strategic`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้', AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `tb_teacher`
+--
+ALTER TABLE `tb_teacher`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้';
+
+--
+-- AUTO_INCREMENT for table `tb_title`
+--
+ALTER TABLE `tb_title`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้';
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
