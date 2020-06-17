@@ -32,6 +32,9 @@ else
     <link href="../css/style.css" rel="stylesheet">
     <!-- You can change the theme colors from here -->
     <link href="../css/colors/default.css" id="theme" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Prompt&display=swap" rel="stylesheet">
+    <link href="../css/google_fonts/fonts_prompt.css" rel="stylesheet" />
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -135,7 +138,7 @@ else
                                                 $districts_id = $row['districts_id'];
                                                 $province_id = $row['province_id'];
                                                 $person_id = $row['person_id'];
-                                            
+
                                             //echo $province_id;
 
                                             $sql1 ="SELECT * FROM account_login WHERE person_id = '".$person_id."' ";
