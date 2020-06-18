@@ -95,6 +95,13 @@ else
                             <!-- Tab panes -->
                             <div class="card-body">
                                 <form class="form-horizontal form-material" action="INSERT_lend.php" name="insertlend" method="post">
+<div class="row">
+  <div class="col-md-2">
+  <div class="form-group">
+  <label><u>สัญญายืม</u></label>
+  </div>
+  </div>
+</div>
 
 <div class="row">
 <div class="col-md-2">
@@ -244,6 +251,14 @@ $query_project = mysqli_query($conn,$sql_project);
 <input type="text"  class="form-control form-control-line" name="other_price">
     </div>
 </div>
+</div>
+
+<div class="row">
+  <div class="col-md-2">
+  <div class="form-group">
+  <label><u>รายการส่งใช้เงินยืม</u></label>
+  </div>
+  </div>
 </div>
 
 

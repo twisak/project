@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 18, 2020 at 06:15 PM
--- Server version: 10.3.16-MariaDB
--- PHP Version: 7.2.20
+-- Generation Time: Jun 18, 2020 at 06:51 PM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.4.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -10192,6 +10191,21 @@ INSERT INTO `tb_lend` (`id`, `doc_id`, `str_date`, `stp_date`, `project_id`, `pe
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tb_lishlend`
+--
+
+CREATE TABLE `tb_lishlend` (
+  `id` int(11) NOT NULL COMMENT 'ออโต้',
+  `list_id` varchar(20) DEFAULT NULL COMMENT 'ไอดี',
+  `date_list` date DEFAULT NULL COMMENT 'วันที่',
+  `pay_type` varchar(20) DEFAULT NULL COMMENT 'การชำระ',
+  `price_list` varchar(100) DEFAULT NULL COMMENT 'ราคา',
+  `balance` varchar(100) DEFAULT NULL COMMENT 'ยอดคงค้าง'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tb_material`
 --
 
@@ -10490,6 +10504,12 @@ ALTER TABLE `tb_lend`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `tb_lishlend`
+--
+ALTER TABLE `tb_lishlend`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `tb_material`
 --
 ALTER TABLE `tb_material`
@@ -10618,6 +10638,12 @@ ALTER TABLE `tb_debt`
 --
 ALTER TABLE `tb_lend`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้ไอดี', AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `tb_lishlend`
+--
+ALTER TABLE `tb_lishlend`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้';
 
 --
 -- AUTO_INCREMENT for table `tb_material`
