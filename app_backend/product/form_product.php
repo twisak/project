@@ -74,9 +74,6 @@ else
                             <li class="breadcrumb-item active">เพิ่มข้อมูลผลผลิต</li>
                         </ol>
                     </div>
-                    <div class="col-md-7 align-self-center">
-                        <a href="https://wrappixel.com/templates/adminwrap/" class="btn waves-effect waves-light btn btn-info pull-right hidden-sm-down"> Upgrade to Pro</a>
-                    </div>
                 </div>
 
                 <script src="http://code.jquery.com/jquery-latest.js"></script>
