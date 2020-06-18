@@ -95,6 +95,13 @@ else
                             <!-- Tab panes -->
                             <div class="card-body">
                                 <form class="form-horizontal form-material" action="INSERT_lend.php" name="insertlend" method="post">
+<div class="row">
+  <div class="col-md-2">
+  <div class="form-group">
+  <label><u>สัญญายืม</u></label>
+  </div>
+  </div>
+</div>
 
 <div class="row">
 <div class="col-md-2">
@@ -246,6 +253,33 @@ $query_project = mysqli_query($conn,$sql_project);
 </div>
 </div>
 
+<div class="row">
+  <div class="col-md-2">
+  <div class="form-group">
+  <label><u>รายการส่งใช้เงินยืม</u></label>
+  </div>
+  </div>
+</div>
+
+<!-- <div class="row">
+    <div class="col-md-7"><div class="form-group"><button type="button" class="btn btn-info" id="createRows_activity" value="Add">เพิ่มหัวข้อย่อย</button>&nbsp;&nbsp;<button type="button" class="btn btn-warning" id="deleteRows_activity" value="Del">ลบหัวข้อย่อย</button>&nbsp;&nbsp;<button type="button" class="btn btn-danger" id="clearRows_activity" value="Clear">ลบทั้งหมด</button></div></div>
+</div>
+
+<table width="100%" border="0" id="myTable_activity">
+
+<thead>
+</thead>
+
+<tbody></tbody>
+</table>
+
+
+<br/>
+<center>
+<br>
+<input type="hidden" id="hdnCount_activity" name="hdnCount_activity">
+</center> -->
+
 
 <div class="row">
 <div class="col-md-3">
@@ -316,3 +350,33 @@ $query_project = mysqli_query($conn,$sql_project);
 </body>
 
 </html>
+<!-- <script type="text/javascript">
+$(document).ready(function(){
+
+    var rows = 1;
+    $("#createRows_activity").click(function(){
+
+
+        var tr = "<tr>";
+tr = tr + "<td><div class='row'><div class='col-md-2'><div class='form-group'><label>รหัสรายการ</label><input type='text' class='form-control p_input'  name='title"+rows+"'></div></div><div class='col-md-2'><div class='form-group'><label>วัน/เดือน/ปี</label><input type='date' class='form-control p_input'  name='title"+rows+"'></div></div><div class='col-md-2'><div class='form-group'><label>ผู้รับผิดชอบ</label><input type='text' class='form-control p_input'  name='send_to"+rows+"'></div></div></div><div class='row'><div class='col-md-6'><div class='form-group'><label>รายละเอียด</label><input type='input' class='form-control p_input'  name='title"+rows+"'></div></div></div></td>";
+        tr = tr + "</tr>";
+        $('#myTable_activity > tbody:last').append(tr);
+
+        $('#hdnCount_activity').val(rows);
+        rows = rows + 1;
+    });
+
+    $("#deleteRows_activity").click(function(){
+        if ($("#myTable_activity tr").length != 1) {
+            $("#myTable_activity tr:last").remove();
+        }
+    });
+
+    $("#clearRows_activity").click(function(){
+        rows = 1;
+        $('#hdnCount_activity').val(rows);
+        $('#myTable_activity > tbody:last').empty(); // remove all
+    });
+
+});
+</script> -->
