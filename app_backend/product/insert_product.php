@@ -4,10 +4,11 @@
     error_reporting(~0);
     include '../../administrator/connect.php';
 
+        $product_id = $_POST['product_id'];
 		$budget_id = $_POST['budget_id'];
 		$product = $_POST['product'];
 
-		$sql_tb_product = "INSERT INTO tb_product(product,budget_id)VALUES ('".$product."','".$budget_id."')";
+		$sql_tb_product = "INSERT INTO tb_product(product_id,product,budget_id)VALUES ('".$product_id."','".$product."','".$budget_id."')";
 
 		$query_tb_product = mysqli_query($conn,$sql_tb_product);
 

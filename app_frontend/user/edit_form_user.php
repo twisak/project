@@ -115,12 +115,12 @@ else
                                             $idcard = $row1['idcard'];
                                             $position_id = $row1['position_id'];
                                             $house_num = $row1['house_num'];
-                                            $provincen_id = $row1['provincen_id'];
+                                            $province_id = $row1['province_id'];
                                             $districts_id = $row1['districts_id'];
                                             $amphures_id= $row1['amphures_id'];
                                         }
 
-                                        $sql2 ="SELECT * FROM provinces WHERE id = '".$provincen_id."' ";
+                                        $sql2 ="SELECT * FROM provinces WHERE id = '".$province_id."' ";
                                         $query2 = mysqli_query($conn,$sql2);
                                         while($row2 = mysqli_fetch_array($query2,MYSQLI_ASSOC))
                                         {

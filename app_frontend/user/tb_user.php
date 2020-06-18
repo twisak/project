@@ -215,20 +215,12 @@ else
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $status;?>
                                     </div>
                                 </div>
-
-
                                 <div class="row">
-                                    <div class="col-md-3">
+                                    <div class="col-md-4">
                                     </div>
-                                    <div class="col-md-3">
-                                    <div class="form-group">
-                                    <a href="edit_form_user.php?id=<?php echo $person_id;?>"><button type="button" class="btn btn-warning btn-block">แก้ไข</button></a>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-3">
-                                    <div class="form-group">
-                                    <button type="button" class="btn btn-danger btn-block">ยกเลิก</button>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <a href="edit_form_user.php?id=<?php echo $person_id;?>"><button type="button" class="btn btn-warning btn-block">แก้ไขข้อมูลส่วนตัว</button></a>
                                         </div>
                                     </div>
                                 </div>

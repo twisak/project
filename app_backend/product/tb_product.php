@@ -125,17 +125,17 @@ else
                                             while($row_product = mysqli_fetch_array($query_product,MYSQLI_ASSOC))
                                             {
                                                 $id = $row_product['id'];
+                                                $product_id = $row_product['product_id'];
                                                 $product = $row_product['product'];
                                                 $budget_id = $row_product['budget_id'];
 
-                                           $sql_budget = "SELECT * FROM tb_budget WHERE id = '".$budget_id."' ";
+                                           $sql_budget = "SELECT * FROM tb_budget WHERE budget_id = '".$budget_id."' ";
                                            //echo $sql_budget;
                                            $query_budget = mysqli_query($conn,$sql_budget);
-                                           while($row_budget =mysqli_fetch_array($query_budget,MYSQLI_ASSOC));
-                                           {
-                                                $budget = $row_budget['budget'];
-                                           }
-echo $budget;
+                                           $row_budget =mysqli_fetch_assoc($query_budget);
+                                           $budget = $row_budget['budget'];
+
+
                                         ?>
                                         <tbody>
                                             <tr>

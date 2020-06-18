@@ -68,10 +68,10 @@ else
                 <!-- ============================================================== -->
                 <div class="row page-titles">
                     <div class="col-md-5 align-self-center">
-                        <h3 class="text-themecolor">เพิ่มโครงการ</h3>
+                        <h3 class="text-themecolor">เพิ่มข้อมูลผลผลิต</h3>
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                            <li class="breadcrumb-item active">เพิ่มโครงการ</li>
+                            <li class="breadcrumb-item active">เพิ่มข้อมูลผลผลิต</li>
                         </ol>
                     </div>
                     <div class="col-md-7 align-self-center">
@@ -89,9 +89,30 @@ else
                             <!-- Tab panes -->
                             <div class="card-body">
                                 <form class="form-horizontal form-material" action="insert_product.php" name="form_user" method="post">
+                                <?php
+                                        include '../../administrator/connect.php';
+                                        $sql = "Select Max(substr(product_id,3)+1) as MaxID from tb_product ";
+                                        $query = mysqli_query($conn,$sql);
+                                        $table_id = mysqli_fetch_assoc($query);
+                                        $testid = $table_id['MaxID'];
+                                                if($testid=='')
+                                                {
+                                                    $id="001";
+                                                }else
+                                                {
+                                                    $id="".sprintf("%03d",$testid);
+                                                }
 
+                                ?>
 
                                     <div class="row">
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label>รหัสผลผลิต</label>
+                                                <input type="text" name="product_id" value="<?=$id?>" class="form-control form-control-line">
+                                            </div>
+                                        </div>
+
                                       <?php
                                           $sql_budget = "SELECT * FROM tb_budget";
                                           $query_budget = mysqli_query($conn,$sql_budget);
@@ -106,7 +127,7 @@ else
                                                       while($result_budget=mysqli_fetch_array($query_budget))
                                                       {
                                                       ?>
-                                                  <option value='<?php echo $result_budget['id'];?>'><?php echo $result_budget['budget'];?></option>
+                                                  <option value='<?php echo $result_budget['budget_id'];?>'><?php echo $result_budget['budget'];?></option>
                                                   <?php
                                                       }
                                                       ?>

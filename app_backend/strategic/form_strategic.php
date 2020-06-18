@@ -89,9 +89,30 @@ else
                             <!-- Tab panes -->
                             <div class="card-body">
                                 <form class="form-horizontal form-material" action="insert_strategic.php" name="form_user" method="post">
+                                <?php
+                                        include '../../administrator/connect.php';
+                                        $sql = "Select Max(substr(strategic_id,3)+1) as MaxID from tb_strategic ";
+                                        $query = mysqli_query($conn,$sql);
+                                        $table_id = mysqli_fetch_assoc($query);
+                                        $testid = $table_id['MaxID'];
+                                                if($testid=='')
+                                                {
+                                                    $id="S001";
+                                                }else
+                                                {
+                                                    $id="S".sprintf("%03d",$testid);
+                                                }
 
+                                ?>
 
                                     <div class="row">
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label>รหัสยุทธศาสตร์</label>
+                                                <input type="text" name="strategic_id" value="<?=$id?>" class="form-control form-control-line">
+                                            </div>
+                                        </div>
+
                                       <?php
                                           $sql_mission = "SELECT * FROM tb_mission";
                                           $query_mission = mysqli_query($conn,$sql_mission);
@@ -106,7 +127,7 @@ else
                                                       while($result_mission=mysqli_fetch_array($query_mission))
                                                       {
                                                       ?>
-                                                  <option value='<?php echo $result_mission['id'];?>'><?php echo $result_mission['mission'];?></option>
+                                                  <option value='<?php echo $result_mission['mission_id'];?>'><?php echo $result_mission['mission'];?></option>
                                                   <?php
                                                       }
                                                       ?>

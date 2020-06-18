@@ -102,7 +102,7 @@ else
 
 
                                 <div class="text-right">
-                                    <a href="../product/form_product.php"><button type="button" class="btn btn-primary">เพิ่มพันธกิจ</button></a>
+                                    <a href="../mission/form_mission.php"><button type="button" class="btn btn-primary">เพิ่มพันธกิจ</button></a>
                                 </div>
                                 <div class="table-responsive">
                                     <table class="table text-center">
@@ -127,7 +127,7 @@ else
                                                 $mission = $row_mission['mission'];
                                                 $product_id = $row_mission['product_id'];
 
-                                           $sql_product = "SELECT * FROM tb_product WHERE id = '".$product_id."' ";
+                                           $sql_product = "SELECT * FROM tb_product WHERE product_id = '".$product_id."' ";
                                            $query_product = mysqli_query($conn,$sql_product);
                                            $row_product =mysqli_fetch_assoc($query_product);
                                            $product = $row_product['product'];

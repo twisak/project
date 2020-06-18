@@ -90,24 +90,30 @@ else
                             <div class="card-body">
                                 <?php
                                         include '../../administrator/connect.php';
-                                        $sql = "Select Max(substr(project_id,3)+1) as MaxID from tb_project ";
+                                        $sql = "Select Max(substr(budget_id,3)+1) as MaxID from tb_budget ";
                                         $query = mysqli_query($conn,$sql);
                                         $table_id = mysqli_fetch_assoc($query);
                                         $testid = $table_id['MaxID'];
                                                 if($testid=='')
                                                 {
-                                                    $id="P001";
+                                                    $id="B001";
                                                 }else
                                                 {
-                                                    $id="P".sprintf("%03d",$testid);
+                                                    $id="B".sprintf("%03d",$testid);
                                                 }
 
                             ?>
                                 <form class="form-horizontal form-material" action="insert_budget.php" name="form_user" method="post">
 
-
+                                    
                                     <div class="row">
-
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label>รหัสประเภทงบประมาณ</label>
+                                                <input type="text" name="budget_id" value="<?=$id?>" placeholder="" class="form-control form-control-line">
+                                            </div>
+                                            <!-- <input type="hidden" class="form-control" name="budget_id" /> -->
+                                        </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label>ประเภทงบประมาณ</label>

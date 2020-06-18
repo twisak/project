@@ -140,7 +140,6 @@ include '../../administrator/connect.php';
                     </div>
                 </div>
 
-
                 <div class="row">
                     <div class="col-lg-12 col-xlg-9 col-md-7">
                         <div class="card">
@@ -150,10 +149,6 @@ include '../../administrator/connect.php';
                                   <div class="col-md-12 text-center">
                                       <div class="form-group">
                                           <label><b><u>รายละเอียดเอกสารจ้างเหมาบริการ</u></b></label>
-                                          <a href="edit_form_doc_contract.php?id=<?php echo $doc_id;?>" class="btn waves-effect waves-light btn btn-warning pull-right hidden-sm-down">
-                                            <i class="fa-fw fa fa-print"></i>
-                                            แก้ไขข้อมูล
-                                         </a>
                                       </div>
                                   </div>
                               </div>
@@ -228,6 +223,15 @@ include '../../administrator/connect.php';
                                                     </div>
                                                 </div>
                                             </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <a href="edit_form_doc_contract.php?id=<?php echo $doc_id;?>" class="btn btn-warning btn-block">แก้ไขข้อมูลเอกสารจ้างเหมาบริการ</a>
+                                        </div>
+                                    </div>
+                                </div>
 
                                 </form>
 

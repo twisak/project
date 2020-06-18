@@ -127,7 +127,7 @@ else
                                                 $strategic = $row_strategic['strategic'];
                                                 $mission_id = $row_strategic['mission_id'];
 
-                                           $sql_mission = "SELECT * FROM tb_mission WHERE id = '".$mission_id."' ";
+                                           $sql_mission = "SELECT * FROM tb_mission WHERE mission_id = '".$mission_id."' ";
                                            $query_mission = mysqli_query($conn,$sql_mission);
                                            $row_mission =mysqli_fetch_assoc($query_mission);
                                            $mission = $row_mission['mission'];

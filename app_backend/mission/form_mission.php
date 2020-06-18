@@ -89,9 +89,30 @@ else
                             <!-- Tab panes -->
                             <div class="card-body">
                                 <form class="form-horizontal form-material" action="insert_mission.php" name="form_user" method="post">
+                                <?php
+                                        include '../../administrator/connect.php';
+                                        $sql = "Select Max(substr(mission_id,3)+1) as MaxID from tb_mission ";
+                                        $query = mysqli_query($conn,$sql);
+                                        $table_id = mysqli_fetch_assoc($query);
+                                        $testid = $table_id['MaxID'];
+                                                if($testid=='')
+                                                {
+                                                    $id="M001";
+                                                }else
+                                                {
+                                                    $id="M".sprintf("%03d",$testid);
+                                                }
 
+                                ?>
 
                                     <div class="row">
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label>รหัสพันธกิจ</label>
+                                                <input type="text" name="mission_id" value="<?=$id?>" class="form-control form-control-line">
+                                            </div>
+                                        </div>
+
                                       <?php
                                           $sql_product = "SELECT * FROM tb_product";
                                           $query_product = mysqli_query($conn,$sql_product);
@@ -106,7 +127,7 @@ else
                                                       while($result_product=mysqli_fetch_array($query_product))
                                                       {
                                                       ?>
-                                                  <option value='<?php echo $result_product['id'];?>'><?php echo $result_product['product'];?></option>
+                                                  <option value='<?php echo $result_product['product_id'];?>'><?php echo $result_product['product'];?></option>
                                                   <?php
                                                       }
                                                       ?>
