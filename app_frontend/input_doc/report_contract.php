@@ -81,6 +81,7 @@ else
          //$prefix = $row2['prefix'];
      }
 ?>
+
 <body id="<?php //echo $body['name'];?>">
     <div class="page">
         <table border="0" align="center" width="100%" class="statement-view text-gray-900">
@@ -117,11 +118,11 @@ else
                 </td>
             </tr>
 
-<tr>
-  <td>
-    <br>
-    <table border="1" align="center" width="100%" class="statement-view text-gray-900">
-    <?php 
+            <tr>
+                <td>
+                    <br>
+                    <table border="1" align="center" width="100%" class="statement-view text-gray-900">
+                        <?php 
         $i=1;
         $i<="";
 
@@ -132,32 +133,15 @@ else
                 $foreword = $row['foreword'];
                                                     
     ?>
-    <tr>
-        <td colspan="3"  align="left">
-            &nbsp;&nbsp;<?php echo $i;?>.<?php echo $foreword?> <br>
-        </td>
-    </tr>
-    <?php $i++; }?>
-    </table><br>
-  </td>
-</tr>
-
-
-
-            <!-- <tr>
-                <td colspan="3" class="text-indent-50" align="left">
-                    เพื่ออำนวยความสะดวกแก่บุคลากร คณะวิทยาการอิสลาม ในการปฏิบัติงานต่างๆ และมีความต้องการใช้พัสดุก่อน สามารถยืมพัสดุของคณะวิทยาการอิสลาม โดยกรอกแบบฟอร์มการขอยืมพัสดุข้างท้ายนี้ ส่งที่งานพัสดุ สำนักงานเลขานุการ คณะวิทยาการอิสลาม ก่อนวันที่ประสงค์จะใช้งานไม่น้อยกว่า 5 วันทำการ
+                        <tr>
+                            <td colspan="3" align="left">
+                                &nbsp;&nbsp;<?php echo $i;?>.<?php echo $foreword?> <br>
+                            </td>
+                        </tr>
+                        <?php $i++; }?>
+                    </table><br>
                 </td>
             </tr>
-            <tr>
-                <td colspan="3" class="border-0">
-                    &nbsp;
-                </td>
-            </tr> -->
-
-
-
-
             <tr>
                 <td colspan="3" class="border-0 padding-0">
                     <table width="100%" border="0">
@@ -167,6 +151,7 @@ else
                                     <tr>
                                         <td width="1" class="text-nowrap border-0 padding-0">ลงชื่อ</td>
                                         <td class="border-0 padding-0">
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $prefix;?><?php echo $firtname;?>&nbsp;&nbsp;<?php echo $lastname;?>
                                             <div class="line-bottom-dashed">&nbsp;</div>
                                         </td>
                                         <td width="1" class="text-nowrap border-0 padding-0">ผู้ยืม</td>
@@ -174,7 +159,7 @@ else
                                     <tr>
                                         <td class="border-0 padding-0" align="right">(</td>
                                         <td align="center" class="border-0 padding-0">
-                                            <?php //echo print_null($borrow->name);?>
+                                        <?php echo $firtname;?>&nbsp;&nbsp;<?php echo $lastname;?>
                                         </td>
                                         <td class="border-0 padding-0" align="left">)</td>
                                     </tr>
@@ -193,9 +178,153 @@ else
                     &nbsp;
                 </td>
             </tr>
+        </table>
+    </div>
+
+     <div class="page">
+        <table border="0" align="center" width="100%" class="statement-view text-gray-900">
+            <tr>
+            </tr>
+            <tr>
+                <td width="50%"  class="statement-header" align="center">
+
+                    <br>
+                </td>
+                <td width="50%"  class="statement-header" align="left">
+                    <table border="0" width="100%" class="statement-view text-gray-900">
+                      <tr width="100%">
+                        <td width=""></td>
+                        <td width="1" class="text-nowrap border-0 padding-0">สถาบันพัฒนาครูและบุคลากร <br>ทางการศึกษาชายแดนใต้ <br>มหาวิทยาลัมหาวิทยาลัยราชภัฏยะลา</td>
+                      </tr>
+                    </table>
+                    <br>
+                </td>
+            </tr>
+
+            <tr>
+              <td colspan="2">
+              <table border="0" width="100%" class="statement-view text-gray-900">
+                <td width="50%"  class="statement-header" align="center">
+
+                    <br>
+                </td>
+                <td width="50%"  class="statement-header" align="left">
+                  วันที่ 31 กรกฏาคม 2562
+                    <br>
+                </td>
+              </table>
+            </td>
+            </tr>
+
+            <tr>
+              <td colspan="2">
+                เรื่อง ส่งมอบงานจ้าง
+            </td>
+            </tr>
+
+            <tr>
+              <td colspan="2">
+                เรื่อง อธิการบดีมหาวิทยาลัมหาวิทยาลัยราชภัฏยะลา
+            </td>
+            </tr>
+
+            <tr>
+              <td colspan="2" class="text-indent-50" align="left">
+                ตามที่ สถาบันพัฒนาครูและบุคลากรทางการศึกษาชายแดนใต้ มหาวิทยาลัยราชภัฏยะลา ได้จ้างให้ข้าพเจ้าเป็นเจ้าหน้าที่ประจำโครงการ "ยกระดับคุณภาพการเรียนรู้ ด้านการอ่านการเขียน และการคิดวิเคราะห์ของนักเรียนในระดับการศึกษาขั้นพื้นฐานในพื้นที่ขายแดนนใต้" ตั้งแต่ วันที่ 1 กุมภาพันธ์ 2562 ถึง 30 กันยายน 2562 จำนวน 8 งวด (13,300 = 106,400บาท) เป็นเงิน 13,300 บาท รวมเป็นเงินทั้งสิ้น 13,300 บาท(หนึ่งหมื่นสามพันสามร้อยบาทถ้วน) นั้น
+            </td>
+            </tr>
+
+            <tr>
+              <td colspan="2" class="text-indent-50" align="left">
+                บัดนี้ ข้าพเจ้าได้ปฏิบัติงานดังกล่าวงวดที่ 6 (เดือน กรกฏาคม 2562) เสร็จเรียบร้อยแล้ว
+             </td>
+            </tr>
+
+            <tr>
+              <td colspan="2" class="text-indent-50" align="left">
+                จึงเรียนมาเพื่อโปรดให้คณะกรรมการตรวจรับงานจ้างดังกล่าว ทำการตรวจรับงานจ้างและขอเบิก-จ่ายต่าจ้าง ให้กับจ้าพเจ้าต่อไปด้วย
+            </td>
+            </tr>
+
+            <tr>
+                <td colspan="3" class="border-0 padding-0">
+                    <table width="100%" border="0">
+                        <tr>
+                            <td width="100%" class="border-0">
+                                <table width="300px" border="0" align="center">
+                                    <tr>
+                                        <td colspan="3" class="border-0 padding-0" align="center">ขอแสดงความนับถือ</td>
+                                    </tr>
+                                    <tr>
+                                        <td width="1" class="text-nowrap border-0 padding-0">ลงชื่อ</td>
+                                        <td class="border-0 padding-0">
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $prefix;?><?php echo $firtname;?>&nbsp;&nbsp;<?php echo $lastname;?>
+                                            <div class="line-bottom-dashed">&nbsp;</div>
+                                        </td>
+                                        <td width="1" class="text-nowrap border-0 padding-0">รับจ้าง</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="border-0 padding-0" align="right">(</td>
+                                        <td align="center" class="border-0 padding-0">
+                                        <?php echo $firtname;?>&nbsp;&nbsp;<?php echo $lastname;?>
+                                        </td>
+                                        <td class="border-0 padding-0" align="left">)</td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+
+            <tr>
+              <td colspan="2">
+                บันทึกรับองที่ปฏิบัติงานของผู้ควบคุมงาน
+            </td>
+            </tr>
+
+            <tr>
+              <td colspan="2" class="text-indent-50" align="left">
+                ข้าพเจ้า อาจารย์ซอและ เกปัน ตำแหน่ง ผู้อำนวยการสถาบันพัฒนาครูและบุคลากรทางการศึกษาชายแดนใต้ เป็นบุคคลที่ควบคุมการปฏิบัติงานของผู้รับจ้าง ผู้ปฏิบัติงานจ้างเหมาบริการ เจ้าหน้าที่ประจำโครงการ "ยกระดับคุณภาพการเรียนรู้ด้านการอ่าน การเขียน และการคิดวิเคราะห์ของนักเรียนในระดับ การศึกษาขั้นพื้นฐานในพื้นที่ชายแดนใต้" มหาวิทยาลุยราชภัฏยะลา ขอรับรองว่านายแวอัสรี แวมายิ ได้ปฏิบัติงานเรียบร้อยแล้วตั้งแต่วันที่ 1-31 กรกฏาคม 2562
+            </td>
+            </tr>
+                
+            <tr>
+                <td colspan="3" class="border-0 padding-0" align="right">
+                    <table width="100%" border="0">
+                        <tr>
+                            <td width="100%" class="border-0">
+                                <table width="300px" border="0" align="right">
+                                    <tr>
+                                        <td width="1" class="text-nowrap border-0 padding-0">ลงชื่อ</td>
+                                        <td class="border-0 padding-0">
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $prefix;?><?php echo $firtname;?>&nbsp;&nbsp;<?php echo $lastname;?>
+                                            <div class="line-bottom-dashed">&nbsp;</div>
+                                        </td>
+                                        <td width="1" class="text-nowrap border-0 padding-0"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="border-0 padding-0" align="right">(</td>
+                                        <td align="center" class="border-0 padding-0">
+                                        <?php echo $firtname;?>&nbsp;&nbsp;<?php echo $lastname;?>
+                                        </td>
+                                        <td class="border-0 padding-0" align="right">)</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3" class="border-0 padding-0" align="center">ผู้ควบคุมการปฏิบัติงาน</td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+
 
 
         </table>
+        
+        
     </div>
 
     <ul class="right-menu">

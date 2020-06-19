@@ -129,33 +129,33 @@ include '../../administrator/connect.php';
                                     </div>
                                     <div class="row">
                                         <div class="col-md-4">
-                                        <div class="form-group">
-                                        <label>โครงการ</label>
-                                            <select name="project_id" id="project" class="form-control">
-                                                <option value="">เลือกโครงการ</option>
-                                                <?php
+                                            <div class="form-group">
+                                                <label>โครงการ</label>
+                                                <select name="project_id" id="project" class="form-control">
+                                                    <option value="">เลือกโครงการ</option>
+                                                    <?php
                                                     $sql = "SELECT * FROM tb_project";
                                                     $query = mysqli_query($conn, $sql);
                                                     while($result = mysqli_fetch_assoc($query)):
                                                 ?>
                                                     <option value="<?=$result['project_id']?>"><?=$result['project_name']?></option>
-                                                <?php endwhile; ?>
-                                            </select>
-                                        </div>
+                                                    <?php endwhile; ?>
+                                                </select>
+                                            </div>
                                         </div>
 
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="activity">ชื่อกิจกรรม</label>
-                                                    <select name="activity" id="activity" class="form-control">
-                                                        <option value="">ชื่อกิจกรรม</option>
-                                                    </select>
+                                                <select name="activity" id="activity" class="form-control">
+                                                    <option value="">ชื่อกิจกรรม</option>
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
 
                                     <div class="row">
-                                    <div class="col-md-4">
+                                        <div class="col-md-4">
                                             <div class="form-group">
                                                 <label><b>ตัวชี้วัด</b></label>
                                             </div>
@@ -165,133 +165,375 @@ include '../../administrator/connect.php';
                                     <div class="row">
 
 
-                                                <div class="col-md-7">
-                                                    <div class="form-group">
-                                                        <button type="button" class="btn btn-info btn-sm" id="createRows" value="Add">เพิ่ม</button>
-                                                        &nbsp;&nbsp;<button type="button" class="btn btn-warning btn-sm" id="deleteRows" value="Del">ลบ</button>
-                                                        &nbsp;&nbsp;<button type="button" class="btn btn-danger btn-sm" id="clearRows" value="Clear">ลบทั้งหมด</button>
-                                                    </div>
-                                                </div>
+                                        <div class="col-md-7">
+                                            <div class="form-group">
+                                                <button type="button" class="btn btn-info btn-sm" id="createRows" value="Add">เพิ่ม</button>
+                                                &nbsp;&nbsp;<button type="button" class="btn btn-warning btn-sm" id="deleteRows" value="Del">ลบ</button>
+                                                &nbsp;&nbsp;<button type="button" class="btn btn-danger btn-sm" id="clearRows" value="Clear">ลบทั้งหมด</button>
+                                            </div>
+                                        </div>
 
 
-                                            <table width="100%" border="0" id="myTable">
-                                                <thead>
-                                                </thead>
-                                                <tbody></tbody>
-                                            </table>
-                                            <br />
-                                            <center>
-                                                <br>
-                                                <input type="hidden" id="hdnCount" name="hdnCount">
-                                            </center>
-                        </div>
+                                        <table width="100%" border="0" id="myTable">
+                                            <thead>
+                                            </thead>
+                                            <tbody></tbody>
+                                        </table>
+                                        <br />
+                                        <center>
+                                            <br>
+                                            <input type="hidden" id="hdnCount" name="hdnCount">
+                                        </center>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>ผู้ควบคุมการปฎิบัติงาน</label>
+                                                <select name="project_id" id="project" class="form-control">
+                                                    <option value="">เลือกชื่ออาจารย์</option>
+                                                    <?php
+                                                        $sql = "SELECT * FROM tb_teacher";
+                                                        $query = mysqli_query($conn, $sql);
+                                                        while($result = mysqli_fetch_assoc($query)):
+                                                    ?>
+                                                    <option value="<?=$result['teacher_id']?>"><?=$result['t_firtname']?><?=$result['t_lastname']?></option>
+                                                    <?php endwhile; ?>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label><u>รายการส่งใช้เงินยืม</u></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label>เริ่มต้นวันที่</label>
+                                                <input type="date" class="form-control form-control-line" name="str_date">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label>สิ้นสุดวันที่</label>
+                                                <input type="date" class="form-control form-control-line" name="stp_date">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label>จำนวนงวด</label>
+                                                <input type="text" class="form-control form-control-line" name="str_date">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label>เป็นเงิน</label>
+                                                <input type="text" class="form-control form-control-line" name="stp_date">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label>รวมเป็นเงินทั้งสิ้น</label>
+                                                <input type="text" class="form-control form-control-line" name="stp_date">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>ปฎิบัติงานงวดที่</label>
+                                                <input type="text" class="form-control form-control-line" name="str_date">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>วันที่ปฎิบัติงาน</label>
+                                                <input type="date" class="form-control form-control-line" name="str_date">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label><u>บันทึกข้อความ</u></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>ส่วนราชการ</label>
+                                                <input type="text" class="form-control form-control-line" name="str_date">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label>ที่</label>
+                                                <input type="text" class="form-control form-control-line" name="str_date">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label>วันที่</label>
+                                                <input type="date" class="form-control form-control-line" name="str_date">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>เรื่อง</label>
+                                                <input type="text" class="form-control form-control-line" name="str_date">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label>ลงวันที่</label>
+                                                <input type="date" class="form-control form-control-line" name="str_date">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label>จำนวนคน</label>
+                                                <input type="text" class="form-control form-control-line" name="str_date">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label>ราคากลางที่คำนวณได้</label>
+                                                <input type="text" class="form-control form-control-line" name="str_date">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>ลงชื่อ ประธานกรรมการ</label>
+                                                <select name="project_id" id="project" class="form-control">
+                                                    <option value="">เลือกชื่ออาจารย์</option>
+                                                    <?php
+                                                        $sql = "SELECT * FROM tb_teacher";
+                                                        $query = mysqli_query($conn, $sql);
+                                                        while($result = mysqli_fetch_assoc($query)):
+                                                    ?>
+                                                    <option value="<?=$result['teacher_id']?>"><?=$result['t_firtname']?><?=$result['t_lastname']?></option>
+                                                    <?php endwhile; ?>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>ลงชื่อ กรรมการ</label>
+                                                <select name="project_id" id="project" class="form-control">
+                                                    <option value="">เลือกชื่ออาจารย์</option>
+                                                    <?php
+                                                        $sql = "SELECT * FROM tb_teacher";
+                                                        $query = mysqli_query($conn, $sql);
+                                                        while($result = mysqli_fetch_assoc($query)):
+                                                    ?>
+                                                    <option value="<?=$result['teacher_id']?>"><?=$result['t_firtname']?><?=$result['t_lastname']?></option>
+                                                    <?php endwhile; ?>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>ลงชื่อ กรรมการและเลขานุการ</label>
+                                                <select name="project_id" id="project" class="form-control">
+                                                    <option value="">เลือกชื่ออาจารย์</option>
+                                                    <?php
+                                                        $sql = "SELECT * FROM tb_teacher";
+                                                        $query = mysqli_query($conn, $sql);
+                                                        while($result = mysqli_fetch_assoc($query)):
+                                                    ?>
+                                                    <option value="<?=$result['teacher_id']?>"><?=$result['t_firtname']?><?=$result['t_lastname']?></option>
+                                                    <?php endwhile; ?>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label><u>ขอบเขตงานจ้างเหมาบริการ</u></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>รายละเอียดการจ้าง</label>
+                                                <input type="text" class="form-control form-control-line" name="str_date">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label><u>ระยะเวลาการจ้าง</u></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label>เริ่มต้นวันที่</label>
+                                                <input type="date" class="form-control form-control-line" name="str_date">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label>สิ้นสุดวันที่</label>
+                                                <input type="date" class="form-control form-control-line" name="stp_date">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label><b>คุณสมบัติของผู้รับจ้าง</b></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label><b>ขอบเขตของงานที่จ้าง</b></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label><b>ความรับผิดชอบของผู้ว่าจ้าง</b></label>
+                                                <input type="text" class="form-control form-control-line" name="str_date">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label><b>ค่าปรับและค่าหักเงินค่าจ้าง</b></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label><b>เงื่อไขการชำระเงิน</b></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label><b>เงื่อนไขหลักประกัน</b></label>
+                                            </div>
+                                        </div>
+                                    </div>
 
-                        <div class="row">
-                            <div class="col-md-2">
-                                <div class="form-group">
-                                    <label>เริ่มต้นวันที่</label>
-                                    <input type="date" class="form-control form-control-line" name="str_date">
-                                </div>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <input type="submit" name="submit" value="บันทึก" class="btn btn-primary btn-block" />
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <button type="button" class="btn btn-danger btn-block">ยกเลิก</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+
+
                             </div>
-                        <div class="col-md-2">
-                            <div class="form-group">
-                                <label>สิ้นสุดวันที่</label>
-                                <input type="date" class="form-control form-control-line" name="stp_date">
-                            </div>
+
+
+
+                            <!-- Column -->
                         </div>
                     </div>
-
-                    <div class="row">
-                        <div class="col-md-3">
-                        </div>
-                        <div class="col-md-3">
-                            <div class="form-group">
-                                <input type="submit" name="submit" value="บันทึก" class="btn btn-primary btn-block"/>
-                            </div>
-                        </div>
-
-                        <div class="col-md-3">
-                            <div class="form-group">
-                                <button type="button" class="btn btn-danger btn-block">ยกเลิก</button>
-                            </div>
-                        </div>
-                    </div>
-        </form>
-
-
-                    </div>
-
-
-
-                    <!-- Column -->
+                    <footer class="footer">
+                        © 2018 Adminwrap by wrappixel.com
+                    </footer>
                 </div>
             </div>
-            <footer class="footer">
-                © 2018 Adminwrap by wrappixel.com
-            </footer>
-        </div>
-    </div>
-    <script src="../assets/node_modules/jquery/jquery.min.js"></script>
-    <!-- Bootstrap tether Core JavaScript -->
-    <script src="../assets/node_modules/bootstrap/js/popper.min.js"></script>
-    <script src="../assets/node_modules/bootstrap/js/bootstrap.min.js"></script>
-    <!-- slimscrollbar scrollbar JavaScript -->
-    <script src="../js/perfect-scrollbar.jquery.min.js"></script>
-    <!--Wave Effects -->
-    <script src="../js/waves.js"></script>
-    <!--Menu sidebar -->
-    <script src="../js/sidebarmenu.js"></script>
-    <!--Custom JavaScript -->
-    <script src="../js/custom.min.js"></script>
-    <script src="../js/script.js"></script>
-    <script src="http://code.jquery.com/jquery-latest.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function () {
+            <script src="../assets/node_modules/jquery/jquery.min.js"></script>
+            <!-- Bootstrap tether Core JavaScript -->
+            <script src="../assets/node_modules/bootstrap/js/popper.min.js"></script>
+            <script src="../assets/node_modules/bootstrap/js/bootstrap.min.js"></script>
+            <!-- slimscrollbar scrollbar JavaScript -->
+            <script src="../js/perfect-scrollbar.jquery.min.js"></script>
+            <!--Wave Effects -->
+            <script src="../js/waves.js"></script>
+            <!--Menu sidebar -->
+            <script src="../js/sidebarmenu.js"></script>
+            <!--Custom JavaScript -->
+            <script src="../js/custom.min.js"></script>
+            <script src="../js/script.js"></script>
+            <script src="http://code.jquery.com/jquery-latest.js"></script>
+            <script type="text/javascript">
+                $(document).ready(function () {
 
-            var rows = 1;
-            $("#createRows").click(function () {
+                    var rows = 1;
+                    $("#createRows").click(function () {
 
 
-                var tr = "<tr>";
-                tr = tr + "<td><div class='row'><div class='col-md-8'><div class='form-group'><input type='text' class='form-control p_input' name='foreword" + rows + "'></div></div></td>";
-                tr = tr + "</tr>";
-                $('#myTable > tbody:last').append(tr);
+                        var tr = "<tr>";
+                        tr = tr + "<td><div class='row'><div class='col-md-8'><div class='form-group'><input type='text' class='form-control p_input' name='foreword" + rows + "'></div></div></td>";
+                        tr = tr + "</tr>";
+                        $('#myTable > tbody:last').append(tr);
 
-                $('#hdnCount').val(rows);
-                rows = rows + 1;
-            });
+                        $('#hdnCount').val(rows);
+                        rows = rows + 1;
+                    });
 
-            $("#deleteRows").click(function () {
-                if ($("#myTable tr").length != 1) {
-                    $("#myTable tr:last").remove();
-                }
-            });
-
-            $("#clearRows").click(function () {
-                rows = 1;
-                $('#hdnCount').val(rows);
-                $('#myTable > tbody:last').empty(); // remove all
-            });
-
-        });
-    </script>
-    <!-- listbox 2 ชั้น -->
-    <script src="jquery-1.11.1.min.js" type="text/javascript"></script>
-    <script type="text/javascript">
-            $(document).ready(function() {
-                $('#project').change(function() {
-                    $.ajax({
-                        type: 'POST',
-                        data: {project: $(this).val()},
-                        url: 'select_activity.php',
-                        success: function(data) {
-                            $('#activity').html(data);
+                    $("#deleteRows").click(function () {
+                        if ($("#myTable tr").length != 1) {
+                            $("#myTable tr:last").remove();
                         }
                     });
-                    return false;
+
+                    $("#clearRows").click(function () {
+                        rows = 1;
+                        $('#hdnCount').val(rows);
+                        $('#myTable > tbody:last').empty(); // remove all
+                    });
+
                 });
-            });
-        </script>
+            </script>
+            <!-- listbox 2 ชั้น -->
+            <script src="jquery-1.11.1.min.js" type="text/javascript"></script>
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    $('#project').change(function () {
+                        $.ajax({
+                            type: 'POST',
+                            data: {
+                                project: $(this).val()
+                            },
+                            url: 'select_activity.php',
+                            success: function (data) {
+                                $('#activity').html(data);
+                            }
+                        });
+                        return false;
+                    });
+                });
+            </script>
 </body>
 
 </html>
