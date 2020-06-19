@@ -94,7 +94,7 @@ else
                         <div class="card">
                             <!-- Tab panes -->
                             <div class="card-body">
-                                <form class="form-horizontal form-material" action="INSERT_lend.php" name="insertlend" method="post">
+                                <form class="form-horizontal form-material" action="insert_lend_test.php" name="insertlend" method="post">
 <div class="row">
   <div class="col-md-2">
   <div class="form-group">
@@ -261,7 +261,7 @@ $query_project = mysqli_query($conn,$sql_project);
   </div>
 </div>
 
-<!-- <div class="row">
+<div class="row">
     <div class="col-md-7"><div class="form-group"><button type="button" class="btn btn-info" id="createRows_activity" value="Add">เพิ่มหัวข้อย่อย</button>&nbsp;&nbsp;<button type="button" class="btn btn-warning" id="deleteRows_activity" value="Del">ลบหัวข้อย่อย</button>&nbsp;&nbsp;<button type="button" class="btn btn-danger" id="clearRows_activity" value="Clear">ลบทั้งหมด</button></div></div>
 </div>
 
@@ -278,7 +278,7 @@ $query_project = mysqli_query($conn,$sql_project);
 <center>
 <br>
 <input type="hidden" id="hdnCount_activity" name="hdnCount_activity">
-</center> -->
+</center>
 
 
 <div class="row">
@@ -350,7 +350,7 @@ $query_project = mysqli_query($conn,$sql_project);
 </body>
 
 </html>
-<!-- <script type="text/javascript">
+<script type="text/javascript">
 $(document).ready(function(){
 
     var rows = 1;
@@ -358,7 +358,7 @@ $(document).ready(function(){
 
 
         var tr = "<tr>";
-tr = tr + "<td><div class='row'><div class='col-md-2'><div class='form-group'><label>รหัสรายการ</label><input type='text' class='form-control p_input'  name='title"+rows+"'></div></div><div class='col-md-2'><div class='form-group'><label>วัน/เดือน/ปี</label><input type='date' class='form-control p_input'  name='title"+rows+"'></div></div><div class='col-md-2'><div class='form-group'><label>ผู้รับผิดชอบ</label><input type='text' class='form-control p_input'  name='send_to"+rows+"'></div></div></div><div class='row'><div class='col-md-6'><div class='form-group'><label>รายละเอียด</label><input type='input' class='form-control p_input'  name='title"+rows+"'></div></div></div></td>";
+tr = tr + "<td><div class='row'><div class='col-md-2'><div class='form-group'><label>วัน/เดือน/ปี</label></label><input type='date' class='form-control p_input'  name='date_list"+rows+"'></div></div><div class='col-md-2'><div class='form-group'><label>การชำระ</label><select class='form-control' name='pay_type"+rows+"'><option>1</option><option>2</option></select></div></div><div class='col-md-2'><div class='form-group'><label>ราคา</label></label><input type='text' class='form-control p_input'  name='price_list"+rows+"'></div></div><div class='col-md-2'><div class='form-group'><label>ยอดคงค้าง</label><input type='text' class='form-control p_input'  name='balance"+rows+"'></div></div></div></td>";
         tr = tr + "</tr>";
         $('#myTable_activity > tbody:last').append(tr);
 
@@ -379,4 +379,4 @@ tr = tr + "<td><div class='row'><div class='col-md-2'><div class='form-group'><l
     });
 
 });
-</script> -->
+</script>
