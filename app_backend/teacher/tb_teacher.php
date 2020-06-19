@@ -69,10 +69,10 @@ else
                 <!-- ============================================================== -->
                 <div class="row page-titles">
                     <div class="col-md-5 align-self-center">
-                        <h3 class="text-themecolor">ข้อมูลยุทธศาสตร์</h3>
+                        <h3 class="text-themecolor">ข้อมูลอาจารย์</h3>
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                            <li class="breadcrumb-item active">ข้อมูลยุทธศาสตร์</li>
+                            <li class="breadcrumb-item active">ข้อมูลอาจารย์</li>
                         </ol>
                     </div>
                     <div class="col-md-7 align-self-center">
@@ -91,7 +91,7 @@ else
 
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">ข้อมูลยุทธศาสตร์</h4>
+                                <h4 class="card-title">ข้อมูลอาจารย์</h4>
                                 <!-- <h6 class="card-subtitle">Add class <code>.table</code></h6> -->
 <!--
                                 <div class="container">
@@ -102,15 +102,15 @@ else
 
 
                                 <div class="text-right">
-                                    <a href="../strategic/form_strategic.php"><button type="button" class="btn btn-primary">เพิ่มยุทธศาสตร์</button></a>
+                                    <a href="../teacher/form_teacher.php"><button type="button" class="btn btn-primary">เพิ่มอาจารย์</button></a>
                                 </div>
                                 <div class="table-responsive">
                                     <table class="table text-center">
                                         <thead>
                                         <tr>
                                                 <th class="text-center">ลำดับ</th>
-                                                <th class="text-center">ชื่อยุทธศาสตร์</th>
-                                                <th class="text-center">พันธกิจ</th>
+                                                <th class="text-center">ชื่อ - สกุล</th>
+                                                <th class="text-center">ตำแหน่ง</th>
                                                 <th class="text-center">แก้ไข</th>
                                                 <th class="text-center">ลบ</th>
                                             </tr>
@@ -120,25 +120,27 @@ else
                                             $i<="";
 
                                             include '../../administrator/connect.php';
-                                            $sql_strategic ="SELECT * FROM tb_strategic";
-                                            $query_strategic = mysqli_query($conn,$sql_strategic);
-                                            while($row_strategic = mysqli_fetch_array($query_strategic,MYSQLI_ASSOC))
+                                            $sql_teacher ="SELECT * FROM tb_teacher";
+                                            $query_teacher = mysqli_query($conn,$sql_teacher);
+                                            while($row_teacher = mysqli_fetch_array($query_teacher,MYSQLI_ASSOC))
                                             {
-                                                $strategic = $row_strategic['strategic'];
-                                                $mission_id = $row_strategic['mission_id'];
 
-                                           $sql_mission = "SELECT * FROM tb_mission WHERE id = '".$mission_id."' ";
-                                           $query_mission = mysqli_query($conn,$sql_mission);
-                                           $row_mission =mysqli_fetch_assoc($query_mission);
-                                           $mission = $row_mission['mission'];
+                                                $t_firstname = $row_teacher['t_firstname'];
+                                                $t_lastname = $row_teacher['t_lastname'];
+                                                $position_id = $row_teacher['position_id'];
+
+                                           $sql_position = "SELECT * FROM tb_position WHERE position_id = '".$position_id."' ";
+                                           $query_position = mysqli_query($conn,$sql_position);
+                                           $row_position =mysqli_fetch_assoc($query_position);
+                                           $position_name = $row_position['position_name'];
 
 
                                         ?>
                                         <tbody>
                                             <tr>
                                                 <td><?php echo $i;?></td>
-                                                <td><?php echo $strategic;?></td>
-                                                <td><?php echo $mission;?></td>
+                                                <td><?php echo $t_firstname;?>&nbsp;&nbsp;<?php echo $t_lastname;?></td>
+                                                <td><?php echo $position_name;?></td>
                                                 <td><a href="edit_form_project.php?id=<?php echo $row_strategic['id'];?>" class="btn btn-warning">แก้ไข</a></td>
                                                 <td><button type="button" class="btn btn-danger">ลบ</button></td>
                                             </tr>
