@@ -74,9 +74,6 @@ else
                             <li class="breadcrumb-item active">แก้ไขข้อมูลผลผลิต</li>
                         </ol>
                     </div>
-                    <div class="col-md-7 align-self-center">
-                        <a href="https://wrappixel.com/templates/adminwrap/" class="btn waves-effect waves-light btn btn-info pull-right hidden-sm-down"> Upgrade to Pro</a>
-                    </div>
                 </div>
 
                 <script src="http://code.jquery.com/jquery-latest.js"></script>
@@ -91,7 +88,8 @@ else
                                 <form class="form-horizontal form-material" action="edit_product.php" name="form_user" method="post">
                                     <?php
                                             include '../../administrator/connect.php';
-                                            $sql_product ="SELECT * FROM tb_product";
+                                            $id =$_GET['id'];
+                                            $sql_product ="SELECT * FROM tb_product WHERE id = '".$id."'";
                                             $query_product = mysqli_query($conn,$sql_product);
                                             while($row_product = mysqli_fetch_array($query_product,MYSQLI_ASSOC))
                                             {

@@ -75,9 +75,6 @@ else
                             <li class="breadcrumb-item active">ข้อมูลพันธกิจ</li>
                         </ol>
                     </div>
-                    <div class="col-md-7 align-self-center">
-                        <a href="https://wrappixel.com/templates/adminwrap/" class="btn waves-effect waves-light btn btn-info pull-right hidden-sm-down"> Upgrade to Pro</a>
-                    </div>
                 </div>
                 <!-- ============================================================== -->
                 <!-- End Bread crumb and right sidebar toggle -->
@@ -124,6 +121,7 @@ else
                                             $query_mission = mysqli_query($conn,$sql_mission);
                                             while($row_mission = mysqli_fetch_array($query_mission,MYSQLI_ASSOC))
                                             {
+                                                $id = $row_mission['id'];
                                                 $mission = $row_mission['mission'];
                                                 $product_id = $row_mission['product_id'];
 
@@ -139,7 +137,7 @@ else
                                                 <td><?php echo $i;?></td>
                                                 <td><?php echo $product;?></td>
                                                 <td><?php echo $mission;?></td>
-                                                <td><a href="edit_form_mission.php?id=<?php echo $row_mission['id'];?>" class="btn btn-warning">แก้ไข</a></td>
+                                                <td><a href="edit_form_mission.php?id=<?php echo $id;?>" class="btn btn-warning">แก้ไข</a></td>
                                                 <td><button type="button" class="btn btn-danger">ลบ</button></td>
                                             </tr>
                                             <?php

@@ -74,9 +74,6 @@ else
                             <li class="breadcrumb-item active">เพิ่มยุทธศาสตร์</li>
                         </ol>
                     </div>
-                    <div class="col-md-7 align-self-center">
-                        <a href="https://wrappixel.com/templates/adminwrap/" class="btn waves-effect waves-light btn btn-info pull-right hidden-sm-down"> Upgrade to Pro</a>
-                    </div>
                 </div>
 
                 <script src="http://code.jquery.com/jquery-latest.js"></script>
@@ -89,6 +86,7 @@ else
                             <!-- Tab panes -->
                             <div class="card-body">
                                 <form class="form-horizontal form-material" action="insert_strategic.php" name="form_user" method="post">
+
                                 <?php
                                         include '../../administrator/connect.php';
                                         $sql = "Select Max(substr(strategic_id,3)+1) as MaxID from tb_strategic ";
@@ -104,15 +102,13 @@ else
                                                 }
 
                                 ?>
-
                                     <div class="row">
-                                        <div class="col-md-2">
+                                       <div class="col-md-2">
                                             <div class="form-group">
                                                 <label>รหัสยุทธศาสตร์</label>
                                                 <input type="text" name="strategic_id" value="<?=$id?>" class="form-control form-control-line">
                                             </div>
                                         </div>
-
                                       <?php
                                           $sql_mission = "SELECT * FROM tb_mission";
                                           $query_mission = mysqli_query($conn,$sql_mission);

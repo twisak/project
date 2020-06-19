@@ -68,14 +68,11 @@ else
                 <!-- ============================================================== -->
                 <div class="row page-titles">
                     <div class="col-md-5 align-self-center">
-                        <h3 class="text-themecolor">เพิ่มประเภทงบประมาณ</h3>
+                        <h3 class="text-themecolor">แก้ไข้ประเภทงบประมาณ</h3>
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                            <li class="breadcrumb-item active">เพิ่เพิ่มประเภทงบประมาณ</li>
+                            <li class="breadcrumb-item active">แก้ไข้ประเภทงบประมาณ</li>
                         </ol>
-                    </div>
-                    <div class="col-md-7 align-self-center">
-                        <a href="https://wrappixel.com/templates/adminwrap/" class="btn waves-effect waves-light btn btn-info pull-right hidden-sm-down"> Upgrade to Pro</a>
                     </div>
                 </div>
 
@@ -91,7 +88,8 @@ else
                                 <form class="form-horizontal form-material" action="edit_budget.php" name="form_user" method="post">
                                     <?php 
                                         include '../../administrator/connect.php';
-                                        $sql_tb_budget ="SELECT * FROM tb_budget";
+                                        $id =$_GET['id'];
+                                        $sql_tb_budget ="SELECT * FROM tb_budget WHERE id = '".$id."'";
                                         $query_tb_budget = mysqli_query($conn,$sql_tb_budget);
                                         while($row_budget = mysqli_fetch_array($query_tb_budget,MYSQLI_ASSOC))
                                         {

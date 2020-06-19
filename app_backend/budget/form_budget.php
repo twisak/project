@@ -71,11 +71,8 @@ else
                         <h3 class="text-themecolor">เพิ่มประเภทงบประมาณ</h3>
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                            <li class="breadcrumb-item active">เพิ่เพิ่มประเภทงบประมาณ</li>
+                            <li class="breadcrumb-item active">เพิ่มประเภทงบประมาณ</li>
                         </ol>
-                    </div>
-                    <div class="col-md-7 align-self-center">
-                        <a href="https://wrappixel.com/templates/adminwrap/" class="btn waves-effect waves-light btn btn-info pull-right hidden-sm-down"> Upgrade to Pro</a>
                     </div>
                 </div>
 
