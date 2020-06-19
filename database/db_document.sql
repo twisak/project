@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 19, 2020 at 04:49 PM
+-- Generation Time: Jun 19, 2020 at 09:14 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.6
 
@@ -10186,7 +10186,6 @@ CREATE TABLE `tb_lend` (
 --
 
 INSERT INTO `tb_lend` (`id`, `doc_id`, `str_date`, `stp_date`, `project_id`, `person_id`, `allowance`, `allowance_price`, `rest`, `rest_price`, `vehicle`, `vehicle_price`, `regis`, `regis_num`, `other`, `other_price`) VALUES
-(3, '1598', '2020-06-17', '2020-06-20', 'P001', 'PS001', 'ของกิน ', '400', 'โรงแรม', '500', 'น้ำมันรถ', '200', '200', '15', 'ค่าเที่ยว', '2500'),
 (9, '1456', '2020-06-25', '2020-06-27', 'P001', 'PS001', 'ของกิน ', '400', 'โรงแรม', '500', 'น้ำมันรถ', '200', '200', '6', 'ค่าเที่ยว', '250');
 
 -- --------------------------------------------------------
@@ -10457,6 +10456,13 @@ CREATE TABLE `tb_title` (
   `title` varchar(6000) DEFAULT NULL COMMENT 'หัวข้อเรื่อง',
   `body` longtext DEFAULT NULL COMMENT 'เนื้อหา'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `tb_title`
+--
+
+INSERT INTO `tb_title` (`id`, `title_id`, `title`, `body`) VALUES
+(1, '004', 'เทส หัวข้อเรื่องa', 'เทส เนื้อหา');
 
 --
 -- Indexes for dumped tables
@@ -10734,7 +10740,7 @@ ALTER TABLE `tb_teacher`
 -- AUTO_INCREMENT for table `tb_title`
 --
 ALTER TABLE `tb_title`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้';
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้', AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

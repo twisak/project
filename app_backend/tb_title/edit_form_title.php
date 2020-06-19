@@ -86,6 +86,7 @@ else
                        //echo $sql_budget;
                        $query_title = mysqli_query($conn,$sql_title);
                        $row_title =mysqli_fetch_assoc($query_title);
+                       $id_auto = $row_title['id'];
                        $title_id = $row_title['title_id'];
                        $title = $row_title['title'];
                        $body = $row_title['body'];
@@ -114,7 +115,7 @@ else
 
                                 ?>
 
-    <input type="hidden" name="id" value="<?php echo $id; ?>">
+    <input type="hidden" name="$id_auto" value="<?php echo $id_auto; ?>">
 
                                     <div class="row">
                                         <div class="col-md-1">

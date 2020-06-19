@@ -9,7 +9,7 @@
     <?php
         include '../../administrator/connect.php';
 
-        $id = $_POST['id'];
+        $id = $_POST['$id_auto'];
         //$product_id = $_POST['product_id'];
         $title_id = $_POST['title_id'];
         $title = $_POST['title'];
@@ -19,11 +19,11 @@
                                              title = '".$title."',
                                               body = '".$body."'
                               WHERE id = '$id' ";
-echo $sql;
+// echo $sql;
        $db_query = mysqli_query($conn,$sql);
 
-        // echo "<script>alert('แก้ไขข้อมูลเรียบร้อย')</script>";
-        // echo "<script>window.location='tb_title.php'</script>";
+        echo "<script>alert('แก้ไขข้อมูลเรียบร้อย')</script>";
+        echo "<script>window.location='tb_title.php'</script>";
     ?>
 
   </body>

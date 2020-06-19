@@ -43,27 +43,35 @@ else
 <?php
 
      include '../../administrator/connect.php';
-    //  $sql ="SELECT * FROM tb_person";
-    //  $query = mysqli_query($conn,$sql);
-    //  while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
-    //     {
-    //         $prefix = $row['prefix'];
-    //         $firtname = $row['firtname'];
-    //         $lastname = $row['lastname'];
-    //         $idcard = $row['idcard'];
-    //         $address = $row['address'];
-    //         $position_id = $row['position_id'];
-    //     }
 
-    //     $sql1 ="SELECT * FROM account_login WHERE position_id = '".$position_id."' ";
-    //     $query1 = mysqli_query($conn,$sql1);
-    //     while($row1 = mysqli_fetch_array($query1,MYSQLI_ASSOC))
-    //     {
-    //         $position_id = $row1['position_id'];
-    //         $username = $row1['username'];
-    //         $password = $row1['password'];
-    //         $position = $row1['position'];
-    //     }
+     $doc_id = $_GET['id'];
+     echo $doc_id;
+
+        $sql_tb_lend ="SELECT * FROM tb_lend WHERE doc_id = '".$doc_id."' ";
+        $query_doc_lend = mysqli_query($conn,$sql_tb_lend);
+        $row_tb_lend = mysqli_fetch_assoc($query_doc_lend);
+
+        $project_id = $row_tb_lend['project_id'];
+        $str_date = $row_tb_lend['str_date'];
+        $person_id = $row_tb_lend['person_id'];
+        $allowance_price = $row_tb_lend['allowance_price'];
+        $rest_price = $row_tb_lend['rest_price'];
+        $vehicle_price = $row_tb_lend['vehicle_price'];
+        $other_price = $row_tb_lend['other_price'];
+
+
+        $sql_tb_person = "SELECT * FROM tb_person WHERE person_id = '".$person_id."' ";
+        $query_tb_person = mysqli_query($conn,$sql_tb_person);
+        $row_tb_person = mysqli_fetch_assoc($query_tb_person);
+        $prefix = $row_tb_person['prefix'];
+        $firtname = $row_tb_person['firtname'];
+        $lastname = $row_tb_person['lastname'];
+
+        $sql_tb_project = "SELECT * FROM tb_project WHERE project_id = '".$project_id."' ";
+        $query_tb_project = mysqli_query($conn,$sql_tb_project);
+        $row_tb_project = mysqli_fetch_assoc($query_tb_project);
+        $project_name = $row_tb_project['project_name'];
+
 ?>
 
 <body id="<?php //echo $body['name'];?>">
@@ -98,13 +106,13 @@ else
                 <td colspan="2">
                     <table width="100%">
                         <tr>
-                            <td>ข้าพเจ้า</td>
+                            <td>ข้าพเจ้า&nbsp;<?php echo $prefix; ?><?php echo $firtname; ?>&nbsp;&nbsp;<?php echo $lastname; ?></td>
                         </tr>
                         <tr>
                             <td>สังกัด มหาวิทยาลัยราชภัฏยะลา จังหวัดยะลา มีความประสงค์ขอยืมเงินจาก มหาวิทยาลัยราชภัฏยะลา</td>
                         </tr>
                         <tr>
-                            <td>เพื่อเป็นค่าใช้จ่าย</td>
+                            <td>เพื่อเป็นค่าใช้จ่าย&nbsp;<?php echo $project_name; ?></td>
                         </tr>
                     </table>
                 </td>
@@ -139,7 +147,34 @@ else
                         </tr>
                     </table>
                 </td>
-                <td>55</td>
+                <td>
+                  <table>
+                      <tr>
+                          <td><?php echo $allowance_price; ?></td>
+                      </tr>
+                      <tr>
+                          <td><?php echo $rest_price; ?></td>
+                      </tr>
+                      <tr>
+                          <td><?php echo $vehicle_price; ?></td>
+                      </tr>
+                      <tr>
+                          <td>ff</td>
+                      </tr>
+                      <tr>
+                          <td>gg</td>
+                      </tr>
+                      <tr>
+                          <td>hh</td>
+                      </tr>
+                      <tr>
+                          <td>vv</td>
+                      </tr>
+                      <tr>
+                          <td><?php echo $other_price; ?></td>
+                      </tr>
+                  </table>
+                </td>
             </tr>
 
             <tr>
@@ -157,9 +192,9 @@ else
                             </td>
                         </tr>
                         <tr>
-                            <td>ลงชื่อ
+                            <td>ลงชื่อ&nbsp;<?php echo $prefix; ?><?php echo $firtname; ?>&nbsp;&nbsp;<?php echo $lastname; ?>
                             </td>
-                            <td>วันที่
+                            <td>วันที่&nbsp;<?php echo $str_date; ?>
                             </td>
                         </tr>
                     </table>
@@ -231,9 +266,9 @@ else
                             </td>
                         </tr>
                         <tr>
-                            <td>ลงชื่อ
+                            <td>ลงชื่อ&nbsp;<?php echo $prefix; ?><?php echo $firtname; ?>&nbsp;&nbsp;<?php echo $lastname; ?>
                             </td>
-                            <td>วันที่
+                            <td>วันที่่&nbsp;<?php echo $str_date; ?>
                             </td>
                         </tr>
                     </table>
