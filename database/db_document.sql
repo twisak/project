@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 18, 2020 at 06:51 PM
+-- Generation Time: Jun 19, 2020 at 04:49 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.6
 
@@ -10186,22 +10186,31 @@ CREATE TABLE `tb_lend` (
 --
 
 INSERT INTO `tb_lend` (`id`, `doc_id`, `str_date`, `stp_date`, `project_id`, `person_id`, `allowance`, `allowance_price`, `rest`, `rest_price`, `vehicle`, `vehicle_price`, `regis`, `regis_num`, `other`, `other_price`) VALUES
-(3, '1598', '2020-06-17', '2020-06-20', 'P001', 'PS001', 'ของกิน ', '400', 'โรงแรม', '500', 'น้ำมันรถ', '200', '200', '15', 'ค่าเที่ยว', '2500');
+(3, '1598', '2020-06-17', '2020-06-20', 'P001', 'PS001', 'ของกิน ', '400', 'โรงแรม', '500', 'น้ำมันรถ', '200', '200', '15', 'ค่าเที่ยว', '2500'),
+(9, '1456', '2020-06-25', '2020-06-27', 'P001', 'PS001', 'ของกิน ', '400', 'โรงแรม', '500', 'น้ำมันรถ', '200', '200', '6', 'ค่าเที่ยว', '250');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_lishlend`
+-- Table structure for table `tb_listlend`
 --
 
-CREATE TABLE `tb_lishlend` (
+CREATE TABLE `tb_listlend` (
   `id` int(11) NOT NULL COMMENT 'ออโต้',
-  `list_id` varchar(20) DEFAULT NULL COMMENT 'ไอดี',
+  `doc_id` varchar(20) DEFAULT NULL COMMENT 'ไอดี',
   `date_list` date DEFAULT NULL COMMENT 'วันที่',
   `pay_type` varchar(20) DEFAULT NULL COMMENT 'การชำระ',
   `price_list` varchar(100) DEFAULT NULL COMMENT 'ราคา',
   `balance` varchar(100) DEFAULT NULL COMMENT 'ยอดคงค้าง'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `tb_listlend`
+--
+
+INSERT INTO `tb_listlend` (`id`, `doc_id`, `date_list`, `pay_type`, `price_list`, `balance`) VALUES
+(1, '1456', '2020-06-22', '2', '200', '150'),
+(2, '1456', '2020-06-27', '1', '100', '50');
 
 -- --------------------------------------------------------
 
@@ -10282,7 +10291,7 @@ CREATE TABLE `tb_person` (
 --
 
 INSERT INTO `tb_person` (`id`, `person_id`, `prefix`, `firtname`, `lastname`, `idcard`, `position_id`, `house_num`, `road`, `village`, `alley`, `province_id`, `districts_id`, `amphures_id`) VALUES
-(18, 'PS001', 'นางสาว', 'ฟาตีเมาะ', 'กามา', '1234567891234', '01', '81/9', NULL, NULL, NULL, '74', '940103', '965');
+(18, 'PS001', 'นางสาว', 'ฟาตีเมาะ', 'กามา', '1234567891234', '001', '81/9', NULL, NULL, NULL, '74', '940103', '965');
 
 -- --------------------------------------------------------
 
@@ -10301,8 +10310,9 @@ CREATE TABLE `tb_position` (
 --
 
 INSERT INTO `tb_position` (`id`, `position_id`, `position_name`) VALUES
-(1, '01', 'ศาสตราจารย์'),
-(2, '02', 'รองศาสตราจารย์');
+(1, '001', 'ศาสตราจารย์'),
+(2, '002', 'รองศาสตราจารย์'),
+(3, '003', 'ดร.');
 
 -- --------------------------------------------------------
 
@@ -10423,10 +10433,17 @@ INSERT INTO `tb_strategic` (`id`, `strategic_id`, `strategic`, `mission_id`) VAL
 CREATE TABLE `tb_teacher` (
   `id` int(11) NOT NULL COMMENT 'ออโต้',
   `teacher_id` varchar(20) NOT NULL COMMENT 'รหัสอาจารย์',
-  `t_firtname` varchar(100) NOT NULL COMMENT 'ชื่อ',
+  `t_firstname` varchar(100) NOT NULL COMMENT 'ชื่อ',
   `t_lastname` varchar(100) NOT NULL COMMENT 'สกุุล',
   `position_id` varchar(100) NOT NULL COMMENT 'รหัสตำแหน่ง'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `tb_teacher`
+--
+
+INSERT INTO `tb_teacher` (`id`, `teacher_id`, `t_firstname`, `t_lastname`, `position_id`) VALUES
+(1, '001', 'มัยมูน', 'การี', '002');
 
 -- --------------------------------------------------------
 
@@ -10436,7 +10453,9 @@ CREATE TABLE `tb_teacher` (
 
 CREATE TABLE `tb_title` (
   `id` int(11) NOT NULL COMMENT 'ออโต้',
-  `title` varchar(6000) DEFAULT NULL COMMENT 'หัวข้อเรื่อง'
+  `title_id` varchar(20) DEFAULT NULL COMMENT 'รหัส',
+  `title` varchar(6000) DEFAULT NULL COMMENT 'หัวข้อเรื่อง',
+  `body` longtext DEFAULT NULL COMMENT 'เนื้อหา'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -10504,9 +10523,9 @@ ALTER TABLE `tb_lend`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tb_lishlend`
+-- Indexes for table `tb_listlend`
 --
-ALTER TABLE `tb_lishlend`
+ALTER TABLE `tb_listlend`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -10637,13 +10656,13 @@ ALTER TABLE `tb_debt`
 -- AUTO_INCREMENT for table `tb_lend`
 --
 ALTER TABLE `tb_lend`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้ไอดี', AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้ไอดี', AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT for table `tb_lishlend`
+-- AUTO_INCREMENT for table `tb_listlend`
 --
-ALTER TABLE `tb_lishlend`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้';
+ALTER TABLE `tb_listlend`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้', AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tb_material`
@@ -10673,7 +10692,7 @@ ALTER TABLE `tb_person`
 -- AUTO_INCREMENT for table `tb_position`
 --
 ALTER TABLE `tb_position`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้ไอดี', AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้ไอดี', AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tb_product`
@@ -10709,7 +10728,7 @@ ALTER TABLE `tb_strategic`
 -- AUTO_INCREMENT for table `tb_teacher`
 --
 ALTER TABLE `tb_teacher`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้';
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้', AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tb_title`
