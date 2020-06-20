@@ -97,6 +97,7 @@ include '../../administrator/connect.php';
                                             $stp_date = $row['stp_date'];
                                             $project_id = $row['project_id'];
                                             $person_id = $row['person_id'];
+                                            $teacher_id = $row['teacher_id'];
                                             $allowance = $row['allowance'];
                                             $allowance_price = $row['allowance_price'];
                                             $rest = $row['rest'];
@@ -131,6 +132,15 @@ include '../../administrator/connect.php';
                                             $prefix = $row2['prefix'];
                                             $firtname = $row2['firtname'];
                                             $lastname = $row2['lastname'];
+                                            //$prefix = $row2['prefix'];
+                                        }
+
+                                        $sql_teacher ="SELECT * FROM tb_teacher WHERE teacher_id = '".$teacher_id."' ";
+                                        $query_teacher = mysqli_query($conn,$sql_teacher);
+                                        while($row_teacher = mysqli_fetch_array($query_teacher,MYSQLI_ASSOC))
+                                        {
+                                            $t_firstname = $row_teacher['t_firstname'];
+                                            $t_lastname = $row_teacher['t_lastname'];
                                             //$prefix = $row2['prefix'];
                                         }
                                     ?>
@@ -196,6 +206,13 @@ include '../../administrator/connect.php';
                                         <div class="form-group">
                                             <label><b>ชื่อบุคลากร</b></label><br>
                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $prefix?><?php echo $firtname?>&nbsp;&nbsp;<?php echo $lastname?>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label><b>ชื่ออาจารย์</b></label><br>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $t_firstname?>&nbsp;&nbsp;<?php echo $t_lastname?>
                                         </div>
                                     </div>
                                 </div>

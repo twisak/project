@@ -7,8 +7,10 @@
     $doc_id = $_POST['doc_id'];
 		$str_date = $_POST['str_date'];
     $stp_date = $_POST['stp_date'];
+		$date_current = date('Y-m-d');
     $project_id = $_POST['project_id'];
     $person_id = $_POST['person_id'];
+		$teacher_id = $_POST['teacher_id'];
     $allowance = $_POST['allowance'];
     $allowance_price = $_POST['allowance_price'];
     $rest = $_POST['rest'];
@@ -21,8 +23,8 @@
     $other_price = $_POST['other_price'];
 
 
-    $sql_tb_lend = "INSERT INTO tb_lend(doc_id, str_date, stp_date, project_id, person_id, allowance, allowance_price, rest, rest_price, vehicle, vehicle_price, regis, regis_num, other, other_price)
-                    VALUES ('".$doc_id."','".$str_date."','".$stp_date."','".$project_id."','".$person_id."','".$allowance."',
+    $sql_tb_lend = "INSERT INTO tb_lend(doc_id, str_date, stp_date, date_current, project_id, person_id, teacher_id, allowance, allowance_price, rest, rest_price, vehicle, vehicle_price, regis, regis_num, other, other_price)
+                    VALUES ('".$doc_id."','".$str_date."','".$stp_date."','".$date_current."','".$project_id."','".$person_id."','".$teacher_id."','".$allowance."',
                     '".$allowance_price."','".$rest."','".$rest_price."','".$vehicle."','".$vehicle_price."','".$regis."','".$regis_num."',
                     '".$other."','".$other_price."')";
      echo $sql_tb_lend;

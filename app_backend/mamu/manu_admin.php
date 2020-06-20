@@ -1,4 +1,4 @@
-<?php 
+<?php
 
     include '../../administrator/connect.php';
     //$id = $_SESSION['username'];
@@ -6,7 +6,7 @@
 // $sql ="SELECT * FROM tb_personnel WHERE username = '".$id."' ";
 // $query = mysqli_query($conn,$sql);
 // while($row = mysqli_fetch_array($query,MYSQLI_ASSOC)){
-    
+
 //     $id = $row['id'];
 //     $name = $row['name'];
 //     $lasname = $row['lasname'];
@@ -36,7 +36,7 @@
                         <!-- Logo text --><span>
                          <!-- dark Logo text -->
                          <img src="../assets/images/logo-text.png" alt="homepage" class="dark-logo" />
-                         <!-- Light Logo text -->    
+                         <!-- Light Logo text -->
                          <img src="../assets/images/logo-light-text.png" class="light-logo" alt="homepage" /></span> </a>
                 </div>
                 <!-- ============================================================== -->
@@ -71,9 +71,9 @@
                             <span class="hidden-md-down">
                                 <?php //echo $id; ?>&nbsp;
                             </span>
-                            <i class="fa fa-user-circle-o"></i> 
+                            <i class="fa fa-user-circle-o"></i>
                         </a>
-                            
+
                         <!-- Dropdown - User Information -->
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                             <a class="dropdown-item" href="logout.php">
@@ -119,7 +119,7 @@
                                 </div>
                             </div>
                         </li>
-                        
+
                         <li> <a class="waves-effect waves-dark" href="../project/tb_project.php" aria-expanded="false"><i class="fa fa-globe"></i><span class="hide-menu">จัดการข้อมูลโครงการ</span></a>
                         </li>
                         <li> <a class="waves-effect waves-dark" href="../activity/tb_activity.php" aria-expanded="false"><i class="fa fa-globe"></i><span class="hide-menu">จัดการข้อมูลกิจกรรม</span></a>
@@ -151,4 +151,3 @@
             </div>
             <!-- End Sidebar scroll-->
         </aside>
-        

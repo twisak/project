@@ -10,6 +10,7 @@
     $stp_date = $_POST['stp_date'];
     $project_id = $_POST['project_id'];
     $person_id = $_POST['person_id'];
+		$teacher_id = $_POST['teacher_id'];
     $allowance = $_POST['allowance'];
     $allowance_price = $_POST['allowance_price'];
     $rest = $_POST['rest'];
@@ -27,6 +28,7 @@
                                             stp_date = '".$stp_date."',
                                             project_id = '".$project_id."',
                                             person_id = '".$person_id."',
+																						teacher_id = '".$teacher_id."',
                                             allowance = '".$allowance."',
                                             allowance_price = '".$allowance_price."',
                                             rest = '".$rest."',
