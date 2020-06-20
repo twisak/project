@@ -174,6 +174,32 @@ $query_project = mysqli_query($conn,$sql_project);
 </div>
 
 <div class="row">
+  <?php
+  $sql_teacher = "select * from tb_teacher";
+  $query_teacher = mysqli_query($conn,$sql_teacher);
+  ?>
+
+  <div class="col-md-4">
+  <div class="form-group">
+  <label>ชื่ออาจารย์</label>
+  <select class="form-control" name="teacher_id">
+              <option value="">-- เลือกรายชื่ออาจารย์ --</option>
+      <?php
+      while($result_teacher=mysqli_fetch_array($query_teacher))
+      {
+      ?>
+           <option value='<?php echo $result_teacher['teacher_id'];?>'><?php echo $result_teacher['t_firstname'];?>&nbsp;&nbsp;<?php echo $result_teacher['t_lastname'];?></option>
+      <?php
+      }
+       ?>
+              </select>
+      </div>
+  </div>
+
+
+</div>
+
+<div class="row">
 <div class="col-md-5">
 <div class="form-group">
 <label>ค่าเบี้ยเลี้ยง</label>

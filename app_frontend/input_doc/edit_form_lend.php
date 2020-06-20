@@ -243,6 +243,39 @@ else
                                     </div>
 
                                     <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>ชื่ออาจารย์</label>
+                                                <select class="form-control" name="teacher_id" value="<?php echo $row['teacher_id']; ?>">
+
+                                                    <?php
+                                                        $sql_check_teacher = "SELECT * FROM tb_teacher";
+                                                        $query_check_teacher = mysqli_query($conn,$sql_check_teacher);
+
+                                                        $teacher_id1 = $row['teacher_id'];
+                                                        while($result_check_teacher = mysqli_fetch_array($query_check_teacher))
+                                                        {
+                                                        if($teacher_id1 == $result_check_teacher["teacher_id"])
+                                                        {
+                                                        $selected_check_teacher = "selected";
+
+                                                        }
+                                                        else
+                                                        {
+                                                        $selected_check_teacher = "";
+                                                        }
+                                                        ?>
+                                                    <option value="<?php echo $result_check_teacher["teacher_id"];?>" <?php echo $selected_check_teacher;?>><?php echo $result_check_teacher["t_firstname"]; ?>&nbsp;&nbsp;<?php echo $result_check_teacher["t_lastname"]; ?></option>
+                                                    <?php
+                                                        }
+                                                        ?>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row">
                                         <div class="col-md-5">
                                             <div class="form-group">
                                                 <label>ค่าเบี้ยเลี้ยง</label>
