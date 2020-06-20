@@ -163,8 +163,6 @@ include '../../administrator/connect.php';
                                     </div>
 
                                     <div class="row">
-
-
                                         <div class="col-md-7">
                                             <div class="form-group">
                                                 <button type="button" class="btn btn-info btn-sm" id="createRows" value="Add">เพิ่ม</button>
@@ -172,7 +170,6 @@ include '../../administrator/connect.php';
                                                 &nbsp;&nbsp;<button type="button" class="btn btn-danger btn-sm" id="clearRows" value="Clear">ลบทั้งหมด</button>
                                             </div>
                                         </div>
-
 
                                         <table width="100%" border="0" id="myTable">
                                             <thead>
@@ -184,30 +181,6 @@ include '../../administrator/connect.php';
                                             <br>
                                             <input type="hidden" id="hdnCount" name="hdnCount">
                                         </center>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label>ผู้ควบคุมการปฎิบัติงาน</label>
-                                                <select name="project_id" id="project" class="form-control">
-                                                    <option value="">เลือกชื่ออาจารย์</option>
-                                                    <?php
-                                                        $sql = "SELECT * FROM tb_teacher";
-                                                        $query = mysqli_query($conn, $sql);
-                                                        while($result = mysqli_fetch_assoc($query)):
-                                                    ?>
-                                                    <option value="<?=$result['teacher_id']?>"><?=$result['t_firtname']?><?=$result['t_lastname']?></option>
-                                                    <?php endwhile; ?>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-2">
-                                            <div class="form-group">
-                                                <label><u>รายการส่งใช้เงินยืม</u></label>
-                                            </div>
-                                        </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-2">
@@ -224,22 +197,46 @@ include '../../administrator/connect.php';
                                         </div>
                                     </div>
                                     <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>ผู้ควบคุมการปฎิบัติงาน</label>
+                                                <select name="teacher_id" class="form-control">
+                                                    <option value="">เลือกชื่ออาจารย์</option>
+                                                    <?php
+                                                        $sql = "SELECT * FROM tb_teacher";
+                                                        $query = mysqli_query($conn, $sql);
+                                                        while($result = mysqli_fetch_assoc($query)):
+                                                    ?>
+                                                    <option value="<?=$result['teacher_id']?>"><?=$result['t_firstname']?><?=$result['t_lastname']?></option>
+                                                    <?php endwhile; ?>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label><u>รายการส่งใช้เงินยืม</u></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label>จำนวนงวด</label>
-                                                <input type="text" class="form-control form-control-line" name="str_date">
+                                                <input type="text" class="form-control form-control-line" name="number">
                                             </div>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label>เป็นเงิน</label>
-                                                <input type="text" class="form-control form-control-line" name="stp_date">
+                                                <input type="text" class="form-control form-control-line" name="money">
                                             </div>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label>รวมเป็นเงินทั้งสิ้น</label>
-                                                <input type="text" class="form-control form-control-line" name="stp_date">
+                                                <input type="text" class="form-control form-control-line" name="amount">
                                             </div>
                                         </div>
                                     </div>
@@ -247,13 +244,13 @@ include '../../administrator/connect.php';
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label>ปฎิบัติงานงวดที่</label>
-                                                <input type="text" class="form-control form-control-line" name="str_date">
+                                                <input type="text" class="form-control form-control-line" name="work">
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label>วันที่ปฎิบัติงาน</label>
-                                                <input type="date" class="form-control form-control-line" name="str_date">
+                                                <input type="date" class="form-control form-control-line" name="date_work">
                                             </div>
                                         </div>
                                     </div>
@@ -265,24 +262,22 @@ include '../../administrator/connect.php';
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-md-4">
+                                        <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>ส่วนราชการ</label>
-                                                <input type="text" class="form-control form-control-line" name="str_date">
+                                                <input type="text" class="form-control form-control-line" name="government">
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="row">
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label>ที่</label>
-                                                <input type="text" class="form-control form-control-line" name="str_date">
+                                                <input type="text" class="form-control form-control-line" name="that">
                                             </div>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label>วันที่</label>
-                                                <input type="date" class="form-control form-control-line" name="str_date">
+                                                <input type="date" class="form-control form-control-line" name="c_day">
                                             </div>
                                         </div>
                                     </div>
@@ -290,27 +285,36 @@ include '../../administrator/connect.php';
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>เรื่อง</label>
-                                                <input type="text" class="form-control form-control-line" name="str_date">
+                                                <select name="title_id" class="form-control">
+                                                    <option value="">เลือกชื่อเรื่อง</option>
+                                                    <?php
+                                                        $sql = "SELECT * FROM tb_title";
+                                                        $query = mysqli_query($conn, $sql);
+                                                        while($result = mysqli_fetch_assoc($query)):
+                                                    ?>
+                                                    <option value="<?=$result['title_id']?>"><?=$result['title']?></option>
+                                                    <?php endwhile; ?>
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-md-2">
+                                        <!-- <div class="col-md-2">
                                             <div class="form-group">
                                                 <label>ลงวันที่</label>
                                                 <input type="date" class="form-control form-control-line" name="str_date">
                                             </div>
-                                        </div>
+                                        </div> -->
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label>จำนวนคน</label>
-                                                <input type="text" class="form-control form-control-line" name="str_date">
+                                                <input type="text" class="form-control form-control-line" name="people">
                                             </div>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label>ราคากลางที่คำนวณได้</label>
-                                                <input type="text" class="form-control form-control-line" name="str_date">
+                                                <input type="text" class="form-control form-control-line" name="mid_price">
                                             </div>
                                         </div>
                                     </div>
@@ -318,14 +322,14 @@ include '../../administrator/connect.php';
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label>ลงชื่อ ประธานกรรมการ</label>
-                                                <select name="project_id" id="project" class="form-control">
+                                                <select name="teacher_id" class="form-control">
                                                     <option value="">เลือกชื่ออาจารย์</option>
                                                     <?php
                                                         $sql = "SELECT * FROM tb_teacher";
                                                         $query = mysqli_query($conn, $sql);
                                                         while($result = mysqli_fetch_assoc($query)):
                                                     ?>
-                                                    <option value="<?=$result['teacher_id']?>"><?=$result['t_firtname']?><?=$result['t_lastname']?></option>
+                                                    <option value="<?=$result['teacher_id']?>"><?=$result['t_firstname']?><?=$result['t_lastname']?></option>
                                                     <?php endwhile; ?>
                                                 </select>
                                             </div>
@@ -333,14 +337,14 @@ include '../../administrator/connect.php';
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label>ลงชื่อ กรรมการ</label>
-                                                <select name="project_id" id="project" class="form-control">
+                                                <select name="teacher_id" class="form-control">
                                                     <option value="">เลือกชื่ออาจารย์</option>
                                                     <?php
                                                         $sql = "SELECT * FROM tb_teacher";
                                                         $query = mysqli_query($conn, $sql);
                                                         while($result = mysqli_fetch_assoc($query)):
                                                     ?>
-                                                    <option value="<?=$result['teacher_id']?>"><?=$result['t_firtname']?><?=$result['t_lastname']?></option>
+                                                    <option value="<?=$result['teacher_id']?>"><?=$result['t_firstname']?><?=$result['t_lastname']?></option>
                                                     <?php endwhile; ?>
                                                 </select>
                                             </div>
@@ -348,14 +352,14 @@ include '../../administrator/connect.php';
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label>ลงชื่อ กรรมการและเลขานุการ</label>
-                                                <select name="project_id" id="project" class="form-control">
+                                                <select name="teacher_id" class="form-control">
                                                     <option value="">เลือกชื่ออาจารย์</option>
                                                     <?php
                                                         $sql = "SELECT * FROM tb_teacher";
                                                         $query = mysqli_query($conn, $sql);
                                                         while($result = mysqli_fetch_assoc($query)):
                                                     ?>
-                                                    <option value="<?=$result['teacher_id']?>"><?=$result['t_firtname']?><?=$result['t_lastname']?></option>
+                                                    <option value="<?=$result['teacher_id']?>"><?=$result['t_firstname']?><?=$result['t_lastname']?></option>
                                                     <?php endwhile; ?>
                                                 </select>
                                             </div>
@@ -405,6 +409,26 @@ include '../../administrator/connect.php';
                                         </div>
                                     </div>
                                     <div class="row">
+                                        <div class="col-md-7">
+                                            <div class="form-group">
+                                                <button type="button" class="btn btn-info btn-sm" id="createRows1" value="Add">เพิ่ม</button>
+                                                &nbsp;&nbsp;<button type="button" class="btn btn-warning btn-sm" id="deleteRows1" value="Del">ลบ</button>
+                                                &nbsp;&nbsp;<button type="button" class="btn btn-danger btn-sm" id="clearRows1" value="Clear">ลบทั้งหมด</button>
+                                            </div>
+                                        </div>
+
+                                        <table width="100%" border="0" id="myTable1">
+                                            <thead>
+                                            </thead>
+                                            <tbody></tbody>
+                                        </table>
+                                        <br />
+                                        <center>
+                                            <br>
+                                            <input type="hidden" id="hdnCount1" name="hdnCount1">
+                                        </center>
+                                    </div>
+                                    <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label><b>ขอบเขตของงานที่จ้าง</b></label>
@@ -412,10 +436,30 @@ include '../../administrator/connect.php';
                                         </div>
                                     </div>
                                     <div class="row">
+                                        <div class="col-md-7">
+                                            <div class="form-group">
+                                                <button type="button" class="btn btn-info btn-sm" id="createRows2" value="Add">เพิ่ม</button>
+                                                &nbsp;&nbsp;<button type="button" class="btn btn-warning btn-sm" id="deleteRows2" value="Del">ลบ</button>
+                                                &nbsp;&nbsp;<button type="button" class="btn btn-danger btn-sm" id="clearRows2" value="Clear">ลบทั้งหมด</button>
+                                            </div>
+                                        </div>
+
+                                        <table width="100%" border="0" id="myTable2">
+                                            <thead>
+                                            </thead>
+                                            <tbody></tbody>
+                                        </table>
+                                        <br />
+                                        <center>
+                                            <br>
+                                            <input type="hidden" id="hdnCount2" name="hdnCount1">
+                                        </center>
+                                    </div>
+                                    <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label><b>ความรับผิดชอบของผู้ว่าจ้าง</b></label>
-                                                <input type="text" class="form-control form-control-line" name="str_date">
+                                                <input type="text" class="form-control form-control-line" name="responsible">
                                             </div>
                                         </div>
                                     </div>
@@ -427,11 +471,51 @@ include '../../administrator/connect.php';
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-md-6">
+                                        <div class="col-md-7">
                                             <div class="form-group">
-                                                <label><b>เงื่อไขการชำระเงิน</b></label>
+                                                <button type="button" class="btn btn-info btn-sm" id="createRows3" value="Add">เพิ่ม</button>
+                                                &nbsp;&nbsp;<button type="button" class="btn btn-warning btn-sm" id="deleteRows3" value="Del">ลบ</button>
+                                                &nbsp;&nbsp;<button type="button" class="btn btn-danger btn-sm" id="clearRows3" value="Clear">ลบทั้งหมด</button>
                                             </div>
                                         </div>
+
+                                        <table width="100%" border="0" id="myTable3">
+                                            <thead>
+                                            </thead>
+                                            <tbody></tbody>
+                                        </table>
+                                        <br />
+                                        <center>
+                                            <br>
+                                            <input type="hidden" id="hdnCount3" name="hdnCount3">
+                                        </center>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label><b>เงื่อนไขการชำระเงิน</b></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-7">
+                                            <div class="form-group">
+                                                <button type="button" class="btn btn-info btn-sm" id="createRows4" value="Add">เพิ่ม</button>
+                                                &nbsp;&nbsp;<button type="button" class="btn btn-warning btn-sm" id="deleteRows4" value="Del">ลบ</button>
+                                                &nbsp;&nbsp;<button type="button" class="btn btn-danger btn-sm" id="clearRows4" value="Clear">ลบทั้งหมด</button>
+                                            </div>
+                                        </div>
+
+                                        <table width="100%" border="0" id="myTable4">
+                                            <thead>
+                                            </thead>
+                                            <tbody></tbody>
+                                        </table>
+                                        <br />
+                                        <center>
+                                            <br>
+                                            <input type="hidden" id="hdnCount4" name="hdnCount4">
+                                        </center>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-6">
@@ -439,6 +523,26 @@ include '../../administrator/connect.php';
                                                 <label><b>เงื่อนไขหลักประกัน</b></label>
                                             </div>
                                         </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-7">
+                                            <div class="form-group">
+                                                <button type="button" class="btn btn-info btn-sm" id="createRows5" value="Add">เพิ่ม</button>
+                                                &nbsp;&nbsp;<button type="button" class="btn btn-warning btn-sm" id="deleteRows5" value="Del">ลบ</button>
+                                                &nbsp;&nbsp;<button type="button" class="btn btn-danger btn-sm" id="clearRows5" value="Clear">ลบทั้งหมด</button>
+                                            </div>
+                                        </div>
+
+                                        <table width="100%" border="0" id="myTable5">
+                                            <thead>
+                                            </thead>
+                                            <tbody></tbody>
+                                        </table>
+                                        <br />
+                                        <center>
+                                            <br>
+                                            <input type="hidden" id="hdnCount5" name="hdnCount5">
+                                        </center>
                                     </div>
 
                                     <div class="row">
@@ -493,7 +597,7 @@ include '../../administrator/connect.php';
 
 
                         var tr = "<tr>";
-                        tr = tr + "<td><div class='row'><div class='col-md-8'><div class='form-group'><input type='text' class='form-control p_input' name='foreword" + rows + "'></div></div></td>";
+                        tr = tr + "<td class='col-md-8'><div class='row'><div class='col-md-8'><div class='form-group'><input type='text' class='form-control p_input' name='foreword" + rows + "'></div></div></td>";
                         tr = tr + "</tr>";
                         $('#myTable > tbody:last').append(tr);
 
@@ -534,6 +638,168 @@ include '../../administrator/connect.php';
                     });
                 });
             </script>
+            <!-- listbox 2 ชั้น -->
+            <!-- คุณสมบัติของผู้รับจ้าง -->
+            <script type="text/javascript">
+                $(document).ready(function () {
+
+                    var rows = 1;
+                    $("#createRows1").click(function () {
+
+
+                        var tr = "<tr>";
+                        tr = tr + "<td class='col-md-8'><div class='row'><div class='col-md-8'><div class='form-group'><input type='text' class='form-control p_input' name='property[]" + rows + "'></div></div></td>";
+                        tr = tr + "</tr>";
+                        $('#myTable1 > tbody:last').append(tr);
+
+                        $('#hdnCount1').val(rows);
+                        rows = rows + 1;
+                    });
+
+                    $("#deleteRows1").click(function () {
+                        if ($("#myTable1 tr").length != 1) {
+                            $("#myTable1 tr:last").remove();
+                        }
+                    });
+
+                    $("#clearRows1").click(function () {
+                        rows = 1;
+                        $('#hdnCount1').val(rows);
+                        $('#myTable1 > tbody:last').empty(); // remove all
+                    });
+
+                });
+            </script>
+            <!-- คุณสมบัติของผู้รับจ้าง -->
+            <!-- ขอบเขตของงานที่จ้าง -->
+            <script type="text/javascript">
+                $(document).ready(function () {
+
+                    var rows = 1;
+                    $("#createRows2").click(function () {
+
+
+                        var tr = "<tr>";
+                        tr = tr + "<td class='col-md-8'><div class='row'><div class='col-md-8'><div class='form-group'><input type='text' class='form-control p_input' name='scope[]" + rows + "'></div></div></td>";
+                        tr = tr + "</tr>";
+                        $('#myTable2 > tbody:last').append(tr);
+
+                        $('#hdnCount2').val(rows);
+                        rows = rows + 1;
+                    });
+
+                    $("#deleteRows2").click(function () {
+                        if ($("#myTable2 tr").length != 1) {
+                            $("#myTable2 tr:last").remove();
+                        }
+                    });
+
+                    $("#clearRows2").click(function () {
+                        rows = 1;
+                        $('#hdnCount2').val(rows);
+                        $('#myTable2 > tbody:last').empty(); // remove all
+                    });
+
+                });
+            </script>
+            <!-- ขอบเขตของงานที่จ้าง -->
+            <!-- ค่าปรับและค่าหักเงินค่าจ้าง -->
+            <script type="text/javascript">
+                $(document).ready(function () {
+
+                    var rows = 1;
+                    $("#createRows3").click(function () {
+
+
+                        var tr = "<tr>";
+                        tr = tr + "<td class='col-md-8'><div class='row'><div class='col-md-8'><div class='form-group'><input type='text' class='form-control p_input' name='fine[]" + rows + "'></div></div></td>";
+                        tr = tr + "</tr>";
+                        $('#myTable3 > tbody:last').append(tr);
+
+                        $('#hdnCount3').val(rows);
+                        rows = rows + 1;
+                    });
+
+                    $("#deleteRows3").click(function () {
+                        if ($("#myTable3 tr").length != 1) {
+                            $("#myTable3 tr:last").remove();
+                        }
+                    });
+
+                    $("#clearRows3").click(function () {
+                        rows = 1;
+                        $('#hdnCount3').val(rows);
+                        $('#myTable3 > tbody:last').empty(); // remove all
+                    });
+
+                });
+            </script>
+            <!-- ค่าปรับและค่าหักเงินค่าจ้าง -->
+            <!-- เงื่อนไขการชำระเงิน -->
+            <script type="text/javascript">
+                $(document).ready(function () {
+
+                    var rows = 1;
+                    $("#createRows4").click(function () {
+
+
+                        var tr = "<tr>";
+                        tr = tr + "<td class='col-md-8'><div class='row'><div class='col-md-8'><div class='form-group'><input type='text' class='form-control p_input' name='payment[]" + rows + "'></div></div></td>";
+                        tr = tr + "</tr>";
+                        $('#myTable4 > tbody:last').append(tr);
+
+                        $('#hdnCount4').val(rows);
+                        rows = rows + 1;
+                    });
+
+                    $("#deleteRows4").click(function () {
+                        if ($("#myTable4 tr").length != 1) {
+                            $("#myTable4 tr:last").remove();
+                        }
+                    });
+
+                    $("#clearRows4").click(function () {
+                        rows = 1;
+                        $('#hdnCount4').val(rows);
+                        $('#myTable4 > tbody:last').empty(); // remove all
+                    });
+
+                });
+            </script>
+            <!-- เงื่อนไขการชำระเงิน -->
+            <!-- เงื่อนไขหลักประกัน -->
+            <script type="text/javascript">
+                $(document).ready(function () {
+
+                    var rows = 1;
+                    $("#createRows5").click(function () {
+
+
+                        var tr = "<tr>";
+                        tr = tr + "<td class='col-md-8'><div class='row'><div class='col-md-8'><div class='form-group'><input type='text' class='form-control p_input' name='insurance[]" + rows + "'></div></div></td>";
+                        tr = tr + "</tr>";
+                        $('#myTable5 > tbody:last').append(tr);
+
+                        $('#hdnCount5').val(rows);
+                        rows = rows + 1;
+                    });
+
+                    $("#deleteRows5").click(function () {
+                        if ($("#myTable5 tr").length != 1) {
+                            $("#myTable5 tr:last").remove();
+                        }
+                    });
+
+                    $("#clearRows5").click(function () {
+                        rows = 1;
+                        $('#hdnCount5').val(rows);
+                        $('#myTable5 > tbody:last').empty(); // remove all
+                    });
+
+                });
+            </script>
+            <!-- เงื่อนไขหลักประกัน -->
+            
 </body>
 
 </html>

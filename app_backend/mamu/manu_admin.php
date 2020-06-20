@@ -124,7 +124,7 @@
                         </li>
                         <li> <a class="waves-effect waves-dark" href="../activity/tb_activity.php" aria-expanded="false"><i class="fa fa-globe"></i><span class="hide-menu">จัดการข้อมูลกิจกรรม</span></a>
                         </li>
-                        <li> <a class="waves-effect waves-dark" href="" aria-expanded="false"><i class="fa fa-question-circle"></i><span class="hide-menu">จัดการข้อมูลหัวข้อเรื่อง</span></a>
+                        <li> <a class="waves-effect waves-dark" href="../tb_title/tb_title.php" aria-expanded="false"><i class="fa fa-question-circle"></i><span class="hide-menu">จัดการข้อมูลหัวข้อเรื่อง</span></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link waves-effect waves-dark collapsed" href="#" data-toggle="collapse" data-target="#collapseB" aria-expanded="false" aria-controls="collapseB">
