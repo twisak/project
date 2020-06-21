@@ -87,6 +87,7 @@ include '../../administrator/connect.php';
                                         $doc_id =$_GET['id'];
                                         $sql ="SELECT * FROM tb_contract WHERE doc_id = '".$doc_id."'";
                                         $query = mysqli_query($conn,$sql);
+                                        $num_rows = mysqli_num_rows($query);
                                         while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
                                         {
                                             $doc_id = $row['doc_id'];
@@ -109,12 +110,19 @@ include '../../administrator/connect.php';
                                             $details = $row['details'];
                                             $date_start  = $row['date_start'];
                                             $date_end = $row['date_end'];
-                                            $property = unserialize(base64_decode($row["property"]));
-                                            $scope = serialize( $row["scope"] );
+
+                                            $property = $row['property'];
+                                            $property2 = unserialize($property);
+
+                                            $scope = unserialize($row["scope"]);
+
                                             $responsible = $row['responsible'];
-                                            $fine = serialize( $row["fine"] );
-                                            $payment = serialize( $row["payment"] );
-                                            $insurance = serialize( $row["insurance"] );
+
+                                            $fine = $row["fine"];
+                                            $fine1 = unserialize( $fine );
+
+                                            $payment = unserialize( $row["payment"] );
+                                            $insurance = unserialize( $row["insurance"] );
                                         }
 
                                         $sql1 ="SELECT * FROM tb_project WHERE project_id = '".$project_id."' ";
@@ -419,13 +427,63 @@ include '../../administrator/connect.php';
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group"><br>
-                                                        <label><b>คุณสมบัติของผู้รับจ้าง</b></label>
                                                         <?php 
-                                                                print "<pre>";
-                                                                print_r($scope);
-                                                                print "</pre>";
+                                                                $property1 = array($property2);
+
+                                                                for ($row = 0; $row < 1; $row++) {
+                                                                    echo "<p><b>คุณสมบัติของผู้รับจ้าง</b></p>";
+                                                                    echo "<ul>";
+                                                                    for ($col = 0; $col < $num_rows; $col++) {
+                                                                      echo "<li>".$property1[$row][$col]."</li>";
+                                                                    }
+                                                                    echo "</ul>";
+                                                                  }
                                                         ?>
-                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $property?>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group"><br>
+                                                        <?php 
+                                                                $scope1 = array($scope);
+
+                                                                for ($row = 0; $row < 1; $row++) {
+                                                                    echo "<p><b>ขอบเขตของงานที่จ้าง</b></p>";
+                                                                    echo "<ul>";
+                                                                    for ($col = 0; $col < $num_rows; $col++) {
+                                                                      echo "<li>".$scope1[$row][$col]."</li>";
+                                                                    }
+                                                                    echo "</ul>";
+                                                                  }
+                                                        ?>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label><b>ความรับผิดชอบของผู้ว่าจ้าง</b></label><br>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $responsible?>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group"><br>
+                                                        <?php 
+                                                                $fine2 = array($fine1);
+
+                                                                for ($row = 0; $row < 1; $row++) {
+                                                                    $fine2 = array($fine1);
+                                                                    echo "<p><b>ค่าปรับและค่าหักเงินค่าจ้าง</b></p>";
+                                                                    echo "<ul>";
+                                                                    for ($col = 0; $col < $num_rows; $col++) {
+                                                                      echo "<li>".$fine2[$row][$col]."</li>";
+                                                                    }
+                                                                    echo "</ul>";
+                                                                  }
+                                                        ?>
                                                     </div>
                                                 </div>
                                             </div>
