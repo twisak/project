@@ -448,14 +448,27 @@ include '../../administrator/connect.php';
                                                         <?php 
                                                                 $scope1 = array($scope);
 
-                                                                for ($row = 0; $row < 1; $row++) {
+                                                                // for ($row = 0; $row < 1; $row++) {
+                                                                //     echo "<p><b>ขอบเขตของงานที่จ้าง</b></p>";
+                                                                //     echo "<ul>";
+                                                                //     for ($col = 0; $col < $num_rows; $col++) {
+                                                                //       echo "<li>".$scope1[$row][$col]."</li>";
+                                                                //     }
+                                                                //     echo "</ul>";
+                                                                //   }
+                                                                  foreach ($scope1 as $scope1[$i]){
+                                                                    $j=0;
                                                                     echo "<p><b>ขอบเขตของงานที่จ้าง</b></p>";
                                                                     echo "<ul>";
-                                                                    for ($col = 0; $col < $num_rows; $col++) {
-                                                                      echo "<li>".$scope1[$row][$col]."</li>";
+                                                                    foreach ($scope1[$i] as $scope1[$i][$j]){
+                                                                        $value = $scope1[$i][$j];
+                                                                        //echo "<tr><td>{$value}</td></tr>";
+                                                                        echo "<li>{$value}</li>";
+                                                                        $j++;
                                                                     }
                                                                     echo "</ul>";
-                                                                  }
+                                                                    $i++;
+                                                                }
                                                         ?>
                                                     </div>
                                                 </div>
