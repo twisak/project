@@ -486,12 +486,15 @@ include '../../administrator/connect.php';
 
                                                                   foreach ($fine2 as $fine2[$i]){
                                                                     $j=0;
+                                                                    echo "<p><b>ค่าปรับและค่าหักเงินค่าจ้าง</b></p>";
+                                                                    echo "<ul>";
                                                                     foreach ($fine2[$i] as $fine2[$i][$j]){
                                                                         $value = $fine2[$i][$j];
                                                                         //echo "<tr><td>{$value}</td></tr>";
                                                                         echo "<li>{$value}</li>";
                                                                         $j++;
                                                                     }
+                                                                    echo "</ul>";
                                                                     $i++;
                                                                 }
                                                         ?>
