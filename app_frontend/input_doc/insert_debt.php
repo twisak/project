@@ -5,13 +5,15 @@
     include '../../administrator/connect.php';
 
     $doc_id = $_POST['doc_id'];
+		$date_current = date('Y-m-d');
 		$name_train = $_POST['name_train'];
     $project_id = $_POST['project_id'];
     $person_id = $_POST['person_id'];
+		$teacher_id = $_POST['teacher_id'];
     $money_from = $_POST['money_from'];
 
-    $list = $_POST['list'];
-    $money_num = $_POST['money_num'];
+    // $list = $_POST['list'];
+    // $money_num = $_POST['money_num'];
 
     $lend_num = $_POST['lend_num'];
     $note_that = $_POST['note_that'];
@@ -41,19 +43,21 @@
 
 
 
-    $sql_tb_debt = "INSERT INTO tb_debt(doc_id, name_train, project_id, person_id, money_from, list, money_num, lend_num, note_that, date_note, under, along_with, go_practice, depart_from,
-       date_depart, time_depart, back,date_back, time_back, open_money, allowance, allowance_day, allowance_price, allowance_sum, rest, rest_day, rest_sum, vehicle, vehicle_sum, other,other_sum,document_num )
-                    VALUES ('".$doc_id."','".$name_train."','".$project_id."','".$person_id."','".$money_from."','".$list."',
-                    '".$money_num."','".$lend_num."','".$note_that."','".$date_note."','".$under."','".$along_with."','".$go_practice."',
+    $sql_tb_debt = "INSERT INTO tb_debt(doc_id, date_current, name_train, project_id, person_id, teacher_id, money_from, lend_num, note_that, date_note, under, along_with, go_practice, depart_from,
+       date_depart, time_depart, back, date_back, time_back, open_money, allowance, allowance_day, allowance_price, allowance_sum, rest, rest_day, rest_sum, vehicle, vehicle_sum, other,other_sum,document_num )
+                    VALUES ('".$doc_id."','".$date_current."','".$name_train."','".$project_id."','".$person_id."','".$teacher_id."','".$money_from."',
+                    '".$lend_num."','".$note_that."','".$date_note."','".$under."','".$along_with."','".$go_practice."',
                     '".$depart_from."','".$date_depart."','".$time_depart."','".$back."','".$date_back."','".$time_back."','".$open_money."',
                     '".$allowance."','".$allowance_day."','".$allowance_price."','".$allowance_sum."','".$rest."','".$rest_day."','".$rest_sum."',
                     '".$vehicle."','".$vehicle_sum."','".$other."','".$other_sum."','".$document_num."')";
 echo $sql_tb_debt;
-     // echo $sql_tb_lend;
-     // $query_tb_lend = mysqli_query($conn,$sql_tb_lend);
-     //
-     //  echo "<script>alert('บันทึกข้อมูลของท่านเรียบร้อยแล้ว')</script>";
-     //  echo "<script>window.location='tb_doc_lend.php'</script>";
+
+     $query_tb_debt	 = mysqli_query($conn,$sql_tb_debt);
+
+		 echo $query_tb_debt;
+
+      // echo "<script>alert('บันทึกข้อมูลของท่านเรียบร้อยแล้ว')</script>";
+      // echo "<script>window.location='tb_doc_debt.php'</script>";
 
 ?>
 </body>
