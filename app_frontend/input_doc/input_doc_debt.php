@@ -156,10 +156,25 @@ else
       </div>
   </div>
 
+
+  <?php
+  $sql_teacher = "select * from tb_teacher";
+  $query_teacher = mysqli_query($conn,$sql_teacher);
+  ?>
   <div class="col-md-4">
   <div class="form-group">
-  <label>ได้รับเงินจาก</label>
-  <input type="text"  class="form-control form-control-line" name="money_from">
+  <label>ชื่ออาจารย์</label>
+  <select class="form-control" name="teacher_id">
+              <option value="">-- เลือกรายชื่อ --</option>
+      <?php
+      while($result_teacher=mysqli_fetch_array($query_teacher))
+      {
+      ?>
+           <option value='<?php echo $result_teacher['teacher_id'];?>'><?php echo $result_teacher['t_firstname'];?>&nbsp;&nbsp;<?php echo $result_teacher['t_lastname'];?></option>
+      <?php
+      }
+       ?>
+              </select>
       </div>
   </div>
 
@@ -167,6 +182,17 @@ else
 </div>
 
 <div class="row">
+  <div class="col-md-4">
+  <div class="form-group">
+  <label>ได้รับเงินจาก</label>
+  <input type="text"  class="form-control form-control-line" name="money_from">
+      </div>
+  </div>
+</div>
+
+<div class="row">
+
+
 <div class="col-md-4">
 <div class="form-group">
 <label>รายการ</label>
