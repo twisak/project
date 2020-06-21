@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 19, 2020 at 09:14 PM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.6
+-- Generation Time: Jun 21, 2020 at 06:41 PM
+-- Server version: 10.3.16-MariaDB
+-- PHP Version: 7.2.20
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -10127,19 +10128,37 @@ CREATE TABLE `tb_contract` (
   `str_date` date DEFAULT NULL COMMENT 'วันที่เริ่มต้น',
   `stp_date` date DEFAULT NULL COMMENT 'วันที่สิ้นสุด',
   `project_id` varchar(20) DEFAULT NULL COMMENT 'รหัสโครงการ',
-  `person_id` varchar(20) DEFAULT NULL COMMENT 'รหัสบุคลากร'
+  `person_id` varchar(20) DEFAULT NULL COMMENT 'รหัสบุคลากร',
+  `teacher_id` varchar(10) NOT NULL COMMENT 'รหัสอาจารย์',
+  `number` varchar(20) NOT NULL COMMENT 'จำนวนงวด',
+  `money` varchar(20) NOT NULL COMMENT 'เป็นเงิน',
+  `work` varchar(10) NOT NULL COMMENT 'ปฎิบัติงานงวดที่',
+  `date_work` date NOT NULL COMMENT 'วันที่ปฎิบัติงาน',
+  `government` varchar(200) NOT NULL COMMENT 'ส่วนราชการ',
+  `that` varchar(110) NOT NULL COMMENT 'ที่',
+  `c_day` date NOT NULL COMMENT 'วันที่ปัจจุบัน',
+  `title_id` varchar(20) NOT NULL COMMENT 'รหัสเรื่อง',
+  `people` varchar(20) NOT NULL COMMENT 'จำนวนคน',
+  `mid_price` varchar(20) NOT NULL COMMENT 'ราคากลางที่คำนวณได้',
+  `details` varchar(200) NOT NULL COMMENT 'รายละเอียดการจ้าง',
+  `date_start` date NOT NULL COMMENT 'วันที่เริ่มจ้างเหมา',
+  `date_end` date NOT NULL COMMENT 'วันที่จบจ้างเหมา',
+  `property` varchar(500) NOT NULL COMMENT 'คุณสมบัติ',
+  `scope` varchar(500) NOT NULL COMMENT 'ขอบเขตของงานที่จ้าง',
+  `responsible` varchar(200) NOT NULL COMMENT 'ความรับผิดชอบของผู้ว่าจ้าง',
+  `fine` varchar(200) NOT NULL COMMENT 'ค่าปรับและค่าหักเงินค่าจ้าง',
+  `payment` varchar(200) NOT NULL COMMENT 'เงื่อนไขการชำระเงิน',
+  `insurance` varchar(200) NOT NULL COMMENT 'เงื่อนไขหลักประกัน'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `tb_contract`
 --
 
-INSERT INTO `tb_contract` (`id`, `doc_id`, `foreword`, `str_date`, `stp_date`, `project_id`, `person_id`) VALUES
-(12, 'D001', '3256', '2020-06-14', '2020-06-16', 'P001', 'PS001'),
-(13, 'D001', '6666', '2020-06-14', '2020-06-16', 'P001', 'PS001'),
-(14, 'D001', '7899', '2020-06-14', '2020-06-16', 'P001', 'PS001'),
-(15, 'D002', ' พจนานุกรมข้อมูล (Data Dictionary) เป็นแผนภาพที่ใช้แสดงรายละเอียดต่าง ๆ ของข้อมูลที่ใช้งานในระบบการจัดการเอกสารสำหรับสถาบันพัฒนาครูและบุคลากรทางการศึกษาชายแดนใต้ ซึ่งประกอบด้วย ชื่อฟิลด์, คีย์, คำอธิบาย,ชนิดข้อมูล, ขนาดข้อมูล, หมายเหตุ ดังต่อไปนี้', '2020-06-17', '2020-06-20', 'P001', 'PS001'),
-(16, 'D002', ' แผนภาพกระแสข้อมูลระดับที่ 4 ของกระบวนการที่ 1', '2020-06-17', '2020-06-20', 'P001', 'PS001');
+INSERT INTO `tb_contract` (`id`, `doc_id`, `foreword`, `str_date`, `stp_date`, `project_id`, `person_id`, `teacher_id`, `number`, `money`, `work`, `date_work`, `government`, `that`, `c_day`, `title_id`, `people`, `mid_price`, `details`, `date_start`, `date_end`, `property`, `scope`, `responsible`, `fine`, `payment`, `insurance`) VALUES
+(23, 'D001', 'พัฒนาระบบงานมหาลัย', '2020-06-21', '2020-06-27', 'P001', 'PS001', '001', '6', '2000', '2', '2020-06-21', 'ศึกษาพัฒนามหาลัย', 'อว.123.456', '2020-06-21', '004', '8', '6000', '0', '0000-00-00', '0000-00-00', 'a:3:{i:0;s:9:\"ไทย\";i:1;s:16:\"อายุ 18+\";i:2;s:13:\"ป.ตรี\";}', 'a:3:{i:0;s:68:\"จัดหา คัดเลือก วิเคาระห์\";i:1;s:30:\"ให้คำแนะนำ\";i:2;s:45:\"บริการให้ยืนคืน\";}', 'ผู้ว่าจ้างยินยอมให้ผู้รับจ้าง', 'a:2:{i:0;s:42:\"ปรับเป็นรายวัน\";i:1;s:58:\"มาสาย โดนปรับค่าจ้าง\";}', 'a:2:{i:0;s:54:\"ค่าจ้างจ่ายเป็นงวด\";i:1;s:78:\"รัลเงินค่าจ้างในการเดินทาง\";}', 'a:2:{i:0;s:36:\"มีหลักประกัน\";i:1;s:81:\"ผู้ทำงานแทนต้องมีหลักประกัน\";}'),
+(24, 'D001', 'พัฒนาระบบงานวิชาการ', '2020-06-21', '2020-06-27', 'P001', 'PS001', '001', '6', '2000', '2', '2020-06-21', 'ศึกษาพัฒนามหาลัย', 'อว.123.456', '2020-06-21', '004', '8', '6000', '0', '0000-00-00', '0000-00-00', 'a:3:{i:0;s:9:\"ไทย\";i:1;s:16:\"อายุ 18+\";i:2;s:13:\"ป.ตรี\";}', 'a:3:{i:0;s:68:\"จัดหา คัดเลือก วิเคาระห์\";i:1;s:30:\"ให้คำแนะนำ\";i:2;s:45:\"บริการให้ยืนคืน\";}', 'ผู้ว่าจ้างยินยอมให้ผู้รับจ้าง', 'a:2:{i:0;s:42:\"ปรับเป็นรายวัน\";i:1;s:58:\"มาสาย โดนปรับค่าจ้าง\";}', 'a:2:{i:0;s:54:\"ค่าจ้างจ่ายเป็นงวด\";i:1;s:78:\"รัลเงินค่าจ้างในการเดินทาง\";}', 'a:2:{i:0;s:36:\"มีหลักประกัน\";i:1;s:81:\"ผู้ทำงานแทนต้องมีหลักประกัน\";}'),
+(25, 'D001', 'พัฒนาระบบงานต่างๆ', '2020-06-21', '2020-06-27', 'P001', 'PS001', '001', '6', '2000', '2', '2020-06-21', 'ศึกษาพัฒนามหาลัย', 'อว.123.456', '2020-06-21', '004', '8', '6000', '0', '0000-00-00', '0000-00-00', 'a:3:{i:0;s:9:\"ไทย\";i:1;s:16:\"อายุ 18+\";i:2;s:13:\"ป.ตรี\";}', 'a:3:{i:0;s:68:\"จัดหา คัดเลือก วิเคาระห์\";i:1;s:30:\"ให้คำแนะนำ\";i:2;s:45:\"บริการให้ยืนคืน\";}', 'ผู้ว่าจ้างยินยอมให้ผู้รับจ้าง', 'a:2:{i:0;s:42:\"ปรับเป็นรายวัน\";i:1;s:58:\"มาสาย โดนปรับค่าจ้าง\";}', 'a:2:{i:0;s:54:\"ค่าจ้างจ่ายเป็นงวด\";i:1;s:78:\"รัลเงินค่าจ้างในการเดินทาง\";}', 'a:2:{i:0;s:36:\"มีหลักประกัน\";i:1;s:81:\"ผู้ทำงานแทนต้องมีหลักประกัน\";}');
 
 -- --------------------------------------------------------
 
@@ -10150,10 +10169,38 @@ INSERT INTO `tb_contract` (`id`, `doc_id`, `foreword`, `str_date`, `stp_date`, `
 CREATE TABLE `tb_debt` (
   `id` int(11) NOT NULL COMMENT 'ออโต้ไอดี',
   `doc_id` int(11) DEFAULT NULL COMMENT 'รหัสเอกสารล้างหนี้	',
-  `str_date` date DEFAULT NULL COMMENT 'วันที่เริ่มต้น',
-  `stp_date` date DEFAULT NULL COMMENT 'วันที่สิ้นสุด',
+  `date_current` date DEFAULT NULL COMMENT 'วัน/เดือน/ปี',
+  `name_train` varchar(100) DEFAULT NULL COMMENT 'ชื่อส่วนราชการผู้จัดฝึกอบรม',
   `project_id` varchar(20) DEFAULT NULL COMMENT 'รหัสโครงการ',
-  `person_id` varchar(20) DEFAULT NULL COMMENT 'รหัสบุคลากร'
+  `person_id` varchar(20) DEFAULT NULL COMMENT 'รหัสบุคลากร',
+  `teacher_id` varchar(200) DEFAULT NULL COMMENT 'ไอดีอาจารย์',
+  `money_from` varchar(100) DEFAULT NULL COMMENT 'ได้รับเงินจาก',
+  `money_from_id` varchar(100) DEFAULT NULL COMMENT 'ไอดีได้รับเงินจาก',
+  `lend_num` varchar(20) DEFAULT NULL COMMENT 'สัญญาเงินยืมเลขที่',
+  `note_that` varchar(100) DEFAULT NULL COMMENT 'ตามคำสั่ง/บันทึกที่',
+  `date_note` date DEFAULT NULL COMMENT 'ลงวันที่',
+  `under` varchar(100) DEFAULT NULL COMMENT 'สังกัด',
+  `along_with` varchar(200) DEFAULT NULL COMMENT 'พร้อมด้วย',
+  `go_practice` varchar(300) DEFAULT NULL COMMENT 'ไปปฏิบัติราชการ',
+  `depart_from` varchar(20) DEFAULT NULL COMMENT 'ออกเดินทางจากcheck_บ้านพัก/สำนักงาน/ประเทศไทย',
+  `date_depart` date DEFAULT NULL COMMENT 'ตั้งแต่วันที่',
+  `time_depart` varchar(200) DEFAULT NULL COMMENT 'เวลา',
+  `back` varchar(200) DEFAULT NULL COMMENT 'checkกลับถึง บ้านพัก สำนักงาน ประเทศไทย',
+  `date_back` date DEFAULT NULL COMMENT 'วันที่กลับ',
+  `time_back` varchar(200) DEFAULT NULL COMMENT 'เวลากลับ',
+  `open_money` varchar(200) DEFAULT NULL COMMENT 'checkเบิกค่่าใช้จ่าย ข้าพเจ้า/คณะเดินทาง',
+  `allowance` varchar(200) DEFAULT NULL COMMENT 'ค่าเบี้ยเลี้ยง',
+  `allowance_day` varchar(200) DEFAULT NULL COMMENT 'จำนวนวัน',
+  `allowance_price` varchar(200) DEFAULT NULL COMMENT 'วันละเท่าไร',
+  `allowance_sum` varchar(200) DEFAULT NULL COMMENT 'รวมเบี้ยเลี้ยง',
+  `rest` varchar(200) DEFAULT NULL COMMENT 'เช่าที่พัก',
+  `rest_day` varchar(200) DEFAULT NULL COMMENT 'จำนวนวัน',
+  `rest_sum` varchar(200) DEFAULT NULL COMMENT 'รวมค่าที่พัก',
+  `vehicle` varchar(200) DEFAULT NULL COMMENT 'ค่าพาหนะ',
+  `vehicle_sum` varchar(200) DEFAULT NULL COMMENT 'รวมค่าพาหนะ',
+  `other` varchar(200) DEFAULT NULL COMMENT 'ค่าใช้จ่ายอื่นๆ',
+  `other_sum` varchar(200) DEFAULT NULL COMMENT 'รวมค่าใช้จ่ายอื่นๆ',
+  `document_num` varchar(20) DEFAULT NULL COMMENT 'จำนวนเอกสารกี่ฉบับ'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -10650,7 +10697,7 @@ ALTER TABLE `tb_budget`
 -- AUTO_INCREMENT for table `tb_contract`
 --
 ALTER TABLE `tb_contract`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้ไอดี', AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้ไอดี', AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `tb_debt`

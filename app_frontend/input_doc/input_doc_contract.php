@@ -233,12 +233,6 @@ include '../../administrator/connect.php';
                                                 <input type="text" class="form-control form-control-line" name="money">
                                             </div>
                                         </div>
-                                        <div class="col-md-2">
-                                            <div class="form-group">
-                                                <label>รวมเป็นเงินทั้งสิ้น</label>
-                                                <input type="text" class="form-control form-control-line" name="amount">
-                                            </div>
-                                        </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-4">
@@ -376,7 +370,7 @@ include '../../administrator/connect.php';
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>รายละเอียดการจ้าง</label>
-                                                <input type="text" class="form-control form-control-line" name="str_date">
+                                                <input type="text" class="form-control form-control-line" name="details">
                                             </div>
                                         </div>
                                     </div>
@@ -391,13 +385,13 @@ include '../../administrator/connect.php';
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label>เริ่มต้นวันที่</label>
-                                                <input type="date" class="form-control form-control-line" name="str_date">
+                                                <input type="date" class="form-control form-control-line" name="date_start">
                                             </div>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label>สิ้นสุดวันที่</label>
-                                                <input type="date" class="form-control form-control-line" name="stp_date">
+                                                <input type="date" class="form-control form-control-line" name="date_end">
                                             </div>
                                         </div>
                                     </div>

@@ -95,6 +95,26 @@ include '../../administrator/connect.php';
                                             $stp_date = $row['stp_date'];
                                             $project_id = $row['project_id'];
                                             $person_id = $row['person_id'];
+                                            $teacher_id = $row['teacher_id'];
+                                            $number = $row['number'];
+                                            $money = $row['money'];
+                                            $work = $row['work'];
+                                            $date_work = $row['date_work'];
+                                            $government = $row['government'];
+                                            $that = $row['that'];
+                                            $c_day = $row['c_day'];
+                                            $title_id = $row['title_id'];
+                                            $people = $row['people'];
+                                            $mid_price = $row['mid_price'];
+                                            $details = $row['details'];
+                                            $date_start  = $row['date_start'];
+                                            $date_end = $row['date_end'];
+                                            $property = unserialize(base64_decode($row["property"]));
+                                            $scope = serialize( $row["scope"] );
+                                            $responsible = $row['responsible'];
+                                            $fine = serialize( $row["fine"] );
+                                            $payment = serialize( $row["payment"] );
+                                            $insurance = serialize( $row["insurance"] );
                                         }
 
                                         $sql1 ="SELECT * FROM tb_project WHERE project_id = '".$project_id."' ";
@@ -121,6 +141,22 @@ include '../../administrator/connect.php';
                                             $lastname = $row2['lastname'];
                                             //$prefix = $row2['prefix'];
                                         }
+                                        $sql4 ="SELECT * FROM tb_teacher WHERE teacher_id = '".$teacher_id."' ";
+                                        $query4 = mysqli_query($conn,$sql4);
+                                        while($row4 = mysqli_fetch_array($query4,MYSQLI_ASSOC))
+                                        {
+                                            $t_firstname = $row4['t_firstname'];
+                                            $t_lastname = $row4['t_lastname'];
+                                            $position_id = $row4['position_id'];
+                                        }
+                                                //echo $position_id;
+                                        $sql5 ="SELECT * FROM tb_title WHERE title_id = '".$title_id."' ";
+                                        $query5 = mysqli_query($conn,$sql5);
+                                        while($row5 = mysqli_fetch_array($query5,MYSQLI_ASSOC))
+                                        {
+                                            $title = $row5['title'];
+                                        }
+
                                     ?>
         <div class="page-wrapper">
             <div class="container-fluid">
@@ -223,6 +259,177 @@ include '../../administrator/connect.php';
                                                     </div>
                                                 </div>
                                             </div>
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label><b>ผู้ควบคุมการปฎิบัติงาน</b></label><br>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $t_firstname?>&nbsp;&nbsp;<?php echo $t_lastname?>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label><u>รายการส่งใช้เงินยืม</u></label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label>จำนวนงวด</label><br>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $number?>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label>เป็นเงิน</label><br>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $money?>
+                                                    </div>
+                                                </div>
+                                                <?php 
+                                                  $amount=$number * $money;
+                                                ?>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label>รวมเป็นเงินทั้งสิ้น</label><br>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $amount?>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label>ปฎิบัติงานงวดที่</label><br>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $work?>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label>วันที่ปฎิบัติงาน</label><br>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $date_work?>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label><u>บันทึกข้อความ</u></label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label>ส่วนราชการ</label><br>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $government?>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label>ที่</label><br>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;<?php echo $that?>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label>วันที่</label><br>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;<?php echo $c_day?>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label>เรื่อง</label><br>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $title?>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label>จำนวนคน</label><br>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $people?>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label>ราคากลางที่คำนวณได้</label><br>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $mid_price?>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label>ลงชื่อ ประธานกรรมการ</label><br>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $t_firstname?>&nbsp;&nbsp;<?php echo $t_lastname?>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label>ลงชื่อ กรรมการ</label><br>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $t_firstname?>&nbsp;&nbsp;<?php echo $t_lastname?>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label>ลงชื่อ กรรมการและเลขานุการ</label><br>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $t_firstname?>&nbsp;&nbsp;<?php echo $t_lastname?>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label><u>ขอบเขตงานจ้างเหมาบริการ</u></label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label>รายละเอียดการจ้าง</label><br>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $details?>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label><u>ระยะเวลาการจ้าง</u></label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label>เริ่มต้นวันที่</label><br>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $date_start?>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label>สิ้นสุดวันที่</label><br>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $date_end?>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group"><br>
+                                                        <label><b>คุณสมบัติของผู้รับจ้าง</b></label>
+                                                        <?php 
+                                                                print "<pre>";
+                                                                print_r($scope);
+                                                                print "</pre>";
+                                                        ?>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $property?>
+                                                    </div>
+                                                </div>
+                                            </div>
+
                                 <div class="row">
                                     <div class="col-md-4">
                                     </div>
