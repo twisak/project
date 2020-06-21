@@ -474,15 +474,26 @@ include '../../administrator/connect.php';
                                                         <?php 
                                                                 $fine2 = array($fine1);
 
-                                                                for ($row = 0; $row < 1; $row++) {
-                                                                    $fine2 = array($fine1);
-                                                                    echo "<p><b>ค่าปรับและค่าหักเงินค่าจ้าง</b></p>";
-                                                                    echo "<ul>";
-                                                                    for ($col = 0; $col < $num_rows; $col++) {
-                                                                      echo "<li>".$fine2[$row][$col]."</li>";
+                                                                // for ($row = 0; $row < 1; $row++) {
+                                                                //     $fine2 = array($fine1);
+                                                                //     echo "<p><b>ค่าปรับและค่าหักเงินค่าจ้าง</b></p>";
+                                                                //     echo "<ul>";
+                                                                //     for ($col = 0; $col < $num_rows; $col++) {
+                                                                //       echo "<li>".$fine2[$row][$col]."</li>";
+                                                                //     }
+                                                                //     echo "</ul>";
+                                                                //   }
+
+                                                                  foreach ($fine2 as $fine2[$i]){
+                                                                    $j=0;
+                                                                    foreach ($fine2[$i] as $fine2[$i][$j]){
+                                                                        $value = $fine2[$i][$j];
+                                                                        //echo "<tr><td>{$value}</td></tr>";
+                                                                        echo "<li>{$value}</li>";
+                                                                        $j++;
                                                                     }
-                                                                    echo "</ul>";
-                                                                  }
+                                                                    $i++;
+                                                                }
                                                         ?>
                                                     </div>
                                                 </div>
