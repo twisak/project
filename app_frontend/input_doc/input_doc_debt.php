@@ -191,8 +191,7 @@ else
 </div>
 
 <div class="row">
-
-
+<!--
 <div class="col-md-4">
 <div class="form-group">
 <label>รายการ</label>
@@ -205,8 +204,17 @@ else
 <label>จำนวนเงิน</label>
 <input type="text" class="form-control form-control-line" name="money_num">
     </div>
+</div> -->
+    <div class="col-md-7"><div class="form-group"><button type="button" class="btn btn-info" id="createRows_activity" value="Add">เพิ่มหัวข้อย่อย</button>&nbsp;&nbsp;<button type="button" class="btn btn-warning" id="deleteRows_activity" value="Del">ลบหัวข้อย่อย</button>&nbsp;&nbsp;<button type="button" class="btn btn-danger" id="clearRows_activity" value="Clear">ลบทั้งหมด</button></div></div>
 </div>
-</div>
+<table width="100%" border="0" id="myTable_activity">
+
+<thead>
+</thead>
+
+<tbody></tbody>
+</table>
+
 
 <div class="row">
 <div class="col-md-4">
@@ -538,3 +546,33 @@ else
 </body>
 
 </html>
+<script type="text/javascript">
+$(document).ready(function(){
+
+    var rows = 1;
+    $("#createRows_activity").click(function(){
+
+
+        var tr = "<tr>";
+tr = tr + "<td><div class='row'><div class='col-md-4'><div class='form-group'><label>รายการ</label><input type='text' class='form-control p_input'  name='list"+rows+"'></div></div><div class='col-md-2'><div class='form-group'><label>จำนวนเงิน</label></label><input type='text' class='form-control p_input'  name='money_num"+rows+"'></div></div></div></td>";
+        tr = tr + "</tr>";
+        $('#myTable_activity > tbody:last').append(tr);
+
+        $('#hdnCount_activity').val(rows);
+        rows = rows + 1;
+    });
+
+    $("#deleteRows_activity").click(function(){
+        if ($("#myTable_activity tr").length != 1) {
+            $("#myTable_activity tr:last").remove();
+        }
+    });
+
+    $("#clearRows_activity").click(function(){
+        rows = 1;
+        $('#hdnCount_activity').val(rows);
+        $('#myTable_activity > tbody:last').empty(); // remove all
+    });
+
+});
+</script>
