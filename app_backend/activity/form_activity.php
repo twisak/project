@@ -57,7 +57,7 @@ else
     <!-- Main wrapper - style you can find in pages.scss -->
     <!-- ============================================================== -->
     <div id="main-wrapper">
-    <?php include '../mamu/manu_admin.php'; ?>
+        <?php include '../mamu/manu_admin.php'; ?>
         <div class="page-wrapper">
             <!-- ============================================================== -->
             <!-- Container fluid  -->
@@ -88,53 +88,74 @@ else
                         <div class="card">
                             <!-- Tab panes -->
                             <div class="card-body">
-                            <form class="form-horizontal form-material" action="insert_activity.php" name="form_activity" method="post">
-                                <div class="row">
-                                <div class="col-md-2">
-                                <div class="form-group">
-                                <label>โครงการ</label>
-                                    <select class="form-control col-md-12" required name="project_id">
-                                            <option>เลือกโครงการ</option>
+                                <form class="form-horizontal form-material" action="insert_activity.php" name="form_activity" method="post">
+                                    <div class="row">
                                             <?php
-                                                $sql ="SELECT * FROM tb_project ";
+                                                include '../../administrator/connect.php';
+                                                $sql = "Select Max(substr(activity_id,3)+1) as MaxID from tb_activity ";
                                                 $query = mysqli_query($conn,$sql);
-                                                while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
-                                                {
-                                                    $project_id = $row['project_id'];
-                                                    $project_name = $row['project_name'];
+                                                $table_id = mysqli_fetch_assoc($query);
+                                                $testid = $table_id['MaxID'];
+                                                        if($testid=='')
+                                                        {
+                                                            $id="A001";
+                                                        }else
+                                                        {
+                                                            $id="A".sprintf("%03d",$testid);
+                                                        }
 
                                             ?>
-                                            <option value="<?php echo $project_id;?>" ><?php echo $project_name;?></option>
-                                            <?php }?>
-								    </select>
-                                </div>
-                                </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label>รหัสกิจกรรม</label>
+                                                <input type="text" name="activity_id" value="<?=$id?>" placeholder="" class="form-control form-control-line">
+                                            </div>
+                                        </div>
 
-                                <div class="col-md-4">
-                                <div class="form-group">
-                                <label>ชื่อกิจกรรม</label>
-                                <input type="text" name="activity" placeholder="" class="form-control form-control-line">
-                                </div>
-                                </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label>โครงการ</label>
+                                                <select class="form-control col-md-12" required name="project_id">
+                                                    <option>เลือกโครงการ</option>
+                                                    <?php
+                                                        $sql ="SELECT * FROM tb_project ";
+                                                        $query = mysqli_query($conn,$sql);
+                                                        while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
+                                                        {
+                                                            $project_id = $row['project_id'];
+                                                            $project_name = $row['project_name'];
 
-                                </div>
+                                                    ?>
+                                                    <option value="<?php echo $project_id;?>"><?php echo $project_name;?></option>
+                                                    <?php }?>
+                                                </select>
+                                            </div>
+                                        </div>
 
-                                <div class="row">
-                                <div class="col-md-3">
-                                </div>
-                                <div class="col-md-3">
-                                <div class="form-group">
-                                <button type="submit" class="btn btn-primary btn-block">บันทึก</button>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>ชื่อกิจกรรม</label>
+                                                <input type="text" name="activity" placeholder="" class="form-control form-control-line">
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
 
-                                <div class="col-md-3">
-                                <div class="form-group">
-                                <button type="button" class="btn btn-danger btn-block">ยกเลิก</button>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <button type="submit" class="btn btn-primary btn-block">บันทึก</button>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <button type="button" class="btn btn-danger btn-block">ยกเลิก</button>
+                                            </div>
+                                        </div>
+
                                     </div>
-                                </div>
-
-                                </div>
                                 </form>
 
 
@@ -143,50 +164,50 @@ else
 
 
 
+                            </div>
                         </div>
+                        <!-- Column -->
                     </div>
-                    <!-- Column -->
+                    <!-- Row -->
+                    <!-- ============================================================== -->
+                    <!-- End PAge Content -->
+                    <!-- ============================================================== -->
                 </div>
-                <!-- Row -->
                 <!-- ============================================================== -->
-                <!-- End PAge Content -->
+                <!-- End Container fluid  -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- footer -->
+                <!-- ============================================================== -->
+                <footer class="footer">
+                    © 2018 Adminwrap by wrappixel.com
+                </footer>
+                <!-- ============================================================== -->
+                <!-- End footer -->
                 <!-- ============================================================== -->
             </div>
             <!-- ============================================================== -->
-            <!-- End Container fluid  -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- footer -->
-            <!-- ============================================================== -->
-            <footer class="footer">
-                © 2018 Adminwrap by wrappixel.com
-            </footer>
-            <!-- ============================================================== -->
-            <!-- End footer -->
+            <!-- End Page wrapper  -->
             <!-- ============================================================== -->
         </div>
         <!-- ============================================================== -->
-        <!-- End Page wrapper  -->
+        <!-- End Wrapper -->
         <!-- ============================================================== -->
-    </div>
-    <!-- ============================================================== -->
-    <!-- End Wrapper -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- All Jquery -->
-    <!-- ============================================================== -->
-    <script src="../assets/node_modules/jquery/jquery.min.js"></script>
-    <!-- Bootstrap tether Core JavaScript -->
-    <script src="../assets/node_modules/bootstrap/js/popper.min.js"></script>
-    <script src="../assets/node_modules/bootstrap/js/bootstrap.min.js"></script>
-    <!-- slimscrollbar scrollbar JavaScript -->
-    <script src="../js/perfect-scrollbar.jquery.min.js"></script>
-    <!--Wave Effects -->
-    <script src="../js/waves.js"></script>
-    <!--Menu sidebar -->
-    <script src="../js/sidebarmenu.js"></script>
-    <!--Custom JavaScript -->
-    <script src="../js/custom.min.js"></script>
+        <!-- ============================================================== -->
+        <!-- All Jquery -->
+        <!-- ============================================================== -->
+        <script src="../assets/node_modules/jquery/jquery.min.js"></script>
+        <!-- Bootstrap tether Core JavaScript -->
+        <script src="../assets/node_modules/bootstrap/js/popper.min.js"></script>
+        <script src="../assets/node_modules/bootstrap/js/bootstrap.min.js"></script>
+        <!-- slimscrollbar scrollbar JavaScript -->
+        <script src="../js/perfect-scrollbar.jquery.min.js"></script>
+        <!--Wave Effects -->
+        <script src="../js/waves.js"></script>
+        <!--Menu sidebar -->
+        <script src="../js/sidebarmenu.js"></script>
+        <!--Custom JavaScript -->
+        <script src="../js/custom.min.js"></script>
 
 </body>
 

@@ -110,8 +110,8 @@
                             <div id="collapseB" class="collapse" aria-labelledby="headingB" data-parent="#accordionSidebar">
                                 <div class="bg-white py-2 collapse-inner rounded col-lg-12">
                                     <a class="waves-effect waves-dark" href="../input_doc/tb_doc_lend.php"><i class="fa fa-caret-right"></i> เอกสารสัญญาณยืม</a>
-                                    <a class="waves-effect waves-dark" href="../input_doc/input_doc_salary.php"><i class="fa fa-caret-right"></i> เอกสารเงินเดือน</a>
-                                    <a class="waves-effect waves-dark" href="../input_doc/input_doc_debt.php"><i class="fa fa-caret-right"></i> เอกสารล้างหนี้</a>
+                                    <a class="waves-effect waves-dark" href="../input_doc/tb_doc_salary.php"><i class="fa fa-caret-right"></i> เอกสารเงินเดือน</a>
+                                    <a class="waves-effect waves-dark" href="../input_doc/tb_doc_debt.php"><i class="fa fa-caret-right"></i> เอกสารล้างหนี้</a>
                                     <a class="waves-effect waves-dark" href="../input_doc/tb_doc_contract.php"><i class="fa fa-caret-right"></i> เอกสารจ้างเหมาบริการ</a>
                                     <a class="waves-effect waves-dark" href="../input_doc/input_doc_note.php"><i class="fa fa-caret-right"></i>    เอกสารบันทึกข้อความอื่นๆ</a>
                                 </div>

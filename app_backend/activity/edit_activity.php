@@ -11,9 +11,11 @@
 
         $id = $_POST['id'];
         $project_id = $_POST['project_id'];
+        $activity_id = $_POST['activity_id'];
         $activity = $_POST['activity'];
 
-        $sql_activity= "UPDATE tb_activity SET project_id = '".$project_id."',
+        $sql_activity= "UPDATE tb_activity SET  project_id = '".$project_id."',
+                                                activity_id = '".$activity_id."',
                                                 activity = '".$activity."'
                               WHERE id = '$id' ";
 

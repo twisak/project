@@ -12,6 +12,28 @@ else
     echo "</script>";
     echo "<meta http-equiv='refresh' content='0;url=../../administrator/logout.php'>";
 }
+
+include '../../administrator/connect.php';
+    $username= $_SESSION['username'];
+
+    $sql ="SELECT * FROM account_login WHERE username = '".$username."' ";
+    $query = mysqli_query($conn,$sql);
+    while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
+    {
+        $person_id = $row['person_id'];
+    }
+
+    $sql1 ="SELECT * FROM tb_person WHERE person_id = '".$person_id."' ";
+    $query1 = mysqli_query($conn,$sql1);
+    while($row1 = mysqli_fetch_array($query1,MYSQLI_ASSOC))
+    {
+        $prefix = $row1['prefix'];
+        $firtname = $row1['firtname'];
+        $lastname = $row1['lastname'];
+        $person_id = $row1['person_id'];
+        // $prefix = $row1['prefix'];
+    }
+    //echo $sql1;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -69,189 +91,197 @@ else
                     </div>
                 </div>
                 <div class="row">
-                    <!-- Column -->
-
-                    <!-- <div class="col-lg-4 col-xlg-3 col-md-5">
-                        <div class="card">
-                            <div class="card-body">
-                                <center class="m-t-30"> <img src="../assets/images/users/5.jpg" class="img-circle" width="150" />
-                                    <h4 class="card-title m-t-10">Hanna Gover</h4>
-                                    <h6 class="card-subtitle">Accoubts Manager Amix corp</h6>
-                                    <div class="row text-center justify-content-md-center">
-                                        <div class="col-4"><a href="javascript:void(0)" class="link"><i class="icon-people"></i> <font class="font-medium">254</font></a></div>
-                                        <div class="col-4"><a href="javascript:void(0)" class="link"><i class="icon-picture"></i> <font class="font-medium">54</font></a></div>
-                                    </div>
-                                </center>
-                            </div>
-                        </div>
-                    </div> -->
-
-                    <!-- Column -->
-                    <!-- Column -->
                     <div class="col-lg-12 col-xlg-9 col-md-7">
                         <div class="card">
                             <!-- Tab panes -->
                             <div class="card-body">
-                                <form class="form-horizontal form-material">
-
-<div class="row">
-<div class="col-md-2">
-<div class="form-group">
-<label>รหัสเอกสารเงินเดือน</label>
-<input type="text" class="form-control form-control-line" name="salary_id">
-</div>
-</div>
-
-<div class="col-md-3">
-<div class="form-group">
-<label>ชื่อเอกสารเงินเดือน</label>
-<input type="text"  class="form-control form-control-line" name="salary_name">
-</div>
-</div>
-
-<div class="col-md-2">
-<div class="form-group">
-<label>รหัสบุคลากร</label>
-<input type="text" class="form-control form-control-line" name="preson_id">
-</div>
-</div>
-
-<div class="col-md-4">
-<div class="form-group">
-<label>ชื่อบุคลากร</label>
-<input type="text" class="form-control form-control-line" name="firstname">
-    </div>
-</div>
-</div>
-
-
-
-<div class="row">
-<div class="col-md-2">
-<div class="form-group">
-<label>รหัสโครงการ</label>
-<input type="text" class="form-control form-control-line" name="project_id">
-    </div>
-</div>
-
-<div class="col-md-2">
-<div class="form-group">
-<label>เริ่มต้นวันที่</label>
-<input type="date" class="form-control form-control-line" name="str-date">
-    </div>
-</div>
-
-<div class="col-md-2">
-<div class="form-group">
-<label>สิ้นสุดวันที่</label>
-<input type="date"  class="form-control form-control-line" name="stp-date">
-    </div>
-</div>
-
-</div>
-
-
-
-<div class="row">
-<div class="col-md-3">
-</div>
-<div class="col-md-3">
-<div class="form-group">
-<button type="button" class="btn btn-primary btn-block">บันทึก</button>
-    </div>
-</div>
-
-<div class="col-md-3">
-<div class="form-group">
-<button type="button" class="btn btn-danger btn-block">ยกเลิก</button>
-    </div>
-</div>
-
-</div>
-
-<!--
-                                    <div class="form-group">
-                                        <label class="col-md-2">Full Name</label>
+                                <form class="form-horizontal form-material" action="INSERT_salary.php" method="post">
+                                    <?php
+                                            $sql = "Select Max(substr(doc_id,3)+1) as MaxID from tb_salary ";
+                                            $query = mysqli_query($conn,$sql);
+                                            $table_id = mysqli_fetch_assoc($query);
+                                            $testid = $table_id['MaxID'];
+                                                    if($testid=='')
+                                                    {
+                                                        $id="S001";
+                                                    }else
+                                                    {
+                                                        $id="S".sprintf("%03d",$testid);
+                                                    }
+                                        ?>
+                                    <div class="row">
                                         <div class="col-md-2">
-                                            <input type="text" placeholder="Johnathan Doe" class="form-control form-control-line">
+                                            <div class="form-group">
+                                                <label>รหัสเอกสารเงินเดือน</label>
+                                                <input type="text" value="<?=$id?>" readonly class="form-control form-control-line">
+                                                <input type="hidden" name="doc_id" value="<?=$id?>" />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>ชื่อบุคลากร</label>
+                                                <input type="text" value="<?php echo $prefix?><?php echo $firtname?>&nbsp;&nbsp;<?php echo $lastname?>" class="form-control form-control-line">
+                                                <input type="hidden" class="form-control" name="person_id" value="<?php echo $person_id?>">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>โครงการ</label>
+                                                <select name="project_id" id="project" class="form-control">
+                                                    <option value="">เลือกโครงการ</option>
+                                                    <?php
+                                                        $sql = "SELECT * FROM tb_project";
+                                                        $query = mysqli_query($conn, $sql);
+                                                        while($result = mysqli_fetch_assoc($query)):
+                                                    ?>
+                                                    <option value="<?=$result['project_id']?>"><?=$result['project_name']?></option>
+                                                    <?php endwhile; ?>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="activity">ชื่อกิจกรรม</label>
+                                                <select name="activity_id" id="activity" class="form-control">
+                                                    <option value="">ชื่อกิจกรรม</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label>เริ่มต้นวันที่</label>
+                                                <input type="date" class="form-control form-control-line" name="str_date">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label>สิ้นสุดวันที่</label>
+                                                <input type="date" class="form-control form-control-line" name="stp_date">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>งวดล่ะ</label>
+                                                <input type="text" class="form-control form-control-line" name="period">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>รวมเป็นเงินทั้งสิ้น</label>
+                                                <input type="text" class="form-control form-control-line" name="total_amount">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>ปฎิบัติงานดังกล่าวงวดที่</label>
+                                                <input type="text" class="form-control form-control-line" name="perform">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>เดือนที่</label>
+                                                <input type="date" class="form-control form-control-line" name="month">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label><b>บันทึกรับรองที่ปฎิบัติงานของผู้ควมคุมงาน</b></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>ผู้ควบคุมการปฎิบัติงาน</label>
+                                                <select name="teacher_id" class="form-control">
+                                                    <option value="">เลือกชื่ออาจารย์</option>
+                                                    <?php
+                                                        $sql = "SELECT * FROM tb_teacher";
+                                                        $query = mysqli_query($conn, $sql);
+                                                        while($result = mysqli_fetch_assoc($query)):
+                                                    ?>
+                                                    <option value="<?=$result['teacher_id']?>"><?=$result['t_firstname']?><?=$result['t_lastname']?></option>
+                                                    <?php endwhile; ?>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                    <div class="col-md-2">
+                                    <div class="form-group">
+                                    <label><b>รายการงานในหน้าที่</b></label>
+                                    </div>
+                                    </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-7"><div class="form-group"><button type="button" class="btn btn-info" id="createRows" value="Add">เพิ่มหัวข้อย่อย</button>&nbsp;&nbsp;<button type="button" class="btn btn-warning" id="deleteRows" value="Del">ลบหัวข้อย่อย</button>&nbsp;&nbsp;<button type="button" class="btn btn-danger" id="clearRows" value="Clear">ลบทั้งหมด</button></div></div>
+                                    </div>
+
+                                    <table width="100%" border="0" id="myTable">
+
+                                    <thead>
+                                    </thead>
+
+                                    <tbody></tbody>
+                                    </table>
+
+
+                                    <br/>
+                                    <center>
+                                    <br>
+                                    <input type="hidden" id="hdnCount" name="hdnCount">
+                                    </center>
+
+
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <input type="submit" name="submit" value="บันทึก" class="btn btn-primary btn-block" />
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <button type="button" class="btn btn-danger btn-block">ยกเลิก</button>
+                                            </div>
                                         </div>
 
                                     </div>
-                                    <div class="form-group">
-                                        <label for="example-email" class="col-md-2">Email</label>
-                                        <div class="col-md-2">
-                                            <input type="email" placeholder="johnathan@admin.com" class="form-control form-control-line" name="example-email" id="example-email">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-12">Password</label>
-                                        <div class="col-md-12">
-                                            <input type="password" value="password" class="form-control form-control-line">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-12">Phone No</label>
-                                        <div class="col-md-12">
-                                            <input type="text" placeholder="123 456 7890" class="form-control form-control-line">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-12">Message</label>
-                                        <div class="col-md-12">
-                                            <textarea rows="5" class="form-control form-control-line"></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-sm-12">Select Country</label>
-                                        <div class="col-sm-12">
-                                            <select class="form-control form-control-line">
-                                                <option>London</option>
-                                                <option>India</option>
-                                                <option>Usa</option>
-                                                <option>Canada</option>
-                                                <option>Thailand</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="col-sm-12">
-                                            <button class="btn btn-success">Update Profile</button>
-                                        </div>
-                                    </div> -->
+
+                                    
                                 </form>
                             </div>
                         </div>
                     </div>
                     <!-- Column -->
                 </div>
-                <!-- Row -->
-                <!-- ============================================================== -->
-                <!-- End PAge Content -->
-                <!-- ============================================================== -->
             </div>
-            <!-- ============================================================== -->
-            <!-- End Container fluid  -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- footer -->
-            <!-- ============================================================== -->
+            
             <footer class="footer">
                 © 2018 Adminwrap by wrappixel.com
             </footer>
-            <!-- ============================================================== -->
-            <!-- End footer -->
-            <!-- ============================================================== -->
         </div>
-        <!-- ============================================================== -->
-        <!-- End Page wrapper  -->
-        <!-- ============================================================== -->
     </div>
-    <!-- ============================================================== -->
-    <!-- End Wrapper -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- All Jquery -->
-    <!-- ============================================================== -->
+   
     <script src="../assets/node_modules/jquery/jquery.min.js"></script>
     <!-- Bootstrap tether Core JavaScript -->
     <script src="../assets/node_modules/bootstrap/js/popper.min.js"></script>
@@ -264,6 +294,56 @@ else
     <script src="../js/sidebarmenu.js"></script>
     <!--Custom JavaScript -->
     <script src="../js/custom.min.js"></script>
+    <!-- listbox 2 ชั้น -->
+    <script src="jquery-1.11.1.min.js" type="text/javascript"></script>
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    $('#project').change(function () {
+                        $.ajax({
+                            type: 'POST',
+                            data: {
+                                project: $(this).val()
+                            },
+                            url: 'select_activity.php',
+                            success: function (data) {
+                                $('#activity').html(data);
+                            }
+                        });
+                        return false;
+                    });
+                });
+            </script>
+            <!-- listbox 2 ชั้น -->
+            <script type="text/javascript">
+$(document).ready(function(){
+
+    var rows = 1;
+    $("#createRows").click(function(){
+
+
+        var tr = "<tr>";
+tr = tr + "<td><div class='row'><div class='col-md-2'><div class='form-group'><label>วัน/เดือน/ปี</label><input type='date' class='form-control p_input' name='day_work"+rows+"'></div></div><div class='col-md-2'><div class='form-group'><label>เริ่มเวลา</label><input type='time' class='form-control p_input'  name='start_time"+rows+"'></div></div><div class='col-md-2'><div class='form-group'><label>เวลาสิ้นสุด</label><input type='time' class='form-control p_input'  name='end_time"+rows+"'></div></div><div class='col-md-6'><div class='form-group'><label>งานในหน้าที่</label><input type='text' class='form-control p_input'  name='Job"+rows+"'></div></div><div class='col-md-6'><div class='form-group'><label>งานพิเศษ</label><input type='text' class='form-control p_input'  name='part_time"+rows+"'></div></div>                           </div></td>";
+        tr = tr + "</tr>";
+        $('#myTable > tbody:last').append(tr);
+
+        $('#hdnCount').val(rows);
+        rows = rows + 1;
+    });
+
+    $("#deleteRows").click(function(){
+        if ($("#myTable tr").length != 1) {
+            $("#myTable tr:last").remove();
+        }
+    });
+
+    $("#clearRows").click(function(){
+        rows = 1;
+        $('#hdnCount').val(rows);
+        $('#myTable > tbody:last').empty(); // remove all
+    });
+
+});
+</script>
 </body>
 
 </html>

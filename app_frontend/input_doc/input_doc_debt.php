@@ -69,386 +69,369 @@ else
                     </div>
                 </div>
                 <div class="row">
-                    <!-- Column -->
-
-                    <!-- <div class="col-lg-4 col-xlg-3 col-md-5">
-                        <div class="card">
-                            <div class="card-body">
-                                <center class="m-t-30"> <img src="../assets/images/users/5.jpg" class="img-circle" width="150" />
-                                    <h4 class="card-title m-t-10">Hanna Gover</h4>
-                                    <h6 class="card-subtitle">Accoubts Manager Amix corp</h6>
-                                    <div class="row text-center justify-content-md-center">
-                                        <div class="col-4"><a href="javascript:void(0)" class="link"><i class="icon-people"></i> <font class="font-medium">254</font></a></div>
-                                        <div class="col-4"><a href="javascript:void(0)" class="link"><i class="icon-picture"></i> <font class="font-medium">54</font></a></div>
-                                    </div>
-                                </center>
-                            </div>
-                        </div>
-                    </div> -->
-
-                    <!-- Column -->
-                    <!-- Column -->
                     <div class="col-lg-12 col-xlg-9 col-md-7">
                         <div class="card">
                             <!-- Tab panes -->
                             <div class="card-body">
                                 <form class="form-horizontal form-material" action="insert_debt.php" name="insert_debt" method="post">
 
-<div class="row">
-<div class="col-md-2">
-<div class="form-group">
-<label>รหัสเอกสารล้างหนี้</label>
-<input type="text"  class="form-control form-control-line" name="doc_id">
-</div>
-</div>
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label>รหัสเอกสารล้างหนี้</label>
+                                                <input type="text" class="form-control form-control-line" name="doc_id">
+                                            </div>
+                                        </div>
 
-<div class="col-md-6">
-<div class="form-group">
-<label>ชื่อส่วนราชการผู้จัดฝึกอบรม</label>
-<input type="text"  class="form-control form-control-line" name="name_train">
-</div>
-</div>
-</div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>ชื่อส่วนราชการผู้จัดฝึกอบรม</label>
+                                                <input type="text" class="form-control form-control-line" name="name_train">
+                                            </div>
+                                        </div>
+                                    </div>
 
-<div class="row">
+                                    <div class="row">
 
-  <?php
-  $sql_project = "select * from tb_project";
-  $query_project = mysqli_query($conn,$sql_project);
-  ?>
+                                        <?php
+                                            $sql_project = "select * from tb_project";
+                                            $query_project = mysqli_query($conn,$sql_project);
+                                            ?>
 
-  <div class="col-md-4">
-  <div class="form-group">
-  <label>ชื่อโครงการ</label>
-              <select class="form-control" name="project_id">
-              <option value="">-- เลือกชื่อโครงการ --</option>
-      <?php
-      while($result_project=mysqli_fetch_array($query_project))
-      {
-      ?>
-        <option value='<?php echo $result_project['project_id'];?>'><?php echo $result_project['project_name'];?></option>
-      <?php
-      }
-       ?>
-              </select>
-      </div>
-  </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>ชื่อโครงการ</label>
+                                                <select class="form-control" name="project_id">
+                                                    <option value="">-- เลือกชื่อโครงการ --</option>
+                                                    <?php
+                                                        while($result_project=mysqli_fetch_array($query_project))
+                                                        {
+                                                        ?>
+                                                    <option value='<?php echo $result_project['project_id'];?>'><?php echo $result_project['project_name'];?></option>
+                                                    <?php
+                                                        }
+                                                        ?>
+                                                </select>
+                                            </div>
+                                        </div>
 
-  <?php
-  $sql_person = "select * from tb_person";
-  $query_person = mysqli_query($conn,$sql_person);
-  ?>
+                                        <?php
+                                            $sql_person = "select * from tb_person";
+                                            $query_person = mysqli_query($conn,$sql_person);
+                                            ?>
 
-  <div class="col-md-4">
-  <div class="form-group">
-  <label>ชื่อบุคลากร</label>
-  <select class="form-control" name="person_id">
-              <option value="">-- เลือกรายชื่อ --</option>
-      <?php
-      while($result_person=mysqli_fetch_array($query_person))
-      {
-      ?>
-           <option value='<?php echo $result_person['person_id'];?>'><?php echo $result_person['prefix'];?><?php echo $result_person['firtname'];?>&nbsp;&nbsp;<?php echo $result_person['lastname'];?></option>
-      <?php
-      }
-       ?>
-              </select>
-      </div>
-  </div>
-
-
-  <?php
-  $sql_teacher = "select * from tb_teacher";
-  $query_teacher = mysqli_query($conn,$sql_teacher);
-  ?>
-  <div class="col-md-4">
-  <div class="form-group">
-  <label>ชื่ออาจารย์</label>
-  <select class="form-control" name="teacher_id">
-              <option value="">-- เลือกรายชื่อ --</option>
-      <?php
-      while($result_teacher=mysqli_fetch_array($query_teacher))
-      {
-      ?>
-           <option value='<?php echo $result_teacher['teacher_id'];?>'><?php echo $result_teacher['t_firstname'];?>&nbsp;&nbsp;<?php echo $result_teacher['t_lastname'];?></option>
-      <?php
-      }
-       ?>
-              </select>
-      </div>
-  </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>ชื่อบุคลากร</label>
+                                                <select class="form-control" name="person_id">
+                                                    <option value="">-- เลือกรายชื่อ --</option>
+                                                    <?php
+                                                        while($result_person=mysqli_fetch_array($query_person))
+                                                        {
+                                                        ?>
+                                                    <option value='<?php echo $result_person['person_id'];?>'><?php echo $result_person['prefix'];?><?php echo $result_person['firtname'];?>&nbsp;&nbsp;<?php echo $result_person['lastname'];?></option>
+                                                    <?php
+                                                        }
+                                                        ?>
+                                                </select>
+                                            </div>
+                                        </div>
 
 
-</div>
-
-<div class="row">
-  <div class="col-md-4">
-  <div class="form-group">
-  <label>ได้รับเงินจาก</label>
-  <input type="text"  class="form-control form-control-line" name="money_from">
-      </div>
-  </div>
-</div>
-
-<div class="row">
-<!--
-<div class="col-md-4">
-<div class="form-group">
-<label>รายการ</label>
-<input type="text" class="form-control form-control-line" name="list">
-    </div>
-</div>
-
-<div class="col-md-2">
-<div class="form-group">
-<label>จำนวนเงิน</label>
-<input type="text" class="form-control form-control-line" name="money_num">
-    </div>
-</div> -->
-    <div class="col-md-7"><div class="form-group"><button type="button" class="btn btn-info" id="createRows_activity" value="Add">เพิ่มหัวข้อย่อย</button>&nbsp;&nbsp;<button type="button" class="btn btn-warning" id="deleteRows_activity" value="Del">ลบหัวข้อย่อย</button>&nbsp;&nbsp;<button type="button" class="btn btn-danger" id="clearRows_activity" value="Clear">ลบทั้งหมด</button></div></div>
-</div>
-<table width="100%" border="0" id="myTable_activity">
-
-<thead>
-</thead>
-
-<tbody></tbody>
-</table>
+                                        <?php
+                                            $sql_teacher = "select * from tb_teacher";
+                                            $query_teacher = mysqli_query($conn,$sql_teacher);
+                                            ?>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>ชื่ออาจารย์</label>
+                                                <select class="form-control" name="teacher_id">
+                                                    <option value="">-- เลือกรายชื่อ --</option>
+                                                    <?php
+                                                        while($result_teacher=mysqli_fetch_array($query_teacher))
+                                                        {
+                                                        ?>
+                                                    <option value='<?php echo $result_teacher['teacher_id'];?>'><?php echo $result_teacher['t_firstname'];?>&nbsp;&nbsp;<?php echo $result_teacher['t_lastname'];?></option>
+                                                    <?php
+                                                        }
+                                                        ?>
+                                                </select>
+                                            </div>
+                                        </div>
 
 
-<div class="row">
-<div class="col-md-4">
-<div class="form-group">
-<label>สัญญาเงินยืมเลขที่</label>
-<input type="text" class="form-control form-control-line" name="lend_num">
-    </div>
-</div>
+                                    </div>
 
-<div class="col-md-4">
-<div class="form-group">
-<label>ตามคำสั่ง/บันทึกที่</label>
-<input type="text" class="form-control form-control-line" name="note_that">
-    </div>
-</div>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>ได้รับเงินจาก</label>
+                                                <input type="text" class="form-control form-control-line" name="money_from">
+                                            </div>
+                                        </div>
+                                    </div>
 
-<div class="col-md-2">
-<div class="form-group">
-<label>ลงวันที่</label>
-<input type="date" class="form-control form-control-line" name="date_note">
-    </div>
-</div>
-</div>
+                                    <div class="row">
+                                        <!--
+                                            <div class="col-md-4">
+                                            <div class="form-group">
+                                            <label>รายการ</label>
+                                            <input type="text" class="form-control form-control-line" name="list">
+                                                </div>
+                                            </div>
 
-<div class="row">
-<div class="col-md-4">
-<div class="form-group">
-<label>สังกัด</label>
-<input type="text" class="form-control form-control-line" name="under">
-    </div>
-</div>
+                                            <div class="col-md-2">
+                                            <div class="form-group">
+                                            <label>จำนวนเงิน</label>
+                                            <input type="text" class="form-control form-control-line" name="money_num">
+                                                </div>
+                                            </div> -->
+                                        <div class="col-md-7">
+                                            <div class="form-group"><button type="button" class="btn btn-info" id="createRows_activity" value="Add">เพิ่มหัวข้อย่อย</button>&nbsp;&nbsp;<button type="button" class="btn btn-warning" id="deleteRows_activity" value="Del">ลบหัวข้อย่อย</button>&nbsp;&nbsp;<button type="button" class="btn btn-danger" id="clearRows_activity" value="Clear">ลบทั้งหมด</button></div>
+                                        </div>
+                                    </div>
+                                    <table width="100%" border="0" id="myTable_activity">
 
-<div class="col-md-8">
-<div class="form-group">
-<label>พร้อมด้วย</label>
-<input type="text" class="form-control form-control-line" name="along_with">
-    </div>
-</div>
-</div>
+                                        <thead>
+                                        </thead>
 
-<div class="row">
-<div class="col-md-8">
-<div class="form-group">
-<label>ไปปฏิบัติราชการ  </label>
-<input type="text" class="form-control form-control-line" name="go_practice">
-    </div>
-</div>
-</div>
-
-<div class="row">
-<div class="col-md-2">
-<div class="form-group">
-<label>ออกเดินทางจาก</label>
-<select class="form-control" name="depart_from">
-            <option value="">-- เลือก --</option>
-            <option >บ้านพัก</option>
-              <option >สำนักงาน</option>
-                <option >ประเทศไทย</option>
-            </select>
-    </div>
-</div>
-
-<div class="col-md-2">
-<div class="form-group">
-<label>ตั้งแต่วันที่</label>
-<input type="date" class="form-control form-control-line" name="date_depart">
-    </div>
-</div>
-
-<div class="col-md-1">
-<div class="form-group">
-<label>เวลา</label>
-<input type="time" class="form-control form-control-line" name="time_depart">
-    </div>
-</div>
-
-<div class="col-md-2">
-<div class="form-group">
-<label>กลับถึง</label>
-<select class="form-control" name="back">
-            <option value="">-- เลือก --</option>
-            <option >บ้านพัก</option>
-              <option >สำนักงาน</option>
-                <option >ประเทศไทย</option>
-            </select>
-    </div>
-</div>
-
-<div class="col-md-2">
-<div class="form-group">
-<label>ถึงวันที่</label>
-<input type="date" class="form-control form-control-line" name="date_back">
-    </div>
-</div>
-
-<div class="col-md-1">
-<div class="form-group">
-<label>เวลา</label>
-<input type="time" class="form-control form-control-line" name="time_back">
-    </div>
-</div>
-</div>
+                                        <tbody></tbody>
+                                    </table>
 
 
-<div class="row">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>สัญญาเงินยืมเลขที่</label>
+                                                <input type="text" class="form-control form-control-line" name="lend_num">
+                                            </div>
+                                        </div>
 
-<div class="col-md-2">
-<div class="form-group">
-<label>เบิกค่าใช้จ่ายสำหรับ</label>
-<select class="form-control" name="open_money">
-            <option value="">-- เลือก --</option>
-            <option >ข้าพเจ้า</option>
-              <option >คณะเดินทาง</option>
-            </select>
-    </div>
-</div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>ตามคำสั่ง/บันทึกที่</label>
+                                                <input type="text" class="form-control form-control-line" name="note_that">
+                                            </div>
+                                        </div>
 
-<div class="col-md-4">
-<div class="form-group">
-<label>ค่าเบี้ยเลี้ยง</label>
-<input type="text" class="form-control form-control-line" name="allowance">
-    </div>
-</div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label>ลงวันที่</label>
+                                                <input type="date" class="form-control form-control-line" name="date_note">
+                                            </div>
+                                        </div>
+                                    </div>
 
-<div class="col-md-1">
-<div class="form-group">
-<label>จำนวน/วัน</label>
-<input type="text" class="form-control form-control-line" name="allowance_day">
-    </div>
-</div>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>สังกัด</label>
+                                                <input type="text" class="form-control form-control-line" name="under">
+                                            </div>
+                                        </div>
 
-<div class="col-md-2">
-<div class="form-group">
-<label>วันละ/บาท</label>
-<input type="text" class="form-control form-control-line" name="allowance_price">
-    </div>
-</div>
+                                        <div class="col-md-8">
+                                            <div class="form-group">
+                                                <label>พร้อมด้วย</label>
+                                                <input type="text" class="form-control form-control-line" name="along_with">
+                                            </div>
+                                        </div>
+                                    </div>
 
-<div class="col-md-2">
-<div class="form-group">
-<label>รวมเป็น</label>
-<input type="text" class="form-control form-control-line" name="allowance_sum">
-    </div>
-</div>
-</div>
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <div class="form-group">
+                                                <label>ไปปฏิบัติราชการ </label>
+                                                <input type="text" class="form-control form-control-line" name="go_practice">
+                                            </div>
+                                        </div>
+                                    </div>
 
-<div class="row">
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label>ออกเดินทางจาก</label>
+                                                <select class="form-control" name="depart_from">
+                                                    <option value="">-- เลือก --</option>
+                                                    <option>บ้านพัก</option>
+                                                    <option>สำนักงาน</option>
+                                                    <option>ประเทศไทย</option>
+                                                </select>
+                                            </div>
+                                        </div>
 
-<div class="col-md-4">
-<div class="form-group">
-<label>ค่าที่พัก</label>
-<input type="text" class="form-control form-control-line" name="rest">
-    </div>
-</div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label>ตั้งแต่วันที่</label>
+                                                <input type="date" class="form-control form-control-line" name="date_depart">
+                                            </div>
+                                        </div>
 
-<div class="col-md-1">
-<div class="form-group">
-<label>จำนวน/วัน</label>
-<input type="text" class="form-control form-control-line" name="rest_day">
-    </div>
-</div>
+                                        <div class="col-md-1">
+                                            <div class="form-group">
+                                                <label>เวลา</label>
+                                                <input type="time" class="form-control form-control-line" name="time_depart">
+                                            </div>
+                                        </div>
 
-<div class="col-md-2">
-<div class="form-group">
-<label>รวมเป็น</label>
-<input type="text" class="form-control form-control-line" name="rest_sum">
-    </div>
-</div>
-</div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label>กลับถึง</label>
+                                                <select class="form-control" name="back">
+                                                    <option value="">-- เลือก --</option>
+                                                    <option>บ้านพัก</option>
+                                                    <option>สำนักงาน</option>
+                                                    <option>ประเทศไทย</option>
+                                                </select>
+                                            </div>
+                                        </div>
 
-<div class="row">
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label>ถึงวันที่</label>
+                                                <input type="date" class="form-control form-control-line" name="date_back">
+                                            </div>
+                                        </div>
 
-<div class="col-md-4">
-<div class="form-group">
-<label>ค่าพาหนะ</label>
-<input type="text" class="form-control form-control-line" name="vehicle">
-    </div>
-</div>
-
-<div class="col-md-2">
-<div class="form-group">
-<label>รวมเป็น</label>
-<input type="text" class="form-control form-control-line" name="vehicle_sum">
-    </div>
-</div>
-</div>
-
-<div class="row">
-
-<div class="col-md-4">
-<div class="form-group">
-<label>ค่าใช้จ่ายอื่นๆ</label>
-<input type="text" class="form-control form-control-line" name="other">
-    </div>
-</div>
-
-<div class="col-md-2">
-<div class="form-group">
-<label>รวมเป็น</label>
-<input type="text" class="form-control form-control-line" name="other_sum">
-    </div>
-</div>
-</div>
-
-<div class="row">
-<div class="col-md-2">
-<div class="form-group">
-<label>หลักฐานการจ่าย/ฉบับ</label>
-<input type="text" class="form-control form-control-line" name="document_num">
-    </div>
-</div>
-
-</div>
+                                        <div class="col-md-1">
+                                            <div class="form-group">
+                                                <label>เวลา</label>
+                                                <input type="time" class="form-control form-control-line" name="time_back">
+                                            </div>
+                                        </div>
+                                    </div>
 
 
+                                    <div class="row">
 
-<div class="row">
-<div class="col-md-3">
-</div>
-<div class="col-md-3">
-<div class="form-group">
-<button type="submit" class="btn btn-primary btn-block">บันทึก</button>
-    </div>
-</div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label>เบิกค่าใช้จ่ายสำหรับ</label>
+                                                <select class="form-control" name="open_money">
+                                                    <option value="">-- เลือก --</option>
+                                                    <option>ข้าพเจ้า</option>
+                                                    <option>คณะเดินทาง</option>
+                                                </select>
+                                            </div>
+                                        </div>
 
-<div class="col-md-3">
-<div class="form-group">
-<button type="button" class="btn btn-danger btn-block">ยกเลิก</button>
-    </div>
-</div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>ค่าเบี้ยเลี้ยง</label>
+                                                <input type="text" class="form-control form-control-line" name="allowance">
+                                            </div>
+                                        </div>
 
-</div>
+                                        <div class="col-md-1">
+                                            <div class="form-group">
+                                                <label>จำนวน/วัน</label>
+                                                <input type="text" class="form-control form-control-line" name="allowance_day">
+                                            </div>
+                                        </div>
 
-<!--
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label>วันละ/บาท</label>
+                                                <input type="text" class="form-control form-control-line" name="allowance_price">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label>รวมเป็น</label>
+                                                <input type="text" class="form-control form-control-line" name="allowance_sum">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>ค่าที่พัก</label>
+                                                <input type="text" class="form-control form-control-line" name="rest">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-1">
+                                            <div class="form-group">
+                                                <label>จำนวน/วัน</label>
+                                                <input type="text" class="form-control form-control-line" name="rest_day">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label>รวมเป็น</label>
+                                                <input type="text" class="form-control form-control-line" name="rest_sum">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>ค่าพาหนะ</label>
+                                                <input type="text" class="form-control form-control-line" name="vehicle">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label>รวมเป็น</label>
+                                                <input type="text" class="form-control form-control-line" name="vehicle_sum">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>ค่าใช้จ่ายอื่นๆ</label>
+                                                <input type="text" class="form-control form-control-line" name="other">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label>รวมเป็น</label>
+                                                <input type="text" class="form-control form-control-line" name="other_sum">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label>หลักฐานการจ่าย/ฉบับ</label>
+                                                <input type="text" class="form-control form-control-line" name="document_num">
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+
+
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <button type="submit" class="btn btn-primary btn-block">บันทึก</button>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <button type="button" class="btn btn-danger btn-block">ยกเลิก</button>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <!--
                                     <div class="form-group">
                                         <label class="col-md-2">Full Name</label>
                                         <div class="col-md-2">
@@ -547,32 +530,32 @@ else
 
 </html>
 <script type="text/javascript">
-$(document).ready(function(){
+    $(document).ready(function () {
 
-    var rows = 1;
-    $("#createRows_activity").click(function(){
+        var rows = 1;
+        $("#createRows_activity").click(function () {
 
 
-        var tr = "<tr>";
-tr = tr + "<td><div class='row'><div class='col-md-4'><div class='form-group'><label>รายการ</label><input type='text' class='form-control p_input'  name='list"+rows+"'></div></div><div class='col-md-2'><div class='form-group'><label>จำนวนเงิน</label></label><input type='text' class='form-control p_input'  name='money_num"+rows+"'></div></div></div></td>";
-        tr = tr + "</tr>";
-        $('#myTable_activity > tbody:last').append(tr);
+            var tr = "<tr>";
+            tr = tr + "<td><div class='row'><div class='col-md-4'><div class='form-group'><label>รายการ</label><input type='text' class='form-control p_input'  name='list" + rows + "'></div></div><div class='col-md-2'><div class='form-group'><label>จำนวนเงิน</label></label><input type='text' class='form-control p_input'  name='money_num" + rows + "'></div></div></div></td>";
+            tr = tr + "</tr>";
+            $('#myTable_activity > tbody:last').append(tr);
 
-        $('#hdnCount_activity').val(rows);
-        rows = rows + 1;
+            $('#hdnCount_activity').val(rows);
+            rows = rows + 1;
+        });
+
+        $("#deleteRows_activity").click(function () {
+            if ($("#myTable_activity tr").length != 1) {
+                $("#myTable_activity tr:last").remove();
+            }
+        });
+
+        $("#clearRows_activity").click(function () {
+            rows = 1;
+            $('#hdnCount_activity').val(rows);
+            $('#myTable_activity > tbody:last').empty(); // remove all
+        });
+
     });
-
-    $("#deleteRows_activity").click(function(){
-        if ($("#myTable_activity tr").length != 1) {
-            $("#myTable_activity tr:last").remove();
-        }
-    });
-
-    $("#clearRows_activity").click(function(){
-        rows = 1;
-        $('#hdnCount_activity').val(rows);
-        $('#myTable_activity > tbody:last').empty(); // remove all
-    });
-
-});
 </script>

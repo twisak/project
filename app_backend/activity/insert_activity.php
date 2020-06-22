@@ -4,11 +4,12 @@
     error_reporting(~0);
     include '../../administrator/connect.php';
 
-		$project_id = $_POST['project_id'];
+        $project_id = $_POST['project_id'];
+        $activity_id = $_POST['activity_id'];
 		$activity = $_POST['activity'];
 
 
-		$sql_tb_activity = "INSERT INTO tb_activity(project_id,activity) VALUES ('".$project_id."','".$activity."')";
+		$sql_tb_activity = "INSERT INTO tb_activity(project_id,activity_id,activity) VALUES ('".$project_id."','".$activity_id."','".$activity."')";
     //echo $sql_tb_activity;
 		$query_tb_activity = mysqli_query($conn,$sql_tb_activity);
 

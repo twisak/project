@@ -7,7 +7,7 @@
     $rows = mysqli_num_rows($query);
     if ($rows > 0) {
         while ($result = mysqli_fetch_array($query)) {
-            echo "<option value=\"" . $result['id'] . "\">" . $result['activity'] . "</option>";
+            echo "<option value=\"" . $result['activity_id'] . "\">" . $result['activity'] . "</option>";
         }
     }else{
         echo "<option value=\"\">ไม่มีกิจกรมในหมวดหมู่ที่เลือก</option>";

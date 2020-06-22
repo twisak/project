@@ -67,10 +67,10 @@ else
                 <!-- ============================================================== -->
                 <div class="row page-titles">
                     <div class="col-md-5 align-self-center">
-                        <h3 class="text-themecolor">ตารางเอกสารล้างหนี้</h3>
+                        <h3 class="text-themecolor">ตารางเอกสารเงินเดือน</h3>
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                            <li class="breadcrumb-item active">Table Basic</li>
+                            <li class="breadcrumb-item active">ตารางเอกสารเงินเดือน</li>
                         </ol>
                     </div>
                     <div class="col-md-7 align-self-center">
@@ -89,7 +89,7 @@ else
 
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">ตารางเอกสารล้างหนี้</h4>
+                                <h4 class="card-title">ตารางเอกสารเงินเดือน</h4>
                                 <!-- <h6 class="card-subtitle">Add class <code>.table</code></h6> -->
 
 
@@ -103,7 +103,7 @@ else
 
 
                                 <div class="text-right">
-                                <a href="input_doc_debt.php">
+                                <a href="input_doc_salary.php">
                                     <button type="button" class="btn btn-primary">กรอกเอกสารเพิ่ม</button>
                                 </a>
                                 </div>
@@ -131,12 +131,14 @@ else
                                             $i=1;
                                             $i<="";
 
-                                            $sql ="SELECT * FROM tb_debt GROUP BY doc_id";
+                                            $sql ="SELECT * FROM tb_salary GROUP BY doc_id";
                                             $query = mysqli_query($conn,$sql);
                                             while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
                                             {
                                                 $id = $row['id'];
                                                 $doc_id = $row['doc_id'];
+                                                $str_date = $row['str_date'];
+                                                $stp_date = $row['stp_date'];
                                                 $project_id = $row['project_id'];
                                                 $person_id = $row['person_id'];
 
@@ -166,7 +168,7 @@ else
                                                 <td><?php echo $prefix;?><?php echo $firtname;?><?php echo $lastname;?></td>
                                                 <td><?php echo $project_name;?></td>
                                                 <td>
-                                                <a href="show_doc_debt.php?id=<?php echo $id;?>"><button type="button" class="btn btn-info">รายละเอียด</button></a>
+                                                <a href="show_doc_lend.php?id=<?php echo $id;?>"><button type="button" class="btn btn-info">รายละเอียด</button></a>
                                                 </td>
                                                 <td><button type="button" class="btn btn-danger">ลบ</button></td>
                                             </tr>
@@ -183,33 +185,12 @@ else
                         </div>
                     </div>
                 </div>
-                <!-- ============================================================== -->
-                <!-- End PAge Content -->
-                <!-- ============================================================== -->
             </div>
-            <!-- ============================================================== -->
-            <!-- End Container fluid  -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- footer -->
-            <!-- ============================================================== -->
             <footer class="footer">
                 © 2018 Adminwrap by wrappixel.com
             </footer>
-            <!-- ============================================================== -->
-            <!-- End footer -->
-            <!-- ============================================================== -->
         </div>
-        <!-- ============================================================== -->
-        <!-- End Page wrapper  -->
-        <!-- ============================================================== -->
     </div>
-    <!-- ============================================================== -->
-    <!-- End Wrapper -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- All Jquery -->
-    <!-- ============================================================== -->
     <script src="../assets/node_modules/jquery/jquery.min.js"></script>
     <!-- Bootstrap tether Core JavaScript -->
     <script src="../assets/node_modules/bootstrap/js/popper.min.js"></script>

@@ -147,7 +147,7 @@ include '../../administrator/connect.php';
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="activity">ชื่อกิจกรรม</label>
-                                                <select name="activity" id="activity" class="form-control">
+                                                <select name="activity_id" id="activity" class="form-control">
                                                     <option value="">ชื่อกิจกรรม</option>
                                                 </select>
                                             </div>

@@ -95,6 +95,7 @@ include '../../administrator/connect.php';
                                             $str_date = $row['str_date'];
                                             $stp_date = $row['stp_date'];
                                             $project_id = $row['project_id'];
+                                            $activity_id = $row['activity_id'];
                                             $person_id = $row['person_id'];
                                             $teacher_id = $row['teacher_id'];
                                             $number = $row['number'];
@@ -126,7 +127,7 @@ include '../../administrator/connect.php';
                                             $project_id = $row1['project_id'];
                                         }
 
-                                        $sql3 ="SELECT * FROM tb_activity WHERE project_id = '".$project_id."' ";
+                                        $sql3 ="SELECT * FROM tb_activity WHERE activity_id = '".$activity_id."' ";
                                         $query3 = mysqli_query($conn,$sql3);
                                         while($row3 = mysqli_fetch_array($query3,MYSQLI_ASSOC))
                                         {

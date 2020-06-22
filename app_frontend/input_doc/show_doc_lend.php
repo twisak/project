@@ -212,7 +212,7 @@ include '../../administrator/connect.php';
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label><b>ชื่ออาจารย์</b></label><br>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $t_firstname?>&nbsp;&nbsp;<?php echo $t_lastname?>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $t_firstname;?>&nbsp;&nbsp;<?php echo $t_lastname;?>
                                         </div>
                                     </div>
                                 </div>

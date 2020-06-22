@@ -39,87 +39,6 @@ else
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
-<head>
-    <meta charset="utf-8">
-<title>css print report table continue</title>
-<style type="text/css">
-* {
-    margin:0;
-    padding:0;
-    font-family:Arial, "times New Roman", tahoma;
-    font-size:12px;
-}
-html {
-    font-family:Arial, "times New Roman", tahoma;
-    font-size:12px;
-    color:#000000;
-}
-body {
-    font-family:Arial, "times New Roman", tahoma;
-    font-size:12px;
-    padding:0;
-    margin:0;
-    color:#000000;
-}
-.headTitle {
-    font-size:12px;
-    font-weight:bold;
-    text-transform:uppercase;
-}
-.headerTitle01 {
-    border:1px solid #333333;
-    border-left:2px solid #000;
-    border-bottom-width:2px;
-    border-top-width:2px;
-    font-size:11px;
-}
-.headerTitle01_r {
-    border:1px solid #333333;
-    border-left:2px solid #000;
-    border-right:2px solid #000;
-    border-bottom-width:2px;
-    border-top-width:2px;
-    font-size:11px;
-}
-/* สำหรับช่องกรอกข้อมูล  */
-.box_data1 {
-    font-family:Arial, "times New Roman", tahoma;
-    height:18px;
-    border:0px dotted #333333;
-    border-bottom-width:1px;
-}
-/* กำหนดเส้นบรรทัดซ้าย  และด้านล่าง */
-.left_bottom {
-    border-left:2px solid #000;
-    border-bottom:1px solid #000;
-}
-/* กำหนดเส้นบรรทัดซ้าย ขวา และด้านล่าง */
-.left_right_bottom {
-    border-left:2px solid #000;
-    border-bottom:1px solid #000;
-    border-right:2px solid #000;
-}
-/* สร้างช่องสี่เหลี่ยมสำหรับเช็คเลือก */
-.chk_box {
-    display:block;
-    width:10px;
-    height:10px;
-    overflow:hidden;
-    border:1px solid #000;
-}
-/* css ส่วนสำหรับการแบ่งหน้าข้อมูลสำหรับการพิมพ์ */
-@media all
-{
-    .page-break { display:none; }
-    .page-break-no{ display:none; }
-}
-@media print
-{
-    .page-break { display:block;height:1px; page-break-before:always; }
-    .page-break-no{ display:block;height:1px; page-break-after:avoid; }
-}
-</style>
-</head>
 </head>
 <?php
 
@@ -171,7 +90,7 @@ body {
                 <td width="100%"  class="statement-header">
                     <table border="0" width="100%" class="statement-view text-gray-900" align="center">
                       <tr>
-                        <td align="center">บันทึกข้อความ</td>
+                        <td align="center">ขอบเขตของงานจ้างเหมาบริการ</td>
                       </tr>
                     </table>
                     <br>
@@ -182,25 +101,108 @@ body {
                 <td width="100%"  class="statement-header">
                     <table border="0" width="100%" class="statement-view text-gray-900">
                       <tr  align="left">
-                        <td >ส่วนราชการ สถาบันพัสถาบันพัฒนาครูและบุตลากรทางการศึกษสบแดนใต้ โทรศัพท์ ๔๑๐๐๓</td>
+                        <td>รายละเอียดการจ้าง</td>
                       </tr>
                       <tr  align="left">
-                        <td >ที่ อว.๐๖๓๘.๑๕.๑๘๒ วันที่ ๑๖ กันยายน ๒๕๖๒</td>
+                        <td >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;งานจ้างเหมาบริการเจ้าหน้าที่ประจำศูนย์หน่วยวิจัย พัฒนา และให้บริการสื่อและนวัตกรรมทางการศึกษา</td>
+                      </tr>
+                    </table>
+                    <br>
+                </td>
+            </tr>
+
+            <tr>
+                <td width="100%"  class="statement-header">
+                    <table border="0" width="100%" class="statement-view text-gray-900">
+                      <tr  align="left">
+                        <td>ระยะเวลาการจ้าง</td>
                       </tr>
                       <tr  align="left">
-                        <td >เรื่อง ขอความเห็นชอบราคากลางจ้างเหมาบริการเจ้าหน้าที่ประสานงานโครงการฯ โดยวิธีเฉพาะเจาะจง</td>
+                        <td >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ตั้งแต่วันที่ 2 มกราคม 2562 ถึงวันที่ 30 กันยายน 2562</td>
+                      </tr>
+                    </table>
+                    <br>
+                </td>
+            </tr>
+
+            <tr>
+                <td width="100%"  class="statement-header">
+                    <table border="0" width="100%" class="statement-view text-gray-900">
+                      <tr  align="left">
+                        <td>คุณสมบัติของผู้รับจ้าง</td>
                       </tr>
                       <tr  align="left">
-                        <td  >เรียน อธิการบดีมหาวิทยาลัยราชภัฏยะลา</td>
+                        <td >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1. สัญชาติไทย</td>
+                      </tr>
+                    </table>
+                    <br>
+                </td>
+            </tr>
+
+            <tr>
+                <td width="100%"  class="statement-header">
+                    <table border="0" width="100%" class="statement-view text-gray-900">
+                      <tr  align="left">
+                        <td>ขอบเขตของงานที่จ้าง</td>
                       </tr>
                       <tr  align="left">
-                        <td  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ตามบันทึก ที่ อว.๐๖๓๘.๑๕.๑๘๒ ลงวันที่ ๑๖ กันยายน ๒๕๖๒ เรื่องแต่งตั้งคณะกรรมการจัดทำขอบเขตของงานและราคากลางงานจ้างเหมาบริการเจ้าหน้าที่โครงการ การศึกษาเพื่อความมั่นคง : พัฒนาศักยภาพครูและบุคลากรทางการศึกษาเพื่อเสริมสร้างความมั่นคงและลดความเหลื่อมล้ำจากเหตุการณ์ความไม่สงบในพื้นที่ชายแดนใต้ นั้น</td>
+                        <td >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1. ให้บริการยืมคืนทรัพยากรสารสนเทศ</td>
+                      </tr>
+                    </table>
+                    <br>
+                </td>
+            </tr>
+
+            <tr>
+                <td width="100%"  class="statement-header">
+                    <table border="0" width="100%" class="statement-view text-gray-900">
+                      <tr  align="left">
+                        <td>ความรับผิดชอบของผู้ว่าจ้าง</td>
                       </tr>
                       <tr  align="left">
-                        <td  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;บัดนี้ คณะกรรมการจัดทำราคากลาง ได้ดำเนินการจัดทำราคากลางงานจ้างเหมาบริการเจ้าหน้าที่โครงการ การศึกษาเพื่อความมั่นคง : พัฒนาศักยภาพครูและบุคลากรทางการศึกษาเพื่อเสริมสร้าง ความมั่นคงและลดความเหลื่อมล้ำจากเหตุการณ์ความไม่สงบในพื้นที่ชายแดนใต้ จำนวน ๑ คน ดังกล่าวเสร็จเรียบร้อยแล้ว ราคากลางทีคำนวณได้ เป็นเงิน ๑๘๐,๐๐๐ บาท (หนึ่งแสนแปดหมื่นบาทถ้วน) ตามรายละเอียดการคำนวณราคากลางที่แนบ</td>
+                        <td >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ผู้ว่าจ้างยินยอมให้ผู้รับจ้างใช้วัสดุครุภัณฑ์ของทางราชการได้ตามความจำเป็นและเหมาะสม</td>
+                      </tr>
+                    </table>
+                    <br>
+                </td>
+            </tr>
+
+            <tr>
+                <td width="100%"  class="statement-header">
+                    <table border="0" width="100%" class="statement-view text-gray-900">
+                      <tr  align="left">
+                        <td>ค่าปรับและการหักเงินค่าจ้าง</td>
                       </tr>
                       <tr  align="left">
-                        <td  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;จึงเรียนมาเพื่อโปรดพิจารณาเห็นชอบ</td>
+                        <td >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.</td>
+                      </tr>
+                    </table>
+                    <br>
+                </td>
+            </tr>
+
+            <tr>
+                <td width="100%"  class="statement-header">
+                    <table border="0" width="100%" class="statement-view text-gray-900">
+                      <tr  align="left">
+                        <td>เงื่อนไขการชำระเงิน</td>
+                      </tr>
+                      <tr  align="left">
+                        <td >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1. </td>
+                      </tr>
+                    </table>
+                    <br>
+                </td>
+            </tr>
+
+            <tr>
+                <td width="100%"  class="statement-header">
+                    <table border="0" width="100%" class="statement-view text-gray-900">
+                      <tr  align="left">
+                        <td>เงื่อนไขหลักประกัน</td>
+                      </tr>
+                      <tr  align="left">
+                        <td >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1. </td>
                       </tr>
                     </table>
                     <br>
@@ -265,7 +267,7 @@ body {
                     </table>
                     <br>
                 </td>
-            </tr>
+            </tr> 
 
         </table>
 

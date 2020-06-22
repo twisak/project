@@ -8,6 +8,7 @@
         $str_date = $_POST['str_date'];
         $stp_date = $_POST['stp_date'];
         $project_id = $_POST['project_id'];
+        $activity_id = $_POST['activity_id'];
         $person_id = $_POST['person_id'];
         $teacher_id = $_POST['teacher_id'];
         $number = $_POST['number'];
@@ -51,18 +52,18 @@
             //echo $foreword;
 			if($foreword != "")
 			{
-				$sql = "INSERT INTO tb_contract (doc_id,foreword,str_date,stp_date,project_id,person_id,
+				$sql = "INSERT INTO tb_contract (doc_id,foreword,str_date,stp_date,project_id,activity_id,person_id,
                                                 teacher_id,number,money,work,date_work,government,that,
                                                 c_day,title_id,people,mid_price,details,date_start,date_end,property,scope,responsible,fine,
                                                 payment,insurance)
-				 	     VALUES ('$doc_id','$foreword','$str_date','$stp_date','$project_id','$person_id','$teacher_id','$number',
+				 	     VALUES ('$doc_id','$foreword','$str_date','$stp_date','$project_id','$activity_id','$person_id','$teacher_id','$number',
                                  '$money','$work','$date_work','$government','$that','$c_day','$title_id','$people','$mid_price',
                                  '$details','$date_start','$date_end','$property','$scope','$responsible','$fine','$payment','$insurance')";
                 $db_query = mysqli_query($conn,$sql);
-                 echo $sql;
-                 echo $db_query;
-                 echo "<br>";
-                 echo "<br>";
+                //  echo $sql;
+                //  echo $db_query;
+                //  echo "<br>";
+                //  echo "<br>";
 			}
 		}
     }
