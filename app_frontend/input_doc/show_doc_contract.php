@@ -74,7 +74,7 @@ include '../../administrator/connect.php';
     </div>
     <?php include '../menu/menu_admin.php'; ?>
     <div id="main-wrapper">
-                                    <?php
+        <?php
                                         include '../../administrator/connect.php';
                                         // $username= $_SESSION['username'];
                                         // $sql ="SELECT * FROM account_login WHERE username = '".$username."' ";
@@ -110,17 +110,10 @@ include '../../administrator/connect.php';
                                             $details = $row['details'];
                                             $date_start  = $row['date_start'];
                                             $date_end = $row['date_end'];
-
-                                            $property = $row['property'];
-                                            $property2 = unserialize($property);
-
+                                            $property = unserialize($row['property']);
                                             $scope = unserialize($row["scope"]);
-
                                             $responsible = $row['responsible'];
-
-                                            $fine = $row["fine"];
-                                            $fine1 = unserialize( $fine );
-
+                                            $fine = unserialize($row["fine"]);
                                             $payment = unserialize( $row["payment"] );
                                             $insurance = unserialize( $row["insurance"] );
                                         }
@@ -189,54 +182,54 @@ include '../../administrator/connect.php';
                         <div class="card">
                             <!-- Tab panes -->
                             <div class="card-body">
-                              <div class="row">
-                                  <div class="col-md-12 text-center">
-                                      <div class="form-group">
-                                          <label><b><u>รายละเอียดเอกสารจ้างเหมาบริการ</u></b></label>
-                                      </div>
-                                  </div>
-                              </div>
-
-                                    <div class="row">
-                                        <div class="col-md-2">
-                                            <div class="form-group">
-                                                <label><b><u>รหัสเอกสารจ้างเหมาบริการ</u></b></label>
-                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $doc_id;?>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label><b>ชื่อบุคลากร</b></label><br>
-                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $prefix?><?php echo $firtname?>&nbsp;&nbsp;<?php echo $lastname?>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-md-12 text-center">
                                         <div class="form-group">
-                                        <label><b>โครงการ</b></label><br>
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $project_name?>
-                                        </div>
+                                            <label><b><u>รายละเอียดเอกสารจ้างเหมาบริการ</u></b></label>
                                         </div>
                                     </div>
+                                </div>
 
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label for="activity"><b>ชื่อกิจกรรม</b></label><br>
-                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $activity?>
-                                            </div>
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label><b><u>รหัสเอกสารจ้างเหมาบริการ</u></b></label>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $doc_id;?>
                                         </div>
                                     </div>
-                                    <div class="row">
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label><b>ชื่อบุคลากร</b></label><br>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $prefix?><?php echo $firtname?>&nbsp;&nbsp;<?php echo $lastname?>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label><b>โครงการ</b></label><br>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $project_name?>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="activity"><b>ชื่อกิจกรรม</b></label><br>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $activity?>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
                                     <div class="col-md-8">
-                                            <div class="form-group">
-                                                <label><b>ตัวชี้วัด</b></label><br>
-                                                <?php
+                                        <div class="form-group">
+                                            <label><b>ตัวชี้วัด</b></label><br>
+                                            <?php
                                                     $i=1;
                                                     $i<="";
 
@@ -247,215 +240,215 @@ include '../../administrator/connect.php';
                                                         $foreword = $row['foreword'];
 
                                                 ?>
-                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $i;?>.&nbsp;<?php echo $foreword?><br>
-                                                    <?php $i++; }?>
-                                            </div>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $i;?>.&nbsp;<?php echo $foreword?><br>
+                                            <?php $i++; }?>
                                         </div>
                                     </div>
-                                            <div class="row">
-                                                <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <label><b>เริ่มต้นวันที่</b></label><br>
-                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $str_date?>
-                                                    </div>
-                                                </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label><b>เริ่มต้นวันที่</b></label><br>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $str_date?>
+                                        </div>
+                                    </div>
 
-                                                <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <label><b>สิ้นสุดวันที่</b></label><br>
-                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $stp_date?>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <label><b>ผู้ควบคุมการปฎิบัติงาน</b></label><br>
-                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $t_firstname?>&nbsp;&nbsp;<?php echo $t_lastname?>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-2">
-                                                    <div class="form-group">
-                                                        <label><u>รายการส่งใช้เงินยืม</u></label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-2">
-                                                    <div class="form-group">
-                                                        <label>จำนวนงวด</label><br>
-                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $number?>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <label>เป็นเงิน</label><br>
-                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $money?>
-                                                    </div>
-                                                </div>
-                                                <?php 
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label><b>สิ้นสุดวันที่</b></label><br>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $stp_date?>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label><b>ผู้ควบคุมการปฎิบัติงาน</b></label><br>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $t_firstname?>&nbsp;&nbsp;<?php echo $t_lastname?>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label><u>รายการส่งใช้เงินยืม</u></label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label>จำนวนงวด</label><br>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $number?>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>เป็นเงิน</label><br>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $money?>
+                                        </div>
+                                    </div>
+                                    <?php 
                                                   $amount=$number * $money;
                                                 ?>
-                                                <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <label>รวมเป็นเงินทั้งสิ้น</label><br>
-                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $amount?>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-2">
-                                                    <div class="form-group">
-                                                        <label>ปฎิบัติงานงวดที่</label><br>
-                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $work?>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <label>วันที่ปฎิบัติงาน</label><br>
-                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $date_work?>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-2">
-                                                    <div class="form-group">
-                                                        <label><u>บันทึกข้อความ</u></label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label>ส่วนราชการ</label><br>
-                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $government?>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-2">
-                                                    <div class="form-group">
-                                                        <label>ที่</label><br>
-                                                        &nbsp;&nbsp;&nbsp;&nbsp;<?php echo $that?>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-2">
-                                                    <div class="form-group">
-                                                        <label>วันที่</label><br>
-                                                        &nbsp;&nbsp;&nbsp;&nbsp;<?php echo $c_day?>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label>เรื่อง</label><br>
-                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $title?>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-2">
-                                                    <div class="form-group">
-                                                        <label>จำนวนคน</label><br>
-                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $people?>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-2">
-                                                    <div class="form-group">
-                                                        <label>ราคากลางที่คำนวณได้</label><br>
-                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $mid_price?>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <label>ลงชื่อ ประธานกรรมการ</label><br>
-                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $t_firstname?>&nbsp;&nbsp;<?php echo $t_lastname?>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <label>ลงชื่อ กรรมการ</label><br>
-                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $t_firstname?>&nbsp;&nbsp;<?php echo $t_lastname?>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <label>ลงชื่อ กรรมการและเลขานุการ</label><br>
-                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $t_firstname?>&nbsp;&nbsp;<?php echo $t_lastname?>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-2">
-                                                    <div class="form-group">
-                                                        <label><u>ขอบเขตงานจ้างเหมาบริการ</u></label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label>รายละเอียดการจ้าง</label><br>
-                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $details?>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label><u>ระยะเวลาการจ้าง</u></label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-2">
-                                                    <div class="form-group">
-                                                        <label>เริ่มต้นวันที่</label><br>
-                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $date_start?>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-2">
-                                                    <div class="form-group">
-                                                        <label>สิ้นสุดวันที่</label><br>
-                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $date_end?>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="form-group"><br>
-                                                        <?php 
-                                                                $property1 = array($property2);
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>รวมเป็นเงินทั้งสิ้น</label><br>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $amount?>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label>ปฎิบัติงานงวดที่</label><br>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $work?>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>วันที่ปฎิบัติงาน</label><br>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $date_work?>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label><u>บันทึกข้อความ</u></label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>ส่วนราชการ</label><br>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $government?>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label>ที่</label><br>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;<?php echo $that?>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label>วันที่</label><br>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;<?php echo $c_day?>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>เรื่อง</label><br>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $title?>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label>จำนวนคน</label><br>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $people?>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label>ราคากลางที่คำนวณได้</label><br>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $mid_price?>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>ลงชื่อ ประธานกรรมการ</label><br>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $t_firstname?>&nbsp;&nbsp;<?php echo $t_lastname?>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>ลงชื่อ กรรมการ</label><br>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $t_firstname?>&nbsp;&nbsp;<?php echo $t_lastname?>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>ลงชื่อ กรรมการและเลขานุการ</label><br>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $t_firstname?>&nbsp;&nbsp;<?php echo $t_lastname?>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label><u>ขอบเขตงานจ้างเหมาบริการ</u></label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>รายละเอียดการจ้าง</label><br>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $details?>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label><u>ระยะเวลาการจ้าง</u></label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label>เริ่มต้นวันที่</label><br>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $date_start?>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label>สิ้นสุดวันที่</label><br>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $date_end?>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- คุณสมบัติของผู้รับจ้าง -->
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group"><br>
+                                            <?php 
+                                                                $property1 = array($property);
 
-                                                                for ($row = 0; $row < 1; $row++) {
+                                                                  foreach ($property1 as $property1[$i]){
+                                                                    $j=0;
                                                                     echo "<p><b>คุณสมบัติของผู้รับจ้าง</b></p>";
                                                                     echo "<ul>";
-                                                                    for ($col = 0; $col < $num_rows; $col++) {
-                                                                      echo "<li>".$property1[$row][$col]."</li>";
+                                                                    foreach ($property1[$i] as $property1[$i][$j]){
+                                                                        $value = $property1[$i][$j];
+                                                                        //echo "<tr><td>{$value}</td></tr>";
+                                                                        echo "<li>{$value}</li>";
+                                                                        $j++;
                                                                     }
                                                                     echo "</ul>";
-                                                                  }
+                                                                    $i++;
+                                                                }
                                                         ?>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="form-group"><br>
-                                                        <?php 
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- คุณสมบัติของผู้รับจ้าง -->
+                                <!-- ขอบเขตของงานที่จ้าง -->
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group"><br>
+                                            <?php 
                                                                 $scope1 = array($scope);
 
-                                                                // for ($row = 0; $row < 1; $row++) {
-                                                                //     echo "<p><b>ขอบเขตของงานที่จ้าง</b></p>";
-                                                                //     echo "<ul>";
-                                                                //     for ($col = 0; $col < $num_rows; $col++) {
-                                                                //       echo "<li>".$scope1[$row][$col]."</li>";
-                                                                //     }
-                                                                //     echo "</ul>";
-                                                                //   }
                                                                   foreach ($scope1 as $scope1[$i]){
                                                                     $j=0;
                                                                     echo "<p><b>ขอบเขตของงานที่จ้าง</b></p>";
@@ -470,39 +463,31 @@ include '../../administrator/connect.php';
                                                                     $i++;
                                                                 }
                                                         ?>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label><b>ความรับผิดชอบของผู้ว่าจ้าง</b></label><br>
-                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $responsible?>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="form-group"><br>
-                                                        <?php 
-                                                                $fine2 = array($fine1);
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- ขอบเขตของงานที่จ้าง -->
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label><b>ความรับผิดชอบของผู้ว่าจ้าง</b></label><br>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $responsible?>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- ค่าปรับและค่าหักเงินค่าจ้าง -->
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group"><br>
+                                            <?php 
+                                                                $fine1 = array($fine);
 
-                                                                // for ($row = 0; $row < 1; $row++) {
-                                                                //     $fine2 = array($fine1);
-                                                                //     echo "<p><b>ค่าปรับและค่าหักเงินค่าจ้าง</b></p>";
-                                                                //     echo "<ul>";
-                                                                //     for ($col = 0; $col < $num_rows; $col++) {
-                                                                //       echo "<li>".$fine2[$row][$col]."</li>";
-                                                                //     }
-                                                                //     echo "</ul>";
-                                                                //   }
-
-                                                                  foreach ($fine2 as $fine2[$i]){
+                                                                  foreach ($fine1 as $fine1[$i]){
                                                                     $j=0;
                                                                     echo "<p><b>ค่าปรับและค่าหักเงินค่าจ้าง</b></p>";
                                                                     echo "<ul>";
-                                                                    foreach ($fine2[$i] as $fine2[$i][$j]){
-                                                                        $value = $fine2[$i][$j];
+                                                                    foreach ($fine1[$i] as $fine1[$i][$j]){
+                                                                        $value = $fine1[$i][$j];
                                                                         //echo "<tr><td>{$value}</td></tr>";
                                                                         echo "<li>{$value}</li>";
                                                                         $j++;
@@ -511,9 +496,61 @@ include '../../administrator/connect.php';
                                                                     $i++;
                                                                 }
                                                         ?>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- ค่าปรับและค่าหักเงินค่าจ้าง -->
+                                <!-- เงื่อนไขการชำระเงิน -->
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group"><br>
+                                            <?php 
+                                                                $payment1 = array($payment);
+
+                                                                  foreach ($payment1 as $payment1[$i]){
+                                                                    $j=0;
+                                                                    echo "<p><b>เงื่อนไขการชำระเงิน</b></p>";
+                                                                    echo "<ul>";
+                                                                    foreach ($payment1[$i] as $payment1[$i][$j]){
+                                                                        $value = $payment1[$i][$j];
+                                                                        //echo "<tr><td>{$value}</td></tr>";
+                                                                        echo "<li>{$value}</li>";
+                                                                        $j++;
+                                                                    }
+                                                                    echo "</ul>";
+                                                                    $i++;
+                                                                }
+                                                        ?>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- เงื่อนไขการชำระเงิน -->
+                                <!-- เงื่อนไขหลักประกัน -->
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group"><br>
+                                            <?php 
+                                                                $insurance1 = array($insurance);
+
+                                                                  foreach ($insurance1 as $insurance1[$i]){
+                                                                    $j=0;
+                                                                    echo "<p><b>เงื่อนไขหลักประกัน</b></p>";
+                                                                    echo "<ul>";
+                                                                    foreach ($insurance1[$i] as $insurance1[$i][$j]){
+                                                                        $value = $insurance1[$i][$j];
+                                                                        //echo "<tr><td>{$value}</td></tr>";
+                                                                        echo "<li>{$value}</li>";
+                                                                        $j++;
+                                                                    }
+                                                                    echo "</ul>";
+                                                                    $i++;
+                                                                }
+                                                        ?>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- เงื่อนไขหลักประกัน -->
+
 
                                 <div class="row">
                                     <div class="col-md-4">
@@ -527,76 +564,78 @@ include '../../administrator/connect.php';
 
                                 </form>
 
+                            </div>
+                            <!-- Column -->
+                        </div>
                     </div>
-                    <!-- Column -->
+                    <footer class="footer">
+                        © 2018 Adminwrap by wrappixel.com
+                    </footer>
                 </div>
             </div>
-            <footer class="footer">
-                © 2018 Adminwrap by wrappixel.com
-            </footer>
-        </div>
-    </div>
-    <script src="../assets/node_modules/jquery/jquery.min.js"></script>
-    <!-- Bootstrap tether Core JavaScript -->
-    <script src="../assets/node_modules/bootstrap/js/popper.min.js"></script>
-    <script src="../assets/node_modules/bootstrap/js/bootstrap.min.js"></script>
-    <!-- slimscrollbar scrollbar JavaScript -->
-    <script src="../js/perfect-scrollbar.jquery.min.js"></script>
-    <!--Wave Effects -->
-    <script src="../js/waves.js"></script>
-    <!--Menu sidebar -->
-    <script src="../js/sidebarmenu.js"></script>
-    <!--Custom JavaScript -->
-    <script src="../js/custom.min.js"></script>
-    <script src="../js/script.js"></script>
-    <script src="http://code.jquery.com/jquery-latest.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function () {
+            <script src="../assets/node_modules/jquery/jquery.min.js"></script>
+            <!-- Bootstrap tether Core JavaScript -->
+            <script src="../assets/node_modules/bootstrap/js/popper.min.js"></script>
+            <script src="../assets/node_modules/bootstrap/js/bootstrap.min.js"></script>
+            <!-- slimscrollbar scrollbar JavaScript -->
+            <script src="../js/perfect-scrollbar.jquery.min.js"></script>
+            <!--Wave Effects -->
+            <script src="../js/waves.js"></script>
+            <!--Menu sidebar -->
+            <script src="../js/sidebarmenu.js"></script>
+            <!--Custom JavaScript -->
+            <script src="../js/custom.min.js"></script>
+            <script src="../js/script.js"></script>
+            <script src="http://code.jquery.com/jquery-latest.js"></script>
+            <script type="text/javascript">
+                $(document).ready(function () {
 
-            var rows = 1;
-            $("#createRows").click(function () {
+                    var rows = 1;
+                    $("#createRows").click(function () {
 
 
-                var tr = "<tr>";
-                tr = tr + "<td><div class='row'><div class='col-md-4'><div class='form-group'><input type='text' class='form-control p_input' name='foreword" + rows + "'></div></div></td>";
-                tr = tr + "</tr>";
-                $('#myTable > tbody:last').append(tr);
+                        var tr = "<tr>";
+                        tr = tr + "<td><div class='row'><div class='col-md-4'><div class='form-group'><input type='text' class='form-control p_input' name='foreword" + rows + "'></div></div></td>";
+                        tr = tr + "</tr>";
+                        $('#myTable > tbody:last').append(tr);
 
-                $('#hdnCount').val(rows);
-                rows = rows + 1;
-            });
+                        $('#hdnCount').val(rows);
+                        rows = rows + 1;
+                    });
 
-            $("#deleteRows").click(function () {
-                if ($("#myTable tr").length != 1) {
-                    $("#myTable tr:last").remove();
-                }
-            });
-
-            $("#clearRows").click(function () {
-                rows = 1;
-                $('#hdnCount').val(rows);
-                $('#myTable > tbody:last').empty(); // remove all
-            });
-
-        });
-    </script>
-    <!-- listbox 2 ชั้น -->
-    <script src="jquery-1.11.1.min.js" type="text/javascript"></script>
-    <script type="text/javascript">
-            $(document).ready(function() {
-                $('#project').change(function() {
-                    $.ajax({
-                        type: 'POST',
-                        data: {project: $(this).val()},
-                        url: 'select_activity.php',
-                        success: function(data) {
-                            $('#activity').html(data);
+                    $("#deleteRows").click(function () {
+                        if ($("#myTable tr").length != 1) {
+                            $("#myTable tr:last").remove();
                         }
                     });
-                    return false;
+
+                    $("#clearRows").click(function () {
+                        rows = 1;
+                        $('#hdnCount').val(rows);
+                        $('#myTable > tbody:last').empty(); // remove all
+                    });
+
                 });
-            });
-        </script>
+            </script>
+            <!-- listbox 2 ชั้น -->
+            <script src="jquery-1.11.1.min.js" type="text/javascript"></script>
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    $('#project').change(function () {
+                        $.ajax({
+                            type: 'POST',
+                            data: {
+                                project: $(this).val()
+                            },
+                            url: 'select_activity.php',
+                            success: function (data) {
+                                $('#activity').html(data);
+                            }
+                        });
+                        return false;
+                    });
+                });
+            </script>
 </body>
 
 </html>
