@@ -1,9 +1,9 @@
-<?php session_start();
+<!-- <?php session_start();
 if($_SESSION['status'] == 'admin')
-{ 
+{
 }
 elseif($_SESSION['status'] == 'staff')
-{  
+{
 }
 else
 {
@@ -12,7 +12,7 @@ else
     echo "</script>";
     echo "<meta http-equiv='refresh' content='0;url=../../administrator/logout.php'>";
 }
-?>
+?> -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -40,297 +40,81 @@ else
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
 </head>
-<?php 
+<?php
 
      include '../../administrator/connect.php';
-    //  $sql ="SELECT * FROM tb_person";
-    //  $query = mysqli_query($conn,$sql);
-    //  while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
-    //     {
-    //         $prefix = $row['prefix'];
-    //         $firtname = $row['firtname'];
-    //         $lastname = $row['lastname'];
-    //         $idcard = $row['idcard'];
-    //         $address = $row['address'];
-    //         $position_id = $row['position_id'];
-    //     }
-                                            
-    //     $sql1 ="SELECT * FROM account_login WHERE position_id = '".$position_id."' ";
-    //     $query1 = mysqli_query($conn,$sql1);
-    //     while($row1 = mysqli_fetch_array($query1,MYSQLI_ASSOC))
-    //     {
-    //         $position_id = $row1['position_id'];
-    //         $username = $row1['username'];
-    //         $password = $row1['password'];
-    //         $position = $row1['position'];
-    //     }
+     $doc_id =$_GET['id'];
+
+
+
+
 ?>
 <body id="<?php //echo $body['name'];?>">
-    <div class="page">
+<div class="page">
         <table border="0" align="center" width="100%" class="statement-view text-gray-900">
             <tr>
-                <td colspan="2">
+            </tr>
+            <tr>
+                <td width="50%"  class="statement-header" align="center">
 
+                    <br>
                 </td>
-                <td width="200px" height="1px">
-                    <table width="100%" border="0" align="left">
-                        <tr>
-                            <td width="1" class="text-nowrap border-0 padding-0"><strong>ใบยืมพัสดุเลขที่</strong></td>
-                            <td class="border-0 padding-0 text-center">
-                                <?php //echo print_null($borrow->code);?>
-                                <div class="line-bottom-dashed"></div>
-                            </td>
-                        </tr>
+                <td width="50%"  class="statement-header" align="left">
+                    <table border="0" width="100%" class="statement-view text-gray-900">
+                      <tr width="100%">
+                        <td width=""></td>
+                        <td width="1" class="text-nowrap border-0 padding-0">สถาบันพัฒนาครูและบุคลากร <br>ทางการศึกษาชายแดนใต้ <br>มหาวิทยาลัมหาวิทยาลัยราชภัฏยะลา</td>
+                      </tr>
                     </table>
+                    <br>
                 </td>
             </tr>
-            <tr>
-                <td colspan="3" class="border-0">
-                    &nbsp;
-                </td>
-            </tr>
-            <tr>
-                <td colspan="3" class="statement-header" align="center">
-                    <h3>แบบฟอร์มการขอยืมพัสดุ</h3>
-                    คณะวิทยาการอิสลาม มหาวิทยาลัยสงขลานครินทร์ <br>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="3" class="text-indent-50" align="left">
-                    เพื่ออำนวยความสะดวกแก่บุคลากร คณะวิทยาการอิสลาม ในการปฏิบัติงานต่างๆ และมีความต้องการใช้พัสดุก่อน สามารถยืมพัสดุของคณะวิทยาการอิสลาม โดยกรอกแบบฟอร์มการขอยืมพัสดุข้างท้ายนี้ ส่งที่งานพัสดุ สำนักงานเลขานุการ คณะวิทยาการอิสลาม ก่อนวันที่ประสงค์จะใช้งานไม่น้อยกว่า 5 วันทำการ
-                </td>
-            </tr>
-            <tr>
-                <td colspan="3" class="border-0">
-                    &nbsp;
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2">
 
-                </td>
-                <td width="200px" height="1px">
-                    <table width="100%" border="0" align="left">
-                        <tr>
-                            <td width="1" class="text-nowrap border-0 padding-0"><strong>วันที่</strong></td>
-                            <td class="border-0 padding-0 text-center">
-                                <?php //echo print_null($borrow->created_at);?>
-                                <div class="line-bottom-dashed"></div>
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
             <tr>
-                <td colspan="3">
-                    <table width="100%" border="0">
-                        <tr>
-                            <td width="50%" class="border-0 padding-0">
-                                <table width="100%" border="0" align="left">
-                                    <tr>
-                                        <td width="1" class="text-nowrap border-0 padding-0"><strong>ชื่อ-สกุล</strong></td>
-                                        <td class="border-0 padding-0 text-center">
-                                            
-                                            <div class="line-bottom-dashed"></div>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </td>
-                            <td width="50%" class="border-0 padding-0">
-                                <table width="100%" border="0" align="right">
-                                    <tr>
-                                        <td width="1" class="text-nowrap border-0 padding-0"><strong>หน่วยงาน</strong></td>
-                                        <td class="border-0 padding-0 text-center">
-                                            <?php //echo print_null($borrow->department);?>
-                                            <div class="line-bottom-dashed"></div>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="3">
-                    <table width="100%" border="0">
-                        <tr>
-                            <td width="50%" class="border-0">
-                                <table width="100%" border="0" align="right">
-                                    <tr>
-                                        <td width="1" class="text-nowrap border-0 padding-0"><strong>เบอร์ติดต่อ</strong></td>
-                                        <td class="border-0 padding-0 text-center">
-                                            <?php //echo print_null($borrow->tel);?>
-                                            <div class="line-bottom-dashed"></div>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="3">
-                    <strong>มีความประสงค์จะขอยืมพัสดุ ดังรายการต่อไปนี้</strong>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="3">
-                    <table width="100%" border="0">
-                        <?php 
-                        //$r = 1;
-                        //foreach ($borrow->items as $index => $item) {?>
-                        <tr>
-                            <td width="80%" class="border-0 padding-0">
-                                <table width="100%" border="0" align="left">
-                                    <tr>
-                                        <td width="1" height="30" class="text-nowrap border-0 padding-0"><?php //echo ($index+1)?>&nbsp;&nbsp;</td>
-                                        <td class="border-0 padding-0">
-                                            &nbsp;&nbsp;<?php //echo $item['title'];?>
-                                            <div class="line-bottom-dashed">&nbsp;</div>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </td>
-                            <td width="20%" class="border-0 padding-0">
-                                <table width="100%" border="0" align="right">
-                                    <tr>
-                                        <td width="1" class="text-nowrap border-0 padding-0">จำนวน</td>
-                                        <td class="border-0 padding-0">
-                                            &nbsp;&nbsp;<?php //echo $item['count'];?>
-                                            <div class="line-bottom-dashed">&nbsp;</div>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr>
-                        <?php //$r+=1; }?>
+              <td colspan="2">
+              <table border="0" width="100%" class="statement-view text-gray-900">
+                <td width="50%"  class="statement-header" align="center">
 
-                        <?php //for ($i=$r; $i <= 5 ; $i++) {?>
-                        <tr>
-                            <td width="50%" class="border-0 padding-0">
-                                <table width="100%" border="0" align="left">
-                                    <tr>
-                                        <td width="1" height="30"  class="text-nowrap border-0 padding-0"><?php //echo $i;?>&nbsp;&nbsp;</td>
-                                        <td class="border-0 padding-0">
-                                            <div class="line-bottom-dashed">&nbsp;</div>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </td>
-                            <td width="50%" class="border-0 padding-0">
-                                <table width="100%" border="0" align="right">
-                                    <tr>
-                                        <td width="1" class="text-nowrap border-0 padding-0">จำนวน</td>
-                                        <td class="border-0 padding-0">
-                                            <div class="line-bottom-dashed">&nbsp;</div>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr>
-                        <?php //}?>
+                    <br>
+                </td>
+                <td width="50%"  class="statement-header" align="left">
+                  วันที่ 31 กรกฏาคม 2562
+                    <br>
+                </td>
+              </table>
+            </td>
+            </tr>
 
-                    </table>
-                </td>
-            </tr>
             <tr>
-                <td colspan="3">
-                    <table width="100%" border="0">
-                        <tr>
-                            <td width="100%" class="border-0 padding-0">
-                                <table width="100%" border="0" align="left">
-                                    <tr>
-                                        <td width="1" class="text-nowrap border-0 padding-0"><strong>วัตถุประสงค์การใช้งานเพื่อ</strong></td>
-                                        <td class="border-0 padding-0">
-                                            &nbsp;&nbsp;<?php //echo print_null($borrow->objective);?>
-                                            <div class="line-bottom-dashed">&nbsp;</div>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr>
-                    </table>
-                </td>
+              <td colspan="2">
+                เรื่อง ส่งมอบงานจ้าง
+            </td>
             </tr>
+
             <tr>
-                <td colspan="3">
-                    <table width="100%" border="0">
-                        <tr>
-                            <td width="100%" class="border-0 padding-0">
-                                <table width="100%" border="0" align="left">
-                                    <tr>
-                                        <td width="1" class="text-nowrap border-0 padding-0"><strong>วัน/เวลาที่ประสงค์จะใช้งาน </strong></td>
-                                        <td class="border-0 padding-0 text-center">
-                                            &nbsp;&nbsp;<?php //echo print_null($borrow->start_date);?>
-                                            <div class="line-bottom-dashed"></div>
-                                        </td>
-                                        <td width="1" class="text-nowrap border-0 padding-0"><strong>กำหนดส่งของวัน/เวลาที่ส่งคืน</strong></td>
-                                        <td class="border-0 padding-0 text-center">
-                                            &nbsp;&nbsp;<?php //echo print_null($borrow->return_date);?>
-                                            <div class="line-bottom-dashed"></div>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr>
-                    </table>
-                </td>
+              <td colspan="2">
+                เรียน อธิการบดีมหาวิทยาลัมหาวิทยาลัยราชภัฏยะลา
+            </td>
             </tr>
+
             <tr>
-                <td colspan="3">
-                    <table width="100%" border="0">
-                        <tr>
-                            <td width="100%" class="border-0 padding-0">
-                                <table width="100%" border="0" align="left">
-                                    <tr>
-                                        <td width="1" class="text-nowrap border-0 padding-0"><strong>เบอร์โทรศัพท์ที่สามารถติดต่อได้</strong></td>
-                                        <td class="border-0 padding-0">
-                                            &nbsp;&nbsp;<?php //echo print_null($borrow->tel);?>
-                                            <div class="line-bottom-dashed"></div>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr>
-                    </table>
-                </td>
+              <td colspan="2" class="text-indent-50" align="left">
+                ตามที่ สถาบันพัฒนาครูและบุคลากรทางการศึกษาชายแดนใต้ มหาวิทยาลัยราชภัฏยะลา ได้จ้างให้ข้าพเจ้าเป็นเจ้าหน้าที่ประจำโครงการ "ยกระดับคุณภาพการเรียนรู้ ด้านการอ่านการเขียน และการคิดวิเคราะห์ของนักเรียนในระดับการศึกษาขั้นพื้นฐานในพื้นที่ขายแดนนใต้" ตั้งแต่ วันที่ 1 กุมภาพันธ์ 2562 ถึง 30 กันยายน 2562 จำนวน 8 งวด (13,300 = 106,400บาท) เป็นเงิน 13,300 บาท รวมเป็นเงินทั้งสิ้น 13,300 บาท(หนึ่งหมื่นสามพันสามร้อยบาทถ้วน) นั้น
+            </td>
             </tr>
+
             <tr>
-                <td colspan="3">
-                    <table width="100%" border="0">
-                        <tr>
-                            <td width="100%" class="border-0 padding-0">
-                                <table width="100%" border="0" align="left">
-                                    <tr>
-                                        <td width="1" class="text-nowrap border-0 padding-0"><strong>สถานที่ ที่ประสงค์จะใช้งาน</strong></td>
-                                        <td class="border-0 padding-0">
-                                            &nbsp;&nbsp;<?php //echo print_null($borrow->location);?>
-                                            <div class="line-bottom-dashed"></div>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr>
-                    </table>
-                </td>
+              <td colspan="2" class="text-indent-50" align="left">
+                บัดนี้ ข้าพเจ้าได้ปฏิบัติงานดังกล่าวงวดที่ 6 (เดือน กรกฏาคม 2562) เสร็จเรียบร้อยแล้ว
+             </td>
             </tr>
+
             <tr>
-                <td colspan="3">
-                    <strong>หมายเหตุ</strong>
-                    <ol>
-                        <li>กรณีพัสดุที่ยืมชำรุด ผู้ยืมยินดีชำระค่าซ่อมแซมตามความเสียหายของพัสดุ</li>
-                        <li>กรณีพัสดุที่ยืมสูญหาย ผู้ยืมยินดีหาพัสดุเดียวกันมาทดแทนหรือชำระเงินตามราคาพัสดุ</li>
-                        <li>การยืม-คืน ต้องยืมและคืนที่งานพัสดุ เท่านั้น </li>
-                    </ol>
-                </td>
+              <td colspan="2" class="text-indent-50" align="left">
+                จึงเรียนมาเพื่อโปรดให้คณะกรรมการตรวจรับงานจ้างดังกล่าว ทำการตรวจรับงานจ้างและขอเบิก-จ่ายต่าจ้าง ให้กับจ้าพเจ้าต่อไปด้วย
+            </td>
             </tr>
-            <tr>
-                <td colspan="3" height="60" class="border-0">
-                    &nbsp;
-                </td>
-            </tr>
+
             <tr>
                 <td colspan="3" class="border-0 padding-0">
                     <table width="100%" border="0">
@@ -338,16 +122,20 @@ else
                             <td width="100%" class="border-0">
                                 <table width="300px" border="0" align="center">
                                     <tr>
+                                        <td colspan="3" class="border-0 padding-0" align="center">ขอแสดงความนับถือ</td>
+                                    </tr>
+                                    <tr>
                                         <td width="1" class="text-nowrap border-0 padding-0">ลงชื่อ</td>
                                         <td class="border-0 padding-0">
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                             <div class="line-bottom-dashed">&nbsp;</div>
                                         </td>
-                                        <td width="1" class="text-nowrap border-0 padding-0">ผู้ยืม</td>
+                                        <td width="1" class="text-nowrap border-0 padding-0">รับจ้าง</td>
                                     </tr>
                                     <tr>
                                         <td class="border-0 padding-0" align="right">(</td>
                                         <td align="center" class="border-0 padding-0">
-                                            <?php //echo print_null($borrow->name);?>
+
                                         </td>
                                         <td class="border-0 padding-0" align="left">)</td>
                                     </tr>
@@ -357,116 +145,42 @@ else
                     </table>
                 </td>
             </tr>
+
             <tr>
-                <td colspan="3" class="border-0">
-                    &nbsp;
-                </td>
+              <td colspan="2">
+                บันทึกรับองที่ปฏิบัติงานของผู้ควบคุมงาน
+            </td>
             </tr>
+
             <tr>
-                <td colspan="3" class="border-0 padding-0">
+              <td colspan="2" class="text-indent-50" align="left">
+                ข้าพเจ้า อาจารย์ซอและ เกปัน ตำแหน่ง ผู้อำนวยการสถาบันพัฒนาครูและบุคลากรทางการศึกษาชายแดนใต้ เป็นบุคคลที่ควบคุมการปฏิบัติงานของผู้รับจ้าง ผู้ปฏิบัติงานจ้างเหมาบริการ เจ้าหน้าที่ประจำโครงการ "ยกระดับคุณภาพการเรียนรู้ด้านการอ่าน การเขียน และการคิดวิเคราะห์ของนักเรียนในระดับ การศึกษาขั้นพื้นฐานในพื้นที่ชายแดนใต้" มหาวิทยาลุยราชภัฏยะลา ขอรับรองว่านายแวอัสรี แวมายิ ได้ปฏิบัติงานเรียบร้อยแล้วตั้งแต่วันที่ 1-31 กรกฏาคม 2562
+            </td>
+            </tr>
+
+            <tr>
+                <td colspan="3" class="border-0 padding-0" align="right">
                     <table width="100%" border="0">
                         <tr>
-                            <td width="50%" class="border-0">
-                                <strong class="d-block text-center">ความเห็นผู้รับผิดชอบพัสดุ</strong>
-                                <table width="80%" border="0" align="center">
-                                    <tr>
-                                        <td colspan="3" class="border-0">
-                                            <table border="0" align="center">
-                                                <tr>
-                                                    <td width="20" class="text-nowrap border-0 padding-0">
-                                                        <?php //echo ($borrow->status == 1) ? '&#x2611;' : '&#9744;';?>
-                                                    </td>
-                                                    <td class="text-nowrap border-0 padding-0">อนุมัติ</td>
-                                                    <td width="30">&nbsp;</td>
-                                                    <td class="text-nowrap border-0 padding-0">
-                                                    <?php //echo ($borrow->status == 0) ? '&#x2611;' : '&#9744;';?>
-                                                    </td>
-                                                    <td class="text-nowrap border-0 padding-0">ไม่อนุมัติ</td>
-                                                </tr>
-                                            </table>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="3" height="56" class="border-0">
-                                            &nbsp;
-                                        </td>
-                                    </tr>
+                            <td width="100%" class="border-0">
+                                <table width="300px" border="0" align="right">
                                     <tr>
                                         <td width="1" class="text-nowrap border-0 padding-0">ลงชื่อ</td>
                                         <td class="border-0 padding-0">
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                             <div class="line-bottom-dashed">&nbsp;</div>
                                         </td>
+                                        <td width="1" class="text-nowrap border-0 padding-0"></td>
                                     </tr>
                                     <tr>
                                         <td class="border-0 padding-0" align="right">(</td>
                                         <td align="center" class="border-0 padding-0">
-                                            นางสาวนูรไอนี หมาดหมีน
+                                      
                                         </td>
-                                        <td class="border-0 padding-0" align="left">)</td>
+                                        <td class="border-0 padding-0" align="right">)</td>
                                     </tr>
                                     <tr>
-                                        <td class="text-nowrap border-0 padding-0"></td>
-                                        <td align="center" class="border-0 padding-0">
-                                            เจ้าหน้าที่พัสดุ
-                                        </td>
-                                        <td class="border-0 padding-0" align="left"></td>
-                                    </tr>
-                                </table>
-                            </td>
-                            <td width="50%" class="border-0">
-                                <strong class="d-block text-center">ได้คืนพัสดุทั้งหมดแล้ว</strong>
-                                <table width="80%" border="0" align="center">
-                                    <tr>
-                                        <td colspan="3" height="25" class="border-0">
-                                            &nbsp;
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td width="1" class="text-nowrap border-0 padding-0">ลงชื่อ</td>
-                                        <td class="border-0 padding-0">
-                                            <div class="line-bottom-dashed">&nbsp;</div>
-                                        </td>
-                                        <td width="1" class="text-nowrap border-0 padding-0">ผู้คืน</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="border-0 padding-0" align="right">(</td>
-                                        <td align="center" class="border-0 padding-0">
-                                            <?php //echo print_null($borrow->name);?>
-                                        </td>
-                                        <td class="border-0 padding-0" align="left">)</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-nowrap border-0 padding-0">วันที่ (</td>
-                                        <td align="center" class="border-0 padding-0">
-                                            &nbsp;
-                                        </td>
-                                        <td class="border-0 padding-0" align="left">)</td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="3" class="border-0">
-                                            &nbsp;
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td width="1" class="text-nowrap border-0 padding-0">ลงชื่อ</td>
-                                        <td class="border-0 padding-0">
-                                            <div class="line-bottom-dashed">&nbsp;</div>
-                                        </td>
-                                        <td width="1" class="text-nowrap border-0 padding-0">ผู้รับคืน</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="border-0 padding-0" align="right">(</td>
-                                        <td align="center" class="border-0 padding-0">
-                                            นางสาวนูรไอนี หมาดหมีน
-                                        </td>
-                                        <td class="border-0 padding-0" align="left">)</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-nowrap border-0 padding-0">วันที่ (</td>
-                                        <td align="center" class="border-0 padding-0">
-                                            &nbsp;
-                                        </td>
-                                        <td class="border-0 padding-0" align="left">)</td>
+                                        <td colspan="3" class="border-0 padding-0" align="center">ผู้ควบคุมการปฏิบัติงาน</td>
                                     </tr>
                                 </table>
                             </td>
@@ -509,5 +223,5 @@ else
 
     <script src="<?php //echo site_common_node_modules_url('jquery/dist/jquery.min.js');?>"></script>
 </body>
-    
+
 </html>
