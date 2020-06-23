@@ -272,12 +272,14 @@ else
                             </td>
                         </tr>
                     </table>
-
                 </td>
             </tr>
-
         </table>
     </div>
+
+    <?php 
+        include 'report_lend2.php';
+    ?>
 
     <ul class="right-menu">
         <li>

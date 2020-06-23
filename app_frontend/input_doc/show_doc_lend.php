@@ -309,7 +309,48 @@ include '../../administrator/connect.php';
                                         </div>
                                     </div>
                                 </div>
+                                        <?php
+                                                    $i=1;
+                                                    $i<="";
 
+                                                    $sql ="SELECT * FROM tb_lend WHERE doc_id = '".$doc_id."' ";
+                                                    $query = mysqli_query($conn,$sql);
+                                                    while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
+                                                    {
+                                                        $date_list = $row['date_list'];
+                                                        $pay_type = $row['pay_type'];
+                                                        $price_list = $row['price_list'];
+                                                        $balance = $row['balance'];
+
+                                        ?>
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label><b>วัน/เดือน/ปี</b></label><br>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $i;?>.&nbsp;<?php echo $date_list?><br>
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label><b>การชำระ</b></label><br>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $pay_type; ?>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label><b>ราคา</b></label><br>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $price_list; ?>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label><b>ยอดคงค้าง</b></label><br>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $balance; ?>
+                                        </div>
+                                    </div>
+                                </div>
+                                                    <?php $i++; }?>
                                 <div class="row">
                                     <div class="col-md-4">
                                     </div>
