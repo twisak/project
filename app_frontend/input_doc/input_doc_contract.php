@@ -104,10 +104,10 @@ include '../../administrator/connect.php';
                                         $testid = $table_id['MaxID'];
                                                 if($testid=='')
                                                 {
-                                                    $id="D001";
+                                                    $id="C001";
                                                 }else
                                                 {
-                                                    $id="D".sprintf("%03d",$testid);
+                                                    $id="C".sprintf("%03d",$testid);
                                                 }
                                     ?>
                                     <div class="row">

@@ -12,6 +12,27 @@ else
     echo "</script>";
     echo "<meta http-equiv='refresh' content='0;url=../../administrator/logout.php'>";
 }
+
+include '../../administrator/connect.php';
+    $username= $_SESSION['username'];
+
+    $sql ="SELECT * FROM account_login WHERE username = '".$username."' ";
+    $query = mysqli_query($conn,$sql);
+    while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
+    {
+        $person_id = $row['person_id'];
+    }
+
+    $sql1 ="SELECT * FROM tb_person WHERE person_id = '".$person_id."' ";
+    $query1 = mysqli_query($conn,$sql1);
+    while($row1 = mysqli_fetch_array($query1,MYSQLI_ASSOC))
+    {
+        $prefix = $row1['prefix'];
+        $firtname = $row1['firtname'];
+        $lastname = $row1['lastname'];
+        $person_id = $row1['person_id'];
+        // $prefix = $row1['prefix'];
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -74,12 +95,26 @@ else
                             <!-- Tab panes -->
                             <div class="card-body">
                                 <form class="form-horizontal form-material" action="insert_debt.php" name="insert_debt" method="post">
-
+                                    
+                                    <?php
+                                        $sql = "Select Max(substr(doc_id,3)+1) as MaxID from tb_debt ";
+                                        $query = mysqli_query($conn,$sql);
+                                        $table_id = mysqli_fetch_assoc($query);
+                                        $testid = $table_id['MaxID'];
+                                                if($testid=='')
+                                                {
+                                                    $id="D001";
+                                                }else
+                                                {
+                                                    $id="D".sprintf("%03d",$testid);
+                                                }
+                                    ?>
                                     <div class="row">
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label>รหัสเอกสารล้างหนี้</label>
-                                                <input type="text" class="form-control form-control-line" name="doc_id">
+                                                <input type="text" value="<?=$id?>" readonly class="form-control form-control-line">
+                                                <input type="hidden" name="doc_id" value="<?=$id?>" />
                                             </div>
                                         </div>
 
@@ -92,29 +127,6 @@ else
                                     </div>
 
                                     <div class="row">
-
-                                        <?php
-                                            $sql_project = "select * from tb_project";
-                                            $query_project = mysqli_query($conn,$sql_project);
-                                            ?>
-
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label>ชื่อโครงการ</label>
-                                                <select class="form-control" name="project_id">
-                                                    <option value="">-- เลือกชื่อโครงการ --</option>
-                                                    <?php
-                                                        while($result_project=mysqli_fetch_array($query_project))
-                                                        {
-                                                        ?>
-                                                    <option value='<?php echo $result_project['project_id'];?>'><?php echo $result_project['project_name'];?></option>
-                                                    <?php
-                                                        }
-                                                        ?>
-                                                </select>
-                                            </div>
-                                        </div>
-
                                         <?php
                                             $sql_person = "select * from tb_person";
                                             $query_person = mysqli_query($conn,$sql_person);
@@ -123,17 +135,8 @@ else
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label>ชื่อบุคลากร</label>
-                                                <select class="form-control" name="person_id">
-                                                    <option value="">-- เลือกรายชื่อ --</option>
-                                                    <?php
-                                                        while($result_person=mysqli_fetch_array($query_person))
-                                                        {
-                                                        ?>
-                                                    <option value='<?php echo $result_person['person_id'];?>'><?php echo $result_person['prefix'];?><?php echo $result_person['firtname'];?>&nbsp;&nbsp;<?php echo $result_person['lastname'];?></option>
-                                                    <?php
-                                                        }
-                                                        ?>
-                                                </select>
+                                                <input type="text" value="<?php echo $prefix?><?php echo $firtname?>&nbsp;&nbsp;<?php echo $lastname?>" class="form-control form-control-line">
+                                                <input type="hidden" class="form-control" name="person_id" value="<?php echo $person_id?>">
                                             </div>
                                         </div>
 
@@ -158,8 +161,33 @@ else
                                                 </select>
                                             </div>
                                         </div>
+                                    </div>
 
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>โครงการ</label>
+                                                <select name="project_id" id="project" class="form-control">
+                                                    <option value="">เลือกโครงการ</option>
+                                                    <?php
+                                                    $sql = "SELECT * FROM tb_project";
+                                                    $query = mysqli_query($conn, $sql);
+                                                    while($result = mysqli_fetch_assoc($query)):
+                                                ?>
+                                                    <option value="<?=$result['project_id']?>"><?=$result['project_name']?></option>
+                                                    <?php endwhile; ?>
+                                                </select>
+                                            </div>
+                                        </div>
 
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="activity">ชื่อกิจกรรม</label>
+                                                <select name="activity_id" id="activity" class="form-control">
+                                                    <option value="">ชื่อกิจกรรม</option>
+                                                </select>
+                                            </div>
+                                        </div>
                                     </div>
 
                                     <div class="row">
@@ -170,34 +198,33 @@ else
                                             </div>
                                         </div>
                                     </div>
-
                                     <div class="row">
-                                        <!--
-                                            <div class="col-md-4">
+                                        <div class="col-md-6">
                                             <div class="form-group">
-                                            <label>รายการ</label>
-                                            <input type="text" class="form-control form-control-line" name="list">
-                                                </div>
+                                                <label><b>รายการได้รับเงิน</b></label>
                                             </div>
-
-                                            <div class="col-md-2">
-                                            <div class="form-group">
-                                            <label>จำนวนเงิน</label>
-                                            <input type="text" class="form-control form-control-line" name="money_num">
-                                                </div>
-                                            </div> -->
-                                        <div class="col-md-7">
-                                            <div class="form-group"><button type="button" class="btn btn-info" id="createRows_activity" value="Add">เพิ่มหัวข้อย่อย</button>&nbsp;&nbsp;<button type="button" class="btn btn-warning" id="deleteRows_activity" value="Del">ลบหัวข้อย่อย</button>&nbsp;&nbsp;<button type="button" class="btn btn-danger" id="clearRows_activity" value="Clear">ลบทั้งหมด</button></div>
                                         </div>
                                     </div>
-                                    <table width="100%" border="0" id="myTable_activity">
+                                    <div class="row">
+                                        <div class="col-md-7">
+                                            <div class="form-group">
+                                                <button type="button" class="btn btn-info btn-sm" id="createRows" value="Add">เพิ่ม</button>
+                                                &nbsp;&nbsp;<button type="button" class="btn btn-warning btn-sm" id="deleteRows" value="Del">ลบ</button>
+                                                &nbsp;&nbsp;<button type="button" class="btn btn-danger btn-sm" id="clearRows" value="Clear">ลบทั้งหมด</button>
+                                            </div>
+                                        </div>
 
-                                        <thead>
-                                        </thead>
-
-                                        <tbody></tbody>
-                                    </table>
-
+                                        <table width="100%" border="0" id="myTable">
+                                            <thead>
+                                            </thead>
+                                            <tbody></tbody>
+                                        </table>
+                                        <br />
+                                        <center>
+                                            <br>
+                                            <input type="hidden" id="hdnCount" name="hdnCount">
+                                        </center>
+                                    </div>
 
                                     <div class="row">
                                         <div class="col-md-4">
@@ -430,89 +457,18 @@ else
                                         </div>
 
                                     </div>
-
-                                    <!--
-                                    <div class="form-group">
-                                        <label class="col-md-2">Full Name</label>
-                                        <div class="col-md-2">
-                                            <input type="text" placeholder="Johnathan Doe" class="form-control form-control-line">
-                                        </div>
-
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="example-email" class="col-md-2">Email</label>
-                                        <div class="col-md-2">
-                                            <input type="email" placeholder="johnathan@admin.com" class="form-control form-control-line" name="example-email" id="example-email">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-12">Password</label>
-                                        <div class="col-md-12">
-                                            <input type="password" value="password" class="form-control form-control-line">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-12">Phone No</label>
-                                        <div class="col-md-12">
-                                            <input type="text" placeholder="123 456 7890" class="form-control form-control-line">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-12">Message</label>
-                                        <div class="col-md-12">
-                                            <textarea rows="5" class="form-control form-control-line"></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-sm-12">Select Country</label>
-                                        <div class="col-sm-12">
-                                            <select class="form-control form-control-line">
-                                                <option>London</option>
-                                                <option>India</option>
-                                                <option>Usa</option>
-                                                <option>Canada</option>
-                                                <option>Thailand</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="col-sm-12">
-                                            <button class="btn btn-success">Update Profile</button>
-                                        </div>
-                                    </div> -->
                                 </form>
                             </div>
                         </div>
                     </div>
                     <!-- Column -->
                 </div>
-                <!-- Row -->
-                <!-- ============================================================== -->
-                <!-- End PAge Content -->
-                <!-- ============================================================== -->
             </div>
-            <!-- ============================================================== -->
-            <!-- End Container fluid  -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- footer -->
-            <!-- ============================================================== -->
             <footer class="footer">
                 © 2018 Adminwrap by wrappixel.com
             </footer>
-            <!-- ============================================================== -->
-            <!-- End footer -->
-            <!-- ============================================================== -->
         </div>
-        <!-- ============================================================== -->
-        <!-- End Page wrapper  -->
-        <!-- ============================================================== -->
     </div>
-    <!-- ============================================================== -->
-    <!-- End Wrapper -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- All Jquery -->
     <!-- ============================================================== -->
     <script src="../assets/node_modules/jquery/jquery.min.js"></script>
     <!-- Bootstrap tether Core JavaScript -->
@@ -526,36 +482,55 @@ else
     <script src="../js/sidebarmenu.js"></script>
     <!--Custom JavaScript -->
     <script src="../js/custom.min.js"></script>
+     <!-- listbox 2 ชั้น -->
+     <script src="jquery-1.11.1.min.js" type="text/javascript"></script>
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    $('#project').change(function () {
+                        $.ajax({
+                            type: 'POST',
+                            data: {
+                                project: $(this).val()
+                            },
+                            url: 'select_activity.php',
+                            success: function (data) {
+                                $('#activity').html(data);
+                            }
+                        });
+                        return false;
+                    });
+                });
+            </script>
+            <!-- listbox 2 ชั้น -->
+            <script type="text/javascript">
+                    $(document).ready(function () {
+
+                        var rows = 1;
+                        $("#createRows").click(function () {
+
+
+                            var tr = "<tr>";
+                            tr = tr + "<td><div class='row'><div class='col-md-4'><div class='form-group'><label>รายการ</label><input type='text' class='form-control p_input'  name='list" + rows + "'></div></div><div class='col-md-2'><div class='form-group'><label>จำนวนเงิน</label></label><input type='text' class='form-control p_input'  name='money_num" + rows + "'></div></div></div></td>";
+                            tr = tr + "</tr>";
+                            $('#myTable > tbody:last').append(tr);
+
+                            $('#hdnCount').val(rows);
+                            rows = rows + 1;
+                        });
+
+                        $("#deleteRows").click(function () {
+                            if ($("#myTable tr").length != 1) {
+                                $("#myTable tr:last").remove();
+                            }
+                        });
+
+                        $("#clearRows").click(function () {
+                            rows = 1;
+                            $('#hdnCount').val(rows);
+                            $('#myTable > tbody:last').empty(); // remove all
+                        });
+
+                    });
+            </script>
 </body>
-
 </html>
-<script type="text/javascript">
-    $(document).ready(function () {
-
-        var rows = 1;
-        $("#createRows_activity").click(function () {
-
-
-            var tr = "<tr>";
-            tr = tr + "<td><div class='row'><div class='col-md-4'><div class='form-group'><label>รายการ</label><input type='text' class='form-control p_input'  name='list" + rows + "'></div></div><div class='col-md-2'><div class='form-group'><label>จำนวนเงิน</label></label><input type='text' class='form-control p_input'  name='money_num" + rows + "'></div></div></div></td>";
-            tr = tr + "</tr>";
-            $('#myTable_activity > tbody:last').append(tr);
-
-            $('#hdnCount_activity').val(rows);
-            rows = rows + 1;
-        });
-
-        $("#deleteRows_activity").click(function () {
-            if ($("#myTable_activity tr").length != 1) {
-                $("#myTable_activity tr:last").remove();
-            }
-        });
-
-        $("#clearRows_activity").click(function () {
-            rows = 1;
-            $('#hdnCount_activity').val(rows);
-            $('#myTable_activity > tbody:last').empty(); // remove all
-        });
-
-    });
-</script>
