@@ -244,16 +244,30 @@ else
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label>ผู้ควบคุมการปฎิบัติงาน</label>
-                                                <select name="teacher_id" class="form-control">
-                                                    <option value="">เลือกชื่ออาจารย์</option>
-                                                    <?php
-                                                        $sql = "SELECT * FROM tb_teacher";
-                                                        $query = mysqli_query($conn, $sql);
-                                                        while($result = mysqli_fetch_assoc($query)):
-                                                    ?>
-                                                    <option value="<?=$result['teacher_id']?>"><?=$result['t_firstname']?><?=$result['t_lastname']?></option>
-                                                    <?php endwhile; ?>
-                                                </select>
+                                                <select class="form-control" name="teacher_id" value="<?php echo $result_salary['teacher_id']; ?>">
+
+                                  <?php
+                                  $sql_check_teacher = "SELECT * FROM tb_teacher";
+                                  $query_check_teacher = mysqli_query($conn,$sql_check_teacher);
+
+                                  $teacher_id1 = $result_salary['teacher_id'];
+                                  while($result_check_teacher = mysqli_fetch_array($query_check_teacher))
+                                  {
+                                  if($teacher_id1 == $result_check_teacher["teacher_id"])
+                                  {
+                                  $selected_check_teacher = "selected";
+
+                                  }
+                                  else
+                                  {
+                                  $selected_check_teacher = "";
+                                  }
+                                  ?>
+                                  <option value="<?php echo $result_check_teacher["teacher_id"];?>"<?php echo $selected_check_teacher;?>><?php echo $result_check_teacher["t_firstname"]; ?>&nbsp;<?php echo $result_check_teacher["t_lastname"]; ?></option>
+                                  <?php
+                                  }
+                                  ?>
+                                  </select>
                                             </div>
                                         </div>
                                     </div>
