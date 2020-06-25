@@ -84,12 +84,13 @@ include '../../administrator/connect.php';
                                         //     $person_id = $row['person_id'];
                                         // }
 
-                                        $doc_id =$_GET['id'];
-                                        $sql ="SELECT * FROM tb_contract WHERE doc_id = '".$doc_id."'";
+                                        $id =$_GET['id'];
+                                        $sql ="SELECT * FROM tb_contract WHERE id = '".$id."'";
                                         $query = mysqli_query($conn,$sql);
                                         $num_rows = mysqli_num_rows($query);
                                         while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
                                         {
+
                                             $doc_id = $row['doc_id'];
                                             $foreword = $row['foreword'];
                                             $str_date = $row['str_date'];
@@ -289,7 +290,7 @@ include '../../administrator/connect.php';
                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $money?>
                                         </div>
                                     </div>
-                                    <?php 
+                                    <?php
                                                   $amount=$number * $money;
                                                 ?>
                                     <div class="col-md-4">
@@ -422,7 +423,7 @@ include '../../administrator/connect.php';
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group"><br>
-                                            <?php 
+                                            <?php
                                                                 $property1 = array($property);
 
                                                                   foreach ($property1 as $property1[$i]){
@@ -447,7 +448,7 @@ include '../../administrator/connect.php';
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group"><br>
-                                            <?php 
+                                            <?php
                                                                 $scope1 = array($scope);
 
                                                                   foreach ($scope1 as $scope1[$i]){
@@ -480,7 +481,7 @@ include '../../administrator/connect.php';
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group"><br>
-                                            <?php 
+                                            <?php
                                                                 $fine1 = array($fine);
 
                                                                   foreach ($fine1 as $fine1[$i]){
@@ -505,7 +506,7 @@ include '../../administrator/connect.php';
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group"><br>
-                                            <?php 
+                                            <?php
                                                                 $payment1 = array($payment);
 
                                                                   foreach ($payment1 as $payment1[$i]){
@@ -530,7 +531,7 @@ include '../../administrator/connect.php';
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group"><br>
-                                            <?php 
+                                            <?php
                                                                 $insurance1 = array($insurance);
 
                                                                   foreach ($insurance1 as $insurance1[$i]){
@@ -558,7 +559,7 @@ include '../../administrator/connect.php';
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <a href="edit_form_doc_contract.php?id=<?php echo $doc_id;?>" class="btn btn-warning btn-block">แก้ไขข้อมูลเอกสารจ้างเหมาบริการ</a>
+                                            <a href="edit_form_doc_contract.php?id=<?php echo $id;?>" class="btn btn-warning btn-block">แก้ไขข้อมูลเอกสารจ้างเหมาบริการ</a>
                                         </div>
                                     </div>
                                 </div>

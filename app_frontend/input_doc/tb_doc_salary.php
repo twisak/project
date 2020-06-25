@@ -168,7 +168,7 @@ else
                                                 <td><?php echo $prefix;?><?php echo $firtname;?><?php echo $lastname;?></td>
                                                 <td><?php echo $project_name;?></td>
                                                 <td>
-                                                <a href="show_doc_lend.php?id=<?php echo $id;?>"><button type="button" class="btn btn-info">รายละเอียด</button></a>
+                                                <a href="show_doc_salary.php?id=<?php echo $id;?>"><button type="button" class="btn btn-info">รายละเอียด</button></a>
                                                 </td>
                                                 <td><button type="button" class="btn btn-danger">ลบ</button></td>
                                             </tr>

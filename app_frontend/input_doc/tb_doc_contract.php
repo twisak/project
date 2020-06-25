@@ -135,6 +135,7 @@ else
                                             $query = mysqli_query($conn,$sql);
                                             while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
                                             {
+                                                $id = $row['id'];
                                                 $doc_id = $row['doc_id'];
                                                 $foreword = $row['foreword'];
                                                 $str_date = $row['str_date'];
@@ -168,7 +169,7 @@ else
                                                 <td><?php echo $prefix;?><?php echo $firtname;?><?php echo $lastname;?></td>
                                                 <td><?php echo $project_name;?></td>
                                                 <td>
-                                                <a href="show_doc_contract.php?id=<?php echo $doc_id;?>"><button type="button" class="btn btn-info">รายละเอียด</button></a>
+                                                <a href="show_doc_contract.php?id=<?php echo $id;?>"><button type="button" class="btn btn-info">รายละเอียด</button></a>
                                                 </td>
                                                 <td><button type="button" class="btn btn-danger">ลบ</button></td>
                                             </tr>
