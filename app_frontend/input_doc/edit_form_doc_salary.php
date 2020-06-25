@@ -58,6 +58,31 @@ else
     $query_salary = mysqli_query($conn,$sql_salary);
     $result_salary = mysqli_fetch_assoc($query_salary);
 
+    $doc_id = $result_salary['doc_id'];
+    $str_date = $result_salary['str_date'];
+    $stp_date = $result_salary['stp_date'];
+    // $project_id = $result_salary['project_id'];
+    $activity_id = $result_salary['activity_id'];
+    $person_id = $result_salary['person_id'];
+    $period = $result_salary['period'];
+    $total_amount = $result_salary['total_amount'];
+    $perform = $result_salary['perform'];
+    $month = $result_salary['month'];
+    $teacher_id = $result_salary['teacher_id'];
+    $day_work = $result_salary['day_work'];
+    $start_time = $result_salary['start_time'];
+    $end_time = $result_salary['end_time'];
+    $Job = $result_salary['Job'];
+    $part_time = $result_salary['part_time'];
+
+    $sql_person = "SELECT * FROM tb_person WHERE person_id = '".$person_id."' ";
+    $query_person = mysqli_query($conn,$sql_person);
+    $result_person = mysqli_fetch_assoc($query_person);
+
+    $prefix = $result_person['$prefix'];
+    $firtname = $result_person['firtname'];
+    $lastname = $result_person['lastname'];
+
 
 
     ?>
@@ -85,24 +110,11 @@ else
                             <!-- Tab panes -->
                             <div class="card-body">
                                 <form class="form-horizontal form-material" action="INSERT_salary.php" method="post">
-                                    <?php
-                                            $sql = "Select Max(substr(doc_id,3)+1) as MaxID from tb_salary ";
-                                            $query = mysqli_query($conn,$sql);
-                                            $table_id = mysqli_fetch_assoc($query);
-                                            $testid = $table_id['MaxID'];
-                                                    if($testid=='')
-                                                    {
-                                                        $id="S001";
-                                                    }else
-                                                    {
-                                                        $id="S".sprintf("%03d",$testid);
-                                                    }
-                                        ?>
                                     <div class="row">
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label>รหัสเอกสารเงินเดือน</label>
-                                                <input type="text" value="<?=$id?>" readonly class="form-control form-control-line">
+                                                <input type="text" value="<?php echo $doc_id; ?>" readonly class="form-control form-control-line">
                                                 <input type="hidden" name="doc_id" value="<?=$id?>" />
                                             </div>
                                         </div>
@@ -116,27 +128,62 @@ else
                                     </div>
 
                                     <div class="row">
-                                        <div class="col-md-4">
+                                        <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>โครงการ</label>
-                                                <select name="project_id" id="project" class="form-control">
-                                                    <option value="">เลือกโครงการ</option>
-                                                    <?php
-                                                        $sql = "SELECT * FROM tb_project";
-                                                        $query = mysqli_query($conn, $sql);
-                                                        while($result = mysqli_fetch_assoc($query)):
-                                                    ?>
-                                                    <option value="<?=$result['project_id']?>"><?=$result['project_name']?></option>
-                                                    <?php endwhile; ?>
-                                                </select>
+                                                <select class="form-control" name="project_id" value="<?php echo $result_salary['project_id']; ?>">
+
+                                  <?php
+                                  $sql_check_project = "SELECT * FROM tb_project";
+                                  $query_check_project = mysqli_query($conn,$sql_check_project);
+
+                                  $project_id1 = $result_salary['project_id'];
+                                  while($result_check_project = mysqli_fetch_array($query_check_project))
+                                  {
+                                  if($project_id1 == $result_check_project["project_id"])
+                                  {
+                                  $selected_check_project = "selected";
+
+                                  }
+                                  else
+                                  {
+                                  $selected_check_project = "";
+                                  }
+                                  ?>
+                                  <option value="<?php echo $result_check_project["project_id"];?>"<?php echo $selected_check_project;?>><?php echo $result_check_project["project_name"]; ?></option>
+                                  <?php
+                                  }
+                                  ?>
+                                  </select>
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="activity">ชื่อกิจกรรม</label>
-                                                <select name="activity_id" id="activity" class="form-control">
-                                                    <option value="">ชื่อกิจกรรม</option>
-                                                </select>
+                                                <select class="form-control" name="activity_id" value="<?php echo $result_salary['activity_id']; ?>">
+
+                                  <?php
+                                  $sql_check_activity = "SELECT * FROM tb_activity";
+                                  $query_check_activity = mysqli_query($conn,$sql_check_activity);
+
+                                  $activity_id1 = $result_salary['activity_id'];
+                                  while($result_check_activity = mysqli_fetch_array($query_check_activity))
+                                  {
+                                  if($activity_id1 == $result_check_activity["activity_id"])
+                                  {
+                                  $selected_check_activity = "selected";
+
+                                  }
+                                  else
+                                  {
+                                  $selected_check_activity = "";
+                                  }
+                                  ?>
+                                  <option value="<?php echo $result_check_activity["activity_id"];?>"<?php echo $selected_check_activity;?>><?php echo $result_check_activity["activity"]; ?></option>
+                                  <?php
+                                  }
+                                  ?>
+                                  </select>
                                             </div>
                                         </div>
                                     </div>
@@ -145,13 +192,13 @@ else
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label>เริ่มต้นวันที่</label>
-                                                <input type="date" class="form-control form-control-line" name="str_date">
+                                                <input type="date" class="form-control form-control-line" name="str_date" value="<?php echo $str_date; ?>">
                                             </div>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label>สิ้นสุดวันที่</label>
-                                                <input type="date" class="form-control form-control-line" name="stp_date">
+                                                <input type="date" class="form-control form-control-line" name="stp_date" value="<?php echo $stp_date; ?>">
                                             </div>
                                         </div>
                                     </div>
@@ -160,13 +207,13 @@ else
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label>งวดล่ะ</label>
-                                                <input type="text" class="form-control form-control-line" name="period">
+                                                <input type="text" class="form-control form-control-line" name="period" value="<?php echo $period; ?>">
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label>รวมเป็นเงินทั้งสิ้น</label>
-                                                <input type="text" class="form-control form-control-line" name="total_amount">
+                                                <input type="text" class="form-control form-control-line" name="total_amount" value="<?php echo $total_amount; ?>">
                                             </div>
                                         </div>
                                     </div>
@@ -175,13 +222,13 @@ else
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label>ปฎิบัติงานดังกล่าวงวดที่</label>
-                                                <input type="text" class="form-control form-control-line" name="perform">
+                                                <input type="text" class="form-control form-control-line" name="perform" value="<?php echo $perform; ?>">
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label>เดือนที่</label>
-                                                <input type="date" class="form-control form-control-line" name="month">
+                                                <input type="date" class="form-control form-control-line" name="month" value="<?php echo $month; ?>">
                                             </div>
                                         </div>
                                     </div>
