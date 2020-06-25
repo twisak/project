@@ -92,6 +92,24 @@ else
                                         $firtname = $result_person['firtname'];
                                         $lastname = $result_person['lastname'];
 
+                                        $sql_teacher = "SELECT * FROM tb_teacher WHERE teacher_id = '".$teacher_id."' ";
+                                        $query_teacher = mysqli_query($conn,$sql_teacher);
+                                        $result_teacher = mysqli_fetch_assoc($query_teacher);
+
+                                        $t_firstname = $result_teacher['t_firstname'];
+                                        $t_lastname = $result_teacher['t_lastname'];
+
+                                        $sql_project = "SELECT * FROM tb_project WHERE project_id = '".$project_id."' ";
+                                        $query_project = mysqli_query($conn,$sql_project);
+                                        $result_project = mysqli_fetch_assoc($query_project);
+
+                                        $project_name = $result_project['project_name'];
+
+                                        $sql_activity = "SELECT * FROM tb_activity WHERE activity_id = '".$activity_id."' ";
+                                        $query_activity = mysqli_query($conn,$sql_activity);
+                                        $result_activity = mysqli_fetch_assoc($query_activity);
+
+                                        $activity = $result_activity['activity'];
 
 
 
@@ -188,16 +206,16 @@ else
                                 </div>
 
                                 <div class="row">
-                                    <div class="col-md-4">
+                                    <div class="col-md-2">
                                         <div class="form-group">
-                                            <label for="activity"><b>ค่าเบี้ยเลี้ยง</b></label><br>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $allowance; ?>
+                                            <label for="activity"><b>งวดละ</b></label><br>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $period; ?>
                                         </div>
                                     </div>
                                     <div class="col-md-2">
                                         <div class="form-group">
-                                            <label for="activity"><b>ราคา</b></label><br>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $allowance_price; ?>
+                                            <label for="activity"><b>รวมเงินทั้งสิ้น</b></label><br>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $total_amount; ?>
                                         </div>
                                     </div>
                                 </div>
@@ -205,14 +223,14 @@ else
                                 <div class="row">
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="activity"><b>ค่าที่พัก</b></label><br>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $rest; ?>
+                                            <label for="activity"><b>ปฏิบัติงานดังกล่าวงวดที่</b></label><br>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $perform; ?>
                                         </div>
                                     </div>
                                     <div class="col-md-2">
                                         <div class="form-group">
-                                            <label for="activity"><b>ราคา</b></label><br>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $rest_price; ?>
+                                            <label for="activity"><b>เดือนที่</b></label><br>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $month; ?>
                                         </div>
                                     </div>
                                 </div>
@@ -220,14 +238,14 @@ else
                                 <div class="row">
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="activity"><b>ค่าพาหนะ</b></label><br>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $vehicle; ?>
+                                            <label for="activity"><b>ผู้ควบคุมปฏิบัติงาน</b></label><br>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $t_firstname; ?>&nbsp;<?php echo $t_lastname; ?>
                                         </div>
                                     </div>
                                     <div class="col-md-2">
                                         <div class="form-group">
-                                            <label for="activity"><b>ราคา</b></label><br>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $vehicle_price; ?>
+                                            <label for="activity"><b>วัน/เดือน/ปี</b></label><br>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $day_work; ?>
                                         </div>
                                     </div>
                                 </div>
@@ -235,14 +253,14 @@ else
                                 <div class="row">
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="activity"><b>ค่าลงทะเบียน</b></label><br>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $regis; ?>
+                                            <label for="activity"><b>เวลาเริ่ม</b></label><br>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $start_time; ?>
                                         </div>
                                     </div>
                                     <div class="col-md-2">
                                         <div class="form-group">
-                                            <label for="activity"><b>จำนวน/คน</b></label><br>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $regis_num; ?>
+                                            <label for="activity"><b>เวลาสิ้นสุด</b></b></label><br>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $end_time; ?>
                                         </div>
                                     </div>
                                 </div>
@@ -250,14 +268,14 @@ else
                                 <div class="row">
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="activity"><b>อื่นๆ</b></label><br>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $other; ?>
+                                            <label for="activity"><b>งานในหน้าที่</b></label><br>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $Job; ?>
                                         </div>
                                     </div>
                                     <div class="col-md-2">
                                         <div class="form-group">
-                                            <label for="activity"><b>จำนวน/คน</b></label><br>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $other_price; ?>
+                                            <label for="activity"><b>งานพิเศษ</b></label><br>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $part_time; ?>
                                         </div>
                                     </div>
                                 </div>
@@ -268,7 +286,7 @@ else
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <!-- <button type="submit" class="btn btn-warning btn-block">แก้ไขข้อมูลเอกสารสัญญายืม</button> -->
-                                            <a href="edit_form_lend.php?id=<?php echo $id; ?>" class="btn btn-warning btn-block">แก้ไขข้อมูลเอกสารสัญญายืม</a>
+                                            <a href="edit_form_doc_salary.php?id=<?php echo $id; ?>" class="btn btn-warning btn-block">แก้ไขข้อมูลเอกสารสัญญายืม</a>
                                         </div>
                                     </div>
                                 </div>
