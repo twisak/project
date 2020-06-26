@@ -5,6 +5,7 @@
     include '../../administrator/connect.php';
 
         $doc_id = $_POST['doc_id'];
+        $foreword = serialize( $_POST["foreword"] );
         $str_date = $_POST['str_date'];
         $stp_date = $_POST['stp_date'];
         $project_id = $_POST['project_id'];
@@ -44,14 +45,9 @@
         // print_r($fine);
         // print "</pre>";
 
-
-	for ($i = 1; $i<= (int)$_POST["hdnCount"];$i++){
-		if(isset($_POST["foreword$i"]))
-		{
-            $foreword = $_POST["foreword$i"];
-            //echo $foreword;
-			if($foreword != "")
-			{
+            //$foreword = $_POST["foreword$i"];
+         
+		
 				$sql = "INSERT INTO tb_contract (doc_id,foreword,str_date,stp_date,project_id,activity_id,person_id,
                                                 teacher_id,number,money,work,date_work,government,that,
                                                 c_day,title_id,people,mid_price,details,date_start,date_end,property,scope,responsible,fine,
@@ -64,9 +60,7 @@
                 //  echo $db_query;
                 //  echo "<br>";
                 //  echo "<br>";
-			}
-		}
-    }
+	
     
     if($db_query)
         {

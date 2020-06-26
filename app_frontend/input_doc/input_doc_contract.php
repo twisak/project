@@ -591,7 +591,7 @@ include '../../administrator/connect.php';
 
 
                         var tr = "<tr>";
-                        tr = tr + "<td class='col-md-8'><div class='row'><div class='col-md-8'><div class='form-group'><input type='text' class='form-control p_input' name='foreword" + rows + "'></div></div></td>";
+                        tr = tr + "<td class='col-md-8'><div class='row'><div class='col-md-8'><div class='form-group'><input type='text' class='form-control p_input' name='foreword[]" + rows + "'></div></div></td>";
                         tr = tr + "</tr>";
                         $('#myTable > tbody:last').append(tr);
 

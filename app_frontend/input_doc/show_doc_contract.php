@@ -92,7 +92,7 @@ include '../../administrator/connect.php';
                                         {
 
                                             $doc_id = $row['doc_id'];
-                                            $foreword = $row['foreword'];
+                                            $foreword = unserialize($row['foreword']);
                                             $str_date = $row['str_date'];
                                             $stp_date = $row['stp_date'];
                                             $project_id = $row['project_id'];
@@ -230,20 +230,24 @@ include '../../administrator/connect.php';
                                 <div class="row">
                                     <div class="col-md-8">
                                         <div class="form-group">
-                                            <label><b>ตัวชี้วัด</b></label><br>
-                                            <?php
-                                                    $i=1;
-                                                    $i<="";
+                                            <?php 
+                                                        $foreword1 = array($foreword);
 
-                                                    $sql ="SELECT * FROM tb_contract WHERE doc_id = '".$doc_id."' ";
-                                                    $query = mysqli_query($conn,$sql);
-                                                    while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
-                                                    {
-                                                        $foreword = $row['foreword'];
-
-                                                ?>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $i;?>.&nbsp;<?php echo $foreword?><br>
-                                            <?php $i++; }?>
+                                                        foreach ($foreword1 as $foreword1){
+                                                          $j=0;
+                                                          echo "<p><b>ตัวชี้วัด</b></p>";
+                                                          echo "<ul>";
+                                                          foreach ($foreword1 as $foreword1[$j]){
+                                                              $value = $foreword1[$j];
+                                                              //echo "<tr><td>{$value}</td></tr>";
+                                                              echo "<li>{$value}</li>";
+                                                              $j++;
+                                                          }
+                                                          echo "</ul>";
+                                                          
+                                                      }
+                                              ?>
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -426,18 +430,18 @@ include '../../administrator/connect.php';
                                             <?php
                                                                 $property1 = array($property);
 
-                                                                  foreach ($property1 as $property1[$i]){
+                                                                  foreach ($property1 as $property1){
                                                                     $j=0;
                                                                     echo "<p><b>คุณสมบัติของผู้รับจ้าง</b></p>";
                                                                     echo "<ul>";
-                                                                    foreach ($property1[$i] as $property1[$i][$j]){
-                                                                        $value = $property1[$i][$j];
+                                                                    foreach ($property1 as $property1[$j]){
+                                                                        $value = $property1[$j];
                                                                         //echo "<tr><td>{$value}</td></tr>";
                                                                         echo "<li>{$value}</li>";
                                                                         $j++;
                                                                     }
                                                                     echo "</ul>";
-                                                                    $i++;
+                                                                    
                                                                 }
                                                         ?>
                                         </div>
@@ -451,18 +455,18 @@ include '../../administrator/connect.php';
                                             <?php
                                                                 $scope1 = array($scope);
 
-                                                                  foreach ($scope1 as $scope1[$i]){
+                                                                  foreach ($scope1 as $scope1){
                                                                     $j=0;
                                                                     echo "<p><b>ขอบเขตของงานที่จ้าง</b></p>";
                                                                     echo "<ul>";
-                                                                    foreach ($scope1[$i] as $scope1[$i][$j]){
-                                                                        $value = $scope1[$i][$j];
+                                                                    foreach ($scope1 as $scope1[$j]){
+                                                                        $value = $scope1[$j];
                                                                         //echo "<tr><td>{$value}</td></tr>";
                                                                         echo "<li>{$value}</li>";
                                                                         $j++;
                                                                     }
                                                                     echo "</ul>";
-                                                                    $i++;
+                                                                    
                                                                 }
                                                         ?>
                                         </div>
@@ -484,18 +488,18 @@ include '../../administrator/connect.php';
                                             <?php
                                                                 $fine1 = array($fine);
 
-                                                                  foreach ($fine1 as $fine1[$i]){
+                                                                  foreach ($fine1 as $fine1){
                                                                     $j=0;
                                                                     echo "<p><b>ค่าปรับและค่าหักเงินค่าจ้าง</b></p>";
                                                                     echo "<ul>";
-                                                                    foreach ($fine1[$i] as $fine1[$i][$j]){
-                                                                        $value = $fine1[$i][$j];
+                                                                    foreach ($fine1 as $fine1[$j]){
+                                                                        $value = $fine1[$j];
                                                                         //echo "<tr><td>{$value}</td></tr>";
                                                                         echo "<li>{$value}</li>";
                                                                         $j++;
                                                                     }
                                                                     echo "</ul>";
-                                                                    $i++;
+                                                                    
                                                                 }
                                                         ?>
                                         </div>
@@ -509,18 +513,18 @@ include '../../administrator/connect.php';
                                             <?php
                                                                 $payment1 = array($payment);
 
-                                                                  foreach ($payment1 as $payment1[$i]){
+                                                                  foreach ($payment1 as $payment1){
                                                                     $j=0;
                                                                     echo "<p><b>เงื่อนไขการชำระเงิน</b></p>";
                                                                     echo "<ul>";
-                                                                    foreach ($payment1[$i] as $payment1[$i][$j]){
-                                                                        $value = $payment1[$i][$j];
+                                                                    foreach ($payment1 as $payment1[$j]){
+                                                                        $value = $payment1[$j];
                                                                         //echo "<tr><td>{$value}</td></tr>";
                                                                         echo "<li>{$value}</li>";
                                                                         $j++;
                                                                     }
                                                                     echo "</ul>";
-                                                                    $i++;
+                                                                    
                                                                 }
                                                         ?>
                                         </div>
@@ -534,18 +538,18 @@ include '../../administrator/connect.php';
                                             <?php
                                                                 $insurance1 = array($insurance);
 
-                                                                  foreach ($insurance1 as $insurance1[$i]){
+                                                                  foreach ($insurance1 as $insurance1){
                                                                     $j=0;
                                                                     echo "<p><b>เงื่อนไขหลักประกัน</b></p>";
                                                                     echo "<ul>";
-                                                                    foreach ($insurance1[$i] as $insurance1[$i][$j]){
-                                                                        $value = $insurance1[$i][$j];
+                                                                    foreach ($insurance1 as $insurance1[$j]){
+                                                                        $value = $insurance1[$j];
                                                                         //echo "<tr><td>{$value}</td></tr>";
                                                                         echo "<li>{$value}</li>";
                                                                         $j++;
                                                                     }
                                                                     echo "</ul>";
-                                                                    $i++;
+                                                                    
                                                                 }
                                                         ?>
                                         </div>

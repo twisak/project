@@ -15,8 +15,8 @@ else
 
 include '../../administrator/connect.php';
 
-    $id = $_GET['id'];
-    $sql_contract = "SELECT * FROM tb_contract WHERE id = '".$id."' ";
+    $idd = $_GET['id'];
+    $sql_contract = "SELECT * FROM tb_contract WHERE id = '".$idd."' ";
     $query_contract = mysqli_query($conn,$sql_contract);
     $result_contract = mysqli_fetch_assoc($query_contract);
 
@@ -54,6 +54,37 @@ include '../../administrator/connect.php';
     $prefix = $result_person['prefix'];
     $firtname = $result_person['firtname'];
     $lastname = $result_person['lastname'];
+
+    $sql = "SELECT * FROM tb_project WHERE project_id = '".$project_id."' ";
+    $query = mysqli_query($conn,$sql);
+    $result = mysqli_fetch_assoc($query);
+
+    $project_name = $result['project_name'];
+    $project_id = $result['project_id'];
+
+    $sql = "SELECT * FROM tb_activity WHERE activity_id = '".$activity_id."' ";
+    $query = mysqli_query($conn,$sql);
+    $result = mysqli_fetch_assoc($query);
+
+    $activity_id = $result['activity_id'];
+    $activity = $result['activity'];
+
+    $sql = "SELECT * FROM tb_teacher WHERE teacher_id = '".$teacher_id."' ";
+    $query = mysqli_query($conn,$sql);
+    $result = mysqli_fetch_assoc($query);
+
+    $teacher_id = $result['teacher_id'];
+    $t_firstname = $result['t_firstname'];
+    $t_lastname = $result['t_lastname'];
+    $position_id = $result['position_id'];
+
+    $sql = "SELECT * FROM tb_title WHERE title_id = '".$title_id."' ";
+    $query = mysqli_query($conn,$sql);
+    $result = mysqli_fetch_assoc($query);
+
+    $title_id = $result['title_id'];
+    $title = $result['title'];
+    $body = $result['body'];
 
 
 
@@ -122,7 +153,8 @@ include '../../administrator/connect.php';
                         <div class="card">
                             <!-- Tab panes -->
                             <div class="card-body">
-                                <form class="form-horizontal form-material" action="INSERT_contract.php" method="post">
+                                <form class="form-horizontal form-material" action="edit_doc_contract.php" method="post">
+                                <input type="hidden" name="id" value="<?php echo $idd; ?>">
                                     <div class="row">
                                         <div class="col-md-2">
                                             <div class="form-group">
@@ -145,7 +177,7 @@ include '../../administrator/connect.php';
                                             <div class="form-group">
                                                 <label>โครงการ</label>
                                                 <select name="project_id" id="project" class="form-control">
-                                                    <option value="">เลือกโครงการ</option>
+                                                    <option value="<?php echo $project_id?>"><?php echo $project_name?></option>
                                                     <?php
                                                     $sql = "SELECT * FROM tb_project";
                                                     $query = mysqli_query($conn, $sql);
@@ -161,12 +193,29 @@ include '../../administrator/connect.php';
                                             <div class="form-group">
                                                 <label for="activity">ชื่อกิจกรรม</label>
                                                 <select name="activity_id" id="activity" class="form-control">
-                                                    <option value="">ชื่อกิจกรรม</option>
+                                                    <option value="<?php echo $activity_id?>"><?php echo $activity?></option>
                                                 </select>
                                             </div>
                                         </div>
                                     </div>
+                                    <?php 
+                                        $id =$_GET['id'];
+                                        $sql ="SELECT * FROM tb_contract WHERE id = '".$id."'";
+                                        $query = mysqli_query($conn,$sql);
+                                        $num_rows = mysqli_num_rows($query);
+                                        while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
+                                        {
 
+                                            $doc_id = $row['doc_id'];
+                                            $foreword = unserialize($row['foreword']);
+                                            $property = unserialize($row['property']);
+                                            $scope = unserialize($row["scope"]);
+                                            $responsible = $row['responsible'];
+                                            $fine = unserialize($row["fine"]);
+                                            $payment = unserialize( $row["payment"] );
+                                            $insurance = unserialize( $row["insurance"] );
+                                        }
+                                    ?>
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="form-group">
@@ -187,7 +236,24 @@ include '../../administrator/connect.php';
                                         <table width="100%" border="0" id="myTable">
                                             <thead>
                                             </thead>
-                                            <tbody></tbody>
+                                            <?php
+                                                $foreword1 = array($foreword);
+
+                                                foreach ($foreword1 as $foreword1){
+                                                $j=0;
+                                                    foreach ($foreword1 as $foreword1[$j]){
+                                                    $value = $foreword1[$j];
+                                            ?>
+                                            <tbody>
+                                                <div class="col-md-7">
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control form-control-line p_input" name="foreword[]" value="<?php echo $value; ?>">
+                                                    </div>
+                                                </div>
+                                            </tbody>
+                                            <?php $j++;
+                                                    } 
+                                                    }?>
                                         </table>
                                         <br />
                                         <center>
@@ -214,7 +280,7 @@ include '../../administrator/connect.php';
                                             <div class="form-group">
                                                 <label>ผู้ควบคุมการปฎิบัติงาน</label>
                                                 <select name="teacher_id" class="form-control">
-                                                    <option value="">เลือกชื่ออาจารย์</option>
+                                                    <option value="<?php echo $teacher_id;?>"><?php echo $t_firstname;?>&nbsp;&nbsp;<?php echo $t_lastname?></option>
                                                     <?php
                                                         $sql = "SELECT * FROM tb_teacher";
                                                         $query = mysqli_query($conn, $sql);
@@ -293,7 +359,7 @@ include '../../administrator/connect.php';
                                             <div class="form-group">
                                                 <label>เรื่อง</label>
                                                 <select name="title_id" class="form-control">
-                                                    <option value="">เลือกชื่อเรื่อง</option>
+                                                    <option value="<?php echo $title_id;?>"><?php echo $title;?></option>
                                                     <?php
                                                         $sql = "SELECT * FROM tb_title";
                                                         $query = mysqli_query($conn, $sql);
@@ -330,7 +396,7 @@ include '../../administrator/connect.php';
                                             <div class="form-group">
                                                 <label>ลงชื่อ ประธานกรรมการ</label>
                                                 <select name="teacher_id" class="form-control">
-                                                    <option value="">เลือกชื่ออาจารย์</option>
+                                                    <option value="<?php echo $teacher_id;?>"><?php echo $t_firstname;?>&nbsp;&nbsp;<?php echo $t_lastname?></option>
                                                     <?php
                                                         $sql = "SELECT * FROM tb_teacher";
                                                         $query = mysqli_query($conn, $sql);
@@ -345,7 +411,7 @@ include '../../administrator/connect.php';
                                             <div class="form-group">
                                                 <label>ลงชื่อ กรรมการ</label>
                                                 <select name="teacher_id" class="form-control">
-                                                    <option value="">เลือกชื่ออาจารย์</option>
+                                                    <option value="<?php echo $teacher_id;?>"><?php echo $t_firstname;?>&nbsp;&nbsp;<?php echo $t_lastname?></option>
                                                     <?php
                                                         $sql = "SELECT * FROM tb_teacher";
                                                         $query = mysqli_query($conn, $sql);
@@ -360,7 +426,7 @@ include '../../administrator/connect.php';
                                             <div class="form-group">
                                                 <label>ลงชื่อ กรรมการและเลขานุการ</label>
                                                 <select name="teacher_id" class="form-control">
-                                                    <option value="">เลือกชื่ออาจารย์</option>
+                                                    <option value="<?php echo $teacher_id;?>"><?php echo $t_firstname;?>&nbsp;&nbsp;<?php echo $t_lastname?></option>
                                                     <?php
                                                         $sql = "SELECT * FROM tb_teacher";
                                                         $query = mysqli_query($conn, $sql);
@@ -423,11 +489,28 @@ include '../../administrator/connect.php';
                                                 &nbsp;&nbsp;<button type="button" class="btn btn-danger btn-sm" id="clearRows1" value="Clear">ลบทั้งหมด</button>
                                             </div>
                                         </div>
-
+                                        
                                         <table width="100%" border="0" id="myTable1">
-                                            <thead>
+                                            <thead> 
                                             </thead>
-                                            <tbody></tbody>
+                                            <?php
+                                                $property1 = array($property);
+
+                                                foreach ($property1 as $property1){
+                                                $j=0;
+                                                    foreach ($property1 as $property1[$j]){
+                                                    $value = $property1[$j];
+                                            ?>
+                                            <tbody>
+                                                <div class="col-md-7">
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control form-control-line p_input" name="property[]" value="<?php echo $value; ?>">
+                                                    </div>
+                                                </div>
+                                            </tbody>
+                                            <?php $j++;
+                                                    } 
+                                                    }?>
                                         </table>
                                         <br />
                                         <center>
@@ -452,8 +535,24 @@ include '../../administrator/connect.php';
                                         </div>
 
                                         <table width="100%" border="0" id="myTable2">
+                                            <?php
+                                                $scope1 = array($scope);
+
+                                                foreach ($scope1 as $scope1){
+                                                $j=0;
+                                                    foreach ($scope1 as $scope1[$j]){
+                                                    $value = $scope1[$j];
+                                            ?>
                                             <thead>
+                                                <div class="col-md-7">
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control form-control-line p_input" name="scope[]" value="<?php echo $value; ?>">
+                                                    </div>
+                                                </div>
                                             </thead>
+                                            <?php $j++;
+                                                    } 
+                                                    }?>
                                             <tbody></tbody>
                                         </table>
                                         <br />
@@ -487,8 +586,24 @@ include '../../administrator/connect.php';
                                         </div>
 
                                         <table width="100%" border="0" id="myTable3">
+                                            <?php
+                                                $fine1 = array($fine);
+
+                                                foreach ($fine1 as $fine1){
+                                                $j=0;
+                                                    foreach ($fine1 as $fine1[$j]){
+                                                    $value = $fine1[$j];
+                                            ?>
                                             <thead>
+                                                <div class="col-md-7">
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control form-control-line p_input" name="fine[]" value="<?php echo $value; ?>">
+                                                    </div>
+                                                </div>
                                             </thead>
+                                            <?php $j++;
+                                                    } 
+                                                    }?>
                                             <tbody></tbody>
                                         </table>
                                         <br />
@@ -514,8 +629,24 @@ include '../../administrator/connect.php';
                                         </div>
 
                                         <table width="100%" border="0" id="myTable4">
+                                            <?php
+                                                $payment1 = array($payment);
+
+                                                foreach ($payment1 as $payment1){
+                                                $j=0;
+                                                    foreach ($payment1 as $payment1[$j]){
+                                                    $value = $payment1[$j];
+                                            ?>
                                             <thead>
+                                                <div class="col-md-7">
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control form-control-line p_input" name="payment[]" value="<?php echo $value; ?>">
+                                                    </div>
+                                                </div>
                                             </thead>
+                                            <?php $j++;
+                                                    } 
+                                                    }?>
                                             <tbody></tbody>
                                         </table>
                                         <br />
@@ -541,8 +672,24 @@ include '../../administrator/connect.php';
                                         </div>
 
                                         <table width="100%" border="0" id="myTable5">
+                                            <?php
+                                                $insurance1 = array($insurance);
+
+                                                foreach ($insurance1 as $insurance1){
+                                                $j=0;
+                                                    foreach ($insurance1 as $insurance1[$j]){
+                                                    $value = $insurance1[$j];
+                                            ?>
                                             <thead>
+                                                <div class="col-md-7">
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control form-control-line p_input" name="insurance[]" value="<?php echo $value; ?>">
+                                                    </div>
+                                                </div>
                                             </thead>
+                                            <?php $j++;
+                                                    } 
+                                                    }?>
                                             <tbody></tbody>
                                         </table>
                                         <br />
@@ -596,6 +743,7 @@ include '../../administrator/connect.php';
             <script src="../js/custom.min.js"></script>
             <script src="../js/script.js"></script>
             <script src="http://code.jquery.com/jquery-latest.js"></script>
+                                                
             <script type="text/javascript">
                 $(document).ready(function () {
 
@@ -604,7 +752,7 @@ include '../../administrator/connect.php';
 
 
                         var tr = "<tr>";
-                        tr = tr + "<td class='col-md-8'><div class='row'><div class='col-md-8'><div class='form-group'><input type='text' class='form-control p_input' name='foreword" + rows + "'></div></div></td>";
+                        tr = tr + "<td class='col-md-8'><div class='row'><div class='col-md-8'><div class='form-group'><input type='text' class='form-control p_input' name='foreword[]" + rows + "'></div></div></td>";
                         tr = tr + "</tr>";
                         $('#myTable > tbody:last').append(tr);
 
@@ -677,6 +825,7 @@ include '../../administrator/connect.php';
 
                 });
             </script>
+            <?php ?>
             <!-- คุณสมบัติของผู้รับจ้าง -->
             <!-- ขอบเขตของงานที่จ้าง -->
             <script type="text/javascript">
