@@ -1,9 +1,9 @@
 <?php session_start();
 if($_SESSION['status'] == 'admin')
-{ 
+{
 }
 elseif($_SESSION['status'] == 'staff')
-{  
+{
 }
 else
 {
@@ -40,6 +40,9 @@ else
     <link href="../css/pages/dashboard1.css" rel="stylesheet">
     <!-- You can change the theme colors from here -->
     <link href="../css/colors/default.css" id="theme" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Prompt&display=swap" rel="stylesheet">
+    <link href="../css/google_fonts/fonts_prompt.css" rel="stylesheet" />
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -368,4 +371,3 @@ else
 </body>
 
 </html>
-
