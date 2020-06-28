@@ -95,7 +95,7 @@ include '../../administrator/connect.php';
                             <!-- Tab panes -->
                             <div class="card-body">
                                 <form class="form-horizontal form-material" action="insert_debt.php" name="insert_debt" method="post">
-                                    
+
                                     <?php
                                         $sql = "Select Max(substr(doc_id,3)+1) as MaxID from tb_debt ";
                                         $query = mysqli_query($conn,$sql);
@@ -164,7 +164,7 @@ include '../../administrator/connect.php';
                                     </div>
 
                                     <div class="row">
-                                        <div class="col-md-4">
+                                        <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>โครงการ</label>
                                                 <select name="project_id" id="project" class="form-control">
@@ -180,7 +180,7 @@ include '../../administrator/connect.php';
                                             </div>
                                         </div>
 
-                                        <div class="col-md-4">
+                                        <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="activity">ชื่อกิจกรรม</label>
                                                 <select name="activity_id" id="activity" class="form-control">

@@ -127,7 +127,7 @@ include '../../administrator/connect.php';
                                     </div>
 
                                     <div class="row">
-                                        <div class="col-md-4">
+                                        <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>โครงการ</label>
                                                 <select name="project_id" id="project" class="form-control">
@@ -142,7 +142,7 @@ include '../../administrator/connect.php';
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="activity">ชื่อกิจกรรม</label>
                                                 <select name="activity_id" id="activity" class="form-control">
@@ -166,7 +166,7 @@ include '../../administrator/connect.php';
                                             </div>
                                         </div>
                                     </div>
-                                    
+
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="form-group">
@@ -183,13 +183,13 @@ include '../../administrator/connect.php';
                                     </div>
 
                                     <div class="row">
-                                        <div class="col-md-4">
+                                        <div class="col-md-2">
                                             <div class="form-group">
                                                 <label>ปฎิบัติงานดังกล่าวงวดที่</label>
                                                 <input type="text" class="form-control form-control-line" name="perform">
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-2">
                                             <div class="form-group">
                                                 <label>เดือนที่</label>
                                                 <input type="date" class="form-control form-control-line" name="month">
@@ -267,7 +267,7 @@ include '../../administrator/connect.php';
 
                                     </div>
 
-                                    
+
                                 </form>
                             </div>
                         </div>
@@ -275,13 +275,13 @@ include '../../administrator/connect.php';
                     <!-- Column -->
                 </div>
             </div>
-            
+
             <footer class="footer">
                 © 2018 Adminwrap by wrappixel.com
             </footer>
         </div>
     </div>
-   
+
     <script src="../assets/node_modules/jquery/jquery.min.js"></script>
     <!-- Bootstrap tether Core JavaScript -->
     <script src="../assets/node_modules/bootstrap/js/popper.min.js"></script>
