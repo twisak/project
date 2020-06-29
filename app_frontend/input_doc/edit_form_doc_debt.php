@@ -300,7 +300,6 @@ include '../../administrator/connect.php';
                                                                   foreach ($money_num1 as $money_num1[$j]){
                                                                       $value1 = $money_num1[$j];
                                                                       //echo "<tr><td>{$value}</td></tr>";
-                                                                      //echo "<li>{$value}</li>";
                                                                       $j++;
                                                                   }
                                                                   //echo "</ul>";
