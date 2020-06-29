@@ -314,7 +314,7 @@ include '../../administrator/connect.php';
                                                                     foreach ($list1 as $list1[$j]){
                                                                         $value = $list1[$j];
                                                                         $value1 = $money_num1[$j];
-                                                                        echo "<tr><td><div class='row'><div class='col-md-4'><div class='form-group'><label>รายการ</label><input type='text' class='form-control p_input' value='$value' name='list[]'></div></div><div class='col-md-2'><div class='form-group'><label>จำนวนเงิน</label><input type='text' class='form-control p_input' value='$value1' name='money_num[]'></div></div></div></td></tr>";
+                                                                        echo "<tr><td class='col-md-8'><div class='row'><div class='col-md-4'><div class='form-group'><label>รายการ</label><input type='text' class='form-control p_input' value='$value' name='list[]'></div></div><div class='col-md-2'><div class='form-group'><label>จำนวนเงิน</label><input type='text' class='form-control p_input' value='$value1' name='money_num[]'></div></div></div></td></tr>";
                                                                         //echo "<li>{$value}</li>";
                                                                         $j++;
                                                                     }
@@ -607,7 +607,7 @@ include '../../administrator/connect.php';
 
 
                             var tr = "<tr>";
-                            tr = tr + "<td><div class='row'><div class='col-md-4'><div class='form-group'><label>รายการ</label><input type='text' class='form-control p_input'  name='list[]" + rows + "'></div></div><div class='col-md-2'><div class='form-group'><label>จำนวนเงิน</label></label><input type='text' class='form-control p_input'  name='money_num[]" + rows + "'></div></div></div></td>";
+                            tr = tr + "<td class='col-md-8'><div class='row'><div class='col-md-4'><div class='form-group'><label>รายการ</label><input type='text' class='form-control p_input'  name='list[]" + rows + "'></div></div><div class='col-md-2'><div class='form-group'><label>จำนวนเงิน</label></label><input type='text' class='form-control p_input'  name='money_num[]" + rows + "'></div></div></div></td>";
                             tr = tr + "</tr>";
                             $('#myTable > tbody:last').append(tr);
 
