@@ -32,6 +32,7 @@ include '../../administrator/connect.php';
         $lastname = $row1['lastname'];
         $person_id = $row1['person_id'];
         // $prefix = $row1['prefix'];
+          // $prefix = $row1['prefix'];
     }
     //echo $sql1;
 ?>
