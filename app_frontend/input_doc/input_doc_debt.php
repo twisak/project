@@ -510,7 +510,7 @@ include '../../administrator/connect.php';
 
 
                             var tr = "<tr>";
-                            tr = tr + "<td><div class='row'><div class='col-md-4'><div class='form-group'><label>รายการ</label><input type='text' class='form-control p_input'  name='list" + rows + "'></div></div><div class='col-md-2'><div class='form-group'><label>จำนวนเงิน</label></label><input type='text' class='form-control p_input'  name='money_num" + rows + "'></div></div></div></td>";
+                            tr = tr + "<td><div class='row'><div class='col-md-4'><div class='form-group'><label>รายการ</label><input type='text' class='form-control p_input'  name='list[]" + rows + "'></div></div><div class='col-md-2'><div class='form-group'><label>จำนวนเงิน</label></label><input type='text' class='form-control p_input'  name='money_num[]" + rows + "'></div></div></div></td>";
                             tr = tr + "</tr>";
                             $('#myTable > tbody:last').append(tr);
 

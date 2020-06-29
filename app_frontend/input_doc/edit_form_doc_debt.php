@@ -128,6 +128,8 @@ include '../../administrator/connect.php';
                                         $list = unserialize( $result_debt["list"] );
                                         $money_num = unserialize( $result_debt["money_num"] );
 
+                                        //echo $project_id;
+
                                         $sql1 ="SELECT * FROM tb_project WHERE project_id = '".$project_id."' ";
                                         $query1 = mysqli_query($conn,$sql1);
                                         while($row1 = mysqli_fetch_array($query1,MYSQLI_ASSOC))
@@ -135,6 +137,7 @@ include '../../administrator/connect.php';
                                             $project_name = $row1['project_name'];
                                             $project_id = $row1['project_id'];
                                         }
+                                        // echo $sql1;
 
                                         $sql3 ="SELECT * FROM tb_activity WHERE activity_id = '".$activity_id."' ";
                                         $query3 = mysqli_query($conn,$sql3);
@@ -191,36 +194,48 @@ include '../../administrator/connect.php';
                                       </div>
                                   </div>
                               </div>
-
+                              <form class="form-horizontal form-material" action="edit_debt.php" method="post">
+                              <input type="hidden" name="id" value="<?php echo $id; ?>">
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label><b><u>รหัสเอกสารล้างหนี้</u></b></label><br>
-                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $doc_id;?>
+                                                <label><b><u>รหัสเอกสารล้างหนี้</u></b></label>
+                                                <input type="text" value="<?php echo $doc_id;?>" readonly class="form-control form-control-line">
+                                                <input type="hidden" name="doc_id" value="<?php echo $doc_id;?>" />
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>ชื่อส่วนราชการผู้จัดฝึกอบรม</label><br>
-                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $name_train;?>
+                                                <input type="text" value="<?php echo $name_train;?>" class="form-control form-control-line">
+                                                <input type="hidden" name="name_train" value="<?php echo $name_train;?>" />
                                             </div>
                                         </div>
                                     </div>
 
                                     <div class="row">
-                                        <div class="col-md-12">
-                                        <div class="form-group">
-                                        <label><b>โครงการ</b></label><br>
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $project_name?>
-                                        </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-md-12">
+                                        <div class="col-md-4">
                                             <div class="form-group">
-                                                <label for="activity"><b>ชื่อกิจกรรม</b></label><br>
-                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $activity?>
+                                                <label>โครงการ</label>
+                                                <select name="project_id" id="project" class="form-control">
+                                                    <option value="<?php echo $project_id?>"><?php echo $project_name?></option>
+                                                    <?php
+                                                    $sql = "SELECT * FROM tb_project";
+                                                    $query = mysqli_query($conn, $sql);
+                                                    while($result = mysqli_fetch_assoc($query)):
+                                                ?>
+                                                    <option value="<?=$result['project_id']?>"><?=$result['project_name']?></option>
+                                                    <?php endwhile; ?>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="activity">ชื่อกิจกรรม</label>
+                                                <select name="activity_id" id="activity" class="form-control">
+                                                    <option value="<?php echo $activity_id?>"><?php echo $activity?></option>
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
@@ -229,14 +244,24 @@ include '../../administrator/connect.php';
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="activity"><b>ชื่อบุคลากร</b></label><br>
-                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $prefix; ?><?php echo $firtname; ?>&nbsp;&nbsp;<?php echo $lastname; ?>
+                                                <input type="text" value="<?php echo $prefix?><?php echo $firtname?>&nbsp;&nbsp;<?php echo $lastname?>" class="form-control form-control-line">
+                                                <input type="hidden" class="form-control" name="person_id" value="<?php echo $person_id?>">
                                             </div>
                                         </div>
 
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="activity"><b>ชื่ออาจารย์</b></label><br>
-                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $t_firstname; ?>&nbsp;&nbsp;<?php echo $t_lastname; ?>
+                                                <select name="teacher_id" class="form-control">
+                                                    <option value="<?php echo $teacher_id;?>"><?php echo $t_firstname;?>&nbsp;&nbsp;<?php echo $t_lastname?></option>
+                                                    <?php
+                                                        $sql = "SELECT * FROM tb_teacher";
+                                                        $query = mysqli_query($conn, $sql);
+                                                        while($result = mysqli_fetch_assoc($query)):
+                                                    ?>
+                                                    <option value="<?=$result['teacher_id']?>"><?=$result['t_firstname']?><?=$result['t_lastname']?></option>
+                                                    <?php endwhile; ?>
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
@@ -245,74 +270,97 @@ include '../../administrator/connect.php';
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="activity"><b>ได้รับเงินจาก</b></label><br>
-                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $money_from?>
+                                                <input type="text" value="<?php echo $money_from;?>" class="form-control form-control-line">
+                                                <input type="hidden" name="money_from" value="<?php echo $money_from;?>" />
                                             </div>
                                         </div>
                                     </div>
 
                                     <div class="row">
-                                        <div class="col-md-4">
+                                        <div class="col-md-12">
                                             <div class="form-group">
-                                                <?php
-                                                                $list1 = array($list);
-
-                                                                  foreach ($list1 as $list1){
-                                                                    $j=0;
-                                                                    echo "<p><b>รายการ</b></p>";
-                                                                    echo "<ul>";
-                                                                    foreach ($list1 as $list1[$j]){
-                                                                        $value = $list1[$j];
-                                                                        //echo "<tr><td>{$value}</td></tr>";
-                                                                        echo "<li>{$value}</li>";
-                                                                        $j++;
-                                                                    }
-                                                                    echo "</ul>";
-                                                                }
-                                                ?>
+                                                <button type="button" class="btn btn-info btn-sm" id="createRows" value="Add">เพิ่ม</button>
+                                                &nbsp;&nbsp;<button type="button" class="btn btn-warning btn-sm" id="deleteRows" value="Del">ลบ</button>
+                                                &nbsp;&nbsp;<button type="button" class="btn btn-danger btn-sm" id="clearRows" value="Clear">ลบทั้งหมด</button>
                                             </div>
                                         </div>
 
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <?php
-                                                                $money_num1 = array($money_num);
+                                        <table width="100%" border="0" id="myTable">
+                                            <thead>
+                                            
+                                                <?php //$j++; }}?>
+                                                <tr>
+                                                    <td>
+                                                        <div class='row'>
+                                                        <?php 
+                                                            $list1 = array($list);
 
-                                                                  foreach ($money_num1 as $money_num1){
-                                                                    $j=0;
-                                                                    echo "<p><b>จำนวนเงิน</b></p>";
-                                                                    echo "<ul>";
-                                                                    foreach ($money_num1 as $money_num1[$j]){
-                                                                        $value = $money_num1[$j];
-                                                                        //echo "<tr><td>{$value}</td></tr>";
-                                                                        echo "<li>{$value}</li>";
-                                                                        $j++;
-                                                                    }
-                                                                    echo "</ul>";
-                                                                }
-                                                ?>
-                                            </div>
-                                        </div>
+                                                            foreach ($list1 as $list1){
+                                                            
+                                                                foreach ($list1 as $list1){
+                                                                $value1 = $list1;
+                                                                
+                                                        ?>
+                                                            <div class='col-md-4'>
+                                                                <div class='form-group'>
+                                                                    <label>รายการ</label>
+                                                                    <input type='text' class='form-control p_input'  name='list[]' value="<?php echo $value1; ?>">
+                                                                </div>
+                                                            </div>
+                                                            <?php }}?>
+                                                            <?php 
+                                                                    $money_num1 = array($money_num);
+
+                                                                    foreach ($money_num1 as $money_num1){
+                                                                    
+                                                                        foreach ($money_num1 as $money_num1){
+                                                                        $value2 = $money_num1;
+                                                                        
+                                                            ?>
+                                                            <div class='col-md-2'>
+                                                                <div class='form-group'>
+                                                                    <label>จำนวนเงิน</label>
+                                                                    <input type='text' class='form-control p_input'  name='money_num[]' value="<?php echo $value2; ?>">
+                                                                </div>
+                                                            </div>
+                                                            <?php }}?>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                
+                                                
+                                            </thead>
+                                            <tbody></tbody>
+                                        </table>
+                                        <br />
+                                        <center>
+                                            <br>
+                                            <input type="hidden" id="hdnCount" name="hdnCount">
+                                        </center>
                                     </div>
 
                                     <div class="row">
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label for="activity"><b>สัญญายืมเลขที่</b></label><br>
-                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $lend_num; ?>
+                                                <input type="text" value="<?php echo $lend_num;?>" class="form-control form-control-line">
+                                                <input type="hidden" name="lend_num" value="<?php echo $lend_num;?>" />
                                             </div>
                                         </div>
 
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="activity"><b>ตามคำสั่ง/บันทึกที่</b></label><br>
-                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $note_that; ?>
+                                                <input type="text" value="<?php echo $note_that;?>" class="form-control form-control-line">
+                                                <input type="hidden" name="note_that" value="<?php echo $note_that;?>" />
                                             </div>
                                         </div>
 
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label for="activity"><b>ลงวันที่</b></label><br>
-                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $date_note; ?>
+                                                <input type="text" value="<?php echo $date_note;?>" class="form-control form-control-line">
+                                                <input type="hidden" name="date_note" value="<?php echo $date_note;?>" />
                                             </div>
                                         </div>
                                     </div>
@@ -321,21 +369,24 @@ include '../../administrator/connect.php';
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="activity"><b>สังกัด</b></label><br>
-                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $under; ?>
+                                                <input type="text" value="<?php echo $under;?>" class="form-control form-control-line">
+                                                <input type="hidden" name="under" value="<?php echo $under;?>" />
                                             </div>
                                         </div>
 
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="activity"><b>พร้อมด้วย</b></label><br>
-                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $along_with; ?>
+                                                <input type="text" value="<?php echo $along_with;?>" class="form-control form-control-line">
+                                                <input type="hidden" name="along_with" value="<?php echo $along_with;?>" />
                                             </div>
                                         </div>
 
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="activity"><b>ไปปฏิบัติราชการ</b></label><br>
-                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $go_practice; ?>
+                                                <input type="text" value="<?php echo $go_practice;?>" class="form-control form-control-line">
+                                                <input type="hidden" name="go_practice" value="<?php echo $go_practice;?>" />
                                             </div>
                                         </div>
                                     </div>
@@ -344,21 +395,24 @@ include '../../administrator/connect.php';
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label for="activity"><b>ออกเดือนทาง</b></label><br>
-                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $depart_from; ?>
+                                                <input type="text" value="<?php echo $depart_from;?>" class="form-control form-control-line">
+                                                <input type="hidden" name="depart_from" value="<?php echo $depart_from;?>" />
                                             </div>
                                         </div>
 
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label for="activity"><b>ตั้งแต่วันที่</b></label><br>
-                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $date_depart; ?>
+                                                <input type="text" value="<?php echo $date_depart;?>" class="form-control form-control-line">
+                                                <input type="hidden" name="date_depart" value="<?php echo $date_depart;?>" />
                                             </div>
                                         </div>
 
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label for="activity"><b>เวลา</b></label><br>
-                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $time_depart; ?>
+                                                <input type="text" value="<?php echo $time_depart;?>" class="form-control form-control-line">
+                                                <input type="hidden" name="time_depart" value="<?php echo $time_depart;?>" />
                                             </div>
                                         </div>
                                     </div>
@@ -367,21 +421,24 @@ include '../../administrator/connect.php';
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label for="activity"><b>ถึงวันที่</b></label><br>
-                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $back; ?>
+                                                <input type="text" value="<?php echo $back;?>" class="form-control form-control-line">
+                                                <input type="hidden" name="back" value="<?php echo $back;?>" />
                                             </div>
                                         </div>
 
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label for="activity"><b>ถึงวันที่</b></label><br>
-                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $date_back; ?>
+                                                <input type="text" value="<?php echo $date_back;?>" class="form-control form-control-line">
+                                                <input type="hidden" name="date_back" value="<?php echo $date_back;?>" />
                                             </div>
                                         </div>
 
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label for="activity"><b>เวลา</b></label><br>
-                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $time_back; ?>
+                                                <input type="text" value="<?php echo $time_back;?>" class="form-control form-control-line">
+                                                <input type="hidden" name="time_back" value="<?php echo $time_back;?>" />
                                             </div>
                                         </div>
                                     </div>
@@ -390,35 +447,40 @@ include '../../administrator/connect.php';
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label for="activity"><b>เบิกค่าใช้จ่ายสำหรับ</b></label><br>
-                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $open_money; ?>
+                                                <input type="text" value="<?php echo $open_money;?>" class="form-control form-control-line">
+                                                <input type="hidden" name="open_money" value="<?php echo $open_money;?>" />
                                             </div>
                                         </div>
 
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label for="activity"><b>ค่าเบี้ยเลี้ยง</b></label><br>
-                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $allowance; ?>
+                                                <input type="text" value="<?php echo $allowance;?>" class="form-control form-control-line">
+                                                <input type="hidden" name="allowance" value="<?php echo $allowance;?>" />
                                             </div>
                                         </div>
 
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label for="activity"><b>จำนวน/วัน</b></label><br>
-                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $allowance_day; ?>
+                                                <input type="text" value="<?php echo $allowance_day;?>" class="form-control form-control-line">
+                                                <input type="hidden" name="allowance_day" value="<?php echo $allowance_day;?>" />
                                             </div>
                                         </div>
 
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label for="activity"><b>วันละ/บาท</b></label><br>
-                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $allowance_price; ?>
+                                                <input type="text" value="<?php echo $allowance_price;?>" class="form-control form-control-line">
+                                                <input type="hidden" name="allowance_price" value="<?php echo $allowance_price;?>" />
                                             </div>
                                         </div>
 
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label for="activity"><b>รวมเป็น</b></label><br>
-                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $allowance_sum; ?>
+                                                <input type="text" value="<?php echo $allowance_sum;?>" class="form-control form-control-line">
+                                                <input type="hidden" name="allowance_sum" value="<?php echo $allowance_sum;?>" />
                                             </div>
                                         </div>
                                     </div>
@@ -427,14 +489,16 @@ include '../../administrator/connect.php';
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label for="activity"><b>ค่าที่พัก</b></label><br>
-                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $rest; ?>
+                                                <input type="text" value="<?php echo $rest;?>" class="form-control form-control-line">
+                                                <input type="hidden" name="rest" value="<?php echo $rest;?>" />
                                             </div>
                                         </div>
 
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label for="activity"><b>จำนวน/วัน</b></label><br>
-                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $rest_day; ?>
+                                                <input type="text" value="<?php echo $rest_day;?>" class="form-control form-control-line">
+                                                <input type="hidden" name="rest_day" value="<?php echo $rest_day;?>" />
                                             </div>
                                         </div>
 
@@ -442,7 +506,8 @@ include '../../administrator/connect.php';
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label for="activity"><b>รวมเป็น</b></label><br>
-                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $rest_sum; ?>
+                                                <input type="text" value="<?php echo $rest_sum;?>" class="form-control form-control-line">
+                                                <input type="hidden" name="rest_sum" value="<?php echo $rest_sum;?>" />
                                             </div>
                                         </div>
                                     </div>
@@ -451,14 +516,16 @@ include '../../administrator/connect.php';
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label for="activity"><b>ค่าพาหนะ</b></label><br>
-                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $vehicle; ?>
+                                                <input type="text" value="<?php echo $vehicle;?>" class="form-control form-control-line">
+                                                <input type="hidden" name="vehicle" value="<?php echo $vehicle;?>" />
                                             </div>
                                         </div>
 
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label for="activity"><b>รวมเป็น</b></label><br>
-                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $vehicle_sum; ?>
+                                                <input type="text" value="<?php echo $vehicle_sum;?>" class="form-control form-control-line">
+                                                <input type="hidden" name="vehicle_sum" value="<?php echo $vehicle_sum;?>" />
                                             </div>
                                         </div>
 
@@ -468,14 +535,16 @@ include '../../administrator/connect.php';
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label for="activity"><b>ค่าใช้จ่ายอื่นๆ</b></label><br>
-                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $other; ?>
+                                                <input type="text" value="<?php echo $other;?>" class="form-control form-control-line">
+                                                <input type="hidden" name="other" value="<?php echo $other;?>" />
                                             </div>
                                         </div>
 
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label for="activity"><b>รวมเป็น</b></label><br>
-                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $other_sum; ?>
+                                                <input type="text" value="<?php echo $other_sum;?>" class="form-control form-control-line">
+                                                <input type="hidden" name="other_sum" value="<?php echo $other_sum;?>" />
                                             </div>
                                         </div>
 
@@ -485,20 +554,27 @@ include '../../administrator/connect.php';
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label for="activity"><b>หบักฐานการจ่าย/ฉบับ</b></label><br>
-                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $document_num; ?>
+                                                <input type="text" value="<?php echo $document_num;?>" class="form-control form-control-line">
+                                                <input type="hidden" name="document_num" value="<?php echo $document_num;?>" />
                                             </div>
                                         </div>
                                     </div>
 
-                                <div class="row">
-                                    <div class="col-md-4">
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <a href="edit_form_doc_debt.php?id=<?php echo $id;?>" class="btn btn-warning btn-block">แก้ไขข้อมูลเอกสารจ้างเหมาบริการ</a>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <input type="submit" name="submit" value="บันทึก" class="btn btn-primary btn-block" />
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <button type="button" class="btn btn-danger btn-block">ยกเลิก</button>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
 
                                 </form>
 
@@ -526,35 +602,35 @@ include '../../administrator/connect.php';
     <script src="../js/script.js"></script>
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     <script type="text/javascript">
-        $(document).ready(function () {
+                    $(document).ready(function () {
 
-            var rows = 1;
-            $("#createRows").click(function () {
+                        var rows = 1;
+                        $("#createRows").click(function () {
 
 
-                var tr = "<tr>";
-                tr = tr + "<td><div class='row'><div class='col-md-4'><div class='form-group'><input type='text' class='form-control p_input' name='foreword" + rows + "'></div></div></td>";
-                tr = tr + "</tr>";
-                $('#myTable > tbody:last').append(tr);
+                            var tr = "<tr>";
+                            tr = tr + "<td><div class='row'><div class='col-md-4'><div class='form-group'><label>รายการ</label><input type='text' class='form-control p_input'  name='list[]" + rows + "'></div></div><div class='col-md-2'><div class='form-group'><label>จำนวนเงิน</label></label><input type='text' class='form-control p_input'  name='money_num[]" + rows + "'></div></div></div></td>";
+                            tr = tr + "</tr>";
+                            $('#myTable > tbody:last').append(tr);
 
-                $('#hdnCount').val(rows);
-                rows = rows + 1;
-            });
+                            $('#hdnCount').val(rows);
+                            rows = rows + 1;
+                        });
 
-            $("#deleteRows").click(function () {
-                if ($("#myTable tr").length != 1) {
-                    $("#myTable tr:last").remove();
-                }
-            });
+                        $("#deleteRows").click(function () {
+                            if ($("#myTable tr").length != 1) {
+                                $("#myTable tr:last").remove();
+                            }
+                        });
 
-            $("#clearRows").click(function () {
-                rows = 1;
-                $('#hdnCount').val(rows);
-                $('#myTable > tbody:last').empty(); // remove all
-            });
+                        $("#clearRows").click(function () {
+                            rows = 1;
+                            $('#hdnCount').val(rows);
+                            $('#myTable > tbody:last').empty(); // remove all
+                        });
 
-        });
-    </script>
+                    });
+            </script>
     <!-- listbox 2 ชั้น -->
     <script src="jquery-1.11.1.min.js" type="text/javascript"></script>
     <script type="text/javascript">

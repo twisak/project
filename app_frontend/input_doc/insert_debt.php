@@ -37,18 +37,28 @@
         $other = $_POST['other'];
         $other_sum = $_POST['other_sum'];
         $document_num = $_POST['document_num'];
+        
+        $list = serialize($_POST["list"]);
+        $money_num = serialize($_POST["money_num"]);
+
+        // print "<pre>";
+        // print_r($list);
+        // print "</pre>";
+
+        // print "<pre>";
+        // print_r($money_num);
+        // print "</pre>";
 
 
+    // for ($i = 1; $i<= (int)$_POST["hdnCount"];$i++){
+	// 	if(isset($_POST["list$i"]))
+	// 	{
+    //         $list = $_POST["list$i"];
+    //         $money_num = $_POST["money_num$i"];
+    //         //echo $money_num;
 
-    for ($i = 1; $i<= (int)$_POST["hdnCount"];$i++){
-		if(isset($_POST["list$i"]))
-		{
-            $list = $_POST["list$i"];
-            $money_num = $_POST["money_num$i"];
-            //echo $money_num;
-
-			if($list != "")
-			{
+	// 		if($list != "")
+	// 		{
                     $sql = "INSERT INTO tb_debt(doc_id, date_current, name_train, project_id, activity_id, person_id, teacher_id, 
                                                 money_from, lend_num, note_that, date_note, under, along_with, go_practice, depart_from,
                                                 date_depart, time_depart, back, date_back, time_back, open_money, allowance, allowance_day, 
@@ -64,13 +74,13 @@
                     $query = mysqli_query($conn,$sql);
 
                         
-                    // echo $sql;
-                    // echo $query;
-                    // echo "<br>";
-                    // echo "<br>";
-			}
-		}
-    }
+                    //  echo $sql;
+                    //  echo $query;
+                    //  echo "<br>";
+                    //  echo "<br>";
+	// 		}
+	// 	}
+    // }
     
 
       echo "<script>alert('บันทึกข้อมูลของท่านเรียบร้อยแล้ว')</script>";

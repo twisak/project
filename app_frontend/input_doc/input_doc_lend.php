@@ -290,7 +290,11 @@ include '../../administrator/connect.php';
 
                                     <div class="row">
                                         <div class="col-md-7">
-                                            <div class="form-group"><button type="button" class="btn btn-info" id="createRows" value="Add">เพิ่มหัวข้อย่อย</button>&nbsp;&nbsp;<button type="button" class="btn btn-warning" id="deleteRows" value="Del">ลบหัวข้อย่อย</button>&nbsp;&nbsp;<button type="button" class="btn btn-danger" id="clearRows" value="Clear">ลบทั้งหมด</button></div>
+                                            <div class="form-group">
+                                                <button type="button" class="btn btn-info" id="createRows" value="Add">เพิ่มหัวข้อย่อย</button>&nbsp;&nbsp;
+                                                <button type="button" class="btn btn-warning" id="deleteRows" value="Del">ลบหัวข้อย่อย</button>&nbsp;&nbsp;
+                                                <button type="button" class="btn btn-danger" id="clearRows" value="Clear">ลบทั้งหมด</button>
+                                            </div>
                                         </div>
                                     </div>
 

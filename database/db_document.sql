@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 22, 2020 at 10:10 PM
+-- Generation Time: Jun 29, 2020 at 05:10 PM
 -- Server version: 10.3.16-MariaDB
 -- PHP Version: 7.2.20
 
@@ -41,10 +41,8 @@ CREATE TABLE `account_login` (
 --
 
 INSERT INTO `account_login` (`id`, `person_id`, `username`, `password`, `status`) VALUES
-(1, '', '594407088', '123456', 'staff'),
-(2, '', '594407058', '123456', 'admin'),
-(23, 'PS001', 'admin', '123', 'staff'),
-(25, 'PS001', 'fa', '123', 'staff');
+(2, '', 'admin', '123456', 'admin'),
+(26, 'PS001', 'fa', '123', 'staff');
 
 -- --------------------------------------------------------
 
@@ -10158,10 +10156,7 @@ CREATE TABLE `tb_contract` (
 --
 
 INSERT INTO `tb_contract` (`id`, `doc_id`, `foreword`, `str_date`, `stp_date`, `project_id`, `activity_id`, `person_id`, `teacher_id`, `number`, `money`, `work`, `date_work`, `government`, `that`, `c_day`, `title_id`, `people`, `mid_price`, `details`, `date_start`, `date_end`, `property`, `scope`, `responsible`, `fine`, `payment`, `insurance`) VALUES
-(27, 'D001', 'จัดทำสื่อประชาสัมพันธ์', '2020-06-23', '2020-06-27', 'P004', 'A015', 'PS001', '001', '6', '2000', '2', '2020-06-23', 'ศึกษาพัฒนามหาลัย', 'อว.123.456', '2020-06-25', '004', '8', '6000', 'พัฒนาและให้บริการยืมคืน', '2020-06-23', '2020-07-04', 'a:3:{i:0;s:15:\"คนไทย\";i:1;s:34:\"อายุ 18 ขึ้นไป\";i:2;s:13:\"ป.ตรี\";}', 'a:3:{i:0;s:27:\"จัดทำสื่ง\";i:1;s:30:\"ให้คำแนะนำ\";i:2;s:45:\"ให้บริการยืมคืน\";}', 'ผู้ว่าจ้างยินยอมให้ผู้รับจ้าง', 'a:2:{i:0;s:42:\"ปรับเป็นรายวัน\";i:1;s:52:\"มาทำงานสาย โดนปรับ\";}', 'a:2:{i:0;s:33:\"ชำระเป็นงวด\";i:1;s:57:\"ใช้จ่ายในการเดินทาง\";}', 'a:2:{i:0;s:81:\"หลักประกันอย่างใดอย่างหนึ่ง\";i:1;s:81:\"ผู้ทำงานแทนต้องมีหลักประกัน\";}'),
-(28, 'D001', 'ให้คำแนะนำ', '2020-06-23', '2020-06-27', 'P004', 'A015', 'PS001', '001', '6', '2000', '2', '2020-06-23', 'ศึกษาพัฒนามหาลัย', 'อว.123.456', '2020-06-25', '004', '8', '6000', 'พัฒนาและให้บริการยืมคืน', '2020-06-23', '2020-07-04', 'a:3:{i:0;s:15:\"คนไทย\";i:1;s:34:\"อายุ 18 ขึ้นไป\";i:2;s:13:\"ป.ตรี\";}', 'a:3:{i:0;s:27:\"จัดทำสื่ง\";i:1;s:30:\"ให้คำแนะนำ\";i:2;s:45:\"ให้บริการยืมคืน\";}', 'ผู้ว่าจ้างยินยอมให้ผู้รับจ้าง', 'a:2:{i:0;s:42:\"ปรับเป็นรายวัน\";i:1;s:52:\"มาทำงานสาย โดนปรับ\";}', 'a:2:{i:0;s:33:\"ชำระเป็นงวด\";i:1;s:57:\"ใช้จ่ายในการเดินทาง\";}', 'a:2:{i:0;s:81:\"หลักประกันอย่างใดอย่างหนึ่ง\";i:1;s:81:\"ผู้ทำงานแทนต้องมีหลักประกัน\";}'),
-(29, 'D001', 'ให้บริการยืมคืน', '2020-06-23', '2020-06-27', 'P004', 'A015', 'PS001', '001', '6', '2000', '2', '2020-06-23', 'ศึกษาพัฒนามหาลัย', 'อว.123.456', '2020-06-25', '004', '8', '6000', 'พัฒนาและให้บริการยืมคืน', '2020-06-23', '2020-07-04', 'a:3:{i:0;s:15:\"คนไทย\";i:1;s:34:\"อายุ 18 ขึ้นไป\";i:2;s:13:\"ป.ตรี\";}', 'a:3:{i:0;s:27:\"จัดทำสื่ง\";i:1;s:30:\"ให้คำแนะนำ\";i:2;s:45:\"ให้บริการยืมคืน\";}', 'ผู้ว่าจ้างยินยอมให้ผู้รับจ้าง', 'a:2:{i:0;s:42:\"ปรับเป็นรายวัน\";i:1;s:52:\"มาทำงานสาย โดนปรับ\";}', 'a:2:{i:0;s:33:\"ชำระเป็นงวด\";i:1;s:57:\"ใช้จ่ายในการเดินทาง\";}', 'a:2:{i:0;s:81:\"หลักประกันอย่างใดอย่างหนึ่ง\";i:1;s:81:\"ผู้ทำงานแทนต้องมีหลักประกัน\";}'),
-(30, 'D001', 'จัดกา วิเคราะห์ คัดเลือก', '2020-06-23', '2020-06-27', 'P004', 'A015', 'PS001', '001', '6', '2000', '2', '2020-06-23', 'ศึกษาพัฒนามหาลัย', 'อว.123.456', '2020-06-25', '004', '8', '6000', 'พัฒนาและให้บริการยืมคืน', '2020-06-23', '2020-07-04', 'a:3:{i:0;s:15:\"คนไทย\";i:1;s:34:\"อายุ 18 ขึ้นไป\";i:2;s:13:\"ป.ตรี\";}', 'a:3:{i:0;s:27:\"จัดทำสื่ง\";i:1;s:30:\"ให้คำแนะนำ\";i:2;s:45:\"ให้บริการยืมคืน\";}', 'ผู้ว่าจ้างยินยอมให้ผู้รับจ้าง', 'a:2:{i:0;s:42:\"ปรับเป็นรายวัน\";i:1;s:52:\"มาทำงานสาย โดนปรับ\";}', 'a:2:{i:0;s:33:\"ชำระเป็นงวด\";i:1;s:57:\"ใช้จ่ายในการเดินทาง\";}', 'a:2:{i:0;s:81:\"หลักประกันอย่างใดอย่างหนึ่ง\";i:1;s:81:\"ผู้ทำงานแทนต้องมีหลักประกัน\";}');
+(33, 'fa', 'a:4:{i:0;s:15:\"ไอสัส\";i:1;s:21:\"ไอเหี้ย\";i:2;s:18:\"ไอควาย\";i:3;s:15:\"ไอโง่\";}', '2020-06-27', '2020-06-28', 'P003', 'A010', 'PS001', '001', '6', '2000', '2', '2020-06-27', 'ศึกษาพัฒนามหาลัย', 'อว.123.456', '2020-06-27', '004', '8', '6000', 'พ่อมึงตาย', '2020-06-27', '2020-06-29', 'a:2:{i:0;s:18:\"พ่อมึง\";i:1;s:18:\"แม่มึง\";}', 'a:2:{i:0;s:27:\"ฆ่าพ่อมึง\";i:1;s:27:\"ฆ่าแม่มึง\";}', 'ฆ่าให้ได้', 'a:2:{i:0;s:21:\"ความตาย\";i:1;s:18:\"ประหาร\";}', 'a:1:{i:0;s:39:\"โอนอย่างเดียว\";}', 'a:2:{i:0;s:39:\"ต้องฆ่าให้ได้\";i:1;s:81:\"ผู้ทำงานแทนต้องมีหลักประกัน\";}');
 
 -- --------------------------------------------------------
 
@@ -10171,10 +10166,11 @@ INSERT INTO `tb_contract` (`id`, `doc_id`, `foreword`, `str_date`, `stp_date`, `
 
 CREATE TABLE `tb_debt` (
   `id` int(11) NOT NULL COMMENT 'ออโต้ไอดี',
-  `doc_id` int(11) DEFAULT NULL COMMENT 'รหัสเอกสารล้างหนี้	',
+  `doc_id` varchar(11) DEFAULT NULL COMMENT 'รหัสเอกสารล้างหนี้	',
   `date_current` date DEFAULT NULL COMMENT 'วัน/เดือน/ปี',
   `name_train` varchar(100) DEFAULT NULL COMMENT 'ชื่อส่วนราชการผู้จัดฝึกอบรม',
   `project_id` varchar(20) DEFAULT NULL COMMENT 'รหัสโครงการ',
+  `activity_id` varchar(20) NOT NULL COMMENT 'รหัสกิจกรรม	',
   `person_id` varchar(20) DEFAULT NULL COMMENT 'รหัสบุคลากร',
   `teacher_id` varchar(200) DEFAULT NULL COMMENT 'ไอดีอาจารย์',
   `money_from` varchar(100) DEFAULT NULL COMMENT 'ได้รับเงินจาก',
@@ -10203,8 +10199,17 @@ CREATE TABLE `tb_debt` (
   `vehicle_sum` varchar(200) DEFAULT NULL COMMENT 'รวมค่าพาหนะ',
   `other` varchar(200) DEFAULT NULL COMMENT 'ค่าใช้จ่ายอื่นๆ',
   `other_sum` varchar(200) DEFAULT NULL COMMENT 'รวมค่าใช้จ่ายอื่นๆ',
-  `document_num` varchar(20) DEFAULT NULL COMMENT 'จำนวนเอกสารกี่ฉบับ'
+  `document_num` varchar(20) DEFAULT NULL COMMENT 'จำนวนเอกสารกี่ฉบับ',
+  `list` varchar(200) NOT NULL COMMENT 'รายการรับเงิน',
+  `money_num` varchar(200) NOT NULL COMMENT 'จำนวนรับเงิน'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `tb_debt`
+--
+
+INSERT INTO `tb_debt` (`id`, `doc_id`, `date_current`, `name_train`, `project_id`, `activity_id`, `person_id`, `teacher_id`, `money_from`, `money_from_id`, `lend_num`, `note_that`, `date_note`, `under`, `along_with`, `go_practice`, `depart_from`, `date_depart`, `time_depart`, `back`, `date_back`, `time_back`, `open_money`, `allowance`, `allowance_day`, `allowance_price`, `allowance_sum`, `rest`, `rest_day`, `rest_sum`, `vehicle`, `vehicle_sum`, `other`, `other_sum`, `document_num`, `list`, `money_num`) VALUES
+(20, 'D001', '2020-06-29', 'ชื่อส่วนราชการผู้จัดฝึกอบรม', 'P003', 'A010', 'PS001', '001', 'วค', NULL, '12.23', 'อว.123', '2020-06-29', 'บ้านบ้า', 'คนโง่', 'ที่บ้าน', 'สำนักงาน', '2020-06-29', '18:00', 'บ้านพัก', '2020-06-30', '20:00', 'คณะเดินทาง', 'นศ', '2', '500', '1000', 'โรงแรง', '2', '1000', 'รถมหาลัย', '2000', '', '', '12354', 'a:5:{i:0;s:21:\"ค่าจ้าง\";i:1;s:27:\"ค่าที่พัก\";i:2;s:24:\"ค่าอาหาร\";i:3;s:15:\"ค่ารถ\";i:4;s:30:\"ค่าเดิมทาง\";}', 'a:5:{i:0;s:3:\"100\";i:1;s:3:\"500\";i:2;s:3:\"150\";i:3;s:4:\"2000\";i:4;s:4:\"3000\";}');
 
 -- --------------------------------------------------------
 
@@ -10230,8 +10235,20 @@ CREATE TABLE `tb_lend` (
   `regis` varchar(100) DEFAULT NULL COMMENT 'ลงทะเบียน',
   `regis_num` varchar(3) DEFAULT NULL COMMENT 'จำนวนคน',
   `other` varchar(200) DEFAULT NULL COMMENT 'อื่นๆ',
-  `other_price` varchar(10) DEFAULT NULL COMMENT 'ราคาอื่นๆ'
+  `other_price` varchar(10) DEFAULT NULL COMMENT 'ราคาอื่นๆ',
+  `date_list` date NOT NULL COMMENT 'วัน/เดือน/ปี',
+  `pay_type` varchar(50) NOT NULL COMMENT 'การชำระ',
+  `price_list` varchar(20) NOT NULL COMMENT 'ราคา',
+  `balance` varchar(20) NOT NULL COMMENT 'ยอดคงค้าง'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `tb_lend`
+--
+
+INSERT INTO `tb_lend` (`id`, `doc_id`, `str_date`, `stp_date`, `project_id`, `person_id`, `teacher_id`, `activity_id`, `allowance`, `allowance_price`, `rest`, `rest_price`, `vehicle`, `vehicle_price`, `regis`, `regis_num`, `other`, `other_price`, `date_list`, `pay_type`, `price_list`, `balance`) VALUES
+(12, 'L001', '2020-06-24', '2020-06-25', 'P003', 'PS001', '001', 'A010', 'นศ', '200', 'โรงแรง', '2000', 'รถมหาลัย', '800', '100', '100', '', '', '2020-06-24', 'เงินสด', '1000', ''),
+(13, 'L001', '2020-06-24', '2020-06-25', 'P003', 'PS001', '001', 'A010', 'นศ', '200', 'โรงแรง', '2000', 'รถมหาลัย', '800', '100', '100', '', '', '2020-06-24', 'เงินสด', '2000', '');
 
 -- --------------------------------------------------------
 
@@ -10335,7 +10352,7 @@ CREATE TABLE `tb_person` (
 --
 
 INSERT INTO `tb_person` (`id`, `person_id`, `prefix`, `firtname`, `lastname`, `idcard`, `position_id`, `house_num`, `road`, `village`, `alley`, `province_id`, `districts_id`, `amphures_id`) VALUES
-(18, 'PS001', 'นางสาว', 'ฟาตีเมาะ', 'กามา', '1234567891234', '001', '81/9', NULL, NULL, NULL, '74', '940103', '965');
+(19, 'PS001', 'นางสาว', 'ฟาตีเมาะ', 'กามา', '1234567891234', '001', '85', NULL, NULL, NULL, '75', '950106', '977');
 
 -- --------------------------------------------------------
 
@@ -10354,9 +10371,13 @@ CREATE TABLE `tb_position` (
 --
 
 INSERT INTO `tb_position` (`id`, `position_id`, `position_name`) VALUES
-(1, '001', 'ศาสตราจารย์'),
-(2, '002', 'รองศาสตราจารย์'),
-(3, '003', 'ดร.');
+(4, '001', 'นักศึกษา'),
+(5, '002', 'รองอธิการบดีฝ่ายวิจัยและพัฒนาท'),
+(6, '003', 'ผู้อำนวยการสถาบันพัฒนาครู'),
+(7, '004', 'หัวหน้างานบริหารทั่วไป'),
+(8, '005', 'หัวหน้างานพัฒสื่อและนวัฒกรรมทา'),
+(9, '006', 'นักวิชาการศึกษา'),
+(10, '007', 'เจ้าหน้าที่ประสานโครงการ');
 
 -- --------------------------------------------------------
 
@@ -10668,7 +10689,7 @@ ALTER TABLE `tb_title`
 -- AUTO_INCREMENT for table `account_login`
 --
 ALTER TABLE `account_login`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้ไอดี', AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้ไอดี', AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `amphures`
@@ -10704,19 +10725,19 @@ ALTER TABLE `tb_budget`
 -- AUTO_INCREMENT for table `tb_contract`
 --
 ALTER TABLE `tb_contract`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้ไอดี', AUTO_INCREMENT=31;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้ไอดี', AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `tb_debt`
 --
 ALTER TABLE `tb_debt`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้ไอดี', AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้ไอดี', AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `tb_lend`
 --
 ALTER TABLE `tb_lend`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้ไอดี', AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้ไอดี', AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `tb_listlend`
@@ -10746,13 +10767,13 @@ ALTER TABLE `tb_note`
 -- AUTO_INCREMENT for table `tb_person`
 --
 ALTER TABLE `tb_person`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้', AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้', AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `tb_position`
 --
 ALTER TABLE `tb_position`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้ไอดี', AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้ไอดี', AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `tb_product`

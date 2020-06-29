@@ -104,6 +104,8 @@
                         </li>
                         <li> <a class="waves-effect waves-dark" href="../teacher/tb_teacher.php" aria-expanded="false"><i class="fa fa-bookmark-o"></i><span class="hide-menu">จัดการข้อมูลอาจารย์</span></a>
                         </li>
+                        <li> <a class="waves-effect waves-dark" href="../position/tb_position.php" aria-expanded="false"><i class="fa fa-bookmark-o"></i><span class="hide-menu">จัดการข้อมูลตำแหน่ง</span></a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link waves-effect waves-dark collapsed" href="#" data-toggle="collapse" data-target="#collapseA" aria-expanded="false" aria-controls="collapseA">
                                 <i class="fa fa-sun-o"></i>
