@@ -126,6 +126,7 @@ include '../../administrator/connect.php';
                                         $document_num = $result_debt['document_num'];
 
                                         $list = unserialize( $result_debt["list"] );
+
                                         $money_num = unserialize( $result_debt["money_num"] );
 
                                         //echo $project_id;
@@ -287,19 +288,18 @@ include '../../administrator/connect.php';
 
                                         <table width="100%" border="0" id="myTable">
                                             <thead>
-                                            
+
                                                 <?php //$j++; }}?>
                                                 <tr>
                                                     <td>
                                                         <div class='row'>
-                                                        <?php 
+                                                        <?php
                                                             $list1 = array($list);
 
                                                             foreach ($list1 as $list1){
-                                                            
+
                                                                 foreach ($list1 as $list1){
                                                                 $value1 = $list1;
-                                                                
                                                         ?>
                                                             <div class='col-md-4'>
                                                                 <div class='form-group'>
@@ -308,14 +308,14 @@ include '../../administrator/connect.php';
                                                                 </div>
                                                             </div>
                                                             <?php }}?>
-                                                            <?php 
+                                                            <?php
                                                                     $money_num1 = array($money_num);
 
                                                                     foreach ($money_num1 as $money_num1){
-                                                                    
+
                                                                         foreach ($money_num1 as $money_num1){
                                                                         $value2 = $money_num1;
-                                                                        
+
                                                             ?>
                                                             <div class='col-md-2'>
                                                                 <div class='form-group'>
@@ -327,8 +327,8 @@ include '../../administrator/connect.php';
                                                         </div>
                                                     </td>
                                                 </tr>
-                                                
-                                                
+
+
                                             </thead>
                                             <tbody></tbody>
                                         </table>
