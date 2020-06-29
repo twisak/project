@@ -72,7 +72,7 @@ include '../../administrator/connect.php';
             <p class="loader__label">Admin Wrap</p>
         </div>
     </div>
-    <?php include '../menu/menu_admin.php'; ?>
+    <?php //include '../menu/menu_admin.php'; ?>
     <div id="main-wrapper">
                                     <?php
                                         include '../../administrator/connect.php';
@@ -128,7 +128,7 @@ include '../../administrator/connect.php';
                                         $list = unserialize( $result_debt["list"] );
                                         $money_num = unserialize( $result_debt["money_num"] );
 
-                                        //echo $project_id;
+                                        // echo $list;
 
                                         $sql1 ="SELECT * FROM tb_project WHERE project_id = '".$project_id."' ";
                                         $query1 = mysqli_query($conn,$sql1);
@@ -287,46 +287,45 @@ include '../../administrator/connect.php';
 
                                         <table width="100%" border="0" id="myTable">
                                             <thead>
-                                            
-                                                <?php //$j++; }}?>
-                                                <tr>
-                                                    <td>
                                                         <div class='row'>
-                                                        <?php 
-                                                            $list1 = array($list);
-
-                                                            foreach ($list1 as $list1){
-                                                            
-                                                                foreach ($list1 as $list1){
-                                                                $value1 = $list1;
-                                                                
-                                                        ?>
-                                                            <div class='col-md-4'>
+                                                        <div class='col-md-4'>
                                                                 <div class='form-group'>
-                                                                    <label>รายการ</label>
-                                                                    <input type='text' class='form-control p_input'  name='list[]' value="<?php echo $value1; ?>">
-                                                                </div>
-                                                            </div>
-                                                            <?php }}?>
-                                                            <?php 
-                                                                    $money_num1 = array($money_num);
+                                                         <?php
+                                                                $money_num1 = array($money_num);
 
-                                                                    foreach ($money_num1 as $money_num1){
+                                                                foreach ($money_num1 as $money_num1){
+                                                                  $j=0;
+                                                                  //echo "<p><b>ขอบเขตของงานที่จ้าง</b></p>";
+                                                                  //echo "<ul>";
+                                                                  foreach ($money_num1 as $money_num1[$j]){
+                                                                      $value1 = $money_num1[$j];
+                                                                      //echo "<tr><td>{$value}</td></tr>";
+                                                                      //echo "<li>{$value}</li>";
+                                                                      $j++;
+                                                                  }
+                                                                  //echo "</ul>";
+                                                                  
+                                                              }
+
+                                                                $list1 = array($list);
+
+                                                                  foreach ($list1 as $list1){
+                                                                    $j=0;
                                                                     
-                                                                        foreach ($money_num1 as $money_num1){
-                                                                        $value2 = $money_num1;
-                                                                        
-                                                            ?>
-                                                            <div class='col-md-2'>
-                                                                <div class='form-group'>
-                                                                    <label>จำนวนเงิน</label>
-                                                                    <input type='text' class='form-control p_input'  name='money_num[]' value="<?php echo $value2; ?>">
-                                                                </div>
-                                                            </div>
-                                                            <?php }}?>
+                                                                    foreach ($list1 as $list1[$j]){
+                                                                        $value = $list1[$j];
+                                                                        $value1 = $money_num1[$j];
+                                                                        echo "<tr><td><div class='row'><div class='col-md-4'><div class='form-group'><label>รายการ</label><input type='text' class='form-control p_input' value='$value' name='list[]'></div></div><div class='col-md-2'><div class='form-group'><label>จำนวนเงิน</label><input type='text' class='form-control p_input' value='$value1' name='money_num[]'></div></div></div></td></tr>";
+                                                                        //echo "<li>{$value}</li>";
+                                                                        $j++;
+                                                                    }
+                                                                    
+                                                                    
+                                                                }
+                                                            
+                                                        ?>
                                                         </div>
-                                                    </td>
-                                                </tr>
+                                                            </div>
                                                 
                                                 
                                             </thead>
