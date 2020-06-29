@@ -29,21 +29,21 @@
     $price_list = serialize( $_POST["price_list"] );
     $balance = serialize( $_POST["balance"] );
 
-        print "<pre>";
-        print_r($date_list);
-        print "</pre>";
+        // print "<pre>";
+        // print_r($date_list);
+        // print "</pre>";
 
-        print "<pre>";
-        print_r($pay_type);
-        print "</pre>";
+        // print "<pre>";
+        // print_r($pay_type);
+        // print "</pre>";
 
-        print "<pre>";
-        print_r($price_list);
-        print "</pre>";
+        // print "<pre>";
+        // print_r($price_list);
+        // print "</pre>";
 
-        print "<pre>";
-        print_r($balance);
-        print "</pre>";
+        // print "<pre>";
+        // print_r($balance);
+        // print "</pre>";
 
 
     // for ($i = 1; $i<= (int)$_POST["hdnCount"];$i++){
@@ -64,18 +64,18 @@
                                         '$allowance_price','$rest','$rest_price','$vehicle','$vehicle_price','$regis','$regis_num',
                                         '$other','$other_price','$date_list','$pay_type','$price_list','$balance')";
                 
-                //$query = mysqli_query($conn,$sql);
-                 echo $sql;
-                // echo $query;
-                 echo "<br>";
+                $query = mysqli_query($conn,$sql);
+                //  echo $sql;
+                //  echo $query;
+                //  echo "<br>";
                 //echo $query;
 
     //         }
     //     }
     // }
 
-    //   echo "<script>alert('บันทึกข้อมูลของท่านเรียบร้อยแล้ว')</script>";
-    //   echo "<script>window.location='tb_doc_lend.php'</script>";
+      echo "<script>alert('บันทึกข้อมูลของท่านเรียบร้อยแล้ว')</script>";
+      echo "<script>window.location='tb_doc_lend.php'</script>";
 
 ?>
 </body>

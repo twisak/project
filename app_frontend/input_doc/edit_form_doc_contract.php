@@ -236,26 +236,24 @@ include '../../administrator/connect.php';
                                         <table width="100%" border="0" id="myTable">
                                             <thead>
                                             </thead>
-                                            <?php
-                                                $foreword1 = array($foreword);
-
-                                                foreach ($foreword1 as $foreword1){
-                                                $j=0;
-                                                    foreach ($foreword1 as $foreword1[$j]){
-                                                    $value = $foreword1[$j];
-                                            ?>
                                             <tbody>
-                                                <div class="col-md-7">
-                                                    <div class="form-group">
-                                                        <input type="text" class="form-control form-control-line p_input" name="foreword[]" value="<?php echo $value; ?>">
-                                                    </div>
-                                                </div>
+                                                        <?php 
+                                                             $foreword1 = array($foreword);
+
+                                                             foreach ($foreword1 as $foreword1){
+                                                                 $j=0;
+                                                                 
+                                                                 foreach ($foreword1 as $foreword1[$j]){
+                                                                     $value = $foreword1[$j];
+                                                                     echo "<tr><td class='col-md-8'><div class='row'><div class='col-md-8'><div class='form-group'><input type='text' class='form-control p_input' value='$value' name='foreword[]'></div></div></td></tr>";
+                                                                     //echo "<li>{$value}</li>";
+                                                                     $j++;
+                                                                 }
+                                                                 
+                                                             }
+                                                        ?>
                                             </tbody>
-                                            <?php $j++;
-                                                    } 
-                                                    }?>
                                         </table>
-                                        <br />
                                         <center>
                                             <br>
                                             <input type="hidden" id="hdnCount" name="hdnCount">
@@ -493,26 +491,23 @@ include '../../administrator/connect.php';
                                         <table width="100%" border="0" id="myTable1">
                                             <thead> 
                                             </thead>
-                                            <?php
-                                                $property1 = array($property);
-
-                                                foreach ($property1 as $property1){
-                                                $j=0;
-                                                    foreach ($property1 as $property1[$j]){
-                                                    $value = $property1[$j];
-                                            ?>
                                             <tbody>
-                                                <div class="col-md-7">
-                                                    <div class="form-group">
-                                                        <input type="text" class="form-control form-control-line p_input" name="property[]" value="<?php echo $value; ?>">
-                                                    </div>
-                                                </div>
+                                                        <?php 
+                                                             $property1 = array($property);
+
+                                                             foreach ($property1 as $property1){
+                                                                 $j=0;
+                                                                 
+                                                                 foreach ($property1 as $property1[$j]){
+                                                                     $value = $property1[$j];
+                                                                     echo "<tr><td class='col-md-8'><div class='row'><div class='col-md-8'><div class='form-group'><input type='text' class='form-control p_input' value='$value' name='property[]'></div></div></td></tr>";
+                                                                     //echo "<li>{$value}</li>";
+                                                                     $j++;
+                                                                 }
+                                                             }
+                                                        ?>
                                             </tbody>
-                                            <?php $j++;
-                                                    } 
-                                                    }?>
                                         </table>
-                                        <br />
                                         <center>
                                             <br>
                                             <input type="hidden" id="hdnCount1" name="hdnCount1">
@@ -535,29 +530,26 @@ include '../../administrator/connect.php';
                                         </div>
 
                                         <table width="100%" border="0" id="myTable2">
-                                            <?php
-                                                $scope1 = array($scope);
-
-                                                foreach ($scope1 as $scope1){
-                                                $j=0;
-                                                    foreach ($scope1 as $scope1[$j]){
-                                                    $value = $scope1[$j];
-                                            ?>
                                             <thead>
-                                                <div class="col-md-7">
-                                                    <div class="form-group">
-                                                        <input type="text" class="form-control form-control-line p_input" name="scope[]" value="<?php echo $value; ?>">
-                                                    </div>
-                                                </div>
+                                                        <?php 
+                                                             $scope1 = array($scope);
+
+                                                             foreach ($scope1 as $scope1){
+                                                                 $j=0;
+                                                                 
+                                                                 foreach ($scope1 as $scope1[$j]){
+                                                                     $value = $scope1[$j];
+                                                                     echo "<tr><td class='col-md-8'><div class='row'><div class='col-md-8'><div class='form-group'><input type='text' class='form-control form-control-line p_input' name='scope[]' value='$value'></div></div></td></tr>";
+                                                                     //echo "<li>{$value}</li>";
+                                                                     $j++;
+                                                                 }
+                                                                 
+                                                             }
+                                                        ?>
                                             </thead>
-                                            <?php $j++;
-                                                    } 
-                                                    }?>
                                             <tbody></tbody>
                                         </table>
-                                        <br />
                                         <center>
-                                            <br>
                                             <input type="hidden" id="hdnCount2" name="hdnCount1">
                                         </center>
                                     </div>
@@ -586,29 +578,25 @@ include '../../administrator/connect.php';
                                         </div>
 
                                         <table width="100%" border="0" id="myTable3">
-                                            <?php
-                                                $fine1 = array($fine);
-
-                                                foreach ($fine1 as $fine1){
-                                                $j=0;
-                                                    foreach ($fine1 as $fine1[$j]){
-                                                    $value = $fine1[$j];
-                                            ?>
                                             <thead>
-                                                <div class="col-md-7">
-                                                    <div class="form-group">
-                                                        <input type="text" class="form-control form-control-line p_input" name="fine[]" value="<?php echo $value; ?>">
-                                                    </div>
-                                                </div>
+                                                        <?php 
+                                                             $fine1 = array($fine);
+
+                                                             foreach ($fine1 as $fine1){
+                                                                 $j=0;
+                                                                 
+                                                                 foreach ($fine1 as $fine1[$j]){
+                                                                     $value = $fine1[$j];
+                                                                     echo "<tr><td class='col-md-8'><div class='row'><div class='col-md-8'><div class='form-group'><input type='text' class='form-control p_input' value='$value' name='fine[]'></div></div></td></tr>";
+                                                                     //echo "<li>{$value}</li>";
+                                                                     $j++;
+                                                                 }
+                                                             }
+                                                            ?>
                                             </thead>
-                                            <?php $j++;
-                                                    } 
-                                                    }?>
                                             <tbody></tbody>
                                         </table>
-                                        <br />
                                         <center>
-                                            <br>
                                             <input type="hidden" id="hdnCount3" name="hdnCount3">
                                         </center>
                                     </div>
@@ -629,29 +617,25 @@ include '../../administrator/connect.php';
                                         </div>
 
                                         <table width="100%" border="0" id="myTable4">
-                                            <?php
-                                                $payment1 = array($payment);
-
-                                                foreach ($payment1 as $payment1){
-                                                $j=0;
-                                                    foreach ($payment1 as $payment1[$j]){
-                                                    $value = $payment1[$j];
-                                            ?>
                                             <thead>
-                                                <div class="col-md-7">
-                                                    <div class="form-group">
-                                                        <input type="text" class="form-control form-control-line p_input" name="payment[]" value="<?php echo $value; ?>">
-                                                    </div>
-                                                </div>
+                                                        <?php 
+                                                             $payment1 = array($payment);
+
+                                                             foreach ($payment1 as $payment1){
+                                                                 $j=0;
+                                                                 
+                                                                 foreach ($payment1 as $payment1[$j]){
+                                                                     $value = $payment1[$j];
+                                                                     echo "<tr><td class='col-md-8'><div class='row'><div class='col-md-8'><div class='form-group'><input type='text' class='form-control p_input' value='$value' name='payment[]'></div></div></td></tr>";
+                                                                     //echo "<li>{$value}</li>";
+                                                                     $j++;
+                                                                 }
+                                                             }
+                                                            ?>
                                             </thead>
-                                            <?php $j++;
-                                                    } 
-                                                    }?>
                                             <tbody></tbody>
                                         </table>
-                                        <br />
                                         <center>
-                                            <br>
                                             <input type="hidden" id="hdnCount4" name="hdnCount4">
                                         </center>
                                     </div>
@@ -672,29 +656,25 @@ include '../../administrator/connect.php';
                                         </div>
 
                                         <table width="100%" border="0" id="myTable5">
-                                            <?php
-                                                $insurance1 = array($insurance);
-
-                                                foreach ($insurance1 as $insurance1){
-                                                $j=0;
-                                                    foreach ($insurance1 as $insurance1[$j]){
-                                                    $value = $insurance1[$j];
-                                            ?>
                                             <thead>
-                                                <div class="col-md-7">
-                                                    <div class="form-group">
-                                                        <input type="text" class="form-control form-control-line p_input" name="insurance[]" value="<?php echo $value; ?>">
-                                                    </div>
-                                                </div>
+                                                        <?php 
+                                                             $insurance1 = array($insurance);
+
+                                                             foreach ($insurance1 as $insurance1){
+                                                                 $j=0;
+                                                                 
+                                                                 foreach ($insurance1 as $insurance1[$j]){
+                                                                     $value = $insurance1[$j];
+                                                                     echo "<tr><td class='col-md-8'><div class='row'><div class='col-md-8'><div class='form-group'><input type='text' class='form-control p_input' value='$value' name='insurance[]'></div></div></td></tr>";
+                                                                     //echo "<li>{$value}</li>";
+                                                                     $j++;
+                                                                 }
+                                                             }
+                                                            ?>
                                             </thead>
-                                            <?php $j++;
-                                                    } 
-                                                    }?>
                                             <tbody></tbody>
                                         </table>
-                                        <br />
                                         <center>
-                                            <br>
                                             <input type="hidden" id="hdnCount5" name="hdnCount5">
                                         </center>
                                     </div>

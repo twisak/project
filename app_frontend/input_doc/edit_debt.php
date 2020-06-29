@@ -50,13 +50,13 @@
         $list = serialize( $_POST["list"] );
         $money_num = serialize( $_POST["money_num"] );
 
-         print "<pre>";
-         print_r($list);
-         print "</pre>";
+        //  print "<pre>";
+        //  print_r($list);
+        //  print "</pre>";
 
-         print "<pre>";
-         print_r($money_num);
-         print "</pre>";
+        //  print "<pre>";
+        //  print_r($money_num);
+        //  print "</pre>";
 
     // if($foreword != "")
     // {
@@ -104,9 +104,9 @@
                                                 money_num        = '".$money_num."'
                               WHERE id = '".$id."'";
                      $db_query = mysqli_query($conn,$sql);
-                     echo $sql;
-                     echo $db_query;
-                     echo "<br>";
+                    //  echo $sql;
+                    //  echo $db_query;
+                    //  echo "<br>";
     
 
         echo "<script>alert('แก้ไขข้อมูลเรียบร้อย')</script>";

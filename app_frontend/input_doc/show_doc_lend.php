@@ -108,6 +108,11 @@ include '../../administrator/connect.php';
                                             $regis_num = $row['regis_num'];
                                             $other = $row['other'];
                                             $other_price = $row['other_price'];
+
+                                            $date_list = unserialize( $row["date_list"] );
+                                            $pay_type = unserialize( $row["pay_type"] );
+                                            $price_list = unserialize( $row["price_list"] );
+                                            $balance = unserialize( $row["balance"] );
                                         }
 
                                         $sql1 ="SELECT * FROM tb_project WHERE project_id = '".$project_id."' ";
@@ -310,47 +315,97 @@ include '../../administrator/connect.php';
                                     </div>
                                 </div>
                                         <?php
-                                                    $i=1;
-                                                    $i<="";
-
-                                                    $sql ="SELECT * FROM tb_lend WHERE doc_id = '".$doc_id."' ";
-                                                    $query = mysqli_query($conn,$sql);
-                                                    while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
-                                                    {
-                                                        $date_list = $row['date_list'];
-                                                        $pay_type = $row['pay_type'];
-                                                        $price_list = $row['price_list'];
-                                                        $balance = $row['balance'];
-
+                                                    //  $i=1;
+                                                    //  $i<="";
                                         ?>
                                 <div class="row">
                                     <div class="col-md-2">
                                         <div class="form-group">
-                                            <label><b>วัน/เดือน/ปี</b></label><br>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $i;?>.&nbsp;<?php echo $date_list?><br>
+                                            <!-- <label><b>วัน/เดือน/ปี</b></label><br> -->
+                                            <!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php //echo $i;?>.&nbsp;<?php //echo $date_list?><br> -->
+
+                                            <?php
+                                                                $date_list1 = array($date_list);
+
+                                                                  foreach ($date_list1 as $date_list1){
+                                                                    $j=0;
+                                                                    echo "<p><b>รายการ</b></p>";
+                                                                    echo "<ul>";
+                                                                    foreach ($date_list1 as $date_list1[$j]){
+                                                                        $value = $date_list1[$j];
+                                                                        //echo "<tr><td>{$value}</td></tr>";
+                                                                        echo "<li>{$value}</li>";
+                                                                        $j++;
+                                                                    }
+                                                                    echo "</ul>";
+                                                                }
+                                                ?>
                                             
                                         </div>
                                     </div>
                                     <div class="col-md-2">
                                         <div class="form-group">
-                                            <label><b>การชำระ</b></label><br>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $pay_type; ?>
+                                            <?php
+                                                                $pay_type1 = array($pay_type);
+
+                                                                  foreach ($pay_type1 as $pay_type1){
+                                                                    $j=0;
+                                                                    echo "<p><b>การชำระ</b></p>";
+                                                                    echo "<ul>";
+                                                                    foreach ($pay_type1 as $pay_type1[$j]){
+                                                                        $value = $pay_type1[$j];
+                                                                        //echo "<tr><td>{$value}</td></tr>";
+                                                                        echo "{$value}<br>";
+                                                                        $j++;
+                                                                    }
+                                                                    echo "</ul>";
+                                                                }
+                                                ?>
                                         </div>
                                     </div>
                                     <div class="col-md-2">
                                         <div class="form-group">
-                                            <label><b>ราคา</b></label><br>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $price_list; ?>
+                                            <?php
+                                                                $price_list1 = array($price_list);
+
+                                                                  foreach ($price_list1 as $price_list1){
+                                                                    $j=0;
+                                                                    echo "<p><b>ราคา</b></p>";
+                                                                    echo "<ul>";
+                                                                    foreach ($price_list1 as $price_list1[$j]){
+                                                                        $value = $price_list1[$j];
+                                                                        //echo "<tr><td>{$value}</td></tr>";
+                                                                        echo "{$value}<br>";
+                                                                        $j++;
+                                                                    }
+                                                                    echo "</ul>";
+                                                                }
+                                                ?>
+
                                         </div>
                                     </div>
                                     <div class="col-md-2">
                                         <div class="form-group">
-                                            <label><b>ยอดคงค้าง</b></label><br>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $balance; ?>
+                                            <?php
+                                                                $balance1 = array($balance);
+
+                                                                  foreach ($balance1 as $balance1){
+                                                                    $j=0;
+                                                                    echo "<p><b>ยอดคงค้าง</b></p>";
+                                                                    echo "<ul>";
+                                                                    foreach ($balance1 as $balance1[$j]){
+                                                                        $value = $balance1[$j];
+                                                                        //echo "<tr><td>{$value}</td></tr>";
+                                                                        echo "{$value}<br>";
+                                                                        $j++;
+                                                                    }
+                                                                    echo "</ul>";
+                                                                }
+                                                ?>
                                         </div>
                                     </div>
                                 </div>
-                                                    <?php $i++; }?>
+                                                    <?php //$i++; //}?>
                                 <div class="row">
                                     <div class="col-md-4">
                                     </div>
