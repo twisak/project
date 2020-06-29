@@ -128,7 +128,7 @@ include '../../administrator/connect.php';
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-md-4">
+                                        <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>โครงการ</label>
                                                 <select name="project_id" id="project" class="form-control">
@@ -144,7 +144,7 @@ include '../../administrator/connect.php';
                                             </div>
                                         </div>
 
-                                        <div class="col-md-4">
+                                        <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="activity">ชื่อกิจกรรม</label>
                                                 <select name="activity_id" id="activity" class="form-control">
@@ -241,7 +241,7 @@ include '../../administrator/connect.php';
                                                 <input type="text" class="form-control form-control-line" name="work">
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-2">
                                             <div class="form-group">
                                                 <label>วันที่ปฎิบัติงาน</label>
                                                 <input type="date" class="form-control form-control-line" name="date_work">
@@ -793,7 +793,7 @@ include '../../administrator/connect.php';
                 });
             </script>
             <!-- เงื่อนไขหลักประกัน -->
-            
+
 </body>
 
 </html>
