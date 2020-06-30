@@ -69,11 +69,12 @@ else
     $perform = $result_salary['perform'];
     $month = $result_salary['month'];
     $teacher_id = $result_salary['teacher_id'];
-    $day_work = $result_salary['day_work'];
-    $start_time = $result_salary['start_time'];
-    $end_time = $result_salary['end_time'];
-    $Job = $result_salary['Job'];
-    $part_time = $result_salary['part_time'];
+
+    $day_work = unserialize( $result_salary["day_work"] );
+    $start_time = unserialize( $result_salary["start_time"] );
+    $end_time = unserialize( $result_salary["end_time"] );
+    $Job = unserialize( $result_salary["Job"] );
+    $part_time = unserialize( $result_salary["part_time"] );
 
     $sql_person = "SELECT * FROM tb_person WHERE person_id = '".$person_id."' ";
     $query_person = mysqli_query($conn,$sql_person);
@@ -287,6 +288,77 @@ else
                                     <table width="100%" border="0" id="myTable">
 
                                     <thead>
+
+
+                                      <div class='row'>
+                                      <div class='col-md-4'>
+                                              <div class='form-group'>
+                                       <?php
+                                              $start_time1 = array($start_time);
+                                              foreach ($start_time1 as $start_time1){
+                                                $j=0;
+
+                                                foreach ($start_time1 as $start_time1[$j]){
+                                                    $value_start_time1 = $start_time1[$j];
+                                                    $j++;
+                                                }
+
+                                            }
+
+                                            $end_time1 = array($end_time);
+                                            foreach ($end_time1 as $end_time1){
+                                              $j=0;
+
+                                              foreach ($end_time1 as $end_time1[$j]){
+                                                  $value_end_time1 = $end_time1[$j];
+                                                  $j++;
+                                              }
+                                          }
+
+                                          $Job1 = array($Job);
+                                          foreach ($Job1 as $Job1){
+                                            $j=0;
+
+                                            foreach ($Job1 as $Job1[$j]){
+                                                $value_Job1 = $Job1[$j];
+                                                $j++;
+                                            }
+                                        }
+
+                                        $part_time1 = array($part_time);
+                                        foreach ($part_time1 as $part_time1){
+                                          $j=0;
+
+                                          foreach ($part_time1 as $part_time1[$j]){
+                                              $value_part_time1 = $part_time1[$j];
+                                              $j++;
+                                          }
+                                      }
+
+                                              $day_work1 = array($day_work);
+
+                                                foreach ($day_work1 as $day_work1){
+                                                  $j=0;
+
+                                                  foreach ($day_work1 as $day_work1[$j]){
+                                                      $value_day_work1 = $day_work1[$j];
+                                                      $value_start_time1 = $start_time1[$j];
+                                                      $value_end_time1 = $end_time1[$j];
+                                                      $value_Job1 = $Job1[$j];
+                                                      $value_part_time1 = $part_time[$j];
+                                                      echo "<tr><td><div class='row'><div class='col-md-2'><div class='form-group'><label>วัน/เดือน/ปี</label><input type='date' class='form-control p_input' value='$value_day_work1' name='day_work[]'></div></div><div class='col-md-2'><div class='form-group'><label>เริ่มเวลา</label><input type='time' class='form-control p_input' value='$value_start_time1'  name='start_time[]'></div></div><div class='col-md-2'><div class='form-group'><label>เวลาสิ้นสุด</label><input type='time' class='form-control p_input' value='$value_end_time1'  name='end_time[]'></div></div><div class='col-md-6'><div class='form-group'><label>งานในหน้าที่</label><input type='text' class='form-control p_input' value='$value_Job1'  name='Job[]'></div></div><div class='col-md-6'><div class='form-group'><label>งานพิเศษ</label><input type='text' class='form-control p_input' value='$value_part_time1'  name='part_time[]'></div></div></div></td></tr>";
+                                                      //echo "<li>{$value}</li>";
+                                                      $j++;
+                                                  }
+
+
+                                              }
+
+                                      ?>
+                                      </div>
+                                          </div>
+
+
                                     </thead>
 
                                     <tbody></tbody>

@@ -78,11 +78,12 @@ else
                                         $perform = $result_salary['perform'];
                                         $month = $result_salary['month'];
                                         $teacher_id = $result_salary['teacher_id'];
-                                        $day_work = $result_salary['day_work'];
-                                        $start_time = $result_salary['start_time'];
-                                        $end_time = $result_salary['end_time'];
-                                        $Job = $result_salary['Job'];
-                                        $part_time = $result_salary['part_time'];
+
+                                        $day_work = unserialize( $result_salary["day_work"] );
+                                        $start_time = unserialize( $result_salary["start_time"] );
+                                        $end_time = unserialize( $result_salary["end_time"] );
+                                        $Job = unserialize( $result_salary["Job"] );
+                                        $part_time = unserialize( $result_salary["part_time"] );
 
                                         $sql_person = "SELECT * FROM tb_person WHERE person_id = '".$person_id."' ";
                                         $query_person = mysqli_query($conn,$sql_person);
@@ -242,30 +243,112 @@ else
                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $t_firstname; ?>&nbsp;<?php echo $t_lastname; ?>
                                         </div>
                                     </div>
+                                </div>
+
+                                <div class="row">
+                                  <div class="col-md-2">
+                                      <div class="form-group">
+                                        <?php
+                                                        $day_work1 = array($day_work);
+
+                                                          foreach ($day_work1 as $day_work1){
+                                                            $j=0;
+                                                            echo "<p><b>วัน/เดือน/ปี</b></p>";
+                                                            echo "<ul>";
+                                                            foreach ($day_work1 as $day_work1[$j]){
+                                                                $value_daywork1 = $day_work1[$j];
+                                                                //echo "<tr><td>{$value}</td></tr>";
+                                                                echo "<li>{$value_daywork1}</li>";
+                                                                $j++;
+                                                            }
+                                                            echo "</ul>";
+                                                        }
+                                        ?>
+                                      </div>
+                                  </div>
                                     <div class="col-md-2">
                                         <div class="form-group">
-                                            <label for="activity"><b>วัน/เดือน/ปี</b></label><br>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $day_work; ?>
+                                          <?php
+                                                          $start_time1 = array($start_time);
+
+                                                            foreach ($start_time1 as $start_time1){
+                                                              $j=0;
+                                                              echo "<p><b>เวลาเริ่ม</b></p>";
+                                                              echo "<ul>";
+                                                              foreach ($start_time1 as $start_time1[$j]){
+                                                                  $value_start_time1 = $start_time1[$j];
+                                                                  //echo "<tr><td>{$value}</td></tr>";
+                                                                  echo "<li>{$value_start_time1}</li>";
+                                                                  $j++;
+                                                              }
+                                                              echo "</ul>";
+                                                          }
+                                          ?>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                          <?php
+                                                          $end_time1 = array($end_time);
+
+                                                            foreach ($end_time1 as $end_time1){
+                                                              $j=0;
+                                                              echo "<p><b>เวลาสิ้นสุด</b></p>";
+                                                              echo "<ul>";
+                                                              foreach ($end_time1 as $end_time1[$j]){
+                                                                  $value_end_time1 = $end_time1[$j];
+                                                                  //echo "<tr><td>{$value}</td></tr>";
+                                                                  echo "<li>{$value_end_time1}</li>";
+                                                                  $j++;
+                                                              }
+                                                              echo "</ul>";
+                                                          }
+                                          ?>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                          <?php
+                                                          $Job1 = array($Job);
+
+                                                            foreach ($Job1 as $Job1){
+                                                              $j=0;
+                                                              echo "<p><b>งานในหน้าที่</b></p>";
+                                                              echo "<ul>";
+                                                              foreach ($Job1 as $Job1[$j]){
+                                                                  $value_Job1 = $Job1[$j];
+                                                                  //echo "<tr><td>{$value}</td></tr>";
+                                                                  echo "<li>{$value_Job1}</li>";
+                                                                  $j++;
+                                                              }
+                                                              echo "</ul>";
+                                                          }
+                                          ?>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                          <?php
+                                                          $part_time1 = array($part_time);
+
+                                                            foreach ($part_time1 as $part_time1){
+                                                              $j=0;
+                                                              echo "<p><b>งานพิเศษ</b></p>";
+                                                              echo "<ul>";
+                                                              foreach ($part_time1 as $part_time1[$j]){
+                                                                  $value_part_time1 = $part_time1[$j];
+                                                                  //echo "<tr><td>{$value}</td></tr>";
+                                                                  echo "<li>{$value_part_time1}</li>";
+                                                                  $j++;
+                                                              }
+                                                              echo "</ul>";
+                                                          }
+                                          ?>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label for="activity"><b>เวลาเริ่ม</b></label><br>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $start_time; ?>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <div class="form-group">
-                                            <label for="activity"><b>เวลาสิ้นสุด</b></b></label><br>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $end_time; ?>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row">
+                                <!-- <div class="row">
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="activity"><b>งานในหน้าที่</b></label><br>
@@ -278,7 +361,7 @@ else
                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $part_time; ?>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
 
                                 <div class="row">
                                     <div class="col-md-4">
