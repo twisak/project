@@ -110,13 +110,13 @@ else
                         <div class="card">
                             <!-- Tab panes -->
                             <div class="card-body">
-                                <form class="form-horizontal form-material" action="INSERT_salary.php" method="post">
+                                <form class="form-horizontal form-material" action="edit_salary.php" method="post">
+                                  <input type="hidden" name="id" value="<?=$id?>" />
                                     <div class="row">
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label>รหัสเอกสารเงินเดือน</label>
                                                 <input type="text" value="<?php echo $doc_id; ?>" readonly class="form-control form-control-line">
-                                                <input type="hidden" name="doc_id" value="<?=$id?>" />
                                             </div>
                                         </div>
                                         <div class="col-md-4">
@@ -205,13 +205,13 @@ else
                                     </div>
 
                                     <div class="row">
-                                        <div class="col-md-4">
+                                        <div class="col-md-2">
                                             <div class="form-group">
                                                 <label>งวดล่ะ</label>
                                                 <input type="text" class="form-control form-control-line" name="period" value="<?php echo $period; ?>">
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-2">
                                             <div class="form-group">
                                                 <label>รวมเป็นเงินทั้งสิ้น</label>
                                                 <input type="text" class="form-control form-control-line" name="total_amount" value="<?php echo $total_amount; ?>">

@@ -222,7 +222,7 @@ else
                                 </div>
 
                                 <div class="row">
-                                    <div class="col-md-4">
+                                    <div class="col-md-2">
                                         <div class="form-group">
                                             <label for="activity"><b>ปฏิบัติงานดังกล่าวงวดที่</b></label><br>
                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $perform; ?>
@@ -236,6 +236,12 @@ else
                                     </div>
                                 </div>
 
+                                <!-- <div class="row">
+                                    <div class="col-md-4">
+                                      <label for="activity"><b>บันทึกรับรองที่ปฎิบัติงานของผู้ควมคุมงาน</b></label><br>
+                                    </div>
+                                </div> -->
+
                                 <div class="row">
                                     <div class="col-md-4">
                                         <div class="form-group">
@@ -244,6 +250,8 @@ else
                                         </div>
                                     </div>
                                 </div>
+
+                                <hr>
 
                                 <div class="row">
                                   <div class="col-md-2">

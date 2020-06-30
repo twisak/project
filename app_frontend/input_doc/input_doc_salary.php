@@ -168,13 +168,13 @@ include '../../administrator/connect.php';
                                     </div>
 
                                     <div class="row">
-                                        <div class="col-md-4">
+                                        <div class="col-md-2">
                                             <div class="form-group">
                                                 <label>งวดล่ะ</label>
                                                 <input type="text" class="form-control form-control-line" name="period">
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-2">
                                             <div class="form-group">
                                                 <label>รวมเป็นเงินทั้งสิ้น</label>
                                                 <input type="text" class="form-control form-control-line" name="total_amount">
