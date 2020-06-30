@@ -81,6 +81,7 @@ else
                         $str_date = $row['str_date'];
                         $stp_date = $row['stp_date'];
                         $project_id = $row['project_id'];
+                        $activity_id = $row['activity_id'];
                         $person_id = $row['person_id'];
                         $allowance = $row['allowance'];
                         $allowance_price = $row['allowance_price'];
@@ -92,6 +93,11 @@ else
                         $regis_num = $row['regis_num'];
                         $other = $row['other'];
                         $other_price = $row['other_price'];
+
+                        $date_list = unserialize( $row["date_list"] );
+                        $pay_type = unserialize( $row["pay_type"] );
+                        $price_list = unserialize( $row["price_list"] );
+                        $balance = unserialize( $row["balance"] );
                     }
 
                     $sql1 ="SELECT * FROM tb_project WHERE project_id = '".$project_id."' ";
@@ -102,10 +108,11 @@ else
                         $project_id = $row1['project_id'];
                     }
 
-                    $sql3 ="SELECT * FROM tb_activity WHERE project_id = '".$project_id."' ";
+                    $sql3 ="SELECT * FROM tb_activity WHERE activity_id = '".$activity_id."' ";
                     $query3 = mysqli_query($conn,$sql3);
                     while($row3 = mysqli_fetch_array($query3,MYSQLI_ASSOC))
                     {
+                        $activity_id = $row3['activity_id'];
                         $activity = $row3['activity'];
                     }
 
@@ -170,79 +177,19 @@ else
                                     </div>
 
                                     <div class="row">
-                                    <?php
-                                        $sql_person = "select * from tb_person";
-                                        $query_person = mysqli_query($conn,$sql_person);
-                                    ?>
+                                        <?php
+                                            $sql_person = "select * from tb_person";
+                                            $query_person = mysqli_query($conn,$sql_person);
+                                        ?>
 
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label>ชื่อบุคลากร</label>
-                                                <select class="form-control" name="person_id" value="<?php echo $row['person_id']; ?>">
-
-                                                    <?php
-                                                        $sql_check_person = "SELECT * FROM tb_person";
-                                                        $query_check_person = mysqli_query($conn,$sql_check_person);
-
-                                                        $person_id1 = $row['person_id'];
-                                                        while($result_check_person = mysqli_fetch_array($query_check_person))
-                                                        {
-                                                        if($person_id1 == $result_check_person["person_id"])
-                                                        {
-                                                        $selected_check_person = "selected";
-
-                                                        }
-                                                        else
-                                                        {
-                                                        $selected_check_person = "";
-                                                        }
-                                                        ?>
-                                                    <option value="<?php echo $result_check_person["person_id"];?>" <?php echo $selected_check_person;?>><?php echo $result_check_person["prefix"]; ?><?php echo $result_check_person["firtname"]; ?>&nbsp;&nbsp;<?php echo $result_check_person["lastname"]; ?></option>
-                                                    <?php
-                                                        }
-                                                        ?>
-                                                </select>
+                                                <input type="text" value="<?php echo $prefix?><?php echo $firtname?>&nbsp;&nbsp;<?php echo $lastname?>" class="form-control form-control-line">
+                                                <input type="hidden" class="form-control" name="person_id" value="<?php echo $person_id?>">
                                             </div>
                                         </div>
 
-                                        <?php
-                                            $sql_project = "select * from tb_project";
-                                            $query_project = mysqli_query($conn,$sql_project);
-                                            ?>
-
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label>ชื่อโครงการ</label>
-                                                <select class="form-control" name="project_id" value="<?php echo $row['project_id']; ?>">
-
-                                                    <?php
-                                                        $sql_check_project = "SELECT * FROM tb_project";
-                                                        $query_check_project = mysqli_query($conn,$sql_check_project);
-
-                                                        $project_id1 = $row['project_id'];
-                                                        while($result_check_project = mysqli_fetch_array($query_check_project))
-                                                        {
-                                                        if($project_id1 == $result_check_project["project_id"])
-                                                        {
-                                                        $selected_check_project = "selected";
-
-                                                        }
-                                                        else
-                                                        {
-                                                        $selected_check_project = "";
-                                                        }
-                                                        ?>
-                                                    <option value="<?php echo $result_check_project["project_id"];?>" <?php echo $selected_check_project;?>><?php echo $result_check_project["project_name"]; ?></option>
-                                                    <?php
-                                                        }
-                                                        ?>
-                                                </select>
-                                            </div>
-                                        </div>
-
-                                    </div>
-
-                                    <div class="row">
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label>ชื่ออาจารย์</label>
@@ -272,7 +219,35 @@ else
                                                 </select>
                                             </div>
                                         </div>
+                                        
 
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>โครงการ</label>
+                                                <select name="project_id" id="project" class="form-control">
+                                                    <option value="<?php echo $project_id?>"><?php echo $project_name?></option>
+                                                    <?php
+                                                    $sql = "SELECT * FROM tb_project";
+                                                    $query = mysqli_query($conn, $sql);
+                                                    while($result = mysqli_fetch_assoc($query)):
+                                                ?>
+                                                    <option value="<?=$result['project_id']?>"><?=$result['project_name']?></option>
+                                                    <?php endwhile; ?>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="activity">ชื่อกิจกรรม</label>
+                                                <select name="activity_id" id="activity" class="form-control">
+                                                    <option value="<?php echo $activity_id?>"><?php echo $activity?></option>
+                                                </select>
+                                            </div>
+                                        </div>
                                     </div>
 
                                     <div class="row">
@@ -355,6 +330,79 @@ else
                                         </div>
                                     </div>
 
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <button type="button" class="btn btn-info btn-sm" id="createRows" value="Add">เพิ่ม</button>
+                                                &nbsp;&nbsp;<button type="button" class="btn btn-warning btn-sm" id="deleteRows" value="Del">ลบ</button>
+                                                &nbsp;&nbsp;<button type="button" class="btn btn-danger btn-sm" id="clearRows" value="Clear">ลบทั้งหมด</button>
+                                            </div>
+                                        </div>
+
+                                        <table width="100%" border="0" id="myTable">
+                                            <thead>
+                                                <div class='row'>
+                                                    <div class='col-md-4'>
+                                                        <div class='form-group'>
+                                                            <?php
+                                                                    $pay_type1 = array($pay_type);
+                                                                    foreach ($pay_type1 as $pay_type1){
+                                                                    $j=0;
+                                                                    foreach ($pay_type1 as $pay_type1[$j]){
+                                                                        $value1 = $pay_type1[$j];
+                                                                        //echo "<tr><td>{$value}</td></tr>";
+                                                                        $j++;
+                                                                        }   
+                                                                    }
+                                                                    $price_list1 = array($price_list);
+                                                                    foreach ($price_list1 as $price_list1){
+                                                                    $j=0;
+                                                                    foreach ($price_list1 as $price_list1[$j]){
+                                                                        $value2 = $price_list1[$j];
+                                                                        //echo "<tr><td>{$value}</td></tr>";
+                                                                        $j++;
+                                                                        }   
+                                                                    }
+                                                                    $balance1 = array($balance);
+                                                                    foreach ($balance1 as $balance1){
+                                                                    $j=0;
+                                                                    foreach ($balance1 as $balance1[$j]){
+                                                                        $value3 = $balance1[$j];
+                                                                        //echo "<tr><td>{$value}</td></tr>";
+                                                                        $j++;
+                                                                        }   
+                                                                    }
+
+                                                                    $date_list1 = array($date_list);
+
+                                                                    foreach ($date_list1 as $date_list1){
+                                                                        $j=0;
+                                                                        
+                                                                        foreach ($date_list1 as $date_list1[$j]){
+                                                                            $value = $date_list1[$j];
+                                                                            $value1 = $pay_type1[$j];
+                                                                            $value2 = $price_list1[$j];
+                                                                            $value3 = $balance1[$j];
+                                                                            
+                                                                            echo "<tr><td class='col-md-8'><div class='row'><div class='col-md-2'><div class='form-group'><label>วัน/เดือน/ปี</label><input type='date' class='form-control p_input' value='$value' name='date_list[]'></div></div><div class='col-md-2'><div class='form-group'><label>การชำระ</label><select class='form-control' name='pay_type[]'><option>$value1</option><option>เงินสด</option><option>ใบสำคัญ</option></select></div></div><div class='col-md-2'><div class='form-group'><label>ราคา</label></label><input type='text' class='form-control p_input' value='$value2' name='price_list[]'></div></div><div class='col-md-2'><div class='form-group'><label>ยอดคงค้าง</label><input type='text' class='form-control p_input' value='$value3' name='balance[]'></div></div></div></td></tr>";
+                                                                            //echo "<li>{$value}</li>";
+                                                                            $j++;
+                                                                        }
+                                                                    }
+                                                            ?>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </thead>
+                                            <tbody></tbody>
+                                        </table>
+                                        <br />
+                                        <center>
+                                            <br>
+                                            <input type="hidden" id="hdnCount" name="hdnCount">
+                                        </center>
+                                    </div>
+
 
                                     <div class="row">
                                         <div class="col-md-3">
@@ -382,34 +430,11 @@ else
                     </div>
                     <!-- Column -->
                 </div>
-                <!-- Row -->
-                <!-- ============================================================== -->
-                <!-- End PAge Content -->
-                <!-- ============================================================== -->
             </div>
-            <!-- ============================================================== -->
-            <!-- End Container fluid  -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- footer -->
-            <!-- ============================================================== -->
             <footer class="footer">
                 © 2018 Adminwrap by wrappixel.com
             </footer>
-            <!-- ============================================================== -->
-            <!-- End footer -->
-            <!-- ============================================================== -->
-        </div>
-        <!-- ============================================================== -->
-        <!-- End Page wrapper  -->
-        <!-- ============================================================== -->
     </div>
-    <!-- ============================================================== -->
-    <!-- End Wrapper -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- All Jquery -->
-    <!-- ============================================================== -->
     <script src="../assets/node_modules/jquery/jquery.min.js"></script>
     <!-- Bootstrap tether Core JavaScript -->
     <script src="../assets/node_modules/bootstrap/js/popper.min.js"></script>
@@ -422,6 +447,52 @@ else
     <script src="../js/sidebarmenu.js"></script>
     <!--Custom JavaScript -->
     <script src="../js/custom.min.js"></script>
+    <script type="text/javascript">
+                    $(document).ready(function () {
+
+                        var rows = 1;
+                        $("#createRows").click(function () {
+
+
+                            var tr = "<tr>";
+                            tr = tr + "<td class='col-md-8'><div class='row'><div class='col-md-2'><div class='form-group'><label>วัน/เดือน/ปี</label></label><input type='date' class='form-control p_input'  name='date_list[]" + rows + "'></div></div><div class='col-md-2'><div class='form-group'><label>การชำระ</label><select class='form-control' name='pay_type[]" + rows + "'><option>เงินสด</option><option>ใบสำคัญ</option></select></div></div><div class='col-md-2'><div class='form-group'><label>ราคา</label></label><input type='text' class='form-control p_input'  name='price_list[]" + rows + "'></div></div><div class='col-md-2'><div class='form-group'><label>ยอดคงค้าง</label><input type='text' class='form-control p_input'  name='balance[]" + rows + "'></div></div></div></td>";
+                            tr = tr + "</tr>";
+                            $('#myTable > tbody:last').append(tr);
+
+                            $('#hdnCount').val(rows);
+                            rows = rows + 1;
+                        });
+
+                        $("#deleteRows").click(function () {
+                            if ($("#myTable tr").length != 1) {
+                                $("#myTable tr:last").remove();
+                            }
+                        });
+
+                        $("#clearRows").click(function () {
+                            rows = 1;
+                            $('#hdnCount').val(rows);
+                            $('#myTable > tbody:last').empty(); // remove all
+                        });
+
+                    });
+            </script>
+            <script src="jquery-1.11.1.min.js" type="text/javascript"></script>
+            <script type="text/javascript">
+                    $(document).ready(function() {
+                        $('#project').change(function() {
+                            $.ajax({
+                                type: 'POST',
+                                data: {project: $(this).val()},
+                                url: 'select_activity.php',
+                                success: function(data) {
+                                    $('#activity').html(data);
+                                }
+                            });
+                            return false;
+                        });
+                    });
+                </script>
 </body>
 
 </html>
