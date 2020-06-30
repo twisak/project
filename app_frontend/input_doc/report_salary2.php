@@ -124,43 +124,62 @@ body {
 <?php
 
      include '../../administrator/connect.php';
-     $doc_id =$_GET['id'];
-     $sql ="SELECT * FROM tb_contract WHERE doc_id = '".$doc_id."'";
-     $query = mysqli_query($conn,$sql);
-     while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
-     {
-         $doc_id = $row['doc_id'];
-         $foreword = $row['foreword'];
-         $str_date = $row['str_date'];
-         $stp_date = $row['stp_date'];
-         $project_id = $row['project_id'];
-         $person_id = $row['person_id'];
-     }
+     $id = $_GET['id'];
 
-     $sql1 ="SELECT * FROM tb_project WHERE project_id = '".$project_id."' ";
-     $query1 = mysqli_query($conn,$sql1);
-     while($row1 = mysqli_fetch_array($query1,MYSQLI_ASSOC))
-     {
-         $project_name = $row1['project_name'];
-         $project_id = $row1['project_id'];
-     }
+     $sql_salary = "SELECT * FROM tb_salary WHERE id = '".$id."' ";
+     $query_salary = mysqli_query($conn,$sql_salary);
+     $result_salary = mysqli_fetch_assoc($query_salary);
 
-     $sql3 ="SELECT * FROM tb_activity WHERE project_id = '".$project_id."' ";
-     $query3 = mysqli_query($conn,$sql3);
-     while($row3 = mysqli_fetch_array($query3,MYSQLI_ASSOC))
-     {
-         $activity = $row3['activity'];
-     }
+     $doc_id = $result_salary['doc_id'];
+     $str_date = $result_salary['str_date'];
+     $stp_date = $result_salary['stp_date'];
+     $project_id = $result_salary['project_id'];
+     $activity_id = $result_salary['activity_id'];
+     $person_id = $result_salary['person_id'];
+     $period = $result_salary['period'];
+     $total_amount = $result_salary['total_amount'];
+     $perform = $result_salary['perform'];
+     $month = $result_salary['month'];
+     $teacher_id = $result_salary['teacher_id'];
+     $day_work = $result_salary['day_work'];
+     $start_time = $result_salary['start_time'];
+     $end_time = $result_salary['end_time'];
+     $Job = $result_salary['Job'];
+     $part_time = $result_salary['part_time'];
 
-     $sql2 ="SELECT * FROM tb_person WHERE person_id = '".$person_id."' ";
-     $query2 = mysqli_query($conn,$sql2);
-     while($row2 = mysqli_fetch_array($query2,MYSQLI_ASSOC))
-     {
-         $prefix = $row2['prefix'];
-         $firtname = $row2['firtname'];
-         $lastname = $row2['lastname'];
-         //$prefix = $row2['prefix'];
-     }
+     $sql_project = "SELECT * FROM tb_project WHERE project_id = '".$project_id."' ";
+     $query_project = mysqli_query($conn,$sql_project);
+     $result_project = mysqli_fetch_assoc($query_project);
+
+     $project_name = $result_project['project_name'];
+
+     $sql_activity = "SELECT * FROM tb_activity WHERE activity_id = '".$activity_id."' ";
+     $query_activity = mysqli_query($conn,$sql_activity);
+     $result_activity = mysqli_fetch_assoc($query_activity);
+
+     $activity = $result_activity['activity'];
+
+     $sql_person = "SELECT * FROM tb_person WHERE person_id = '".$person_id."' ";
+     $query_person = mysqli_query($conn,$sql_person);
+     $result_person = mysqli_fetch_assoc($query_person);
+
+     $prefix = $result_person['prefix'];
+     $firtname = $result_person['firtname'];
+     $lastname = $result_person['lastname'];
+
+     $sql_teacher = "SELECT * FROM tb_teacher WHERE teacher_id = '".$teacher_id."' ";
+     $query_teacher = mysqli_query($conn,$sql_teacher);
+     $result_teacher = mysqli_fetch_assoc($query_teacher);
+
+     $t_firstname = $result_teacher['t_firstname'];
+     $t_lastname = $result_teacher['t_lastname'];
+     $position_id = $result_teacher['position_id'];
+
+     $sql_position = "SELECT * FROM tb_position WHERE position_id = '".$position_id."' ";
+     $query_position = mysqli_query($conn,$sql_position);
+     $result_position = mysqli_fetch_assoc($query_position);
+
+     $position_name = $result_position['position_name'];
 ?>
 <body id="<?php //echo $body['name'];?>">
     <div class="page">

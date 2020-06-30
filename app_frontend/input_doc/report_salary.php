@@ -43,7 +43,7 @@ else
 <?php
 
      include '../../administrator/connect.php';
-     $doc_id =$_GET['id'];
+     $id = $_GET['id'];
 
      $sql_salary = "SELECT * FROM tb_salary WHERE id = '".$id."' ";
      $query_salary = mysqli_query($conn,$sql_salary);
@@ -182,7 +182,7 @@ else
                                     <tr>
                                         <td width="1" class="text-nowrap border-0 padding-0">ลงชื่อ</td>
                                         <td class="border-0 padding-0">
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $prefix; ?><?php echo $firtname; ?>&nbsp;&nbsp;<?php echo $lastname; ?>
                                             <div class="line-bottom-dashed">&nbsp;</div>
                                         </td>
                                         <td width="1" class="text-nowrap border-0 padding-0">รับจ้าง</td>
@@ -190,7 +190,7 @@ else
                                     <tr>
                                         <td class="border-0 padding-0" align="right">(</td>
                                         <td align="center" class="border-0 padding-0">
-
+<?php echo $prefix; ?><?php echo $firtname; ?>&nbsp;&nbsp;<?php echo $lastname; ?>
                                         </td>
                                         <td class="border-0 padding-0" align="left">)</td>
                                     </tr>
@@ -222,7 +222,7 @@ else
                                     <tr>
                                         <td width="1" class="text-nowrap border-0 padding-0">ลงชื่อ</td>
                                         <td class="border-0 padding-0">
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $t_firstname; ?>&nbsp;&nbsp;<?php echo $t_lastname; ?>
                                             <div class="line-bottom-dashed">&nbsp;</div>
                                         </td>
                                         <td width="1" class="text-nowrap border-0 padding-0"></td>
@@ -230,7 +230,7 @@ else
                                     <tr>
                                         <td class="border-0 padding-0" align="right">(</td>
                                         <td align="center" class="border-0 padding-0">
-
+<?php echo $t_firstname; ?>&nbsp;&nbsp;<?php echo $t_lastname; ?>
                                         </td>
                                         <td class="border-0 padding-0" align="right">)</td>
                                     </tr>
