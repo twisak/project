@@ -42,44 +42,89 @@ else
 </head>
 <?php
 
-     include '../../administrator/connect.php';
-     $doc_id =$_GET['id'];
-     $sql ="SELECT * FROM tb_contract WHERE doc_id = '".$doc_id."'";
-     $query = mysqli_query($conn,$sql);
-     while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
-     {
-         $doc_id = $row['doc_id'];
-         $foreword = $row['foreword'];
-         $str_date = $row['str_date'];
-         $stp_date = $row['stp_date'];
-         $project_id = $row['project_id'];
-         $person_id = $row['person_id'];
-     }
+            include '../../administrator/connect.php';
+            $id =$_GET['id'];
+            $sql ="SELECT * FROM tb_contract WHERE id = '".$id."'";
+            $query = mysqli_query($conn,$sql);
+            $num_rows = mysqli_num_rows($query);
+            while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
+            {
+                $id = $row['id'];
+                $doc_id = $row['doc_id'];
+                $foreword = unserialize($row['foreword']);
+                $str_date = $row['str_date'];
+                $stp_date = $row['stp_date'];
+                $project_id = $row['project_id'];
+                $activity_id = $row['activity_id'];
+                $person_id = $row['person_id'];
+                $teacher_id = $row['teacher_id'];
+                $number = $row['number'];
+                $money = $row['money'];
+                $work = $row['work'];
+                $date_work = $row['date_work'];
+                $government = $row['government'];
+                $that = $row['that'];
+                $c_day = $row['c_day'];
+                $title_id = $row['title_id'];
+                $people = $row['people'];
+                $mid_price = $row['mid_price'];
+                $details = $row['details'];
+                $date_start  = $row['date_start'];
+                $date_end = $row['date_end'];
+                $property = unserialize($row['property']);
+                $scope = unserialize($row["scope"]);
+                $responsible = $row['responsible'];
+                $fine = unserialize($row["fine"]);
+                $payment = unserialize( $row["payment"] );
+                $insurance = unserialize( $row["insurance"] );
+            }
 
-     $sql1 ="SELECT * FROM tb_project WHERE project_id = '".$project_id."' ";
-     $query1 = mysqli_query($conn,$sql1);
-     while($row1 = mysqli_fetch_array($query1,MYSQLI_ASSOC))
-     {
-         $project_name = $row1['project_name'];
-         $project_id = $row1['project_id'];
-     }
+            $sql1 ="SELECT * FROM tb_project WHERE project_id = '".$project_id."' ";
+            $query1 = mysqli_query($conn,$sql1);
+            while($row1 = mysqli_fetch_array($query1,MYSQLI_ASSOC))
+            {
+                $project_name = $row1['project_name'];
+                $project_id = $row1['project_id'];
+            }
 
-     $sql3 ="SELECT * FROM tb_activity WHERE project_id = '".$project_id."' ";
-     $query3 = mysqli_query($conn,$sql3);
-     while($row3 = mysqli_fetch_array($query3,MYSQLI_ASSOC))
-     {
-         $activity = $row3['activity'];
-     }
+            $sql3 ="SELECT * FROM tb_activity WHERE activity_id = '".$activity_id."' ";
+            $query3 = mysqli_query($conn,$sql3);
+            while($row3 = mysqli_fetch_array($query3,MYSQLI_ASSOC))
+            {
+                $activity = $row3['activity'];
+            }
 
-     $sql2 ="SELECT * FROM tb_person WHERE person_id = '".$person_id."' ";
-     $query2 = mysqli_query($conn,$sql2);
-     while($row2 = mysqli_fetch_array($query2,MYSQLI_ASSOC))
-     {
-         $prefix = $row2['prefix'];
-         $firtname = $row2['firtname'];
-         $lastname = $row2['lastname'];
-         //$prefix = $row2['prefix'];
-     }
+            $sql2 ="SELECT * FROM tb_person WHERE person_id = '".$person_id."' ";
+            $query2 = mysqli_query($conn,$sql2);
+            while($row2 = mysqli_fetch_array($query2,MYSQLI_ASSOC))
+            {
+                $prefix = $row2['prefix'];
+                $firtname = $row2['firtname'];
+                $lastname = $row2['lastname'];
+                $position_id = $row2['position_id'];
+            }
+            $sql4 ="SELECT * FROM tb_teacher WHERE teacher_id = '".$teacher_id."' ";
+            $query4 = mysqli_query($conn,$sql4);
+            while($row4 = mysqli_fetch_array($query4,MYSQLI_ASSOC))
+            {
+                $t_firstname = $row4['t_firstname'];
+                $t_lastname = $row4['t_lastname'];
+                $position_id = $row4['position_id'];
+            }
+            $sql6 ="SELECT * FROM tb_position WHERE position_id = '".$position_id."' ";
+            $query6 = mysqli_query($conn,$sql6);
+            while($row6 = mysqli_fetch_array($query6,MYSQLI_ASSOC))
+            {
+                $position_name = $row6['position_name'];
+            }
+                    //echo $position_id;
+            $sql5 ="SELECT * FROM tb_title WHERE title_id = '".$title_id."' ";
+            $query5 = mysqli_query($conn,$sql5);
+            while($row5 = mysqli_fetch_array($query5,MYSQLI_ASSOC))
+            {
+                $title = $row5['title'];
+                $body = $row5['body'];
+            }
 ?>
 <body id="<?php //echo $body['name'];?>">
 <div class="page">
@@ -119,7 +164,7 @@ else
 
             <tr>
               <td colspan="2">
-                เรื่อง ส่งมอบงานจ้าง
+                เรื่อง <?php echo $title;?>
             </td>
             </tr>
 
@@ -128,16 +173,16 @@ else
                 เรียน อธิการบดีมหาวิทยาลัมหาวิทยาลัยราชภัฏยะลา
             </td>
             </tr>
-
+                <?php $total = $number * $money;?>
             <tr>
               <td colspan="2" class="text-indent-50" align="left">
-                ตามที่ สถาบันพัฒนาครูและบุคลากรทางการศึกษาชายแดนใต้ มหาวิทยาลัยราชภัฏยะลา ได้จ้างให้ข้าพเจ้าเป็นเจ้าหน้าที่ประจำโครงการ "ยกระดับคุณภาพการเรียนรู้ ด้านการอ่านการเขียน และการคิดวิเคราะห์ของนักเรียนในระดับการศึกษาขั้นพื้นฐานในพื้นที่ขายแดนนใต้" ตั้งแต่ วันที่ 1 กุมภาพันธ์ 2562 ถึง 30 กันยายน 2562 จำนวน 8 งวด (13,300 = 106,400บาท) เป็นเงิน 13,300 บาท รวมเป็นเงินทั้งสิ้น 13,300 บาท(หนึ่งหมื่นสามพันสามร้อยบาทถ้วน) นั้น
+                <?php echo $body;?> "<?php echo $project_name?>" ตั้งแต่วันที่ <?php echo $str_date?>  ถึง <?php echo $stp_date?>  จำนวน <?php echo $number?> งวด (<?php echo $money?> = <?php echo $total?>บาท) เป็นเงิน <?php echo $money?> บาท รวมเป็นเงินทั้งสิ้น <?php echo $money?> บาท(หนึ่งหมื่นสามพันสามร้อยบาทถ้วน) นั้น
             </td>
             </tr>
 
             <tr>
               <td colspan="2" class="text-indent-50" align="left">
-                บัดนี้ ข้าพเจ้าได้ปฏิบัติงานดังกล่าวงวดที่ 6 (เดือน กรกฏาคม 2562) เสร็จเรียบร้อยแล้ว
+                บัดนี้ ข้าพเจ้าได้ปฏิบัติงานดังกล่าวงวดที่ <?php echo $work?> (เดือน กรกฏาคม 2562) เสร็จเรียบร้อยแล้ว
              </td>
             </tr>
 
@@ -158,8 +203,8 @@ else
                                     </tr>
                                     <tr>
                                         <td width="1" class="text-nowrap border-0 padding-0">ลงชื่อ</td>
-                                        <td class="border-0 padding-0">
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $prefix;?><?php echo $firtname;?>&nbsp;&nbsp;<?php echo $lastname;?>
+                                        <td class="border-0 padding-0 text-center">
+                                        <?php echo $prefix;?><?php echo $firtname;?>&nbsp;&nbsp;<?php echo $lastname;?>
                                             <div class="line-bottom-dashed">&nbsp;</div>
                                         </td>
                                         <td width="1" class="text-nowrap border-0 padding-0">รับจ้าง</td>
@@ -186,7 +231,7 @@ else
 
             <tr>
               <td colspan="2" class="text-indent-50" align="left">
-                ข้าพเจ้า อาจารย์ซอและ เกปัน ตำแหน่ง ผู้อำนวยการสถาบันพัฒนาครูและบุคลากรทางการศึกษาชายแดนใต้ เป็นบุคคลที่ควบคุมการปฏิบัติงานของผู้รับจ้าง ผู้ปฏิบัติงานจ้างเหมาบริการ เจ้าหน้าที่ประจำโครงการ "ยกระดับคุณภาพการเรียนรู้ด้านการอ่าน การเขียน และการคิดวิเคราะห์ของนักเรียนในระดับ การศึกษาขั้นพื้นฐานในพื้นที่ชายแดนใต้" มหาวิทยาลุยราชภัฏยะลา ขอรับรองว่านายแวอัสรี แวมายิ ได้ปฏิบัติงานเรียบร้อยแล้วตั้งแต่วันที่ 1-31 กรกฏาคม 2562
+                ข้าพเจ้า อาจารย์<?php echo $t_firstname;?>&nbsp;&nbsp;<?php echo $t_lastname;?> ตำแหน่ง <?php echo $position_name;?> เป็นบุคคลที่ควบคุมการปฏิบัติงานของผู้รับจ้าง ผู้ปฏิบัติงานจ้างเหมาบริการ เจ้าหน้าที่ประจำโครงการ "<?php echo $project_name?>" มหาวิทยาลุยราชภัฏยะลา ขอรับรองว่า<?php echo $prefix;?><?php echo $firtname;?>&nbsp;&nbsp;<?php echo $lastname;?> ได้ปฏิบัติงานเรียบร้อยแล้วตั้งแต่วันที่ <?php echo $str_date?>  ถึง <?php echo $stp_date?>
             </td>
             </tr>
                 
@@ -198,8 +243,8 @@ else
                                 <table width="300px" border="0" align="right">
                                     <tr>
                                         <td width="1" class="text-nowrap border-0 padding-0">ลงชื่อ</td>
-                                        <td class="border-0 padding-0">
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $prefix;?><?php echo $firtname;?>&nbsp;&nbsp;<?php echo $lastname;?>
+                                        <td class="border-0 padding-0 text-center">
+                                        <?php echo $t_firstname;?>&nbsp;&nbsp;<?php echo $t_lastname;?>
                                             <div class="line-bottom-dashed">&nbsp;</div>
                                         </td>
                                         <td width="1" class="text-nowrap border-0 padding-0"></td>
@@ -207,7 +252,7 @@ else
                                     <tr>
                                         <td class="border-0 padding-0" align="right">(</td>
                                         <td align="center" class="border-0 padding-0">
-                                        <?php echo $firtname;?>&nbsp;&nbsp;<?php echo $lastname;?>
+                                        อาจารย์<?php echo $t_firstname;?>&nbsp;&nbsp;<?php echo $t_lastname;?>
                                         </td>
                                         <td class="border-0 padding-0" align="right">)</td>
                                     </tr>

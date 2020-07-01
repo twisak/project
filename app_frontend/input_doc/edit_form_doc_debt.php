@@ -288,7 +288,6 @@ include '../../administrator/connect.php';
 
                                         <table width="100%" border="0" id="myTable">
                                             <thead>
-<<<<<<< HEAD
                                                         <div class='row'>
                                                         <div class='col-md-4'>
                                                                 <div class='form-group'>
@@ -315,24 +314,10 @@ include '../../administrator/connect.php';
 
                                                                     foreach ($list1 as $list1[$j]){
                                                                         $value = $list1[$j];
-=======
-                                                <div class='row'>
-                                                    <div class='col-md-4'>
-                                                        <div class='form-group'>
-                                                            <?php
-                                                                    $money_num1 = array($money_num);
-
-                                                                    foreach ($money_num1 as $money_num1){
-                                                                    $j=0;
-                                                                    //echo "<p><b>ขอบเขตของงานที่จ้าง</b></p>";
-                                                                    //echo "<ul>";
-                                                                    foreach ($money_num1 as $money_num1[$j]){
->>>>>>> d06664441c0643aedde02d3032832a1402fdf8b4
                                                                         $value1 = $money_num1[$j];
                                                                         //echo "<tr><td>{$value}</td></tr>";
                                                                         $j++;
                                                                     }
-<<<<<<< HEAD
 
 
                                                                 }
@@ -342,32 +327,6 @@ include '../../administrator/connect.php';
                                                             </div>
 
 
-=======
-                                                                    //echo "</ul>";
-                                                                    
-                                                                }
-
-                                                                    $list1 = array($list);
-
-                                                                    foreach ($list1 as $list1){
-                                                                        $j=0;
-                                                                        
-                                                                        foreach ($list1 as $list1[$j]){
-                                                                            $value = $list1[$j];
-                                                                            $value1 = $money_num1[$j];
-                                                                            echo "<tr><td class='col-md-8'><div class='row'><div class='col-md-4'><div class='form-group'><label>รายการ</label><input type='text' class='form-control p_input' value='$value' name='list[]'></div></div><div class='col-md-2'><div class='form-group'><label>จำนวนเงิน</label><input type='text' class='form-control p_input' value='$value1' name='money_num[]'></div></div></div></td></tr>";
-                                                                            //echo "<li>{$value}</li>";
-                                                                            $j++;
-                                                                        }
-                                                                        
-                                                                        
-                                                                    }
-                                                                
-                                                            ?>
-                                                        </div>
-                                                    </div>
-                                                </div>
->>>>>>> d06664441c0643aedde02d3032832a1402fdf8b4
                                             </thead>
                                             <tbody></tbody>
                                         </table>

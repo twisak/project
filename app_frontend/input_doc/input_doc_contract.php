@@ -99,7 +99,7 @@ include '../../administrator/connect.php';
                             <div class="card-body">
                                 <form class="form-horizontal form-material" action="INSERT_contract.php" method="post">
                                     <?php
-                                        $sql = "Select Max(substr(project_id,3)+1) as MaxID from tb_contract ";
+                                        $sql = "Select Max(substr(doc_id,3)+1) as MaxID from tb_contract ";
                                         $query = mysqli_query($conn,$sql);
                                         $table_id = mysqli_fetch_assoc($query);
                                         $testid = $table_id['MaxID'];
@@ -208,7 +208,7 @@ include '../../administrator/connect.php';
                                                         $query = mysqli_query($conn, $sql);
                                                         while($result = mysqli_fetch_assoc($query)):
                                                     ?>
-                                                    <option value="<?=$result['teacher_id']?>"><?=$result['t_firstname']?><?=$result['t_lastname']?></option>
+                                                    <option value="<?=$result['teacher_id']?>"><?=$result['t_firstname']?>&nbsp;&nbsp;<?=$result['t_lastname']?></option>
                                                     <?php endwhile; ?>
                                                 </select>
                                             </div>
@@ -317,14 +317,14 @@ include '../../administrator/connect.php';
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label>ลงชื่อ ประธานกรรมการ</label>
-                                                <select name="teacher_id" class="form-control">
+                                                <select name="chairman" class="form-control">
                                                     <option value="">เลือกชื่ออาจารย์</option>
                                                     <?php
                                                         $sql = "SELECT * FROM tb_teacher";
                                                         $query = mysqli_query($conn, $sql);
                                                         while($result = mysqli_fetch_assoc($query)):
                                                     ?>
-                                                    <option value="<?=$result['teacher_id']?>"><?=$result['t_firstname']?><?=$result['t_lastname']?></option>
+                                                    <option value="<?=$result['teacher_id']?>"><?=$result['t_firstname']?>&nbsp;&nbsp;<?=$result['t_lastname']?></option>
                                                     <?php endwhile; ?>
                                                 </select>
                                             </div>
@@ -332,14 +332,14 @@ include '../../administrator/connect.php';
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label>ลงชื่อ กรรมการ</label>
-                                                <select name="teacher_id" class="form-control">
+                                                <select name="committee" class="form-control">
                                                     <option value="">เลือกชื่ออาจารย์</option>
                                                     <?php
                                                         $sql = "SELECT * FROM tb_teacher";
                                                         $query = mysqli_query($conn, $sql);
                                                         while($result = mysqli_fetch_assoc($query)):
                                                     ?>
-                                                    <option value="<?=$result['teacher_id']?>"><?=$result['t_firstname']?><?=$result['t_lastname']?></option>
+                                                    <option value="<?=$result['teacher_id']?>"><?=$result['t_firstname']?>&nbsp;&nbsp;<?=$result['t_lastname']?></option>
                                                     <?php endwhile; ?>
                                                 </select>
                                             </div>
@@ -347,14 +347,14 @@ include '../../administrator/connect.php';
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label>ลงชื่อ กรรมการและเลขานุการ</label>
-                                                <select name="teacher_id" class="form-control">
+                                                <select name="secretary" class="form-control">
                                                     <option value="">เลือกชื่ออาจารย์</option>
                                                     <?php
                                                         $sql = "SELECT * FROM tb_teacher";
                                                         $query = mysqli_query($conn, $sql);
                                                         while($result = mysqli_fetch_assoc($query)):
                                                     ?>
-                                                    <option value="<?=$result['teacher_id']?>"><?=$result['t_firstname']?><?=$result['t_lastname']?></option>
+                                                    <option value="<?=$result['teacher_id']?>"><?=$result['t_firstname']?>&nbsp;&nbsp;<?=$result['t_lastname']?></option>
                                                     <?php endwhile; ?>
                                                 </select>
                                             </div>

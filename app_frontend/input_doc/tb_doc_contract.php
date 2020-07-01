@@ -131,7 +131,7 @@ else
                                             $i=1;
                                             $i<="";
 
-                                            $sql ="SELECT * FROM tb_contract GROUP BY doc_id";
+                                            $sql ="SELECT * FROM tb_contract";
                                             $query = mysqli_query($conn,$sql);
                                             while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
                                             {
@@ -143,8 +143,8 @@ else
                                                 $project_id = $row['project_id'];
                                                 $person_id = $row['person_id'];
 
-                                            //echo $project_id;
-                                            //echo $person_id;
+                                            // echo $doc_id;
+                                            // echo $person_id;
 
                                             $sql1 ="SELECT * FROM tb_project WHERE project_id = '".$project_id."' ";
                                             $query1 = mysqli_query($conn,$sql1);

@@ -117,6 +117,7 @@ else
                                             <div class="form-group">
                                                 <label>รหัสเอกสารเงินเดือน</label>
                                                 <input type="text" value="<?php echo $doc_id; ?>" readonly class="form-control form-control-line">
+                                                <input type="hidden" class="form-control" name="doc_id" value="<?php echo $doc_id?>">
                                             </div>
                                         </div>
                                         <div class="col-md-4">

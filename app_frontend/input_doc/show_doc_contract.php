@@ -85,12 +85,13 @@ include '../../administrator/connect.php';
                                         // }
 
                                         $id =$_GET['id'];
+                                        //echo $id;
                                         $sql ="SELECT * FROM tb_contract WHERE id = '".$id."'";
                                         $query = mysqli_query($conn,$sql);
                                         $num_rows = mysqli_num_rows($query);
                                         while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
                                         {
-
+                                            $idd = $row['id'];
                                             $doc_id = $row['doc_id'];
                                             $foreword = unserialize($row['foreword']);
                                             $str_date = $row['str_date'];
@@ -109,6 +110,9 @@ include '../../administrator/connect.php';
                                             $title_id = $row['title_id'];
                                             $people = $row['people'];
                                             $mid_price = $row['mid_price'];
+                                            $chairman = $row['chairman'];
+                                            $committee = $row['committee'];
+                                            $secretary = $row['secretary'];
                                             $details = $row['details'];
                                             $date_start  = $row['date_start'];
                                             $date_end = $row['date_end'];
@@ -172,7 +176,7 @@ include '../../administrator/connect.php';
                         </ol>
                     </div>
                     <div class="col-md-7 align-self-center">
-                        <a href="report_contract.php?id=<?php echo $doc_id;?>" class="btn waves-effect waves-light btn btn-info pull-right hidden-sm-down">
+                        <a href="report_contract.php?id=<?php echo $id;?>" class="btn waves-effect waves-light btn btn-info pull-right hidden-sm-down">
                             <i class="fa-fw fa fa-print"></i>
                             ส่งออกแบบฟอร์ม
                         </a>
@@ -270,7 +274,7 @@ include '../../administrator/connect.php';
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label><b>ผู้ควบคุมการปฎิบัติงาน</b></label><br>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $t_firstname?>&nbsp;&nbsp;<?php echo $t_lastname?>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;อาจารย์<?php echo $t_firstname?>&nbsp;&nbsp;<?php echo $t_lastname?>
                                         </div>
                                     </div>
                                 </div>
@@ -368,22 +372,49 @@ include '../../administrator/connect.php';
                                     </div>
                                 </div>
                                 <div class="row">
+                                    <?php 
+                                        $sql4 ="SELECT * FROM tb_teacher WHERE teacher_id = '".$chairman."' ";
+                                        $query4 = mysqli_query($conn,$sql4);
+                                        while($row4 = mysqli_fetch_array($query4,MYSQLI_ASSOC))
+                                        {
+                                            $t_firstname1 = $row4['t_firstname'];
+                                            $t_lastname1 = $row4['t_lastname'];
+                                        }
+                                    ?>
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label>ลงชื่อ ประธานกรรมการ</label><br>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $t_firstname?>&nbsp;&nbsp;<?php echo $t_lastname?>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;อาจารย์<?php echo $t_firstname1?>&nbsp;&nbsp;<?php echo $t_lastname1?>
                                         </div>
                                     </div>
+                                    <?php 
+                                        $sql4 ="SELECT * FROM tb_teacher WHERE teacher_id = '".$committee."' ";
+                                        $query4 = mysqli_query($conn,$sql4);
+                                        while($row4 = mysqli_fetch_array($query4,MYSQLI_ASSOC))
+                                        {
+                                            $t_firstname2 = $row4['t_firstname'];
+                                            $t_lastname2 = $row4['t_lastname'];
+                                        }
+                                    ?>
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label>ลงชื่อ กรรมการ</label><br>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $t_firstname?>&nbsp;&nbsp;<?php echo $t_lastname?>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;อาจารย์<?php echo $t_firstname2?>&nbsp;&nbsp;<?php echo $t_lastname2?>
                                         </div>
                                     </div>
+                                    <?php 
+                                        $sql4 ="SELECT * FROM tb_teacher WHERE teacher_id = '".$secretary."' ";
+                                        $query4 = mysqli_query($conn,$sql4);
+                                        while($row4 = mysqli_fetch_array($query4,MYSQLI_ASSOC))
+                                        {
+                                            $t_firstname3 = $row4['t_firstname'];
+                                            $t_lastname3 = $row4['t_lastname'];
+                                        }
+                                    ?>
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label>ลงชื่อ กรรมการและเลขานุการ</label><br>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $t_firstname?>&nbsp;&nbsp;<?php echo $t_lastname?>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;อาจารย์<?php echo $t_firstname3?>&nbsp;&nbsp;<?php echo $t_lastname3?>
                                         </div>
                                     </div>
                                 </div>
