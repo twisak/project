@@ -85,6 +85,28 @@ else
      $prefix = $result_person['prefix'];
      $firtname = $result_person['firtname'];
      $lastname = $result_person['lastname'];
+     $house_num = $result_person['house_num'];
+     $road = $result_person['road'];
+     $village = $result_person['village'];
+     $province_id = $result_person['province_id'];
+     $districts_id = $result_person['districts_id'];
+     $amphures_id = $result_person['amphures_id'];
+
+     $sql_province = "SELECT * FROM provinces WHERE id = '".$province_id."' ";
+     $query_province = mysqli_query($conn,$sql_province);
+     $result_province = mysqli_fetch_assoc($query_province);
+     $name_th_p = $result_province['name_th'];
+
+     $sql_districts = "SELECT * FROM districts WHERE id = '".$districts_id."' ";
+     $query_districts = mysqli_query($conn,$sql_districts);
+     $result_districts = mysqli_fetch_assoc($query_districts);
+     $name_th_d = $result_districts['name_th'];
+
+     $sql_amphures = "SELECT * FROM amphures WHERE id = '".$amphures_id."' ";
+     $query_amphures = mysqli_query($conn,$sql_amphures);
+     $result_amphures = mysqli_fetch_assoc($query_amphures);
+     $name_th_a = $result_amphures['name_th'];
+
 
      $sql_teacher = "SELECT * FROM tb_teacher WHERE teacher_id = '".$teacher_id."' ";
      $query_teacher = mysqli_query($conn,$sql_teacher);
@@ -245,6 +267,10 @@ else
             </tr>
         </table>
     </div>
+
+    <?php include 'report_salary2.php'; ?>
+
+    <?php include 'report_salary3.php'; ?>
 
     <ul class="right-menu">
         <li>

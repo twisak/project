@@ -121,66 +121,7 @@ body {
 </style>
 </head>
 </head>
-<?php
 
-     include '../../administrator/connect.php';
-     $id = $_GET['id'];
-
-     $sql_salary = "SELECT * FROM tb_salary WHERE id = '".$id."' ";
-     $query_salary = mysqli_query($conn,$sql_salary);
-     $result_salary = mysqli_fetch_assoc($query_salary);
-
-     $doc_id = $result_salary['doc_id'];
-     $str_date = $result_salary['str_date'];
-     $stp_date = $result_salary['stp_date'];
-     $project_id = $result_salary['project_id'];
-     $activity_id = $result_salary['activity_id'];
-     $person_id = $result_salary['person_id'];
-     $period = $result_salary['period'];
-     $total_amount = $result_salary['total_amount'];
-     $perform = $result_salary['perform'];
-     $month = $result_salary['month'];
-     $teacher_id = $result_salary['teacher_id'];
-     $day_work = $result_salary['day_work'];
-     $start_time = $result_salary['start_time'];
-     $end_time = $result_salary['end_time'];
-     $Job = $result_salary['Job'];
-     $part_time = $result_salary['part_time'];
-
-     $sql_project = "SELECT * FROM tb_project WHERE project_id = '".$project_id."' ";
-     $query_project = mysqli_query($conn,$sql_project);
-     $result_project = mysqli_fetch_assoc($query_project);
-
-     $project_name = $result_project['project_name'];
-
-     $sql_activity = "SELECT * FROM tb_activity WHERE activity_id = '".$activity_id."' ";
-     $query_activity = mysqli_query($conn,$sql_activity);
-     $result_activity = mysqli_fetch_assoc($query_activity);
-
-     $activity = $result_activity['activity'];
-
-     $sql_person = "SELECT * FROM tb_person WHERE person_id = '".$person_id."' ";
-     $query_person = mysqli_query($conn,$sql_person);
-     $result_person = mysqli_fetch_assoc($query_person);
-
-     $prefix = $result_person['prefix'];
-     $firtname = $result_person['firtname'];
-     $lastname = $result_person['lastname'];
-
-     $sql_teacher = "SELECT * FROM tb_teacher WHERE teacher_id = '".$teacher_id."' ";
-     $query_teacher = mysqli_query($conn,$sql_teacher);
-     $result_teacher = mysqli_fetch_assoc($query_teacher);
-
-     $t_firstname = $result_teacher['t_firstname'];
-     $t_lastname = $result_teacher['t_lastname'];
-     $position_id = $result_teacher['position_id'];
-
-     $sql_position = "SELECT * FROM tb_position WHERE position_id = '".$position_id."' ";
-     $query_position = mysqli_query($conn,$sql_position);
-     $result_position = mysqli_fetch_assoc($query_position);
-
-     $position_name = $result_position['position_name'];
-?>
 <body id="<?php //echo $body['name'];?>">
     <div class="page">
         <table border="0" align="center" width="100%" class="statement-view text-gray-900">
@@ -204,14 +145,66 @@ body {
                         <td width="50%"></td>
                         <td width="50%">วันที่ 30 เดือน กันยายน พ.ศ. 2562</td>
                       </tr>
+                    </table>
+                    <br>
+                </td>
+            </tr>
+
+            <tr>
+                <td width="100%"  class="statement-header">
+                    <table border="1" width="100%" class="statement-view text-gray-900">
                       <tr>
-                        <td colspan="2">ข้าพเจ้า.........................บ้านเลขที่.................หมู่ที่.................</td>
+                        <td class="text-nowrap border-0 padding-0" width="1%" >ข้าพเจ้า</td>
+                        <td colspan="2" class="border-0 padding-0"  width="8%">
+                        &nbsp;<?php echo $firtname; ?>&nbsp;&nbsp;<?php echo $lastname; ?>&nbsp;
+                            <div class="line-bottom-dashed">&nbsp;</div>
+                        </td>
+                        <td class="text-nowrap border-0 padding-0"  >บ้านเลขที่</td>
+                        <td colspan="2" class="border-0 padding-0"  width="1%">
+                      &nbsp;<?php echo $house_num; ?>&nbsp;
+                            <div class="line-bottom-dashed">&nbsp;</div>
+                        </td>
+                        <td class="text-nowrap border-0 padding-0" width="1%" >หมู่ที่</td>
+                        <td colspan="2" class="border-0 padding-0"  width="8%">
+                        &nbsp;<?php echo $village; ?>&nbsp;
+                            <div class="line-bottom-dashed">&nbsp;</div>
+                        </td>
+
+                          <!-- <td >ข้าพเจ้า.........................บ้านเลขที่.................หมู่ที่.................</td> -->
                       </tr>
                       <tr>
-                        <td colspan="2">ถนน.................ตำบล.................อำเภอ...............จังหวัด.......................</td>
+
+                          <td  class="text-nowrap border-0 padding-0" width="1%" >ถนน</td>
+                          <td class="border-0 padding-0"  width="8%">
+                          &nbsp;<?php echo $road; ?>&nbsp;
+                              <div class="line-bottom-dashed">&nbsp;</div>
+                          </td>
+                          <td class="text-nowrap border-0 padding-0" width="1%" >ตำบล</td>
+                          <td class="border-0 padding-0"  width="8%">
+                          &nbsp;<?php echo $name_th_d; ?>&nbsp;
+                              <div class="line-bottom-dashed">&nbsp;</div>
+                          </td>
+                          <td class="text-nowrap border-0 padding-0" width="1%" >อำเภอ</td>
+                          <td class="border-0 padding-0"  width="8%">
+                          &nbsp;<?php echo $name_th_a; ?>&nbsp;
+                              <div class="line-bottom-dashed">&nbsp;</div>
+                          </td>
+                          <td class="text-nowrap border-0 padding-0" width="1%" >จังหวัด</td>
+                          <td class="border-0 padding-0"  width="8%">
+                          &nbsp;<?php echo $name_th_p; ?>&nbsp;
+                              <div class="line-bottom-dashed">&nbsp;</div>
+                          </td>
                       </tr>
+
                       <tr>
-                        <td colspan="2">ได้รับเงินจาก ............................... ดังรายละเอียดต่อไปนี้</td>
+
+                          <td colspan="3" class="text-nowrap border-0 padding-0" width="1%" >ได้รับเงินจาก มหาวิทยาลัยราชภัฏยะลา</td>
+                          <td colspan="2" class="border-0 padding-0"  width="8%">
+                          &nbsp;<?php echo $t_firstname; ?>&nbsp;&nbsp;<?php echo $t_lastname; ?>&nbsp;
+                              <div class="line-bottom-dashed">&nbsp;</div>
+                          </td>
+                          <td colspan="2" class="text-nowrap border-0 padding-0" width="1%" >ดังรายละเอียดต่อไปนี้</td>
+
                       </tr>
                     </table>
                     <br>
