@@ -124,7 +124,7 @@ body {
 
 <body id="<?php //echo $body['name'];?>">
     <div class="page">
-        <table border="0" align="center" width="100%" class="statement-view text-gray-900">
+        <table border="1" align="center" width="100%" class="statement-view text-gray-900">
             <tr>
             </tr>
             <tr>
@@ -152,7 +152,7 @@ body {
 
             <tr>
                 <td width="100%"  class="statement-header">
-                    <table border="1" width="100%" class="statement-view text-gray-900">
+                    <table border="0" width="100%" class="statement-view text-gray-900">
                       <tr>
                         <td class="text-nowrap border-0 padding-0" width="1%" >ข้าพเจ้า</td>
                         <td colspan="2" class="border-0 padding-0"  width="8%">
@@ -244,17 +244,58 @@ body {
                 </td>
             </tr>
 
-            <tr>
+            <!-- <tr>
                 <td width="100%"  class="statement-header">
                     <table border="0" width="100%" class="statement-view text-gray-900">
 
 <tr align="center">
-  <td>ลง..................ผู้รับเงิน</td>
+    <td width="1" class="text-nowrap border-0 padding-0">ลงชื่อ</td>
+  <td class="border-0 padding-0">
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $prefix; ?><?php echo $firtname; ?>&nbsp;&nbsp;<?php echo $lastname; ?>
+      <div class="line-bottom-dashed">&nbsp;</div>
+  </td>
+    <td width="1" class="text-nowrap border-0 padding-0">ผู้รับเงิน</td>
 </tr>
-<tr align="center">
-  <td>(นางสาวปาตีเมาะห์ สาและ)</td>
+<tr>
+    <td class="border-0 padding-0" align="right">(</td>
+    <td align="center" class="border-0 padding-0">
+<?php echo $prefix; ?><?php echo $firtname; ?>&nbsp;&nbsp;<?php echo $lastname; ?>
+    </td>
+    <td class="border-0 padding-0" align="left">)</td>
 </tr>
 
+                    </table>
+                    <br>
+                </td>
+            </tr> -->
+            <tr>
+                <td width="100%"  class="statement-header">
+                    <table border="1" width="100%" class="statement-view text-gray-900">
+<tr>
+  <td width="25%"></td>
+  <td width="50%">
+
+    <table border="0" width="100%" class="statement-view text-gray-900">
+<tr align="center">
+<td width="1" class="text-nowrap border-0 padding-0">ลงชื่อ</td>
+<td class="border-0 padding-0">
+&nbsp;&nbsp;&nbsp;<?php echo $prefix; ?><?php echo $firtname; ?>&nbsp;&nbsp;<?php echo $lastname; ?>
+<div class="line-bottom-dashed">&nbsp;</div>
+</td>
+<td width="1" class="text-nowrap border-0 padding-0">ผู้รับเงิน</td>
+</tr>
+<tr align="center">
+<td class="border-0 padding-0" align="right">(</td>
+<td align="center" class="border-0 padding-0">
+<?php echo $prefix; ?><?php echo $firtname; ?>&nbsp;&nbsp;<?php echo $lastname; ?>
+</td>
+<td class="border-0 padding-0" align="left">)</td>
+</tr>
+    </table>
+
+  </td>
+  <td width="25%"></td>
+</tr>
                     </table>
                     <br>
                 </td>
@@ -262,19 +303,37 @@ body {
 
             <tr>
                 <td width="100%"  class="statement-header">
-                    <table border="0" width="100%" class="statement-view text-gray-900">
+                    <table border="1" width="100%" class="statement-view text-gray-900">
+<tr>
+  <td width="25%"></td>
+  <td width="50%">
 
+    <table border="0" width="100%" class="statement-view text-gray-900">
 <tr align="center">
-  <td>ลง..................ผู้จ่ายเงิน</td>
+<td width="1" class="text-nowrap border-0 padding-0">ลงชื่อ</td>
+<td class="border-0 padding-0">
+&nbsp;&nbsp;&nbsp;<?php echo $prefix; ?><?php echo $firtname; ?>&nbsp;&nbsp;<?php echo $lastname; ?>
+<div class="line-bottom-dashed">&nbsp;</div>
+</td>
+<td width="1" class="text-nowrap border-0 padding-0">ผู้จ่ายเงิน</td>
 </tr>
 <tr align="center">
-  <td>(....................................)</td>
+<td class="border-0 padding-0" align="right">(</td>
+<td align="center" class="border-0 padding-0">
+<?php echo $prefix; ?><?php echo $firtname; ?>&nbsp;&nbsp;<?php echo $lastname; ?>
+</td>
+<td class="border-0 padding-0" align="left">)</td>
 </tr>
+    </table>
 
+  </td>
+  <td width="25%"></td>
+</tr>
                     </table>
                     <br>
                 </td>
             </tr>
+
 
 
 
