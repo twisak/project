@@ -124,7 +124,7 @@ body {
 
 <body id="<?php //echo $body['name'];?>">
     <div class="page">
-        <table border="0" align="center" width="100%" class="statement-view text-gray-900">
+        <table border="1" align="center" width="100%" class="statement-view text-gray-900">
             <tr>
             </tr>
             <tr>
@@ -134,13 +134,13 @@ body {
                         <td align="center">บันทึกการปฏิบัติงานประจำวันของเจ้าหน้าที่ประสานงานโครงการฯ</td>
                       </tr>
                       <tr>
-                        <td align="center">โครงการ "พัฒนาครูและบุคลากรทางการศึกษาเพื่อลดความเหลื่อมล้ำจากผลกระทบของเหตุการณ์ความไม่สงบในพื้นที่ชายแดนใต้"</td>
+                        <td align="center">โครงการ "<?php echo $project_name; ?>"</td>
                       </tr>
                       <tr>
                         <td align="center">หน่วยงาน โครงการจัดตั้งสถาบันพัฒนาครูและบุคลากรทางการศึกษาชายแดนใต้ มหาวิทยาลัยราชภัฏยะลา</td>
                       </tr>
                       <tr>
-                        <td align="center">ชื่อ - สกุล นางสาวปาตีเมาะห์ สาและ</td>
+                        <td align="center">ชื่อ - สกุล <?php echo $prefix; ?><?php echo $firtname; ?>&nbsp;&nbsp;<?php echo $lastname; ?></td>
                       </tr>
                     </table>
                     <br>
@@ -214,10 +214,37 @@ body {
 
             <tr>
                 <td width="100%"  class="statement-header">
-                    <table border="0" width="100%" class="statement-view text-gray-900">
+                    <table border="1" width="100%" class="statement-view text-gray-900">
                       <tr>
-                        <td width="50%" align="center">มาปฏิบัติงาน จำนวน......วัน</td>
-                        <td width="50%" align="center">ไม่มาปฏิบัติ จำนวน.......วัน</td>
+                          <td width="5%"></td>
+                        <td width="45%" align="center">
+
+  <table border="0" width="100%" class="statement-view text-gray-900">
+    <tr>
+      <td class="text-nowrap border-0 padding-0" width="1%" >มาปฏิบัติงาน จำนวน</td>
+      <td colspan="2" class="border-0 padding-0"  width="1%">
+      test
+          <div class="line-bottom-dashed">&nbsp;</div>
+      </td>
+      <td class="text-nowrap border-0 padding-0" width="1%" >วัน</td>
+    </tr>
+  </table>
+
+                        </td>
+
+                        <td width="45%" align="center">
+                          <table border="0" width="100%" class="statement-view text-gray-900">
+                            <tr>
+                              <td class="text-nowrap border-0 padding-0" width="1%" >ไม่มาปฏิบัติ จำนวน</td>
+                              <td colspan="2" class="border-0 padding-0"  width="1%">
+                              test
+                                  <div class="line-bottom-dashed">&nbsp;</div>
+                              </td>
+                              <td class="text-nowrap border-0 padding-0" width="1%" >วัน</td>
+                            </tr>
+                          </table>
+                        </td>
+                        <td width="5%"></td>
                       </tr>
                     </table>
                     <br />
@@ -232,28 +259,50 @@ body {
 
             <tr>
                 <td   class="statement-header">
-                    <table border="0" width="100%" class="statement-view text-gray-900">
+                    <table border="1" width="100%" class="statement-view text-gray-900">
                       <tr>
-                        <td width="40%" align="center">
+                        <td width="50%" align="center">
+
                           <table border="0" width="100%" class="statement-view text-gray-900">
                             <tr>
-                              <td  align="center">ลง.................ผู้บันทึก</td>
+                                <td width="1" class="text-nowrap border-0 padding-0">ลงชื่อ</td>
+                                <td class="border-0 padding-0">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $prefix; ?><?php echo $firtname; ?>&nbsp;&nbsp;<?php echo $lastname; ?>
+                                    <div class="line-bottom-dashed">&nbsp;</div>
+                                </td>
+                                <td width="1" class="text-nowrap border-0 padding-0">ผู้บันทึก</td>
                             </tr>
                             <tr>
-                              <td  align="center">(นางสาวปาตีเมาะห์ สาและ)</td>
+                                <td class="border-0 padding-0" align="right">(</td>
+                                <td align="center" class="border-0 padding-0">
+<?php echo $prefix; ?><?php echo $firtname; ?>&nbsp;&nbsp;<?php echo $lastname; ?>
+                                </td>
+                                <td class="border-0 padding-0" align="left">)</td>
                             </tr>
                           </table>
+
                         </td>
-                        <td width="30%" align="center"></td>
-                        <td width="40%" align="center">
+
+                        <td width="50%" align="center">
+
                           <table border="0" width="100%" class="statement-view text-gray-900">
                             <tr>
-                              <td  align="center">ลง.................ผู้ควบคุม</td>
+                                <td width="1" class="text-nowrap border-0 padding-0">ลงชื่อ</td>
+                                <td class="border-0 padding-0">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $t_firstname; ?>&nbsp;&nbsp;<?php echo $t_lastname; ?>
+                                    <div class="line-bottom-dashed">&nbsp;</div>
+                                </td>
+                                <td width="1" class="text-nowrap border-0 padding-0">ผู้ควบคุม</td>
                             </tr>
                             <tr>
-                              <td  align="center">(อาจารย์ซอและ เกปัน)</td>
+                                <td class="border-0 padding-0" align="right">(</td>
+                                <td align="center" class="border-0 padding-0">
+<?php echo $t_firstname; ?>&nbsp;&nbsp;<?php echo $t_lastname; ?>
+                                </td>
+                                <td class="border-0 padding-0" align="left">)</td>
                             </tr>
                           </table>
+
                         </td>
                       </tr>
                     </table>

@@ -11,10 +11,14 @@
     <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
     <title>AdminWrap - Easy to Customize Bootstrap 4 Admin Template</title>
     <!-- Bootstrap Core CSS -->
+
+    <!-- แบมะ -->
     <link href="../css/bootstrap_plugin.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="../css/report.css" rel="stylesheet">
     <link href="../assets/node_modules/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- แบมะ -->
+
     <!-- You can change the theme colors from here -->
     <link href="../css/colors/default.css" id="theme" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -272,38 +276,38 @@
                                 </table>
                             </td>
                         </tr>
-                        <?php 
+                        <?php
                             $num = $regis * $regis_num;
                             $total = $allowance_price + $rest_price + $vehicle_price + $num + $other_price;
 
-                                function convert($total){ 
-                                $txtnum1 = array('ศูนย์','หนึ่ง','สอง','สาม','สี่','ห้า','หก','เจ็ด','แปด','เก้า','สิบ'); 
-                                $txtnum2 = array('','สิบ','ร้อย','พัน','หมื่น','แสน','ล้าน','สิบ','ร้อย','พัน','หมื่น','แสน','ล้าน'); 
-                                $total = str_replace(",","",$total); 
-                                $total = str_replace(" ","",$total); 
-                                $total = str_replace("บาท","",$total); 
-                                $total = explode(".",$total); 
-                                if(sizeof($total)>2){ 
-                                    return 'ทศนิยมหลายตัวนะจ๊ะ'; 
-                                    exit; 
-                                } 
-                                $strlen = strlen($total[0]); 
-                                $convert = ''; 
-                                for($i=0;$i<$strlen;$i++){ 
-                                    $n = substr($total[0], $i,1); 
-                                    if($n!=0){ 
-                                        if($i==($strlen-1) AND $n==1){ $convert .= 'เอ็ด'; } 
-                                        elseif($i==($strlen-2) AND $n==2){  $convert .= 'ยี่'; } 
-                                        elseif($i==($strlen-2) AND $n==1){ $convert .= ''; } 
-                                        else{ $convert .= $txtnum1[$n]; } 
-                                        $convert .= $txtnum2[$strlen-$i-1]; 
-                                    } 
-                                } 
-        
-                                $convert .= 'บาทถ้วน'; 
-        
-                                return $convert; 
-                                } 
+                                function convert($total){
+                                $txtnum1 = array('ศูนย์','หนึ่ง','สอง','สาม','สี่','ห้า','หก','เจ็ด','แปด','เก้า','สิบ');
+                                $txtnum2 = array('','สิบ','ร้อย','พัน','หมื่น','แสน','ล้าน','สิบ','ร้อย','พัน','หมื่น','แสน','ล้าน');
+                                $total = str_replace(",","",$total);
+                                $total = str_replace(" ","",$total);
+                                $total = str_replace("บาท","",$total);
+                                $total = explode(".",$total);
+                                if(sizeof($total)>2){
+                                    return 'ทศนิยมหลายตัวนะจ๊ะ';
+                                    exit;
+                                }
+                                $strlen = strlen($total[0]);
+                                $convert = '';
+                                for($i=0;$i<$strlen;$i++){
+                                    $n = substr($total[0], $i,1);
+                                    if($n!=0){
+                                        if($i==($strlen-1) AND $n==1){ $convert .= 'เอ็ด'; }
+                                        elseif($i==($strlen-2) AND $n==2){  $convert .= 'ยี่'; }
+                                        elseif($i==($strlen-2) AND $n==1){ $convert .= ''; }
+                                        else{ $convert .= $txtnum1[$n]; }
+                                        $convert .= $txtnum2[$strlen-$i-1];
+                                    }
+                                }
+
+                                $convert .= 'บาทถ้วน';
+
+                                return $convert;
+                                }
                                 $x = $total;
                         ?>
                         <tr>
@@ -644,7 +648,7 @@
         </table>
     </div>
 
-    <?php 
+    <?php
             include 'report_lend2.php';
     ?>
 
