@@ -84,7 +84,14 @@
                 $prefix = $row2['prefix'];
                 $firtname = $row2['firtname'];
                 $lastname = $row2['lastname'];
-                //$prefix = $row2['prefix'];
+                $position_id = $row2['position_id'];
+            }
+
+            $sql4 ="SELECT * FROM tb_position WHERE position_id = '".$position_id."' ";
+            $query4 = mysqli_query($conn,$sql4);
+            while($row4 = mysqli_fetch_array($query4,MYSQLI_ASSOC))
+            {
+                $position_name = $row4['position_name'];
             }
 
             $sql_teacher ="SELECT * FROM tb_teacher WHERE teacher_id = '".$teacher_id."' ";
@@ -163,7 +170,7 @@
                                     <tr>
                                         <td width="5" class="text-nowrap border-0 padding-0">&nbsp;ตำแหน่ง</td>
                                         <td class="border-0 padding-0 text-center">
-                                        &nbsp;<?php //echo $regis_num; ?>
+                                        &nbsp;<?php echo $position_name; ?>
                                             <div class="line-bottom-dashed"></div>
                                         </td>
                                     </tr>
