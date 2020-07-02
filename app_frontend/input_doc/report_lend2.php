@@ -53,25 +53,83 @@
                         <td  rowspan="2" >ลายมือชื่อผู้รับ</td>
                         <td  rowspan="2" >หมายเหตุ</td>
                       </tr>
-
                       <tr align="center">
-                        <!-- <td align="center">1</td> -->
-                        <!-- <td align="center">2</td> -->
                         <td >เงินสดหรือใบสำตัญ</td>
                         <td >จำนวนเงิน</td>
-                        <!-- <td align="center">5</td>
-                        <td align="center">6</td>
-                        <td align="center">7</td> -->
                       </tr>
+                      <?php
+
+                            include '../../administrator/connect.php';
+                            $i=1;
+                            $i<="";
+
+                            $id = $_GET['id'];
+                            echo $id;
+
+                            $sql ="SELECT * FROM tb_lend WHERE id = '".$id."'";
+                            $query = mysqli_query($conn,$sql);
+                            while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
+                            {
+                                $date_list = unserialize( $row["date_list"] );
+                                $pay_type = unserialize( $row["pay_type"] );
+                                $price_list = unserialize( $row["price_list"] );
+                                $balance = unserialize( $row["balance"] );
+                            }
+
+                            $balance1 = array($balance);
+
+                                foreach ($balance1 as $balance1){
+                                $j=0;
+                                foreach ($balance1 as $balance1[$j]){
+                                    $value1 = $balance1[$j];
+                                    $j++;
+                                }
+                                //echo "</ul>";
+                            }
+                            $price_list1 = array($price_list);
+
+                                foreach ($price_list1 as $price_list1){
+                                $j=0;
+                                foreach ($price_list1 as $price_list1[$j]){
+                                    $value2 = $price_list1[$j];
+                                    $j++;
+                                }
+                                //echo "</ul>";
+                            }
+                            $pay_type1 = array($pay_type);
+
+                                foreach ($pay_type1 as $pay_type1){
+                                $j=0;
+                                foreach ($pay_type1 as $pay_type1[$j]){
+                                    $value3 = $pay_type1[$j];
+                                    $j++;
+                                }
+                                //echo "</ul>";
+                            }
+                            $date_list1 = array($date_list);
+
+                                foreach ($date_list1 as $date_list1){
+                                $j=0;
+                                foreach ($date_list1 as $date_list1[$j]){
+                                    $value = $date_list1[$j];
+                                    $value1 = $balance1[$j];
+                                    $value2 = $price_list1[$j];
+                                    $value3 = $pay_type1[$j];
+                                    
+                                //}
+                                //echo "</ul>";
+                            //}
+                        ?>
                       <tr align="center">
-                        <td >1</td>
-                        <td >2</td>
-                        <td >3</td>
-                        <td >4</td>
-                        <td >5</td>
-                        <td >6</td>
-                        <td >7</td>
+                        <td ><?php echo $i;?></td>
+                        <td ><?php echo $value;?></td>
+                        <td ><?php echo $value3;?></td>
+                        <td ><?php echo $value2;?></td>
+                        <td ><?php echo $value1;?></td>
+                        <td ></td>
+                        <td ></td>
                       </tr>
+                      <?php $j++; $i++; }}?>
                     </table>
                     <br>
                 </td>
