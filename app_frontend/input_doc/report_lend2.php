@@ -64,7 +64,7 @@
                             $i<="";
 
                             $id = $_GET['id'];
-                            echo $id;
+                            //echo $id;
 
                             $sql ="SELECT * FROM tb_lend WHERE id = '".$id."'";
                             $query = mysqli_query($conn,$sql);

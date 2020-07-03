@@ -163,7 +163,7 @@ else
                                             <tr>
                                                 <td><?php echo $i;?></td>
                                                 <td><?php echo $doc_id;?></td>
-                                                <td><?php echo $prefix;?><?php echo $firtname;?><?php echo $lastname;?></td>
+                                                <td><?php echo $prefix;?><?php echo $firtname;?>  <?php echo $lastname;?></td>
                                                 <td><?php echo $project_name;?></td>
                                                 <td>
                                                 <a href="show_doc_debt.php?id=<?php echo $id;?>"><button type="button" class="btn btn-info">รายละเอียด</button></a>

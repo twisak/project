@@ -27,10 +27,10 @@ else
     <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
     <title>AdminWrap - Easy to Customize Bootstrap 4 Admin Template</title>
     <!-- Bootstrap Core CSS -->
-    <link href="../assets/node_modules/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap_plugin.css" rel="stylesheet">
     <!-- Custom CSS -->
-    <link href="../css/style.css" rel="stylesheet">
     <link href="../css/report.css" rel="stylesheet">
+    <link href="../assets/node_modules/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <!-- You can change the theme colors from here -->
     <link href="../css/colors/default.css" id="theme" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -39,7 +39,6 @@ else
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
-
 </head>
 <?php
 
@@ -136,11 +135,10 @@ else
             <tr>
                 <td width="100%"  class="statement-header">
                     <table border="0" width="100%" class="statement-view text-gray-900" align="center">
-                      <tr>
-                        <td align="center"><b><h3>บันทึกข้อความ</h3></b></td>
+                      <tr height="35">
+                        <td align="center"><h2><strong>บันทึกข้อความ</strong></h2></td>
                       </tr>
                     </table>
-                    <br>
                 </td>
             </tr>
 
@@ -185,7 +183,17 @@ else
                         </td>
                       </tr>
                       <tr align="left">
-                        <td colspan="2">เรื่อง ขอความเห็นชอบราคากลางจ้างเหมาบริการเจ้าหน้าที่ประสานงานโครงการฯ โดยวิธีเฉพาะเจาะจง</td>
+                        <td colspan="2">
+                            <table width="100%" border="0" align="left">
+                                <tr>
+                                    <td width="1" class="text-nowrap border-0 padding-0"><strong>เรื่อง</strong></td>
+                                    <td class="border-0 padding-0">
+                                    &nbsp;&nbsp;<?php echo $title;?>
+                                        <div class="line-bottom-dashed"></div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
                       </tr>
                       <tr  align="left">
                         <td colspan="2">เรียน อธิการบดีมหาวิทยาลัยราชภัฏยะลา</td>

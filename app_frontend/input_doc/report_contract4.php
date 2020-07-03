@@ -27,10 +27,10 @@ else
     <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
     <title>AdminWrap - Easy to Customize Bootstrap 4 Admin Template</title>
     <!-- Bootstrap Core CSS -->
-    <link href="../assets/node_modules/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap_plugin.css" rel="stylesheet">
     <!-- Custom CSS -->
-    <link href="../css/style.css" rel="stylesheet">
     <link href="../css/report.css" rel="stylesheet">
+    <link href="../assets/node_modules/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <!-- You can change the theme colors from here -->
     <link href="../css/colors/default.css" id="theme" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -138,7 +138,7 @@ else
                 <td width="100%"  class="statement-header">
                     <table border="0" width="100%" class="statement-view text-gray-900" align="center">
                       <tr>
-                        <td align="center">ขอบเขตของงานจ้างเหมาบริการ</td>
+                        <td align="center"><strong>ขอบเขตของงานจ้างเหมาบริการ</strong></td>
                       </tr>
                     </table>
                     <br>
@@ -149,7 +149,7 @@ else
                 <td width="100%"  class="statement-header">
                     <table border="0" width="100%" class="statement-view text-gray-900">
                       <tr  align="left">
-                        <td>รายละเอียดการจ้าง</td>
+                        <td><strong>รายละเอียดการจ้าง</strong></td>
                       </tr>
                       <tr class="border-0 padding-0" align="left">
                         <td >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $details;?></td>
@@ -163,7 +163,7 @@ else
                 <td width="100%"  class="statement-header">
                     <table border="0" width="100%" class="statement-view text-gray-900">
                       <tr  align="left">
-                        <td>ระยะเวลาการจ้าง</td>
+                        <td><strong>ระยะเวลาการจ้าง</strong></td>
                       </tr>
                       <tr class="border-0 padding-0" align="left">
                         <td >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ตั้งแต่วันที่ <?php echo $date_start;?> ถึงวันที่ <?php echo $date_end;?></td>
@@ -177,7 +177,7 @@ else
                 <td width="100%"  class="statement-header">
                     <table border="0" width="100%" class="statement-view text-gray-900">
                         <tr  align="left">
-                            <td>คุณสมบัติของผู้รับจ้าง</td>
+                            <td><strong>คุณสมบัติของผู้รับจ้าง</strong></td>
                         </tr>
                       <tr  align="left">
                         <td>
@@ -203,7 +203,7 @@ else
                 <td width="100%"  class="statement-header">
                     <table border="0" width="100%" class="statement-view text-gray-900">
                       <tr  align="left">
-                        <td>ขอบเขตของงานที่จ้าง</td>
+                        <td><strong>ขอบเขตของงานที่จ้าง</strong></td>
                       </tr>
                       <tr  align="left">
                         <td >
@@ -229,7 +229,7 @@ else
                 <td width="100%"  class="statement-header">
                     <table border="0" width="100%" class="statement-view text-gray-900">
                       <tr  align="left">
-                        <td>ความรับผิดชอบของผู้ว่าจ้าง</td>
+                        <td><strong>ความรับผิดชอบของผู้ว่าจ้าง</strong></td>
                       </tr>
                       <tr  align="left">
                         <td >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $responsible;?></td>
@@ -243,7 +243,7 @@ else
                 <td width="100%"  class="statement-header">
                     <table border="0" width="100%" class="statement-view text-gray-900">
                       <tr  align="left">
-                        <td>ค่าปรับและการหักเงินค่าจ้าง</td>
+                        <td><strong>ค่าปรับและการหักเงินค่าจ้าง</strong></td>
                       </tr>
                       <tr  align="left">
                         <td>
@@ -270,7 +270,7 @@ else
                 <td width="100%"  class="statement-header">
                     <table border="0" width="100%" class="statement-view text-gray-900">
                       <tr  align="left">
-                        <td>เงื่อนไขการชำระเงิน</td>
+                        <td><strong>เงื่อนไขการชำระเงิน</strong></td>
                       </tr>
                       <tr  align="left">
                         <td>
@@ -297,7 +297,7 @@ else
                 <td width="100%"  class="statement-header">
                     <table border="0" width="100%" class="statement-view text-gray-900">
                       <tr  align="left">
-                        <td>เงื่อนไขหลักประกัน</td>
+                        <td><strong>เงื่อนไขหลักประกัน</strong></td>
                       </tr>
                       <tr  align="left">
                         <td>

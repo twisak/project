@@ -27,10 +27,10 @@ else
     <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
     <title>AdminWrap - Easy to Customize Bootstrap 4 Admin Template</title>
     <!-- Bootstrap Core CSS -->
-    <link href="../assets/node_modules/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap_plugin.css" rel="stylesheet">
     <!-- Custom CSS -->
-    <link href="../css/style.css" rel="stylesheet">
     <link href="../css/report.css" rel="stylesheet">
+    <link href="../assets/node_modules/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <!-- You can change the theme colors from here -->
     <link href="../css/colors/default.css" id="theme" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -40,31 +40,7 @@ else
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
 </head>
-<?php 
 
-     include '../../administrator/connect.php';
-    //  $sql ="SELECT * FROM tb_person";
-    //  $query = mysqli_query($conn,$sql);
-    //  while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
-    //     {
-    //         $prefix = $row['prefix'];
-    //         $firtname = $row['firtname'];
-    //         $lastname = $row['lastname'];
-    //         $idcard = $row['idcard'];
-    //         $address = $row['address'];
-    //         $position_id = $row['position_id'];
-    //     }
-                                            
-    //     $sql1 ="SELECT * FROM account_login WHERE position_id = '".$position_id."' ";
-    //     $query1 = mysqli_query($conn,$sql1);
-    //     while($row1 = mysqli_fetch_array($query1,MYSQLI_ASSOC))
-    //     {
-    //         $position_id = $row1['position_id'];
-    //         $username = $row1['username'];
-    //         $password = $row1['password'];
-    //         $position = $row1['position'];
-    //     }
-?>
 <body id="<?php //echo $body['name'];?>">
     <div class="page">
         <table border="0" align="center" width="100%" class="statement-view text-gray-900">

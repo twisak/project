@@ -14,7 +14,7 @@
     <link href="../css/bootstrap_plugin.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="../css/report.css" rel="stylesheet">
-    <link href="../assets/node_modules/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../assets/node_modules/font-awesome/css/" rel="stylesheet">
     <!-- You can change the theme colors from here -->
     <link href="../css/colors/default.css" id="theme" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
