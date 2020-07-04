@@ -85,12 +85,6 @@ include '../../administrator/connect.php';
                             <li class="breadcrumb-item active">เอกสารจ้างเหมาบริการ</li>
                         </ol>
                     </div>
-                    <div class="col-md-7 align-self-center">
-                        <a href="../input_doc/report_contract.php" class="btn waves-effect waves-light btn btn-info pull-right hidden-sm-down">
-                            <i class="fa-fw fa fa-print"></i>
-                            ส่งออกแบบฟอร์ม
-                        </a>
-                    </div>
                 </div>
                 <div class="row">
                     <div class="col-lg-12 col-xlg-9 col-md-7">

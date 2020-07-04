@@ -36,17 +36,17 @@ else
     <link href="https://fonts.googleapis.com/css?family=Prompt&display=swap" rel="stylesheet">
     <link href="../css/google_fonts/fonts_prompt.css" rel="stylesheet" />
 
-    
-    
+
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
-<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/3.20.0/codemirror.css">
-<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/3.20.0/theme/monokai.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote.min.css" integrity="sha512-KbfxGgOkkFXdpDCVkrlTYYNXbF2TwlCecJjq1gK5B+BYwVk7DGbpYi4d4+Vulz9h+1wgzJMWqnyHQ+RDAlp8Dw==" crossorigin="anonymous" />
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/3.20.0/codemirror.css">
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/3.20.0/theme/monokai.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote.min.css" integrity="sha512-KbfxGgOkkFXdpDCVkrlTYYNXbF2TwlCecJjq1gK5B+BYwVk7DGbpYi4d4+Vulz9h+1wgzJMWqnyHQ+RDAlp8Dw==" crossorigin="anonymous" />
 </head>
 
 <body class="fix-header card-no-border fix-sidebar">
@@ -92,7 +92,7 @@ else
                             <!-- Tab panes -->
                             <div class="card-body">
                                 <form class="form-horizontal form-material" action="insert_title.php" name="form_user" method="post">
-                                <?php
+                                    <?php
                                         include '../../administrator/connect.php';
                                         $sql = "Select Max(substr(title_id,3)+1) as MaxID from tb_title ";
                                         $query = mysqli_query($conn,$sql);
@@ -119,19 +119,19 @@ else
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label>หัวข้อเรื่อง</label>
-                                                <input type="text" name="title"  class="form-control form-control-line" >
+                                                <input type="text" name="title" class="form-control form-control-line">
                                             </div>
                                         </div>
 
                                     </div>
 
                                     <div class="row">
-                                      <div class="col-md-12">
-                                          <div class="form-group">
-                                              <label>เนื้อหา</label>
-                                               <textarea class="form-control summernote" name="body" rows="5"></textarea>
-                                          </div>
-                                      </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>เนื้อหา</label>
+                                                <textarea class="form-control summernote" name="body" rows="5"></textarea>
+                                            </div>
+                                        </div>
 
 
                                     </div>
@@ -185,9 +185,9 @@ else
         <!-- ============================================================== -->
         <!-- All Jquery -->
         <!-- ============================================================== -->
-        
+
         <script src="../assets/node_modules/jquery/jquery.min.js"></script>
-       
+
         <!-- Bootstrap tether Core JavaScript -->
         <script src="../assets/node_modules/bootstrap/js/popper.min.js"></script>
         <script src="../assets/node_modules/bootstrap/js/bootstrap.min.js"></script>
@@ -201,13 +201,13 @@ else
         <script src="../js/custom.min.js"></script>
         <!-- include codemirror (codemirror.css, codemirror.js, xml.js, formatting.js) -->
 
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/codemirror/3.20.0/codemirror.js"></script>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/codemirror/3.20.0/mode/xml/xml.js"></script>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/codemirror/2.36.0/formatting.js"></script>
- <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote.min.js" integrity="sha512-kZv5Zq4Cj/9aTpjyYFrt7CmyTUlvBday8NGjD9MxJyOY/f2UfRYluKsFzek26XWQaiAp7SZ0ekE7ooL9IYMM2A==" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/codemirror/3.20.0/codemirror.js"></script>
+        <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/codemirror/3.20.0/mode/xml/xml.js"></script>
+        <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/codemirror/2.36.0/formatting.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote.min.js" integrity="sha512-kZv5Zq4Cj/9aTpjyYFrt7CmyTUlvBday8NGjD9MxJyOY/f2UfRYluKsFzek26XWQaiAp7SZ0ekE7ooL9IYMM2A==" crossorigin="anonymous"></script>
         <script>
-            $(document).ready(function(){
-                $('.summernote').summernote({  
+            $(document).ready(function () {
+                $('.summernote').summernote({
                     height: 150
                 });
             });

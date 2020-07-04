@@ -75,9 +75,6 @@ else
                             <li class="breadcrumb-item active">ข้อมูลเนื้อเรื่อง</li>
                         </ol>
                     </div>
-                    <div class="col-md-7 align-self-center">
-                        <a href="https://wrappixel.com/templates/adminwrap/" class="btn waves-effect waves-light btn btn-info pull-right hidden-sm-down"> Upgrade to Pro</a>
-                    </div>
                 </div>
                 <!-- ============================================================== -->
                 <!-- End Bread crumb and right sidebar toggle -->
@@ -102,7 +99,7 @@ else
 
 
                                 <div class="text-right">
-                                    <a href="../tb_title/form_title.php"><button type="button" class="btn btn-primary">เพิ่มอาจารย์</button></a>
+                                    <a href="../tb_title/form_title.php"><button type="button" class="btn btn-primary">เพิ่มหัวข้อเรื่อง</button></a>
                                 </div>
                                 <div class="table-responsive">
                                     <table class="table text-center">

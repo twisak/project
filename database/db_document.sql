@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 02, 2020 at 06:35 PM
+-- Generation Time: Jul 04, 2020 at 11:36 AM
 -- Server version: 10.3.16-MariaDB
 -- PHP Version: 7.2.20
 
@@ -10123,7 +10123,7 @@ INSERT INTO `tb_budget` (`id`, `budget_id`, `budget`) VALUES
 CREATE TABLE `tb_contract` (
   `id` int(11) NOT NULL COMMENT 'ออโต้ไอดี',
   `doc_id` varchar(11) DEFAULT NULL COMMENT 'รหัสเอกสารจ้างเหมาบริการ	',
-  `foreword` varchar(300) NOT NULL COMMENT 'คำนำ',
+  `foreword` longtext NOT NULL COMMENT 'คำนำ',
   `str_date` date DEFAULT NULL COMMENT 'วันที่เริ่มต้น',
   `stp_date` date DEFAULT NULL COMMENT 'วันที่สิ้นสุด',
   `project_id` varchar(20) DEFAULT NULL COMMENT 'รหัสโครงการ',
@@ -10143,15 +10143,15 @@ CREATE TABLE `tb_contract` (
   `chairman` varchar(20) NOT NULL COMMENT 'ประธานกรรมการ',
   `committee` varchar(20) NOT NULL COMMENT 'กรรมการ',
   `secretary` varchar(20) NOT NULL COMMENT 'กรรมการและเลขานุกร',
-  `details` varchar(200) NOT NULL COMMENT 'รายละเอียดการจ้าง',
+  `details` longtext NOT NULL COMMENT 'รายละเอียดการจ้าง',
   `date_start` date NOT NULL COMMENT 'วันที่เริ่มจ้างเหมา',
   `date_end` date NOT NULL COMMENT 'วันที่จบจ้างเหมา',
-  `property` varchar(500) NOT NULL COMMENT 'คุณสมบัติ',
-  `scope` varchar(500) NOT NULL COMMENT 'ขอบเขตของงานที่จ้าง',
-  `responsible` varchar(200) NOT NULL COMMENT 'ความรับผิดชอบของผู้ว่าจ้าง',
-  `fine` varchar(200) NOT NULL COMMENT 'ค่าปรับและค่าหักเงินค่าจ้าง',
-  `payment` varchar(200) NOT NULL COMMENT 'เงื่อนไขการชำระเงิน',
-  `insurance` varchar(200) NOT NULL COMMENT 'เงื่อนไขหลักประกัน'
+  `property` longtext NOT NULL COMMENT 'คุณสมบัติ',
+  `scope` longtext NOT NULL COMMENT 'ขอบเขตของงานที่จ้าง',
+  `responsible` longtext NOT NULL COMMENT 'ความรับผิดชอบของผู้ว่าจ้าง',
+  `fine` longtext NOT NULL COMMENT 'ค่าปรับและค่าหักเงินค่าจ้าง',
+  `payment` longtext NOT NULL COMMENT 'เงื่อนไขการชำระเงิน',
+  `insurance` longtext NOT NULL COMMENT 'เงื่อนไขหลักประกัน'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -10204,8 +10204,8 @@ CREATE TABLE `tb_debt` (
   `other` varchar(200) DEFAULT NULL COMMENT 'ค่าใช้จ่ายอื่นๆ',
   `other_sum` varchar(200) DEFAULT NULL COMMENT 'รวมค่าใช้จ่ายอื่นๆ',
   `document_num` varchar(20) DEFAULT NULL COMMENT 'จำนวนเอกสารกี่ฉบับ',
-  `list` varchar(200) NOT NULL COMMENT 'รายการรับเงิน',
-  `money_num` varchar(200) NOT NULL COMMENT 'จำนวนรับเงิน'
+  `list` longtext NOT NULL COMMENT 'รายการรับเงิน',
+  `money_num` longtext NOT NULL COMMENT 'จำนวนรับเงิน'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -10240,10 +10240,10 @@ CREATE TABLE `tb_lend` (
   `regis_num` varchar(3) DEFAULT NULL COMMENT 'จำนวนคน',
   `other` varchar(200) DEFAULT NULL COMMENT 'อื่นๆ',
   `other_price` varchar(10) DEFAULT NULL COMMENT 'ราคาอื่นๆ',
-  `date_list` varchar(100) NOT NULL COMMENT 'วัน/เดือน/ปี',
-  `pay_type` varchar(500) NOT NULL COMMENT 'การชำระ',
-  `price_list` varchar(200) NOT NULL COMMENT 'ราคา',
-  `balance` varchar(200) NOT NULL COMMENT 'ยอดคงค้าง'
+  `date_list` longtext NOT NULL COMMENT 'วัน/เดือน/ปี',
+  `pay_type` longtext NOT NULL COMMENT 'การชำระ',
+  `price_list` longtext NOT NULL COMMENT 'ราคา',
+  `balance` longtext NOT NULL COMMENT 'ยอดคงค้าง'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -10451,11 +10451,11 @@ CREATE TABLE `tb_salary` (
   `perform` varchar(10) NOT NULL COMMENT 'ปฎิบัติงานดังกล่าวงวดที่',
   `month` date NOT NULL COMMENT 'เดือนที่',
   `teacher_id` varchar(20) NOT NULL COMMENT 'ผู้ควบคุมการปฎิบัติงาน',
-  `day_work` varchar(200) NOT NULL COMMENT 'วัน/เดือน/ปี',
-  `start_time` varchar(200) NOT NULL COMMENT 'เวลาเริ่ม',
-  `end_time` varchar(200) NOT NULL COMMENT 'เวลาสิ้นสุด',
-  `Job` varchar(200) NOT NULL COMMENT 'งานในหน้าที่',
-  `part_time` varchar(200) NOT NULL COMMENT 'งานพิเศษ'
+  `day_work` longtext NOT NULL COMMENT 'วัน/เดือน/ปี',
+  `start_time` longtext NOT NULL COMMENT 'เวลาเริ่ม',
+  `end_time` longtext NOT NULL COMMENT 'เวลาสิ้นสุด',
+  `Job` longtext NOT NULL COMMENT 'งานในหน้าที่',
+  `part_time` longtext NOT NULL COMMENT 'งานพิเศษ'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -10742,7 +10742,7 @@ ALTER TABLE `tb_debt`
 -- AUTO_INCREMENT for table `tb_lend`
 --
 ALTER TABLE `tb_lend`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้ไอดี', AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้ไอดี', AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `tb_listlend`
