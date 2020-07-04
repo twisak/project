@@ -191,7 +191,7 @@ include '../../administrator/connect.php';
                                 <div class="row">
                                     <div class="col-md-12 text-center">
                                         <div class="form-group">
-                                            <label><b><u>รายละเอียดเอกสารจ้างเหมาบริการ</u></b></label>
+                                            <label><h5><b><u>รายละเอียดเอกสารจ้างเหมาบริการ</u></b></h5></label>
                                         </div>
                                     </div>
                                 </div>

@@ -106,9 +106,16 @@ include '../../administrator/connect.php';
                                                 }
                                     ?>
                                     <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group text-center">
+                                                <label><h4><b><u>แบบฟอร์มเอกสารจ้างเหมาบริการ</u></b></h4></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label>รหัสเอกสารจ้างเหมาบริการ</label>
+                                                <label><b>รหัสเอกสารจ้างเหมาบริการ</b></label>
                                                 <input type="text" value="<?=$id?>" readonly class="form-control form-control-line">
                                                 <input type="hidden" name="doc_id" value="<?=$id?>" />
                                             </div>
@@ -116,7 +123,7 @@ include '../../administrator/connect.php';
 
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label>ชื่อบุคลากร</label>
+                                                <label><b>ชื่อบุคลากร</b></label>
                                                 <input type="text" value="<?php echo $prefix?><?php echo $firtname?>&nbsp;&nbsp;<?php echo $lastname?>" class="form-control form-control-line">
                                                 <input type="hidden" class="form-control" name="person_id" value="<?php echo $person_id?>">
                                             </div>
@@ -125,7 +132,7 @@ include '../../administrator/connect.php';
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label>โครงการ</label>
+                                                <label><b>โครงการ</b></label>
                                                 <select name="project_id" id="project" class="form-control">
                                                     <option value="">เลือกโครงการ</option>
                                                     <?php
@@ -141,7 +148,7 @@ include '../../administrator/connect.php';
 
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="activity">ชื่อกิจกรรม</label>
+                                                <label for="activity"><b>ชื่อกิจกรรม</b></label>
                                                 <select name="activity_id" id="activity" class="form-control">
                                                     <option value="">ชื่อกิจกรรม</option>
                                                 </select>
@@ -180,13 +187,13 @@ include '../../administrator/connect.php';
                                     <div class="row">
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label>เริ่มต้นวันที่</label>
+                                                <label><b>เริ่มต้นวันที่</b></label>
                                                 <input type="date" class="form-control form-control-line" name="str_date">
                                             </div>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label>สิ้นสุดวันที่</label>
+                                                <label><b>สิ้นสุดวันที่</b></label>
                                                 <input type="date" class="form-control form-control-line" name="stp_date">
                                             </div>
                                         </div>
@@ -194,7 +201,7 @@ include '../../administrator/connect.php';
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label>ผู้ควบคุมการปฎิบัติงาน</label>
+                                                <label><b>ผู้ควบคุมการปฎิบัติงาน</b></label>
                                                 <select name="teacher_id" class="form-control">
                                                     <option value="">เลือกชื่ออาจารย์</option>
                                                     <?php
@@ -211,20 +218,20 @@ include '../../administrator/connect.php';
                                     <div class="row">
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label><u>รายการส่งใช้เงินยืม</u></label>
+                                                <label><b><u>รายการส่งใช้เงินยืม</u></b></label>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label>จำนวนงวด</label>
+                                                <label><b>จำนวนงวด</b></label>
                                                 <input type="text" class="form-control form-control-line" name="number">
                                             </div>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label>เป็นเงิน</label>
+                                                <label><b>เป็นเงิน</b></label>
                                                 <input type="text" class="form-control form-control-line" name="money">
                                             </div>
                                         </div>
@@ -232,40 +239,55 @@ include '../../administrator/connect.php';
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label>ปฎิบัติงานงวดที่</label>
+                                                <label><b>ปฎิบัติงานงวดที่</b></label>
                                                 <input type="text" class="form-control form-control-line" name="work">
                                             </div>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label>วันที่ปฎิบัติงาน</label>
+                                                <label><b>วันที่ปฎิบัติงาน</b></label>
                                                 <input type="date" class="form-control form-control-line" name="date_work">
                                             </div>
                                         </div>
                                     </div>
+                                    <br>
                                     <div class="row">
-                                        <div class="col-md-2">
-                                            <div class="form-group">
-                                                <label><u>บันทึกข้อความ</u></label>
+                                        <div class="col-md-12">
+                                            <div class="form-group text-center">
+                                                <label><h4><b><u>บันทึกข้อความ</u></b></h4></label>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label>ส่วนราชการ</label>
+                                                <label><b>ส่วนราชการ</b></label>
                                                 <input type="text" class="form-control form-control-line" name="government">
                                             </div>
                                         </div>
+                                        <?php
+                                            $sql = "Select Max(substr(that,7)+1) as MaxID from tb_contract ";
+                                            $query = mysqli_query($conn,$sql);
+                                            $table_id = mysqli_fetch_assoc($query);
+                                            $testid = $table_id['MaxID'];
+                                                    if($testid=='')
+                                                    {
+                                                        $idd="อว.000001";
+                                                    }else
+                                                    {
+                                                        $idd="อว.".sprintf("%06d",$testid);
+                                                    }
+                                        ?>
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label>ที่</label>
-                                                <input type="text" class="form-control form-control-line" name="that">
+                                                <label><b>ที่</b></label>
+                                                <input type="text" value="<?=$idd?>" readonly class="form-control form-control-line">
+                                                <input type="hidden" name="that" value="<?=$idd?>" />
                                             </div>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label>วันที่</label>
+                                                <label><b>วันที่</b></label>
                                                 <input type="date" class="form-control form-control-line" name="c_day">
                                             </div>
                                         </div>
@@ -273,7 +295,7 @@ include '../../administrator/connect.php';
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label>เรื่อง</label>
+                                                <label><b>เรื่อง</b></label>
                                                 <select name="title_id" class="form-control">
                                                     <option value="">เลือกชื่อเรื่อง</option>
                                                     <?php
@@ -296,13 +318,13 @@ include '../../administrator/connect.php';
                                         </div> -->
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label>จำนวนคน</label>
+                                                <label><b>จำนวนคน</b></label>
                                                 <input type="text" class="form-control form-control-line" name="people">
                                             </div>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label>ราคากลางที่คำนวณได้</label>
+                                                <label><b>ราคากลางที่คำนวณได้</b></label>
                                                 <input type="text" class="form-control form-control-line" name="mid_price">
                                             </div>
                                         </div>
@@ -310,7 +332,7 @@ include '../../administrator/connect.php';
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label>ลงชื่อ ประธานกรรมการ</label>
+                                                <label><b>ลงชื่อ ประธานกรรมการ</b></label>
                                                 <select name="chairman" class="form-control">
                                                     <option value="">เลือกชื่ออาจารย์</option>
                                                     <?php
@@ -325,7 +347,7 @@ include '../../administrator/connect.php';
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label>ลงชื่อ กรรมการ</label>
+                                                <label><b>ลงชื่อ กรรมการ</b></label>
                                                 <select name="committee" class="form-control">
                                                     <option value="">เลือกชื่ออาจารย์</option>
                                                     <?php
@@ -340,7 +362,7 @@ include '../../administrator/connect.php';
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label>ลงชื่อ กรรมการและเลขานุการ</label>
+                                                <label><b>ลงชื่อ กรรมการและเลขานุการ</b></label>
                                                 <select name="secretary" class="form-control">
                                                     <option value="">เลือกชื่ออาจารย์</option>
                                                     <?php
@@ -354,17 +376,18 @@ include '../../administrator/connect.php';
                                             </div>
                                         </div>
                                     </div>
+                                    <br>
                                     <div class="row">
-                                        <div class="col-md-2">
+                                        <div class="col-md-12 text-center">
                                             <div class="form-group">
-                                                <label><u>ขอบเขตงานจ้างเหมาบริการ</u></label>
+                                                <label><h4><b><u>ขอบเขตงานจ้างเหมาบริการ</u></b></h4></label>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label>รายละเอียดการจ้าง</label>
+                                                <label><b>รายละเอียดการจ้าง</b></label>
                                                 <input type="text" class="form-control form-control-line" name="details">
                                             </div>
                                         </div>
@@ -372,20 +395,20 @@ include '../../administrator/connect.php';
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label><u>ระยะเวลาการจ้าง</u></label>
+                                                <label><b>ระยะเวลาการจ้าง</b></label>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label>เริ่มต้นวันที่</label>
+                                                <label><b>เริ่มต้นวันที่</b></label>
                                                 <input type="date" class="form-control form-control-line" name="date_start">
                                             </div>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label>สิ้นสุดวันที่</label>
+                                                <label><b>สิ้นสุดวันที่</b></label>
                                                 <input type="date" class="form-control form-control-line" name="date_end">
                                             </div>
                                         </div>
