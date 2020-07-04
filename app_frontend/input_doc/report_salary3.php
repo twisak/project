@@ -192,11 +192,92 @@ body {
                         <td width="30%" align="center">ข้อเสนอ/ข้อปรับปรุง/ผู้ควบคุมการปฏิบัติงาน</td>
                       </tr>
 
+
+
+                      <?php
+                            $i=1;
+                            $i<="";
+
+                          //   $id = $_GET['id'];
+                          //   echo $id;
+                          //
+                          //   $sql1 ="SELECT * FROM tb_salary WHERE id = '".$id."'";
+                          //   $query1 = mysqli_query($conn,$sql1);
+                          //   while($row1 = mysqli_fetch_array($query1,MYSQLI_ASSOC))
+                          //   {
+                          //     $day_work = unserialize( $row1["day_work"] );
+                          //     $start_time = unserialize( $row1["start_time"] );
+                          //     $end_time = unserialize( $row1["end_time"] );
+                          //     $Job = unserialize( $row1["Job"] );
+                          //     $part_time = unserialize( $row1["part_time"] );
+                          // }
+
+                                $day_work = unserialize($result_salary['day_work']);
+                                $start_time = unserialize($result_salary['start_time']);
+                                $end_time = unserialize($result_salary['end_time']);
+                                $Job = unserialize($result_salary['Job']);
+                                $part_time = unserialize($result_salary['part_time']);
+
+                                $day_work1 = array($day_work);
+                                    foreach ($day_work1 as $day_work1){
+                                    $j=0;
+                                    foreach ($day_work1 as $day_work1[$j]){
+                                        $value_day_work = $day_work1[$j];
+                                        $j++;
+                                    }
+                                  }
+
+                                $start_time1 = array($start_time);
+                                    foreach ($start_time1 as $start_time1){
+                                    $j=0;
+                                    foreach ($start_time1 as $start_time1[$j]){
+                                        $value_start_time = $start_time1[$j];
+                                        $j++;
+                                    }
+                                  }
+
+                                 $end_time1 = array($end_time);
+                                    foreach ($end_time1 as $end_time1){
+                                    $j=0;
+                                    foreach ($end_time1 as $end_time1[$j]){
+                                          $value_end_time = $end_time1[$j];
+                                          $j++;
+                                    }
+                                  }
+
+                                $Job1 = array($Job);
+                                       foreach ($Job1 as $Job1){
+                                       $j=0;
+                                       foreach ($Job1 as $Job1[$j]){
+                                             $value_Job = $Job1[$j];
+                                             $j++;
+                                       }
+                                     }
+
+                                $part_time1 = array($part_time);
+                                // print_r($part_time1);
+                                //     print_r($Job1);
+                                //         print_r($start_time1);
+                                //             print_r($end_time1);
+                                //                 print_r($day_work1);
+                                      foreach ($part_time1 as $part_time1){
+                                      $j=0;
+                                      foreach ($part_time1 as $part_time1[$j]){
+                                                $value_part_time = $part_time1[$j];
+                                                $value_day_work = $day_work1[$j];
+                                                $value_start_time = $start_time1[$j];
+                                                $value_end_time = $end_time1[$j];
+                                                $value_Job = $Job1[$j];
+
+
+                        ?>
+
                       <tr>
-                        <td align="center">01 ก.ย. 62</td>
-                        <td align="center">08:00-17:00 น.</td>
-                        <td align="center">- ประชุมติดตามโครงการฯ</td>
-                        <td align="center"></td>
+                        <?php $i; ?>
+                        <td align="center"><?php echo $value_day_work;?></td>
+                        <td align="center"><?php echo $value_start_time; ?>-<?php echo $value_end_time;?> น.</td>
+                        <td align="center">- <?php echo $value_Job; ?></td>
+                        <td align="center"><?php echo $value_part_time; ?></td>
                         <td>
                             <table border="0" width="100%" class="statement-view text-gray-900">
                               <tr>
@@ -208,6 +289,7 @@ body {
                             </table>
                         </td>
                       </tr>
+      <?php $j++; $i++; }}?>
                     </table>
                 </td>
             </tr>
@@ -345,7 +427,7 @@ body {
         </li>
     </ul>
 
-    <script src="<?php //echo site_common_node_modules_url('jquery/dist/jquery.min.js');?>"></script>
+
 </body>
 
 </html>
