@@ -60,11 +60,17 @@ else
      $perform = $result_salary['perform'];
      $month = $result_salary['month'];
      $teacher_id = $result_salary['teacher_id'];
-     $day_work = $result_salary['day_work'];
-     $start_time = $result_salary['start_time'];
-     $end_time = $result_salary['end_time'];
-     $Job = $result_salary['Job'];
-     $part_time = $result_salary['part_time'];
+
+     $day_work = unserialize($result_salary['day_work']);
+     $start_time = unserialize($result_salary['start_time']);
+     $end_time = unserialize($result_salary['end_time']);
+     $Job = unserialize($result_salary['Job']);
+     $part_time = unserialize($result_salary['part_time']);
+     // $day_work = $result_salary['day_work'];
+     // $start_time = $result_salary['start_time'];
+     // $end_time = $result_salary['end_time'];
+     // $Job = $result_salary['Job'];
+     // $part_time = $result_salary['part_time'];
 
      $sql_project = "SELECT * FROM tb_project WHERE project_id = '".$project_id."' ";
      $query_project = mysqli_query($conn,$sql_project);
