@@ -41,88 +41,9 @@
     <div class="page">
 
 
-<table border="1" width="100%" class="statement-view text-gray-900">
-  <tr>
-    <td width="100%">
-
       <table border="0" width="100%" class="statement-view text-gray-900">
         <tr>
-          <td>
-
-            <table border="0" width="100%" class="statement-view text-gray-900">
-              <tr>
-                <td></td>
-                <td align="center">ใบสำคัญรับเงิน</td>
-                <td></td>
-              </tr>
-              <tr>
-                <td></td>
-                <td align="center">สำหรับวิทยากร</td>
-                <td></td>
-              </tr>
-            </table>
-
-          </td>
-        </tr>
-
-        <tr>
-          <td>
-
-            <table border="0" width="100%" class="statement-view text-gray-900">
-              <tr>
-                <td align="left" width="20%">&nbsp;&nbsp;&nbsp;ใบสำคัญรับเงิน</td>
-                <td class="border-0 padding-0 text-center">
-                  ssss
-                    <div class="line-bottom-dashed"></div>
-                </td>
-              </tr>
-              <tr>
-                <td align="left" width="20%">&nbsp;&nbsp;&nbsp;สำหรับวิทยากร</td>
-                <td class="border-0 padding-0 text-center">
-                  ssss
-                    <div class="line-bottom-dashed"></div>
-                </td>
-              </tr>
-            </table>
-
-          </td>
-        </tr>
-
-        <tr>
-          <td>
-
-            <table border="0" width="100%" class="statement-view text-gray-900">
-              <tr>
-                <td align="left" width="50%">
-                  <table border="0" width="100%" class="statement-view text-gray-900">
-                    <tr>
-                      <td width="50%"></td>
-                      <td width="7%">วันที่</td>
-                      <td class="border-0 padding-0 text-center">
-                        18
-                          <div class="line-bottom-dashed"></div>
-                      </td>
-                      <td  width="8%">เดือน</td>
-                      <td class="border-0 padding-0 text-center">
-                        18
-                          <div class="line-bottom-dashed"></div>
-                      </td>
-                      <td  width="4%">ปี</td>
-                      <td class="border-0 padding-0 text-center">
-                        18
-                          <div class="line-bottom-dashed"></div>
-                      </td>
-                    </tr>
-                  </table>
-                </td>
-              </tr>
-            </table>
-
-          </td>
-        </tr>
-
-        <tr>
-          <td>
+          <td width="100%">
 
             <table border="0" width="100%" class="statement-view text-gray-900">
               <tr>
@@ -130,16 +51,10 @@
 
                   <table border="0" width="100%" class="statement-view text-gray-900">
                     <tr>
-                      <td align="left" width="10%">&nbsp;&nbsp;&nbsp;ข้าพเจ้า</td>
-                      <td class="border-0 padding-0 text-center">
-                        ssss
-                          <div class="line-bottom-dashed"></div>
-                      </td>
-                      <td align="left" width="15%">&nbsp;&nbsp;&nbsp;บ้านเลขที่</td>
-                      <td class="border-0 padding-0 text-center">
-                        ssss
-                          <div class="line-bottom-dashed"></div>
-                      </td>
+                      <td align="right">ส่วนที่ 2</td>
+                    </tr>
+                    <tr>
+                      <td align="right">แบบ 8708</td>
                     </tr>
                   </table>
 
@@ -149,160 +64,217 @@
               <tr>
                 <td>
 
-                  <table border="0" width="100%" class="statement-view text-gray-900">
+                  <table border="1" width="100%" class="statement-view text-gray-900">
                     <tr>
-                      <td align="left" width="17%">&nbsp;&nbsp;&nbsp;ตำบล/แขวง</td>
+                      <td align="left" width="45%">ประกอบใบเบิกค่าใช้จ่ายในการเดินทางของ</td>
                       <td class="border-0 padding-0 text-center">
                         ssss
                           <div class="line-bottom-dashed"></div>
                       </td>
-                      <td align="left" width="16%">&nbsp;&nbsp;&nbsp;อำเภอ/เขต</td>
+                      <td align="left" width="9%">ลงวันที่</td>
                       <td class="border-0 padding-0 text-center">
                         ssss
                           <div class="line-bottom-dashed"></div>
                       </td>
-                      <td align="left" width="11%">&nbsp;&nbsp;&nbsp;จังหวัด</td>
+                      <td align="left" width="7%">เดือน</td>
+                      <td class="border-0 padding-0 text-center">
+                        ssss
+                          <div class="line-bottom-dashed"></div>
+                      </td>
+                      <td align="left" width="7%">พ.ศ.</td>
                       <td class="border-0 padding-0 text-center">
                         ssss
                           <div class="line-bottom-dashed"></div>
                       </td>
                     </tr>
                   </table>
-
+<br>
                 </td>
               </tr>
 
-
-            </table>
-
-          </td>
-        </tr>
-
-
-        <tr>
-          <td>
-
-            <table border="0" width="100%" class="statement-view text-gray-900">
               <tr>
-                <td align="left" width="18%">&nbsp;&nbsp;&nbsp;ได้รับเงินจาก</td>
-                <td class="border-0 padding-0 text-center">
-                  ssss
-                    <div class="line-bottom-dashed"></div>
-                </td>
-                <td align="left" width="27%">&nbsp;&nbsp;&nbsp;รายละเอียดดังต่อไปนี้</td>
-              </tr>
-            </table>
+                <td>
 
-          </td>
-        </tr>
+                  <table border="1" width="100%" class="statement-view text-gray-900">
+<tr align="center">
+  <td rowspan="2">ลำดับที่</td>
+  <td rowspan="2">ชื่อ</td>
+  <td rowspan="2">ตำแหน่ง</td>
+  <td colspan="4">ค่าใช้จ่าย</td>
 
-        <tr>
-          <td>
-
-            <table border="1" width="100%" class="statement-view text-gray-900">
-              <tr>
-                <td align="center">รายการ</td>
-                <td colspan="2" align="center">จำนวนเงิน</td>
-              </tr>
-              <tr>
-                <td width="60%">1</td>
-                <td>2</td>
-                <td>3</td>
-              </tr>
-              <tr>
-                <td width="60%">1</td>
-                <td>2</td>
-                <td>3</td>
-              </tr>
-              <tr>
-                <td width="60%">1</td>
-                <td>2</td>
-                <td>3</td>
-              </tr>
-              <tr>
-                <td width="60%" align="right">บาท</td>
-                <td>2</td>
-                <td>3</td>
-              </tr>
-            </table>
-            <br>
-
-          </td>
-        </tr>
-
-        <tr>
-          <td>
-
-            <table border="0" width="100%" class="statement-view text-gray-900">
-              <tr>
-                <td align="left" width="16%">&nbsp;&nbsp;&nbsp;จำนวนเงิน(</td>
-                <td class="border-0 padding-0 text-center">
-                  ssss
-                    <div class="line-bottom-dashed"></div>
-                </td>
-                <td align="left" width="16%">)</td>
-              </tr>
-            </table>
-
-          </td>
-        </tr>
-
-        <tr>
-          <td>
-
-            <table border="0" width="100%" class="statement-view text-gray-900">
-              <tr>
-                <td align="right" width="22%">&nbsp;&nbsp;&nbsp;ลงชื่อ</td>
-                <td class="border-0 padding-0 text-center">
-                  ssss
-                    <div class="line-bottom-dashed"></div>
-                </td>
-                <td align="left" width="36%">ผู้รับเงิน</td>
-              </tr>
-              <tr>
-                <td align="right" width="22%">&nbsp;&nbsp;&nbsp;(</td>
-                <td class="border-0 padding-0 text-center">
-                  ssss
-                    <div class="line-bottom-dashed"></div>
-                </td>
-                <td align="left" width="36%">)</td>
-              </tr>
-            </table>
-
-          </td>
-        </tr>
-
-        <tr>
-          <td>
-
-            <table border="0" width="100%" class="statement-view text-gray-900">
-              <tr>
-                <td align="right" width="22%">&nbsp;&nbsp;&nbsp;ลงชื่อ</td>
-                <td class="border-0 padding-0 text-center">
-                  ssss
-                    <div class="line-bottom-dashed"></div>
-                </td>
-                <td align="left" width="36%">ผู้จ่ายเงิน</td>
-              </tr>
-              <tr>
-                <td align="right" width="22%">&nbsp;&nbsp;&nbsp;(</td>
-                <td class="border-0 padding-0 text-center">
-                  ssss
-                    <div class="line-bottom-dashed"></div>
-                </td>
-                <td align="left" width="36%">)</td>
-              </tr>
-            </table>
-
-          </td>
-        </tr>
-
-
-      </table>
-
+  <td rowspan="2">รวม</td>
+  <td rowspan="2">ลายมือชื่อผู้รับเงิน</td>
+  <td rowspan="2">วัน/เดือน/ปี ที่รับเงิน</td>
+  <td rowspan="2">หมายเหตุ</td>
+</tr>
+<tr align="center">
+  <td>ค่าเบี้ยเลี้ยง</td>
+  <td>ค่าเช่าที่พัก</td>
+  <td>ค่าพาหนะ</td>
+  <td>ค่าใช้จ่ายอื่น</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>2</td>
+  <td>3</td>
+  <td>4</td>
+  <td>5</td>
+  <td>6</td>
+  <td>7</td>
+  <td>8</td>
+  <td>9</td>
+  <td>10</td>
+  <td>11</td>
+</tr>
+<tr>
+  <td colspan="3">รวมเงิน</td>
+  <td>4</td>
+  <td>5</td>
+  <td>6</td>
+  <td>7</td>
+  <td>8</td>
+  <td colspan="3">
+<table border="0" width="100%" class="statement-view text-gray-900">
+  <tr>
+    <td>ตามสัญญาเงินยืมเลขที่</td>
+    <td class="border-0 padding-0 text-center">
+      12
+        <div class="line-bottom-dashed"></div>
+    </td>
+    <td>วันที่</td>
+    <td class="border-0 padding-0 text-center">
+      1
+        <div class="line-bottom-dashed"></div>
     </td>
   </tr>
 </table>
+  </td>
+</tr>
+                  </table>
+ิ</br>
+                </td>
+              </tr>
+
+
+              <tr>
+                <td>
+
+                  <table border="1" width="100%" class="statement-view text-gray-900">
+                    <tr>
+                        <td width="50%">
+                          <table border="0" width="100%" class="statement-view text-gray-900">
+                            <tr>
+                              <td align="left" width="55%">รวมเงินทั้งสิ้น (ตัวอักษร)</td>
+                              <td class="border-0 padding-0 text-center">
+                                ssss
+                                  <div class="line-bottom-dashed"></div>
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                        <td width="50%">
+                          <table border="0" width="100%" class="statement-view text-gray-900">
+                            <tr>
+                              <td align="right" width="13%">ลงชื่อ</td>
+                              <td class="border-0 padding-0 text-center">
+                                ssss
+                                  <div class="line-bottom-dashed"></div>
+                              </td>
+                              <td align="left" width="25%">ผู้จ่ายเงิน</td>
+                            </tr>
+                            <tr>
+                              <td align="right" width="13%">(</td>
+                              <td class="border-0 padding-0 text-center">
+                                ssss
+                                  <div class="line-bottom-dashed"></div>
+                              </td>
+                              <td align="left" width="25%">)</td>
+                            </tr>
+                            <tr>
+                              <td align="right" width="13%">ตำแหน่ง</td>
+                              <td class="border-0 padding-0 text-center">
+                                ssss
+                                  <div class="line-bottom-dashed"></div>
+                              </td>
+                              <td align="left" width="25%"></td>
+                            </tr>
+                          </table>
+                        </td>
+                    </tr>
+                  </table>
+<br>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+
+                  <table border="1" width="100%" class="statement-view text-gray-900">
+                    <tr>
+                        <td width="12%">
+                          <table border="0" width="100%" class="statement-view text-gray-900">
+                            <tr>
+                              <td align="left" >คำชี้แจง</td>
+                            </tr>
+                          </table>
+                        </td>
+                        <td width="88%">
+                          <table border="0" width="100%" class="statement-view text-gray-900">
+                            <tr>
+                              <td align="left" >1.ค่าเบี้ยเลี้ยงและค่าเช่าที่พักให้ระบุอัตราวันละและจำนวนวันที่ขอเบิกแต่ละบุคคลในช่องหมายเหตุ</td>
+                            </tr>
+                          </table>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td width="12%">
+                          <table border="0" width="100%" class="statement-view text-gray-900">
+                            <tr>
+                              <td align="left" >
+
+
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                        <td width="88%">
+                          <table border="0" width="100%" class="statement-view text-gray-900">
+                            <tr>
+                              <td align="left" >
+                                2.ให้ผู้มีสิทธิแต่ละคนเป็นผู้ลงลายมือชือผู้รับเงินและวันเดือนปีที่ได้รับเงิน กรณีเป็นการรับจากเงินยืม ให้ระบุวันที่ที่ได้รับเงินยืม วันที่.....เดือน.....ปี......
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td width="12%">
+                          <table border="0" width="100%" class="statement-view text-gray-900">
+                            <tr>
+                              <td align="left" ></td>
+                            </tr>
+                          </table>
+                        </td>
+                        <td width="88%">
+                          <table border="0" width="100%" class="statement-view text-gray-900">
+                            <tr>
+                              <td align="left" >3.ผู้จ่ายเงินยืมหมายถึงผู้ที่ขอยืมเงินจากทางราชการ และจ่ายเงินยืมนั้นให้แก่ผู้เดินทางแต่ละคน เป็นผู้ลงลายมือชื่อ</td>
+                            </tr>
+                          </table>
+                        </td>
+                    </tr>
+                  </table>
+<br>
+                </td>
+              </tr>
+
+            </table>
+
+            </td>
+          </tr>
+        </table>
 
     </div>
 
