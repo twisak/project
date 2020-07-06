@@ -27,10 +27,10 @@ else
     <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
     <title>AdminWrap - Easy to Customize Bootstrap 4 Admin Template</title>
     <!-- Bootstrap Core CSS -->
-    <link href="../assets/node_modules/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap_plugin.css" rel="stylesheet">
     <!-- Custom CSS -->
-    <link href="../css/style.css" rel="stylesheet">
     <link href="../css/report.css" rel="stylesheet">
+    <link href="../assets/node_modules/font-awesome/css/" rel="stylesheet">
     <!-- You can change the theme colors from here -->
     <link href="../css/colors/default.css" id="theme" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -218,7 +218,7 @@ else
                                     <tr>
                                         <td class="border-0 padding-0" align="right">(</td>
                                         <td align="center" class="border-0 padding-0">
-<?php echo $prefix; ?><?php echo $firtname; ?>&nbsp;&nbsp;<?php echo $lastname; ?>
+                                            <?php echo $prefix; ?><?php echo $firtname; ?>&nbsp;&nbsp;<?php echo $lastname; ?>
                                         </td>
                                         <td class="border-0 padding-0" align="left">)</td>
                                     </tr>
@@ -258,7 +258,7 @@ else
                                     <tr>
                                         <td class="border-0 padding-0" align="right">(</td>
                                         <td align="center" class="border-0 padding-0">
-<?php echo $t_firstname; ?>&nbsp;&nbsp;<?php echo $t_lastname; ?>
+                                                <?php echo $t_firstname; ?>&nbsp;&nbsp;<?php echo $t_lastname; ?>
                                         </td>
                                         <td class="border-0 padding-0" align="right">)</td>
                                     </tr>
@@ -274,9 +274,12 @@ else
         </table>
     </div>
 
-    <?php include 'report_salary2.php'; ?>
+    <?php 
+        include 'report_salary2.php'; 
+        include 'report_salary3.php';
+    ?>
 
-    <?php include 'report_salary3.php'; ?>
+    
 
     <ul class="right-menu">
         <li>

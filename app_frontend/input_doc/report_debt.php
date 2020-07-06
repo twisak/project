@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -32,279 +33,262 @@
 
             include '../../administrator/connect.php';
 
-
-
-
-
 ?>
+
 <body id="<?php //echo $body['name'];?>">
     <div class="page">
-
-
-<table border="1" width="100%" class="statement-view text-gray-900">
-  <tr>
-    <td width="100%">
-
-      <table border="0" width="100%" class="statement-view text-gray-900">
-        <tr>
-          <td>
-
-            <table border="0" width="100%" class="statement-view text-gray-900">
-              <tr>
-                <td></td>
-                <td align="center">ใบสำคัญรับเงิน</td>
-                <td></td>
-              </tr>
-              <tr>
-                <td></td>
-                <td align="center">สำหรับวิทยากร</td>
-                <td></td>
-              </tr>
-            </table>
-
-          </td>
-        </tr>
-
-        <tr>
-          <td>
-
-            <table border="0" width="100%" class="statement-view text-gray-900">
-              <tr>
-                <td align="left" width="20%">&nbsp;&nbsp;&nbsp;ใบสำคัญรับเงิน</td>
-                <td class="border-0 padding-0 text-center">
-                  ssss
-                    <div class="line-bottom-dashed"></div>
+        <table border="0" width="100%" class="statement-view text-gray-900">
+            <tr>
+                <td colspan="3" class="statement-header" align="center">
+                    <strong>ใบสำคัญรับเงิน</strong>
                 </td>
-              </tr>
-              <tr>
-                <td align="left" width="20%">&nbsp;&nbsp;&nbsp;สำหรับวิทยากร</td>
-                <td class="border-0 padding-0 text-center">
-                  ssss
-                    <div class="line-bottom-dashed"></div>
+            </tr>
+            <tr>
+                <td colspan="3" class="statement-header" align="center">
+                    <strong>สำหรับวิทยากร</strong>
                 </td>
-              </tr>
-            </table>
-
-          </td>
-        </tr>
-
-        <tr>
-          <td>
-
-            <table border="0" width="100%" class="statement-view text-gray-900">
-              <tr>
-                <td align="left" width="50%">
-                  <table border="0" width="100%" class="statement-view text-gray-900">
-                    <tr>
-                      <td width="50%"></td>
-                      <td width="7%">วันที่</td>
-                      <td class="border-0 padding-0 text-center">
-                        18
-                          <div class="line-bottom-dashed"></div>
-                      </td>
-                      <td  width="8%">เดือน</td>
-                      <td class="border-0 padding-0 text-center">
-                        18
-                          <div class="line-bottom-dashed"></div>
-                      </td>
-                      <td  width="4%">ปี</td>
-                      <td class="border-0 padding-0 text-center">
-                        18
-                          <div class="line-bottom-dashed"></div>
-                      </td>
-                    </tr>
-                  </table>
+            </tr>
+            <tr>
+                <td class="statement-header" align="center">&nbsp;
                 </td>
-              </tr>
-            </table>
+            </tr>
+            <tr align="left">
+                <td colspan="2">
+                    <table width="100%" border="0" align="left">
+                        <tr>
+                            <td width="1" class="text-nowrap border-0 padding-0">ใบสำคัญรับเงิน</td>
+                            <td class="border-0 padding-0">
+                                &nbsp;&nbsp;<?php //echo $government;?>
+                                <div class="line-bottom-dashed"></div>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr align="left">
+                <td colspan="2">
+                    <table width="100%" border="0" align="left">
+                        <tr>
+                            <td width="1" class="text-nowrap border-0 padding-0">สำหรับวิทยากร</td>
+                            <td class="border-0 padding-0">
+                                &nbsp;&nbsp;<?php //echo $government;?>
+                                <div class="line-bottom-dashed"></div>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr align="left">
+                <td colspan="2">
+                    <table width="100%" border="0" align="left">
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td width="1" class="text-nowrap border-0 padding-0">วันที่</td>
+                            <td class="border-0 padding-0">
+                                &nbsp;&nbsp;<?php //echo $government;?>
+                                <div class="line-bottom-dashed"></div>
+                            </td>
+                            <td width="1" class="text-nowrap border-0 padding-0">เดือน</td>
+                            <td class="border-0 padding-0">
+                                &nbsp;&nbsp;<?php //echo $government;?>
+                                <div class="line-bottom-dashed"></div>
+                            </td>
+                            <td width="1" class="text-nowrap border-0 padding-0">ปี</td>
+                            <td class="border-0 padding-0">
+                                &nbsp;&nbsp;<?php //echo $government;?>
+                                <div class="line-bottom-dashed"></div>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr align="left">
+                <td colspan="2">
+                    <table width="100%" border="0" align="left">
+                        <tr>
+                            <td width="1" class="text-nowrap border-0 padding-0">ข้าพเจ้า</td>
+                            <td class="border-0 padding-0">
+                                &nbsp;&nbsp;<?php //echo $government;?>
+                                <div class="line-bottom-dashed"></div>
+                            </td>
 
-          </td>
-        </tr>
+                            <td width="1" class="text-nowrap border-0 padding-0">บ้านเลขที่</td>
+                            <td class="border-0 padding-0">
+                                &nbsp;&nbsp;<?php //echo $government;?>
+                                <div class="line-bottom-dashed"></div>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr align="left">
+                <td colspan="2">
+                    <table width="100%" border="0" align="left">
+                        <tr>
+                            <td width="1" class="text-nowrap border-0 padding-0">ตำบล/แขวง</td>
+                            <td class="border-0 padding-0">
+                                &nbsp;&nbsp;<?php //echo $government;?>
+                                <div class="line-bottom-dashed"></div>
+                            </td>
 
-        <tr>
-          <td>
+                            <td width="1" class="text-nowrap border-0 padding-0">อำเภอ/เขต</td>
+                            <td class="border-0 padding-0">
+                                &nbsp;&nbsp;<?php //echo $government;?>
+                                <div class="line-bottom-dashed"></div>
+                            </td>
 
-            <table border="0" width="100%" class="statement-view text-gray-900">
-              <tr>
+                            <td width="1" class="text-nowrap border-0 padding-0">จังหวัด</td>
+                            <td class="border-0 padding-0">
+                                &nbsp;&nbsp;<?php //echo $government;?>
+                                <div class="line-bottom-dashed"></div>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr align="left">
+                <td colspan="2" >
+                    <table width="100%" border="0" align="left">
+                        <tr>
+                            <td width="1" class="text-nowrap border-0 padding-0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ได้รับเงินจาก</td>
+                            <td class="border-0 padding-0">
+                                &nbsp;&nbsp;<?php //echo $government;?>
+                                <div class="line-bottom-dashed"></div>
+                            </td>
+                            <td width="1" class="text-nowrap border-0 padding-0">รายละเอียดดังต่อไปนี้</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td class="statement-header" align="center">&nbsp;
+                </td>
+            </tr>
+            <tr>
                 <td>
 
-                  <table border="0" width="100%" class="statement-view text-gray-900">
-                    <tr>
-                      <td align="left" width="10%">&nbsp;&nbsp;&nbsp;ข้าพเจ้า</td>
-                      <td class="border-0 padding-0 text-center">
-                        ssss
-                          <div class="line-bottom-dashed"></div>
-                      </td>
-                      <td align="left" width="15%">&nbsp;&nbsp;&nbsp;บ้านเลขที่</td>
-                      <td class="border-0 padding-0 text-center">
-                        ssss
-                          <div class="line-bottom-dashed"></div>
-                      </td>
-                    </tr>
-                  </table>
-
+                    <table border="1" width="100%" class="statement-view text-gray-900">
+                        <tr>
+                            <td align="center">รายการ</td>
+                            <td colspan="2" align="center">จำนวนเงิน</td>
+                        </tr>
+                        <tr>
+                            <td width="60%">1</td>
+                            <td>2</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td width="60%">1</td>
+                            <td>2</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td width="60%">1</td>
+                            <td>2</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td width="60%" align="right">บาท</td>
+                            <td>2</td>
+                            <td>3</td>
+                        </tr>
+                    </table>
                 </td>
-              </tr>
-
-              <tr>
-                <td>
-
-                  <table border="0" width="100%" class="statement-view text-gray-900">
-                    <tr>
-                      <td align="left" width="17%">&nbsp;&nbsp;&nbsp;ตำบล/แขวง</td>
-                      <td class="border-0 padding-0 text-center">
-                        ssss
-                          <div class="line-bottom-dashed"></div>
-                      </td>
-                      <td align="left" width="16%">&nbsp;&nbsp;&nbsp;อำเภอ/เขต</td>
-                      <td class="border-0 padding-0 text-center">
-                        ssss
-                          <div class="line-bottom-dashed"></div>
-                      </td>
-                      <td align="left" width="11%">&nbsp;&nbsp;&nbsp;จังหวัด</td>
-                      <td class="border-0 padding-0 text-center">
-                        ssss
-                          <div class="line-bottom-dashed"></div>
-                      </td>
-                    </tr>
-                  </table>
-
+            </tr>
+            <tr>
+                <td class="statement-header" align="center">&nbsp;
                 </td>
-              </tr>
-
-
-            </table>
-
-          </td>
-        </tr>
-
-
-        <tr>
-          <td>
-
-            <table border="0" width="100%" class="statement-view text-gray-900">
-              <tr>
-                <td align="left" width="18%">&nbsp;&nbsp;&nbsp;ได้รับเงินจาก</td>
-                <td class="border-0 padding-0 text-center">
-                  ssss
-                    <div class="line-bottom-dashed"></div>
+            </tr>
+            <tr>
+                <td colspan="3" class="border-0 padding-0">
+                    <table width="100%" border="0">
+                        <tr>
+                            <td width="100%" class="border-0">
+                                <table width="400px" border="0" align="left">
+                                    <tr>
+                                        <td width="1" class="text-nowrap border-0 padding-0">จำนวนเงิน (</td>
+                                        <td class="border-0 padding-0 text-center">
+                                            <?php //echo $t_firstname;?>&nbsp;&nbsp;<?php //echo $t_lastname;?>
+                                            <div class="line-bottom-dashed">&nbsp;</div>
+                                        </td>
+                                        <td width="1" class="text-nowrap border-0 padding-0">)</td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
                 </td>
-                <td align="left" width="27%">&nbsp;&nbsp;&nbsp;รายละเอียดดังต่อไปนี้</td>
-              </tr>
-            </table>
-
-          </td>
-        </tr>
-
-        <tr>
-          <td>
-
-            <table border="1" width="100%" class="statement-view text-gray-900">
-              <tr>
-                <td align="center">รายการ</td>
-                <td colspan="2" align="center">จำนวนเงิน</td>
-              </tr>
-              <tr>
-                <td width="60%">1</td>
-                <td>2</td>
-                <td>3</td>
-              </tr>
-              <tr>
-                <td width="60%">1</td>
-                <td>2</td>
-                <td>3</td>
-              </tr>
-              <tr>
-                <td width="60%">1</td>
-                <td>2</td>
-                <td>3</td>
-              </tr>
-              <tr>
-                <td width="60%" align="right">บาท</td>
-                <td>2</td>
-                <td>3</td>
-              </tr>
-            </table>
-            <br>
-
-          </td>
-        </tr>
-
-        <tr>
-          <td>
-
-            <table border="0" width="100%" class="statement-view text-gray-900">
-              <tr>
-                <td align="left" width="16%">&nbsp;&nbsp;&nbsp;จำนวนเงิน(</td>
-                <td class="border-0 padding-0 text-center">
-                  ssss
-                    <div class="line-bottom-dashed"></div>
+            </tr>
+            <tr>
+                <td class="statement-header" align="center">&nbsp;
                 </td>
-                <td align="left" width="16%">)</td>
-              </tr>
-            </table>
-
-          </td>
-        </tr>
-
-        <tr>
-          <td>
-
-            <table border="0" width="100%" class="statement-view text-gray-900">
-              <tr>
-                <td align="right" width="22%">&nbsp;&nbsp;&nbsp;ลงชื่อ</td>
-                <td class="border-0 padding-0 text-center">
-                  ssss
-                    <div class="line-bottom-dashed"></div>
+            </tr>
+            <tr>
+                <td colspan="0">
+                    <table width="100%" border="0">
+                        <tr>
+                            <td width="100%" class="border-0">
+                                <table width="300px" border="0" align="center">
+                                    <tr>
+                                        <td width="1" class="text-nowrap border-0 padding-0">ลงชื่อ</td>
+                                        <td class="border-0 padding-0 text-center">
+                                            <?php //echo $t_firstname;?>&nbsp;&nbsp;<?php //echo $t_lastname;?>
+                                            <div class="line-bottom-dashed">&nbsp;</div>
+                                        </td>
+                                        <td width="1" class="text-nowrap border-0 padding-0">ผู้รับเงิน</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="border-0 padding-0" align="right">(</td>
+                                        <td align="center" class="border-0 padding-0">
+                                            <?php //echo $t_firstname;?>&nbsp;&nbsp;<?php //echo $t_lastname;?>
+                                        </td>
+                                        <td class="border-0 padding-0" align="left">)</td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
                 </td>
-                <td align="left" width="36%">ผู้รับเงิน</td>
-              </tr>
-              <tr>
-                <td align="right" width="22%">&nbsp;&nbsp;&nbsp;(</td>
-                <td class="border-0 padding-0 text-center">
-                  ssss
-                    <div class="line-bottom-dashed"></div>
+            </tr>
+            <tr>
+                <td colspan="0">
+                    <table width="100%" border="0">
+                        <tr>
+                            <td width="100%" class="border-0">
+                                <table width="300px" border="0" align="center">
+                                    <tr>
+                                        <td width="1" class="text-nowrap border-0 padding-0">ลงชื่อ</td>
+                                        <td class="border-0 padding-0 text-center">
+                                            <?php //echo $t_firstname;?>&nbsp;&nbsp;<?php //echo $t_lastname;?>
+                                            <div class="line-bottom-dashed">&nbsp;</div>
+                                        </td>
+                                        <td width="1" class="text-nowrap border-0 padding-0">ผู้จ่ายเงิน</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="border-0 padding-0" align="right">(</td>
+                                        <td align="center" class="border-0 padding-0">
+                                            <?php //echo $t_firstname;?>&nbsp;&nbsp;<?php //echo $t_lastname;?>
+                                        </td>
+                                        <td class="border-0 padding-0" align="left">)</td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
                 </td>
-                <td align="left" width="36%">)</td>
-              </tr>
-            </table>
-
-          </td>
-        </tr>
-
-        <tr>
-          <td>
-
-            <table border="0" width="100%" class="statement-view text-gray-900">
-              <tr>
-                <td align="right" width="22%">&nbsp;&nbsp;&nbsp;ลงชื่อ</td>
-                <td class="border-0 padding-0 text-center">
-                  ssss
-                    <div class="line-bottom-dashed"></div>
-                </td>
-                <td align="left" width="36%">ผู้จ่ายเงิน</td>
-              </tr>
-              <tr>
-                <td align="right" width="22%">&nbsp;&nbsp;&nbsp;(</td>
-                <td class="border-0 padding-0 text-center">
-                  ssss
-                    <div class="line-bottom-dashed"></div>
-                </td>
-                <td align="left" width="36%">)</td>
-              </tr>
-            </table>
-
-          </td>
-        </tr>
-
-
-      </table>
-
-    </td>
-  </tr>
-</table>
-
+            </tr>
+        </table>
     </div>
+    <?php 
+         include 'report_debt2.php'; 
+         include 'report_debt3.php';
+        // include 'report_debt4.php';
+        // include 'report_debt5.php';
+    ?>
 
     <ul class="right-menu">
         <li>
