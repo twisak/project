@@ -1,5 +1,7 @@
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -31,98 +33,157 @@
 <?php
 
             include '../../administrator/connect.php';
-
-
-
-
-
 ?>
+
 <body id="<?php //echo $body['name'];?>">
     <div class="page">
-
       <table border="0" width="100%" class="statement-view text-gray-900">
-        <tr>
+            <tr>
+                <td colspan="3" class="statement-header" align="right">
+                    แบบ บก.111
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3" class="statement-header" align="center">
+                    ใบรับรองแทนใบเสร็จ
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3" class="statement-header" align="center">
+                ส่วนราชการ มหาวิทยาลัยราชภัฏยะลา
+                </td>
+            </tr>
+            <tr>
+                <td class="statement-header" align="center">&nbsp;
+                </td>
+            </tr>
+            <tr align="left">
+                <td colspan="2">
+
+                    <table border="1" width="100%" class="statement-view text-gray-900">
+                    <tr align="center">
+                      <td width="15%" class="text-nowrap padding-0">วัน เดือน ปี</td>
+                      <td class="text-nowrap padding-0">รายละเอียดการจ่าย</td>
+                      <td class="text-nowrap padding-0">จำนวนเงิน</td>
+                      <td class="text-nowrap padding-0">หมายเหตุ</td>
+                    </tr>
+                    <tr>
+                      <td class="text-nowrap padding-0">1</td>
+                      <td class="text-nowrap padding-0">2</td>
+                      <td class="text-nowrap padding-0">3</td>
+                      <td class="text-nowrap padding-0">4</td>
+                    </tr>
+                    <tr>
+                      <td class="text-nowrap padding-0">1</td>
+                      <td class="text-nowrap padding-0">2</td>
+                      <td class="text-nowrap padding-0">3</td>
+                      <td class="text-nowrap padding-0">4</td>
+                    </tr>
+                  </table>
+                </td>
+            </tr>
+            <tr>
+                <td class="statement-header" align="center">&nbsp;
+                </td>
+            </tr>
+            <tr align="left">
+                <td colspan="2">
+                    <table width="100%" border="0" align="left">
+                        <tr>
+                            <td width="1" class="text-nowrap border-0 padding-0">รวมเงินทั้งสิ้น (ตัวอักษร)</td>
+                            <td class="border-0 padding-0">
+                                &nbsp;&nbsp;<?php //echo $government;?>
+                                <div class="line-bottom-dashed"></div>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr align="left">
+                <td colspan="2">
+                    <table width="100%" border="0" align="left">
+                        <tr>
+                            <td width="1" class="text-nowrap border-0 padding-0">ข้าพเจ้า</td>
+                            <td class="border-0 padding-0">
+                                &nbsp;&nbsp;<?php //echo $government;?>
+                                <div class="line-bottom-dashed"></div>
+                            </td>
+
+                            <td width="1" class="text-nowrap border-0 padding-0">ตำแหน่ง</td>
+                            <td class="border-0 padding-0">
+                                &nbsp;&nbsp;<?php //echo $government;?>
+                                <div class="line-bottom-dashed"></div>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3" class="statement-header" align="left">
+                ขอรับรองว่า รายจ่ายข้างต้นนี้ ไม่อาจเรียกใบเสร็จรับเงินจากผู้รับเงินได้ และข้าพเจ้าได้จ่ายไปในงานของราชการโดยแท้
+                </td>
+            </tr>
+            <tr>
+                <td class="statement-header" align="center">&nbsp;
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <table width="100%">
+                        <tr>
+                            <td width="150px" height="1px"></td>
+                            <td width="200px" height="1px" align="">
+                                <table width="90%" border="0" align="right">
+                                    <tr>
+                                        
+                                        <td width="1" class="border-0 padding-0">ลงชื่อ</td>
+                                        <td class="border-0 padding-0 text-center">
+                                            &nbsp;<?php //echo  convert($x);?>
+                                            <div class="line-bottom-dashed"></div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="200px" height="1px"></td>
+                            <td width="200px" height="1px">
+                                <table width="90%" border="0" align="right">
+                                    <tr>
+                                        <td class="border-0 padding-0" align="right">(</td>
+                                        <td align="center" class="border-0 padding-0">
+                                            <?php //echo $t_firstname;?>&nbsp;&nbsp;<?php //echo $t_lastname;?>
+                                            <div class="line-bottom-dashed">&nbsp;</div>
+                                        </td>
+                                        <td class="border-0 padding-0" align="left">)</td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="150px" height="1px"></td>
+                            <td width="150px" height="1px">
+                                <table width="90%" border="0" align="right">
+                                    <tr>
+                                        <td width="1" class="text-nowrap border-0 padding-0">วันที่</td>
+                                        <td class="border-0 padding-0 text-center">
+                                            <?php //echo $str_date; ?>
+                                            <div class="line-bottom-dashed"></div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+
+
+        <!-- <tr>
           <td width="100%">
 
             <table border="0" width="100%" class="statement-view text-gray-900">
-              <tr>
-                <td>
-
-                  <table border="0" width="100%" class="statement-view text-gray-900">
-                    <tr>
-                      <td align="right">แบบ บก.111</td>
-                    </tr>
-                  </table>
-
-                </td>
-              </tr>
-
-              <tr>
-                <td>
-
-                  <table border="0" width="100%" class="statement-view text-gray-900">
-                    <tr>
-                      <td></td>
-                      <td align="center">ใบรับรองแทนใบเสร็จ</td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <td></td>
-                      <td align="center">ส่วนราชการ มหาวิทยาลัยราชภัฏยะลา</td>
-                      <td></td>
-                    </tr>
-                  </table>
-
-                </td>
-              </tr>
-
-
-
-
-              <tr>
-                <td>
-
-                  <table border="1" width="100%" class="statement-view text-gray-900">
-                    <tr align="center">
-                      <td width="15%">วัน เดือน ปี</td>
-                      <td>รายละเอียดการจ่าย</td>
-                      <td>จำนวนเงิน</td>
-                      <td>หมายเหตุ</td>
-                    </tr>
-                    <tr>
-                      <td>1</td>
-                      <td>2</td>
-                      <td>3</td>
-                      <td>4</td>
-                    </tr>
-                    <tr>
-                      <td>1</td>
-                      <td>2</td>
-                      <td>3</td>
-                      <td>4</td>
-                    </tr>
-                  </table>
-                  <br>
-
-                </td>
-              </tr>
-
-              <tr>
-                <td>
-
-                  <table border="0" width="100%" class="statement-view text-gray-900">
-                    <tr>
-                      <td align="left" width="29%">&nbsp;&nbsp;&nbsp;รวมเงินทั้งสิ้น (ตัวอักษร)</td>
-                      <td class="border-0 padding-0 text-center">
-                        ssss
-                          <div class="line-bottom-dashed"></div>
-                      </td>
-                    </tr>
-                  </table>
-
-                </td>
-              </tr>
-
+              
               <tr>
                 <td>
 
@@ -187,12 +248,11 @@
                   </table>
 
                 </td>
-              </tr>
+              </tr> -->
 
             </table>
 
     </div>
-
     <ul class="right-menu">
         <li>
             <a href="#" onclick="window.print();">

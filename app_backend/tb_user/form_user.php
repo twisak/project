@@ -214,7 +214,9 @@ else
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
+                                    </div>
+                                    <div class="row">
+                                    <div class="col-md-6">
                                             <div class="form-group">
                                                 <div class="col-md-6">
                                                     <label class=""><b>สถานะ</b></label>&nbsp;<label class="text-danger"><b>*</b></label>
@@ -226,7 +228,7 @@ else
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                        </div>
                                     <div class="row">
                                         <div class="col-md-3">
                                         </div>

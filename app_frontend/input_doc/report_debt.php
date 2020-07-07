@@ -286,8 +286,8 @@
     <?php 
          include 'report_debt2.php'; 
          include 'report_debt3.php';
-        // include 'report_debt4.php';
-        // include 'report_debt5.php';
+         //include 'report_debt4.php';
+         include 'report_debt5.php';
     ?>
 
     <ul class="right-menu">

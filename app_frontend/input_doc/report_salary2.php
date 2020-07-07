@@ -1,17 +1,17 @@
-<?php session_start();
-if($_SESSION['status'] == 'Admin')
-{
-}
-elseif($_SESSION['status'] == 'Personal')
-{
-}
-else
-{
-    echo "<script>";
-    echo "alert(\"คุณไม่มีสิทธิ์เข้าสู่ระบบ\");";
-    echo "</script>";
-    echo "<meta http-equiv='refresh' content='0;url=../../administrator/logout.php'>";
-}
+<?php //session_start();
+// if($_SESSION['status'] == 'Admin')
+// {
+// }
+// elseif($_SESSION['status'] == 'Personal')
+// {
+// }
+// else
+// {
+//     echo "<script>";
+//     echo "alert(\"คุณไม่มีสิทธิ์เข้าสู่ระบบ\");";
+//     echo "</script>";
+//     echo "<meta http-equiv='refresh' content='0;url=../../administrator/logout.php'>";
+// }
 ?>
 <!DOCTYPE html>
 <html lang="en">
