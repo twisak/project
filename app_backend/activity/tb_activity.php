@@ -140,7 +140,7 @@ else
                                                 <td><?php echo $project_name; ?></td>
                                                 <td><?php echo $activity; ?></td>
                                                 <td><a href="edit_form_activity.php?id=<?php echo $row_tb_activity['id'];?>" class="btn btn-warning">แก้ไข</a></td>
-                                                <td><button type="button" class="btn btn-danger">ลบ</button></td>
+                                                <td><a href="JavaScript:if(confirm('ยืนยันการลบ ?') == true){window.location='delete_activity.php?id=<?php echo $row_tb_activity["id"];?>';}" class="btn btn-danger">ลบ</a></td>
                                             </tr>
                                             <?php
                                                 $i++;

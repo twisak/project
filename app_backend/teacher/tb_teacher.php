@@ -141,7 +141,7 @@ else
                                                 <td><?php echo $t_firstname;?>&nbsp;&nbsp;<?php echo $t_lastname;?></td>
                                                 <td><?php echo $position_name;?></td>
                                                 <td><a href="edit_form_teacher.php?id=<?php echo $row_teacher['id'];?>" class="btn btn-warning">แก้ไข</a></td>
-                                                <td><button type="button" class="btn btn-danger">ลบ</button></td>
+                                                <td><a href="JavaScript:if(confirm('ยืนยันการลบ ?') == true){window.location='delete_teacher.php?id=<?php echo $row_teacher["id"];?>';}" class="btn btn-danger">ลบ</a></td>
                                             </tr>
                                             <?php
                                                 $i++;

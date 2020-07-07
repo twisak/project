@@ -6,5 +6,18 @@
   </head>
   <body>
 
+    <?php
+        include '../../administrator/connect.php';
+
+        $id = $_GET['id'];
+
+        $sql_position= "DELETE FROM tb_position WHERE id = '$id'";
+
+        $db_query_position = mysqli_query($conn,$sql_position);
+
+        // echo "<script>alert('ลบข้อมูลเรียบร้อย')</script>";
+        echo "<script>window.location='tb_position.php'</script>";
+    ?>
+
   </body>
 </html>

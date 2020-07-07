@@ -128,7 +128,7 @@ else
                                                 <td><?php echo $i;?></td>
                                                 <td><?php echo $position_name;?></td>
                                                 <td><a href="edit_form_position.php?id=<?php echo $id;?>" class="btn btn-warning">แก้ไข</a></td>
-                                                <td><button type="button" class="btn btn-danger">ลบ</button></td>
+                                                <td><a href="JavaScript:if(confirm('ยืนยันการลบ ?') == true){window.location='delete_position.php?id=<?php echo $row_position["id"];?>';}" class="btn btn-danger">ลบ</a></td>
                                             </tr>
                                             <?php
                                                 $i++;

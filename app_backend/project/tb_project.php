@@ -133,7 +133,7 @@ else
                                                 <td><?php echo $project_id;?></td>
                                                 <td><?php echo $project_name;?></td>
                                                 <td><a href="edit_form_project.php?id=<?php echo $row_project['id'];?>" class="btn btn-warning">แก้ไข</a></td>
-                                                <td><button type="button" class="btn btn-danger">ลบ</button></td>
+                                                <td><a href="JavaScript:if(confirm('ยืนยันการลบ ?') == true){window.location='delete_project.php?id=<?php echo $row_project["id"];?>';}" class="btn btn-danger">ลบ</a></td>
                                             </tr>
                                             <?php
                                                 $i++;
