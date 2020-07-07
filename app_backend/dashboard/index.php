@@ -1,9 +1,9 @@
 <?php session_start();
-if($_SESSION['status'] == 'admin')
-{ 
+if($_SESSION['status'] == 'Admin')
+{
 }
-elseif($_SESSION['status'] == 'staff')
-{  
+elseif($_SESSION['status'] == 'Personal')
+{
 }
 else
 {

@@ -21,7 +21,7 @@
         $province_id = $_POST['province_id'];
 		$username = $_POST['username'];
 		$password = $_POST['password'];
-       	$status = 'staff';
+       	$status = $_POST['status'];;
 
 
 
@@ -50,10 +50,10 @@
 
         $db_query1 = mysqli_query($conn,$sql1);
 
-            echo $sql;
-            echo $db_query;
-            echo $sql1;
-            echo $db_query1;
+            // echo $sql;
+            // echo $db_query;
+            // echo $sql1;
+            // echo $db_query1;
 		if($db_query)
         {
             echo "<script>";

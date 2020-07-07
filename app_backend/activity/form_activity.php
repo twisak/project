@@ -1,8 +1,8 @@
-<!-- <?php session_start();
-if($_SESSION['position'] == 'admin')
+<?php session_start();
+if($_SESSION['status'] == 'Admin')
 {
 }
-elseif($_SESSION['position'] == 'staff')
+elseif($_SESSION['status'] == 'Personal')
 {
 }
 else
@@ -12,7 +12,7 @@ else
     echo "</script>";
     echo "<meta http-equiv='refresh' content='0;url=../../administrator/logout.php'>";
 }
-?> -->
+?>
 <!DOCTYPE html>
 <html lang="en">
 

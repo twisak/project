@@ -1,8 +1,8 @@
 <?php session_start();
-if($_SESSION['status'] == 'admin')
+if($_SESSION['status'] == 'Admin')
 {
 }
-elseif($_SESSION['status'] == 'staff')
+elseif($_SESSION['status'] == 'Personal')
 {
 }
 else
@@ -57,7 +57,7 @@ else
     <!-- Main wrapper - style you can find in pages.scss -->
     <!-- ============================================================== -->
     <div id="main-wrapper">
-    <?php include '../mamu/manu_admin.php'; ?>
+        <?php include '../mamu/manu_admin.php'; ?>
         <div class="page-wrapper">
             <!-- ============================================================== -->
             <!-- Container fluid  -->
@@ -91,9 +91,9 @@ else
                         <div class="card">
                             <!-- Tab panes -->
                             <div class="card-body">
-                            <?php
+                                <?php
                                         include '../../administrator/connect.php';
-                                        $sql = "Select Max(substr(id,3)+1) as MaxID from tb_person";
+                                        $sql = "Select Max(substr(person_id,3)+1) as MaxID from tb_person";
                                         $query = mysqli_query($conn,$sql);
                                         $table_id = mysqli_fetch_assoc($query);
                                         $testid = $table_id['MaxID'];
@@ -109,16 +109,16 @@ else
                                 <form class="form-horizontal form-material" action="INSERT_Person.php" name="form_user" method="post">
 
                                     <div class="form-group">
-                                    <div class="row col-md-12">
-                                        <div class="col-md-4">
-                                            <label class="">รหัสเจ้าหน้าที่</label>
-                                            <input type="text" name="person_id" value="<?=$person_id?>" class="form-control form-control-line">
-                                        </div>
-                                        <div class="col-md-4">
-                                            <label>ตำแหน่ง</label>
-                                            <select name="position_id" class="form-control">
-                                                <option value="">เลือกตำแหน่ง</option>
-                                                <?php
+                                        <div class="row col-md-12">
+                                            <div class="col-md-4">
+                                                <label class=""><b>รหัสเจ้าหน้าที่</b></label>&nbsp;<label class="text-danger"><b>*</b></label>
+                                                <input type="text" name="person_id" value="<?=$person_id?>" readonly class="form-control form-control-line">
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label class=""><b>ตำแหน่ง</b></label>&nbsp;<label class="text-danger"><b>*</b></label>
+                                                <select name="position_id" class="form-control">
+                                                    <option value="">เลือกตำแหน่ง</option>
+                                                    <?php
                                                     $sql = "SELECT * FROM tb_position";
                                                     $query = mysqli_query($conn, $sql);
                                                     while($row=mysqli_fetch_array($query))
@@ -127,126 +127,122 @@ else
                                                             $position_name = $row['position_name'];
                                                 ?>
                                                     <option value='<?php echo $position_id;?>'><?php echo $position_name;?></option>
-                                                <?php
+                                                    <?php
                                                         }
                                                 ?>
-                                            </select>
+                                                </select>
+                                            </div>
                                         </div>
                                     </div>
-                                    </div>
                                     <div class="form-group">
+                                        <div class="row col-md-12">
+                                            <div class="col-md-2">
+                                                <label class=""><b>คำนำหน้า</b></label>&nbsp;<label class="text-danger"><b>*</b></label>
+                                                <input type="text" name="prefix" placeholder="" class="form-control form-control-line">
+                                            </div>
+                                            <div class="col-md-5">
+                                                <label class=""><b>ชื่อ</b></label>&nbsp;<label class="text-danger"><b>*</b></label>
+                                                <input type="text" name="firtname" placeholder="" class="form-control form-control-line">
+                                            </div>
+                                            <div class="col-md-5">
+                                                <label class=""><b>นานสกุล</b></label>&nbsp;<label class="text-danger"><b>*</b></label>
+                                                <input type="text" name="lastname" placeholder="" class="form-control form-control-line" name="example-email" id="example-email">
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="row col-md-12">
-                                        <div class="col-md-2">
-                                            <label class="">คำนำหน้า</label>
-                                            <input type="text" name="prefix" placeholder="" class="form-control form-control-line">
-                                        </div>
-                                        <div class="col-md-5">
-                                            <label class="">ชื่อ</label>
-                                            <input type="text" name="firtname" placeholder="" class="form-control form-control-line">
-                                        </div>
-                                        <div class="col-md-5">
-                                            <label class="">นานสกุล</label>
-                                            <input type="text" name="lastname" placeholder="" class="form-control form-control-line" name="example-email" id="example-email">
+                                        <div class="form-group">
+                                            <div class="col-md-12">
+                                                <label class=""><b>เลขบัตรประชาชน</b></label>&nbsp;<label class="text-danger"><b>*</b></label>
+                                                <input type="text" name="idcard" placeholder="" class="form-control form-control-line">
+                                            </div>
                                         </div>
                                     </div>
-                                    </div>
-                                <div class="row col-md-12">
-                                    <div class="form-group">
-                                        <div class="col-md-12">
-                                            <label class="">เลขบัตรประชาชน</label>
-                                            <input type="text" name="idcard" placeholder="" class="form-control form-control-line">
-                                        </div>
-                                    </div>
-                                    </div>
-                                <div class="row">
-                                <div class="row col-md-12">
-                                    <div class="form-group">
-                                        <div class="col-md-12">
-                                            <label class=""><b>ที่อยู่</b></label>
-                                        </div>
-                                    </div>
-                                    </div>
-                                </div>
-                                <?php
-
-                                ?>
-                                <div class="row col-md-12">
-                                    <div class="form-group">
-                                        <div class="col-md-6">
-                                            <label class="">บ้านเลชที่</label>
-                                            <input type="text" name="house_num" class="form-control form-control-line">
-                                        </div>
-                                    </div>
-                                    </div>
-                                    <div class="form-group">
                                     <div class="row col-md-12">
-                                        <div class="col-md-4">
-                                            <label for="province">จังหวัด</label>
-                                            <select name="province_id" id="province" class="form-control">
-                                                <option value="">เลือกจังหวัด</option>
-                                                <?php
+                                        <div class="form-group">
+                                            <div class="col-md-12">
+                                                <label class=""><b>ที่อยู่</b></label>
+                                            </div>
+                                        </div>
+                                        <div class="row col-md-12">
+                                            <div class="form-group">
+                                                <div class="col-md-6">
+                                                    <label class=""><b>บ้านเลชที่</b></label>&nbsp;<label class="text-danger"><b>*</b></label>
+                                                    <input type="text" name="house_num" class="form-control form-control-line">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="row col-md-12">
+                                                <div class="col-md-4">
+                                                    <label for="province"><b>จังหวัด</b></label>&nbsp;<label class="text-danger"><b>*</b></label>
+                                                    <select name="province_id" id="province" class="form-control">
+                                                        <option value="">เลือกจังหวัด</option>
+                                                        <?php
                                                     $sql = "SELECT * FROM provinces";
                                                     $query = mysqli_query($conn, $sql);
                                                     while($result = mysqli_fetch_assoc($query)):
                                                 ?>
-                                                    <option value="<?=$result['id']?>"><?=$result['name_th']?></option>
-                                                <?php endwhile; ?>
-                                            </select>
+                                                        <option value="<?=$result['id']?>"><?=$result['name_th']?></option>
+                                                        <?php endwhile; ?>
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label for="amphure"><b>อำเภอ/เขต</b></label>&nbsp;<label class="text-danger"><b>*</b></label>
+                                                    <select name="amphures_id" id="amphure" class="form-control">
+                                                        <option value="">เลือกอำเภอ</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label for="district"><b>ตำบล/แขวง</b></label>&nbsp;<label class="text-danger"><b>*</b></label>
+                                                    <select name="districts_id" id="district" class="form-control">
+                                                        <option value="">เลือกตำบล</option>
+                                                    </select>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="col-md-4">
-                                            <label for="amphure">อำเภอ/เขต</label>
-                                            <select name="amphures_id" id="amphure" class="form-control">
-                                                <option value="">เลือกอำเภอ</option>
-                                            </select>
+                                        <div class="form-group">
+                                            <div class="row col-md-12">
+                                                <div class="col-md-6">
+                                                    <label class=""><b>Username</b></label>&nbsp;<label class="text-danger"><b>*</b></label>
+                                                    <input type="text" name="username" placeholder="" class="form-control form-control-line">
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <label class=""><b>Psaaword</b></label>&nbsp;<label class="text-danger"><b>*</b></label>
+                                                    <input type="password" name="password" class="form-control form-control-line">
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="col-md-4">
-                                            <label for="district">ตำบล/แขวง</label>
-                                            <select name="districts_id" id="district" class="form-control">
-                                                <option value="">เลือกตำบล</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    </div>
-                                    <div class="form-group">
-                                    <div class="row col-md-12">
                                         <div class="col-md-6">
-                                            <label class="">Username</label>
-                                            <input type="text" name="username" placeholder="" class="form-control form-control-line">
-                                        </div>
+                                            <div class="form-group">
+                                                <div class="col-md-6">
+                                                    <label class=""><b>สถานะ</b></label>&nbsp;<label class="text-danger"><b>*</b></label>
+                                                    <select name="status" class="form-control">
+                                                        <option value="Admin">Admin</option>
+                                                        <option value="Personal">Personal</option>
+                                                    </select>
 
-                                        <div class="col-md-6">
-                                            <label class="">Psaaword</label>
-                                            <input type="password" name="password" class="form-control form-control-line">
-                                        </div>
-                                    </div>
-                                    </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="col-md-6">สถานะ</label>
-                                        <div class="col-md-6">
-                                            <input type="text" value="staff" disabled class="form-control form-control-line">
-                                            <input type="hidden" class="form-control" name="staff" />
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-
-
-                                <div class="row">
-                                    <div class="col-md-3">
-                                    </div>
-                                    <div class="col-md-3">
-                                    <div class="form-group">
-                                    <input type="submit" name="submit" value="บันทึก" class="btn btn-primary btn-block"/>
+                                    <div class="row">
+                                        <div class="col-md-3">
                                         </div>
-                                    </div>
-
-                                    <div class="col-md-3">
-                                    <div class="form-group">
-                                    <button type="button" class="btn btn-danger btn-block">ยกเลิก</button>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <input type="submit" name="submit" value="บันทึก" class="btn btn-primary btn-block" />
+                                            </div>
                                         </div>
-                                    </div>
 
-                                </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <button type="button" class="btn btn-danger btn-block">ยกเลิก</button>
+                                            </div>
+                                        </div>
+
+
                                 </form>
                             </div>
                         </div>
