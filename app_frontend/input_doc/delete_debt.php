@@ -11,12 +11,12 @@
 
         $id = $_GET['id'];
 
-        $sql_tb_budget = "DELETE FROM tb_budget WHERE id = '$id'";
+        $sql_tb_debt = "DELETE FROM tb_debt WHERE id = '$id'";
 
-        $db_query_budget = mysqli_query($conn,$sql_tb_budget);
+        $db_query_debt = mysqli_query($conn,$sql_tb_debt);
 
         // echo "<script>alert('ลบข้อมูลเรียบร้อย')</script>";
-        echo "<script>window.location='tb_budget.php'</script>";
+        echo "<script>window.location='tb_doc_debt.php'</script>";
     ?>
 
   </body>

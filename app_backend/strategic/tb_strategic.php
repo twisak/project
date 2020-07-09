@@ -137,7 +137,7 @@ else
                                                 <td><?php echo $strategic;?></td>
                                                 <td><?php echo $mission;?></td>
                                                 <td><a href="edit_form_strategic.php?id=<?php echo $id;?>" class="btn btn-warning">แก้ไข</a></td>
-                                                <td><button type="button" class="btn btn-danger">ลบ</button></td>
+                                                <td><a href="JavaScript:if(confirm('ยืนยันการลบ ?') == true){window.location='delete_strategic.php?id=<?php echo $row_strategic["id"];?>';}" class="btn btn-danger">ลบ</a></td>
                                             </tr>
                                             <?php
                                                 $i++;

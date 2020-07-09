@@ -167,7 +167,7 @@ else
                                                 <td>
                                                 <a href="show_doc_lend.php?id=<?php echo $id;?>"><button type="button" class="btn btn-info">รายละเอียด</button></a>
                                                 </td>
-                                                <td><button type="button" class="btn btn-danger">ลบ</button></td>
+                                                <td><a href="JavaScript:if(confirm('ยืนยันการลบ ?') == true){window.location='delete_lend.php?id=<?php echo $row["id"];?>';}" class="btn btn-danger">ลบ</a></td>
                                             </tr>
                                             <?php
                                             $i++;

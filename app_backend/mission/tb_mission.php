@@ -137,7 +137,7 @@ else
                                                 <td><?php echo $product;?></td>
                                                 <td><?php echo $mission;?></td>
                                                 <td><a href="edit_form_mission.php?id=<?php echo $id;?>" class="btn btn-warning">แก้ไข</a></td>
-                                                <td><button type="button" class="btn btn-danger">ลบ</button></td>
+                                                <td><a href="JavaScript:if(confirm('ยืนยันการลบ ?') == true){window.location='delete_mission.php?id=<?php echo $row_mission["id"];?>';}" class="btn btn-danger">ลบ</a></td>
                                             </tr>
                                             <?php
                                                 $i++;
