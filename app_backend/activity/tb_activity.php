@@ -104,7 +104,7 @@ else
                                     <a href="form_activity.php"><button type="button" class="btn btn-primary">เพิ่มกิจกรรม</button></a>
                                 </div>
                                 <div class="table-responsive">
-                                    <table class="table text-center">
+                                    <table class="table">
                                         <thead>
                                         <tr>
                                                 <th class="text-center">ลำดับ</th>

@@ -113,7 +113,7 @@
                                     <a class="waves-effect waves-dark" href="../input_doc/tb_doc_salary.php"><i class="fa fa-caret-right"></i> เอกสารเงินเดือน</a>
                                     <a class="waves-effect waves-dark" href="../input_doc/tb_doc_debt.php"><i class="fa fa-caret-right"></i> เอกสารล้างหนี้</a>
                                     <a class="waves-effect waves-dark" href="../input_doc/tb_doc_contract.php"><i class="fa fa-caret-right"></i> เอกสารจ้างเหมาบริการ</a>
-                                    <a class="waves-effect waves-dark" href="../input_doc/input_doc_note.php"><i class="fa fa-caret-right"></i>    เอกสารบันทึกข้อความอื่นๆ</a>
+                                    <a class="waves-effect waves-dark" href="../input_doc/tb_doc_note_command.php"><i class="fa fa-caret-right"></i> เอกสารบันทึกข้อความอื่นๆ</a>
                                 </div>
                             </div>
                         </li>

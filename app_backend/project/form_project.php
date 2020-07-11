@@ -139,95 +139,43 @@ else
                                     </div>
 
                                     <div class="row">
-
-                                        <?php
-                                            $sql_budget_type = "select * from tb_budget_type";
-                                            $query_budget_type = mysqli_query($conn,$sql_budget_type);
-                                        ?>
-
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <label>ประเภทงบประมาณ</label>
-                                                <select class="form-control" name="budget_id">
+                                                <label for="budget">ประเภทงบประมาณ</label>
+                                                <select class="form-control" id="budget" name="budget_id">
                                                     <option value="">-- เลือกประเภทงบประมาณ --</option>
                                                     <?php
-                                                        while($result_budget_type=mysqli_fetch_array($query_budget_type))
-                                                        {
-                                                        ?>
-                                                    <option value='<?php echo $result_budget_type['budget_id'];?>'><?php echo $result_budget_type['budget_name'];?></option>
-                                                    <?php
-                                                        }
-                                                        ?>
+                                                        $sql = "SELECT * FROM tb_budget";
+                                                        $query = mysqli_query($conn, $sql);
+                                                        while($result = mysqli_fetch_assoc($query)):
+                                                    ?>
+                                                            <option value="<?=$result['budget_id']?>"><?=$result['budget']?></option>
+                                                        <?php endwhile; ?>
                                                 </select>
                                             </div>
                                         </div>
-
-
-                                        <?php
-                                            $sql_product = "select * from tb_product";
-                                            $query_product = mysqli_query($conn,$sql_product);
-                                            ?>
 
                                         <div class="col-md-3">
-                                            <div class="form-group">
-                                                <label>ผลผลิต</label>
-                                                <select class="form-control" name="product_id">
-                                                    <option value="">-- เลือกผลผลิต --</option>
-                                                    <?php
-                                                        while($result_product=mysqli_fetch_array($query_product))
-                                                        {
-                                                        ?>
-                                                    <option value='<?php echo $result_product['product_id'];?>'><?php echo $result_product['product_name'];?></option>
-                                                    <?php
-                                                        }
-                                                        ?>
-                                                </select>
-                                            </div>
-                                        </div>
+                                                    <label for="product"><b>ผลผลิต</b></label>&nbsp;<label class="text-danger"><b>*</b></label>
+                                                    <select name="product_id" id="product" class="form-control">
+                                                        <option value="">เลือกผลผลิต</option>
+                                                    </select>
+                                                </div>
 
-                                        <?php
-                                            $sql_mission = "select * from tb_mission";
-                                            $query_mission = mysqli_query($conn,$sql_mission);
-                                            ?>
+                                        
+                                        <div class="col-md-3">
+                                                    <label for="mission"><b>พันธกิจ</b></label>&nbsp;<label class="text-danger"><b>*</b></label>
+                                                    <select name="mission_id" id="mission" class="form-control">
+                                                        <option value="">เลือกพันธกิจ</option>
+                                                    </select>
+                                                </div>
 
                                         <div class="col-md-3">
-                                            <div class="form-group">
-                                                <label>พันธกิจ</label>
-                                                <select class="form-control" name="mission_id">
-                                                    <option value="">-- เลือกพันธกิจ --</option>
-                                                    <?php
-                                                        while($result_mission=mysqli_fetch_array($query_mission))
-                                                        {
-                                                        ?>
-                                                    <option value='<?php echo $result_mission['mission_id'];?>'><?php echo $result_mission['mission_name'];?></option>
-                                                    <?php
-                                                        }
-                                                        ?>
-                                                </select>
-                                            </div>
-                                        </div>
-
-                                        <?php
-                                            $sql_strategic = "select * from tb_strategic";
-                                            $query_strategic = mysqli_query($conn,$sql_strategic);
-                                            ?>
-
-                                        <div class="col-md-3">
-                                            <div class="form-group">
-                                                <label>ยุทธศาสตร์</label>
-                                                <select class="form-control" name="strategic_id">
-                                                    <option value="">-- เลือกยุทธศาสตร์ --</option>
-                                                    <?php
-                                                        while($result_strategic=mysqli_fetch_array($query_strategic))
-                                                        {
-                                                        ?>
-                                                    <option value='<?php echo $result_strategic['strategic_id'];?>'><?php echo $result_strategic['strategic_name'];?></option>
-                                                    <?php
-                                                        }
-                                                        ?>
-                                                </select>
-                                            </div>
-                                        </div>
+                                                    <label for="strategic"><b>ยุทธศาสตร์</b></label>&nbsp;<label class="text-danger"><b>*</b></label>
+                                                    <select name="strategic_id" id="strategic" class="form-control">
+                                                        <option value="">เลือกยุทธศาสตร์</option>
+                                                    </select>
+                                                </div>
                                     </div>
 
                                     <div class="row">
@@ -267,34 +215,12 @@ else
                         </div>
                         <!-- Column -->
                     </div>
-                    <!-- Row -->
-                    <!-- ============================================================== -->
-                    <!-- End PAge Content -->
-                    <!-- ============================================================== -->
                 </div>
-                <!-- ============================================================== -->
-                <!-- End Container fluid  -->
-                <!-- ============================================================== -->
-                <!-- ============================================================== -->
-                <!-- footer -->
-                <!-- ============================================================== -->
                 <footer class="footer">
                     © 2018 Adminwrap by wrappixel.com
                 </footer>
-                <!-- ============================================================== -->
-                <!-- End footer -->
-                <!-- ============================================================== -->
             </div>
-            <!-- ============================================================== -->
-            <!-- End Page wrapper  -->
-            <!-- ============================================================== -->
         </div>
-        <!-- ============================================================== -->
-        <!-- End Wrapper -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- All Jquery -->
-        <!-- ============================================================== -->
         <script src="../assets/node_modules/jquery/jquery.min.js"></script>
         <!-- Bootstrap tether Core JavaScript -->
         <script src="../assets/node_modules/bootstrap/js/popper.min.js"></script>
@@ -307,6 +233,7 @@ else
         <script src="../js/sidebarmenu.js"></script>
         <!--Custom JavaScript -->
         <script src="../js/custom.min.js"></script>
+        <script src="../js/script1.js"></script>
 
 </body>
 
