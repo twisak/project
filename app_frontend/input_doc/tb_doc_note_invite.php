@@ -85,7 +85,11 @@ else
                                     </div>
                                 </div>
 
-
+                <div class="row" id="firstOption" style="display:none">
+                    <div class="col-lg-12 col-xlg-9 col-md-7">
+                        <div class="card">
+                            <!-- Tab panes -->
+                            <div class="card-body">
                                 <h4 class="card-title">เอกสารหนังสือเชิญ/ส่งออก</h4>
                                 <div class="text-right">
                                     <a href="input_doc_note_invite.php">
