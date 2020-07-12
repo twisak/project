@@ -105,7 +105,7 @@
             </tr>
             <tr align="left">
                 <td colspan="2">
-                    <table width="100%" border="1" align="left">
+                    <table width="100%" border="0" align="left">
                         <tr>
                             <td  colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ด้วยข้าพเจ้า นางสาวสุรัฏิ์ดาห์ สหสันติวรกุล ตำแหน่งเจ้าหน้าที่โครงการยกระดับคุณภาพการเรียนรู้ด้านการอ่านการเขียนและการคิดวิเคราะห์ของนักเรียนในระดับการศึกษาขั้นพื้นฐานในพื้นที่ชายแดนใต้ มหาวิทยาลัยราชภัฏยะลา เริ่มปฏิบัติตามสัญญาจ้างเหมาบริการ เมื่อวันที่ ๒๔ มกราคม ๒๕๖๒ ถึง ๓๐ กันยายน ๒๕๖๒<td>
                         </tr>
@@ -114,7 +114,7 @@
             </tr>
             <tr align="left">
                 <td colspan="2">
-                    <table width="100%" border="1" align="left">
+                    <table width="100%" border="0" align="left">
                         <tr>
                             <td  colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ในการนี้ ข้าพเจ้ามีความประสงค์ขอลาออกจากเจ้าหน้าที่โครงการยกระดับคุณภาพการเรียนรู้ด้านการอ่านและการคิดวิเคราะห์ของนักเรียนในระดับการศึกษาขั้นพื้นฐานในพื้นที่ชายแดนใต้ เนื่องจากได้รับคัดเลือกทำหน้าที่วิทยากรผู้สอนภาษาไทยในโรงเรียนตำรวจตระเวนชายแดน สังกัดกองกำกับการตำรวจตระเวนชายแดนนที่ ๔๔ มีผลตั้งแต่ ๐๓ เมษายน ๒๕๖๒ เป็นต้นไป<td>
                         </tr>
@@ -123,7 +123,7 @@
             </tr>
             <tr align="left">
                 <td colspan="2">
-                    <table width="100%" border="1" align="left">
+                    <table width="100%" border="0" align="left">
                         <tr>
                             <td></td>
                             <td></td>
@@ -157,7 +157,7 @@
             </tr>
             <tr align="left">
                 <td colspan="2">
-                    <table width="100%" border="1" align="left">
+                    <table width="100%" border="0" align="left">
                         <tr>
                             <td></td>
                             <td></td>
@@ -181,7 +181,7 @@
             </tr>
             <tr align="left">
                 <td colspan="2">
-                    <table width="100%" border="1" align="left">
+                    <table width="100%" border="0" align="left">
                         <tr>
                             <td></td>
                             <td></td>
@@ -202,7 +202,7 @@
             </tr>
             <tr align="left">
                 <td colspan="2">
-                    <table width="100%" border="1" align="left">
+                    <table width="100%" border="0" align="left">
                         <tr>
                             <td></td>
                             <td></td>
@@ -223,7 +223,7 @@
             </tr>
             <tr align="left">
                 <td colspan="2">
-                    <table width="100%" border="1" align="left">
+                    <table width="100%" border="0" align="left">
                         <tr>
                             <td></td>
                             <td></td>

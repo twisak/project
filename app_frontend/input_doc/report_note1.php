@@ -37,7 +37,7 @@
 
 <body id="<?php //echo $body['name'];?>">
     <div class="page">
-        <table border="1" width="100%" class="statement-view text-gray-900">
+        <table border="0" width="100%" class="statement-view text-gray-900">
             <tr>
                 <td colspan="3" class="statement-header" align="center">
                     <strong>คำสั่งมหาวิทยาลัยราชภัฏยะลา</strong>
@@ -59,7 +59,7 @@
             </tr>
             <tr align="left">
                 <td colspan="2">
-                    <table width="100%" border="1" align="left">
+                    <table width="100%" border="0" align="left">
                         <tr>
                             <td  colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ด้วยมหาวิทยาลัคำสั่งมหาวิทยาลัยราชภัฏยะลา ได้ดำเนินโครงการ "ยกระดับคุณภาพการเรยนร฿้ด้านการอ่านการเขียนและการคิดวิเคราะห์ของนักเรียนในระดับการศึกษาขั้นพื้นฐานในพื้นที่ชายแดนใต้" ได้จัดกิจกรรมที่ ๑ สำรวจปัญหาระดับคุณภาพของผู้เรียนด้านการอ่าน การเขียน และการคิดวิเคราะห์ ของแต่ละ โรงเรียน และสนับสนุนการจัดการเรียนรู้ในระดับสถานศึกษา ระหว่างวันที่ ๒๕-๒๗ กุมภาพันธ์ ๒๕๖๒ ณ โรงเรียนบ้านเยาะ อำเภอธารโต จังหวัดยะลา โรงเรียนบ้านน้ำดำ อำเภอหนองจิก จังหวัดปัตตานี และ โรงเรียนชุมชนบ้านซากอ อำเภอศรีสาคร จังหวัดนราธิวาส </td>
                         </tr>
@@ -69,7 +69,7 @@
             </tr>
             <tr align="left">
                 <td colspan="2">
-                    <table width="100%" border="1" align="left">
+                    <table width="100%" border="0" align="left">
                         <tr>
                             <td  colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ในการนี้ เพื่อให้การดำเนินการดังกล่าวเป็นไปได้ด้วยความเรียบร้อย มีประสิทธิภาพ อาศัยอำนาจตามความในมาตรา ๒๗ แห่งพระราชบัญญัติมหาวิทยาลัยราชภัฏ พ.ศ.๒๕๔๗ มหาวิทยาลัยราชภัฏยะลา จึงสั่งให้<td>
                         </tr>
@@ -79,7 +79,7 @@
             </tr>
             <tr align="left">
                 <td colspan="2">
-                    <table width="100%" border="1" align="left">
+                    <table width="100%" border="0" align="left">
                         <tr>
                             <td></td>
                             <td></td>
@@ -112,7 +112,7 @@
             </tr>
             <tr align="left">
                 <td colspan="2">
-                    <table width="100%" border="1" align="left">
+                    <table width="100%" border="0" align="left">
                         <tr>
                             <td  colspan="2">เดินทางไปราชการ ณ จังหวัดยะลา ปัตตานี และนราธิวาส ตามวัน  และสถานที่ดังกล่าว โดยใช้รถยนต์จ้างเหมา หมายเลขทะเบียน ๓๐-๐๓๖๓ ปัตตานี มีนายรุสลัม ดูมีแดเป็นพนักงานขับรถใช้งบประมาณของโครงการฯ</td>
                         </tr>
@@ -126,7 +126,7 @@
             </tr>
             <tr align="left">
                 <td colspan="2">
-                    <table width="100%" border="1" align="left">
+                    <table width="100%" border="0" align="left">
                         <tr>
                             <td></td>
                             <td></td>
@@ -146,7 +146,7 @@
             </tr>
             <tr align="left">
                 <td colspan="2">
-                    <table width="100%" border="1" align="left">
+                    <table width="100%" border="0" align="left">
                         <tr>
                             <td></td>
                             <td></td>
@@ -171,7 +171,7 @@
             </tr>
             <tr align="left">
                 <td colspan="2">
-                    <table width="100%" border="1" align="left">
+                    <table width="100%" border="0" align="left">
                         <tr>
                             <td></td>
                             <td></td>
@@ -192,7 +192,7 @@
             </tr>
             <tr align="left">
                 <td colspan="2">
-                    <table width="100%" border="1" align="left">
+                    <table width="100%" border="0" align="left">
                         <tr>
                             <td></td>
                             <td></td>
