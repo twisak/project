@@ -113,6 +113,25 @@ else
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
+                                                <label>โครงการ</label>
+                                                <select class="form-control col-md-12" required name="project_id">
+                                                    <option>เลือกโครงการ</option>
+                                                    <?php
+                                                        $sql ="SELECT * FROM tb_project ";
+                                                        $query = mysqli_query($conn,$sql);
+                                                        while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
+                                                        {
+                                                            $project_id = $row['project_id'];
+                                                            $project_name = $row['project_name'];
+
+                                                    ?>
+                                                    <option value="<?php echo $project_id;?>"><?php echo $project_name;?></option>
+                                                    <?php }?>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
                                                 <label>ประเภทงบประมาณ</label>
                                                 <input type="text" name="budget" placeholder="" class="form-control form-control-line">
                                             </div>

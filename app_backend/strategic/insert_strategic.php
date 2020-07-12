@@ -6,9 +6,10 @@
 
         $strategic_id = $_POST['strategic_id'];
 		$mission_id = $_POST['mission_id'];
-		$strategic = $_POST['strategic'];
+        $strategic = $_POST['strategic'];
+        $project_id = $_POST['project_id'];
 
-		$sql_tb_strategic = "INSERT INTO tb_strategic(strategic_id,mission_id,strategic)VALUES ('".$strategic_id."','".$mission_id."','".$strategic."')";
+		$sql_tb_strategic = "INSERT INTO tb_strategic(strategic_id,mission_id,strategic,project_id)VALUES ('".$strategic_id."','".$mission_id."','".$strategic."','".$project_id."')";
 
 		$query_tb_strategic = mysqli_query($conn,$sql_tb_strategic);
 

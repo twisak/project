@@ -12,6 +12,28 @@ else
     echo "</script>";
     echo "<meta http-equiv='refresh' content='0;url=../../administrator/logout.php'>";
 }
+
+include '../../administrator/connect.php';
+    $username= $_SESSION['username'];
+
+    $sql ="SELECT * FROM account_login WHERE username = '".$username."' ";
+    $query = mysqli_query($conn,$sql);
+    while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
+    {
+        $person_id = $row['person_id'];
+    }
+
+    $sql1 ="SELECT * FROM tb_person WHERE person_id = '".$person_id."' ";
+    $query1 = mysqli_query($conn,$sql1);
+    while($row1 = mysqli_fetch_array($query1,MYSQLI_ASSOC))
+    {
+        $prefix = $row1['prefix'];
+        $firtname = $row1['firtname'];
+        $lastname = $row1['lastname'];
+        $person_id = $row1['person_id'];
+        // $prefix = $row1['prefix'];
+          // $prefix = $row1['prefix'];
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -67,11 +89,7 @@ else
                 <!-- ============================================================== -->
                 <div class="row page-titles">
                     <div class="col-md-5 align-self-center">
-                        <h3 class="text-themecolor">เอกสารบันทึกข้อความ</h3>
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                            <li class="breadcrumb-item active">เอกสารบันทึกข้อความ</li>
-                        </ol>
+                        <h3 class="text-themecolor">เอกสารบันทึกข้อความ/ขอลาออกเจ้าหน้าที่โครงการ</h3>
                     </div>
                 </div>
                 <div class="row">
@@ -79,36 +97,37 @@ else
                         <div class="card">
                             <!-- Tab panes -->
                             <div class="card-body">
-                                <form class="form-horizontal form-material">
-
+                                <form class="form-horizontal form-material" action="INSERT_note_command.php" method="post">
+                                    <?php
+                                            $sql = "Select Max(substr(doc_id,3)+1) as MaxID from tb_note_command ";
+                                            $query = mysqli_query($conn,$sql);
+                                            $table_id = mysqli_fetch_assoc($query);
+                                            $testid = $table_id['MaxID'];
+                                                    if($testid=='')
+                                                    {
+                                                        $id="RC001";
+                                                    }else
+                                                    {
+                                                        $id="RC".sprintf("%03d",$testid);
+                                                    }
+                                    ?>
                                     <div class="row">
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <label>รหัสเอกสารบันทึกข้อความอื่นๆ</label>
-                                                <input type="text" class="form-control form-control-line" name="note_id">
+                                                <label>รหัสเอกสาร</label>
+                                                <input type="text" value="<?=$id?>" readonly class="form-control form-control-line">
+                                                <input type="hidden" name="doc_id" value="<?=$id?>" />
                                             </div>
                                         </div>
-                                    </div>
-
-                                    <div class="row">
-
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label>ชื่อบุคลากร</label>
-                                                <input type="text" class="form-control form-control-line" name="firstname">
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-3">
-                                            <div class="form-group">
-                                                <label>ตำแหน่ง</label>
-                                                <input type="text" class="form-control form-control-line" name="position">
+                                                <input type="text" value="<?php echo $prefix?><?php echo $firtname?>&nbsp;&nbsp;<?php echo $lastname?>" class="form-control form-control-line">
+                                                <input type="hidden" class="form-control" name="person_id" value="<?php echo $person_id?>">
                                             </div>
                                         </div>
                                     </div>
-
-
-
+                                    
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
@@ -136,14 +155,73 @@ else
                                         </div>
                                     </div>
 
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label><b>ส่วนราชการ</b></label>
+                                                <input type="text" class="form-control form-control-line" name="travel">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label><b>ที่</b></label>
+                                                <input type="text" class="form-control form-control-line" name="travel">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label><b>วันที่</b></label>
+                                                <input type="date" class="form-control form-control-line" name="str_date">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label><b>เรื่อง</b></label>
+                                                <select name="title_id" class="form-control">
+                                                    <option value="">เลือกชื่อเรื่อง</option>
+                                                    <?php
+                                                        $sql = "SELECT * FROM tb_title";
+                                                        $query = mysqli_query($conn, $sql);
+                                                        while($result = mysqli_fetch_assoc($query)):
+                                                    ?>
+                                                    <option value="<?=$result['title_id']?>"><?=$result['title']?></option>
+                                                    <?php endwhile; ?>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>เริ่มปฏิบัติตามสัญญาจ้างเหมา เมื่อวันที่</label>
+                                                <input type="date" class="form-control form-control-line" name="travel">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>ถึง วันที่</label>
+                                                <input type="date" class="form-control form-control-line" name="travel">
+                                            </div>
+                                        </div>
+                                    </div>
 
-
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label><b>ลาออกจากเจ้างหน้าที่โครงการ มีผลตั้งแต่วันที่</b></label>
+                                                <input type="date" class="form-control form-control-line" name="travel">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
                                     <div class="row">
                                         <div class="col-md-3">
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <button type="button" class="btn btn-primary btn-block">บันทึก</button>
+                                                <input type="submit" name="submit" value="บันทึก" class="btn btn-primary btn-block" />
                                             </div>
                                         </div>
 
@@ -152,43 +230,19 @@ else
                                                 <button type="button" class="btn btn-danger btn-block">ยกเลิก</button>
                                             </div>
                                         </div>
-
                                     </div>
 
                                 </form>
                             </div>
                         </div>
                     </div>
-                    <!-- Column -->
                 </div>
-                <!-- Row -->
-                <!-- ============================================================== -->
-                <!-- End PAge Content -->
-                <!-- ============================================================== -->
             </div>
-            <!-- ============================================================== -->
-            <!-- End Container fluid  -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- footer -->
-            <!-- ============================================================== -->
             <footer class="footer">
                 © 2018 Adminwrap by wrappixel.com
             </footer>
-            <!-- ============================================================== -->
-            <!-- End footer -->
-            <!-- ============================================================== -->
         </div>
-        <!-- ============================================================== -->
-        <!-- End Page wrapper  -->
-        <!-- ============================================================== -->
     </div>
-    <!-- ============================================================== -->
-    <!-- End Wrapper -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- All Jquery -->
-    <!-- ============================================================== -->
     <script src="../assets/node_modules/jquery/jquery.min.js"></script>
     <!-- Bootstrap tether Core JavaScript -->
     <script src="../assets/node_modules/bootstrap/js/popper.min.js"></script>
@@ -215,6 +269,23 @@ else
                 url: 'select_activity.php',
                 success: function (data) {
                     $('#activity').html(data);
+                }
+            });
+            return false;
+        });
+    });
+</script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#project').change(function () {
+            $.ajax({
+                type: 'POST',
+                data: {
+                    project: $(this).val()
+                },
+                url: 'select_budget.php',
+                success: function (data) {
+                    $('#budget').html(data);
                 }
             });
             return false;

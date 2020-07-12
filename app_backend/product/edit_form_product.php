@@ -97,6 +97,7 @@ else
                                                 $product_id = $row_product['product_id'];
                                                 $product = $row_product['product'];
                                                 $budget_id = $row_product['budget_id'];
+                                                $project_id = $row_product['project_id'];
                                             }
                                            $sql_budget = "SELECT * FROM tb_budget WHERE budget_id = '".$budget_id."' ";
                                            //echo $sql_budget;
@@ -104,6 +105,14 @@ else
                                            $row_budget =mysqli_fetch_assoc($query_budget);
                                            $budget = $row_budget['budget'];
                                            $budget_id = $row_budget['budget_id'];
+
+                                            $sql = "SELECT * FROM tb_project WHERE project_id = '".$project_id."' ";
+                                            $query = mysqli_query($conn,$sql);
+                                            $result = mysqli_fetch_array($query);
+
+                                            $project_name = $result['project_name'];
+                                            $project_id = $result['project_id'];
+                                    ?>
                                     ?>
                                     <div class="row">
                                       <?php
@@ -111,6 +120,25 @@ else
                                           $query_budget = mysqli_query($conn,$sql_budget);
                                       ?>
                                         <input type="hidden" name="id" value="<?php echo $id; ?>">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>ชื่อกิจกรรมโครงการ</label><br>
+                                                <select class="form-control" required name="project_id">
+                                                    <option value="<?php echo $project_id; ?>" ><?php echo $project_name; ?></option>
+                                                    <?php
+                                                        $sql ="SELECT * FROM tb_project ";
+                                                        $query = mysqli_query($conn,$sql);
+                                                        while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
+                                                        {
+                                                            $project_id = $row['project_id'];
+                                                            $project_name = $row['project_name'];
+
+                                                    ?>
+                                                    <option value="<?php echo $project_id;?>"><?php echo $project_name;?></option>
+                                                    <?php }?>
+                                                </select>
+                                            </div>
+                                        </div>
                                       <div class="col-md-3">
                                           <div class="form-group">
                                               <label>ประเภทงบประมาณ</label>

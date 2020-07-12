@@ -63,11 +63,6 @@ else
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-12 col-xlg-9 col-md-7">
-                        <div class="card">
-                            <!-- Tab panes -->
-                            <div class="card-body">
-                                <div class="row">
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <a href="tb_doc_note_command.php" class="btn btn-warning btn-block">เอกสารคำสั่ง</a>
@@ -84,8 +79,11 @@ else
                                         </div>
                                     </div>
                                 </div>
-
-
+                <div class="row">
+                    <div class="col-lg-12 col-xlg-9 col-md-7">
+                        <div class="card">
+                            <!-- Tab panes -->
+                            <div class="card-body">
                                 <h4 class="card-title">เอกสารคำสั่ง</h4>
                                 <div class="text-right">
                                     <a href="input_doc_note_command.php">

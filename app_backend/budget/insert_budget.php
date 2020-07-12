@@ -5,9 +5,10 @@
     include '../../administrator/connect.php';
 
         $budget_id = $_POST['budget_id'];
+        $project_id = $_POST['project_id'];
 		$budget = $_POST['budget'];
 
-		$sql_tb_budget = "INSERT INTO tb_budget(budget_id,budget)VALUES ('".$budget_id."','".$budget."')";
+		$sql_tb_budget = "INSERT INTO tb_budget(budget_id,budget,project_id)VALUES ('".$budget_id."','".$budget."','".$project_id."')";
 //echo $sql_tb_budget;
 		$query_tb_budget = mysqli_query($conn,$sql_tb_budget);
 

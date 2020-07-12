@@ -109,6 +109,25 @@ else
                                                 <input type="text" name="strategic_id" value="<?=$id?>" class="form-control form-control-line">
                                             </div>
                                         </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>โครงการ</label>
+                                                <select class="form-control col-md-12" required name="project_id">
+                                                    <option>เลือกโครงการ</option>
+                                                    <?php
+                                                        $sql ="SELECT * FROM tb_project ";
+                                                        $query = mysqli_query($conn,$sql);
+                                                        while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
+                                                        {
+                                                            $project_id = $row['project_id'];
+                                                            $project_name = $row['project_name'];
+
+                                                    ?>
+                                                    <option value="<?php echo $project_id;?>"><?php echo $project_name;?></option>
+                                                    <?php }?>
+                                                </select>
+                                            </div>
+                                        </div>
                                       <?php
                                           $sql_mission = "SELECT * FROM tb_mission";
                                           $query_mission = mysqli_query($conn,$sql_mission);

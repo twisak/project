@@ -3,7 +3,8 @@
 	ini_set('display_errors', 1);
     error_reporting(~0);
     include '../../administrator/connect.php';
-
+    
+    $date_current = date('Y-m-d');
     $doc_id = $_POST['doc_id'];
 	$str_date = $_POST['str_date'];
     $stp_date = $_POST['stp_date'];

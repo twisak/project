@@ -13,9 +13,11 @@
         //$product_id = $_POST['product_id'];
         $mission = $_POST['mission'];
         $product_id = $_POST['product_id'];
+        $project_id = $_POST['project_id'];
 
         $sql= "UPDATE tb_mission SET mission = '".$mission."',
-                                     product_id = '".$product_id."'
+                                     product_id = '".$product_id."',
+                                     project_id = '".$project_id."'
                               WHERE id = '$id'";
 //echo $sql;
        $db_query = mysqli_query($conn,$sql);

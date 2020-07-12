@@ -89,11 +89,7 @@ include '../../administrator/connect.php';
                 <!-- ============================================================== -->
                 <div class="row page-titles">
                     <div class="col-md-5 align-self-center">
-                        <h3 class="text-themecolor">เอกสารคำสั่ง</h3>
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                            <li class="breadcrumb-item active">เอกสารคำสั่ง</li>
-                        </ol>
+                        <h3 class="text-themecolor">เอกสารบันทึกข้อความ/อนุมัติดำเนินการจ้างเหมา</h3>
                     </div>
                 </div>
                 <div class="row">
@@ -109,16 +105,16 @@ include '../../administrator/connect.php';
                                             $testid = $table_id['MaxID'];
                                                     if($testid=='')
                                                     {
-                                                        $id="NC001";
+                                                        $id="RC001";
                                                     }else
                                                     {
-                                                        $id="NC".sprintf("%03d",$testid);
+                                                        $id="RC".sprintf("%03d",$testid);
                                                     }
                                     ?>
                                     <div class="row">
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <label>รหัสเอกสารคำสั่ง</label>
+                                                <label>รหัสเอกสาร</label>
                                                 <input type="text" value="<?=$id?>" readonly class="form-control form-control-line">
                                                 <input type="hidden" name="doc_id" value="<?=$id?>" />
                                             </div>
@@ -131,29 +127,7 @@ include '../../administrator/connect.php';
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label><b>เรื่อง</b></label>
-                                                <select name="title_id" class="form-control">
-                                                    <option value="">เลือกชื่อเรื่อง</option>
-                                                    <?php
-                                                        $sql = "SELECT * FROM tb_title";
-                                                        $query = mysqli_query($conn, $sql);
-                                                        while($result = mysqli_fetch_assoc($query)):
-                                                    ?>
-                                                    <option value="<?=$result['title_id']?>"><?=$result['title']?></option>
-                                                    <?php endwhile; ?>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="form-group">
-                                                <label>ที่</label>
-                                                <input type="text" class="form-control form-control-line">
-                                            </div>
-                                        </div>
-                                    </div>
+                                    
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
@@ -180,38 +154,41 @@ include '../../administrator/connect.php';
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-md-2">
-                                            <div class="form-group">
-                                                <label><b>เริ่มต้นวันที่</b></label>
-                                                <input type="date" class="form-control form-control-line" name="str_date">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <div class="form-group">
-                                                <label><b>สิ้นสุดวันที่</b></label>
-                                                <input type="date" class="form-control form-control-line" name="stp_date">
-                                            </div>
-                                        </div>
-                                    </div>
 
                                     <div class="row">
-                                        <div class="col-md-5">
+                                        <div class="col-md-6">
                                             <div class="form-group">
-                                                <label><b>เดินทางไปราชการ</b></label>
+                                                <label><b>ส่วนราชการ</b></label>
                                                 <input type="text" class="form-control form-control-line" name="travel">
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-3">
                                             <div class="form-group">
-                                                <label><b>โดยใช้</b></label>
-                                                <input type="text" class="form-control form-control-line" name="using">
+                                                <label><b>ที่</b></label>
+                                                <input type="text" class="form-control form-control-line" name="travel">
                                             </div>
                                         </div>
+                                    </div>
+                                    <div class="row">
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label><b>พนักงานขับรถ</b></label>
-                                                <input type="text" class="form-control form-control-line" name="driver">
+                                                <label><b>วันที่</b></label>
+                                                <input type="date" class="form-control form-control-line" name="str_date">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label><b>เรื่อง</b></label>
+                                                <select name="title_id" class="form-control">
+                                                    <option value="">เลือกชื่อเรื่อง</option>
+                                                    <?php
+                                                        $sql = "SELECT * FROM tb_title";
+                                                        $query = mysqli_query($conn, $sql);
+                                                        while($result = mysqli_fetch_assoc($query)):
+                                                    ?>
+                                                    <option value="<?=$result['title_id']?>"><?=$result['title']?></option>
+                                                    <?php endwhile; ?>
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
@@ -224,7 +201,82 @@ include '../../administrator/connect.php';
                                                 </select>
                                             </div>
                                         </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>ปีงบประมาณ</label>
+                                                <select class="form-control" name="fiscal_year" id="fiscal_year">
+                                                    <?php
+                                                        $xYear=date('Y'); // เก็บค่าปีปัจจุบันไว้ในตัวแปร
+                                                                echo '<option value="'.$xYear.'">'.$xYear.'</option>'; // ปีปัจจุบัน
+                                                        for($i=1;$i<=30;$i++){
+                                                        echo '<option value="'.($xYear-$i).'">'.($xYear-$i).'</option>';
+                                                            }
+                                                    ?>
+                                                </select>
+
+                                            </div>
+                                        </div>
                                     </div>
+
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label><b>จำวนน/คน</b></label>
+                                                <input type="text" class="form-control form-control-line" name="travel">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label><b>ระยะเวลาปฏิบัติงานกี่งวด</b></label>
+                                                <input type="text" class="form-control form-control-line" name="travel">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label><b>งวดล่ะกี่บาท</b></label>
+                                                <input type="text" class="form-control form-control-line" name="travel">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>ผู้ตรวจรับพัสดุ</label>
+                                                <select class="form-control" name="teacher_id">
+                                                    <option value="">-- เลือกรายชื่อ --</option>
+                                                    <?php
+                                                        $sql_teacher = "select * from tb_teacher";
+                                                        $query_teacher = mysqli_query($conn,$sql_teacher);
+                                                        while($result_teacher=mysqli_fetch_array($query_teacher))
+                                                        {
+                                                        ?>
+                                                    <option value='<?php echo $result_teacher['teacher_id'];?>'><?php echo $result_teacher['t_firstname'];?>&nbsp;&nbsp;<?php echo $result_teacher['t_lastname'];?></option>
+                                                    <?php
+                                                        }
+                                                        ?>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>ผู้ควบคุมการปฏิบัติงาน</label>
+                                                <select class="form-control" name="teacher_id">
+                                                    <option value="">-- เลือกรายชื่อ --</option>
+                                                    <?php
+                                                        $sql_teacher = "select * from tb_teacher";
+                                                        $query_teacher = mysqli_query($conn,$sql_teacher);
+                                                        while($result_teacher=mysqli_fetch_array($query_teacher))
+                                                        {
+                                                        ?>
+                                                    <option value='<?php echo $result_teacher['teacher_id'];?>'><?php echo $result_teacher['t_firstname'];?>&nbsp;&nbsp;<?php echo $result_teacher['t_lastname'];?></option>
+                                                    <?php
+                                                        }
+                                                        ?>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
 
 
 

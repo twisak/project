@@ -12,9 +12,11 @@
         $id = $_POST['id'];
         $strategic = $_POST['strategic'];
         $mission_id = $_POST['mission_id'];
+        $project_id = $_POST['project_id'];
 
         $sql= "UPDATE tb_strategic SET strategic = '".$strategic."',
-                                     mission_id = '".$mission_id."'
+                                     mission_id = '".$mission_id."',
+                                     project_id = '".$project_id."'
                               WHERE id = '$id'";
 //echo $sql;
        $db_query = mysqli_query($conn,$sql);

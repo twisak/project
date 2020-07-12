@@ -277,6 +277,7 @@ else
     <?php 
         include 'report_salary2.php'; 
         include 'report_salary3.php';
+        include 'report_salary4.php';
     ?>
 
     

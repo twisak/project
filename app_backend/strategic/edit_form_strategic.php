@@ -96,17 +96,44 @@ else
                                             $id = $row_strategic['id'];
                                             $strategic = $row_strategic['strategic'];
                                             $mission_id = $row_strategic['mission_id'];
+                                            $project_id = $row_strategic['project_id'];
                                         }
                                        $sql_mission = "SELECT * FROM tb_mission WHERE mission_id = '".$mission_id."' ";
                                        $query_mission = mysqli_query($conn,$sql_mission);
                                        $row_mission =mysqli_fetch_assoc($query_mission);
                                        $mission = $row_mission['mission'];
+
+                                       $sql = "SELECT * FROM tb_project WHERE project_id = '".$project_id."' ";
+                                        $query = mysqli_query($conn,$sql);
+                                        $result = mysqli_fetch_array($query);
+
+                                        $project_name = $result['project_name'];
+                                        $project_id = $result['project_id'];
                                                 
 
                                 ?>
 
                                     <div class="row">
                                     <input type="hidden" name="id" value="<?php echo $id; ?>">
+                                    <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>ชื่อกิจกรรมโครงการ</label><br>
+                                                <select class="form-control" required name="project_id">
+                                                    <option value="<?php echo $project_id; ?>" ><?php echo $project_name; ?></option>
+                                                    <?php
+                                                        $sql ="SELECT * FROM tb_project ";
+                                                        $query = mysqli_query($conn,$sql);
+                                                        while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
+                                                        {
+                                                            $project_id = $row['project_id'];
+                                                            $project_name = $row['project_name'];
+
+                                                    ?>
+                                                    <option value="<?php echo $project_id;?>"><?php echo $project_name;?></option>
+                                                    <?php }?>
+                                                </select>
+                                            </div>
+                                        </div>
                                        
                                       <?php
                                           $sql_mission = "SELECT * FROM tb_mission";

@@ -63,11 +63,6 @@ else
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-12 col-xlg-9 col-md-7">
-                        <div class="card">
-                            <!-- Tab panes -->
-                            <div class="card-body">
-                                <div class="row">
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <a href="tb_doc_note_command.php" class="btn btn-warning btn-block">เอกสารคำสั่ง</a>
@@ -85,10 +80,103 @@ else
                                     </div>
                                 </div>
 
-
-                                <h4 class="card-title">เอกสารบันทึกข้อความ</h4>
+                <div class="row">
+                    <div class="col-lg-6 col-xlg-3 col-md-5">
+                        <div class="card">
+                            <!-- Tab panes -->
+                            <div class="card-body">
+                                <h4 class="card-title">เอกสารบันทึกข้อความ/อนุมัติดำเนินการจ้างเหมา</h4>
                                 <div class="text-right">
-                                    <a href="input_doc_note_record.php">
+                                    <a href="input_doc_note_record1.php">
+                                        <button type="button" class="btn btn-primary">กรอกเอกสารเพิ่ม</button>
+                                    </a>
+                                </div>
+                                <div class="table-responsive">
+                                    <table class="table text-center">
+                                        <thead>
+                                            <tr>
+                                                <th class="text-center">#</th>
+                                                <th class="text-center">รหัสเอกสาร</th>
+                                                <th class="text-center">ชื่อ-สกุล</th>
+                                                <th class="text-center">โครงการ</th>
+                                                <th class="text-center">รายละเอียดเอกสาร</th>
+                                                <th class="text-center">ลบ</th>
+                                            </tr>
+                                        </thead>
+                                        <?php
+                                            include '../../administrator/connect.php';
+                                            // $username= $_SESSION['username'];
+                                            // $sql ="SELECT * FROM account_login WHERE username = '".$username."' ";
+                                            // $query = mysqli_query($conn,$sql);
+                                            // while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
+                                            // {
+                                            //     $person_id = $row['person_id'];
+                                            // }
+                                            $i=1;
+                                            $i<="";
+
+                                            $sql ="SELECT * FROM tb_contract";
+                                            $query = mysqli_query($conn,$sql);
+                                            while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
+                                            {
+                                                $id = $row['id'];
+                                                $doc_id = $row['doc_id'];
+                                                $foreword = $row['foreword'];
+                                                $str_date = $row['str_date'];
+                                                $stp_date = $row['stp_date'];
+                                                $project_id = $row['project_id'];
+                                                $person_id = $row['person_id'];
+
+                                            // echo $doc_id;
+                                            // echo $person_id;
+
+                                            $sql1 ="SELECT * FROM tb_project WHERE project_id = '".$project_id."' ";
+                                            $query1 = mysqli_query($conn,$sql1);
+                                            while($row1 = mysqli_fetch_array($query1,MYSQLI_ASSOC))
+                                            {
+                                                $project_name = $row1['project_name'];
+                                            }
+                                            $sql2 ="SELECT * FROM tb_person WHERE person_id = '".$person_id."' ";
+                                            $query2 = mysqli_query($conn,$sql2);
+                                            while($row2 = mysqli_fetch_array($query2,MYSQLI_ASSOC))
+                                            {
+                                                $prefix = $row2['prefix'];
+                                                $firtname = $row2['firtname'];
+                                                $lastname = $row2['lastname'];
+                                                //$prefix = $row2['prefix'];
+                                            }
+                                        ?>
+                                        <tbody>
+                                            <tr>
+                                                <td><?php echo $i;?></td>
+                                                <td><?php echo $doc_id;?></td>
+                                                <td><?php echo $prefix;?><?php echo $firtname;?> <?php echo $lastname;?></td>
+                                                <td><?php echo $project_name;?></td>
+                                                <td>
+                                                    <a href="show_doc_contract.php?id=<?php echo $id;?>"><button type="button" class="btn btn-info">รายละเอียด</button></a>
+                                                </td>
+                                                <td><a href="JavaScript:if(confirm('ยืนยันการลบ ?') == true){window.location='delete_contract.php?id=<?php echo $row["id"];?>';}" class="btn btn-danger">ลบ</a></td>
+                                            </tr>
+                                            <?php
+                                            $i++;
+                                            }
+                                            ?>
+
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Column -->
+                    </div>
+                    <div class="col-lg-6 col-xlg-3 col-md-5">
+                        <div class="card">
+                            <!-- Tab panes -->
+                            <div class="card-body">
+                                <h4 class="card-title">เอกสารบันทึกข้อความ/ขอลาออกเจ้าหน้าที่โครงการ</h4>
+                                <div class="text-right">
+                                    <a href="input_doc_note_record2.php">
                                         <button type="button" class="btn btn-primary">กรอกเอกสารเพิ่ม</button>
                                     </a>
                                 </div>

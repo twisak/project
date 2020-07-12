@@ -12,28 +12,6 @@ else
     echo "</script>";
     echo "<meta http-equiv='refresh' content='0;url=../../administrator/logout.php'>";
 }
-
-include '../../administrator/connect.php';
-    $username= $_SESSION['username'];
-
-    $sql ="SELECT * FROM account_login WHERE username = '".$username."' ";
-    $query = mysqli_query($conn,$sql);
-    while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
-    {
-        $person_id = $row['person_id'];
-    }
-
-    $sql1 ="SELECT * FROM tb_person WHERE person_id = '".$person_id."' ";
-    $query1 = mysqli_query($conn,$sql1);
-    while($row1 = mysqli_fetch_array($query1,MYSQLI_ASSOC))
-    {
-        $prefix = $row1['prefix'];
-        $firtname = $row1['firtname'];
-        $lastname = $row1['lastname'];
-        $person_id = $row1['person_id'];
-        // $prefix = $row1['prefix'];
-          // $prefix = $row1['prefix'];
-    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -89,11 +67,7 @@ include '../../administrator/connect.php';
                 <!-- ============================================================== -->
                 <div class="row page-titles">
                     <div class="col-md-5 align-self-center">
-                        <h3 class="text-themecolor">เอกสารคำสั่ง</h3>
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                            <li class="breadcrumb-item active">เอกสารคำสั่ง</li>
-                        </ol>
+                        <h3 class="text-themecolor">เอกสารเรียนเชิญเข้าร่วมการประชุม</h3>
                     </div>
                 </div>
                 <div class="row">
@@ -101,38 +75,19 @@ include '../../administrator/connect.php';
                         <div class="card">
                             <!-- Tab panes -->
                             <div class="card-body">
-                                <form class="form-horizontal form-material" action="INSERT_note_command.php" method="post">
-                                    <?php
-                                            $sql = "Select Max(substr(doc_id,3)+1) as MaxID from tb_note_command ";
-                                            $query = mysqli_query($conn,$sql);
-                                            $table_id = mysqli_fetch_assoc($query);
-                                            $testid = $table_id['MaxID'];
-                                                    if($testid=='')
-                                                    {
-                                                        $id="NC001";
-                                                    }else
-                                                    {
-                                                        $id="NC".sprintf("%03d",$testid);
-                                                    }
-                                    ?>
+                                <form class="form-horizontal form-material">
+
                                     <div class="row">
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <label>รหัสเอกสารคำสั่ง</label>
-                                                <input type="text" value="<?=$id?>" readonly class="form-control form-control-line">
-                                                <input type="hidden" name="doc_id" value="<?=$id?>" />
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label>ชื่อบุคลากร</label>
-                                                <input type="text" value="<?php echo $prefix?><?php echo $firtname?>&nbsp;&nbsp;<?php echo $lastname?>" class="form-control form-control-line">
-                                                <input type="hidden" class="form-control" name="person_id" value="<?php echo $person_id?>">
+                                                <label>รหัสเอกสารเรียนเชิญเข้าร่วมการประชุม</label>
+                                                <input type="text" class="form-control form-control-line" name="note_id">
                                             </div>
                                         </div>
                                     </div>
+
                                     <div class="row">
-                                        <div class="col-md-6">
+                                        <div class="col-md-4">
                                             <div class="form-group">
                                                 <label><b>เรื่อง</b></label>
                                                 <select name="title_id" class="form-control">
@@ -150,9 +105,38 @@ include '../../administrator/connect.php';
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label>ที่</label>
-                                                <input type="text" class="form-control form-control-line">
+                                                <input type="text" class="form-control form-control-line" name="position">
                                             </div>
                                         </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>เรียน</label>
+                                                <input type="text" class="form-control form-control-line" name="position">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        &nbsp;&nbsp;&nbsp;&nbsp;<label>สิ่งที่ส่งมอบมาด้วย</label>
+                                        <div class="col-md-7">
+                                            <div class="form-group">
+                                                <button type="button" class="btn btn-info btn-sm" id="createRows" value="Add">เพิ่ม</button>
+                                                &nbsp;&nbsp;<button type="button" class="btn btn-warning btn-sm" id="deleteRows" value="Del">ลบ</button>
+                                                &nbsp;&nbsp;<button type="button" class="btn btn-danger btn-sm" id="clearRows" value="Clear">ลบทั้งหมด</button>
+                                            </div>
+                                        </div>
+
+                                        <table width="100%" border="0" id="myTable">
+                                            <thead>
+                                            </thead>
+                                            <tbody></tbody>
+                                        </table>
+                                        <br />
+                                        <center>
+                                            <br>
+                                            <input type="hidden" id="hdnCount" name="hdnCount">
+                                        </center>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-6">
@@ -173,9 +157,9 @@ include '../../administrator/connect.php';
 
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label>ชื่อกิจกรรม</label>
-                                                <select name="activity_id" id="activity" class="form-control">
-                                                    <option value="">ชื่อกิจกรรม</option>
+                                                <label>ชื่อยุทธศาสตร์</label>
+                                                <select name="strategic_id" id="strategic" class="form-control">
+                                                    <option value="">ชื่อยุทธศาสตร์</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -183,45 +167,49 @@ include '../../administrator/connect.php';
                                     <div class="row">
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label><b>เริ่มต้นวันที่</b></label>
-                                                <input type="date" class="form-control form-control-line" name="str_date">
+                                                <label><b>ในวันที่</b></label>
+                                                <input type="date" class="form-control form-control-line" name="position">
                                             </div>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label><b>สิ้นสุดวันที่</b></label>
-                                                <input type="date" class="form-control form-control-line" name="stp_date">
+                                                <label>ตั้งแต่เวลา</label>
+                                                <input type="time" class="form-control form-control-line" name="position">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label>ถึง เวลา</label>
+                                                <input type="time" class="form-control form-control-line" name="position">
                                             </div>
                                         </div>
                                     </div>
-
+                                    
                                     <div class="row">
-                                        <div class="col-md-5">
+                                        <div class="col-md-6">
                                             <div class="form-group">
-                                                <label><b>เดินทางไปราชการ</b></label>
-                                                <input type="text" class="form-control form-control-line" name="travel">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label><b>โดยใช้</b></label>
-                                                <input type="text" class="form-control form-control-line" name="using">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <div class="form-group">
-                                                <label><b>พนักงานขับรถ</b></label>
-                                                <input type="text" class="form-control form-control-line" name="driver">
+                                                <label><b>ณ สถานที่</b></label>
+                                                <input type="text" class="form-control form-control-line" name="position">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label>ใช้งบประมาณ</label>
-                                                <select name="budget_id" id="budget" class="form-control">
-                                                    <option value="">เลือกงบประมาณ</option>
-                                                </select>
+                                                <label><b>เรียนเชิญบุคลากรที่ปฏิบัติงานสอนรายวิชา</b></label>
+                                                <input type="text" class="form-control form-control-line" name="position">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label>จำนวน</label>
+                                                <input type="text" class="form-control form-control-line" name="position">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>เข้าร่วมกิจกรรมภายในวันที่</label>
+                                                <input type="date" class="form-control form-control-line" name="position">
                                             </div>
                                         </div>
                                     </div>
@@ -233,7 +221,7 @@ include '../../administrator/connect.php';
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <input type="submit" name="submit" value="บันทึก" class="btn btn-primary btn-block" />
+                                                <button type="button" class="btn btn-primary btn-block">บันทึก</button>
                                             </div>
                                         </div>
 
@@ -242,12 +230,14 @@ include '../../administrator/connect.php';
                                                 <button type="button" class="btn btn-danger btn-block">ยกเลิก</button>
                                             </div>
                                         </div>
+
                                     </div>
 
                                 </form>
                             </div>
                         </div>
                     </div>
+                    <!-- Column -->
                 </div>
             </div>
             <footer class="footer">
@@ -267,40 +257,55 @@ include '../../administrator/connect.php';
     <script src="../js/sidebarmenu.js"></script>
     <!--Custom JavaScript -->
     <script src="../js/custom.min.js"></script>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script type="text/javascript">
+                $(document).ready(function () {
+
+                    var rows = 1;
+                    $("#createRows").click(function () {
+
+
+                        var tr = "<tr>";
+                        tr = tr + "<td class='col-md-8'><div class='row'><div class='col-md-8'><div class='form-group'><input type='text' class='form-control p_input' name='foreword[]" + rows + "'></div></div></td>";
+                        tr = tr + "</tr>";
+                        $('#myTable > tbody:last').append(tr);
+
+                        $('#hdnCount').val(rows);
+                        rows = rows + 1;
+                    });
+
+                    $("#deleteRows").click(function () {
+                        if ($("#myTable tr").length != 1) {
+                            $("#myTable tr:last").remove();
+                        }
+                    });
+
+                    $("#clearRows").click(function () {
+                        rows = 1;
+                        $('#hdnCount').val(rows);
+                        $('#myTable > tbody:last').empty(); // remove all
+                    });
+
+                });
+            </script>
+            <script type="text/javascript">
+            $(document).ready(function () {
+                $('#project').change(function () {
+                    $.ajax({
+                        type: 'POST',
+                        data: {
+                            project: $(this).val()
+                        },
+                        url: 'select_strategic.php',
+                        success: function (data) {
+                            $('#strategic').html(data);
+                        }
+                    });
+                    return false;
+                });
+            });
+        </script>
 </body>
 
 </html>
-<script type="text/javascript">
-    $(document).ready(function () {
-        $('#project').change(function () {
-            $.ajax({
-                type: 'POST',
-                data: {
-                    project: $(this).val()
-                },
-                url: 'select_activity.php',
-                success: function (data) {
-                    $('#activity').html(data);
-                }
-            });
-            return false;
-        });
-    });
-</script>
-<script type="text/javascript">
-    $(document).ready(function () {
-        $('#project').change(function () {
-            $.ajax({
-                type: 'POST',
-                data: {
-                    project: $(this).val()
-                },
-                url: 'select_budget.php',
-                success: function (data) {
-                    $('#budget').html(data);
-                }
-            });
-            return false;
-        });
-    });
-</script>
+
