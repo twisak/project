@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 12, 2020 at 10:41 PM
--- Server version: 10.3.16-MariaDB
--- PHP Version: 7.2.20
+-- Generation Time: Jul 13, 2020 at 09:55 AM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.4.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -10335,6 +10334,68 @@ INSERT INTO `tb_note` (`id`, `doc_id`, `project_id`, `person_id`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tb_note_book1`
+--
+
+CREATE TABLE `tb_note_book1` (
+  `id` int(11) NOT NULL COMMENT 'ออโต้',
+  `title_id` varchar(20) DEFAULT NULL COMMENT 'เรื่อง',
+  `mug` varchar(255) DEFAULT NULL COMMENT 'เรียน',
+  `send_with` varchar(255) DEFAULT NULL COMMENT 'สิ่งที่ส่งมอบมาด้วย',
+  `project_id` varchar(20) DEFAULT NULL COMMENT 'รหัสโครงการ',
+  `activity_id` varchar(20) DEFAULT NULL COMMENT 'รหัสกิจกรรม',
+  `no` varchar(20) DEFAULT NULL COMMENT 'ครั้งที่',
+  `heading` varchar(255) DEFAULT NULL COMMENT 'หัวเรื่อง',
+  `str_date` date DEFAULT NULL COMMENT 'ตั้งแต่วันที่',
+  `stp_date` date DEFAULT NULL COMMENT 'ถึงวันที่',
+  `location` varchar(255) DEFAULT NULL COMMENT 'ณ สถานที่',
+  `invite` varchar(255) DEFAULT NULL COMMENT 'เรียนเชิญ',
+  `teacher_under` varchar(255) DEFAULT NULL COMMENT 'ครูในสังกัด'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_note_book2`
+--
+
+CREATE TABLE `tb_note_book2` (
+  `id` int(11) NOT NULL COMMENT 'ออโต้',
+  `doc_id` varchar(20) DEFAULT NULL COMMENT 'รหัสเอกสาร',
+  `title_id` varchar(20) DEFAULT NULL COMMENT 'เรื่อง',
+  `at` varchar(255) DEFAULT NULL COMMENT 'ที่',
+  `mug` varchar(255) DEFAULT NULL COMMENT 'เรียน',
+  `send_with` varchar(255) DEFAULT NULL COMMENT 'สิ่งที่มอบด้วย',
+  `project_id` varchar(20) DEFAULT NULL COMMENT 'รหัสโครงการ',
+  `strategic_id` varchar(20) DEFAULT NULL COMMENT 'รหัสยุทศาสตร์',
+  `date_current` date DEFAULT NULL COMMENT 'ในวันที่',
+  `time_start` time DEFAULT NULL COMMENT 'เวลาเริ่ม',
+  `time_end` time DEFAULT NULL COMMENT 'เวลาสิ้นสุด',
+  `location` varchar(255) DEFAULT NULL COMMENT 'ณ สถานที่',
+  `invite_person` varchar(255) DEFAULT NULL COMMENT 'เรียนเชิญบุคลากรที่ปฏิบัติงานสอนรายวิชา',
+  `num` varchar(20) DEFAULT NULL COMMENT 'จำนวน',
+  `date_inside` date DEFAULT NULL COMMENT 'เข้าร่วมกิจกรรมภายในวันที่'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_note_book3`
+--
+
+CREATE TABLE `tb_note_book3` (
+  `id` int(11) NOT NULL COMMENT 'ออโต้',
+  `doc_id` varchar(20) DEFAULT NULL COMMENT 'รหัสเอกสาร',
+  `title_id` varchar(20) DEFAULT NULL COMMENT 'เรื่อง',
+  `at` varchar(255) DEFAULT NULL COMMENT 'ที่',
+  `mug` varchar(255) DEFAULT NULL COMMENT 'เรียน',
+  `send_with` varchar(255) DEFAULT NULL COMMENT ' \r\nสิ่งที่ส่งมอบมาด้วย\r\n \r\nสิ่งที่ส่งมอบมาด้วย\r\nสิ่งที่มอบด้วย',
+  `project_id` varchar(20) DEFAULT NULL COMMENT 'รหัสโครงการ'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tb_note_command`
 --
 
@@ -10350,7 +10411,7 @@ CREATE TABLE `tb_note_command` (
   `activity_id` varchar(20) NOT NULL COMMENT 'รหัสกิจกรรม',
   `person_id` varchar(20) NOT NULL COMMENT 'รหัสบุคลากร',
   `travel` varchar(255) NOT NULL COMMENT 'เดินทางไปราชการ',
-  `using` varchar(255) NOT NULL COMMENT 'โดยใช้',
+  `byusing` varchar(255) NOT NULL COMMENT 'โดยใช้',
   `driver` varchar(100) NOT NULL COMMENT 'พนักงานขับรถ',
   `budget_id` varchar(20) NOT NULL COMMENT 'งบประมาณ'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -10358,16 +10419,46 @@ CREATE TABLE `tb_note_command` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_note_record`
+-- Table structure for table `tb_note_ record1`
 --
 
-CREATE TABLE `tb_note_record` (
-  `id` int(11) NOT NULL COMMENT 'ออโต้ไอดี',
-  `doc_id` varchar(20) NOT NULL COMMENT 'รหัสเอกสาร',
-  `government` varchar(255) NOT NULL COMMENT 'ส่วนราชการ',
-  `that` varchar(50) NOT NULL COMMENT 'ที่',
-  `c_day` date NOT NULL COMMENT 'วันที่ปัจจุบัน',
-  `title_id` varchar(20) NOT NULL COMMENT 'รหัสเรื่อง'
+CREATE TABLE `tb_note_ record1` (
+  `id` int(11) NOT NULL COMMENT 'ออโต้',
+  `doc_id` varchar(20) DEFAULT NULL COMMENT 'รหัสเอกสาร',
+  `person_id` varchar(20) DEFAULT NULL COMMENT 'รหัสบุคลากร',
+  `project_id` varchar(20) DEFAULT NULL COMMENT 'รหัสโครงการ',
+  `activity_id` varchar(20) DEFAULT NULL COMMENT 'รหัสกิจกรรม',
+  `government` varchar(255) DEFAULT NULL COMMENT 'ส่วนราชการ',
+  `at` int(11) DEFAULT NULL COMMENT 'ที่',
+  `date_current` date DEFAULT NULL COMMENT 'วันที่',
+  `title_id` varchar(20) DEFAULT NULL COMMENT 'หัวข้อเรื่อง',
+  `budget_id` varchar(20) DEFAULT NULL COMMENT 'ใช้งบประมาณ',
+  `budget_year` varchar(20) DEFAULT NULL COMMENT 'ปีงบประมาณ',
+  `num_person` varchar(20) DEFAULT NULL COMMENT 'จำนวนคน',
+  `num_period` varchar(20) DEFAULT NULL COMMENT 'จำนวนงวด',
+  `price_period` varchar(20) DEFAULT NULL COMMENT 'งวดละกี่บาท',
+  `supplies_id` varchar(20) DEFAULT NULL COMMENT 'ผู้ตรวจรับพัสดุ',
+  `control_id` varchar(20) DEFAULT NULL COMMENT 'ผู้ควบคุมการปฏิบัติงาน'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_note_ record2`
+--
+
+CREATE TABLE `tb_note_ record2` (
+  `id` int(11) NOT NULL COMMENT 'ออโต้',
+  `doc_id` varchar(20) DEFAULT NULL COMMENT 'รหัสเอกสาร',
+  `person_id` varchar(20) DEFAULT NULL COMMENT 'รหัสบุคลากร',
+  `project_id` varchar(20) DEFAULT NULL COMMENT 'รหัสโครงการ',
+  `activity_id` varchar(20) DEFAULT NULL COMMENT 'รหัสกิจกรรม',
+  `government` varchar(255) DEFAULT NULL COMMENT 'ส่วนราชการ',
+  `at` varchar(255) DEFAULT NULL COMMENT 'ที่',
+  `date_current` date DEFAULT NULL COMMENT 'วันที่',
+  `str_date` date DEFAULT NULL COMMENT 'เริ่มวันที่',
+  `stp_date` date DEFAULT NULL COMMENT 'ถึงวันที่',
+  `real_date` date DEFAULT NULL COMMENT 'มีผลตั้งแต่วันที่'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -10678,15 +10769,39 @@ ALTER TABLE `tb_note`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `tb_note_book1`
+--
+ALTER TABLE `tb_note_book1`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tb_note_book2`
+--
+ALTER TABLE `tb_note_book2`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tb_note_book3`
+--
+ALTER TABLE `tb_note_book3`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `tb_note_command`
 --
 ALTER TABLE `tb_note_command`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tb_note_record`
+-- Indexes for table `tb_note_ record1`
 --
-ALTER TABLE `tb_note_record`
+ALTER TABLE `tb_note_ record1`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tb_note_ record2`
+--
+ALTER TABLE `tb_note_ record2`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -10826,16 +10941,40 @@ ALTER TABLE `tb_note`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้ไอดี', AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `tb_note_book1`
+--
+ALTER TABLE `tb_note_book1`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้';
+
+--
+-- AUTO_INCREMENT for table `tb_note_book2`
+--
+ALTER TABLE `tb_note_book2`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้';
+
+--
+-- AUTO_INCREMENT for table `tb_note_book3`
+--
+ALTER TABLE `tb_note_book3`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้';
+
+--
 -- AUTO_INCREMENT for table `tb_note_command`
 --
 ALTER TABLE `tb_note_command`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้ไอดี';
 
 --
--- AUTO_INCREMENT for table `tb_note_record`
+-- AUTO_INCREMENT for table `tb_note_ record1`
 --
-ALTER TABLE `tb_note_record`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้ไอดี';
+ALTER TABLE `tb_note_ record1`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้';
+
+--
+-- AUTO_INCREMENT for table `tb_note_ record2`
+--
+ALTER TABLE `tb_note_ record2`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้';
 
 --
 -- AUTO_INCREMENT for table `tb_person`
