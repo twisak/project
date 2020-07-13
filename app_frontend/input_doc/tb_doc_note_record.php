@@ -97,8 +97,8 @@ else
                                             <tr>
                                                 <th class="text-center">#</th>
                                                 <th class="text-center">รหัสเอกสาร</th>
-                                                <th class="text-center">ชื่อ-สกุล</th>
-                                                <th class="text-center">โครงการ</th>
+                                                <th class="text-center">วันที่</th>
+                                                <th class="text-center">เรื่อง</th>
                                                 <th class="text-center">รายละเอียดเอกสาร</th>
                                                 <th class="text-center">ลบ</th>
                                             </tr>
@@ -115,26 +115,25 @@ else
                                             $i=1;
                                             $i<="";
 
-                                            $sql ="SELECT * FROM tb_contract";
+                                            $sql ="SELECT * FROM tb_note_record1";
                                             $query = mysqli_query($conn,$sql);
                                             while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
                                             {
                                                 $id = $row['id'];
                                                 $doc_id = $row['doc_id'];
-                                                $foreword = $row['foreword'];
-                                                $str_date = $row['str_date'];
-                                                $stp_date = $row['stp_date'];
+                                                $title_id = $row['title_id'];
                                                 $project_id = $row['project_id'];
                                                 $person_id = $row['person_id'];
+                                                $date_current = $row['date_current'];
 
                                             // echo $doc_id;
                                             // echo $person_id;
 
-                                            $sql1 ="SELECT * FROM tb_project WHERE project_id = '".$project_id."' ";
+                                            $sql1 ="SELECT * FROM tb_title WHERE title_id = '".$title_id."' ";
                                             $query1 = mysqli_query($conn,$sql1);
                                             while($row1 = mysqli_fetch_array($query1,MYSQLI_ASSOC))
                                             {
-                                                $project_name = $row1['project_name'];
+                                                $title = $row1['title'];
                                             }
                                             $sql2 ="SELECT * FROM tb_person WHERE person_id = '".$person_id."' ";
                                             $query2 = mysqli_query($conn,$sql2);
@@ -150,10 +149,10 @@ else
                                             <tr>
                                                 <td><?php echo $i;?></td>
                                                 <td><?php echo $doc_id;?></td>
-                                                <td><?php echo $prefix;?><?php echo $firtname;?> <?php echo $lastname;?></td>
-                                                <td><?php echo $project_name;?></td>
+                                                <td><?php echo $date_current;?></td>
+                                                <td><?php echo $title;?></td>
                                                 <td>
-                                                    <a href="show_doc_contract.php?id=<?php echo $id;?>"><button type="button" class="btn btn-info">รายละเอียด</button></a>
+                                                    <a href="show_doc_note_record1.php?id=<?php echo $id;?>"><button type="button" class="btn btn-info">รายละเอียด</button></a>
                                                 </td>
                                                 <td><a href="JavaScript:if(confirm('ยืนยันการลบ ?') == true){window.location='delete_contract.php?id=<?php echo $row["id"];?>';}" class="btn btn-danger">ลบ</a></td>
                                             </tr>
@@ -186,8 +185,8 @@ else
                                             <tr>
                                                 <th class="text-center">#</th>
                                                 <th class="text-center">รหัสเอกสาร</th>
-                                                <th class="text-center">ชื่อ-สกุล</th>
-                                                <th class="text-center">โครงการ</th>
+                                                <th class="text-center">วันที่</th>
+                                                <th class="text-center">เรื่อง</th>
                                                 <th class="text-center">รายละเอียดเอกสาร</th>
                                                 <th class="text-center">ลบ</th>
                                             </tr>
@@ -204,26 +203,25 @@ else
                                             $i=1;
                                             $i<="";
 
-                                            $sql ="SELECT * FROM tb_contract";
+                                            $sql ="SELECT * FROM tb_note_record2";
                                             $query = mysqli_query($conn,$sql);
                                             while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
                                             {
                                                 $id = $row['id'];
                                                 $doc_id = $row['doc_id'];
-                                                $foreword = $row['foreword'];
-                                                $str_date = $row['str_date'];
-                                                $stp_date = $row['stp_date'];
+                                                $title_id = $row['title_id'];
                                                 $project_id = $row['project_id'];
                                                 $person_id = $row['person_id'];
+                                                $date_current = $row['date_current'];
 
                                             // echo $doc_id;
                                             // echo $person_id;
 
-                                            $sql1 ="SELECT * FROM tb_project WHERE project_id = '".$project_id."' ";
+                                            $sql1 ="SELECT * FROM tb_title WHERE title_id = '".$title_id."' ";
                                             $query1 = mysqli_query($conn,$sql1);
                                             while($row1 = mysqli_fetch_array($query1,MYSQLI_ASSOC))
                                             {
-                                                $project_name = $row1['project_name'];
+                                                $title = $row1['title'];
                                             }
                                             $sql2 ="SELECT * FROM tb_person WHERE person_id = '".$person_id."' ";
                                             $query2 = mysqli_query($conn,$sql2);
@@ -239,10 +237,10 @@ else
                                             <tr>
                                                 <td><?php echo $i;?></td>
                                                 <td><?php echo $doc_id;?></td>
-                                                <td><?php echo $prefix;?><?php echo $firtname;?> <?php echo $lastname;?></td>
-                                                <td><?php echo $project_name;?></td>
+                                                <td><?php echo $date_current;?></td>
+                                                <td><?php echo $title;?></td>
                                                 <td>
-                                                    <a href="show_doc_contract.php?id=<?php echo $id;?>"><button type="button" class="btn btn-info">รายละเอียด</button></a>
+                                                    <a href="show_doc_note_record2.php?id=<?php echo $id;?>"><button type="button" class="btn btn-info">รายละเอียด</button></a>
                                                 </td>
                                                 <td><a href="JavaScript:if(confirm('ยืนยันการลบ ?') == true){window.location='delete_contract.php?id=<?php echo $row["id"];?>';}" class="btn btn-danger">ลบ</a></td>
                                             </tr>

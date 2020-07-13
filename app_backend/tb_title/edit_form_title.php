@@ -98,29 +98,14 @@ else
                             <!-- Tab panes -->
                             <div class="card-body">
                                 <form class="form-horizontal form-material" action="edit_title.php" name="form_user" method="post">
-                                    <?php
-                                        include '../../administrator/connect.php';
-                                        $sql = "Select Max(substr(title_id,3)+1) as MaxID from tb_title ";
-                                        $query = mysqli_query($conn,$sql);
-                                        $table_id = mysqli_fetch_assoc($query);
-                                        $testid = $table_id['MaxID'];
-                                                if($testid=='')
-                                                {
-                                                    $id="001";
-                                                }else
-                                                {
-                                                    $id="".sprintf("%03d",$testid);
-                                                }
-
-                                ?>
-
+                                    
                                     <input type="hidden" name="$id_auto" value="<?php echo $id_auto; ?>">
 
                                     <div class="row">
                                         <div class="col-md-1">
                                             <div class="form-group">
                                                 <label>รหัส</label>
-                                                <input type="text" name="title_id" value="<?=$id?>" class="form-control form-control-line" readonly>
+                                                <input type="text" name="title_id" value="<?php echo $title_id; ?>" class="form-control form-control-line" readonly>
                                             </div>
                                         </div>
 

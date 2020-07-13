@@ -50,7 +50,7 @@
             </tr>
             <tr>
                 <td colspan="3" class="statement-header" align="center">
-                    <strong>ให้บุคคลในสถาบันอุดมศึกษาเดินทางไปราชการ</strong>
+                    <strong>เรื่อง ให้บุคคลในสถาบันอุดมศึกษาเดินทางไปราชการ</strong>
                 </td>
             </tr>
             <tr>

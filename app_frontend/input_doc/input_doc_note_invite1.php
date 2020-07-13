@@ -12,6 +12,28 @@ else
     echo "</script>";
     echo "<meta http-equiv='refresh' content='0;url=../../administrator/logout.php'>";
 }
+
+include '../../administrator/connect.php';
+    $username= $_SESSION['username'];
+
+    $sql ="SELECT * FROM account_login WHERE username = '".$username."' ";
+    $query = mysqli_query($conn,$sql);
+    while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
+    {
+        $person_id = $row['person_id'];
+    }
+
+    $sql1 ="SELECT * FROM tb_person WHERE person_id = '".$person_id."' ";
+    $query1 = mysqli_query($conn,$sql1);
+    while($row1 = mysqli_fetch_array($query1,MYSQLI_ASSOC))
+    {
+        $prefix = $row1['prefix'];
+        $firtname = $row1['firtname'];
+        $lastname = $row1['lastname'];
+        $person_id = $row1['person_id'];
+        // $prefix = $row1['prefix'];
+          // $prefix = $row1['prefix'];
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -75,19 +97,32 @@ else
                         <div class="card">
                             <!-- Tab panes -->
                             <div class="card-body">
-                                <form class="form-horizontal form-material">
-
+                                <form class="form-horizontal form-material" action="INSERT_note_invite1.php" method="post">
+                                    <?php
+                                            $sql = "Select Max(substr(doc_id,3)+1) as MaxID from tb_note_book1 ";
+                                            $query = mysqli_query($conn,$sql);
+                                            $table_id = mysqli_fetch_assoc($query);
+                                            $testid = $table_id['MaxID'];
+                                                    if($testid=='')
+                                                    {
+                                                        $id="NB1001";
+                                                    }else
+                                                    {
+                                                        $id="NB".sprintf("%03d",$testid);
+                                                    }
+                                    ?>
                                     <div class="row">
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label>รหัสเอกสารเรียนเชิญเป็นวิทยากร</label>
-                                                <input type="text" class="form-control form-control-line" name="note_id">
+                                                <input type="text" value="<?=$id?>" readonly class="form-control form-control-line">
+                                                <input type="hidden" name="doc_id" value="<?=$id?>" />
                                             </div>
                                         </div>
                                     </div>
-
+                                    <input type="hidden" class="form-control" name="person_id" value="<?php echo $person_id?>">
                                     <div class="row">
-                                        <div class="col-md-4">
+                                        <div class="col-md-5">
                                             <div class="form-group">
                                                 <label><b>เรื่อง</b></label>
                                                 <select name="title_id" class="form-control">
@@ -102,10 +137,24 @@ else
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="col-md-3">
+                                        <?php
+                                            $sql = "Select Max(substr(at,7)+1) as MaxID from tb_note_book1 ";
+                                            $query = mysqli_query($conn,$sql);
+                                            $table_id = mysqli_fetch_assoc($query);
+                                            $testid = $table_id['MaxID'];
+                                                    if($testid=='')
+                                                    {
+                                                        $idd="อว.000001";
+                                                    }else
+                                                    {
+                                                        $idd="อว.".sprintf("%06d",$testid);
+                                                    }
+                                        ?>
+                                        <div class="col-md-2">
                                             <div class="form-group">
-                                                <label>ที่</label>
-                                                <input type="text" class="form-control form-control-line" name="position">
+                                                <label><b>ที่</b></label>
+                                                <input type="text" value="<?=$idd?>" readonly class="form-control form-control-line">
+                                                <input type="hidden" name="at" value="<?=$idd?>" />
                                             </div>
                                         </div>
                                     </div>
@@ -113,12 +162,18 @@ else
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>เรียน</label>
-                                                <input type="text" class="form-control form-control-line" name="position">
+                                                <input type="text" class="form-control form-control-line" name="mug">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
-                                        &nbsp;&nbsp;&nbsp;&nbsp;<label>สิ่งที่ส่งมอบมาด้วย</label>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                            <label><b>สิ่งที่ส่งมอบมาด้วย</b></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
                                         <div class="col-md-7">
                                             <div class="form-group">
                                                 <button type="button" class="btn btn-info btn-sm" id="createRows" value="Add">เพิ่ม</button>
@@ -168,13 +223,13 @@ else
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label><b>ครั้งที่</b></label>
-                                                <input type="text" class="form-control form-control-line" name="position">
+                                                <input type="text" class="form-control form-control-line" name="no">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>หัวเรื่อง</label>
-                                                <input type="text" class="form-control form-control-line" name="position">
+                                                <input type="text" class="form-control form-control-line" name="heading">
                                             </div>
                                         </div>
                                     </div>
@@ -182,13 +237,13 @@ else
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label><b>ระหว่างวันที่</b></label>
-                                                <input type="date" class="form-control form-control-line" name="position">
+                                                <input type="date" class="form-control form-control-line" name="str_date">
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label>ถึง วันที่</label>
-                                                <input type="date" class="form-control form-control-line" name="position">
+                                                <input type="date" class="form-control form-control-line" name="stp_date">
                                             </div>
                                         </div>
                                     </div>
@@ -196,7 +251,7 @@ else
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label><b>ณ สถานที่</b></label>
-                                                <input type="text" class="form-control form-control-line" name="position">
+                                                <input type="text" class="form-control form-control-line" name="location">
                                             </div>
                                         </div>
                                     </div>
@@ -204,25 +259,23 @@ else
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label><b>เรียนเชิญบุคลากร</b></label>
-                                                <input type="text" class="form-control form-control-line" name="position">
+                                                <input type="text" class="form-control form-control-line" name="invite">
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label>ครูในสังกัด</label>
-                                                <input type="text" class="form-control form-control-line" name="position">
+                                                <input type="text" class="form-control form-control-line" name="teacher_under">
                                             </div>
                                         </div>
                                     </div>
-
-
 
                                     <div class="row">
                                         <div class="col-md-3">
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <button type="button" class="btn btn-primary btn-block">บันทึก</button>
+                                                <input type="submit" name="submit" value="บันทึก" class="btn btn-primary btn-block" />
                                             </div>
                                         </div>
 
@@ -267,7 +320,7 @@ else
 
 
                         var tr = "<tr>";
-                        tr = tr + "<td class='col-md-8'><div class='row'><div class='col-md-8'><div class='form-group'><input type='text' class='form-control p_input' name='foreword[]" + rows + "'></div></div></td>";
+                        tr = tr + "<td class='col-md-8'><div class='row'><div class='col-md-4'><div class='form-group'><label>สิ่งที่ส่งมอบมาด้วย</label><input type='text' class='form-control p_input'  name='send_with[]" + rows + "'></div></div><div class='col-md-2'><div class='form-group'><label>จำนวนเงิน/ฉบับ</label></label><input type='number' class='form-control p_input'  name='number[]" + rows + "'></div></div></div></td>";
                         tr = tr + "</tr>";
                         $('#myTable > tbody:last').append(tr);
 

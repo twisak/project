@@ -91,6 +91,12 @@ include '../../administrator/connect.php';
                     <div class="col-md-5 align-self-center">
                         <h3 class="text-themecolor">เอกสารบันทึกข้อความ/อนุมัติดำเนินการจ้างเหมา</h3>
                     </div>
+                    <div class="col-md-7 align-self-center">
+                        <a href="report_note_record1.php?id=<?php echo $id;?>" class="btn waves-effect waves-light btn btn-info pull-right hidden-sm-down">
+                            <i class="fa-fw fa fa-print"></i>
+                            ส่งออกแบบฟอร์ม
+                        </a>
+                    </div>
                 </div>
                 <div class="row">
                     <div class="col-lg-12 col-xlg-9 col-md-7">
@@ -99,58 +105,119 @@ include '../../administrator/connect.php';
                             <div class="card-body">
                                 <form class="form-horizontal form-material" action="INSERT_note_record1.php" method="post">
                                     <?php
-                                            $sql = "Select Max(substr(doc_id,3)+1) as MaxID from tb_note_record1 ";
+                                            $sql ="SELECT * FROM tb_note_record1";
                                             $query = mysqli_query($conn,$sql);
-                                            $table_id = mysqli_fetch_assoc($query);
-                                            $testid = $table_id['MaxID'];
-                                                    if($testid=='')
-                                                    {
-                                                        $id="NR1001";
-                                                    }else
-                                                    {
-                                                        $id="NR".sprintf("%03d",$testid);
-                                                    }
+                                            while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
+                                            {
+                                                $id = $row['id'];
+                                                $doc_id = $row['doc_id'];
+                                                $person_id = $row['person_id'];
+                                                $project_id = $row['project_id'];
+                                                $activity_id = $row['activity_id'];
+                                                $government = $row['government'];
+                                                $at = $row['at'];
+                                                $date_current = $row['date_current'];
+                                                $title_id = $row['title_id'];
+                                                $budget_id = $row['budget_id'];
+                                                $budget_year = $row['budget_year'];
+                                                $num_person = $row['num_person'];
+                                                $num_period = $row['num_period'];
+                                                $price_period = $row['price_period'];
+                                                $supplies_id = $row['supplies_id'];
+                                                $control_id = $row['control_id'];
+                                            }
+                                            // echo $doc_id;
+                                            // echo $person_id;
+ 
+                                            $sql1 ="SELECT * FROM tb_title WHERE title_id = '".$title_id."' ";
+                                            $query1 = mysqli_query($conn,$sql1);
+                                            while($row1 = mysqli_fetch_array($query1,MYSQLI_ASSOC))
+                                            {
+                                                $title = $row1['title'];
+                                            }
+                                            $sql2 ="SELECT * FROM tb_person WHERE person_id = '".$person_id."' ";
+                                            $query2 = mysqli_query($conn,$sql2);
+                                            while($row2 = mysqli_fetch_array($query2,MYSQLI_ASSOC))
+                                            {
+                                                $prefix = $row2['prefix'];
+                                                $firtname = $row2['firtname'];
+                                                $lastname = $row2['lastname'];
+                                                //$prefix = $row2['prefix'];
+                                            }
+ 
+                                             $sql1 ="SELECT * FROM tb_project WHERE project_id = '".$project_id."' ";
+                                             $query1 = mysqli_query($conn,$sql1);
+                                             while($row1 = mysqli_fetch_array($query1,MYSQLI_ASSOC))
+                                             {
+                                                 $project_name = $row1['project_name'];
+                                                 $project_id = $row1['project_id'];
+                                             }
+ 
+                                             $sql3 ="SELECT * FROM tb_activity WHERE activity_id = '".$activity_id."' ";
+                                             $query3 = mysqli_query($conn,$sql3);
+                                             while($row3 = mysqli_fetch_array($query3,MYSQLI_ASSOC))
+                                             {
+                                                 $activity = $row3['activity'];
+                                             }
+                                             $sql4 ="SELECT * FROM tb_budget WHERE budget_id = '".$budget_id."' ";
+                                             $query4 = mysqli_query($conn,$sql4);
+                                             while($row4 = mysqli_fetch_array($query4,MYSQLI_ASSOC))
+                                             {
+                                                 $budget = $row4['budget'];
+                                             }
+
+                                             $sql5 ="SELECT * FROM tb_teacher WHERE teacher_id = '".$supplies_id."' ";
+                                             $query5 = mysqli_query($conn,$sql5);
+                                             while($row5 = mysqli_fetch_array($query5,MYSQLI_ASSOC))
+                                             {
+                                                $t_firstname1 = $row5['t_firstname'];
+                                                $t_lastname1 = $row5['t_lastname'];
+                                                $position_id1 = $row5['position_id'];
+                                             }
+
+                                             $sql6 ="SELECT * FROM tb_teacher WHERE teacher_id = '".$control_id."' ";
+                                             $query6 = mysqli_query($conn,$sql6);
+                                             while($row6 = mysqli_fetch_array($query6,MYSQLI_ASSOC))
+                                             {
+                                                $t_firstname2 = $row6['t_firstname'];
+                                                $t_lastname2 = $row6['t_lastname'];
+                                                $position_id2 = $row6['position_id'];
+                                             }
                                     ?>
+                                    <div class="row">
+                                        <div class="col-md-12 text-center">
+                                            <div class="form-group">
+                                                <label><h5><b><u>เอกสารบันทึกข้อความ/อนุมัติดำเนินการจ้างเหมา</u></b></h5></label>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="row">
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <label>รหัสเอกสาร</label>
-                                                <input type="text" value="<?=$id?>" readonly class="form-control form-control-line">
-                                                <input type="hidden" name="doc_id" value="<?=$id?>" />
+                                                <label><b>รหัสเอกสาร</b></label><br>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $doc_id;?>
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label>ชื่อบุคลากร</label>
-                                                <input type="text" value="<?php echo $prefix?><?php echo $firtname?>&nbsp;&nbsp;<?php echo $lastname?>" class="form-control form-control-line">
-                                                <input type="hidden" class="form-control" name="person_id" value="<?php echo $person_id?>">
+                                                <label><b>ชื่อบุคลากร</b></label><br>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $prefix?><?php echo $firtname?>&nbsp;&nbsp;<?php echo $lastname?>
                                             </div>
                                         </div>
                                     </div>
                                     
                                     <div class="row">
-                                        <div class="col-md-4">
+                                        <div class="col-md-6">
                                             <div class="form-group">
-                                                <label>ชื่อโครงการ</label>
-                                                <select name="project_id" id="project" class="form-control">
-                                                    <option value="">เลือกโครงการ</option>
-                                                    <?php
-                                                        $sql = "SELECT * FROM tb_project";
-                                                        $query = mysqli_query($conn, $sql);
-                                                        while($result = mysqli_fetch_assoc($query)):
-                                                    ?>
-                                                    <option value="<?=$result['project_id']?>"><?=$result['project_name']?></option>
-                                                    <?php endwhile; ?>
-                                                </select>
+                                                <label><b>ชื่อโครงการ</b></label><br>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $project_name;?>
                                             </div>
                                         </div>
 
-                                        <div class="col-md-4">
+                                        <div class="col-md-6">
                                             <div class="form-group">
-                                                <label>ชื่อกิจกรรม</label>
-                                                <select name="activity_id" id="activity" class="form-control">
-                                                    <option value="">ชื่อกิจกรรม</option>
-                                                </select>
+                                                <label><b>ชื่อกิจกรรม</b></label><br>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $activity;?>
                                             </div>
                                         </div>
                                     </div>
@@ -158,28 +225,14 @@ include '../../administrator/connect.php';
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label><b>ส่วนราชการ</b></label>
-                                                <input type="text" class="form-control form-control-line" name="government">
+                                                <label><b>ส่วนราชการ</b></label><br>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $government;?>
                                             </div>
                                         </div>
-                                        <?php
-                                            $sql = "Select Max(substr(at,7)+1) as MaxID from tb_note_record1 ";
-                                            $query = mysqli_query($conn,$sql);
-                                            $table_id = mysqli_fetch_assoc($query);
-                                            $testid = $table_id['MaxID'];
-                                                    if($testid=='')
-                                                    {
-                                                        $idd="อว.000001";
-                                                    }else
-                                                    {
-                                                        $idd="อว.".sprintf("%06d",$testid);
-                                                    }
-                                        ?>
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label><b>ที่</b></label>
-                                                <input type="text" value="<?=$idd?>" readonly class="form-control form-control-line">
-                                                <input type="hidden" name="at" value="<?=$idd?>" />
+                                                <label><b>ที่</b></label><br>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $at;?>
                                             </div>
                                         </div>
                                     </div>
@@ -192,42 +245,22 @@ include '../../administrator/connect.php';
                                         </div> -->
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label><b>เรื่อง</b></label>
-                                                <select name="title_id" class="form-control">
-                                                    <option value="">เลือกชื่อเรื่อง</option>
-                                                    <?php
-                                                        $sql = "SELECT * FROM tb_title";
-                                                        $query = mysqli_query($conn, $sql);
-                                                        while($result = mysqli_fetch_assoc($query)):
-                                                    ?>
-                                                    <option value="<?=$result['title_id']?>"><?=$result['title']?></option>
-                                                    <?php endwhile; ?>
-                                                </select>
+                                                <label><b>เรื่อง</b></label><br>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $title;?>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label>ใช้งบประมาณ</label>
-                                                <select name="budget_id" id="budget" class="form-control">
-                                                    <option value="">เลือกงบประมาณ</option>
-                                                </select>
+                                                <label><b>ใช้งบประมาณ</b></label><br>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $budget;?>
                                             </div>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label>ปีงบประมาณ</label>
-                                                <select class="form-control" name="budget_year" id="budget_year">
-                                                    <?php
-                                                        $xYear=date('Y'); // เก็บค่าปีปัจจุบันไว้ในตัวแปร
-                                                                echo '<option value="'.$xYear.'">'.$xYear.'</option>'; // ปีปัจจุบัน
-                                                        for($i=1;$i<=30;$i++){
-                                                        echo '<option value="'.($xYear-$i).'">'.($xYear-$i).'</option>';
-                                                            }
-                                                    ?>
-                                                </select>
-
+                                                <label><b>ปีงบประมาณ</b></label><br>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $budget_year;?>
                                             </div>
                                         </div>
                                     </div>
@@ -235,58 +268,34 @@ include '../../administrator/connect.php';
                                     <div class="row">
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <label><b>จำวนน/คน</b></label>
-                                                <input type="text" class="form-control form-control-line" name="num_person">
+                                                <label><b>จำวนน/คน</b></label><br>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $num_person;?>
                                             </div>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <label><b>ระยะเวลาปฏิบัติงานกี่งวด</b></label>
-                                                <input type="text" class="form-control form-control-line" name="num_period">
+                                                <label><b>ระยะเวลาปฏิบัติงานกี่งวด</b></label><br>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $num_period;?>
                                             </div>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <label><b>งวดล่ะกี่บาท</b></label>
-                                                <input type="text" class="form-control form-control-line" name="price_period">
+                                                <label><b>งวดล่ะกี่บาท</b></label><br>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $price_period;?>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label>ผู้ตรวจรับพัสดุ</label>
-                                                <select class="form-control" name="supplies_id">
-                                                    <option value="">-- เลือกรายชื่อ --</option>
-                                                    <?php
-                                                        $sql_teacher = "select * from tb_teacher";
-                                                        $query_teacher = mysqli_query($conn,$sql_teacher);
-                                                        while($result_teacher=mysqli_fetch_array($query_teacher))
-                                                        {
-                                                        ?>
-                                                    <option value='<?php echo $result_teacher['teacher_id'];?>'><?php echo $result_teacher['t_firstname'];?>&nbsp;&nbsp;<?php echo $result_teacher['t_lastname'];?></option>
-                                                    <?php
-                                                        }
-                                                        ?>
-                                                </select>
+                                                <label><b>ผู้ตรวจรับพัสดุ</b></label><br>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;อาจารย์<?php echo $t_firstname1?>&nbsp;&nbsp;<?php echo $t_lastname1?>
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label>ผู้ควบคุมการปฏิบัติงาน</label>
-                                                <select class="form-control" name="control_id">
-                                                    <option value="">-- เลือกรายชื่อ --</option>
-                                                    <?php
-                                                        $sql_teacher = "select * from tb_teacher";
-                                                        $query_teacher = mysqli_query($conn,$sql_teacher);
-                                                        while($result_teacher=mysqli_fetch_array($query_teacher))
-                                                        {
-                                                        ?>
-                                                    <option value='<?php echo $result_teacher['teacher_id'];?>'><?php echo $result_teacher['t_firstname'];?>&nbsp;&nbsp;<?php echo $result_teacher['t_lastname'];?></option>
-                                                    <?php
-                                                        }
-                                                        ?>
-                                                </select>
+                                                <label><b>ผู้ควบคุมการปฏิบัติงาน</b></label><br>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;อาจารย์<?php echo $t_firstname2?>&nbsp;&nbsp;<?php echo $t_lastname2?>
                                             </div>
                                         </div>
                                     </div>
@@ -296,7 +305,7 @@ include '../../administrator/connect.php';
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <input type="submit" name="submit" value="บันทึก" class="btn btn-primary btn-block" />
+                                                <a href="edit_form_doc_contract.php?id=<?php echo $id;?>" class="btn btn-warning btn-block">แก้ไขข้อมูลเอกสาร</a>
                                             </div>
                                         </div>
 

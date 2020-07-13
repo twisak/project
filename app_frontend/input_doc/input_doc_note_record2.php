@@ -97,18 +97,18 @@ include '../../administrator/connect.php';
                         <div class="card">
                             <!-- Tab panes -->
                             <div class="card-body">
-                                <form class="form-horizontal form-material" action="INSERT_note_command.php" method="post">
+                                <form class="form-horizontal form-material" action="INSERT_note_record2.php" method="post">
                                     <?php
-                                            $sql = "Select Max(substr(doc_id,3)+1) as MaxID from tb_note_command ";
+                                            $sql = "Select Max(substr(doc_id,3)+1) as MaxID from tb_note_record2 ";
                                             $query = mysqli_query($conn,$sql);
                                             $table_id = mysqli_fetch_assoc($query);
                                             $testid = $table_id['MaxID'];
                                                     if($testid=='')
                                                     {
-                                                        $id="RC001";
+                                                        $id="NR2001";
                                                     }else
                                                     {
-                                                        $id="RC".sprintf("%03d",$testid);
+                                                        $id="NR".sprintf("%03d",$testid);
                                                     }
                                     ?>
                                     <div class="row">
@@ -129,7 +129,7 @@ include '../../administrator/connect.php';
                                     </div>
                                     
                                     <div class="row">
-                                        <div class="col-md-6">
+                                        <div class="col-md-4">
                                             <div class="form-group">
                                                 <label>ชื่อโครงการ</label>
                                                 <select name="project_id" id="project" class="form-control">
@@ -145,7 +145,7 @@ include '../../administrator/connect.php';
                                             </div>
                                         </div>
 
-                                        <div class="col-md-6">
+                                        <div class="col-md-4">
                                             <div class="form-group">
                                                 <label>ชื่อกิจกรรม</label>
                                                 <select name="activity_id" id="activity" class="form-control">
@@ -159,23 +159,37 @@ include '../../administrator/connect.php';
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label><b>ส่วนราชการ</b></label>
-                                                <input type="text" class="form-control form-control-line" name="travel">
+                                                <input type="text" class="form-control form-control-line" name="government">
                                             </div>
                                         </div>
-                                        <div class="col-md-3">
+                                        <?php
+                                            $sql = "Select Max(substr(at,7)+1) as MaxID from tb_note_record2 ";
+                                            $query = mysqli_query($conn,$sql);
+                                            $table_id = mysqli_fetch_assoc($query);
+                                            $testid = $table_id['MaxID'];
+                                                    if($testid=='')
+                                                    {
+                                                        $idd="อว.000001";
+                                                    }else
+                                                    {
+                                                        $idd="อว.".sprintf("%06d",$testid);
+                                                    }
+                                        ?>
+                                        <div class="col-md-2">
                                             <div class="form-group">
                                                 <label><b>ที่</b></label>
-                                                <input type="text" class="form-control form-control-line" name="travel">
+                                                <input type="text" value="<?=$idd?>" readonly class="form-control form-control-line">
+                                                <input type="hidden" name="at" value="<?=$idd?>" />
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-md-2">
+                                        <!-- <div class="col-md-2">
                                             <div class="form-group">
                                                 <label><b>วันที่</b></label>
-                                                <input type="date" class="form-control form-control-line" name="str_date">
+                                                <input type="date" class="form-control form-control-line" name="date_current">
                                             </div>
-                                        </div>
+                                        </div> -->
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label><b>เรื่อง</b></label>
@@ -196,13 +210,13 @@ include '../../administrator/connect.php';
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label>เริ่มปฏิบัติตามสัญญาจ้างเหมา เมื่อวันที่</label>
-                                                <input type="date" class="form-control form-control-line" name="travel">
+                                                <input type="date" class="form-control form-control-line" name="str_date">
                                             </div>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label>ถึง วันที่</label>
-                                                <input type="date" class="form-control form-control-line" name="travel">
+                                                <input type="date" class="form-control form-control-line" name="stp_date">
                                             </div>
                                         </div>
                                     </div>
@@ -211,7 +225,7 @@ include '../../administrator/connect.php';
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label><b>ลาออกจากเจ้างหน้าที่โครงการ มีผลตั้งแต่วันที่</b></label>
-                                                <input type="date" class="form-control form-control-line" name="travel">
+                                                <input type="date" class="form-control form-control-line" name="real_date">
                                             </div>
                                         </div>
                                     </div>

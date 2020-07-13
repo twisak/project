@@ -89,11 +89,13 @@ include '../../administrator/connect.php';
                 <!-- ============================================================== -->
                 <div class="row page-titles">
                     <div class="col-md-5 align-self-center">
-                        <h3 class="text-themecolor">เอกสารคำสั่ง</h3>
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                            <li class="breadcrumb-item active">เอกสารคำสั่ง</li>
-                        </ol>
+                        <h3 class="text-themecolor">เอกสารบันทึกข้อความ/ขอลาออกเจ้าหน้าที่โครงการ</h3>
+                    </div>
+                    <div class="col-md-7 align-self-center">
+                        <a href="report_note_record2.php?id=<?php echo $id;?>" class="btn waves-effect waves-light btn btn-info pull-right hidden-sm-down">
+                            <i class="fa-fw fa fa-print"></i>
+                            ส่งออกแบบฟอร์ม
+                        </a>
                     </div>
                 </div>
                 <div class="row">
@@ -101,153 +103,155 @@ include '../../administrator/connect.php';
                         <div class="card">
                             <!-- Tab panes -->
                             <div class="card-body">
-                                <form class="form-horizontal form-material" action="INSERT_note_command.php" method="post">
+                                <form class="form-horizontal form-material" action="INSERT_note_record2.php" method="post">
                                     <?php
-                                            $sql = "Select Max(substr(doc_id,3)+1) as MaxID from tb_note_command ";
+                                            $sql ="SELECT * FROM tb_note_record2";
                                             $query = mysqli_query($conn,$sql);
-                                            $table_id = mysqli_fetch_assoc($query);
-                                            $testid = $table_id['MaxID'];
-                                                    if($testid=='')
-                                                    {
-                                                        $id="NC001";
-                                                    }else
-                                                    {
-                                                        $id="NC".sprintf("%03d",$testid);
-                                                    }
+                                            while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
+                                            {
+                                                $id = $row['id'];
+                                                $doc_id = $row['doc_id'];
+                                                $person_id = $row['person_id'];
+                                                $project_id = $row['project_id'];
+                                                $activity_id = $row['activity_id'];
+                                                $government = $row['government'];
+                                                $at = $row['at'];
+                                                $date_current = $row['date_current'];
+                                                $title_id = $row['title_id'];
+                                                $str_date = $row['str_date'];
+                                                $stp_date = $row['stp_date'];
+                                                $real_date = $row['real_date'];
+                                            }
+                                            // echo $doc_id;
+                                            // echo $person_id;
+ 
+                                            $sql1 ="SELECT * FROM tb_title WHERE title_id = '".$title_id."' ";
+                                            $query1 = mysqli_query($conn,$sql1);
+                                            while($row1 = mysqli_fetch_array($query1,MYSQLI_ASSOC))
+                                            {
+                                                $title = $row1['title'];
+                                            }
+                                            $sql2 ="SELECT * FROM tb_person WHERE person_id = '".$person_id."' ";
+                                            $query2 = mysqli_query($conn,$sql2);
+                                            while($row2 = mysqli_fetch_array($query2,MYSQLI_ASSOC))
+                                            {
+                                                $prefix = $row2['prefix'];
+                                                $firtname = $row2['firtname'];
+                                                $lastname = $row2['lastname'];
+                                                //$prefix = $row2['prefix'];
+                                            }
+ 
+                                             $sql1 ="SELECT * FROM tb_project WHERE project_id = '".$project_id."' ";
+                                             $query1 = mysqli_query($conn,$sql1);
+                                             while($row1 = mysqli_fetch_array($query1,MYSQLI_ASSOC))
+                                             {
+                                                 $project_name = $row1['project_name'];
+                                                 $project_id = $row1['project_id'];
+                                             }
+ 
+                                             $sql3 ="SELECT * FROM tb_activity WHERE activity_id = '".$activity_id."' ";
+                                             $query3 = mysqli_query($conn,$sql3);
+                                             while($row3 = mysqli_fetch_array($query3,MYSQLI_ASSOC))
+                                             {
+                                                 $activity = $row3['activity'];
+                                             }
                                     ?>
                                     <div class="row">
+                                        <div class="col-md-12 text-center">
+                                            <div class="form-group">
+                                                <label><h5><b><u>เอกสารบันทึกข้อความ/ขอลาออกเจ้าหน้าที่โครงการ</u></b></h5></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <label>รหัสเอกสารคำสั่ง</label>
-                                                <input type="text" value="<?=$id?>" readonly class="form-control form-control-line">
-                                                <input type="hidden" name="doc_id" value="<?=$id?>" />
+                                                <label>รหัสเอกสาร</label><br>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $doc_id;?>
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label>ชื่อบุคลากร</label>
-                                                <input type="text" value="<?php echo $prefix?><?php echo $firtname?>&nbsp;&nbsp;<?php echo $lastname?>" class="form-control form-control-line">
-                                                <input type="hidden" class="form-control" name="person_id" value="<?php echo $person_id?>">
+                                                <label><b>ชื่อบุคลากร</b></label><br>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $prefix?><?php echo $firtname?>&nbsp;&nbsp;<?php echo $lastname?>
                                             </div>
                                         </div>
                                     </div>
+                                    
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label><b>เรื่อง</b></label>
-                                                <select name="title_id" class="form-control">
-                                                    <option value="">เลือกชื่อเรื่อง</option>
-                                                    <?php
-                                                        $sql = "SELECT * FROM tb_title";
-                                                        $query = mysqli_query($conn, $sql);
-                                                        while($result = mysqli_fetch_assoc($query)):
-                                                    ?>
-                                                    <option value="<?=$result['title_id']?>"><?=$result['title']?></option>
-                                                    <?php endwhile; ?>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <?php
-                                            $sql = "Select Max(substr(that,7)+1) as MaxID from tb_note_command ";
-                                            $query = mysqli_query($conn,$sql);
-                                            $table_id = mysqli_fetch_assoc($query);
-                                            $testid = $table_id['MaxID'];
-                                                    if($testid=='')
-                                                    {
-                                                        $idd="อว.000001";
-                                                    }else
-                                                    {
-                                                        $idd="อว.".sprintf("%06d",$testid);
-                                                    }
-                                        ?>
-                                        <div class="col-md-3">
-                                            <div class="form-group">
-                                                <label>ที่</label>
-                                                <input type="text" value="<?=$idd?>" readonly class="form-control form-control-line">
-                                                <input type="hidden" name="that" value="<?=$idd?>" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label>ชื่อโครงการ</label>
-                                                <select name="project_id" id="project" class="form-control">
-                                                    <option value="">เลือกโครงการ</option>
-                                                    <?php
-                                                        $sql = "SELECT * FROM tb_project";
-                                                        $query = mysqli_query($conn, $sql);
-                                                        while($result = mysqli_fetch_assoc($query)):
-                                                    ?>
-                                                    <option value="<?=$result['project_id']?>"><?=$result['project_name']?></option>
-                                                    <?php endwhile; ?>
-                                                </select>
+                                                <label><b>ชื่อโครงการ</b></label><br>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $project_name;?>
                                             </div>
                                         </div>
 
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label>ชื่อกิจกรรม</label>
-                                                <select name="activity_id" id="activity" class="form-control">
-                                                    <option value="">ชื่อกิจกรรม</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-2">
-                                            <div class="form-group">
-                                                <label><b>เริ่มต้นวันที่</b></label>
-                                                <input type="date" class="form-control form-control-line" name="str_date">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <div class="form-group">
-                                                <label><b>สิ้นสุดวันที่</b></label>
-                                                <input type="date" class="form-control form-control-line" name="stp_date">
+                                                <label><b>ชื่อกิจกรรม</b></label><br>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $activity;?>
                                             </div>
                                         </div>
                                     </div>
 
                                     <div class="row">
-                                        <div class="col-md-5">
+                                        <div class="col-md-6">
                                             <div class="form-group">
-                                                <label><b>เดินทางไปราชการ ที่</b></label>
-                                                <input type="text" class="form-control form-control-line" name="travel">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label><b>โดยใช้</b></label>
-                                                <input type="text" class="form-control form-control-line" name="byusing">
+                                                <label><b>ส่วนราชการ</b></label><br>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $government;?>
                                             </div>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label><b>พนักงานขับรถ</b></label>
-                                                <input type="text" class="form-control form-control-line" name="driver">
+                                                <label><b>ที่</b></label><br>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $at;?>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-md-4">
+                                        <!-- <div class="col-md-2">
                                             <div class="form-group">
-                                                <label>ใช้งบประมาณ</label>
-                                                <select name="budget_id" id="budget" class="form-control">
-                                                    <option value="">เลือกงบประมาณ</option>
-                                                </select>
+                                                <label><b>วันที่</b></label>
+                                                <input type="date" class="form-control form-control-line" name="date_current">
+                                            </div>
+                                        </div> -->
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label><b>เรื่อง</b></label><br>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $title;?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label><b>เริ่มปฏิบัติตามสัญญาจ้างเหมา เมื่อวันที่</b></label><br>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $str_date;?>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label><b>ถึง วันที่</b></label><br>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $stp_date;?>
                                             </div>
                                         </div>
                                     </div>
 
-
-
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label><b>ลาออกจากเจ้างหน้าที่โครงการ มีผลตั้งแต่วันที่</b></label><br>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $real_date;?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
                                     <div class="row">
                                         <div class="col-md-3">
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <input type="submit" name="submit" value="บันทึก" class="btn btn-primary btn-block" />
+                                                <a href="edit_form_doc_contract.php?id=<?php echo $id;?>" class="btn btn-warning btn-block">แก้ไขข้อมูลเอกสาร</a>
                                             </div>
                                         </div>
 

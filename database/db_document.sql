@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 13, 2020 at 09:55 AM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.6
+-- Generation Time: Jul 13, 2020 at 11:07 PM
+-- Server version: 10.3.16-MariaDB
+-- PHP Version: 7.2.20
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -10339,9 +10340,12 @@ INSERT INTO `tb_note` (`id`, `doc_id`, `project_id`, `person_id`) VALUES
 
 CREATE TABLE `tb_note_book1` (
   `id` int(11) NOT NULL COMMENT 'ออโต้',
+  `doc_id` varchar(20) NOT NULL,
   `title_id` varchar(20) DEFAULT NULL COMMENT 'เรื่อง',
+  `at` varchar(20) NOT NULL COMMENT 'ที่',
   `mug` varchar(255) DEFAULT NULL COMMENT 'เรียน',
-  `send_with` varchar(255) DEFAULT NULL COMMENT 'สิ่งที่ส่งมอบมาด้วย',
+  `send_with` longtext DEFAULT NULL COMMENT 'สิ่งที่ส่งมอบมาด้วย',
+  `number` longtext NOT NULL COMMENT 'จำนวน',
   `project_id` varchar(20) DEFAULT NULL COMMENT 'รหัสโครงการ',
   `activity_id` varchar(20) DEFAULT NULL COMMENT 'รหัสกิจกรรม',
   `no` varchar(20) DEFAULT NULL COMMENT 'ครั้งที่',
@@ -10350,8 +10354,17 @@ CREATE TABLE `tb_note_book1` (
   `stp_date` date DEFAULT NULL COMMENT 'ถึงวันที่',
   `location` varchar(255) DEFAULT NULL COMMENT 'ณ สถานที่',
   `invite` varchar(255) DEFAULT NULL COMMENT 'เรียนเชิญ',
-  `teacher_under` varchar(255) DEFAULT NULL COMMENT 'ครูในสังกัด'
+  `teacher_under` varchar(255) DEFAULT NULL COMMENT 'ครูในสังกัด',
+  `date_current` date NOT NULL COMMENT 'วันที่ปัจุบัน',
+  `person_id` varchar(20) NOT NULL COMMENT 'รหัสบุคลากร'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `tb_note_book1`
+--
+
+INSERT INTO `tb_note_book1` (`id`, `doc_id`, `title_id`, `at`, `mug`, `send_with`, `number`, `project_id`, `activity_id`, `no`, `heading`, `str_date`, `stp_date`, `location`, `invite`, `teacher_under`, `date_current`, `person_id`) VALUES
+(1, 'NB1001', '001', 'อว.000001', 'sdfghgfdsadfg', 'a:2:{i:0;s:7:\"dsfsdfs\";i:1;s:6:\"johuif\";}', 'a:2:{i:0;s:1:\"5\";i:1;s:1:\"1\";}', 'P001', 'A001', '5', 'fghdghdf', '2020-07-14', '2020-07-15', 'asdas', 'sasda', 'asd', '2020-07-14', 'PS001');
 
 -- --------------------------------------------------------
 
@@ -10365,17 +10378,27 @@ CREATE TABLE `tb_note_book2` (
   `title_id` varchar(20) DEFAULT NULL COMMENT 'เรื่อง',
   `at` varchar(255) DEFAULT NULL COMMENT 'ที่',
   `mug` varchar(255) DEFAULT NULL COMMENT 'เรียน',
-  `send_with` varchar(255) DEFAULT NULL COMMENT 'สิ่งที่มอบด้วย',
+  `send_with` longtext DEFAULT NULL COMMENT 'สิ่งที่มอบด้วย',
+  `number` longtext NOT NULL COMMENT 'จำนวน',
   `project_id` varchar(20) DEFAULT NULL COMMENT 'รหัสโครงการ',
   `strategic_id` varchar(20) DEFAULT NULL COMMENT 'รหัสยุทศาสตร์',
-  `date_current` date DEFAULT NULL COMMENT 'ในวันที่',
+  `day` date DEFAULT NULL COMMENT 'ในวันที่',
   `time_start` time DEFAULT NULL COMMENT 'เวลาเริ่ม',
   `time_end` time DEFAULT NULL COMMENT 'เวลาสิ้นสุด',
   `location` varchar(255) DEFAULT NULL COMMENT 'ณ สถานที่',
   `invite_person` varchar(255) DEFAULT NULL COMMENT 'เรียนเชิญบุคลากรที่ปฏิบัติงานสอนรายวิชา',
   `num` varchar(20) DEFAULT NULL COMMENT 'จำนวน',
-  `date_inside` date DEFAULT NULL COMMENT 'เข้าร่วมกิจกรรมภายในวันที่'
+  `date_inside` date DEFAULT NULL COMMENT 'เข้าร่วมกิจกรรมภายในวันที่',
+  `date_current` date NOT NULL COMMENT '	วันที่ปัจุบัน',
+  `person_id` varchar(20) NOT NULL COMMENT 'รหัสบุคลากร'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `tb_note_book2`
+--
+
+INSERT INTO `tb_note_book2` (`id`, `doc_id`, `title_id`, `at`, `mug`, `send_with`, `number`, `project_id`, `strategic_id`, `day`, `time_start`, `time_end`, `location`, `invite_person`, `num`, `date_inside`, `date_current`, `person_id`) VALUES
+(1, 'NB2001', '001', 'อว.000001', 'sdfghgfdsadfg', 'a:1:{i:0;s:5:\"dfhdf\";}', 'a:1:{i:0;s:1:\"1\";}', 'P003', 'S001', '2020-07-14', '02:51:00', '02:54:00', 'ftyfughfg', 'ssdasd', '10', '2020-07-14', '2020-07-14', 'PS001');
 
 -- --------------------------------------------------------
 
@@ -10389,9 +10412,19 @@ CREATE TABLE `tb_note_book3` (
   `title_id` varchar(20) DEFAULT NULL COMMENT 'เรื่อง',
   `at` varchar(255) DEFAULT NULL COMMENT 'ที่',
   `mug` varchar(255) DEFAULT NULL COMMENT 'เรียน',
-  `send_with` varchar(255) DEFAULT NULL COMMENT ' \r\nสิ่งที่ส่งมอบมาด้วย\r\n \r\nสิ่งที่ส่งมอบมาด้วย\r\nสิ่งที่มอบด้วย',
-  `project_id` varchar(20) DEFAULT NULL COMMENT 'รหัสโครงการ'
+  `send_with` longtext DEFAULT NULL COMMENT ' สิ่งที่ส่งมอบมาด้วย สิ่งที่ส่งมอบมาด้วยสิ่งที่มอบด้วย',
+  `number` longtext NOT NULL COMMENT 'จำนวน',
+  `project_id` varchar(20) DEFAULT NULL COMMENT 'รหัสโครงการ',
+  `date_current` date NOT NULL COMMENT 'วันที่ปัจุบัน',
+  `person_id` varchar(20) NOT NULL COMMENT 'รหัสบุคลากร	'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `tb_note_book3`
+--
+
+INSERT INTO `tb_note_book3` (`id`, `doc_id`, `title_id`, `at`, `mug`, `send_with`, `number`, `project_id`, `date_current`, `person_id`) VALUES
+(1, 'NB3001', '001', 'อว.000001', 'sdfghgfdsadfg', 'a:1:{i:0;s:5:\"dfhdf\";}', 'a:1:{i:0;s:1:\"5\";}', 'P003', '2020-07-14', 'PS001');
 
 -- --------------------------------------------------------
 
@@ -10416,13 +10449,21 @@ CREATE TABLE `tb_note_command` (
   `budget_id` varchar(20) NOT NULL COMMENT 'งบประมาณ'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `tb_note_command`
+--
+
+INSERT INTO `tb_note_command` (`id`, `doc_id`, `date_current`, `str_date`, `stp_date`, `title_id`, `that`, `project_id`, `activity_id`, `person_id`, `travel`, `byusing`, `driver`, `budget_id`) VALUES
+(3, 'NC001', '2020-07-13', '2020-07-13', '2020-07-16', '001', 'อว.123.456', 'P004', 'A013', 'PS001', 'sddasdasdasds', 'sdas', 'mmmmmmmmmmmm', 'B004'),
+(5, 'NC002', '2020-07-13', '2020-07-15', '2020-07-18', '001', 'อว.000001', 'P004', 'A013', 'PS001', 'sdd', 'sdas', 'mmm', 'B004');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_note_ record1`
+-- Table structure for table `tb_note_record1`
 --
 
-CREATE TABLE `tb_note_ record1` (
+CREATE TABLE `tb_note_record1` (
   `id` int(11) NOT NULL COMMENT 'ออโต้',
   `doc_id` varchar(20) DEFAULT NULL COMMENT 'รหัสเอกสาร',
   `person_id` varchar(20) DEFAULT NULL COMMENT 'รหัสบุคลากร',
@@ -10441,13 +10482,21 @@ CREATE TABLE `tb_note_ record1` (
   `control_id` varchar(20) DEFAULT NULL COMMENT 'ผู้ควบคุมการปฏิบัติงาน'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `tb_note_record1`
+--
+
+INSERT INTO `tb_note_record1` (`id`, `doc_id`, `person_id`, `project_id`, `activity_id`, `government`, `at`, `date_current`, `title_id`, `budget_id`, `budget_year`, `num_person`, `num_period`, `price_period`, `supplies_id`, `control_id`) VALUES
+(1, 'NR1001', 'PS001', 'P004', 'A013', 'ศึกษาพัฒนามหาลัย', 12315, '2020-07-13', '001', 'B004', '2020', '2', '2', '2000', '003', '002'),
+(2, 'NR1002', 'PS001', 'P004', 'A014', 'ศึกษาพัฒนามหาลัย', 0, '2020-07-14', '001', 'B004', '2020', '2', '2', '2000', '001', '004');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_note_ record2`
+-- Table structure for table `tb_note_record2`
 --
 
-CREATE TABLE `tb_note_ record2` (
+CREATE TABLE `tb_note_record2` (
   `id` int(11) NOT NULL COMMENT 'ออโต้',
   `doc_id` varchar(20) DEFAULT NULL COMMENT 'รหัสเอกสาร',
   `person_id` varchar(20) DEFAULT NULL COMMENT 'รหัสบุคลากร',
@@ -10456,10 +10505,18 @@ CREATE TABLE `tb_note_ record2` (
   `government` varchar(255) DEFAULT NULL COMMENT 'ส่วนราชการ',
   `at` varchar(255) DEFAULT NULL COMMENT 'ที่',
   `date_current` date DEFAULT NULL COMMENT 'วันที่',
+  `title_id` varchar(20) NOT NULL COMMENT 'หัวข้อเรื่อง	',
   `str_date` date DEFAULT NULL COMMENT 'เริ่มวันที่',
   `stp_date` date DEFAULT NULL COMMENT 'ถึงวันที่',
   `real_date` date DEFAULT NULL COMMENT 'มีผลตั้งแต่วันที่'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `tb_note_record2`
+--
+
+INSERT INTO `tb_note_record2` (`id`, `doc_id`, `person_id`, `project_id`, `activity_id`, `government`, `at`, `date_current`, `title_id`, `str_date`, `stp_date`, `real_date`) VALUES
+(1, 'NR2001', 'PS001', 'P002', 'A005', 'ศึกษาพัฒนามหาลัย', 'อว.000001', '2020-07-14', '001', '2020-07-14', '2020-07-18', '2020-07-20');
 
 -- --------------------------------------------------------
 
@@ -10678,7 +10735,14 @@ CREATE TABLE `tb_title` (
 --
 
 INSERT INTO `tb_title` (`id`, `title_id`, `title`, `body`) VALUES
-(1, '001', 'ส่งมอบงานจ้าง', 'ตามที่ สถาบันพัฒนาครูและบุคลากรทางการศึกษาชายแดนใต้ มหาวิทยาลัยราชภัฏยะลา ได้จ้างให้ข้าพเจ้าเป็นเจ้าหน้าที่ประจำโครงการ');
+(6, '001', 'ส่งมอบงานจ้าง', '<p>ตามที่ สถาบันพัฒนาครูและบุคลากรทางการศึกษาชายแดนใต้ มหาวิทยาลัยราชภัฏยะลา ได้จ้างให้ข้าพเจ้าเป็นเจ้าหน้าที่ประจำโครงการ<br></p>'),
+(7, '002', 'ให้บุคคลในสถาบันอุดมศึกษาเดินทางไปราชการ', '<p>&nbsp;ในการนี้ เพื่อให้การดำเนินการดังกล่าวเป็นไปได้ด้วยความเรียบร้อย มีประสิทธิภาพ อาศัยอำนาจตามความในมาตรา ๒๗ แห่งพระราชบัญญัติมหาวิทยาลัยราชภัฏ พ.ศ.๒๕๔๗ มหาวิทยาลัยราชภัฏยะลา จึงสั่งให้﻿</p>'),
+(8, '003', 'ขออนุมัติการดำเนินการจ้างเหมาบริการเจ้าหน้าที่โครงการยกระดับคุณภาพการเรียนรู้ด้านการอ่านการเขียนและการคิดวิเคราะห์ของนักเรียนในระดับการศึกษาขั้นพื้นฐานในพื้นที่ชายแดนใต้ โดยวิธีเฉพาะเจาะจง', ''),
+(9, '004', 'ขอลาออกจากเจ้าหน้าที่โครงการ', ''),
+(10, '005', 'ขอเรียนเชิญเป็นวิทยากร', ''),
+(11, '006', '	ขอเรียนเชิญเข้าร่วมอบรมปฏิบัติการเพื่อการพัฒนาศักยภาพครูในพื้นที่ชายแดนใต้ ตามแนวทางการจัดการเรียนการสอนแบบทวิ-พหุภาษา ครั้งที่ 4', ''),
+(12, '007', 'ขอเรียนเชิญเข้าร่วมการประชุมปฏิบัติเารจัดเก็บข้อมูลคุณภาพของผู้เรียน', ''),
+(13, '008', 'ขอมอบหนังสือแบบเริ่มเรียนมูลาบาฮาซา', '');
 
 --
 -- Indexes for dumped tables
@@ -10793,15 +10857,15 @@ ALTER TABLE `tb_note_command`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tb_note_ record1`
+-- Indexes for table `tb_note_record1`
 --
-ALTER TABLE `tb_note_ record1`
+ALTER TABLE `tb_note_record1`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tb_note_ record2`
+-- Indexes for table `tb_note_record2`
 --
-ALTER TABLE `tb_note_ record2`
+ALTER TABLE `tb_note_record2`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -10944,37 +11008,37 @@ ALTER TABLE `tb_note`
 -- AUTO_INCREMENT for table `tb_note_book1`
 --
 ALTER TABLE `tb_note_book1`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้';
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้', AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tb_note_book2`
 --
 ALTER TABLE `tb_note_book2`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้';
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้', AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tb_note_book3`
 --
 ALTER TABLE `tb_note_book3`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้';
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้', AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tb_note_command`
 --
 ALTER TABLE `tb_note_command`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้ไอดี';
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้ไอดี', AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `tb_note_ record1`
+-- AUTO_INCREMENT for table `tb_note_record1`
 --
-ALTER TABLE `tb_note_ record1`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้';
+ALTER TABLE `tb_note_record1`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้', AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `tb_note_ record2`
+-- AUTO_INCREMENT for table `tb_note_record2`
 --
-ALTER TABLE `tb_note_ record2`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้';
+ALTER TABLE `tb_note_record2`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้', AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tb_person`
@@ -11028,7 +11092,7 @@ ALTER TABLE `tb_teacher`
 -- AUTO_INCREMENT for table `tb_title`
 --
 ALTER TABLE `tb_title`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้', AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้', AUTO_INCREMENT=14;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

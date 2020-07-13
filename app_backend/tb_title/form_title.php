@@ -116,7 +116,7 @@ else
                                             </div>
                                         </div>
 
-                                        <div class="col-md-4">
+                                        <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>หัวข้อเรื่อง</label>
                                                 <input type="text" name="title" class="form-control form-control-line">
