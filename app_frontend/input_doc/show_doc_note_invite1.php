@@ -105,7 +105,10 @@ include '../../administrator/connect.php';
                             <div class="card-body">
                                 <form class="form-horizontal form-material" action="INSERT_note_invite1.php" method="post">
                                     <?php
-                                            $sql ="SELECT * FROM tb_note_book1";
+
+$id = $_GET['id'];
+
+                                            $sql ="SELECT * FROM tb_note_book1 WHERE id = '".$id."' ";
                                             $query = mysqli_query($conn,$sql);
                                             while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
                                             {
@@ -130,7 +133,7 @@ include '../../administrator/connect.php';
                                             }
                                             // echo $doc_id;
                                             // echo $person_id;
- 
+
                                             $sql1 ="SELECT * FROM tb_title WHERE title_id = '".$title_id."' ";
                                             $query1 = mysqli_query($conn,$sql1);
                                             while($row1 = mysqli_fetch_array($query1,MYSQLI_ASSOC))
@@ -146,7 +149,7 @@ include '../../administrator/connect.php';
                                                 $lastname = $row2['lastname'];
                                                 //$prefix = $row2['prefix'];
                                             }
- 
+
                                              $sql1 ="SELECT * FROM tb_project WHERE project_id = '".$project_id."' ";
                                              $query1 = mysqli_query($conn,$sql1);
                                              while($row1 = mysqli_fetch_array($query1,MYSQLI_ASSOC))
@@ -154,7 +157,7 @@ include '../../administrator/connect.php';
                                                  $project_name = $row1['project_name'];
                                                  $project_id = $row1['project_id'];
                                              }
- 
+
                                              $sql3 ="SELECT * FROM tb_activity WHERE activity_id = '".$activity_id."' ";
                                              $query3 = mysqli_query($conn,$sql3);
                                              while($row3 = mysqli_fetch_array($query3,MYSQLI_ASSOC))
@@ -314,7 +317,7 @@ include '../../administrator/connect.php';
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <a href="edit_form_doc_contract.php?id=<?php echo $id;?>" class="btn btn-warning btn-block">แก้ไขข้อมูลเอกสาร</a>
+                                                <a href="edit_form_doc_invite1.php?id=<?php echo $id;?>" class="btn btn-warning btn-block">แก้ไขข้อมูลเอกสาร</a>
                                             </div>
                                         </div>
 

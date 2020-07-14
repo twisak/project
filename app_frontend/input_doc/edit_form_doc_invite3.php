@@ -16,24 +16,47 @@ else
 include '../../administrator/connect.php';
     $username= $_SESSION['username'];
 
-    $sql ="SELECT * FROM account_login WHERE username = '".$username."' ";
-    $query = mysqli_query($conn,$sql);
-    while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
-    {
-        $person_id = $row['person_id'];
-    }
+    $idd = $_GET['id'];
+    $sql_book3 = "SELECT * FROM tb_note_book3 WHERE id = '".$idd."' ";
+    $query_book3 = mysqli_query($conn,$sql_book3);
+    $result_book3 = mysqli_fetch_assoc($query_book3);
 
-    $sql1 ="SELECT * FROM tb_person WHERE person_id = '".$person_id."' ";
-    $query1 = mysqli_query($conn,$sql1);
-    while($row1 = mysqli_fetch_array($query1,MYSQLI_ASSOC))
-    {
-        $prefix = $row1['prefix'];
-        $firtname = $row1['firtname'];
-        $lastname = $row1['lastname'];
-        $person_id = $row1['person_id'];
-        // $prefix = $row1['prefix'];
-          // $prefix = $row1['prefix'];
-    }
+    $doc_id = $result_book3['doc_id'];
+    $title_id = $result_book3['title_id'];
+    $at = $result_book3['at'];
+    $mug = $result_book3['mug'];
+
+    // $send_with = $result_book1['send_with'];
+    // $number = $result_book1['number'];
+    $send_with = unserialize( $result_book3["send_with"] );
+    $number = unserialize( $result_book3["number"] );
+
+    $project_id = $result_book3['project_id'];
+    $date_current = $result_book3['date_current'];
+    $person_id = $result_book3['person_id'];
+
+    $sql_project = "SELECT * FROM tb_project WHERE project_id = '".$project_id."' ";
+    $query_project = mysqli_query($conn,$sql_project);
+    $result_project = mysqli_fetch_assoc($query_project);
+
+    $project_name = $result_project['project_name'];
+    $project_id = $result_project['project_id'];
+
+    $sql_person = "SELECT * FROM tb_person WHERE person_id = '".$person_id."' ";
+    $query_person = mysqli_query($conn,$sql_person);
+    $result_person = mysqli_fetch_assoc($query_person);
+    $prefix = $result_person['prefix'];
+    $firtname = $result_person['firtname'];
+    $lastname = $result_person['lastname'];
+
+    $sql_title = "SELECT * FROM tb_title WHERE title_id = '".$title_id."' ";
+    $query_title = mysqli_query($conn,$sql_title);
+    $result_title = mysqli_fetch_assoc($query_title);
+
+    $title_id = $result_title['title_id'];
+    $title = $result_title['title'];
+    $body = $result_title['body'];
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -91,77 +114,20 @@ include '../../administrator/connect.php';
                     <div class="col-md-5 align-self-center">
                         <h3 class="text-themecolor">เอกสารมอบหนังสือ</h3>
                     </div>
-                    <div class="col-md-7 align-self-center">
-                        <a href="report_note_invite1.php?id=<?php echo $id;?>" class="btn waves-effect waves-light btn btn-info pull-right hidden-sm-down">
-                            <i class="fa-fw fa fa-print"></i>
-                            ส่งออกแบบฟอร์ม
-                        </a>
-                    </div>
                 </div>
                 <div class="row">
                     <div class="col-lg-12 col-xlg-9 col-md-7">
                         <div class="card">
                             <!-- Tab panes -->
                             <div class="card-body">
-                                <form class="form-horizontal form-material" action="INSERT_note_invite3.php" method="post">
-                                    <?php
-
-$id = $_GET['id'];
-
-                                            $sql ="SELECT * FROM tb_note_book3 WHERE id = '".$id."' ";
-                                            $query = mysqli_query($conn,$sql);
-                                            while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
-                                            {
-                                                $id = $row['id'];
-                                                $doc_id = $row['doc_id'];
-                                                $title_id = $row['title_id'];
-                                                $at = $row['at'];
-                                                $mug = $row['mug'];
-                                                $send_with = unserialize( $row["send_with"] );
-                                                $number = unserialize( $row["number"] );
-                                                $project_id = $row['project_id'];
-                                                $date_current = $row['date_current'];
-                                                $person_id = $row['person_id'];
-                                            }
-                                            // echo $doc_id;
-                                            // echo $person_id;
-
-                                            $sql1 ="SELECT * FROM tb_title WHERE title_id = '".$title_id."' ";
-                                            $query1 = mysqli_query($conn,$sql1);
-                                            while($row1 = mysqli_fetch_array($query1,MYSQLI_ASSOC))
-                                            {
-                                                $title = $row1['title'];
-                                            }
-                                            $sql2 ="SELECT * FROM tb_person WHERE person_id = '".$person_id."' ";
-                                            $query2 = mysqli_query($conn,$sql2);
-                                            while($row2 = mysqli_fetch_array($query2,MYSQLI_ASSOC))
-                                            {
-                                                $prefix = $row2['prefix'];
-                                                $firtname = $row2['firtname'];
-                                                $lastname = $row2['lastname'];
-                                                //$prefix = $row2['prefix'];
-                                            }
-
-                                             $sql1 ="SELECT * FROM tb_project WHERE project_id = '".$project_id."' ";
-                                             $query1 = mysqli_query($conn,$sql1);
-                                             while($row1 = mysqli_fetch_array($query1,MYSQLI_ASSOC))
-                                             {
-                                                 $project_name = $row1['project_name'];
-                                                 $project_id = $row1['project_id'];
-                                             }
-                                        ?>
-                                    <div class="row">
-                                        <div class="col-md-12 text-center">
-                                            <div class="form-group">
-                                                <label><h5><b><u>เอกสารมอบหนังสือ</u></b></h5></label>
-                                            </div>
-                                        </div>
-                                    </div>
+                                <form class="form-horizontal form-material" action="edit_invite3.php" method="post">
+<input type="hidden" name="idd" value="<?php echo $idd; ?>" />
                                     <div class="row">
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <label><b>รหัสเอกสารมอบหนังสือ</b></label><br>
-                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $doc_id;?>
+                                                <label>รหัสเอกสารมอบหนังสือ</label>
+                                                <input type="text" name="doc_id" value="<?php echo $doc_id; ?>" readonly class="form-control form-control-line">
+
                                             </div>
                                         </div>
                                     </div>
@@ -169,73 +135,136 @@ $id = $_GET['id'];
                                     <div class="row">
                                         <div class="col-md-5">
                                             <div class="form-group">
-                                                <label><b>เรื่อง</b></label><br>
-                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $title;?>
+                                                <label><b>เรื่อง</b></label>
+                                                <select class="form-control" name="title_id" value="<?php echo $result_title['title_id']; ?>">
+
+                                  <?php
+                                  $sql_check_title = "SELECT * FROM tb_title";
+                                  $query_check_title = mysqli_query($conn,$sql_check_title);
+
+                                  $title_id1 = $result_title['title_id'];
+                                  while($result_check_title = mysqli_fetch_array($query_check_title))
+                                  {
+                                  if($title_id1 == $result_check_title["title_id"])
+                                  {
+                                  $selected_check_title = "selected";
+
+                                  }
+                                  else
+                                  {
+                                  $selected_check_title = "";
+                                  }
+                                  ?>
+                                  <option value="<?php echo $result_check_title["title_id"];?>"<?php echo $selected_check_title;?>><?php echo $result_check_title["title"]; ?></option>
+                                  <?php
+                                  }
+                                  ?>
+                                  </select>
                                             </div>
                                         </div>
+
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label><b>ที่</b></label><br>
-                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $at;?>
+                                                <label><b>ที่</b></label>
+                                                <input type="text" name="at" value="<?php echo $at; ?>" readonly class="form-control form-control-line">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label><b>เรียน</b></label><br>
-                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $mug;?>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <?php
-                                                                $send_with1 = array($send_with);
-
-                                                                  foreach ($send_with1 as $send_with1){
-                                                                    $j=0;
-                                                                    echo "<label><b>สิ่งที่ส่งมอบมาด้วย</b></label>";
-                                                                    echo "<ul>";
-                                                                    foreach ($send_with1 as $send_with1[$j]){
-                                                                        $value = $send_with1[$j];
-                                                                        //echo "<tr><td>{$value}</td></tr>";
-                                                                        echo "<li>{$value}</li>";
-                                                                        $j++;
-                                                                    }
-                                                                    echo "</ul>";
-                                                                }
-                                                ?>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <?php
-                                                                $number1 = array($number);
-
-                                                                  foreach ($number1 as $number1){
-                                                                    $j=0;
-                                                                    echo "<label><b>จำนวน</b></label>";
-                                                                    echo "<ul>";
-                                                                    foreach ($number1 as $number1[$j]){
-                                                                        $value = $number1[$j];
-                                                                        //echo "<tr><td>{$value}</td></tr>";
-                                                                        echo "<li>{$value} ฉบับ</li>";
-                                                                        $j++;
-                                                                    }
-                                                                    echo "</ul>";
-                                                                }
-                                                ?>
+                                                <label>เรียน</label>
+                                                <input type="text" class="form-control form-control-line" name="mug" value="<?php echo $mug; ?>">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label><b>ชื่อโครงการ</b></label><br>
-                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $project_name;?>
+                                            <label><b>สิ่งที่ส่งแนบมาด้วย</b></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-7">
+                                            <div class="form-group">
+                                                <button type="button" class="btn btn-info btn-sm" id="createRows" value="Add">เพิ่ม</button>
+                                                &nbsp;&nbsp;<button type="button" class="btn btn-warning btn-sm" id="deleteRows" value="Del">ลบ</button>
+                                                &nbsp;&nbsp;<button type="button" class="btn btn-danger btn-sm" id="clearRows" value="Clear">ลบทั้งหมด</button>
+                                            </div>
+                                        </div>
+
+                                        <table width="100%" border="0" id="myTable">
+                                            <thead>
+
+                                              <?php
+
+                                              $send_with1 = array($send_with);
+                                              foreach ($send_with1 as $send_with1){
+                                                $j=0;
+
+                                                foreach ($send_with1 as $send_with1[$j]){
+                                                    $value_send_with1 = $send_with1[$j];
+                                                    $j++;
+                                                }
+
+                                              }
+
+                                              $number1 = array($number);
+
+                                                foreach ($number1 as $number1){
+                                                  $j=0;
+
+                                                  foreach ($number1 as $number1[$j]){
+                                                      $value_number = $number1[$j];
+                                                      $value_send_with1 = $send_with1[$j];
+
+                                                      echo "<tr><td class='col-md-8'><div class='row'><div class='col-md-4'><div class='form-group'><label>สิ่งที่ส่งมอบมาด้วย</label><input type='text' class='form-control p_input' value='$value_send_with1'  name='send_with[]'></div></div><div class='col-md-2'><div class='form-group'><label>จำนวนเงิน/ฉบับ</label></label><input type='number' class='form-control p_input' value='$value_number'  name='number[]'></div></div></div></td></tr>";
+                                                      //echo "<li>{$value}</li>";
+                                                      $j++;
+                                                  }
+
+                                                }
+
+                                              ?>
+
+                                            </thead>
+                                            <tbody></tbody>
+                                        </table>
+                                        <br />
+                                        <center>
+                                            <br>
+                                            <input type="hidden" id="hdnCount" name="hdnCount">
+                                        </center>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>ชื่อโครงการ</label>
+                                                <select class="form-control" name="project_id" value="<?php echo $result_book3['project_id']; ?>">
+
+                                  <?php
+                                  $sql_check_project = "SELECT * FROM tb_project";
+                                  $query_check_project = mysqli_query($conn,$sql_check_project);
+
+                                  $project_id1 = $result_book3['project_id'];
+                                  while($result_check_project = mysqli_fetch_array($query_check_project))
+                                  {
+                                  if($project_id1 == $result_check_project["project_id"])
+                                  {
+                                  $selected_check_project = "selected";
+
+                                  }
+                                  else
+                                  {
+                                  $selected_check_project = "";
+                                  }
+                                  ?>
+                                  <option value="<?php echo $result_check_project["project_id"];?>"<?php echo $selected_check_project;?>><?php echo $result_check_project["project_name"]; ?></option>
+                                  <?php
+                                  }
+                                  ?>
+                                  </select>
                                             </div>
                                         </div>
                                     </div>
@@ -245,7 +274,7 @@ $id = $_GET['id'];
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <a href="edit_form_doc_invite3.php?id=<?php echo $id;?>" class="btn btn-warning btn-block">แก้ไขข้อมูลเอกสาร</a>
+                                                <input type="submit" name="submit" value="บันทึก" class="btn btn-primary btn-block" />
                                             </div>
                                         </div>
 
