@@ -68,23 +68,13 @@ else
                 <!-- ============================================================== -->
                 <div class="row page-titles">
                     <div class="col-md-5 align-self-center">
-                        <h3 class="text-themecolor">สมัครสมาชิก</h3>
+                        <h3 class="text-themecolor">ข้อมูลบุคลากร</h3>
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                            <li class="breadcrumb-item active">สมัครสมาชิก</li>
+                            <li class="breadcrumb-item active">ข้อมูลบุคลากร</li>
                         </ol>
                     </div>
-                    <div class="col-md-7 align-self-center">
-                        <a href="https://wrappixel.com/templates/adminwrap/" class="btn waves-effect waves-light btn btn-info pull-right hidden-sm-down"> Upgrade to Pro</a>
-                    </div>
                 </div>
-                <!-- ============================================================== -->
-                <!-- End Bread crumb and right sidebar toggle -->
-                <!-- ============================================================== -->
-                <!-- ============================================================== -->
-                <!-- Start Page Content -->
-                <!-- ============================================================== -->
-                <!-- Row -->
                 <div class="row">
 
                     <div class="col-lg-12 col-xlg-9 col-md-7">
@@ -107,11 +97,38 @@ else
 
                             ?>
                                 <form class="form-horizontal form-material" action="INSERT_Person.php" name="form_user" method="post">
-
+                                    <script language="javascript">
+                                        function IsCharacter(sText, obj) {
+                                            var ValidChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ.abcdefghijklmnopqrstuvwxyz.กขฃคฅฆงจฉชซฌญฎฏฐฑฒณดตถทธนบปผฝพฟภมยรลวศษสหฬอฮ. ื.์.่.๋.้.็.า.เ.ๆ.ำ.ะ.ั.ี.๊.ึ.ุ.ู.";
+                                            var IsCharacter = true;
+                                            var Char;
+                                            for (i = 0; i < sText.length && IsCharacter == true; i++) {
+                                                Char = sText.charAt(i);
+                                                if (ValidChars.indexOf(Char) == -1) {
+                                                    IsCharacter = false;
+                                                }
+                                            }
+                                            if (IsCharacter == false) {
+                                                alert("(ภาษาไทย & อังกฤษ เท่านั้น)");
+                                                obj.value = sText.substr(0, sText.length - 1);
+                                            }
+                                        }
+                                    </script>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-12 text-center">
+                                                <div class="form-group">
+                                                    <label>
+                                                        <h4><b><u>กรอกข้อมูลบุคลากร</u></b></h4>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="form-group">
                                         <div class="row col-md-12">
                                             <div class="col-md-4">
-                                                <label class=""><b>รหัสเจ้าหน้าที่</b></label>&nbsp;<label class="text-danger"><b>*</b></label>
+                                                <label class=""><b>รหัสบุคลากร</b></label>
                                                 <input type="text" name="person_id" value="<?=$person_id?>" readonly class="form-control form-control-line">
                                             </div>
                                             <div class="col-md-4">
@@ -138,37 +155,59 @@ else
                                         <div class="row col-md-12">
                                             <div class="col-md-2">
                                                 <label class=""><b>คำนำหน้า</b></label>&nbsp;<label class="text-danger"><b>*</b></label>
-                                                <input type="text" name="prefix" placeholder="" class="form-control form-control-line">
+                                                <select name="prefix" class="form-control" required>
+                                                    <option value="">-----</option>
+                                                    <option value="นาย">นาย</option>
+                                                    <option value="นาง">นาง</option>
+                                                    <option value="นางสาว">นางสาว</option>
+                                                </select>
                                             </div>
                                             <div class="col-md-5">
-                                                <label class=""><b>ชื่อ</b></label>&nbsp;<label class="text-danger"><b>*</b></label>
-                                                <input type="text" name="firtname" placeholder="" class="form-control form-control-line">
+                                                <label class=""><b>ชื่อ</b></label>&nbsp;<label class="text-danger"><b>*</b></label>&nbsp;<label>(ภาษาไทย & อังกฤษ)</label>
+                                                <input type="text" name="firtname" placeholder="" required id="firtname" class="form-control form-control-line" onKeyUp="IsCharacter(this.value,this)">
                                             </div>
                                             <div class="col-md-5">
-                                                <label class=""><b>นานสกุล</b></label>&nbsp;<label class="text-danger"><b>*</b></label>
-                                                <input type="text" name="lastname" placeholder="" class="form-control form-control-line" name="example-email" id="example-email">
+                                                <label class=""><b>นานสกุล</b></label>&nbsp;<label class="text-danger"><b>*</b></label>&nbsp;<label>(ภาษาไทย & อังกฤษ)</label>
+                                                <input type="text" name="lastname" placeholder="" required id="lastname" class="form-control form-control-line" onKeyUp="IsCharacter(this.value,this)">
                                             </div>
                                         </div>
                                     </div>
+                                    <script language="javascript">
+                                        function IsNumeric(sText, obj) {
+                                            var ValidChars = "0123456789/";
+                                            var IsNumber = true;
+                                            var Char;
+                                            for (i = 0; i < sText.length && IsNumber == true; i++) {
+                                                Char = sText.charAt(i);
+                                                if (ValidChars.indexOf(Char) == -1) {
+                                                    IsNumber = false;
+                                                }
+                                            }
+                                            if (IsNumber == false) {
+                                                alert("(ตัวเลข เท่านั้น)");
+                                                obj.value = sText.substr(0, sText.length - 1);
+                                            }
+                                        }
+                                    </script>
                                     <div class="row col-md-12">
                                         <div class="form-group">
                                             <div class="col-md-12">
                                                 <label class=""><b>เลขบัตรประชาชน</b></label>&nbsp;<label class="text-danger"><b>*</b></label>
-                                                <input type="text" name="idcard" placeholder="" class="form-control form-control-line">
+                                                <input type="text" name="idcard" required class="form-control form-control-line" maxlength="13" minlength="13" onKeyUp="IsNumeric(this.value,this)">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row col-md-12">
                                         <div class="form-group">
                                             <div class="col-md-12">
-                                                <label class=""><b>ที่อยู่</b></label>
+                                                <label class=""><b><u>ที่อยู่</u></b></label>
                                             </div>
                                         </div>
                                         <div class="row col-md-12">
                                             <div class="form-group">
                                                 <div class="col-md-6">
                                                     <label class=""><b>บ้านเลชที่</b></label>&nbsp;<label class="text-danger"><b>*</b></label>
-                                                    <input type="text" name="house_num" class="form-control form-control-line">
+                                                    <input type="text" name="house_num" required class="form-control form-control-line" onKeyUp="IsNumeric(this.value,this)">
                                                 </div>
                                             </div>
                                         </div>
@@ -176,7 +215,7 @@ else
                                             <div class="row col-md-12">
                                                 <div class="col-md-4">
                                                     <label for="province"><b>จังหวัด</b></label>&nbsp;<label class="text-danger"><b>*</b></label>
-                                                    <select name="province_id" id="province" class="form-control">
+                                                    <select name="province_id" id="province" class="form-control" required>
                                                         <option value="">เลือกจังหวัด</option>
                                                         <?php
                                                     $sql = "SELECT * FROM provinces";
@@ -189,13 +228,13 @@ else
                                                 </div>
                                                 <div class="col-md-4">
                                                     <label for="amphure"><b>อำเภอ/เขต</b></label>&nbsp;<label class="text-danger"><b>*</b></label>
-                                                    <select name="amphures_id" id="amphure" class="form-control">
+                                                    <select name="amphures_id" id="amphure" class="form-control" required>
                                                         <option value="">เลือกอำเภอ</option>
                                                     </select>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <label for="district"><b>ตำบล/แขวง</b></label>&nbsp;<label class="text-danger"><b>*</b></label>
-                                                    <select name="districts_id" id="district" class="form-control">
+                                                    <select name="districts_id" id="district" class="form-control" required>
                                                         <option value="">เลือกตำบล</option>
                                                     </select>
                                                 </div>
@@ -203,24 +242,28 @@ else
                                         </div>
                                         <div class="form-group">
                                             <div class="row col-md-12">
-                                                <div class="col-md-6">
+                                                <div class="col-md-4">
                                                     <label class=""><b>Username</b></label>&nbsp;<label class="text-danger"><b>*</b></label>
-                                                    <input type="text" name="username" placeholder="" class="form-control form-control-line">
+                                                    <input type="text" name="username" placeholder="" class="form-control form-control-line" required>
                                                 </div>
-
-                                                <div class="col-md-6">
-                                                    <label class=""><b>Psaaword</b></label>&nbsp;<label class="text-danger"><b>*</b></label>
-                                                    <input type="password" name="password" class="form-control form-control-line">
+                                                <div class="col-md-4">
+                                                    <label class=""><b>Psaaword</b></label>&nbsp;<label class="text-danger"><b>*</b></label>&nbsp;<label>(ตัวเลข 4-8 ตัวเท่านั้น)</label>
+                                                    <input type="text" name="password" class="form-control form-control-line" maxlength="8" minlength="4" onKeyUp="if(this.value*1!=this.value) this.value='' ;" required>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label class=""><b>Confirm password</b></label>&nbsp;<label class="text-danger"><b>*</b></label>&nbsp;<label>(ตัวเลข 4-8 ตัวเท่านั้น)</label>
+                                                    <input type="text" name="con_password" class="form-control form-control-line" maxlength="8" minlength="4" onKeyUp="if(this.value*1!=this.value) this.value='' ;" required>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
-                                    <div class="col-md-6">
+                                        <div class="col-md-6">
                                             <div class="form-group">
                                                 <div class="col-md-6">
                                                     <label class=""><b>สถานะ</b></label>&nbsp;<label class="text-danger"><b>*</b></label>
-                                                    <select name="status" class="form-control">
+                                                    <select name="status" class="form-control" required>
+                                                        <option value="">-----</option>
                                                         <option value="Admin">Admin</option>
                                                         <option value="Personal">Personal</option>
                                                     </select>
@@ -228,7 +271,7 @@ else
                                                 </div>
                                             </div>
                                         </div>
-                                        </div>
+                                    </div>
                                     <div class="row">
                                         <div class="col-md-3">
                                         </div>
@@ -240,7 +283,7 @@ else
 
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <button type="button" class="btn btn-danger btn-block">ยกเลิก</button>
+                                                <button type="button" class="btn btn-danger btn-block" onClick="JavaScript:history.back();">ยกเลิก</button>
                                             </div>
                                         </div>
 
@@ -249,36 +292,13 @@ else
                             </div>
                         </div>
                     </div>
-                    <!-- Column -->
                 </div>
-                <!-- Row -->
-                <!-- ============================================================== -->
-                <!-- End PAge Content -->
-                <!-- ============================================================== -->
             </div>
-            <!-- ============================================================== -->
-            <!-- End Container fluid  -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- footer -->
-            <!-- ============================================================== -->
             <footer class="footer">
                 © 2018 Adminwrap by wrappixel.com
             </footer>
-            <!-- ============================================================== -->
-            <!-- End footer -->
-            <!-- ============================================================== -->
         </div>
-        <!-- ============================================================== -->
-        <!-- End Page wrapper  -->
-        <!-- ============================================================== -->
     </div>
-    <!-- ============================================================== -->
-    <!-- End Wrapper -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- All Jquery -->
-    <!-- ============================================================== -->
     <script src="../assets/node_modules/jquery/jquery.min.js"></script>
     <!-- Bootstrap tether Core JavaScript -->
     <script src="../assets/node_modules/bootstrap/js/popper.min.js"></script>

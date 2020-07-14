@@ -67,10 +67,10 @@ else
                 <!-- ============================================================== -->
                 <div class="row page-titles">
                     <div class="col-md-5 align-self-center">
-                        <h3 class="text-themecolor">เพิ่มข้อมูลเนื้อเรื่อง</h3>
+                        <h3 class="text-themecolor">แก้ไขข้อมูลเนื้อเรื่อง</h3>
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                            <li class="breadcrumb-item active">เพิ่มข้อมูลเนื้อเรื่อง</li>
+                            <li class="breadcrumb-item active">แก้ไขข้อมูลเนื้อเรื่อง</li>
                         </ol>
                     </div>
                 </div>
@@ -90,28 +90,37 @@ else
                        $title = $row_title['title'];
                        $body = $row_title['body'];
                 ?>
-
+                
                 <div class="row">
-
                     <div class="col-lg-12 col-xlg-9 col-md-7">
                         <div class="card">
                             <!-- Tab panes -->
                             <div class="card-body">
                                 <form class="form-horizontal form-material" action="edit_title.php" name="form_user" method="post">
-                                    
-                                    <input type="hidden" name="$id_auto" value="<?php echo $id_auto; ?>">
 
+                                    <input type="hidden" name="$id_auto" value="<?php echo $id_auto; ?>">
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-12 text-center">
+                                                <div class="form-group">
+                                                    <label>
+                                                        <h4><b><u>แก้ไขข้อมูลเนื้อเรื่อง</u></b></h4>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="row">
                                         <div class="col-md-1">
                                             <div class="form-group">
-                                                <label>รหัส</label>
+                                                <label><b>รหัส</b></label>
                                                 <input type="text" name="title_id" value="<?php echo $title_id; ?>" class="form-control form-control-line" readonly>
                                             </div>
                                         </div>
 
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label>หัวข้อเรื่อง</label>
+                                                <label><b>หัวข้อเรื่อง</b></label>&nbsp;<label class="text-danger"><b>*</b></label>
                                                 <input type="text" name="title" value="<?php echo $title; ?>" class="form-control form-control-line">
                                             </div>
                                         </div>
@@ -121,7 +130,7 @@ else
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label>เนื้อหา</label>
+                                                <label><b>เนื้อหา</b></label>
                                                 <!-- <textarea class="form-control" name="body"  rows="5"><?php echo $body; ?></textarea> -->
                                                 <textarea class="form-control summernote" name="body" rows="3"><?php echo htmlspecialchars($body); ?></textarea>
                                             </div>
@@ -141,7 +150,7 @@ else
 
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <button type="button" class="btn btn-danger btn-block">ยกเลิก</button>
+                                                <button type="button" class="btn btn-danger btn-block" onClick="JavaScript:history.back();">ยกเลิก</button>
                                             </div>
                                         </div>
 

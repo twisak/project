@@ -44,28 +44,16 @@ else
 </head>
 
 <body class="fix-header card-no-border fix-sidebar">
-    <!-- ============================================================== -->
-    <!-- Preloader - style you can find in spinners.css -->
-    <!-- ============================================================== -->
     <div class="preloader">
         <div class="loader">
             <div class="loader__figure"></div>
             <p class="loader__label">Admin Wrap</p>
         </div>
     </div>
-    <!-- ============================================================== -->
-    <!-- Main wrapper - style you can find in pages.scss -->
-    <!-- ============================================================== -->
     <div id="main-wrapper">
     <?php include '../mamu/manu_admin.php'; ?>
         <div class="page-wrapper">
-            <!-- ============================================================== -->
-            <!-- Container fluid  -->
-            <!-- ============================================================== -->
             <div class="container-fluid">
-                <!-- ============================================================== -->
-                <!-- Bread crumb and right sidebar toggle -->
-                <!-- ============================================================== -->
                 <div class="row page-titles">
                     <div class="col-md-5 align-self-center">
                         <h3 class="text-themecolor">ข้อมูลโครงการ/กิจกรรม</h3>
@@ -74,16 +62,7 @@ else
                             <li class="breadcrumb-item active">ข้อมูลโครงการ/กิจกรรม</li>
                         </ol>
                     </div>
-                    <div class="col-md-7 align-self-center">
-                        <a href="https://wrappixel.com/templates/adminwrap/" class="btn waves-effect waves-light btn btn-info pull-right hidden-sm-down"> Upgrade to Pro</a>
-                    </div>
                 </div>
-                <!-- ============================================================== -->
-                <!-- End Bread crumb and right sidebar toggle -->
-                <!-- ============================================================== -->
-                <!-- ============================================================== -->
-                <!-- Start Page Content -->
-                <!-- ============================================================== -->
                 <div class="row">
                     <!-- column -->
                     <div class="col-12">
@@ -91,15 +70,6 @@ else
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="card-title">ข้อมูลโครงการ/กิจกรรม</h4>
-                                <!-- <h6 class="card-subtitle">Add class <code>.table</code></h6> -->
-<!--
-                                <div class="container">
-                                <div class="row">
-                                    <div class="col-md-1 offset-md-10">ssss</div>
-                                </div>
-                                </div> -->
-
-
                                 <div class="text-right">
                                     <a href="../project/form_project.php"><button type="button" class="btn btn-primary">เพิ่มโครงการ</button></a>
                                 </div>
@@ -129,8 +99,8 @@ else
                                         ?>
                                         <tbody>
                                             <tr>
-                                                <td><?php echo $i;?></td>
-                                                <td><?php echo $project_id;?></td>
+                                                <td class="text-center"><?php echo $i;?></td>
+                                                <td class="text-center"><?php echo $project_id;?></td>
                                                 <td><?php echo $project_name;?></td>
                                                 <td><a href="edit_form_project.php?id=<?php echo $row_project['id'];?>" class="btn btn-warning">แก้ไข</a></td>
                                                 <td><a href="JavaScript:if(confirm('ยืนยันการลบ ?') == true){window.location='delete_project.php?id=<?php echo $row_project["id"];?>';}" class="btn btn-danger">ลบ</a></td>

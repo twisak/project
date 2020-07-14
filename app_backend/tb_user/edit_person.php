@@ -20,24 +20,51 @@
         $province_id = $_POST['province_id'];
         $districts_id = $_POST['districts_id'];
         $amphures_id = $_POST['amphures_id'];
+        $username = $_POST['username'];
+		$password = $_POST['password'];
+       	$status = $_POST['status'];
+        $con_password = $_POST['con_password'];
 
-        $sql= "UPDATE tb_person SET person_id     = '".$person_id."',
-                                    prefix        = '".$prefix."',
-                                    firtname      = '".$firtname."',
-                                    lastname      = '".$lastname."',
-                                    idcard        = '".$idcard."',
-                                    position_id   = '".$position_id."',
-                                    house_num     = '".$house_num."',
-                                    province_id   = '".$province_id."',
-                                    districts_id  = '".$districts_id."',
-                                    amphures_id   = '".$amphures_id."'
-                              WHERE id = '".$id."'";
-        //echo $sql;
-        $db_query = mysqli_query($conn,$sql);
-        //echo '<br>';
-        //echo $db_query;
-        echo "<script>alert('แก้ไขข้อมูลเรียบร้อย')</script>";
-        echo "<script>window.location='tb_user.php'</script>";
+        if($password != $con_password)
+		{
+            echo "<script>";
+            echo "alert('กรุณายืนยันรหัสผ่านให้ถูกต้อง');";
+            echo "window.history.back();";
+            echo "</script>";
+        }else
+        {
+
+                $sql= "UPDATE tb_person SET person_id     = '".$person_id."',
+                                            prefix        = '".$prefix."',
+                                            firtname      = '".$firtname."',
+                                            lastname      = '".$lastname."',
+                                            idcard        = '".$idcard."',
+                                            position_id   = '".$position_id."',
+                                            house_num     = '".$house_num."',
+                                            province_id   = '".$province_id."',
+                                            districts_id  = '".$districts_id."',
+                                            amphures_id   = '".$amphures_id."'
+                                    WHERE id = '".$id."'";
+                //echo $sql;
+                $db_query = mysqli_query($conn,$sql);
+
+                $sql1= "UPDATE account_login SET username = '".$username."',
+                                                 password = '".$password."'
+                                    WHERE person_id = '".$person_id."'";
+                //echo $sql;
+                $db_query1 = mysqli_query($conn,$sql1);
+                //echo '<br>';
+                //echo $db_query;
+                if($db_query)
+                {
+                    echo "<script>";
+                    echo "alert(\" แก้ไขข้อมูลเรียบร้อย\");";
+                    echo "</script>";
+                    echo "<meta http-equiv='refresh'content='0;url=http://localhost/project_student/app_backend/tb_user/tb_user.php'>";
+                }
+
+            
+        }
     ?>
 
   </body>

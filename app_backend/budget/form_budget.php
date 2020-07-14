@@ -44,28 +44,16 @@ else
 </head>
 
 <body class="fix-header card-no-border fix-sidebar">
-    <!-- ============================================================== -->
-    <!-- Preloader - style you can find in spinners.css -->
-    <!-- ============================================================== -->
     <div class="preloader">
         <div class="loader">
             <div class="loader__figure"></div>
             <p class="loader__label">Admin Wrap</p>
         </div>
     </div>
-    <!-- ============================================================== -->
-    <!-- Main wrapper - style you can find in pages.scss -->
-    <!-- ============================================================== -->
     <div id="main-wrapper">
         <?php include '../mamu/manu_admin.php'; ?>
         <div class="page-wrapper">
-            <!-- ============================================================== -->
-            <!-- Container fluid  -->
-            <!-- ============================================================== -->
             <div class="container-fluid">
-                <!-- ============================================================== -->
-                <!-- Bread crumb and right sidebar toggle -->
-                <!-- ============================================================== -->
                 <div class="row page-titles">
                     <div class="col-md-5 align-self-center">
                         <h3 class="text-themecolor">เพิ่มประเภทงบประมาณ</h3>
@@ -102,18 +90,28 @@ else
                             ?>
                                 <form class="form-horizontal form-material" action="insert_budget.php" name="form_user" method="post">
 
-                                    
+                                     <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-12 text-center">
+                                                <div class="form-group">
+                                                    <label>
+                                                        <h4><b><u>เพิ่มประเภทงบประมาณ</u></b></h4>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="row">
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label>รหัสประเภทงบประมาณ</label>
-                                                <input type="text" name="budget_id" value="<?=$id?>" placeholder="" class="form-control form-control-line">
+                                                <label><b>รหัสประเภทงบประมาณ</b></label>
+                                                <input type="text" name="budget_id" value="<?=$id?>" readonly class="form-control form-control-line">
                                             </div>
                                             <!-- <input type="hidden" class="form-control" name="budget_id" /> -->
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label>โครงการ</label>
+                                                <label><b>โครงการ</b></label>&nbsp;<label class="text-danger"><b>*</b></label>
                                                 <select class="form-control col-md-12" required name="project_id">
                                                     <option>เลือกโครงการ</option>
                                                     <?php
@@ -132,8 +130,8 @@ else
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label>ประเภทงบประมาณ</label>
-                                                <input type="text" name="budget" placeholder="" class="form-control form-control-line">
+                                                <label><b>ประเภทงบประมาณ</b></label>&nbsp;<label class="text-danger"><b>*</b></label>
+                                                <input type="text" name="budget" placeholder="" class="form-control form-control-line" required>
                                             </div>
                                         </div>
                                     </div>
@@ -149,7 +147,7 @@ else
 
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <button type="button" class="btn btn-danger btn-block">ยกเลิก</button>
+                                                <button type="button" class="btn btn-danger btn-block" onClick="JavaScript:history.back();">ยกเลิก</button>
                                             </div>
                                         </div>
 
@@ -159,34 +157,12 @@ else
                         </div>
                         <!-- Column -->
                     </div>
-                    <!-- Row -->
-                    <!-- ============================================================== -->
-                    <!-- End PAge Content -->
-                    <!-- ============================================================== -->
                 </div>
-                <!-- ============================================================== -->
-                <!-- End Container fluid  -->
-                <!-- ============================================================== -->
-                <!-- ============================================================== -->
-                <!-- footer -->
-                <!-- ============================================================== -->
                 <footer class="footer">
                     © 2018 Adminwrap by wrappixel.com
                 </footer>
-                <!-- ============================================================== -->
-                <!-- End footer -->
-                <!-- ============================================================== -->
             </div>
-            <!-- ============================================================== -->
-            <!-- End Page wrapper  -->
-            <!-- ============================================================== -->
         </div>
-        <!-- ============================================================== -->
-        <!-- End Wrapper -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- All Jquery -->
-        <!-- ============================================================== -->
         <script src="../assets/node_modules/jquery/jquery.min.js"></script>
         <!-- Bootstrap tether Core JavaScript -->
         <script src="../assets/node_modules/bootstrap/js/popper.min.js"></script>

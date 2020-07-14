@@ -44,28 +44,16 @@ else
 </head>
 
 <body class="fix-header card-no-border fix-sidebar">
-    <!-- ============================================================== -->
-    <!-- Preloader - style you can find in spinners.css -->
-    <!-- ============================================================== -->
     <div class="preloader">
         <div class="loader">
             <div class="loader__figure"></div>
             <p class="loader__label">Admin Wrap</p>
         </div>
     </div>
-    <!-- ============================================================== -->
-    <!-- Main wrapper - style you can find in pages.scss -->
-    <!-- ============================================================== -->
     <div id="main-wrapper">
         <?php include '../mamu/manu_admin.php'; ?>
         <div class="page-wrapper">
-            <!-- ============================================================== -->
-            <!-- Container fluid  -->
-            <!-- ============================================================== -->
             <div class="container-fluid">
-                <!-- ============================================================== -->
-                <!-- Bread crumb and right sidebar toggle -->
-                <!-- ============================================================== -->
                 <div class="row page-titles">
                     <div class="col-md-5 align-self-center">
                         <h3 class="text-themecolor">เพิ่มข้อมูลตำแหน่ง</h3>
@@ -86,7 +74,7 @@ else
                             <!-- Tab panes -->
                             <div class="card-body">
                                 <form class="form-horizontal form-material" action="insert_position.php" name="form_user" method="post">
-                                <?php
+                                    <?php
                                         include '../../administrator/connect.php';
                                         $sql = "Select Max(substr(position_id,3)+1) as MaxID from tb_position ";
                                         $query = mysqli_query($conn,$sql);
@@ -101,19 +89,46 @@ else
                                                 }
 
                                 ?>
-
+                                    <script language="javascript">
+                                        function IsCharacter(sText, obj) {
+                                            var ValidChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ.abcdefghijklmnopqrstuvwxyz.กขฃคฅฆงจฉชซฌญฎฏฐฑฒณดตถทธนบปผฝพฟภมยรลวศษสหฬอฮ. ื.์.่.๋.้.็.า.เ.ๆ.ำ.ะ.ั.ี.๊.ึ.ุ.ู.";
+                                            var IsCharacter = true;
+                                            var Char;
+                                            for (i = 0; i < sText.length && IsCharacter == true; i++) {
+                                                Char = sText.charAt(i);
+                                                if (ValidChars.indexOf(Char) == -1) {
+                                                    IsCharacter = false;
+                                                }
+                                            }
+                                            if (IsCharacter == false) {
+                                                alert("(ภาษาไทย & อังกฤษ เท่านั้น)");
+                                                obj.value = sText.substr(0, sText.length - 1);
+                                            }
+                                        }
+                                    </script>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-12 text-center">
+                                                <div class="form-group">
+                                                    <label>
+                                                        <h4><b><u>เพิ่มข้อมูลตำแหน่ง</u></b></h4>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="row">
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label>รหัสตำแหน่ง</label>
-                                                <input type="text" name="position_id" value="<?=$id?>" class="form-control form-control-line">
+                                                <label><b>รหัสตำแหน่ง</b></label>
+                                                <input type="text" name="position_id" value="<?=$id?>" readonly class="form-control form-control-line">
                                             </div>
                                         </div>
 
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label>ตำแหน่ง</label>
-                                                <input type="text" name="position_name" placeholder="" class="form-control form-control-line">
+                                                <label><b>ตำแหน่ง</b></label>&nbsp;<label class="text-danger"><b>*</b></label>
+                                                <input type="text" name="position_name" placeholder="" required class="form-control form-control-line" onKeyUp="IsCharacter(this.value,this)">
                                             </div>
                                         </div>
                                     </div>
@@ -129,7 +144,7 @@ else
 
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <button type="button" class="btn btn-danger btn-block">ยกเลิก</button>
+                                                <button type="button" class="btn btn-danger btn-block" onClick="JavaScript:history.back();">ยกเลิก</button>
                                             </div>
                                         </div>
 
@@ -139,34 +154,12 @@ else
                         </div>
                         <!-- Column -->
                     </div>
-                    <!-- Row -->
-                    <!-- ============================================================== -->
-                    <!-- End PAge Content -->
-                    <!-- ============================================================== -->
                 </div>
-                <!-- ============================================================== -->
-                <!-- End Container fluid  -->
-                <!-- ============================================================== -->
-                <!-- ============================================================== -->
-                <!-- footer -->
-                <!-- ============================================================== -->
                 <footer class="footer">
                     © 2018 Adminwrap by wrappixel.com
                 </footer>
-                <!-- ============================================================== -->
-                <!-- End footer -->
-                <!-- ============================================================== -->
             </div>
-            <!-- ============================================================== -->
-            <!-- End Page wrapper  -->
-            <!-- ============================================================== -->
         </div>
-        <!-- ============================================================== -->
-        <!-- End Wrapper -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- All Jquery -->
-        <!-- ============================================================== -->
         <script src="../assets/node_modules/jquery/jquery.min.js"></script>
         <!-- Bootstrap tether Core JavaScript -->
         <script src="../assets/node_modules/bootstrap/js/popper.min.js"></script>

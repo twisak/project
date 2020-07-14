@@ -44,28 +44,16 @@ else
 </head>
 
 <body class="fix-header card-no-border fix-sidebar">
-    <!-- ============================================================== -->
-    <!-- Preloader - style you can find in spinners.css -->
-    <!-- ============================================================== -->
     <div class="preloader">
         <div class="loader">
             <div class="loader__figure"></div>
             <p class="loader__label">Admin Wrap</p>
         </div>
     </div>
-    <!-- ============================================================== -->
-    <!-- Main wrapper - style you can find in pages.scss -->
-    <!-- ============================================================== -->
     <div id="main-wrapper">
     <?php include '../mamu/manu_admin.php'; ?>
         <div class="page-wrapper">
-            <!-- ============================================================== -->
-            <!-- Container fluid  -->
-            <!-- ============================================================== -->
             <div class="container-fluid">
-                <!-- ============================================================== -->
-                <!-- Bread crumb and right sidebar toggle -->
-                <!-- ============================================================== -->
                 <div class="row page-titles">
                     <div class="col-md-5 align-self-center">
                         <h3 class="text-themecolor">ข้อมูลอาจารย์</h3>
@@ -74,16 +62,7 @@ else
                             <li class="breadcrumb-item active">ข้อมูลอาจารย์</li>
                         </ol>
                     </div>
-                    <div class="col-md-7 align-self-center">
-                        <a href="https://wrappixel.com/templates/adminwrap/" class="btn waves-effect waves-light btn btn-info pull-right hidden-sm-down"> Upgrade to Pro</a>
-                    </div>
                 </div>
-                <!-- ============================================================== -->
-                <!-- End Bread crumb and right sidebar toggle -->
-                <!-- ============================================================== -->
-                <!-- ============================================================== -->
-                <!-- Start Page Content -->
-                <!-- ============================================================== -->
                 <div class="row">
                     <!-- column -->
                     <div class="col-12">
@@ -91,15 +70,6 @@ else
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="card-title">ข้อมูลอาจารย์</h4>
-                                <!-- <h6 class="card-subtitle">Add class <code>.table</code></h6> -->
-<!--
-                                <div class="container">
-                                <div class="row">
-                                    <div class="col-md-1 offset-md-10">ssss</div>
-                                </div>
-                                </div> -->
-
-
                                 <div class="text-right">
                                     <a href="../teacher/form_teacher.php"><button type="button" class="btn btn-primary">เพิ่มอาจารย์</button></a>
                                 </div>

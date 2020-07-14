@@ -44,28 +44,16 @@ else
 </head>
 
 <body class="fix-header card-no-border fix-sidebar">
-    <!-- ============================================================== -->
-    <!-- Preloader - style you can find in spinners.css -->
-    <!-- ============================================================== -->
     <div class="preloader">
         <div class="loader">
             <div class="loader__figure"></div>
             <p class="loader__label">Admin Wrap</p>
         </div>
     </div>
-    <!-- ============================================================== -->
-    <!-- Main wrapper - style you can find in pages.scss -->
-    <!-- ============================================================== -->
     <div id="main-wrapper">
         <?php include '../mamu/manu_admin.php'; ?>
         <div class="page-wrapper">
-            <!-- ============================================================== -->
-            <!-- Container fluid  -->
-            <!-- ============================================================== -->
             <div class="container-fluid">
-                <!-- ============================================================== -->
-                <!-- Bread crumb and right sidebar toggle -->
-                <!-- ============================================================== -->
                 <div class="row page-titles">
                     <div class="col-md-5 align-self-center">
                         <h3 class="text-themecolor">เพิ่มโครงการ</h3>
@@ -73,9 +61,6 @@ else
                             <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
                             <li class="breadcrumb-item active">เพิ่มโครงการ</li>
                         </ol>
-                    </div>
-                    <div class="col-md-7 align-self-center">
-                        <a href="https://wrappixel.com/templates/adminwrap/" class="btn waves-effect waves-light btn btn-info pull-right hidden-sm-down"> Upgrade to Pro</a>
                     </div>
                 </div>
 
@@ -105,25 +90,35 @@ else
                             ?>
                                 <form class="form-horizontal form-material" action="insert_project.php" name="form_user" method="post">
 
-
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-12 text-center">
+                                                <div class="form-group">
+                                                    <label>
+                                                        <h4><b><u>เพิ่มข้อมูลโครงการ</u></b></h4>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="row">
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label>รหัสโครงการ</label>
-                                                <input type="text" name="project_id" value="<?=$id?>" placeholder="" class="form-control form-control-line">
+                                                <label><b>รหัสโครงการ</b></label>
+                                                <input type="text" name="project_id" value="<?=$id?>" readonly class="form-control form-control-line">
                                             </div>
                                         </div>
 
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label>ชื่อโครงการ</label>
-                                                <input type="text" name="project_name" placeholder="" class="form-control form-control-line">
+                                                <label><b>ชื่อโครงการ</b></label>&nbsp;<label class="text-danger"><b>*</b></label>
+                                                <input type="text" name="project_name" placeholder="" required class="form-control form-control-line">
                                             </div>
                                         </div>
 
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label>ปีงบประมาณ</label>
+                                                <label><b>ปีงบประมาณ</b></label>&nbsp;<label class="text-danger"><b>*</b></label>
                                                 <select class="form-control" name="fiscal_year" id="fiscal_year">
                                                     <?php
                                                         $xYear=date('Y'); // เก็บค่าปีปัจจุบันไว้ในตัวแปร
@@ -138,10 +133,10 @@ else
                                         </div>
                                     </div>
 
-                                    <div class="row">
+                                    <!-- <div class="row">
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <label for="budget">ประเภทงบประมาณ</label>
+                                                <label for="budget"><b>ประเภทงบประมาณ</b></label>&nbsp;<label class="text-danger"><b>*</b></label>
                                                 <select class="form-control" id="budget" name="budget_id">
                                                     <option value="">-- เลือกประเภทงบประมาณ --</option>
                                                     <?php
@@ -176,20 +171,20 @@ else
                                                         <option value="">เลือกยุทธศาสตร์</option>
                                                     </select>
                                                 </div>
-                                    </div>
+                                    </div> -->
 
                                     <div class="row">
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label>หลักการและเหตุ</label>
-                                                <input type="text" name="principle" placeholder="" class="form-control form-control-line">
+                                                <label><b>หลักการและเหตุ</b></label>&nbsp;<label class="text-danger"><b>*</b></label>
+                                                <input type="text" name="principle" placeholder="" required class="form-control form-control-line">
                                             </div>
                                         </div>
 
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label>งบประมาณ</label>
-                                                <input type="text" name="budget" placeholder="" class="form-control form-control-line">
+                                                <label><b>งบประมาณ</b></label>&nbsp;<label class="text-danger"><b>*</b></label>
+                                                <input type="text" name="budget" placeholder="" required class="form-control form-control-line">
                                             </div>
                                         </div>
                                     </div>
@@ -205,7 +200,7 @@ else
 
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <button type="button" class="btn btn-danger btn-block">ยกเลิก</button>
+                                                <button type="button" class="btn btn-danger btn-block" onClick="JavaScript:history.back();">ยกเลิก</button>
                                             </div>
                                         </div>
 

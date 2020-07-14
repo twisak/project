@@ -12,6 +12,8 @@ else
     echo "</script>";
     echo "<meta http-equiv='refresh' content='0;url=../../administrator/logout.php'>";
 }
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -44,28 +46,16 @@ else
 </head>
 
 <body class="fix-header card-no-border fix-sidebar">
-    <!-- ============================================================== -->
-    <!-- Preloader - style you can find in spinners.css -->
-    <!-- ============================================================== -->
     <div class="preloader">
         <div class="loader">
             <div class="loader__figure"></div>
             <p class="loader__label">Admin Wrap</p>
         </div>
     </div>
-    <!-- ============================================================== -->
-    <!-- Main wrapper - style you can find in pages.scss -->
-    <!-- ============================================================== -->
     <div id="main-wrapper">
-    <?php include '../mamu/manu_admin.php'; ?>
+        <?php include '../mamu/manu_admin.php'; ?>
         <div class="page-wrapper">
-            <!-- ============================================================== -->
-            <!-- Container fluid  -->
-            <!-- ============================================================== -->
             <div class="container-fluid">
-                <!-- ============================================================== -->
-                <!-- Bread crumb and right sidebar toggle -->
-                <!-- ============================================================== -->
                 <div class="row page-titles">
                     <div class="col-md-5 align-self-center">
                         <h3 class="text-themecolor">ข้อมูลบุคลากร</h3>
@@ -74,41 +64,43 @@ else
                             <li class="breadcrumb-item active">ข้อมูลบุคลากร</li>
                         </ol>
                     </div>
-                    <div class="col-md-7 align-self-center">
-                        <a href="https://wrappixel.com/templates/adminwrap/" class="btn waves-effect waves-light btn btn-info pull-right hidden-sm-down"> Upgrade to Pro</a>
-                    </div>
                 </div>
-                <!-- ============================================================== -->
-                <!-- End Bread crumb and right sidebar toggle -->
-                <!-- ============================================================== -->
-                <!-- ============================================================== -->
-                <!-- Start Page Content -->
-                <!-- ============================================================== -->
-                <div class="row">
-                    <!-- column -->
-                    <div class="col-12">
+                <?php
+                    ini_set('display_errors', 1);
+                    error_reporting(~0);
 
+                    $strKeyword = null;
+
+                    if(isset($_POST["txtKeyword"]))
+                    {
+                        $strKeyword = $_POST["txtKeyword"];
+                    }
+                ?>
+                <div class="row">
+                    <div class="col-12">
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="card-title">ข้อมูลบุคลากร</h4>
-                                <!-- <h6 class="card-subtitle">Add class <code>.table</code></h6> -->
-<!--
-                                <div class="container">
-                                <div class="row">
-                                    <div class="col-md-1 offset-md-10">ssss</div>
-                                </div>
-                                </div> -->
-
-
-                                <div class="text-right">
-                                <a href="form_user.php">
-                                    <button type="button" class="btn btn-primary">กรอกเอกสารเพิ่ม</button>
-                                </a>
+                                <div class="form-group">
+                                    <div class="row col-md-12">
+                                        <div class="col-md-6">
+                                        <form name="frmSearch" method="post" action="<?php echo $_SERVER['SCRIPT_NAME'];?>">
+                                                Keyword
+                                                <input name="txtKeyword" type="text" id="txtKeyword" value="<?php echo $strKeyword;?>">
+                                                <input type="submit" value="Search">
+                                        </form>
+                                        </div>
+                                        <div class="col-md-6 text-right">
+                                            <a href="form_user.php">
+                                                <button type="button" class="btn btn-primary">กรอกเอกสารเพิ่ม</button>
+                                            </a>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="table-responsive">
                                     <table class="table text-center">
                                         <thead>
-                                        <tr>
+                                            <tr>
                                                 <th class="text-center">ลำดับ</th>
                                                 <th class="text-center">ชื่อ-สกุล</th>
                                                 <th class="text-center">เลขบัตรประชาชน</th>
@@ -125,7 +117,7 @@ else
                                             $i<="";
 
                                             include '../../administrator/connect.php';
-                                            $sql ="SELECT * FROM tb_person";
+                                            $sql ="SELECT * FROM tb_person WHERE firtname LIKE '%".$strKeyword."%'";
                                             $query = mysqli_query($conn,$sql);
                                             while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
                                             {
@@ -182,7 +174,7 @@ else
                                                 <td><?php echo $password;?></td>
                                                 <td><?php echo $status;?></td>
                                                 <td>
-                                                <a href="edit_form_user.php?id=<?php echo $person_id;?>"><button type="button" class="btn btn-warning">แก้ไข</button></a>
+                                                    <a href="edit_form_user.php?id=<?php echo $person_id;?>"><button type="button" class="btn btn-warning">แก้ไข</button></a>
                                                 </td>
                                                 <td><a href="JavaScript:if(confirm('ยืนยันการลบ ?') == true){window.location='delete_user.php?id=<?php echo $row["id"];?>';}" class="btn btn-danger">ลบ</a></td>
                                             </tr>
@@ -198,33 +190,12 @@ else
                         </div>
                     </div>
                 </div>
-                <!-- ============================================================== -->
-                <!-- End PAge Content -->
-                <!-- ============================================================== -->
             </div>
-            <!-- ============================================================== -->
-            <!-- End Container fluid  -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- footer -->
-            <!-- ============================================================== -->
             <footer class="footer">
                 © 2018 Adminwrap by wrappixel.com
             </footer>
-            <!-- ============================================================== -->
-            <!-- End footer -->
-            <!-- ============================================================== -->
         </div>
-        <!-- ============================================================== -->
-        <!-- End Page wrapper  -->
-        <!-- ============================================================== -->
     </div>
-    <!-- ============================================================== -->
-    <!-- End Wrapper -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- All Jquery -->
-    <!-- ============================================================== -->
     <script src="../assets/node_modules/jquery/jquery.min.js"></script>
     <!-- Bootstrap tether Core JavaScript -->
     <script src="../assets/node_modules/bootstrap/js/popper.min.js"></script>

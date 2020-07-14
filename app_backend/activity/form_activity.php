@@ -44,38 +44,23 @@ else
 </head>
 
 <body class="fix-header card-no-border fix-sidebar">
-    <!-- ============================================================== -->
-    <!-- Preloader - style you can find in spinners.css -->
-    <!-- ============================================================== -->
     <div class="preloader">
         <div class="loader">
             <div class="loader__figure"></div>
             <p class="loader__label">Admin Wrap</p>
         </div>
     </div>
-    <!-- ============================================================== -->
-    <!-- Main wrapper - style you can find in pages.scss -->
-    <!-- ============================================================== -->
     <div id="main-wrapper">
         <?php include '../mamu/manu_admin.php'; ?>
         <div class="page-wrapper">
-            <!-- ============================================================== -->
-            <!-- Container fluid  -->
-            <!-- ============================================================== -->
             <div class="container-fluid">
-                <!-- ============================================================== -->
-                <!-- Bread crumb and right sidebar toggle -->
-                <!-- ============================================================== -->
                 <div class="row page-titles">
                     <div class="col-md-5 align-self-center">
-                        <h3 class="text-themecolor">เพิ่มกิจกรรม</h3>
+                        <h3 class="text-themecolor">เพิ่มข้อมูลกิจกรรม</h3>
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                            <li class="breadcrumb-item active">เพิ่มกิจกรรม</li>
+                            <li class="breadcrumb-item active">เพิ่มข้อมูลกิจกรรม</li>
                         </ol>
-                    </div>
-                    <div class="col-md-7 align-self-center">
-                        <a href="https://wrappixel.com/templates/adminwrap/" class="btn waves-effect waves-light btn btn-info pull-right hidden-sm-down"> Upgrade to Pro</a>
                     </div>
                 </div>
 
@@ -89,6 +74,17 @@ else
                             <!-- Tab panes -->
                             <div class="card-body">
                                 <form class="form-horizontal form-material" action="insert_activity.php" name="form_activity" method="post">
+                                    <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-md-12 text-center">
+                                                    <div class="form-group">
+                                                        <label>
+                                                            <h4><b><u>เพิ่มข้อมูลกิจกรรม</u></b></h4>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                    </div>
                                     <div class="row">
                                             <?php
                                                 include '../../administrator/connect.php';
@@ -107,14 +103,14 @@ else
                                             ?>
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label>รหัสกิจกรรม</label>
-                                                <input type="text" name="activity_id" value="<?=$id?>" placeholder="" class="form-control form-control-line">
+                                                <label><b>รหัสกิจกรรม</b></label>
+                                                <input type="text" name="activity_id" value="<?=$id?>" readonly class="form-control form-control-line">
                                             </div>
                                         </div>
 
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label>โครงการ</label>
+                                                <label><b>ชื่อโครงการ</b></>&nbsp;<label class="text-danger"><b>*</b></label>
                                                 <select class="form-control col-md-12" required name="project_id">
                                                     <option>เลือกโครงการ</option>
                                                     <?php
@@ -134,8 +130,8 @@ else
 
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label>ชื่อกิจกรรม</label>
-                                                <input type="text" name="activity" placeholder="" class="form-control form-control-line">
+                                                <label><b>ชื่อกิจกรรม</b></label>&nbsp;<label class="text-danger"><b>*</b></label>
+                                                <input type="text" name="activity" placeholder="" required class="form-control form-control-line">
                                             </div>
                                         </div>
                                     </div>
@@ -151,51 +147,22 @@ else
 
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <button type="button" class="btn btn-danger btn-block">ยกเลิก</button>
+                                                <button type="button" class="btn btn-danger btn-block" onClick="JavaScript:history.back();">ยกเลิก</button>
                                             </div>
                                         </div>
 
                                     </div>
                                 </form>
-
-
-
-
-
-
-
                             </div>
                         </div>
                         <!-- Column -->
                     </div>
-                    <!-- Row -->
-                    <!-- ============================================================== -->
-                    <!-- End PAge Content -->
-                    <!-- ============================================================== -->
                 </div>
-                <!-- ============================================================== -->
-                <!-- End Container fluid  -->
-                <!-- ============================================================== -->
-                <!-- ============================================================== -->
-                <!-- footer -->
-                <!-- ============================================================== -->
                 <footer class="footer">
                     © 2018 Adminwrap by wrappixel.com
                 </footer>
-                <!-- ============================================================== -->
-                <!-- End footer -->
-                <!-- ============================================================== -->
             </div>
-            <!-- ============================================================== -->
-            <!-- End Page wrapper  -->
-            <!-- ============================================================== -->
         </div>
-        <!-- ============================================================== -->
-        <!-- End Wrapper -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- All Jquery -->
-        <!-- ============================================================== -->
         <script src="../assets/node_modules/jquery/jquery.min.js"></script>
         <!-- Bootstrap tether Core JavaScript -->
         <script src="../assets/node_modules/bootstrap/js/popper.min.js"></script>

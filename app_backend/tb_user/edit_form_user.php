@@ -32,6 +32,9 @@ else
     <link href="../css/style.css" rel="stylesheet">
     <!-- You can change the theme colors from here -->
     <link href="../css/colors/default.css" id="theme" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Prompt&display=swap" rel="stylesheet">
+    <link href="../css/google_fonts/fonts_prompt.css" rel="stylesheet" />
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -54,7 +57,7 @@ else
     <!-- Main wrapper - style you can find in pages.scss -->
     <!-- ============================================================== -->
     <div id="main-wrapper">
-    <?php include '../mamu/manu_admin.php'; ?>
+        <?php include '../mamu/manu_admin.php'; ?>
         <div class="page-wrapper">
             <!-- ============================================================== -->
             <!-- Container fluid  -->
@@ -65,30 +68,19 @@ else
                 <!-- ============================================================== -->
                 <div class="row page-titles">
                     <div class="col-md-5 align-self-center">
-                        <h3 class="text-themecolor">แก้ไขข้อมูลส่วนตัว</h3>
+                        <h3 class="text-themecolor">แก้ไขข้อมูลบุคลากร</h3>
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                            <li class="breadcrumb-item active">แก้ไขข้อมูลส่วนตัว</li>
+                            <li class="breadcrumb-item active">แก้ไขข้อมูลบุคลากร</li>
                         </ol>
                     </div>
-                    <div class="col-md-7 align-self-center">
-                        <a href="https://wrappixel.com/templates/adminwrap/" class="btn waves-effect waves-light btn btn-info pull-right hidden-sm-down"> Upgrade to Pro</a>
-                    </div>
                 </div>
-                <!-- ============================================================== -->
-                <!-- End Bread crumb and right sidebar toggle -->
-                <!-- ============================================================== -->
-                <!-- ============================================================== -->
-                <!-- Start Page Content -->
-                <!-- ============================================================== -->
-                <!-- Row -->
                 <div class="row">
-
                     <div class="col-lg-12 col-xlg-9 col-md-7">
                         <div class="card">
                             <!-- Tab panes -->
                             <div class="card-body">
-                            <?php
+                                <?php
                                         include '../../administrator/connect.php';
                                         $person_id =$_GET['id'];
 
@@ -131,14 +123,14 @@ else
                                         $query3 = mysqli_query($conn,$sql3);
                                         while($row3 = mysqli_fetch_array($query3,MYSQLI_ASSOC))
                                         {
-                                            $id1 = $row2['id1'];
+                                            $id1 = $row2['id'];
                                             $name_th1 = $row3['name_th'];
                                         }
                                         $sql4 ="SELECT * FROM amphures WHERE id = '".$amphures_id."' ";
                                         $query4 = mysqli_query($conn,$sql4);
                                         while($row4 = mysqli_fetch_array($query4,MYSQLI_ASSOC))
                                         {
-                                            $id2 = $row2['id2'];
+                                            $id2 = $row2['id'];
                                             $name_th2 = $row4['name_th'];
                                         }
 
@@ -147,167 +139,214 @@ else
                                         while($row5 = mysqli_fetch_array($query5,MYSQLI_ASSOC))
                                         {
                                             $position_name = $row5['position_name'];
+                                            $position_id = $row5['position_id'];
                                         }
 
-                            ?>
+                              ?>
+                                <script language="javascript">
+                                    function IsCharacter(sText, obj) {
+                                        var ValidChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ.abcdefghijklmnopqrstuvwxyz.กขฃคฅฆงจฉชซฌญฎฏฐฑฒณดตถทธนบปผฝพฟภมยรลวศษสหฬอฮ. ื.์.่.๋.้.็.า.เ.ๆ.ำ.ะ.ั.ี.๊.ึ.ุ.ู.";
+                                        var IsCharacter = true;
+                                        var Char;
+                                        for (i = 0; i < sText.length && IsCharacter == true; i++) {
+                                            Char = sText.charAt(i);
+                                            if (ValidChars.indexOf(Char) == -1) {
+                                                IsCharacter = false;
+                                            }
+                                        }
+                                        if (IsCharacter == false) {
+                                            alert("(ภาษาไทย & อังกฤษ เท่านั้น)");
+                                            obj.value = sText.substr(0, sText.length - 1);
+                                        }
+                                    }
+                                </script>
                                 <form class="form-horizontal form-material" action="edit_person.php" name="form_user" method="post">
-                                <input type="hidden" name="id" value="<?php echo $id; ?>">
+                                    <input type="hidden" name="id" value="<?php echo $id; ?>">
                                     <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-12 text-center">
+                                                <div class="form-group">
+                                                    <label>
+                                                        <h4><b><u>แก้ไขข้อมูลบุคลากร</u></b></h4>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row col-md-12">
+                                            <div class="col-md-4">
+                                                <label class=""><b>รหัสบุคลากร</b></label>
+                                                <input type="text" name="person_id" readonly value="<?php echo $person_id?>" class="form-control form-control-line">
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label class=""><b>ตำแหน่ง</b></label>
+                                                <select name="position_id" class="form-control">
+                                                    <option value="<?php echo $position_id?>"><?php echo $position_name?></option>
+                                                    <?php
+                                                    $sql = "SELECT * FROM tb_position";
+                                                    $query = mysqli_query($conn, $sql);
+                                                    while($row=mysqli_fetch_array($query))
+                                                        {
+                                                            $position_id = $row['position_id'];
+                                                            $position_name = $row['position_name'];
+                                                ?>
+                                                    <option value='<?php echo $position_id;?>'><?php echo $position_name;?></option>
+                                                    <?php
+                                                        }
+                                                ?>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row col-md-12">
+                                            <div class="col-md-2">
+                                                <label class=""><b>คำนำหน้า</b></label>
+                                                <select name="prefix" class="form-control">
+                                                    <option value="<?php echo $prefix?>"><?php echo $prefix?></option>
+                                                    <option value="นาย">นาย</option>
+                                                    <option value="นาง">นาง</option>
+                                                    <option value="นางสาว">นางสาว</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-5">
+                                                <label class=""><b>ชื่อ</b></label>
+                                                <input type="text" name="firtname" value="<?php echo $firtname?>" class="form-control form-control-line" onKeyUp="IsCharacter(this.value,this)">
+                                            </div>
+                                            <div class="col-md-5">
+                                                <label class=""><b>นานสกุล</b></label>
+                                                <input type="text" name="lastname" value="<?php echo $lastname?>" class="form-control form-control-line" onKeyUp="IsCharacter(this.value,this)">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <script language="javascript">
+                                        function IsNumeric(sText, obj) {
+                                            var ValidChars = "0123456789/";
+                                            var IsNumber = true;
+                                            var Char;
+                                            for (i = 0; i < sText.length && IsNumber == true; i++) {
+                                                Char = sText.charAt(i);
+                                                if (ValidChars.indexOf(Char) == -1) {
+                                                    IsNumber = false;
+                                                }
+                                            }
+                                            if (IsNumber == false) {
+                                                alert("(ตัวเลข เท่านั้น)");
+                                                obj.value = sText.substr(0, sText.length - 1);
+                                            }
+                                        }
+                                    </script>
                                     <div class="row col-md-12">
-                                        <div class="col-md-4">
-                                            <label class="">รหัสเจ้าหน้าที่</label>
-                                            <input type="text" name="person_id" readonly value="<?php echo $person_id?>" class="form-control form-control-line">
-                                        </div>
-                                        <div class="col-md-4">
-                                            <label class="">ตำแหน่ง</label>
-                                            <input type="text" name="position_id" readonly value="<?php echo $position_id?>" class="form-control form-control-line">
+                                        <div class="form-group">
+                                            <div class="col-md-12">
+                                                <label class=""><b>เลขบัตรประชาชน</b></label>
+                                                <input type="text" name="idcard" value="<?php echo $idcard?>" class="form-control form-control-line" maxlength="13" minlength="13" onKeyUp="IsNumeric(this.value,this)">
+                                            </div>
                                         </div>
                                     </div>
-                                    </div>
-                                    <div class="form-group">
+                                    
+                                        <div class="row col-md-12">
+                                            <div class="form-group">
+                                                <div class="col-md-12">
+                                                    <label class=""><b>ที่อยู่</b></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    
                                     <div class="row col-md-12">
-                                        <div class="col-md-2">
-                                            <label class="">คำนำหน้า</label>
-                                            <input type="text" name="prefix" value="<?php echo $prefix?>" class="form-control form-control-line">
+                                        <div class="form-group">
+                                            <div class="col-md-6">
+                                            <label class=""><b>บ้านเลชที่</b></label>
+                                                <input type="text" name="house_num" value="<?php echo $house_num?>" class="form-control form-control-line" onKeyUp="IsNumeric(this.value,this)">
+                                            </div>
                                         </div>
-                                        <div class="col-md-5">
-                                            <label class="">ชื่อ</label>
-                                            <input type="text" name="firtname" value="<?php echo $firtname?>" class="form-control form-control-line">
-                                        </div>
-                                        <div class="col-md-5">
-                                            <label class="">นานสกุล</label>
-                                            <input type="text" name="lastname" value="<?php echo $lastname?>" class="form-control form-control-line">
-                                        </div>
-                                    </div>
-                                    </div>
-                                <div class="row col-md-12">
-                                    <div class="form-group">
-                                        <div class="col-md-12">
-                                            <label class="">เลขบัตรประชาชน</label>
-                                            <input type="text" name="idcard" value="<?php echo $idcard?>" class="form-control form-control-line">
-                                        </div>
-                                    </div>
-                                    </div>
-                                <div class="row">
-                                <div class="row col-md-12">
-                                    <div class="form-group">
-                                        <div class="col-md-12">
-                                            <label class=""><b>ที่อยู่</b></label>
-                                        </div>
-                                    </div>
-                                    </div>
-                                </div>
-                                <div class="row col-md-12">
-                                    <div class="form-group">
-                                        <div class="col-md-6">
-                                            <label class="">บ้านเลชที่</label>
-                                            <input type="text" name="house_num" value="<?php echo $house_num?>" class="form-control form-control-line">
-                                        </div>
-                                    </div>
                                     </div>
                                     <div class="form-group">
-                                    <div class="row col-md-12">
-                                        <div class="col-md-4">
-                                            <label for="province">จังหวัด</label>
-                                            <select name="province_id" id="province" class="form-control">
-                                                <option value="<?php echo $id3?>"><?php echo $name_th?></option>
-                                                <?php
+                                        <div class="row col-md-12">
+                                            <div class="col-md-4">
+                                            <label for="province"><b>จังหวัด</b></label>
+                                                <select name="province_id" id="province" class="form-control">
+                                                    <option value="<?php echo $province_id?>"><?php echo $name_th?></option>
+                                                    <?php
                                                     $sql = "SELECT * FROM provinces";
                                                     $query = mysqli_query($conn, $sql);
                                                     while($result = mysqli_fetch_assoc($query)):
                                                 ?>
                                                     <option value="<?=$result['id']?>"><?=$result['name_th']?></option>
-                                                <?php endwhile; ?>
-                                            </select>
+                                                    <?php endwhile; ?>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-4">
+                                            <label for="amphure"><b>อำเภอ/เขต</b></label>
+                                                <select name="amphures_id" id="amphure" class="form-control">
+                                                    <option value="<?php echo $amphures_id?>"><?php echo $name_th1?></option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-4">
+                                            <label for="district"><b>ตำบล/แขวง</b></label>
+                                                <select name="districts_id" id="district" class="form-control">
+                                                    <option value="<?php echo $districts_id?>"><?php echo $name_th2?></option>
+                                                </select>
+                                            </div>
                                         </div>
-                                        <div class="col-md-4">
-                                            <label for="amphure">อำเภอ/เขต</label>
-                                            <select name="amphures_id" id="amphure" class="form-control">
-                                                <option value="<?php echo $id1?>"><?php echo $name_th1?></option>
-                                            </select>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <label for="district">ตำบล/แขวง</label>
-                                            <select name="districts_id" id="district" class="form-control">
-                                                <option value="<?php echo $id2?>"><?php echo $name_th2?></option>
-                                            </select>
-                                        </div>
-                                    </div>
                                     </div>
                                     <div class="form-group">
-                                    <div class="row col-md-12">
+                                        <div class="row col-md-12">
+                                            <div class="col-md-4">
+                                            <label class=""><b>Username</b></label>
+                                                <input type="text" name="username" value="<?php echo $username?>" class="form-control form-control-line">
+                                            </div>
+
+                                            <div class="col-md-4">
+                                            <label class=""><b>Psaaword</b></label>&nbsp;<label>(ตัวเลข 4-8 ตัวเท่านั้น)</label>
+                                                <input type="text" name="password" value="<?php echo $password?>" maxlength="8" minlength="4" class="form-control form-control-line" onKeyUp="IsNumeric(this.value,this)">
+                                            </div>
+                                            <div class="col-md-4">
+                                                    <label class=""><b>Confirm password</b></label>&nbsp;<label>(ตัวเลข 4-8 ตัวเท่านั้น)</label>
+                                                    <input type="text" name="con_password" value="<?php echo $password?>" maxlength="8" minlength="4" class="form-control form-control-line" onKeyUp="IsNumeric(this.value,this)">
+                                                </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
                                         <div class="col-md-6">
-                                            <label class="">Username</label>
-                                            <input type="text" name="username" value="<?php echo $username?>" class="form-control form-control-line">
-                                        </div>
-
-                                        <div class="col-md-6">
-                                            <label class="">Psaaword</label>
-                                            <input type="text" name="password" value="<?php echo $password?>" class="form-control form-control-line">
-                                        </div>
-                                    </div>
-                                    </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="col-md-6">สถานะ</label>
-                                        <div class="col-md-6">
-                                            <input type="text" name="status" readonly value="<?php echo $status?>" class="form-control form-control-line">
-                                            
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                                <div class="row">
-                                    <div class="col-md-3">
-                                    </div>
-                                    <div class="col-md-3">
-                                    <div class="form-group">
-                                    <input type="submit" name="submit" value="บันทึก" class="btn btn-primary btn-block"/>
+                                            <div class="form-group">
+                                                <div class="col-md-6">
+                                                    <label class=""><b>สถานะ</b></label>
+                                                    <input type="text" name="status" readonly value="<?php echo $status?>" class="form-control form-control-line">
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
 
-                                    <div class="col-md-3">
-                                    <div class="form-group">
-                                    <button type="button" class="btn btn-danger btn-block">ยกเลิก</button>
-                                        </div>
-                                    </div>
 
-                                </div>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <input type="submit" name="submit" value="บันทึก" class="btn btn-primary btn-block" />
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <button type="button" class="btn btn-danger btn-block" onClick="JavaScript:history.back();">ยกเลิก</button>
+                                            </div>
+                                        </div>
+
+                                    </div>
                                 </form>
                             </div>
                         </div>
                     </div>
-                    <!-- Column -->
                 </div>
-                <!-- Row -->
-                <!-- ============================================================== -->
-                <!-- End PAge Content -->
-                <!-- ============================================================== -->
             </div>
-            <!-- ============================================================== -->
-            <!-- End Container fluid  -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- footer -->
-            <!-- ============================================================== -->
             <footer class="footer">
                 © 2018 Adminwrap by wrappixel.com
             </footer>
-            <!-- ============================================================== -->
-            <!-- End footer -->
-            <!-- ============================================================== -->
         </div>
-        <!-- ============================================================== -->
-        <!-- End Page wrapper  -->
-        <!-- ============================================================== -->
     </div>
-    <!-- ============================================================== -->
-    <!-- End Wrapper -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- All Jquery -->
-    <!-- ============================================================== -->
     <script src="../assets/node_modules/jquery/jquery.min.js"></script>
     <!-- Bootstrap tether Core JavaScript -->
     <script src="../assets/node_modules/bootstrap/js/popper.min.js"></script>

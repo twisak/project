@@ -93,6 +93,23 @@ else
                             $t_lastname = $result_teacher['t_lastname'];
 
                 ?>
+                <script language="javascript">
+                    function IsCharacter(sText, obj) {
+                        var ValidChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ.abcdefghijklmnopqrstuvwxyz.กขฃคฅฆงจฉชซฌญฎฏฐฑฒณดตถทธนบปผฝพฟภมยรลวศษสหฬอฮ. ื.์.่.๋.้.็.า.เ.ๆ.ำ.ะ.ั.ี.๊.ึ.ุ.ู.";
+                        var IsCharacter = true;
+                        var Char;
+                        for (i = 0; i < sText.length && IsCharacter == true; i++) {
+                            Char = sText.charAt(i);
+                            if (ValidChars.indexOf(Char) == -1) {
+                                IsCharacter = false;
+                            }
+                        }
+                        if (IsCharacter == false) {
+                            alert("(ภาษาไทย & อังกฤษ เท่านั้น)");
+                            obj.value = sText.substr(0, sText.length - 1);
+                        }
+                    }
+                </script>
 
                 <div class="row">
 
@@ -101,58 +118,68 @@ else
                             <!-- Tab panes -->
                             <div class="card-body">
                                 <form class="form-horizontal form-material" action="edit_teacher.php" name="form_user" method="post">
-<input type="hidden" name="id" value="<?php echo $id; ?>">
+                                    <input type="hidden" name="id" value="<?php echo $id; ?>">
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-12 text-center">
+                                                <div class="form-group">
+                                                    <label>
+                                                        <h4><b><u>แก้ไขข้อมูลอาจารย์</u></b></h4>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="row">
                                         <div class="col-md-1">
                                             <div class="form-group">
-                                                <label>รหัส</label>
+                                                <label><b>รหัส</b></label>
                                                 <input type="text" name="teacher_id" value="<?php echo $teacher_id; ?>" class="form-control form-control-line" readonly>
                                             </div>
                                         </div>
 
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <label>ชื่อ</label>
-                                                <input type="text" name="t_firstname" value="<?php echo $t_firstname; ?>"  class="form-control form-control-line" >
+                                                <label><b>ชื่อ</b></label></label>&nbsp;<label>(ภาษาไทย & อังกฤษ)</label>
+                                                <input type="text" name="t_firstname" value="<?php echo $t_firstname; ?>" class="form-control form-control-line" onKeyUp="IsCharacter(this.value,this)">
                                             </div>
                                         </div>
 
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <label>นามสกุล</label>
-                                                <input type="text" name="t_lastname" value="<?php echo $t_lastname; ?>"  class="form-control form-control-line" >
+                                                <label><b>นามสกุล</b></label></label>&nbsp;<label>(ภาษาไทย & อังกฤษ)</label>
+                                                <input type="text" name="t_lastname" value="<?php echo $t_lastname; ?>" class="form-control form-control-line" onKeyUp="IsCharacter(this.value,this)">
                                             </div>
                                         </div>
 
-                                      <div class="col-md-2">
-                                          <div class="form-group">
-                                              <label>ตำแหน่ง</label>
-                                              <select class="form-control" name="position_id" value="<?php echo $result_teacher['position_id']; ?>">
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label><b>ตำแหน่ง</b></label></label>
+                                                <select class="form-control" name="position_id" value="<?php echo $result_teacher['position_id']; ?>">
+                                                    <?php
+                                                        $sql_check_position = "SELECT * FROM tb_position";
+                                                        $query_check_position = mysqli_query($conn,$sql_check_position);
 
-                                <?php
-                                $sql_check_position = "SELECT * FROM tb_position";
-                                $query_check_position = mysqli_query($conn,$sql_check_position);
+                                                        $position_id = $result_teacher['position_id'];
+                                                        while($result_check_position = mysqli_fetch_array($query_check_position))
+                                                        {
+                                                            if($position_id == $result_check_position["position_id"])
+                                                            {
+                                                            $selected_check_position = "selected";
 
-                                $position_id = $result_teacher['position_id'];
-                                while($result_check_position = mysqli_fetch_array($query_check_position))
-                                {
-                                if($position_id == $result_check_position["position_id"])
-                                {
-                                $selected_check_position = "selected";
-
-                                }
-                                else
-                                {
-                                $selected_check_position = "";
-                                }
-                                ?>
-                                <option value="<?php echo $result_check_position["position_id"];?>"<?php echo $selected_check_position;?>><?php echo $result_check_position["position_name"]; ?></option>
-                                <?php
-                                }
-                                ?>
-                                </select>
-                                          </div>
-                                      </div>
+                                                            }
+                                                            else
+                                                            {
+                                                            $selected_check_position = "";
+                                                            }
+                                                        ?>
+                                                    <option value="<?php echo $result_check_position["position_id"];?>" <?php echo $selected_check_position;?>><?php echo $result_check_position["position_name"]; ?></option>
+                                                    <?php
+                                                        }
+                                                    ?>
+                                                </select>
+                                            </div>
+                                        </div>
 
                                     </div>
 
@@ -167,7 +194,7 @@ else
 
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <button type="button" class="btn btn-danger btn-block">ยกเลิก</button>
+                                                <button type="button" class="btn btn-danger btn-block" onClick="JavaScript:history.back();">ยกเลิก</button>
                                             </div>
                                         </div>
 

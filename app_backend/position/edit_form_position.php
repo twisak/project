@@ -44,34 +44,22 @@ else
 </head>
 
 <body class="fix-header card-no-border fix-sidebar">
-    <!-- ============================================================== -->
-    <!-- Preloader - style you can find in spinners.css -->
-    <!-- ============================================================== -->
     <div class="preloader">
         <div class="loader">
             <div class="loader__figure"></div>
             <p class="loader__label">Admin Wrap</p>
         </div>
     </div>
-    <!-- ============================================================== -->
-    <!-- Main wrapper - style you can find in pages.scss -->
-    <!-- ============================================================== -->
     <div id="main-wrapper">
         <?php include '../mamu/manu_admin.php'; ?>
         <div class="page-wrapper">
-            <!-- ============================================================== -->
-            <!-- Container fluid  -->
-            <!-- ============================================================== -->
             <div class="container-fluid">
-                <!-- ============================================================== -->
-                <!-- Bread crumb and right sidebar toggle -->
-                <!-- ============================================================== -->
                 <div class="row page-titles">
                     <div class="col-md-5 align-self-center">
-                        <h3 class="text-themecolor">เพิ่มข้อมูลตำแหน่ง</h3>
+                        <h3 class="text-themecolor">แก้ไขข้อมูลตำแหน่ง</h3>
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                            <li class="breadcrumb-item active">เพิ่มข้อมูลตำแหน่ง</li>
+                            <li class="breadcrumb-item active">แก้ไขข้อมูลตำแหน่ง</li>
                         </ol>
                     </div>
                 </div>
@@ -81,7 +69,7 @@ else
 
                 <div class="row">
 
-                  <?php
+                    <?php
                           include '../../administrator/connect.php';
                         $id =$_GET['id'];
 
@@ -92,27 +80,54 @@ else
                          $position_id = $row_position['position_id'];
                          $position_name = $row_position['position_name'];
                   ?>
-
+                    <script language="javascript">
+                        function IsCharacter(sText, obj) {
+                            var ValidChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ.abcdefghijklmnopqrstuvwxyz.กขฃคฅฆงจฉชซฌญฎฏฐฑฒณดตถทธนบปผฝพฟภมยรลวศษสหฬอฮ. ื.์.่.๋.้.็.า.เ.ๆ.ำ.ะ.ั.ี.๊.ึ.ุ.ู.";
+                            var IsCharacter = true;
+                            var Char;
+                            for (i = 0; i < sText.length && IsCharacter == true; i++) {
+                                Char = sText.charAt(i);
+                                if (ValidChars.indexOf(Char) == -1) {
+                                    IsCharacter = false;
+                                }
+                            }
+                            if (IsCharacter == false) {
+                                alert("(ภาษาไทย & อังกฤษ เท่านั้น)");
+                                obj.value = sText.substr(0, sText.length - 1);
+                            }
+                        }
+                    </script>
                     <div class="col-lg-12 col-xlg-9 col-md-7">
                         <div class="card">
                             <!-- Tab panes -->
                             <div class="card-body">
                                 <form class="form-horizontal form-material" action="edit_position.php" name="form_user" method="post">
 
-    <input type="hidden" name="id" value="<?php echo $id; ?>">
+                                    <input type="hidden" name="id" value="<?php echo $id; ?>">
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-12 text-center">
+                                                <div class="form-group">
+                                                    <label>
+                                                        <h4><b><u>แก้ไขข้อมูลตำแหน่ง</u></b></h4>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
 
                                     <div class="row">
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label>รหัสตำแหน่ง</label>
+                                                <label><b>รหัสตำแหน่ง</b></label>
                                                 <input type="text" name="position_id" value="<?php echo $position_id; ?>" class="form-control form-control-line" readonly>
                                             </div>
                                         </div>
 
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label>ตำแหน่ง</label>
-                                                <input type="text" name="position_name" value="<?php echo $position_name; ?>" class="form-control form-control-line">
+                                                <label><b>ตำแหน่ง</b></label>
+                                                <input type="text" name="position_name" value="<?php echo $position_name; ?>" class="form-control form-control-line" onKeyUp="IsCharacter(this.value,this)">
                                             </div>
                                         </div>
                                     </div>
@@ -128,7 +143,7 @@ else
 
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <button type="button" class="btn btn-danger btn-block">ยกเลิก</button>
+                                                <button type="button" class="btn btn-danger btn-block" onClick="JavaScript:history.back();">ยกเลิก</button>
                                             </div>
                                         </div>
 
@@ -138,34 +153,12 @@ else
                         </div>
                         <!-- Column -->
                     </div>
-                    <!-- Row -->
-                    <!-- ============================================================== -->
-                    <!-- End PAge Content -->
-                    <!-- ============================================================== -->
                 </div>
-                <!-- ============================================================== -->
-                <!-- End Container fluid  -->
-                <!-- ============================================================== -->
-                <!-- ============================================================== -->
-                <!-- footer -->
-                <!-- ============================================================== -->
                 <footer class="footer">
                     © 2018 Adminwrap by wrappixel.com
                 </footer>
-                <!-- ============================================================== -->
-                <!-- End footer -->
-                <!-- ============================================================== -->
             </div>
-            <!-- ============================================================== -->
-            <!-- End Page wrapper  -->
-            <!-- ============================================================== -->
         </div>
-        <!-- ============================================================== -->
-        <!-- End Wrapper -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- All Jquery -->
-        <!-- ============================================================== -->
         <script src="../assets/node_modules/jquery/jquery.min.js"></script>
         <!-- Bootstrap tether Core JavaScript -->
         <script src="../assets/node_modules/bootstrap/js/popper.min.js"></script>

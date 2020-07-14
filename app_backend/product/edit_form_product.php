@@ -113,7 +113,17 @@ else
                                             $project_name = $result['project_name'];
                                             $project_id = $result['project_id'];
                                     ?>
-                                    ?>
+                                    <div class="form-group">    
+                                        <div class="row">
+                                            <div class="col-md-12 text-center">
+                                                <div class="form-group">
+                                                    <label>
+                                                        <h4><b><u>แก้ไขข้อมูลผลผลิต</u></b></h4>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="row">
                                       <?php
                                           $sql_budget = "SELECT * FROM tb_budget";
@@ -122,7 +132,7 @@ else
                                         <input type="hidden" name="id" value="<?php echo $id; ?>">
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label>ชื่อกิจกรรมโครงการ</label><br>
+                                                <label><b>ชื่อกิจกรรมโครงการ</b></label><br>
                                                 <select class="form-control" required name="project_id">
                                                     <option value="<?php echo $project_id; ?>" ><?php echo $project_name; ?></option>
                                                     <?php
@@ -141,7 +151,7 @@ else
                                         </div>
                                       <div class="col-md-3">
                                           <div class="form-group">
-                                              <label>ประเภทงบประมาณ</label>
+                                              <label><b>ประเภทงบประมาณ</b></label>
                                               <select class="form-control" name="budget_id">
                                                   <option value="<?php echo $budget_id; ?>"><?php echo $budget; ?></option>
                                                   <?php
@@ -158,7 +168,7 @@ else
 
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label>ผลผลิต</label>
+                                                <label><b>ผลผลิต</b></label>
                                                 <input type="text" name="product" value="<?php echo $product;?>" class="form-control form-control-line">
                                             </div>
                                         </div>
@@ -175,7 +185,7 @@ else
 
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <button type="button" class="btn btn-danger btn-block">ยกเลิก</button>
+                                                <button type="button" class="btn btn-danger btn-block" onClick="JavaScript:history.back();">ยกเลิก</button>
                                             </div>
                                         </div>
 
@@ -185,34 +195,12 @@ else
                         </div>
                         <!-- Column -->
                     </div>
-                    <!-- Row -->
-                    <!-- ============================================================== -->
-                    <!-- End PAge Content -->
-                    <!-- ============================================================== -->
                 </div>
-                <!-- ============================================================== -->
-                <!-- End Container fluid  -->
-                <!-- ============================================================== -->
-                <!-- ============================================================== -->
-                <!-- footer -->
-                <!-- ============================================================== -->
                 <footer class="footer">
                     © 2018 Adminwrap by wrappixel.com
                 </footer>
-                <!-- ============================================================== -->
-                <!-- End footer -->
-                <!-- ============================================================== -->
             </div>
-            <!-- ============================================================== -->
-            <!-- End Page wrapper  -->
-            <!-- ============================================================== -->
         </div>
-        <!-- ============================================================== -->
-        <!-- End Wrapper -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- All Jquery -->
-        <!-- ============================================================== -->
         <script src="../assets/node_modules/jquery/jquery.min.js"></script>
         <!-- Bootstrap tether Core JavaScript -->
         <script src="../assets/node_modules/bootstrap/js/popper.min.js"></script>

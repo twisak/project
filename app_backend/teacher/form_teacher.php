@@ -101,26 +101,53 @@ else
                                                 }
 
                                 ?>
-
+                                    <script language="javascript">
+                                        function IsCharacter(sText, obj) {
+                                            var ValidChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ.abcdefghijklmnopqrstuvwxyz.กขฃคฅฆงจฉชซฌญฎฏฐฑฒณดตถทธนบปผฝพฟภมยรลวศษสหฬอฮ. ื.์.่.๋.้.็.า.เ.ๆ.ำ.ะ.ั.ี.๊.ึ.ุ.ู.";
+                                            var IsCharacter = true;
+                                            var Char;
+                                            for (i = 0; i < sText.length && IsCharacter == true; i++) {
+                                                Char = sText.charAt(i);
+                                                if (ValidChars.indexOf(Char) == -1) {
+                                                    IsCharacter = false;
+                                                }
+                                            }
+                                            if (IsCharacter == false) {
+                                                alert("(ภาษาไทย & อังกฤษ เท่านั้น)");
+                                                obj.value = sText.substr(0, sText.length - 1);
+                                            }
+                                        }
+                                    </script>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-12 text-center">
+                                                <div class="form-group">
+                                                    <label>
+                                                        <h4><b><u>กรอกข้อมูลอาจารย์</u></b></h4>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="row">
                                         <div class="col-md-1">
                                             <div class="form-group">
-                                                <label>รหัส</label>
+                                                <label><b>รหัส</b></label>
                                                 <input type="text" name="teacher_id" value="<?=$id?>" class="form-control form-control-line" readonly>
                                             </div>
                                         </div>
 
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <label>ชื่อ</label>
-                                                <input type="text" name="t_firstname"  class="form-control form-control-line" >
+                                                <label><b>ชื่อ</b></label>&nbsp;<label class="text-danger"><b>*</b></label>&nbsp;<label>(ภาษาไทย & อังกฤษ)</label>
+                                                <input type="text" name="t_firstname" required class="form-control form-control-line" onKeyUp="IsCharacter(this.value,this)">
                                             </div>
                                         </div>
 
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <label>นามสกุล</label>
-                                                <input type="text" name="t_lastname"  class="form-control form-control-line" >
+                                                <label><b>นามสกุล</b></label>&nbsp;<label class="text-danger"><b>*</b></label>&nbsp;<label>(ภาษาไทย & อังกฤษ)</label>
+                                                <input type="text" name="t_lastname" required class="form-control form-control-line" onKeyUp="IsCharacter(this.value,this)">
                                             </div>
                                         </div>
 
@@ -131,8 +158,8 @@ else
 
                                       <div class="col-md-2">
                                           <div class="form-group">
-                                              <label>ตำแหน่ง</label>
-                                              <select class="form-control" name="position_id">
+                                              <label><b>ตำแหน่ง</b></label>&nbsp;<label class="text-danger"><b>*</b></label>
+                                              <select class="form-control" name="position_id" required>
                                                   <option value="">-- เลือกตำแหน่ง --</option>
                                                   <?php
                                                       while($result_position=mysqli_fetch_array($query_position))
@@ -159,7 +186,7 @@ else
 
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <button type="button" class="btn btn-danger btn-block">ยกเลิก</button>
+                                                <button type="button" class="btn btn-danger btn-block" onClick="JavaScript:history.back();">ยกเลิก</button>
                                             </div>
                                         </div>
 
@@ -169,34 +196,12 @@ else
                         </div>
                         <!-- Column -->
                     </div>
-                    <!-- Row -->
-                    <!-- ============================================================== -->
-                    <!-- End PAge Content -->
-                    <!-- ============================================================== -->
                 </div>
-                <!-- ============================================================== -->
-                <!-- End Container fluid  -->
-                <!-- ============================================================== -->
-                <!-- ============================================================== -->
-                <!-- footer -->
-                <!-- ============================================================== -->
                 <footer class="footer">
                     © 2018 Adminwrap by wrappixel.com
                 </footer>
-                <!-- ============================================================== -->
-                <!-- End footer -->
-                <!-- ============================================================== -->
             </div>
-            <!-- ============================================================== -->
-            <!-- End Page wrapper  -->
-            <!-- ============================================================== -->
         </div>
-        <!-- ============================================================== -->
-        <!-- End Wrapper -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- All Jquery -->
-        <!-- ============================================================== -->
         <script src="../assets/node_modules/jquery/jquery.min.js"></script>
         <!-- Bootstrap tether Core JavaScript -->
         <script src="../assets/node_modules/bootstrap/js/popper.min.js"></script>
