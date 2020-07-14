@@ -109,7 +109,10 @@ include '../../administrator/connect.php';
                             <div class="card-body">
                                 <form class="form-horizontal form-material" action="INSERT_note_command.php" method="post">
                                     <?php
-                                           $sql ="SELECT * FROM tb_note_command";
+
+                                    $id = $_GET['id'];
+
+                                           $sql ="SELECT * FROM tb_note_command WHERE id = '".$id."' ";
                                            $query = mysqli_query($conn,$sql);
                                            while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
                                            {
@@ -265,7 +268,7 @@ include '../../administrator/connect.php';
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <a href="edit_form_doc_contract.php?id=<?php echo $id;?>" class="btn btn-warning btn-block">แก้ไขข้อมูลเอกสารคำสั่ง</a>
+                                                <a href="edit_form_doc_command.php?id=<?php echo $id;?>" class="btn btn-warning btn-block">แก้ไขข้อมูลเอกสารคำสั่ง</a>
                                             </div>
                                         </div>
 
