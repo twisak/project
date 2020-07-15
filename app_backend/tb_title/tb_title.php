@@ -71,47 +71,52 @@ else
                             <div class="card-body">
                                 <h4 class="card-title">ข้อมูลเนื้อเรื่อง</h4>
 
-                                <div class="text-right">
-                                    <a href="../tb_title/form_title.php"><button type="button" class="btn btn-primary">เพิ่มหัวข้อเรื่อง</button></a>
+                                <div class="form-group">
+                                    <div class="row col-md-12">
+                                        <div class="col-md-6">
+                                            <?php
+                                                    $strKeyword = null;
+                                                    if(isset($_POST["txtKeyword"])){
+                                                        $strKeyword = $_POST["txtKeyword"];
+                                                    }
+                                                    if(isset($_GET["txtKeyword"])){
+                                                        $strKeyword = $_GET["txtKeyword"];
+                                                    }
+                                                ?>
+                                            <form name="frmSearch" method="post" action="<?php echo $_SERVER['SCRIPT_NAME'];?>">
+                                                <div class="container">
+                                                    <div class="row">
+                                                        <div class="col-md-6 col-8">
+                                                            <input class="form-control" type="text" placeholder="Search..." value="<?php echo $strKeyword;?>" name="txtKeyword" id="txtKeyword">
+                                                        </div>
+                                                        <button type="submit" class="btn btn-info" name="btnsearch">ค้นหา</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="col-md-2 text-right">
+
+                                        </div>
+                                        <div class="col-md-4 text-right">
+                                            <div class="text-right">
+                                                <a href="../tb_title/form_title.php"><button type="button" class="btn btn-primary">เพิ่มหัวข้อเรื่อง</button></a>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
 
-                                <br>
-                                  <div class="text-right">
-                                    <?php
-                                  $strKeyword = null;
-                                  if(isset($_POST["txtKeyword"])){
-                                    $strKeyword = $_POST["txtKeyword"];
-                                  }
-                                  if(isset($_GET["txtKeyword"])){
-                                    $strKeyword = $_GET["txtKeyword"];
-                                  }
-                                    ?>
-                                    <form name="frmSearch" method="post" action="<?php echo $_SERVER['SCRIPT_NAME'];?>">
-                                    <div class="container">
-                                      <div class="row">
-                                        <div class="col-md-8">
-                                        </div>
-                                          <div class="col-md-3 col-8">
-                                              <input class="form-control" type="text" placeholder="Search..." value="<?php echo $strKeyword;?>" name="txtKeyword" id="txtKeyword">
-                                          </div>
-                                          <div class="col-md-1 col-2" style="padding-top:4px;">
-                                                <button type="submit" class="btn btn-info"  name="btnsearch">ค้นหา</button>
-                                          </div>
-                                      </div>
-                                    </div>
-                                    </form>
-                                  </div>
+    
 
 
                                 <div class="table-responsive">
-                                    <table class="table">
+                                    <table class="table table-bordered">
                                         <thead>
                                         <tr>
-                                                <th class="text-center">ลำดับ</th>
-                                                <th class="text-center">เรื่อง</th>
-                                                <th class="text-center">เนื้อหา</th>
-                                                <th class="text-center">แก้ไข</th>
-                                                <th class="text-center">ลบ</th>
+                                                <th class="text-center"><b>ลำดับ</b></th>
+                                                <th class="text-center"><b>เรื่อง</b></th>
+                                                <th class="text-center"><b>เนื้อหา</b></th>
+                                                <th class="text-center"><b>แก้ไข</b></th>
+                                                <th class="text-center"><b>ลบ</b></th>
                                             </tr>
                                         </thead>
                                         <?php

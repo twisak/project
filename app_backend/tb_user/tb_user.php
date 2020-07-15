@@ -81,6 +81,43 @@ else
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="card-title">ข้อมูลบุคลากร</h4>
+
+
+                                <div class="form-group">
+                                    <div class="row col-md-12">
+                                        <div class="col-md-6">
+                                            <?php
+                                                    $strKeyword = null;
+                                                    if(isset($_POST["txtKeyword"])){
+                                                        $strKeyword = $_POST["txtKeyword"];
+                                                    }
+                                                    if(isset($_GET["txtKeyword"])){
+                                                        $strKeyword = $_GET["txtKeyword"];
+                                                    }
+                                                ?>
+                                            <form name="frmSearch" method="post" action="<?php echo $_SERVER['SCRIPT_NAME'];?>">
+                                                <div class="container">
+                                                    <div class="row">
+                                                        <div class="col-md-6 col-8">
+                                                            <input class="form-control" type="text" placeholder="Search..." value="<?php echo $strKeyword;?>" name="txtKeyword" id="txtKeyword">
+                                                        </div>
+                                                        <button type="submit" class="btn btn-info" name="btnsearch">ค้นหา</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="col-md-2 text-right">
+
+                                        </div>
+                                        <div class="col-md-4 text-right">
+                                            <div class="text-right">
+                                                <a href="form_user"><button type="button" class="btn btn-primary">เพิ่มบุคลากร</button></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+<!--
                                 <div class="form-group">
                                     <div class="row col-md-12">
                                         <div class="col-md-6">
@@ -96,20 +133,20 @@ else
                                             </a>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="table-responsive">
-                                    <table class="table text-center">
+                                    <table class="table text-center table-bordered">
                                         <thead>
                                             <tr>
-                                                <th class="text-center">ลำดับ</th>
-                                                <th class="text-center">ชื่อ-สกุล</th>
-                                                <th class="text-center">เลขบัตรประชาชน</th>
-                                                <th class="text-center">Address</th>
-                                                <th class="text-center">username</th>
-                                                <th class="text-center">password</th>
-                                                <th class="text-center">สถานะ</th>
-                                                <th class="text-center">แก้ไข</th>
-                                                <th class="text-center">ลบ</th>
+                                                <th class="text-center"><b>ลำดับ</b></th>
+                                                <th class="text-center"><b>ชื่อ-สกุล</b></th>
+                                                <th class="text-center"><b>เลขบัตรประชาชน</b></th>
+                                                <th class="text-center"><b>Address</b></th>
+                                                <th class="text-center"><b>username</b></th>
+                                                <th class="text-center"><b>password</b></th>
+                                                <th class="text-center"><b>สถานะ</b></th>
+                                                <th class="text-center"><b>แก้ไข</b></th>
+                                                <th class="text-center"><b>ลบ</b></th>
                                             </tr>
                                         </thead>
                                         <?php
@@ -117,63 +154,73 @@ else
                                             $i<="";
 
                                             include '../../administrator/connect.php';
-                                            $sql ="SELECT * FROM tb_person WHERE firtname LIKE '%".$strKeyword."%'";
+
+
+                                            $sql ="SELECT tb_person.id, tb_person.prefix , tb_person.firtname , tb_person.lastname , tb_person.idcard, tb_person.house_num , account_login.username , account_login.password , account_login.status, provinces.name_th as name_th_p ,amphures.name_th as name_th_a , districts.name_th as name_th_d   FROM tb_person
+                                            INNER JOIN account_login ON tb_person.person_id = account_login.person_id
+                                            INNER JOIN provinces ON tb_person.province_id = provinces.id
+                                            INNER JOIN amphures ON tb_person.amphures_id = amphures.id
+                                            INNER JOIN districts ON tb_person.districts_id = districts.id
+                                            WHERE (tb_person.firtname LIKE '%".$strKeyword."%' or tb_person.lastname LIKE '%".$strKeyword."%' or tb_person.idcard LIKE '%".$strKeyword."%' or account_login.status LIKE '%".$strKeyword."%' ) ";
+
+
+                                            // $sql ="SELECT * FROM tb_person WHERE firtname LIKE '%".$strKeyword."%'";
                                             $query = mysqli_query($conn,$sql);
                                             while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
                                             {
-                                                $id = $row['id'];
-                                                $prefix = $row['prefix'];
-                                                $firtname = $row['firtname'];
-                                                $lastname = $row['lastname'];
-                                                $idcard = $row['idcard'];
-                                                $house_num = $row['house_num'];
-                                                $amphures_id = $row['amphures_id'];
-                                                $districts_id = $row['districts_id'];
-                                                $province_id = $row['province_id'];
-                                                $person_id = $row['person_id'];
-
-                                            //echo $province_id;
+                                            //     $id = $row['id'];
+                                            //     $prefix = $row['prefix'];
+                                            //     $firtname = $row['firtname'];
+                                            //     $lastname = $row['lastname'];
+                                            //     $idcard = $row['idcard'];
+                                            //     $house_num = $row['house_num'];
+                                            //     $amphures_id = $row['amphures_id'];
+                                            //     $districts_id = $row['districts_id'];
+                                            //     $province_id = $row['province_id'];
+                                            //     $person_id = $row['person_id'];
                                             //
-
-                                            $sql1 ="SELECT * FROM account_login WHERE person_id = '".$person_id."' ";
-                                            $query1 = mysqli_query($conn,$sql1);
-                                            while($row1 = mysqli_fetch_array($query1,MYSQLI_ASSOC))
-                                            {
-                                                $person_id = $row1['person_id'];
-                                                $username = $row1['username'];
-                                                $password = $row1['password'];
-                                                $status = $row1['status'];
-                                            }
-
-                                            $sql2 ="SELECT * FROM provinces WHERE id = '".$province_id."' ";
-                                            $query2 = mysqli_query($conn,$sql2);
-                                            while($row2 = mysqli_fetch_array($query2,MYSQLI_ASSOC))
-                                            {
-                                                $name_th = $row2['name_th'];
-                                            }
-                                            $sql3 ="SELECT * FROM districts WHERE id = '".$districts_id."' ";
-                                            $query3 = mysqli_query($conn,$sql3);
-                                            while($row3 = mysqli_fetch_array($query3,MYSQLI_ASSOC))
-                                            {
-                                                $name_th1 = $row3['name_th'];
-                                            }
-                                            $sql4 ="SELECT * FROM amphures WHERE id = '".$amphures_id."' ";
-                                            $query4 = mysqli_query($conn,$sql4);
-                                            while($row4 = mysqli_fetch_array($query4,MYSQLI_ASSOC))
-                                            {
-                                                $name_th2 = $row4['name_th'];
-                                            }
+                                            // //echo $province_id;
+                                            // //
+                                            //
+                                            // $sql1 ="SELECT * FROM account_login WHERE person_id = '".$person_id."' ";
+                                            // $query1 = mysqli_query($conn,$sql1);
+                                            // while($row1 = mysqli_fetch_array($query1,MYSQLI_ASSOC))
+                                            // {
+                                            //     $person_id = $row1['person_id'];
+                                            //     $username = $row1['username'];
+                                            //     $password = $row1['password'];
+                                            //     $status = $row1['status'];
+                                            // }
+                                            //
+                                            // $sql2 ="SELECT * FROM provinces WHERE id = '".$province_id."' ";
+                                            // $query2 = mysqli_query($conn,$sql2);
+                                            // while($row2 = mysqli_fetch_array($query2,MYSQLI_ASSOC))
+                                            // {
+                                            //     $name_th = $row2['name_th'];
+                                            // }
+                                            // $sql3 ="SELECT * FROM districts WHERE id = '".$districts_id."' ";
+                                            // $query3 = mysqli_query($conn,$sql3);
+                                            // while($row3 = mysqli_fetch_array($query3,MYSQLI_ASSOC))
+                                            // {
+                                            //     $name_th1 = $row3['name_th'];
+                                            // }
+                                            // $sql4 ="SELECT * FROM amphures WHERE id = '".$amphures_id."' ";
+                                            // $query4 = mysqli_query($conn,$sql4);
+                                            // while($row4 = mysqli_fetch_array($query4,MYSQLI_ASSOC))
+                                            // {
+                                            //     $name_th2 = $row4['name_th'];
+                                            // }
                                                 //echo $sql3;
                                         ?>
                                         <tbody>
                                             <tr>
                                                 <td><?php echo $i;?></td>
-                                                <td><?php echo $prefix;?><?php echo $firtname;?>&nbsp;&nbsp;<?php echo $lastname;?></td>
-                                                <td><?php echo $idcard;?></td>
-                                                <td><?php echo $house_num;?>&nbsp;<?php echo $province_id;?>&nbsp;<?php echo $name_th1;?>&nbsp;<?php echo $name_th2;?></td>
-                                                <td><?php echo $username;?></td>
-                                                <td><?php echo $password;?></td>
-                                                <td><?php echo $status;?></td>
+                                                <td><?php echo $row['prefix'];?><?php echo $row['firtname'];?>&nbsp;&nbsp;<?php echo $row['lastname'];?></td>
+                                                <td><?php echo $row['idcard'];?></td>
+                                                <td><?php echo $row['house_num'];?>&nbsp;<?php echo $row['name_th_p'];?>&nbsp;<?php echo $row['name_th_a'];?>&nbsp;<?php echo $row['name_th_d'];?></td>
+                                                <td><?php echo $row['username'];?></td>
+                                                <td><?php echo $row['password'];?></td>
+                                                <td><?php echo $row['status'];?></td>
                                                 <td>
                                                     <a href="edit_form_user.php?id=<?php echo $person_id;?>"><button type="button" class="btn btn-warning">แก้ไข</button></a>
                                                 </td>
