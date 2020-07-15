@@ -73,6 +73,34 @@ else
                                 <div class="text-right">
                                     <a href="../teacher/form_teacher.php"><button type="button" class="btn btn-primary">เพิ่มอาจารย์</button></a>
                                 </div>
+
+                                <br>
+                                  <div class="text-right">
+                                    <?php
+                                  $strKeyword = null;
+                                  if(isset($_POST["txtKeyword"])){
+                                    $strKeyword = $_POST["txtKeyword"];
+                                  }
+                                  if(isset($_GET["txtKeyword"])){
+                                    $strKeyword = $_GET["txtKeyword"];
+                                  }
+                                    ?>
+                                    <form name="frmSearch" method="post" action="<?php echo $_SERVER['SCRIPT_NAME'];?>">
+                                    <div class="container">
+                                      <div class="row">
+                                        <div class="col-md-8">
+                                        </div>
+                                          <div class="col-md-3 col-8">
+                                              <input class="form-control" type="text" placeholder="Search..." value="<?php echo $strKeyword;?>" name="txtKeyword" id="txtKeyword">
+                                          </div>
+                                          <div class="col-md-1 col-2" style="padding-top:4px;">
+                                                <button type="submit" class="btn btn-info"  name="btnsearch">ค้นหา</button>
+                                          </div>
+                                      </div>
+                                    </div>
+                                    </form>
+                                  </div>
+
                                 <div class="table-responsive">
                                     <table class="table text-center">
                                         <thead>
@@ -89,27 +117,32 @@ else
                                             $i<="";
 
                                             include '../../administrator/connect.php';
-                                            $sql_teacher ="SELECT * FROM tb_teacher";
+
+                                            $sql_teacher ="SELECT tb_teacher.id, tb_teacher.t_firstname , tb_teacher.t_lastname , tb_position.position_name  FROM tb_teacher
+                                            INNER JOIN tb_position ON tb_teacher.position_id = tb_position.position_id
+                                            WHERE (tb_teacher.t_firstname LIKE '%".$strKeyword."%' or tb_teacher.t_lastname LIKE '%".$strKeyword."%' or tb_position.position_name LIKE '%".$strKeyword."%'  ) ";
+
+                                            // $sql_teacher ="SELECT * FROM tb_teacher ";
                                             $query_teacher = mysqli_query($conn,$sql_teacher);
                                             while($row_teacher = mysqli_fetch_array($query_teacher,MYSQLI_ASSOC))
                                             {
 
-                                                $t_firstname = $row_teacher['t_firstname'];
-                                                $t_lastname = $row_teacher['t_lastname'];
-                                                $position_id = $row_teacher['position_id'];
-
-                                           $sql_position = "SELECT * FROM tb_position WHERE position_id = '".$position_id."' ";
-                                           $query_position = mysqli_query($conn,$sql_position);
-                                           $row_position =mysqli_fetch_assoc($query_position);
-                                           $position_name = $row_position['position_name'];
+                                           //      $t_firstname = $row_teacher['t_firstname'];
+                                           //      $t_lastname = $row_teacher['t_lastname'];
+                                           //      $position_id = $row_teacher['position_id'];
+                                           //
+                                           // $sql_position = "SELECT * FROM tb_position WHERE position_id = '".$position_id."' ";
+                                           // $query_position = mysqli_query($conn,$sql_position);
+                                           // $row_position =mysqli_fetch_assoc($query_position);
+                                           // $position_name = $row_position['position_name'];
 
 
                                         ?>
                                         <tbody>
                                             <tr>
                                                 <td><?php echo $i;?></td>
-                                                <td><?php echo $t_firstname;?>&nbsp;&nbsp;<?php echo $t_lastname;?></td>
-                                                <td><?php echo $position_name;?></td>
+                                                <td><?php echo $row_teacher['t_firstname'];?>&nbsp;&nbsp;<?php echo $row_teacher['t_lastname'];?></td>
+                                                <td><?php echo $row_teacher['position_name'];?></td>
                                                 <td><a href="edit_form_teacher.php?id=<?php echo $row_teacher['id'];?>" class="btn btn-warning">แก้ไข</a></td>
                                                 <td><a href="JavaScript:if(confirm('ยืนยันการลบ ?') == true){window.location='delete_teacher.php?id=<?php echo $row_teacher["id"];?>';}" class="btn btn-danger">ลบ</a></td>
                                             </tr>

@@ -100,6 +100,34 @@ else
                                 <div class="text-right">
                                     <a href="../strategic/form_strategic.php"><button type="button" class="btn btn-primary">เพิ่มยุทธศาสตร์</button></a>
                                 </div>
+
+                                <br>
+                                  <div class="text-right">
+                                    <?php
+                                  $strKeyword = null;
+                                  if(isset($_POST["txtKeyword"])){
+                                    $strKeyword = $_POST["txtKeyword"];
+                                  }
+                                  if(isset($_GET["txtKeyword"])){
+                                    $strKeyword = $_GET["txtKeyword"];
+                                  }
+                                    ?>
+                                    <form name="frmSearch" method="post" action="<?php echo $_SERVER['SCRIPT_NAME'];?>">
+                                    <div class="container">
+                                      <div class="row">
+                                        <div class="col-md-8">
+                                        </div>
+                                          <div class="col-md-3 col-8">
+                                              <input class="form-control" type="text" placeholder="Search..." value="<?php echo $strKeyword;?>" name="txtKeyword" id="txtKeyword">
+                                          </div>
+                                          <div class="col-md-1 col-2" style="padding-top:4px;">
+                                                <button type="submit" class="btn btn-info"  name="btnsearch">ค้นหา</button>
+                                          </div>
+                                      </div>
+                                    </div>
+                                    </form>
+                                  </div>
+
                                 <div class="table-responsive">
                                     <table class="table text-center">
                                         <thead>
@@ -116,27 +144,34 @@ else
                                             $i<="";
 
                                             include '../../administrator/connect.php';
-                                            $sql_strategic ="SELECT * FROM tb_strategic";
+
+
+                                            $sql_strategic ="SELECT tb_strategic.id, tb_strategic.strategic , tb_mission.mission   FROM tb_strategic
+                                            INNER JOIN tb_mission ON tb_strategic.mission_id = tb_mission.mission_id
+                                            WHERE (tb_strategic.strategic LIKE '%".$strKeyword."%' or tb_mission.mission LIKE '%".$strKeyword."%'  ) ";
+
+
+                                            // $sql_strategic ="SELECT * FROM tb_strategic";
                                             $query_strategic = mysqli_query($conn,$sql_strategic);
                                             while($row_strategic = mysqli_fetch_array($query_strategic,MYSQLI_ASSOC))
                                             {
-                                                $id = $row_strategic['id'];
-                                                $strategic = $row_strategic['strategic'];
-                                                $mission_id = $row_strategic['mission_id'];
-
-                                           $sql_mission = "SELECT * FROM tb_mission WHERE mission_id = '".$mission_id."' ";
-                                           $query_mission = mysqli_query($conn,$sql_mission);
-                                           $row_mission =mysqli_fetch_assoc($query_mission);
-                                           $mission = $row_mission['mission'];
+                                           //      $id = $row_strategic['id'];
+                                           //      $strategic = $row_strategic['strategic'];
+                                           //      $mission_id = $row_strategic['mission_id'];
+                                           //
+                                           // $sql_mission = "SELECT * FROM tb_mission WHERE mission_id = '".$mission_id."' ";
+                                           // $query_mission = mysqli_query($conn,$sql_mission);
+                                           // $row_mission =mysqli_fetch_assoc($query_mission);
+                                           // $mission = $row_mission['mission'];
 
 
                                         ?>
                                         <tbody>
                                             <tr>
                                                 <td><?php echo $i;?></td>
-                                                <td><?php echo $strategic;?></td>
-                                                <td><?php echo $mission;?></td>
-                                                <td><a href="edit_form_strategic.php?id=<?php echo $id;?>" class="btn btn-warning">แก้ไข</a></td>
+                                                <td><?php echo $row_strategic['strategic'];?></td>
+                                                <td><?php echo $row_strategic['mission'];?></td>
+                                                <td><a href="edit_form_strategic.php?id=<?php echo $row_strategic['id'];?>" class="btn btn-warning">แก้ไข</a></td>
                                                 <td><a href="JavaScript:if(confirm('ยืนยันการลบ ?') == true){window.location='delete_strategic.php?id=<?php echo $row_strategic["id"];?>';}" class="btn btn-danger">ลบ</a></td>
                                             </tr>
                                             <?php

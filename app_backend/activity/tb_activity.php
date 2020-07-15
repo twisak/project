@@ -74,6 +74,34 @@ else
                                 <div class="text-right">
                                     <a href="form_activity.php"><button type="button" class="btn btn-primary">เพิ่มกิจกรรม</button></a>
                                 </div>
+
+                                <br>
+                                  <div class="text-right">
+                                    <?php
+                                  $strKeyword = null;
+                                  if(isset($_POST["txtKeyword"])){
+                                    $strKeyword = $_POST["txtKeyword"];
+                                  }
+                                  if(isset($_GET["txtKeyword"])){
+                                    $strKeyword = $_GET["txtKeyword"];
+                                  }
+                                    ?>
+                                    <form name="frmSearch" method="post" action="<?php echo $_SERVER['SCRIPT_NAME'];?>">
+                                    <div class="container">
+                                      <div class="row">
+                                        <div class="col-md-8">
+                                        </div>
+                                          <div class="col-md-3 col-8">
+                                              <input class="form-control" type="text" placeholder="Search..." value="<?php echo $strKeyword;?>" name="txtKeyword" id="txtKeyword">
+                                          </div>
+                                          <div class="col-md-1 col-2" style="padding-top:4px;">
+                                                <button type="submit" class="btn btn-info"  name="btnsearch">ค้นหา</button>
+                                          </div>
+                                      </div>
+                                    </div>
+                                    </form>
+                                  </div>
+
                                 <div class="table-responsive">
                                     <table class="table">
                                         <thead>
@@ -90,26 +118,32 @@ else
                                             $i<="";
 
                                             include '../../administrator/connect.php';
-                                            $sql_tb_activity ="SELECT * FROM tb_activity";
+
+                                            $sql_tb_activity ="SELECT tb_activity.id, tb_activity.activity , tb_project.project_id , tb_project.project_name  FROM tb_activity
+                                            INNER JOIN tb_project ON tb_activity.project_id = tb_project.project_id
+                                            WHERE (tb_activity.activity LIKE '%".$strKeyword."%'  or tb_project.project_name LIKE '%".$strKeyword."%'  ) ";
+
+
+                                            // $sql_tb_activity ="SELECT * FROM tb_activity";
                                             $query_tb_activity = mysqli_query($conn,$sql_tb_activity);
                                             while($row_tb_activity = mysqli_fetch_array($query_tb_activity,MYSQLI_ASSOC))
                                             {
-                                                $project_id = $row_tb_activity['project_id'];
-                                                $activity = $row_tb_activity['activity'];
-
-                                            $sql_tb_project ="SELECT * FROM tb_project WHERE project_id = '".$project_id."' ";
-                                            $query_tb_project = mysqli_query($conn,$sql_tb_project);
-                                            while($row_tb_project = mysqli_fetch_array($query_tb_project,MYSQLI_ASSOC))
-                                            {
-                                                $project_id = $row_tb_project['project_id'];
-                                                $project_name = $row_tb_project['project_name'];
-                                            }
+                                            //     $project_id = $row_tb_activity['project_id'];
+                                            //     $activity = $row_tb_activity['activity'];
+                                            //
+                                            // $sql_tb_project ="SELECT * FROM tb_project WHERE project_id = '".$project_id."' ";
+                                            // $query_tb_project = mysqli_query($conn,$sql_tb_project);
+                                            // while($row_tb_project = mysqli_fetch_array($query_tb_project,MYSQLI_ASSOC))
+                                            // {
+                                            //     $project_id = $row_tb_project['project_id'];
+                                            //     $project_name = $row_tb_project['project_name'];
+                                            // }
                                         ?>
                                         <tbody>
                                             <tr>
                                                 <td class="text-center"><?php echo $i;?></td>
-                                                <td><?php echo $project_name; ?></td>
-                                                <td><?php echo $activity; ?></td>
+                                                <td><?php echo $row_tb_activity['project_name']; ?></td>
+                                                <td><?php echo $row_tb_activity['activity']; ?></td>
                                                 <td><a href="edit_form_activity.php?id=<?php echo $row_tb_activity['id'];?>" class="btn btn-warning">แก้ไข</a></td>
                                                 <td><a href="JavaScript:if(confirm('ยืนยันการลบ ?') == true){window.location='delete_activity.php?id=<?php echo $row_tb_activity["id"];?>';}" class="btn btn-danger">ลบ</a></td>
                                             </tr>

@@ -100,6 +100,34 @@ else
                                 <div class="text-right">
                                     <a href="../product/form_product.php"><button type="button" class="btn btn-primary">เพิ่มผลผลิต</button></a>
                                 </div>
+
+                                <br>
+                                  <div class="text-right">
+                                    <?php
+                                  $strKeyword = null;
+                                  if(isset($_POST["txtKeyword"])){
+                                    $strKeyword = $_POST["txtKeyword"];
+                                  }
+                                  if(isset($_GET["txtKeyword"])){
+                                    $strKeyword = $_GET["txtKeyword"];
+                                  }
+                                    ?>
+                                    <form name="frmSearch" method="post" action="<?php echo $_SERVER['SCRIPT_NAME'];?>">
+                                    <div class="container">
+                                      <div class="row">
+                                        <div class="col-md-8">
+                                        </div>
+                                          <div class="col-md-3 col-8">
+                                              <input class="form-control" type="text" placeholder="Search..." value="<?php echo $strKeyword;?>" name="txtKeyword" id="txtKeyword">
+                                          </div>
+                                          <div class="col-md-1 col-2" style="padding-top:4px;">
+                                                <button type="submit" class="btn btn-info"  name="btnsearch">ค้นหา</button>
+                                          </div>
+                                      </div>
+                                    </div>
+                                    </form>
+                                  </div>
+
                                 <div class="table-responsive">
                                     <table class="table text-center">
                                         <thead>
@@ -116,29 +144,34 @@ else
                                             $i<="";
 
                                             include '../../administrator/connect.php';
-                                            $sql_product ="SELECT * FROM tb_product";
+
+                                            $sql_product ="SELECT tb_product.id, tb_product.product , tb_budget.budget   FROM tb_product
+                                            INNER JOIN tb_budget ON tb_product.budget_id = tb_budget.budget_id
+                                            WHERE (tb_product.product LIKE '%".$strKeyword."%' or tb_budget.budget LIKE '%".$strKeyword."%'  ) ";
+
+                                            // $sql_product ="SELECT * FROM tb_product";
                                             $query_product = mysqli_query($conn,$sql_product);
                                             while($row_product = mysqli_fetch_array($query_product,MYSQLI_ASSOC))
                                             {
-                                                $id = $row_product['id'];
-                                                $product_id = $row_product['product_id'];
-                                                $product = $row_product['product'];
-                                                $budget_id = $row_product['budget_id'];
-
-                                           $sql_budget = "SELECT * FROM tb_budget WHERE budget_id = '".$budget_id."' ";
-                                           //echo $sql_budget;
-                                           $query_budget = mysqli_query($conn,$sql_budget);
-                                           $row_budget =mysqli_fetch_assoc($query_budget);
-                                           $budget = $row_budget['budget'];
+                                           //      $id = $row_product['id'];
+                                           //      $product_id = $row_product['product_id'];
+                                           //      $product = $row_product['product'];
+                                           //      $budget_id = $row_product['budget_id'];
+                                           //
+                                           // $sql_budget = "SELECT * FROM tb_budget WHERE budget_id = '".$budget_id."' ";
+                                           // //echo $sql_budget;
+                                           // $query_budget = mysqli_query($conn,$sql_budget);
+                                           // $row_budget =mysqli_fetch_assoc($query_budget);
+                                           // $budget = $row_budget['budget'];
 
 
                                         ?>
                                         <tbody>
                                             <tr>
                                                 <td><?php echo $i;?></td>
-                                                <td><?php echo $product;?></td>
-                                                <td><?php echo $budget;?></td>
-                                                <td><a href="edit_form_product.php?id=<?php echo $id;?>" class="btn btn-warning">แก้ไข</a></td>
+                                                <td><?php echo $row_product['product'];?></td>
+                                                <td><?php echo $row_product['budget'];?></td>
+                                                <td><a href="edit_form_product.php?id=<?php echo $row_product['id'];?>" class="btn btn-warning">แก้ไข</a></td>
                                                 <td><a href="JavaScript:if(confirm('ยืนยันการลบ ?') == true){window.location='delete_product.php?id=<?php echo $row_product["id"];?>';}" class="btn btn-danger">ลบ</a></td>
                                             </tr>
                                             <?php

@@ -100,6 +100,34 @@ else
                                 <div class="text-right">
                                     <a href="../mission/form_mission.php"><button type="button" class="btn btn-primary">เพิ่มพันธกิจ</button></a>
                                 </div>
+
+                                <br>
+                                  <div class="text-right">
+                                    <?php
+                                  $strKeyword = null;
+                                  if(isset($_POST["txtKeyword"])){
+                                    $strKeyword = $_POST["txtKeyword"];
+                                  }
+                                  if(isset($_GET["txtKeyword"])){
+                                    $strKeyword = $_GET["txtKeyword"];
+                                  }
+                                    ?>
+                                    <form name="frmSearch" method="post" action="<?php echo $_SERVER['SCRIPT_NAME'];?>">
+                                    <div class="container">
+                                      <div class="row">
+                                        <div class="col-md-8">
+                                        </div>
+                                          <div class="col-md-3 col-8">
+                                              <input class="form-control" type="text" placeholder="Search..." value="<?php echo $strKeyword;?>" name="txtKeyword" id="txtKeyword">
+                                          </div>
+                                          <div class="col-md-1 col-2" style="padding-top:4px;">
+                                                <button type="submit" class="btn btn-info"  name="btnsearch">ค้นหา</button>
+                                          </div>
+                                      </div>
+                                    </div>
+                                    </form>
+                                  </div>
+
                                 <div class="table-responsive">
                                     <table class="table text-center">
                                         <thead>
@@ -116,27 +144,32 @@ else
                                             $i<="";
 
                                             include '../../administrator/connect.php';
-                                            $sql_mission ="SELECT * FROM tb_mission";
+
+                                            $sql_mission ="SELECT tb_mission.id, tb_mission.mission , tb_product.product   FROM tb_mission
+                                            INNER JOIN tb_product ON tb_mission.product_id = tb_product.product_id
+                                            WHERE (tb_mission.mission LIKE '%".$strKeyword."%' or tb_product.product LIKE '%".$strKeyword."%'  ) ";
+
+                                            // $sql_mission ="SELECT * FROM tb_mission";
                                             $query_mission = mysqli_query($conn,$sql_mission);
                                             while($row_mission = mysqli_fetch_array($query_mission,MYSQLI_ASSOC))
                                             {
-                                                $id = $row_mission['id'];
-                                                $mission = $row_mission['mission'];
-                                                $product_id = $row_mission['product_id'];
-
-                                           $sql_product = "SELECT * FROM tb_product WHERE product_id = '".$product_id."' ";
-                                           $query_product = mysqli_query($conn,$sql_product);
-                                           $row_product =mysqli_fetch_assoc($query_product);
-                                           $product = $row_product['product'];
+                                           //      $id = $row_mission['id'];
+                                           //      $mission = $row_mission['mission'];
+                                           //      $product_id = $row_mission['product_id'];
+                                           //
+                                           // $sql_product = "SELECT * FROM tb_product WHERE product_id = '".$product_id."' ";
+                                           // $query_product = mysqli_query($conn,$sql_product);
+                                           // $row_product =mysqli_fetch_assoc($query_product);
+                                           // $product = $row_product['product'];
 
 
                                         ?>
                                         <tbody>
                                             <tr>
                                                 <td><?php echo $i;?></td>
-                                                <td><?php echo $product;?></td>
-                                                <td><?php echo $mission;?></td>
-                                                <td><a href="edit_form_mission.php?id=<?php echo $id;?>" class="btn btn-warning">แก้ไข</a></td>
+                                                <td><?php echo $row_mission['product'];?></td>
+                                                <td><?php echo $row_mission['mission'];?></td>
+                                                <td><a href="edit_form_mission.php?id=<?php echo $row_mission['id'];?>" class="btn btn-warning">แก้ไข</a></td>
                                                 <td><a href="JavaScript:if(confirm('ยืนยันการลบ ?') == true){window.location='delete_mission.php?id=<?php echo $row_mission["id"];?>';}" class="btn btn-danger">ลบ</a></td>
                                             </tr>
                                             <?php

@@ -100,6 +100,34 @@ else
                                 <div class="text-right">
                                     <a href="../position/form_position.php"><button type="button" class="btn btn-primary">เพิ่มตำแหน่ง</button></a>
                                 </div>
+
+                                <br>
+                                  <div class="text-right">
+                                    <?php
+                                  $strKeyword = null;
+                                  if(isset($_POST["txtKeyword"])){
+                                    $strKeyword = $_POST["txtKeyword"];
+                                  }
+                                  if(isset($_GET["txtKeyword"])){
+                                    $strKeyword = $_GET["txtKeyword"];
+                                  }
+                                    ?>
+                                    <form name="frmSearch" method="post" action="<?php echo $_SERVER['SCRIPT_NAME'];?>">
+                                    <div class="container">
+                                      <div class="row">
+                                        <div class="col-md-8">
+                                        </div>
+                                          <div class="col-md-3 col-8">
+                                              <input class="form-control" type="text" placeholder="Search..." value="<?php echo $strKeyword;?>" name="txtKeyword" id="txtKeyword">
+                                          </div>
+                                          <div class="col-md-1 col-2" style="padding-top:4px;">
+                                                <button type="submit" class="btn btn-info"  name="btnsearch">ค้นหา</button>
+                                          </div>
+                                      </div>
+                                    </div>
+                                    </form>
+                                  </div>
+
                                 <div class="table-responsive">
                                     <table class="table text-center">
                                         <thead>
@@ -115,7 +143,7 @@ else
                                             $i<="";
 
                                             include '../../administrator/connect.php';
-                                            $sql_position ="SELECT * FROM tb_position";
+                                            $sql_position ="SELECT * FROM tb_position WHERE (position_name LIKE '%".$strKeyword."%'   ) ";
                                             $query_position = mysqli_query($conn,$sql_position);
                                             while($row_position = mysqli_fetch_array($query_position,MYSQLI_ASSOC))
                                             {
