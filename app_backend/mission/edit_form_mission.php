@@ -68,10 +68,10 @@ else
                 <!-- ============================================================== -->
                 <div class="row page-titles">
                     <div class="col-md-5 align-self-center">
-                        <h3 class="text-themecolor">เพิ่มพันธกิจ</h3>
+                        <h3 class="text-themecolor">แก้ไขพันธกิจ</h3>
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                            <li class="breadcrumb-item active">เพิ่มพันธกิจ</li>
+                            <li class="breadcrumb-item active">แก้ไขพันธกิจ</li>
                         </ol>
                     </div>
                 </div>
@@ -112,6 +112,17 @@ else
                                         $project_id = $result['project_id'];
 
                                     ?>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-12 text-center">
+                                                <div class="form-group">
+                                                    <label>
+                                                        <h4><b><u>แก้ไขพันธกิจ</u></b></h4>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="row">
                                       <?php
                                           $sql_product = "SELECT * FROM tb_product";
@@ -120,7 +131,7 @@ else
                                         <input type="hidden" name="id" value="<?php echo $id; ?>">
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label>ชื่อกิจกรรมโครงการ</label><br>
+                                                <label><b>ชื่อกิจกรรมโครงการ</b></label><br>
                                                 <select class="form-control" required name="project_id">
                                                     <option value="<?php echo $project_id; ?>" ><?php echo $project_name; ?></option>
                                                     <?php
@@ -139,7 +150,7 @@ else
                                         </div>
                                       <div class="col-md-3">
                                           <div class="form-group">
-                                              <label>ผลผลิต</label>
+                                              <label><b>ผลผลิต</b></label>
                                               <select class="form-control" name="product_id">
                                                   <option value="<?php echo $product_id;?>"><?php echo $product;?></option>
                                                   <?php
@@ -156,7 +167,7 @@ else
 
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label>พันธกิจ</label>
+                                                <label><b>พันธกิจ</b></label>
                                                 <input type="text" name="mission" value="<?php echo $mission;?>" placeholder="" class="form-control form-control-line">
                                             </div>
                                         </div>
@@ -173,7 +184,7 @@ else
 
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <button type="button" class="btn btn-danger btn-block">ยกเลิก</button>
+                                                <button type="button" class="btn btn-danger btn-block" onClick="JavaScript:history.back();">ยกเลิก</button>
                                             </div>
                                         </div>
 

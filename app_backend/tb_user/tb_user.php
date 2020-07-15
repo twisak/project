@@ -92,7 +92,7 @@ else
                                         </div>
                                         <div class="col-md-6 text-right">
                                             <a href="form_user.php">
-                                                <button type="button" class="btn btn-primary">กรอกเอกสารเพิ่ม</button>
+                                                <button type="button" class="btn btn-primary">เพิ่มบุคลากร</button>
                                             </a>
                                         </div>
                                     </div>

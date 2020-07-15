@@ -44,28 +44,16 @@ else
 </head>
 
 <body class="fix-header card-no-border fix-sidebar">
-    <!-- ============================================================== -->
-    <!-- Preloader - style you can find in spinners.css -->
-    <!-- ============================================================== -->
     <div class="preloader">
         <div class="loader">
             <div class="loader__figure"></div>
             <p class="loader__label">Admin Wrap</p>
         </div>
     </div>
-    <!-- ============================================================== -->
-    <!-- Main wrapper - style you can find in pages.scss -->
-    <!-- ============================================================== -->
     <div id="main-wrapper">
-    <?php include '../mamu/manu_admin.php'; ?>
+        <?php include '../mamu/manu_admin.php'; ?>
         <div class="page-wrapper">
-            <!-- ============================================================== -->
-            <!-- Container fluid  -->
-            <!-- ============================================================== -->
             <div class="container-fluid">
-                <!-- ============================================================== -->
-                <!-- Bread crumb and right sidebar toggle -->
-                <!-- ============================================================== -->
                 <div class="row page-titles">
                     <div class="col-md-5 align-self-center">
                         <h3 class="text-themecolor">ข้อมูลพันธกิจ</h3>
@@ -75,63 +63,52 @@ else
                         </ol>
                     </div>
                 </div>
-                <!-- ============================================================== -->
-                <!-- End Bread crumb and right sidebar toggle -->
-                <!-- ============================================================== -->
-                <!-- ============================================================== -->
-                <!-- Start Page Content -->
-                <!-- ============================================================== -->
                 <div class="row">
                     <!-- column -->
                     <div class="col-12">
 
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">ข้อมูลพันธกิจ</h4>
-                                <!-- <h6 class="card-subtitle">Add class <code>.table</code></h6> -->
-<!--
-                                <div class="container">
-                                <div class="row">
-                                    <div class="col-md-1 offset-md-10">ssss</div>
-                                </div>
-                                </div> -->
+                                <h4 class="card-title"><U>ข้อมูลพันธกิจ</U></h4>
 
-
-                                <div class="text-right">
-                                    <a href="../mission/form_mission.php"><button type="button" class="btn btn-primary">เพิ่มพันธกิจ</button></a>
-                                </div>
-
-                                <br>
-                                  <div class="text-right">
-                                    <?php
-                                  $strKeyword = null;
-                                  if(isset($_POST["txtKeyword"])){
-                                    $strKeyword = $_POST["txtKeyword"];
-                                  }
-                                  if(isset($_GET["txtKeyword"])){
-                                    $strKeyword = $_GET["txtKeyword"];
-                                  }
-                                    ?>
-                                    <form name="frmSearch" method="post" action="<?php echo $_SERVER['SCRIPT_NAME'];?>">
-                                    <div class="container">
-                                      <div class="row">
-                                        <div class="col-md-8">
+                                <div class="form-group">
+                                    <div class="row col-md-12">
+                                        <div class="col-md-6">
+                                            <?php
+                                                    $strKeyword = null;
+                                                    if(isset($_POST["txtKeyword"])){
+                                                        $strKeyword = $_POST["txtKeyword"];
+                                                    }
+                                                    if(isset($_GET["txtKeyword"])){
+                                                        $strKeyword = $_GET["txtKeyword"];
+                                                    }
+                                                ?>
+                                            <form name="frmSearch" method="post" action="<?php echo $_SERVER['SCRIPT_NAME'];?>">
+                                                <div class="container">
+                                                    <div class="row">
+                                                        <div class="col-md-6 col-8">
+                                                            <input class="form-control" type="text" placeholder="Search..." value="<?php echo $strKeyword;?>" name="txtKeyword" id="txtKeyword">
+                                                        </div>
+                                                        <button type="submit" class="btn btn-info" name="btnsearch">ค้นหา</button>
+                                                    </div>
+                                                </div>
+                                            </form>
                                         </div>
-                                          <div class="col-md-3 col-8">
-                                              <input class="form-control" type="text" placeholder="Search..." value="<?php echo $strKeyword;?>" name="txtKeyword" id="txtKeyword">
-                                          </div>
-                                          <div class="col-md-1 col-2" style="padding-top:4px;">
-                                                <button type="submit" class="btn btn-info"  name="btnsearch">ค้นหา</button>
-                                          </div>
-                                      </div>
+                                        <div class="col-md-2 text-right">
+                                            
+                                        </div>
+                                        <div class="col-md-4 text-right">
+                                            <div class="text-right">
+                                                <a href="../mission/form_mission.php"><button type="button" class="btn btn-primary">เพิ่มพันธกิจ</button></a>
+                                            </div>
+                                        </div>
                                     </div>
-                                    </form>
-                                  </div>
+                                </div>
 
                                 <div class="table-responsive">
-                                    <table class="table text-center">
+                                    <table class="table">
                                         <thead>
-                                        <tr>
+                                            <tr>
                                                 <th class="text-center">ลำดับ</th>
                                                 <th class="text-center">ชื่อพันธกิจ</th>
                                                 <th class="text-center">ผลผลิต</th>
@@ -166,11 +143,11 @@ else
                                         ?>
                                         <tbody>
                                             <tr>
-                                                <td><?php echo $i;?></td>
+                                                <td class="text-center"><?php echo $i;?></td>
                                                 <td><?php echo $row_mission['product'];?></td>
                                                 <td><?php echo $row_mission['mission'];?></td>
-                                                <td><a href="edit_form_mission.php?id=<?php echo $row_mission['id'];?>" class="btn btn-warning">แก้ไข</a></td>
-                                                <td><a href="JavaScript:if(confirm('ยืนยันการลบ ?') == true){window.location='delete_mission.php?id=<?php echo $row_mission["id"];?>';}" class="btn btn-danger">ลบ</a></td>
+                                                <td class="text-center"><a href="edit_form_mission.php?id=<?php echo $row_mission['id'];?>" class="btn btn-warning">แก้ไข</a></td>
+                                                <td class="text-center"><a href="JavaScript:if(confirm('ยืนยันการลบ ?') == true){window.location='delete_mission.php?id=<?php echo $row_mission["id"];?>';}" class="btn btn-danger">ลบ</a></td>
                                             </tr>
                                             <?php
                                                 $i++;
