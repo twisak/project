@@ -133,6 +133,7 @@ else
                                                 $person_id = $row['person_id'];
 
                                             //echo $province_id;
+                                            //
 
                                             $sql1 ="SELECT * FROM account_login WHERE person_id = '".$person_id."' ";
                                             $query1 = mysqli_query($conn,$sql1);
