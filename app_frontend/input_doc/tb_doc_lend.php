@@ -103,6 +103,34 @@ else
                                 <a href="input_doc_lend.php">
                                     <button type="button" class="btn btn-primary">กรอกเอกสารเพิ่ม</button>
                                 </a>
+                              </div><br>
+                                <div class="text-right">
+
+
+                                  <?php
+                              	$strKeyword = null;
+                              	if(isset($_POST["txtKeyword"])){
+                              		$strKeyword = $_POST["txtKeyword"];
+                              	}
+                              	if(isset($_GET["txtKeyword"])){
+                              		$strKeyword = $_GET["txtKeyword"];
+                              	}
+                                  ?>
+                                  <form name="frmSearch" method="post" action="<?php echo $_SERVER['SCRIPT_NAME'];?>">
+                                  <div class="container">
+                                    <div class="row">
+                                      <div class="col-md-8">
+                                      </div>
+                                        <div class="col-md-3 col-8">
+                                            <input class="form-control" type="text" placeholder="Search..." value="<?php echo $strKeyword;?>" name="txtKeyword" id="txtKeyword">
+                                        </div>
+                                        <div class="col-md-1 col-2" style="padding-top:4px;">
+                                              <button type="submit" class="btn btn-info"  name="btnsearch">ค้นหา</button>
+                                        </div>
+                                    </div>
+                                  </div>
+                                  </form>
+
                                 </div>
                                 <div class="table-responsive">
                                     <table class="table text-center">
@@ -128,44 +156,51 @@ else
                                             $i=1;
                                             $i<="";
 
-                                            $sql ="SELECT * FROM tb_lend GROUP BY doc_id";
+
+                                            $sql ="SELECT tb_lend.id , tb_lend.doc_id , tb_project.project_name , tb_person.prefix, tb_person.firtname, tb_person.lastname FROM tb_lend
+                                            INNER JOIN tb_project ON tb_lend.project_id = tb_project.project_id
+                                            INNER JOIN tb_person ON tb_lend.person_id = tb_person.person_id
+                                            WHERE (tb_lend.doc_id LIKE '%".$strKeyword."%' or tb_project.project_name LIKE '%".$strKeyword."%' or tb_person.prefix LIKE '%".$strKeyword."%' or tb_person.firtname LIKE '%".$strKeyword."%'or tb_person.lastname LIKE '%".$strKeyword."%'  ) ";
+
+
+                                            // $sql ="SELECT * FROM tb_lend  WHERE (doc_id LIKE '%".$strKeyword."%') GROUP BY doc_id";
                                             $query = mysqli_query($conn,$sql);
                                             while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
                                             {
-                                                $id = $row['id'];
-                                                $doc_id = $row['doc_id'];
-                                                $str_date = $row['str_date'];
-                                                $stp_date = $row['stp_date'];
-                                                $project_id = $row['project_id'];
-                                                $person_id = $row['person_id'];
-
-                                            //echo $project_id;
-                                            //echo $person_id;
-
-                                            $sql1 ="SELECT * FROM tb_project WHERE project_id = '".$project_id."' ";
-                                            $query1 = mysqli_query($conn,$sql1);
-                                            while($row1 = mysqli_fetch_array($query1,MYSQLI_ASSOC))
-                                            {
-                                                $project_name = $row1['project_name'];
-                                            }
-                                            $sql2 ="SELECT * FROM tb_person WHERE person_id = '".$person_id."' ";
-                                            $query2 = mysqli_query($conn,$sql2);
-                                            while($row2 = mysqli_fetch_array($query2,MYSQLI_ASSOC))
-                                            {
-                                                $prefix = $row2['prefix'];
-                                                $firtname = $row2['firtname'];
-                                                $lastname = $row2['lastname'];
-                                                //$prefix = $row2['prefix'];
-                                            }
+                                            //     $id = $row['id'];
+                                            //     $doc_id = $row['doc_id'];
+                                            //     $str_date = $row['str_date'];
+                                            //     $stp_date = $row['stp_date'];
+                                            //     $project_id = $row['project_id'];
+                                            //     $person_id = $row['person_id'];
+                                            //
+                                            // //echo $project_id;
+                                            // //echo $person_id;
+                                            //
+                                            // $sql1 ="SELECT * FROM tb_project WHERE project_id = '".$project_id."'  ";
+                                            // $query1 = mysqli_query($conn,$sql1);
+                                            // while($row1 = mysqli_fetch_array($query1,MYSQLI_ASSOC))
+                                            // {
+                                            //     $project_name = $row1['project_name'];
+                                            // }
+                                            // $sql2 ="SELECT * FROM tb_person WHERE person_id = '".$person_id."' ";
+                                            // $query2 = mysqli_query($conn,$sql2);
+                                            // while($row2 = mysqli_fetch_array($query2,MYSQLI_ASSOC))
+                                            // {
+                                            //     $prefix = $row2['prefix'];
+                                            //     $firtname = $row2['firtname'];
+                                            //     $lastname = $row2['lastname'];
+                                            //     //$prefix = $row2['prefix'];
+                                            // }
                                         ?>
                                         <tbody>
                                             <tr>
                                                 <td><?php echo $i;?></td>
-                                                <td><?php echo $doc_id;?></td>
-                                                <td><?php echo $prefix;?><?php echo $firtname;?>  <?php echo $lastname;?></td>
-                                                <td><?php echo $project_name;?></td>
+                                                <td><?php echo $row['doc_id'];?></td>
+                                                <td><?php echo $row['prefix'];?><?php echo $row['firtname'];?>  <?php echo $row['lastname'];?></td>
+                                                <td><?php echo $row['project_name'];?></td>
                                                 <td>
-                                                <a href="show_doc_lend.php?id=<?php echo $id;?>"><button type="button" class="btn btn-info">รายละเอียด</button></a>
+                                                <a href="show_doc_lend.php?id=<?php echo $row['id'];;?>"><button type="button" class="btn btn-info">รายละเอียด</button></a>
                                                 </td>
                                                 <td><a href="JavaScript:if(confirm('ยืนยันการลบ ?') == true){window.location='delete_lend.php?id=<?php echo $row["id"];?>';}" class="btn btn-danger">ลบ</a></td>
                                             </tr>
