@@ -112,12 +112,22 @@ else
                                                 
 
                                 ?>
-
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-12 text-center">
+                                                <div class="form-group">
+                                                    <label>
+                                                        <h4><b><u>แก้ไขยุทธศาสตร์</u></b></h4>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="row">
                                     <input type="hidden" name="id" value="<?php echo $id; ?>">
                                     <div class="col-md-4">
                                             <div class="form-group">
-                                                <label>ชื่อกิจกรรมโครงการ</label><br>
+                                                <label><b>ชื่อกิจกรรมโครงการ</b></label><br>
                                                 <select class="form-control" required name="project_id">
                                                     <option value="<?php echo $project_id; ?>" ><?php echo $project_name; ?></option>
                                                     <?php
@@ -142,7 +152,7 @@ else
 
                                       <div class="col-md-3">
                                           <div class="form-group">
-                                              <label>พันธกิจ</label>
+                                              <label><b>พันธกิจ</b></label>
                                               <select class="form-control" name="mission_id">
                                                   <option value="<?php echo $mission_id;?>"><?php echo $mission;?></option>
                                                   <?php
@@ -159,7 +169,7 @@ else
 
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label>ยุทธศาสตร์</label>
+                                                <label><b>ยุทธศาสตร์</b></label>
                                                 <input type="text" name="strategic" value="<?php echo $strategic;?>" class="form-control form-control-line">
                                             </div>
                                         </div>
@@ -176,7 +186,7 @@ else
 
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <button type="button" class="btn btn-danger btn-block">ยกเลิก</button>
+                                                <button type="button" class="btn btn-danger btn-block" onClick="JavaScript:history.back();">ยกเลิก</button>
                                             </div>
                                         </div>
 
@@ -186,34 +196,12 @@ else
                         </div>
                         <!-- Column -->
                     </div>
-                    <!-- Row -->
-                    <!-- ============================================================== -->
-                    <!-- End PAge Content -->
-                    <!-- ============================================================== -->
                 </div>
-                <!-- ============================================================== -->
-                <!-- End Container fluid  -->
-                <!-- ============================================================== -->
-                <!-- ============================================================== -->
-                <!-- footer -->
-                <!-- ============================================================== -->
                 <footer class="footer">
                     © 2018 Adminwrap by wrappixel.com
                 </footer>
-                <!-- ============================================================== -->
-                <!-- End footer -->
-                <!-- ============================================================== -->
             </div>
-            <!-- ============================================================== -->
-            <!-- End Page wrapper  -->
-            <!-- ============================================================== -->
         </div>
-        <!-- ============================================================== -->
-        <!-- End Wrapper -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- All Jquery -->
-        <!-- ============================================================== -->
         <script src="../assets/node_modules/jquery/jquery.min.js"></script>
         <!-- Bootstrap tether Core JavaScript -->
         <script src="../assets/node_modules/bootstrap/js/popper.min.js"></script>

@@ -102,16 +102,27 @@ else
                                                 }
 
                                 ?>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-12 text-center">
+                                                <div class="form-group">
+                                                    <label>
+                                                        <h4><b><u>เพิ่มยุทธศาสตร์</u></b></h4>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="row">
                                        <div class="col-md-2">
                                             <div class="form-group">
-                                                <label>รหัสยุทธศาสตร์</label>
-                                                <input type="text" name="strategic_id" value="<?=$id?>" class="form-control form-control-line">
+                                                <label><b>รหัสยุทธศาสตร์</b></label>
+                                                <input type="text" name="strategic_id" readonly value="<?=$id?>" class="form-control form-control-line">
                                             </div>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <label>โครงการ</label>
+                                                <label><b>โครงการ</b></label>&nbsp;<label class="text-danger"><b>*</b></label>
                                                 <select class="form-control col-md-12" required name="project_id">
                                                     <option>เลือกโครงการ</option>
                                                     <?php
@@ -135,8 +146,8 @@ else
 
                                       <div class="col-md-3">
                                           <div class="form-group">
-                                              <label>พันธกิจ</label>
-                                              <select class="form-control" name="mission_id">
+                                              <label><b>พันธกิจ</b></label>&nbsp;<label class="text-danger"><b>*</b></label>
+                                              <select class="form-control" name="mission_id" required>
                                                   <option value="">-- เลือกพันธกิจ --</option>
                                                   <?php
                                                       while($result_mission=mysqli_fetch_array($query_mission))
@@ -152,8 +163,8 @@ else
 
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label>ยุทธศาสตร์</label>
-                                                <input type="text" name="strategic" placeholder="" class="form-control form-control-line">
+                                                <label><b>ยุทธศาสตร์</b></label>&nbsp;<label class="text-danger"><b>*</b></label>
+                                                <input type="text" name="strategic" placeholder="" class="form-control form-control-line" required>
                                             </div>
                                         </div>
                                     </div>
@@ -169,7 +180,7 @@ else
 
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <button type="button" class="btn btn-danger btn-block">ยกเลิก</button>
+                                                <button type="button" class="btn btn-danger btn-block" onClick="JavaScript:history.back();">ยกเลิก</button>
                                             </div>
                                         </div>
 

@@ -44,28 +44,16 @@ else
 </head>
 
 <body class="fix-header card-no-border fix-sidebar">
-    <!-- ============================================================== -->
-    <!-- Preloader - style you can find in spinners.css -->
-    <!-- ============================================================== -->
     <div class="preloader">
         <div class="loader">
             <div class="loader__figure"></div>
             <p class="loader__label">Admin Wrap</p>
         </div>
     </div>
-    <!-- ============================================================== -->
-    <!-- Main wrapper - style you can find in pages.scss -->
-    <!-- ============================================================== -->
     <div id="main-wrapper">
         <?php include '../mamu/manu_admin.php'; ?>
         <div class="page-wrapper">
-            <!-- ============================================================== -->
-            <!-- Container fluid  -->
-            <!-- ============================================================== -->
             <div class="container-fluid">
-                <!-- ============================================================== -->
-                <!-- Bread crumb and right sidebar toggle -->
-                <!-- ============================================================== -->
                 <div class="row page-titles">
                     <div class="col-md-5 align-self-center">
                         <h3 class="text-themecolor">เพิ่มพันธกิจ</h3>
@@ -147,7 +135,7 @@ else
                                       <div class="col-md-3">
                                           <div class="form-group">
                                               <label><b>ผลผลิต</b></label>&nbsp;<label class="text-danger"><b>*</b></label>
-                                              <select class="form-control" name="product_id">
+                                              <select class="form-control" name="product_id" required>
                                                   <option value="">-- เลือกผลผลิต --</option>
                                                   <?php
                                                       while($result_product=mysqli_fetch_array($query_product))
@@ -164,7 +152,7 @@ else
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label><b>พันธกิจ</b></label>&nbsp;<label class="text-danger"><b>*</b></label>
-                                                <input type="text" name="mission" placeholder="" class="form-control form-control-line">
+                                                <input type="text" name="mission" placeholder="" class="form-control form-control-line" required>
                                             </div>
                                         </div>
                                     </div>
