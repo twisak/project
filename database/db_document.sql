@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 13, 2020 at 11:07 PM
--- Server version: 10.3.16-MariaDB
--- PHP Version: 7.2.20
+-- Generation Time: Jul 15, 2020 at 05:53 PM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.4.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -10255,7 +10254,8 @@ CREATE TABLE `tb_lend` (
 --
 
 INSERT INTO `tb_lend` (`id`, `doc_id`, `str_date`, `stp_date`, `project_id`, `person_id`, `teacher_id`, `activity_id`, `allowance`, `allowance_price`, `rest`, `rest_price`, `vehicle`, `vehicle_price`, `regis`, `regis_num`, `other`, `other_price`, `date_list`, `pay_type`, `price_list`, `balance`) VALUES
-(17, 'L001', '2020-06-30', '2020-07-02', 'P001', 'PS001', '001', 'A004', 'นศ', '200', 'โรงแรง', '2000', 'รถมหาลัย', '800', '100', '100', 'ค่าเดิมทาง', '1500', 'a:3:{i:0;s:10:\"2020-06-30\";i:1;s:10:\"2020-07-01\";i:2;s:10:\"2020-07-02\";}', 'a:3:{i:0;s:21:\"ใบสำคัญ\";i:1;s:18:\"เงินสด\";i:2;s:21:\"ใบสำคัญ\";}', 'a:3:{i:0;s:4:\"1000\";i:1;s:3:\"300\";i:2;s:4:\"5000\";}', 'a:3:{i:0;s:4:\"2000\";i:1;s:3:\"700\";i:2;s:3:\"800\";}');
+(17, 'L001', '2020-06-30', '2020-07-02', 'P001', 'PS001', '001', 'A004', 'นศ', '200', 'โรงแรง', '2000', 'รถมหาลัย', '800', '100', '100', 'ค่าเดิมทาง', '1500', 'a:3:{i:0;s:10:\"2020-06-30\";i:1;s:10:\"2020-07-01\";i:2;s:10:\"2020-07-02\";}', 'a:3:{i:0;s:21:\"ใบสำคัญ\";i:1;s:18:\"เงินสด\";i:2;s:21:\"ใบสำคัญ\";}', 'a:3:{i:0;s:4:\"1000\";i:1;s:3:\"300\";i:2;s:4:\"5000\";}', 'a:3:{i:0;s:4:\"2000\";i:1;s:3:\"700\";i:2;s:3:\"800\";}'),
+(19, 'L002', '0000-00-00', '0000-00-00', 'P002', 'PS001', '001', 'A005', 'ของกิน ', '200', 'พัก2', '500', 'หนะ3', '200', '200 บาท', '1', 'สำนักงาน', '250', 'a:1:{i:0;s:10:\"2020-07-24\";}', 'a:1:{i:0;s:21:\"ใบสำคัญ\";}', 'a:1:{i:0;s:4:\"2500\";}', 'a:1:{i:0;s:3:\"100\";}');
 
 -- --------------------------------------------------------
 
@@ -10364,7 +10364,7 @@ CREATE TABLE `tb_note_book1` (
 --
 
 INSERT INTO `tb_note_book1` (`id`, `doc_id`, `title_id`, `at`, `mug`, `send_with`, `number`, `project_id`, `activity_id`, `no`, `heading`, `str_date`, `stp_date`, `location`, `invite`, `teacher_under`, `date_current`, `person_id`) VALUES
-(1, 'NB1001', '001', 'อว.000001', 'sdfghgfdsadfg', 'a:2:{i:0;s:7:\"dsfsdfs\";i:1;s:6:\"johuif\";}', 'a:2:{i:0;s:1:\"5\";i:1;s:1:\"1\";}', 'P001', 'A001', '5', 'fghdghdf', '2020-07-14', '2020-07-15', 'asdas', 'sasda', 'asd', '2020-07-14', 'PS001');
+(2, 'NB1001', '002', 'อว.000001', 'อาจารย์ที่เขารบ', 'a:1:{i:0;s:4:\"aaaa\";}', 'a:1:{i:0;s:2:\"52\";}', 'P002', 'A005', '5', 'หัวเรื่อง1', '2020-07-17', '2020-07-24', 'สถานที่แห่งหนึ่ง', 'คุณสมปอง', '-', '2020-07-15', 'PS001');
 
 -- --------------------------------------------------------
 
@@ -10398,7 +10398,7 @@ CREATE TABLE `tb_note_book2` (
 --
 
 INSERT INTO `tb_note_book2` (`id`, `doc_id`, `title_id`, `at`, `mug`, `send_with`, `number`, `project_id`, `strategic_id`, `day`, `time_start`, `time_end`, `location`, `invite_person`, `num`, `date_inside`, `date_current`, `person_id`) VALUES
-(1, 'NB2001', '001', 'อว.000001', 'sdfghgfdsadfg', 'a:1:{i:0;s:5:\"dfhdf\";}', 'a:1:{i:0;s:1:\"1\";}', 'P003', 'S001', '2020-07-14', '02:51:00', '02:54:00', 'ftyfughfg', 'ssdasd', '10', '2020-07-14', '2020-07-14', 'PS001');
+(4, 'NB2001', '003', 'อว.000001', 'อาจารย์ที่เขารบ', 'a:1:{i:0;s:4:\"aaaa\";}', 'a:1:{i:0;s:2:\"85\";}', 'P003', 'S002', '2020-07-30', '05:02:00', '06:02:00', 'สถานที่แห่งหนึ่ง', 'รายวิชา1', '5', '2020-07-30', '2020-07-15', 'PS001');
 
 -- --------------------------------------------------------
 
@@ -10424,7 +10424,7 @@ CREATE TABLE `tb_note_book3` (
 --
 
 INSERT INTO `tb_note_book3` (`id`, `doc_id`, `title_id`, `at`, `mug`, `send_with`, `number`, `project_id`, `date_current`, `person_id`) VALUES
-(1, 'NB3001', '001', 'อว.000001', 'sdfghgfdsadfg', 'a:1:{i:0;s:5:\"dfhdf\";}', 'a:1:{i:0;s:1:\"5\";}', 'P003', '2020-07-14', 'PS001');
+(2, 'NB3001', '003', 'อว.000001', 'อาจารย์ที่เขารบ', 'a:1:{i:0;s:4:\"aaaa\";}', 'a:1:{i:0;s:2:\"52\";}', 'P003', '2020-07-15', 'PS001');
 
 -- --------------------------------------------------------
 
@@ -10454,8 +10454,7 @@ CREATE TABLE `tb_note_command` (
 --
 
 INSERT INTO `tb_note_command` (`id`, `doc_id`, `date_current`, `str_date`, `stp_date`, `title_id`, `that`, `project_id`, `activity_id`, `person_id`, `travel`, `byusing`, `driver`, `budget_id`) VALUES
-(3, 'NC001', '2020-07-13', '2020-07-13', '2020-07-16', '001', 'อว.123.456', 'P004', 'A013', 'PS001', 'sddasdasdasds', 'sdas', 'mmmmmmmmmmmm', 'B004'),
-(5, 'NC002', '2020-07-13', '2020-07-15', '2020-07-18', '001', 'อว.000001', 'P004', 'A013', 'PS001', 'sdd', 'sdas', 'mmm', 'B004');
+(3, 'NC001', '2020-07-14', '2020-07-13', '2020-07-16', '001', 'อว.123.456', 'P001', 'A001', 'PS001', 'ยะลา', 'เครื่องบิน', 'mmmmmmmmmmmm', 'B003');
 
 -- --------------------------------------------------------
 
@@ -10487,8 +10486,7 @@ CREATE TABLE `tb_note_record1` (
 --
 
 INSERT INTO `tb_note_record1` (`id`, `doc_id`, `person_id`, `project_id`, `activity_id`, `government`, `at`, `date_current`, `title_id`, `budget_id`, `budget_year`, `num_person`, `num_period`, `price_period`, `supplies_id`, `control_id`) VALUES
-(1, 'NR1001', 'PS001', 'P004', 'A013', 'ศึกษาพัฒนามหาลัย', 12315, '2020-07-13', '001', 'B004', '2020', '2', '2', '2000', '003', '002'),
-(2, 'NR1002', 'PS001', 'P004', 'A014', 'ศึกษาพัฒนามหาลัย', 0, '2020-07-14', '001', 'B004', '2020', '2', '2', '2000', '001', '004');
+(1, 'NR1001', 'PS001', 'P001', 'A001', 'ศึกษาพัฒนามหาลัยqqq', 12315, '2020-07-14', '001', 'B004', '2020', '24', '26', '2000', '003', '002');
 
 -- --------------------------------------------------------
 
@@ -10510,13 +10508,6 @@ CREATE TABLE `tb_note_record2` (
   `stp_date` date DEFAULT NULL COMMENT 'ถึงวันที่',
   `real_date` date DEFAULT NULL COMMENT 'มีผลตั้งแต่วันที่'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `tb_note_record2`
---
-
-INSERT INTO `tb_note_record2` (`id`, `doc_id`, `person_id`, `project_id`, `activity_id`, `government`, `at`, `date_current`, `title_id`, `str_date`, `stp_date`, `real_date`) VALUES
-(1, 'NR2001', 'PS001', 'P002', 'A005', 'ศึกษาพัฒนามหาลัย', 'อว.000001', '2020-07-14', '001', '2020-07-14', '2020-07-18', '2020-07-20');
 
 -- --------------------------------------------------------
 
@@ -10654,7 +10645,8 @@ CREATE TABLE `tb_salary` (
 --
 
 INSERT INTO `tb_salary` (`id`, `doc_id`, `str_date`, `stp_date`, `project_id`, `activity_id`, `person_id`, `period`, `total_amount`, `perform`, `month`, `teacher_id`, `day_work`, `start_time`, `end_time`, `Job`, `part_time`) VALUES
-(10, 'S001', '2020-06-10', '2020-06-19', 'P003', 'A010', 'PS001', '3000', '9000', '3', '2020-07-01', '001', 'a:2:{i:0;s:10:\"2020-07-01\";i:1;s:10:\"2020-07-01\";}', 'a:2:{i:0;s:5:\"22:17\";i:1;s:5:\"22:20\";}', 'a:2:{i:0;s:5:\"22:20\";i:1;s:5:\"22:24\";}', 'a:2:{i:0;s:12:\"บ้าน\";i:1;s:9:\"บ้า\";}', 'a:2:{i:0;s:42:\"กกกกกกกกกกกกกก\";i:1;s:6:\"สา\";}');
+(10, 'S001', '2020-06-10', '2020-06-19', 'P003', 'A010', 'PS001', '3000', '9000', '3', '2020-07-01', '001', 'a:2:{i:0;s:10:\"2020-07-01\";i:1;s:10:\"2020-07-01\";}', 'a:2:{i:0;s:5:\"22:17\";i:1;s:5:\"22:20\";}', 'a:2:{i:0;s:5:\"22:20\";i:1;s:5:\"22:24\";}', 'a:2:{i:0;s:12:\"บ้าน\";i:1;s:9:\"บ้า\";}', 'a:2:{i:0;s:42:\"กกกกกกกกกกกกกก\";i:1;s:6:\"สา\";}'),
+(11, 'S002', '2020-07-23', '2020-07-30', 'P001', 'A001', 'PS001', '2000', '150000', '3', '2020-07-31', '002', 'a:1:{i:0;s:10:\"2020-07-24\";}', 'a:1:{i:0;s:5:\"16:09\";}', 'a:1:{i:0;s:5:\"19:12\";}', 'a:1:{i:0;s:37:\"งานในหน้าที่1\";}', 'a:1:{i:0;s:25:\"งานพิเศษ1\";}');
 
 -- --------------------------------------------------------
 
@@ -10978,7 +10970,7 @@ ALTER TABLE `tb_debt`
 -- AUTO_INCREMENT for table `tb_lend`
 --
 ALTER TABLE `tb_lend`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้ไอดี', AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้ไอดี', AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `tb_listlend`
@@ -11008,19 +11000,19 @@ ALTER TABLE `tb_note`
 -- AUTO_INCREMENT for table `tb_note_book1`
 --
 ALTER TABLE `tb_note_book1`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้', AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้', AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tb_note_book2`
 --
 ALTER TABLE `tb_note_book2`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้', AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้', AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tb_note_book3`
 --
 ALTER TABLE `tb_note_book3`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้', AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้', AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tb_note_command`
@@ -11038,7 +11030,7 @@ ALTER TABLE `tb_note_record1`
 -- AUTO_INCREMENT for table `tb_note_record2`
 --
 ALTER TABLE `tb_note_record2`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้', AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้', AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tb_person`
@@ -11068,7 +11060,7 @@ ALTER TABLE `tb_project`
 -- AUTO_INCREMENT for table `tb_salary`
 --
 ALTER TABLE `tb_salary`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้ไอดี', AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ออโต้ไอดี', AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `tb_school`
