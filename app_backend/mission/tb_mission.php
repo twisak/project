@@ -95,7 +95,7 @@ else
                                             </form>
                                         </div>
                                         <div class="col-md-2 text-right">
-                                            
+
                                         </div>
                                         <div class="col-md-4 text-right">
                                             <div class="text-right">
@@ -106,14 +106,14 @@ else
                                 </div>
 
                                 <div class="table-responsive">
-                                    <table class="table">
+                                    <table class="table table-bordered">
                                         <thead>
                                             <tr>
-                                                <th class="text-center">ลำดับ</th>
-                                                <th class="text-center">ชื่อพันธกิจ</th>
-                                                <th class="text-center">ผลผลิต</th>
-                                                <th class="text-center">แก้ไข</th>
-                                                <th class="text-center">ลบ</th>
+                                                <th class="text-center"><b>ลำดับ</b></th>
+                                                <th class="text-center"><b>ชื่อพันธกิจ</b></th>
+                                                <th class="text-center"><b>ผลผลิต</b></th>
+                                                <th class="text-center"><b>แก้ไข</b></th>
+                                                <th class="text-center"><b>ลบ</b></th>
                                             </tr>
                                         </thead>
                                         <?php
