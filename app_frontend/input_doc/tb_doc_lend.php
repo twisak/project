@@ -98,50 +98,52 @@ else
                                 </div> -->
 
 
-
-                                <div class="text-right">
-                                <a href="input_doc_lend.php">
-                                    <button type="button" class="btn btn-primary">กรอกเอกสารเพิ่ม</button>
-                                </a>
-                              </div><br>
-                                <div class="text-right">
-
-
-                                  <?php
-                              	$strKeyword = null;
-                              	if(isset($_POST["txtKeyword"])){
-                              		$strKeyword = $_POST["txtKeyword"];
-                              	}
-                              	if(isset($_GET["txtKeyword"])){
-                              		$strKeyword = $_GET["txtKeyword"];
-                              	}
-                                  ?>
-                                  <form name="frmSearch" method="post" action="<?php echo $_SERVER['SCRIPT_NAME'];?>">
-                                  <div class="container">
-                                    <div class="row">
-                                      <div class="col-md-8">
-                                      </div>
-                                        <div class="col-md-3 col-8">
-                                            <input class="form-control" type="text" placeholder="Search..." value="<?php echo $strKeyword;?>" name="txtKeyword" id="txtKeyword">
+                                <div class="form-group">
+                                  <div class="row col-md-12">
+                                        <div class="col-md-6">
+                                            <?php
+                                                    $strKeyword = null;
+                                                    if(isset($_POST["txtKeyword"])){
+                                                        $strKeyword = $_POST["txtKeyword"];
+                                                    }
+                                                    if(isset($_GET["txtKeyword"])){
+                                                        $strKeyword = $_GET["txtKeyword"];
+                                                    }
+                                                ?>
+                                            <form name="frmSearch" method="post" action="<?php echo $_SERVER['SCRIPT_NAME'];?>">
+                                                <div class="container">
+                                                    <div class="row">
+                                                        <div class="col-md-6 col-8">
+                                                            <input class="form-control" type="text" placeholder="Search..." value="<?php echo $strKeyword;?>" name="txtKeyword" id="txtKeyword">
+                                                        </div>
+                                                        <button type="submit" class="btn btn-info" name="btnsearch">ค้นหา</button>
+                                                    </div>
+                                                </div>
+                                            </form>
                                         </div>
-                                        <div class="col-md-1 col-2" style="padding-top:4px;">
-                                              <button type="submit" class="btn btn-info"  name="btnsearch">ค้นหา</button>
+                                        <div class="col-md-2 text-right">
+
+                                        </div>
+                                        <div class="col-md-4 text-right">
+                                            <div class="text-right">
+                                                <a href="input_doc_lend.php"><button type="button" class="btn btn-primary">กรอกเอกสารเพิ่ม</button></a>
+                                            </div>
                                         </div>
                                     </div>
-                                  </div>
-                                  </form>
-
                                 </div>
+
+
+
                                 <div class="table-responsive">
-                                    <table class="table text-center">
+                                    <table class="table text-center table-bordered">
                                         <thead >
                                             <tr>
-                                                <th class="text-center">#</th>
-                                                <th class="text-center">รหัสเอกสาร</th>
-                                                <th class="text-center">ชื่อ-สกุล</th>
-                                                <th class="text-center">โครงการ</th>
-                                                <th class="text-center">รายละเอียดเอกสาร</th>
-                                                <th class="text-center">ลบ</th>
+                                                <th class="text-center"><b>#</b></th>
+                                                <th class="text-center"><b>รหัสเอกสาร</b></th>
+                                                <th class="text-center"><b>ชื่อ-สกุล</b></th>
+                                                <th class="text-center"><b>โครงการ</b></th>
+                                                <th class="text-center"><b>รายละเอียดเอกสาร</b></th>
+                                                <th class="text-center"><b>ลบ</b></th>
                                             </tr>
                                         </thead>
                                         <?php
