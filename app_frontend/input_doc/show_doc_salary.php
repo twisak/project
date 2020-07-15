@@ -136,6 +136,7 @@ else
                         <div class="card">
                             <!-- Tab panes -->
                             <div class="card-body">
+                            <form class="form-horizontal form-material" action="INSERT_lend.php" name="insertlend" method="post">
                                 <div class="row">
                                     <div class="col-md-12 text-center">
                                         <div class="form-group">

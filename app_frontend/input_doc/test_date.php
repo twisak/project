@@ -8,7 +8,12 @@
 
 
     <?php
+    $strDate = explode("/", "02/03/2557");
 
+    echo "date= ".$strDate[0];
+    echo "month= ".$strDate[1];
+    echo "year= ".$strDate[2];
+    
     $str_day = 2;
     $str_month = 3;
     $str_year = 4;
@@ -104,8 +109,8 @@
       $month_thai = "ธันวาคม";
     }
 
-    echo $day_thai;
-    echo $month_thai;
+    // echo $day_thai;
+    // echo $month_thai;
 
 
     ?>
@@ -132,25 +137,26 @@ function thainumDigit($num){
 
 $aaa = "555556";
 
-echo thainumDigit($aaa);
+//echo thainumDigit($aaa);
 
-echo thainumDigit("ไก่ 3 ตัว หมู 2 ตัว มีขารวมกัน 14 ขา " );
+//echo thainumDigit("ไก่ 3 ตัว หมู 2 ตัว มีขารวมกัน 14 ขา " );
 
 ?>
 
 
 <?php
 
-$message = "๑๑๑๑๑๑๒๒๒๒๒ บาท";
+$message = "2152165บาท";
 $numthai = array("๑","๒","๓","๔","๕","๖","๗","๘","๙","๐");
 $numarabic = array("1","2","3","4","5","6","7","8","9","0");
 
 
-$test = str_replace($numthai,$numarabic,$message);
-// $test = str_replace($numarabic,$numthai,$message);
-echo $test;
+//$test = str_replace($numthai,$numarabic,$message);
+ $test = str_replace($numarabic,$numthai,$message);
+ echo $test;
 
 ?>
+
 
 
 

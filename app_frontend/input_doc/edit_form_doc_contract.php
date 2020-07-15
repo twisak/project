@@ -346,12 +346,12 @@ include '../../administrator/connect.php';
                                                 <input type="text" class="form-control form-control-line" name="that" value="<?php echo $that; ?>">
                                             </div>
                                         </div>
-                                        <div class="col-md-2">
+                                        <!-- <div class="col-md-2">
                                             <div class="form-group">
                                                 <label>วันที่</label>
                                                 <input type="date" class="form-control form-control-line" name="c_day" value="<?php echo $c_day; ?>">
                                             </div>
-                                        </div>
+                                        </div> -->
                                     </div>
                                     <div class="row">
                                         <div class="col-md-6">

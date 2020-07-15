@@ -152,7 +152,7 @@
                         <td><strong>ระยะเวลาการจ้าง</strong></td>
                       </tr>
                       <tr class="border-0 padding-0" align="left">
-                        <td >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ตั้งแต่วันที่ <?php echo $date_start;?> ถึงวันที่ <?php echo $date_end;?></td>
+                        <td >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ตั้งแต่วันที่ <?php echo $day_thaiS;?>&nbsp;<?php echo $month_thaiS;?>&nbsp;<?php echo $year_thaiS;?> ถึงวันที่ <?php echo $day_thaiE;?>&nbsp;<?php echo $month_thaiE;?>&nbsp;<?php echo $year_thaiE;?></td>
                       </tr>
                     </table>
                     <br>
@@ -443,36 +443,6 @@
 
 
     </div>
-
-    <ul class="right-menu">
-        <li>
-            <a href="#" onclick="window.print();">
-                <span class="fa-stack hightlight fa-2x">
-                    <i class="fa fa-circle fa-stack-2x"></i>
-                    <i class="fa fa-print fa-stack-1x fa-inverse"></i>
-                </span>
-                พิมพ์รายงาน
-            </a>
-        </li>
-        <li>
-            <a href="#" onclick="location.reload();">
-                <span class="fa-stack fa-2x">
-                    <i class="fa fa-circle fa-stack-2x"></i>
-                    <i class="fa fa-refresh fa-stack-1x fa-inverse"></i>
-                </span>
-                Refresh
-            </a>
-        </li>
-        <li>
-            <a href="#" onclick="window.close();">
-                <span class="fa-stack fa-2x">
-                    <i class="fa fa-circle fa-stack-2x"></i>
-                    <i class="fa fa-times fa-stack-1x fa-inverse"></i>
-                </span>
-                ปิดหน้าจอนี้
-            </a>
-        </li>
-    </ul>
 
     <script src="<?php //echo site_common_node_modules_url('jquery/dist/jquery.min.js');?>"></script>
 </body>

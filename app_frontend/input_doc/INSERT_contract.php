@@ -37,6 +37,7 @@
         $fine = serialize( $_POST["fine"] );
         $payment = serialize( $_POST["payment"] );
         $insurance = serialize( $_POST["insurance"] );
+        $date_current = date('Y-m-d');
         
         // print "<pre>";
         // print_r($scope);
@@ -56,10 +57,10 @@
 				$sql = "INSERT INTO tb_contract (doc_id,foreword,str_date,stp_date,project_id,activity_id,person_id,
                                                 teacher_id,number,money,work,date_work,government,that,
                                                 c_day,title_id,people,mid_price,chairman,committee,secretary,
-                                                details,date_start,date_end,property,scope,responsible,fine,payment,insurance)
+                                                details,date_start,date_end,property,scope,responsible,fine,payment,insurance,date_current)
 				 	     VALUES ('$doc_id','$foreword','$str_date','$stp_date','$project_id','$activity_id','$person_id','$teacher_id','$number',
                                  '$money','$work','$date_work','$government','$that','$c_day','$title_id','$people','$mid_price','$chairman','$committee','$secretary',
-                                 '$details','$date_start','$date_end','$property','$scope','$responsible','$fine','$payment','$insurance')";
+                                 '$details','$date_start','$date_end','$property','$scope','$responsible','$fine','$payment','$insurance','$date_current')";
                 $db_query = mysqli_query($conn,$sql);
                 //  echo $sql;
                 //  echo $db_query;

@@ -164,14 +164,20 @@ include '../../administrator/connect.php';
         <div class="page-wrapper">
             <div class="container-fluid">
                 <div class="row page-titles">
-                    <div class="col-md-5 align-self-center">
+                    <div class="col-md-4 align-self-center">
                         <h3 class="text-themecolor">เอกสารล้างหนี้</h3>
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
                             <li class="breadcrumb-item active">เอกสารล้างหนี้</li>
                         </ol>
                     </div>
-                    <div class="col-md-7 align-self-center">
+                    <div class="col-md-6 align-self-center">
+                        <a href="report_debt4.php?id=<?php echo $doc_id;?>" class="btn waves-effect waves-light btn btn-info pull-right hidden-sm-down">
+                            <i class="fa-fw fa fa-print"></i>
+                            หลักฐานการจ่ายเงิน
+                        </a>
+                    </div>
+                    <div class="col-md-2 align-self-center">
                         <a href="report_debt.php?id=<?php echo $doc_id;?>" class="btn waves-effect waves-light btn btn-info pull-right hidden-sm-down">
                             <i class="fa-fw fa fa-print"></i>
                             ส่งออกแบบฟอร์ม
@@ -184,6 +190,7 @@ include '../../administrator/connect.php';
                         <div class="card">
                             <!-- Tab panes -->
                             <div class="card-body">
+                                <form class="form-horizontal form-material" action="INSERT_lend.php" name="insertlend" method="post">
                               <div class="row">
                                   <div class="col-md-12 text-center">
                                       <div class="form-group">

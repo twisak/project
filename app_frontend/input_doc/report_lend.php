@@ -103,32 +103,27 @@
                 //$prefix = $row2['prefix'];
             }
 
+            $strStartDate = $str_date;
+            $strEndDate = $stp_date;
+            $intTotalDay = ((strtotime($strEndDate) - strtotime($strStartDate))/  ( 60 * 60  )) ;  
+
+            //echo "////////$intTotalDay/////////";
 ?>
 <body id="<?php //echo $body['name'];?>">
     <div class="page">
         <table border="0" width="100%" class="statement-view text-gray-900">
             <tr>
-                <td width="60%">
+                <td width="100%" colspan="2">
 
                     <table width="100%">
                         <tr align="center">
-                            <td><strong>สัญญาการยืมเงิน</strong></td>
-                        </tr>
-                        <tr align="left">
-                            <td><strong>ยื่นต่อ หัวหน้าการคลัง</strong></td>
-                        </tr>
-                    </table>
-
-                </td>
-                <td width="40%">
-                    <table width="100%">
-                        <tr align="left">
-                            <td width="200px" height="1px">
+                            <td width="70%"><strong>สัญญาการยืมเงิน</strong></td>
+                            <td width="30%" height="1px">
                                 <table width="100%" border="0" align="left">
                                     <tr>
                                         <td width="1" class="text-nowrap border-0 padding-0"><strong>เลขที่</strong></td>
                                         <td class="border-0 padding-0 text-center">
-                                            <?php //echo print_null($borrow->code);?>
+                                            <?php echo $doc_id;?>
                                             <div class="line-bottom-dashed"></div>
                                         </td>
                                     </tr>
@@ -136,12 +131,13 @@
                             </td>
                         </tr>
                         <tr align="left">
-                            <td width="200px" height="1px">
+                            <td><strong>ยื่นต่อ หัวหน้าการคลัง</strong></td>
+                            <td width="500px" height="1px">
                                 <table width="100%" border="0" align="left">
                                     <tr>
                                         <td width="1" class="text-nowrap border-0 padding-0"><strong>วันครบกำหนด</strong></td>
                                         <td class="border-0 padding-0 text-center">
-                                            <?php //echo print_null($borrow->code);?>
+                                            <?php echo $stp_date;?>
                                             <div class="line-bottom-dashed"></div>
                                         </td>
                                     </tr>
@@ -149,6 +145,7 @@
                             </td>
                         </tr>
                     </table>
+
                 </td>
             </tr>
 
@@ -185,7 +182,7 @@
                                 <table width="100%" border="0" align="left">
                                     <tr>
                                         <td width="1" class="text-nowrap border-0 padding-0">เพื่อเป็นค่าใช้จ่าย</td>
-                                        <td class="border-0 padding-0 text-center">
+                                        <td class="border-0 padding-0 ">
                                         &nbsp;<?php echo $project_name; ?>
                                             <div class="line-bottom-dashed"></div>
                                         </td>
@@ -408,7 +405,7 @@
                 <td colspan="2">
                     <table>
                         <tr>
-                            <td colspan="2" class="text-indent-50">ข้าพเจ้าจะสัญญาว่าจะปฏิบัติตามระเบียบของทางราชกรทุกประการและจำนำใบสำคัญคู่จ่ายที่ถูกต้องพร้อมทั้งเงินเหลือจ่าย(ถ้ามี) ส่งใช้ภายในกำนหดไว้ในระเบียบการเบิกจ่ายเงินจากคลัง คือภายใน <?php echo '.........';?> วัน นับแต่วันที่ได้รับเงินยืมนี้ ถ้าข้าพเจ้าไม่ส่งตามกำหนดข้าำเจ้ายินยอมให้หักเงินเดือน ค่าจ้าง เบี้ยหวัด บำเหน็จ บำนาญ หรือเงินอื่นใดที่ข้าพเจ้าจะพึงได้รับจากทางราชการชดใช้จำนวนเงินที่ยืมไปจนครบถ้วนได้ทันที
+                            <td colspan="2" class="text-indent-50">ข้าพเจ้าจะสัญญาว่าจะปฏิบัติตามระเบียบของทางราชกรทุกประการและจำนำใบสำคัญคู่จ่ายที่ถูกต้องพร้อมทั้งเงินเหลือจ่าย(ถ้ามี) ส่งใช้ภายในกำนหดไว้ในระเบียบการเบิกจ่ายเงินจากคลัง คือภายใน <?php echo $intTotalDay;?> วัน นับแต่วันที่ได้รับเงินยืมนี้ ถ้าข้าพเจ้าไม่ส่งตามกำหนดข้าำเจ้ายินยอมให้หักเงินเดือน ค่าจ้าง เบี้ยหวัด บำเหน็จ บำนาญ หรือเงินอื่นใดที่ข้าพเจ้าจะพึงได้รับจากทางราชการชดใช้จำนวนเงินที่ยืมไปจนครบถ้วนได้ทันที
                             </td>
                         </tr>
                     </table>
@@ -663,16 +660,7 @@
             </a>
         </li>
         <li>
-            <a href="#" onclick="location.reload();">
-                <span class="fa-stack fa-2x">
-                    <i class="fa fa-circle fa-stack-2x"></i>
-                    <i class="fa fa-refresh fa-stack-1x fa-inverse"></i>
-                </span>
-                Refresh
-            </a>
-        </li>
-        <li>
-            <a href="#" onclick="window.close();">
+            <a href="#" onClick="JavaScript:history.back();">
                 <span class="fa-stack fa-2x">
                     <i class="fa fa-circle fa-stack-2x"></i>
                     <i class="fa fa-times fa-stack-1x fa-inverse"></i>

@@ -114,6 +114,15 @@
                 $title = $row5['title'];
                 $body = $row5['body'];
             }
+
+            $message = "$that";//รวมเป็น
+            $numthai = array("๑","๒","๓","๔","๕","๖","๗","๘","๙","๐");
+            $numarabic = array("1","2","3","4","5","6","7","8","9","0");
+
+            //$test = str_replace($numthai,$numarabic,$message);
+            $that1 = str_replace($numarabic,$numthai,$message);
+            //echo $day_thai;
+
 ?>
 <body id="<?php //echo $body['name'];?>">
     <div class="page">
@@ -150,7 +159,7 @@
                                 <tr>
                                     <td width="1" class="text-nowrap border-0 padding-0"><strong>ที่</strong></td>
                                     <td class="border-0 padding-0">
-                                    &nbsp;&nbsp;<?php echo $that;?>
+                                    &nbsp;&nbsp;<?php echo $that1;?>
                                         <div class="line-bottom-dashed"></div>
                                     </td>
                                 </tr>
@@ -161,7 +170,7 @@
                                 <tr>
                                     <td width="1" class="text-nowrap border-0 padding-0"><strong>วันที่</strong></td>
                                     <td class="border-0 padding-0">
-                                    &nbsp;&nbsp;<?php echo $c_day;?>
+                                    &nbsp;&nbsp;<?php echo $day_thai;?>&nbsp;<?php echo $month_thai;?>&nbsp;<?php echo $year_thai;?>
                                         <div class="line-bottom-dashed"></div>
                                     </td>
                                 </tr>
@@ -185,11 +194,11 @@
                         <td colspan="2">เรียน อธิการบดีมหาวิทยาลัยราชภัฏยะลา</td>
                       </tr>
                       <tr  align="left">
-                        <td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ตามบันทึก ที่ อว.๐๖๓๘.๑๕.๑๘๒ ลงวันที่ ๑๖ กันยายน ๒๕๖๒ เรื่องแต่งตั้งคณะกรรมการจัดทำขอบเขตของงานและราคากลางงานจ้างเหมาบริการเจ้าหน้าที่โครงการ การศึกษาเพื่อความมั่นคง : พัฒนาศักยภาพครูและบุคลากรทางการศึกษาเพื่อเสริมสร้างความมั่นคงและลดความเหลื่อมล้ำจากเหตุการณ์ความไม่สงบในพื้นที่ชายแดนใต้ นั้น</td>
+                        <td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ตามบันทึก ที่ <?php echo $that1;?> ลงวันที่ <?php echo $day_thaiS;?>&nbsp;<?php echo $month_thaiS;?>&nbsp;<?php echo $year_thaiS;?> เรื่องแต่งตั้งคณะกรรมการจัดทำขอบเขตของงานและราคากลางงานจ้างเหมาบริการเจ้าหน้าที่โครงการ : <?php echo $project_name;?> นั้น</td>
                         
                       </tr>
                       <tr  align="left">
-                        <td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;บัดนี้ คณะกรรมการจัดทำราคากลาง ได้ดำเนินการจัดทำราคากลางงานจ้างเหมาบริการเจ้าหน้าที่โครงการ การศึกษาเพื่อความมั่นคง : พัฒนาศักยภาพครูและบุคลากรทางการศึกษาเพื่อเสริมสร้าง ความมั่นคงและลดความเหลื่อมล้ำจากเหตุการณ์ความไม่สงบในพื้นที่ชายแดนใต้ จำนวน ๑ คน ดังกล่าวเสร็จเรียบร้อยแล้ว ราคากลางทีคำนวณได้ เป็นเงิน ๑๘๐,๐๐๐ บาท (หนึ่งแสนแปดหมื่นบาทถ้วน) ตามรายละเอียดการคำนวณราคากลางที่แนบ</td>
+                        <td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;บัดนี้ คณะกรรมการจัดทำราคากลาง ได้ดำเนินการจัดทำราคากลางงานจ้างเหมาบริการเจ้าหน้าที่โครงการ : <?php echo $project_name;?> จำนวน ๑ คน ดังกล่าวเสร็จเรียบร้อยแล้ว ราคากลางทีคำนวณได้ เป็นเงิน ๑๘๐,๐๐๐ บาท (หนึ่งแสนแปดหมื่นบาทถ้วน) ตามรายละเอียดการคำนวณราคากลางที่แนบ</td>
                         
                       </tr>
                       <tr  align="left">
@@ -338,36 +347,6 @@
 
 
     </div>
-
-    <ul class="right-menu">
-        <li>
-            <a href="#" onclick="window.print();">
-                <span class="fa-stack hightlight fa-2x">
-                    <i class="fa fa-circle fa-stack-2x"></i>
-                    <i class="fa fa-print fa-stack-1x fa-inverse"></i>
-                </span>
-                พิมพ์รายงาน
-            </a>
-        </li>
-        <li>
-            <a href="#" onclick="location.reload();">
-                <span class="fa-stack fa-2x">
-                    <i class="fa fa-circle fa-stack-2x"></i>
-                    <i class="fa fa-refresh fa-stack-1x fa-inverse"></i>
-                </span>
-                Refresh
-            </a>
-        </li>
-        <li>
-            <a href="#" onclick="window.close();">
-                <span class="fa-stack fa-2x">
-                    <i class="fa fa-circle fa-stack-2x"></i>
-                    <i class="fa fa-times fa-stack-1x fa-inverse"></i>
-                </span>
-                ปิดหน้าจอนี้
-            </a>
-        </li>
-    </ul>
 
     <script src="<?php //echo site_common_node_modules_url('jquery/dist/jquery.min.js');?>"></script>
 </body>

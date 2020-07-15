@@ -91,10 +91,14 @@ include '../../administrator/connect.php';
                             <!-- Tab panes -->
                             <div class="card-body">
                                 <form class="form-horizontal form-material" action="INSERT_lend.php" name="insertlend" method="post">
-                                    <div class="row">
-                                        <div class="col-md-2">
-                                            <div class="form-group">
-                                                <label><u>สัญญายืม</u></label>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-12 text-center">
+                                                <div class="form-group">
+                                                    <label>
+                                                        <h4><b><u>กรอกเอกสารสัญญายืม</u></b></h4>
+                                                    </label>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -114,7 +118,7 @@ include '../../administrator/connect.php';
                                     <div class="row">
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label>รหัสเอกสารสัญญายืม</label>
+                                                <label><b>รหัสเอกสารสัญญายืม</b></label>
                                                 <input type="text" value="<?=$id?>" readonly class="form-control form-control-line">
                                                 <input type="hidden" name="doc_id" value="<?=$id?>" />
                                             </div>
@@ -122,14 +126,14 @@ include '../../administrator/connect.php';
 
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label>เริ่มต้นวันที่</label>
+                                                <label><b>เริ่มต้นวันที่</b></label>&nbsp;<label class="text-danger"><b>*</b></label>
                                                 <input type="date" class="form-control form-control-line" name="str_date">
                                             </div>
                                         </div>
 
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label>สิ้นสุดวันที่</label>
+                                                <label><b>สิ้นสุดวันที่</b></label>&nbsp;<label class="text-danger"><b>*</b></label>
                                                 <input type="date" class="form-control form-control-line" name="stp_date">
                                             </div>
                                         </div>
@@ -143,7 +147,7 @@ include '../../administrator/connect.php';
 
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label>ชื่อบุคลากร</label>
+                                                <label><b>ชื่อบุคลากร</b></label>
                                                 <input type="text" value="<?php echo $prefix?><?php echo $firtname?>&nbsp;&nbsp;<?php echo $lastname?>" class="form-control form-control-line">
                                                 <input type="hidden" class="form-control" name="person_id" value="<?php echo $person_id?>">
                                             </div>
@@ -156,7 +160,7 @@ include '../../administrator/connect.php';
 
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label>ชื่ออาจารย์</label>
+                                                <label><b>ชื่ออาจารย์</b></label>&nbsp;<label class="text-danger"><b>*</b></label>
                                                 <select class="form-control" name="teacher_id">
                                                     <option value="">-- เลือกรายชื่ออาจารย์ --</option>
                                                     <?php
@@ -176,7 +180,7 @@ include '../../administrator/connect.php';
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label>โครงการ</label>
+                                                <label><b>โครงการ</b></label>&nbsp;<label class="text-danger"><b>*</b></label>
                                                 <select name="project_id" id="project" class="form-control">
                                                     <option value="">-- เลือกชื่อโครงการ --</option>
                                                     <?php
@@ -192,26 +196,42 @@ include '../../administrator/connect.php';
 
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label for="activity">ชื่อกิจกรรม</label>
+                                                <label for="activity"><b>ชื่อกิจกรรม</b></label>&nbsp;<label class="text-danger"><b>*</b></label>
                                                 <select name="activity_id" id="activity" class="form-control">
                                                     <option value="">ชื่อกิจกรรม</option>
                                                 </select>
                                             </div>
                                         </div>
                                     </div>
-
+                                    <script language="javascript">
+                                        function IsNumeric(sText, obj) {
+                                            var ValidChars = "0123456789/";
+                                            var IsNumber = true;
+                                            var Char;
+                                            for (i = 0; i < sText.length && IsNumber == true; i++) {
+                                                Char = sText.charAt(i);
+                                                if (ValidChars.indexOf(Char) == -1) {
+                                                    IsNumber = false;
+                                                }
+                                            }
+                                            if (IsNumber == false) {
+                                                alert("(ตัวเลข เท่านั้น)");
+                                                obj.value = sText.substr(0, sText.length - 1);
+                                            }
+                                        }
+                                    </script>
                                     <div class="row">
                                         <div class="col-md-5">
                                             <div class="form-group">
-                                                <label>ค่าเบี้ยเลี้ยง</label>
+                                                <label><b>ค่าเบี้ยเลี้ยง</b></label>&nbsp;<label class="text-danger"><b>*</b></label>
                                                 <input type="text" class="form-control form-control-line" name="allowance">
                                             </div>
                                         </div>
 
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label>ราคา</label>
-                                                <input type="text" class="form-control form-control-line" name="allowance_price">
+                                                <label><b>ราคา</b></label>&nbsp;<label class="text-danger"><b>*</b></label>
+                                                <input type="text" class="form-control form-control-line" name="allowance_price" onKeyUp="IsNumeric(this.value,this)">
                                             </div>
                                         </div>
                                     </div>
@@ -219,15 +239,15 @@ include '../../administrator/connect.php';
                                     <div class="row">
                                         <div class="col-md-5">
                                             <div class="form-group">
-                                                <label>ค่าที่พัก</label>
+                                                <label><b>ค่าที่พัก</b></label>&nbsp;<label class="text-danger"><b>*</b></label>
                                                 <input type="text" class="form-control form-control-line" name="rest">
                                             </div>
                                         </div>
 
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label>ราคา</label>
-                                                <input type="text" class="form-control form-control-line" name="rest_price">
+                                                <label><b>ราคา</b></label>&nbsp;<label class="text-danger"><b>*</b></label>
+                                                <input type="text" class="form-control form-control-line" name="rest_price" onKeyUp="IsNumeric(this.value,this)">
                                             </div>
                                         </div>
                                     </div>
@@ -235,15 +255,15 @@ include '../../administrator/connect.php';
                                     <div class="row">
                                         <div class="col-md-5">
                                             <div class="form-group">
-                                                <label>พาหนะ</label>
+                                                <label><b>พาหนะ</b></label>&nbsp;<label class="text-danger"><b>*</b></label>
                                                 <input type="text" class="form-control form-control-line" name="vehicle">
                                             </div>
                                         </div>
 
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label>ราคา</label>
-                                                <input type="text" class="form-control form-control-line" name="vehicle_price">
+                                                <label><b>ราคา</b></label>&nbsp;<label class="text-danger"><b>*</b></label>
+                                                <input type="text" class="form-control form-control-line" name="vehicle_price" onKeyUp="IsNumeric(this.value,this)">
                                             </div>
                                         </div>
                                     </div>
@@ -251,15 +271,15 @@ include '../../administrator/connect.php';
                                     <div class="row">
                                         <div class="col-md-5">
                                             <div class="form-group">
-                                                <label>ค่าลงทะเบียน</label>
-                                                <input type="text" class="form-control form-control-line" name="regis">
+                                                <label><b>ค่าลงทะเบียน/บาท</b></label>&nbsp;<label class="text-danger"><b>*</b></label>
+                                                <input type="text" class="form-control form-control-line" name="regis" onKeyUp="IsNumeric(this.value,this)">
                                             </div>
                                         </div>
 
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label>จำนวน/คน</label>
-                                                <input type="text" class="form-control form-control-line" name="regis_num">
+                                                <label><b>จำนวน/คน</b></label>&nbsp;<label class="text-danger"><b>*</b></label>
+                                                <input type="number" class="form-control form-control-line" name="regis_num">
                                             </div>
                                         </div>
                                     </div>
@@ -267,15 +287,15 @@ include '../../administrator/connect.php';
                                     <div class="row">
                                         <div class="col-md-5">
                                             <div class="form-group">
-                                                <label>อื่นๆ</label>
+                                                <label><b>พาหนะ</b></label>&nbsp;<label class="text-danger"><b>*</b></label>
                                                 <input type="text" class="form-control form-control-line" name="other">
                                             </div>
                                         </div>
 
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label>ราคา</label>
-                                                <input type="text" class="form-control form-control-line" name="other_price">
+                                                <label><b>ราคา</b></label>&nbsp;<label class="text-danger"><b>*</b></label>
+                                                <input type="text" class="form-control form-control-line" name="other_price" onKeyUp="IsNumeric(this.value,this)">
                                             </div>
                                         </div>
                                     </div>
@@ -283,7 +303,7 @@ include '../../administrator/connect.php';
                                     <div class="row">
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label><u>รายการส่งใช้เงินยืม</u></label>
+                                                <label><h5><b><u>รายการส่งใช้เงินยืม</u></b></h5></label>
                                             </div>
                                         </div>
                                     </div>
@@ -325,7 +345,7 @@ include '../../administrator/connect.php';
 
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <button type="button" class="btn btn-danger btn-block">ยกเลิก</button>
+                                                <button type="button" class="btn btn-danger btn-block" onClick="JavaScript:history.back();">ยกเลิก</button>
                                             </div>
                                         </div>
 
@@ -362,7 +382,7 @@ include '../../administrator/connect.php';
 
 
             var tr = "<tr>";
-            tr = tr + "<td><div class='row'><div class='col-md-2'><div class='form-group'><label>วัน/เดือน/ปี</label></label><input type='date' class='form-control p_input'  name='date_list[]" + rows + "'></div></div><div class='col-md-2'><div class='form-group'><label>การชำระ</label><select class='form-control' name='pay_type[]" + rows + "'><option>เงินสด</option><option>ใบสำคัญ</option></select></div></div><div class='col-md-2'><div class='form-group'><label>ราคา</label></label><input type='text' class='form-control p_input'  name='price_list[]" + rows + "'></div></div><div class='col-md-2'><div class='form-group'><label>ยอดคงค้าง</label><input type='text' class='form-control p_input'  name='balance[]" + rows + "'></div></div></div></td>";
+            tr = tr + "<td><div class='row'><div class='col-md-2'><div class='form-group'><label><b>วัน/เดือน/ปี</b></label></label><input type='date' class='form-control p_input' name='date_list[]" + rows + "'></div></div><div class='col-md-2'><div class='form-group'><label><b>การชำระ</b></label><select class='form-control' name='pay_type[]" + rows + "'><option>เงินสด</option><option>ใบสำคัญ</option></select></div></div><div class='col-md-2'><div class='form-group'><label><b>ราคา</b></label></label><input type='text' class='form-control p_input' onKeyUp='IsNumeric(this.value,this)' name='price_list[]" + rows + "'></div></div><div class='col-md-2'><div class='form-group'><label><b>ยอดคงค้าง</b></label><input type='text' class='form-control p_input' onKeyUp='IsNumeric(this.value,this)' name='balance[]" + rows + "'></div></div></div></td>";
             tr = tr + "</tr>";
             $('#myTable > tbody:last').append(tr);
 

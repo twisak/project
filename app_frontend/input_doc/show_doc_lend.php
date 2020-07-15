@@ -55,10 +55,8 @@ include '../../administrator/connect.php';
     <!-- You can change the theme colors from here -->
     <link href="../css/colors/default.css" id="theme" rel="stylesheet">
 
-    <!-- google fonts -->
     <link href="https://fonts.googleapis.com/css?family=Prompt&display=swap" rel="stylesheet">
     <link href="../css/google_fonts/fonts_prompt.css" rel="stylesheet" />
-    <!-- end googlefonts --->
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -173,18 +171,22 @@ include '../../administrator/connect.php';
                         <div class="card">
                             <!-- Tab panes -->
                             <div class="card-body">
-                                <div class="row">
-                                    <div class="col-md-12 text-center">
-                                        <div class="form-group">
-                                            <label><b><u>รายละเอียดเอกสารสัญญายืม</u></b></label>
+                            <form class="form-horizontal form-material" action="INSERT_lend.php" name="insertlend" method="post">
+                                <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-12 text-center">
+                                                <div class="form-group">
+                                                    <label>
+                                                        <h5><b><u>รายละเอียดเอกสารสัญญายืม</u></b></h5>
+                                                    </label>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-
                                 <div class="row">
                                     <div class="col-md-2">
                                         <div class="form-group">
-                                            <label><b><u>รหัสเอกสารสัญญายืม</u></b></label>
+                                            <label><b>รหัสเอกสารสัญญายืม</b></label>
                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $doc_id;?>
                                         </div>
                                     </div>
@@ -243,13 +245,13 @@ include '../../administrator/connect.php';
                                 <div class="row">
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="activity"><b>ค่าเบี้ยเลี้ยง</b></label><br>
+                                            <label><b>ค่าเบี้ยเลี้ยง</b></label><br>
                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $allowance; ?>
                                         </div>
                                     </div>
                                     <div class="col-md-2">
                                         <div class="form-group">
-                                            <label for="activity"><b>ราคา</b></label><br>
+                                            <label><b>ราคา</b></label><br>
                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $allowance_price; ?>
                                         </div>
                                     </div>
@@ -258,13 +260,13 @@ include '../../administrator/connect.php';
                                 <div class="row">
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="activity"><b>ค่าที่พัก</b></label><br>
+                                            <label><b>ค่าที่พัก</b></label><br>
                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $rest; ?>
                                         </div>
                                     </div>
                                     <div class="col-md-2">
                                         <div class="form-group">
-                                            <label for="activity"><b>ราคา</b></label><br>
+                                            <label><b>ราคา</b></label><br>
                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $rest_price; ?>
                                         </div>
                                     </div>
@@ -273,13 +275,13 @@ include '../../administrator/connect.php';
                                 <div class="row">
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="activity"><b>ค่าพาหนะ</b></label><br>
+                                            <label><b>ค่าพาหนะ</b></label><br>
                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $vehicle; ?>
                                         </div>
                                     </div>
                                     <div class="col-md-2">
                                         <div class="form-group">
-                                            <label for="activity"><b>ราคา</b></label><br>
+                                            <label><b>ราคา</b></label><br>
                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $vehicle_price; ?>
                                         </div>
                                     </div>
@@ -288,13 +290,13 @@ include '../../administrator/connect.php';
                                 <div class="row">
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="activity"><b>ค่าลงทะเบียน</b></label><br>
+                                            <label><b>ค่าลงทะเบียน</b></label><br>
                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $regis; ?>
                                         </div>
                                     </div>
                                     <div class="col-md-2">
                                         <div class="form-group">
-                                            <label for="activity"><b>จำนวน/คน</b></label><br>
+                                            <label><b>จำนวน/คน</b></label><br>
                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $regis_num; ?>
                                         </div>
                                     </div>
@@ -303,13 +305,13 @@ include '../../administrator/connect.php';
                                 <div class="row">
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="activity"><b>อื่นๆ</b></label><br>
+                                            <label><b>อื่นๆ</b></label><br>
                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $other; ?>
                                         </div>
                                     </div>
                                     <div class="col-md-2">
                                         <div class="form-group">
-                                            <label for="activity"><b>จำนวน/คน</b></label><br>
+                                            <label><b>จำนวน/คน</b></label><br>
                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $other_price; ?>
                                         </div>
                                     </div>
@@ -329,7 +331,7 @@ include '../../administrator/connect.php';
 
                                                                   foreach ($date_list1 as $date_list1){
                                                                     $j=0;
-                                                                    echo "<p><b>รายการ</b></p>";
+                                                                    echo "<p><label><b>รายการ</b></label></p>";
                                                                     echo "<ul>";
                                                                     foreach ($date_list1 as $date_list1[$j]){
                                                                         $value = $date_list1[$j];
@@ -350,7 +352,7 @@ include '../../administrator/connect.php';
 
                                                                   foreach ($pay_type1 as $pay_type1){
                                                                     $j=0;
-                                                                    echo "<p><b>การชำระ</b></p>";
+                                                                    echo "<p><label><b>การชำระ</b></label></p>";
                                                                     echo "<ul>";
                                                                     foreach ($pay_type1 as $pay_type1[$j]){
                                                                         $value = $pay_type1[$j];
@@ -370,7 +372,7 @@ include '../../administrator/connect.php';
 
                                                                   foreach ($price_list1 as $price_list1){
                                                                     $j=0;
-                                                                    echo "<p><b>ราคา</b></p>";
+                                                                    echo "<p><label><b>ราคา</b></label></p>";
                                                                     echo "<ul>";
                                                                     foreach ($price_list1 as $price_list1[$j]){
                                                                         $value = $price_list1[$j];
@@ -391,7 +393,7 @@ include '../../administrator/connect.php';
 
                                                                   foreach ($balance1 as $balance1){
                                                                     $j=0;
-                                                                    echo "<p><b>ยอดคงค้าง</b></p>";
+                                                                    echo "<p><label><b>ยอดคงค้าง</b></label></p>";
                                                                     echo "<ul>";
                                                                     foreach ($balance1 as $balance1[$j]){
                                                                         $value = $balance1[$j];

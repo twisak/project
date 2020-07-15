@@ -63,6 +63,7 @@
                 $fine = unserialize($row["fine"]);
                 $payment = unserialize( $row["payment"] );
                 $insurance = unserialize( $row["insurance"] );
+                $date_current = $row['date_current'];
             }
 
             $sql1 ="SELECT * FROM tb_project WHERE project_id = '".$project_id."' ";
@@ -111,6 +112,68 @@
                 $title = $row5['title'];
                 $body = $row5['body'];
             }
+                                        $strDate = explode("-", "$date_current");
+
+                                        // echo "year= ".$strDate[0];
+                                        // echo "month= ".$strDate[1];
+                                        // echo "date= ".$strDate[2];
+                                        
+                                        $str_day = $strDate[2];
+                                        $str_month = $strDate[1];
+                                        $str_year = $strDate[0];
+
+                                        $year=date("$str_year")+543;
+                                        
+                                        //echo $year;
+
+                                        $message = "$year";
+                                        $numthai = array("๑","๒","๓","๔","๕","๖","๗","๘","๙","๐");
+                                        $numarabic = array("1","2","3","4","5","6","7","8","9","0");
+
+
+                                        //$test = str_replace($numthai,$numarabic,$message);
+                                        $year_thai = str_replace($numarabic,$numthai,$message);
+                                        //echo $year_thai;
+
+                                        $message = "$str_day";
+                                        $numthai = array("๑","๒","๓","๔","๕","๖","๗","๘","๙","๐");
+                                        $numarabic = array("1","2","3","4","5","6","7","8","9","0");
+
+
+                                        //$test = str_replace($numthai,$numarabic,$message);
+                                        $day_thai = str_replace($numarabic,$numthai,$message);
+                                        //echo $day_thai;
+
+                                        if($str_month == "01"){
+                                        $month_thai = "มกราคม";
+                                        }else if($str_month == "02"){
+                                        $month_thai = "กุมภาพันธ์";
+                                        }else if($str_month == "03"){
+                                        $month_thai = "มีนาคม";
+                                        }else if($str_month == "04"){
+                                        $month_thai = "เมษายน";
+                                        }else if($str_month == "05"){
+                                        $month_thai = "พฤษภาคม";
+                                        }else if($str_month == "06"){
+                                        $month_thai = "มิถุนายน";
+                                        }else if($str_month == "07"){
+                                        $month_thai = "กรกฎาคม";
+                                        }else if($str_month == "08"){
+                                        $month_thai = "สิงหาคม";
+                                        }else if($str_month == "09"){
+                                        $month_thai = "กันยายน";
+                                        }else if($str_month == "10"){
+                                        $month_thai = "ตุลาคม";
+                                        }else if($str_month == "11"){
+                                        $month_thai = "พฤศจิกายน";
+                                        }else if($str_month == "12"){
+                                        $month_thai = "ธันวาคม";
+                                        }
+
+                                        //echo $day_thai;
+                                        //echo $month_thai;
+
+                                        
 ?>
 <body id="<?php //echo $body['name'];?>">
 <div class="page">
@@ -141,7 +204,7 @@
                     <br>
                 </td>
                 <td width="50%"  class="statement-header" align="left">
-                  วันที่ 31 กรกฏาคม 2562
+                  วันที่ <?php echo $day_thai;?>&nbsp;<?php echo $month_thai;?>&nbsp;<?php echo $year_thai;?>
                     <br>
                 </td>
               </table>
@@ -159,16 +222,235 @@
                 เรียน อธิการบดีมหาวิทยาลัมหาวิทยาลัยราชภัฏยะลา
             </td>
             </tr>
-                <?php $total = $number * $money;?>
-            <tr>
-              <td colspan="2" class="text-indent-50" align="left">
-                <?php echo $body;?> "<?php echo $project_name?>" ตั้งแต่วันที่ <?php echo $str_date?>  ถึง <?php echo $stp_date?>  จำนวน <?php echo $number?> งวด (<?php echo $money?> = <?php echo $total?>บาท) เป็นเงิน <?php echo $money?> บาท รวมเป็นเงินทั้งสิ้น <?php echo $money?> บาท(หนึ่งหมื่นสามพันสามร้อยบาทถ้วน) นั้น
-            </td>
-            </tr>
+                <?php 
+                    $total = $number * $money;
 
+                    $strDate = explode("-", "$str_date");//วันเริ่ม
+                    
+                    $str_day = $strDate[2];
+                    $str_month = $strDate[1];
+                    $str_year = $strDate[0];
+
+                    $year=date("$str_year")+543;
+
+                    $message = "$year";
+                    $numthai = array("๑","๒","๓","๔","๕","๖","๗","๘","๙","๐");
+                    $numarabic = array("1","2","3","4","5","6","7","8","9","0");
+
+                    //$test = str_replace($numthai,$numarabic,$message);
+                    $year_thaiS = str_replace($numarabic,$numthai,$message);
+                    //echo $year_thai;
+
+                    $message = "$str_day";
+                    $numthai = array("๑","๒","๓","๔","๕","๖","๗","๘","๙","๐");
+                    $numarabic = array("1","2","3","4","5","6","7","8","9","0");
+
+
+                    //$test = str_replace($numthai,$numarabic,$message);
+                    $day_thaiS = str_replace($numarabic,$numthai,$message);
+                    //echo $day_thai;
+
+                    if($str_month == "01"){
+                    $month_thaiS = "มกราคม";
+                    }else if($str_month == "02"){
+                    $month_thaiS = "กุมภาพันธ์";
+                    }else if($str_month == "03"){
+                    $month_thaiS = "มีนาคม";
+                    }else if($str_month == "04"){
+                    $month_thaiS = "เมษายน";
+                    }else if($str_month == "05"){
+                    $month_thaiS = "พฤษภาคม";
+                    }else if($str_month == "06"){
+                    $month_thaiS = "มิถุนายน";
+                    }else if($str_month == "07"){
+                    $month_thaiS = "กรกฎาคม";
+                    }else if($str_month == "08"){
+                    $month_thaiS = "สิงหาคม";
+                    }else if($str_month == "09"){
+                    $month_thaiS = "กันยายน";
+                    }else if($str_month == "10"){
+                    $month_thaiS = "ตุลาคม";
+                    }else if($str_month == "11"){
+                    $month_thaiS = "พฤศจิกายน";
+                    }else if($str_month == "12"){
+                    $month_thaiS = "ธันวาคม";
+                    }
+                    
+                    $strDate = explode("-", "$stp_date");//วันที่จบ
+                    
+                    $str_day = $strDate[2];
+                    $str_month = $strDate[1];
+                    $str_year = $strDate[0];
+
+                    $year=date("$str_year")+543;
+
+                    $message = "$year";
+                    $numthai = array("๑","๒","๓","๔","๕","๖","๗","๘","๙","๐");
+                    $numarabic = array("1","2","3","4","5","6","7","8","9","0");
+
+                    //$test = str_replace($numthai,$numarabic,$message);
+                    $year_thaiE = str_replace($numarabic,$numthai,$message);
+                    //echo $year_thai;
+
+                    $message = "$str_day";
+                    $numthai = array("๑","๒","๓","๔","๕","๖","๗","๘","๙","๐");
+                    $numarabic = array("1","2","3","4","5","6","7","8","9","0");
+
+
+                    //$test = str_replace($numthai,$numarabic,$message);
+                    $day_thaiE = str_replace($numarabic,$numthai,$message);
+                    //echo $day_thai;
+
+                    if($str_month == "01"){
+                    $month_thaiE = "มกราคม";
+                    }else if($str_month == "02"){
+                    $month_thaiE = "กุมภาพันธ์";
+                    }else if($str_month == "03"){
+                    $month_thaiE = "มีนาคม";
+                    }else if($str_month == "04"){
+                    $month_thaiE = "เมษายน";
+                    }else if($str_month == "05"){
+                    $month_thaiE = "พฤษภาคม";
+                    }else if($str_month == "06"){
+                    $month_thaiE = "มิถุนายน";
+                    }else if($str_month == "07"){
+                    $month_thaiE = "กรกฎาคม";
+                    }else if($str_month == "08"){
+                    $month_thaiE = "สิงหาคม";
+                    }else if($str_month == "09"){
+                    $month_thaiE = "กันยายน";
+                    }else if($str_month == "10"){
+                    $month_thaiE = "ตุลาคม";
+                    }else if($str_month == "11"){
+                    $month_thaiE = "พฤศจิกายน";
+                    }else if($str_month == "12"){
+                    $month_thaiE = "ธันวาคม";
+                    }
+
+                    $total = $number * $money;
+
+                    $message = "$number";//จำนวนงวด
+                    $numthai = array("๑","๒","๓","๔","๕","๖","๗","๘","๙","๐");
+                    $numarabic = array("1","2","3","4","5","6","7","8","9","0");
+
+                    //$test = str_replace($numthai,$numarabic,$message);
+                    $number1 = str_replace($numarabic,$numthai,$message);
+                    //echo $day_thai;
+
+                    $message = "$money";//งวดล่ะ
+                    $numthai = array("๑","๒","๓","๔","๕","๖","๗","๘","๙","๐");
+                    $numarabic = array("1","2","3","4","5","6","7","8","9","0");
+
+                    //$test = str_replace($numthai,$numarabic,$message);
+                    $money1 = str_replace($numarabic,$numthai,$message);
+                    //echo $day_thai;
+
+                    $message = "$total";//รวมเป็น
+                    $numthai = array("๑","๒","๓","๔","๕","๖","๗","๘","๙","๐");
+                    $numarabic = array("1","2","3","4","5","6","7","8","9","0");
+
+                    //$test = str_replace($numthai,$numarabic,$message);
+                    $total1 = str_replace($numarabic,$numthai,$message);
+                    //echo $day_thai;
+
+                        function convert($money){
+                        $txtnum1 = array('ศูนย์','หนึ่ง','สอง','สาม','สี่','ห้า','หก','เจ็ด','แปด','เก้า','สิบ');
+                        $txtnum2 = array('','สิบ','ร้อย','พัน','หมื่น','แสน','ล้าน','สิบ','ร้อย','พัน','หมื่น','แสน','ล้าน');
+                        $money = str_replace(",","",$money);
+                        $money = str_replace(" ","",$money);
+                        $money = str_replace("บาท","",$money);
+                        $money = explode(".",$money);
+                        if(sizeof($money)>2){
+                            return 'ทศนิยมหลายตัวนะจ๊ะ';
+                            exit;
+                        }
+                        $strlen = strlen($money[0]);
+                        $convert = '';
+                        for($i=0;$i<$strlen;$i++){
+                            $n = substr($money[0], $i,1);
+                            if($n!=0){
+                                if($i==($strlen-1) AND $n==1){ $convert .= 'เอ็ด'; }
+                                elseif($i==($strlen-2) AND $n==2){  $convert .= 'ยี่'; }
+                                elseif($i==($strlen-2) AND $n==1){ $convert .= ''; }
+                                else{ $convert .= $txtnum1[$n]; }
+                                $convert .= $txtnum2[$strlen-$i-1];
+                            }
+                        }
+
+                        $convert .= 'บาทถ้วน';
+
+                        return $convert;
+                        }
+                        $x = $money;                    
+                
+                ?>
+                
+            <tr>
+               <td colspan="2" class="text-indent-50" align="left">
+                 <?php //echo $body;?>ตามที่ สถาบันพัฒนาครูและบุคลากรทางการศึกษาชายแดนใต้ มหาวิทยาลัยราชภัฏยะลา ได้จ้างให้ข้าพเจ้าเป็นเจ้าหน้าที่ประจำโครงการ "<?php echo $project_name?>" ตั้งแต่วันที่ <?php echo $day_thaiS;?>&nbsp;<?php echo $month_thaiS;?>&nbsp;<?php echo $year_thaiS;?>  ถึง <?php echo $day_thaiE;?>&nbsp;<?php echo $month_thaiE;?>&nbsp;<?php echo $year_thaiE;?>  จำนวน <?php echo $number1?> งวด (<?php echo $money1?> = <?php echo $total1?> บาท) เป็นเงิน <?php echo $money1?> บาท รวมเป็นเงินทั้งสิ้น <?php echo $money1?> บาท(<?php echo  convert($x);?>) นั้น
+              </td>
+            </tr>
+<?php 
+        $strDate = explode("-", "$date_work");
+
+        // echo "year= ".$strDate[0];
+        // echo "month= ".$strDate[1];
+        // echo "date= ".$strDate[2];
+        
+        $str_day = $strDate[2];
+        $str_month = $strDate[1];
+        $str_year = $strDate[0];
+
+        $year=date("$str_year")+543;
+        
+        //echo $year;
+
+        $message = "$year";
+        $numthai = array("๑","๒","๓","๔","๕","๖","๗","๘","๙","๐");
+        $numarabic = array("1","2","3","4","5","6","7","8","9","0");
+
+
+        //$test = str_replace($numthai,$numarabic,$message);
+        $year_thai1 = str_replace($numarabic,$numthai,$message);
+        //echo $year_thai1;
+
+        if($str_month == "01"){
+        $month_thai = "มกราคม";
+        }else if($str_month == "02"){
+        $month_thai = "กุมภาพันธ์";
+        }else if($str_month == "03"){
+        $month_thai = "มีนาคม";
+        }else if($str_month == "04"){
+        $month_thai = "เมษายน";
+        }else if($str_month == "05"){
+        $month_thai = "พฤษภาคม";
+        }else if($str_month == "06"){
+        $month_thai = "มิถุนายน";
+        }else if($str_month == "07"){
+        $month_thai = "กรกฎาคม";
+        }else if($str_month == "08"){
+        $month_thai = "สิงหาคม";
+        }else if($str_month == "09"){
+        $month_thai = "กันยายน";
+        }else if($str_month == "10"){
+        $month_thai = "ตุลาคม";
+        }else if($str_month == "11"){
+        $month_thai = "พฤศจิกายน";
+        }else if($str_month == "12"){
+        $month_thai = "ธันวาคม";
+        }
+
+        $message = "$work";//รวมเป็น
+        $numthai = array("๑","๒","๓","๔","๕","๖","๗","๘","๙","๐");
+        $numarabic = array("1","2","3","4","5","6","7","8","9","0");
+
+        //$test = str_replace($numthai,$numarabic,$message);
+        $work1 = str_replace($numarabic,$numthai,$message);
+        //echo $day_thai;
+?>
             <tr>
               <td colspan="2" class="text-indent-50" align="left">
-                บัดนี้ ข้าพเจ้าได้ปฏิบัติงานดังกล่าวงวดที่ <?php echo $work?> (เดือน กรกฏาคม 2562) เสร็จเรียบร้อยแล้ว
+                บัดนี้ ข้าพเจ้าได้ปฏิบัติงานดังกล่าวงวดที่ <?php echo $work1?> (เดือน <?php echo $month_thai?> <?php echo $year_thai1?>) เสร็จเรียบร้อยแล้ว
              </td>
             </tr>
 
@@ -217,7 +499,7 @@
 
             <tr>
               <td colspan="2" class="text-indent-50" align="left">
-                ข้าพเจ้า อาจารย์<?php echo $t_firstname;?>&nbsp;&nbsp;<?php echo $t_lastname;?> ตำแหน่ง <?php echo $position_name;?> เป็นบุคคลที่ควบคุมการปฏิบัติงานของผู้รับจ้าง ผู้ปฏิบัติงานจ้างเหมาบริการ เจ้าหน้าที่ประจำโครงการ "<?php echo $project_name?>" มหาวิทยาลุยราชภัฏยะลา ขอรับรองว่า<?php echo $prefix;?><?php echo $firtname;?>&nbsp;&nbsp;<?php echo $lastname;?> ได้ปฏิบัติงานเรียบร้อยแล้วตั้งแต่วันที่ <?php echo $str_date?>  ถึง <?php echo $stp_date?>
+                ข้าพเจ้า อาจารย์<?php echo $t_firstname;?>&nbsp;&nbsp;<?php echo $t_lastname;?> ตำแหน่ง <?php echo $position_name;?> เป็นบุคคลที่ควบคุมการปฏิบัติงานของผู้รับจ้าง ผู้ปฏิบัติงานจ้างเหมาบริการ เจ้าหน้าที่ประจำโครงการ "<?php echo $project_name?>" มหาวิทยาลุยราชภัฏยะลา ขอรับรองว่า<?php echo $prefix;?><?php echo $firtname;?>&nbsp;&nbsp;<?php echo $lastname;?> ได้ปฏิบัติงานเรียบร้อยแล้วตั้งแต่วันที่ <?php echo $day_thaiS;?>&nbsp;<?php echo $month_thaiS;?>&nbsp;<?php echo $year_thaiS;?>  ถึง <?php echo $day_thaiE;?>&nbsp;<?php echo $month_thaiE;?>&nbsp;<?php echo $year_thaiE;?>
             </td>
             </tr>
                 
@@ -254,37 +536,6 @@
         </table>
     </div>
 
-    <ul class="right-menu">
-        <li>
-            <a href="#" onclick="window.print();">
-                <span class="fa-stack hightlight fa-2x">
-                    <i class="fa fa-circle fa-stack-2x"></i>
-                    <i class="fa fa-print fa-stack-1x fa-inverse"></i>
-                </span>
-                พิมพ์รายงาน
-            </a>
-        </li>
-        <li>
-            <a href="#" onclick="location.reload();">
-                <span class="fa-stack fa-2x">
-                    <i class="fa fa-circle fa-stack-2x"></i>
-                    <i class="fa fa-refresh fa-stack-1x fa-inverse"></i>
-                </span>
-                Refresh
-            </a>
-        </li>
-        <li>
-            <a href="#" onclick="window.close();">
-                <span class="fa-stack fa-2x">
-                    <i class="fa fa-circle fa-stack-2x"></i>
-                    <i class="fa fa-times fa-stack-1x fa-inverse"></i>
-                </span>
-                ปิดหน้าจอนี้
-            </a>
-        </li>
-    </ul>
-
-    <script src="<?php //echo site_common_node_modules_url('jquery/dist/jquery.min.js');?>"></script>
 </body>
 
 </html>

@@ -57,17 +57,11 @@ else
             <div class="container-fluid">
                 <div class="row page-titles">
                     <div class="col-md-5 align-self-center">
-                        <h3 class="text-themecolor">เอกสารสัญญายืม</h3>
+                        <h3 class="text-themecolor">แก้ไขเอกสารสัญญายืม</h3>
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                            <li class="breadcrumb-item active">เอกสารสัญญายืม</li>
+                            <li class="breadcrumb-item active">แก้ไขเอกสารสัญญายืม</li>
                         </ol>
-                    </div>
-                    <div class="col-md-7 align-self-center">
-                        <a href="../input_doc/report_lend.php" class="btn waves-effect waves-light btn btn-info pull-right hidden-sm-down">
-                            <i class="fa-fw fa fa-print"></i>
-                            ส่งออกแบบฟอร์ม
-                        </a>
                     </div>
                 </div>
 
@@ -126,7 +120,6 @@ else
                         //$prefix = $row2['prefix'];
                     }
                     ?>
-
                 <div class="row">
                     <!-- Column -->
 
@@ -153,24 +146,35 @@ else
                             <div class="card-body">
                                 <form class="form-horizontal form-material" action="edit_lend.php" name="insertlend" method="post">
                                     <input type="hidden" name="id" value="<?php echo $id; ?>">
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-12 text-center">
+                                                <div class="form-group">
+                                                    <label>
+                                                        <h4><b><u>แก้ไขเอกสารสัญญายืม</u></b></h4>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="row">
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label>รหัสเอกสารสัญญายืม</label>
+                                                <label><b>รหัสเอกสารสัญญายืม</b></label>
                                                 <input type="text" class="form-control form-control-line" name="doc_id" value="<?php echo $doc_id; ?>" readonly>
                                             </div>
                                         </div>
 
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label>เริ่มต้นวันที่</label>
+                                                <label><b>เริ่มต้นวันที่</b></label>
                                                 <input type="date" class="form-control form-control-line" name="str_date" value="<?php echo $str_date; ?>">
                                             </div>
                                         </div>
 
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label>สิ้นสุดวันที่</label>
+                                                <label><b>สิ้นสุดวันที่</b></label>
                                                 <input type="date" class="form-control form-control-line" name="stp_date" value="<?php echo $stp_date; ?>">
                                             </div>
                                         </div>
@@ -184,7 +188,7 @@ else
 
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label>ชื่อบุคลากร</label>
+                                                <label><b>ชื่อบุคลากร</b></label>
                                                 <input type="text" value="<?php echo $prefix?><?php echo $firtname?>&nbsp;&nbsp;<?php echo $lastname?>" class="form-control form-control-line">
                                                 <input type="hidden" class="form-control" name="person_id" value="<?php echo $person_id?>">
                                             </div>
@@ -192,7 +196,7 @@ else
 
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label>ชื่ออาจารย์</label>
+                                                <label><b>ชื่ออาจารย์</b></label>
                                                 <select class="form-control" name="teacher_id" value="<?php echo $row['teacher_id']; ?>">
 
                                                     <?php
@@ -226,7 +230,7 @@ else
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label>โครงการ</label>
+                                                <label><b>โครงการ</b></label>
                                                 <select name="project_id" id="project" class="form-control">
                                                     <option value="<?php echo $project_id?>"><?php echo $project_name?></option>
                                                     <?php
@@ -242,26 +246,42 @@ else
 
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label for="activity">ชื่อกิจกรรม</label>
+                                                <label for="activity"><b>ชื่อกิจกรรม</b></label>
                                                 <select name="activity_id" id="activity" class="form-control">
                                                     <option value="<?php echo $activity_id?>"><?php echo $activity?></option>
                                                 </select>
                                             </div>
                                         </div>
                                     </div>
-
+                                    <script language="javascript">
+                                        function IsNumeric(sText, obj) {
+                                            var ValidChars = "0123456789/";
+                                            var IsNumber = true;
+                                            var Char;
+                                            for (i = 0; i < sText.length && IsNumber == true; i++) {
+                                                Char = sText.charAt(i);
+                                                if (ValidChars.indexOf(Char) == -1) {
+                                                    IsNumber = false;
+                                                }
+                                            }
+                                            if (IsNumber == false) {
+                                                alert("(ตัวเลข เท่านั้น)");
+                                                obj.value = sText.substr(0, sText.length - 1);
+                                            }
+                                        }
+                                    </script>
                                     <div class="row">
                                         <div class="col-md-5">
                                             <div class="form-group">
-                                                <label>ค่าเบี้ยเลี้ยง</label>
+                                                <label><b>ค่าเบี้ยเลี้ยง</b></label>
                                                 <input type="text" class="form-control form-control-line" name="allowance" value="<?php echo $allowance; ?>">
                                             </div>
                                         </div>
 
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label>ราคา</label>
-                                                <input type="text" class="form-control form-control-line" name="allowance_price" value="<?php echo $allowance_price; ?>">
+                                                <label><b>ราคา</b></label>
+                                                <input type="text" class="form-control form-control-line" name="allowance_price" value="<?php echo $allowance_price; ?>" onKeyUp="IsNumeric(this.value,this)">
                                             </div>
                                         </div>
                                     </div>
@@ -269,15 +289,15 @@ else
                                     <div class="row">
                                         <div class="col-md-5">
                                             <div class="form-group">
-                                                <label>ค่าที่พัก</label>
+                                                <label><b>ค่าที่พัก</b></label>
                                                 <input type="text" class="form-control form-control-line" name="rest" value="<?php echo $rest; ?>">
                                             </div>
                                         </div>
 
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label>ราคา</label>
-                                                <input type="text" class="form-control form-control-line" name="rest_price" value="<?php echo $rest_price; ?>">
+                                                <label><b>ราคา</b></label>
+                                                <input type="text" class="form-control form-control-line" name="rest_price" value="<?php echo $rest_price; ?>" onKeyUp="IsNumeric(this.value,this)">
                                             </div>
                                         </div>
                                     </div>
@@ -285,15 +305,15 @@ else
                                     <div class="row">
                                         <div class="col-md-5">
                                             <div class="form-group">
-                                                <label>พาหนะ</label>
+                                                <label><b>พาหนะ</b></label>
                                                 <input type="text" class="form-control form-control-line" name="vehicle" value="<?php echo $vehicle; ?>">
                                             </div>
                                         </div>
 
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label>ราคา</label>
-                                                <input type="text" class="form-control form-control-line" name="vehicle_price" value="<?php echo $vehicle_price; ?>">
+                                                <label><b>ราคา</b></label>
+                                                <input type="text" class="form-control form-control-line" name="vehicle_price" value="<?php echo $vehicle_price; ?>" onKeyUp="IsNumeric(this.value,this)">
                                             </div>
                                         </div>
                                     </div>
@@ -301,15 +321,15 @@ else
                                     <div class="row">
                                         <div class="col-md-5">
                                             <div class="form-group">
-                                                <label>ค่าลงทะเบียน</label>
-                                                <input type="text" class="form-control form-control-line" name="regis" value="<?php echo $regis; ?>">
+                                                <label><b>ค่าลงทะเบียน</b></label>
+                                                <input type="text" class="form-control form-control-line" name="regis" value="<?php echo $regis; ?>" onKeyUp="IsNumeric(this.value,this)">
                                             </div>
                                         </div>
 
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label>จำนวน/คน</label>
-                                                <input type="text" class="form-control form-control-line" name="regis_num" value="<?php echo $regis_num; ?>">
+                                                <label><b>จำนวน/คน</b></label>
+                                                <input type="text" class="form-control form-control-line" name="regis_num" value="<?php echo $regis_num; ?>" onKeyUp="IsNumeric(this.value,this)">
                                             </div>
                                         </div>
                                     </div>
@@ -317,14 +337,14 @@ else
                                     <div class="row">
                                         <div class="col-md-5">
                                             <div class="form-group">
-                                                <label>อื่นๆ</label>
+                                                <label><b>อื่นๆ</b></label>
                                                 <input type="text" class="form-control form-control-line" name="other" value="<?php echo $other; ?>">
                                             </div>
                                         </div>
 
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label>ราคา</label>
+                                                <label><b>ราคา</b></label>
                                                 <input type="text" class="form-control form-control-line" name="other_price" value="<?php echo $other_price; ?>">
                                             </div>
                                         </div>
@@ -384,7 +404,7 @@ else
                                                                             $value2 = $price_list1[$j];
                                                                             $value3 = $balance1[$j];
                                                                             
-                                                                            echo "<tr><td class='col-md-8'><div class='row'><div class='col-md-2'><div class='form-group'><label>วัน/เดือน/ปี</label><input type='date' class='form-control p_input' value='$value' name='date_list[]'></div></div><div class='col-md-2'><div class='form-group'><label>การชำระ</label><select class='form-control' name='pay_type[]'><option>$value1</option><option>เงินสด</option><option>ใบสำคัญ</option></select></div></div><div class='col-md-2'><div class='form-group'><label>ราคา</label></label><input type='text' class='form-control p_input' value='$value2' name='price_list[]'></div></div><div class='col-md-2'><div class='form-group'><label>ยอดคงค้าง</label><input type='text' class='form-control p_input' value='$value3' name='balance[]'></div></div></div></td></tr>";
+                                                                            echo "<tr><td class='col-md-8'><div class='row'><div class='col-md-2'><div class='form-group'><label><b>วัน/เดือน/ปี</b></label><input type='date' class='form-control p_input' value='$value' name='date_list[]'></div></div><div class='col-md-2'><div class='form-group'><label><b>การชำระ</b></label><select class='form-control' name='pay_type[]'><option>$value1</option><option>เงินสด</option><option><b>ใบสำคัญ</b></option></select></div></div><div class='col-md-2'><div class='form-group'><label><b>ราคา</b></label></label><input type='text' class='form-control p_input' onKeyUp='IsNumeric(this.value,this)' value='$value2' name='price_list[]'></div></div><div class='col-md-2'><div class='form-group'><label><b>ยอดคงค้าง</b></label><input type='text' class='form-control p_input' onKeyUp='IsNumeric(this.value,this)' value='$value3' name='balance[]'></div></div></div></td></tr>";
                                                                             //echo "<li>{$value}</li>";
                                                                             $j++;
                                                                         }
@@ -415,7 +435,7 @@ else
 
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <button type="button" class="btn btn-danger btn-block">ยกเลิก</button>
+                                                <button type="button" class="btn btn-danger btn-block" onClick="JavaScript:history.back();">ยกเลิก</button>
                                             </div>
                                         </div>
 
@@ -455,7 +475,7 @@ else
 
 
                             var tr = "<tr>";
-                            tr = tr + "<td class='col-md-8'><div class='row'><div class='col-md-2'><div class='form-group'><label>วัน/เดือน/ปี</label></label><input type='date' class='form-control p_input'  name='date_list[]" + rows + "'></div></div><div class='col-md-2'><div class='form-group'><label>การชำระ</label><select class='form-control' name='pay_type[]" + rows + "'><option>เงินสด</option><option>ใบสำคัญ</option></select></div></div><div class='col-md-2'><div class='form-group'><label>ราคา</label></label><input type='text' class='form-control p_input'  name='price_list[]" + rows + "'></div></div><div class='col-md-2'><div class='form-group'><label>ยอดคงค้าง</label><input type='text' class='form-control p_input'  name='balance[]" + rows + "'></div></div></div></td>";
+                            tr = tr + "<td class='col-md-8'><div class='row'><div class='col-md-2'><div class='form-group'><label><b>วัน/เดือน/ปี</b></label></label><input type='date' class='form-control p_input'  name='date_list[]" + rows + "'></div></div><div class='col-md-2'><div class='form-group'><label><b>การชำระ</b></label><select class='form-control' name='pay_type[]" + rows + "'><option>เงินสด</option><option><b>ใบสำคัญ</b></option></select></div></div><div class='col-md-2'><div class='form-group'><label><b>ราคา</b></label></label><input type='text' class='form-control p_input' onKeyUp='IsNumeric(this.value,this)' name='price_list[]" + rows + "'></div></div><div class='col-md-2'><div class='form-group'><label><b>ยอดคงค้าง</b></label><input type='text' class='form-control p_input' onKeyUp='IsNumeric(this.value,this)' name='balance[]" + rows + "'></div></div></div></td>";
                             tr = tr + "</tr>";
                             $('#myTable > tbody:last').append(tr);
 

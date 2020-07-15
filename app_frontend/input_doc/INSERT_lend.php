@@ -28,6 +28,7 @@
     $pay_type = serialize( $_POST["pay_type"] );
     $price_list = serialize( $_POST["price_list"] );
     $balance = serialize( $_POST["balance"] );
+    $date_current = date('Y-m-d');
 
         // print "<pre>";
         // print_r($date_list);
@@ -59,10 +60,10 @@
 			// {
                 $sql = "INSERT INTO tb_lend (doc_id,str_date,stp_date,project_id,person_id,teacher_id,activity_id,allowance, 
                                             allowance_price,rest,rest_price,vehicle,vehicle_price,regis,regis_num,other,
-                                            other_price,date_list,pay_type,price_list,balance)
+                                            other_price,date_list,pay_type,price_list,balance,date_current)
                                 VALUES ('$doc_id','$str_date','$stp_date','$project_id','$person_id','$teacher_id','$activity_id','$allowance',
                                         '$allowance_price','$rest','$rest_price','$vehicle','$vehicle_price','$regis','$regis_num',
-                                        '$other','$other_price','$date_list','$pay_type','$price_list','$balance')";
+                                        '$other','$other_price','$date_list','$pay_type','$price_list','$balance','$date_current')";
                 
                 $query = mysqli_query($conn,$sql);
                 //  echo $sql;

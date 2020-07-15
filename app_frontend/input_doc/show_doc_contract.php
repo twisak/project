@@ -188,6 +188,7 @@ include '../../administrator/connect.php';
                         <div class="card">
                             <!-- Tab panes -->
                             <div class="card-body">
+                                <form class="form-horizontal form-material" action="INSERT_lend.php" name="insertlend" method="post">
                                 <div class="row">
                                     <div class="col-md-12 text-center">
                                         <div class="form-group">
@@ -342,12 +343,12 @@ include '../../administrator/connect.php';
                                             &nbsp;&nbsp;&nbsp;&nbsp;<?php echo $that?>
                                         </div>
                                     </div>
-                                    <div class="col-md-2">
+                                    <!-- <div class="col-md-2">
                                         <div class="form-group">
                                             <label>วันที่</label><br>
                                             &nbsp;&nbsp;&nbsp;&nbsp;<?php echo $c_day?>
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6">
