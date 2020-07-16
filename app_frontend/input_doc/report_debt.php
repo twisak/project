@@ -33,6 +33,57 @@
 
             include '../../administrator/connect.php';
 
+            $doc_id = $_GET['id'];
+            echo $doc_id;
+
+            $sql_debt = "SELECT * FROM tb_debt WHERE doc_id = '".$doc_id."' ";
+            $query_debt = mysqli_query($conn,$sql_debt);
+            $result_debt = mysqli_fetch_assoc($query_debt);
+
+            $doc_id = $result_debt['doc_id'];
+            $date_current = $result_debt['date_current'];
+            $name_train = $result_debt['name_train'];
+            $project_id = $result_debt['project_id'];
+            $activity_id = $result_debt['activity_id'];
+            $person_id = $result_debt['person_id'];
+            $teacher_id = $result_debt['teacher_id'];
+            $money_from = $result_debt['money_from'];
+            $money_from_id = $result_debt['money_from_id'];
+            $lend_num = $result_debt['lend_num'];
+            $note_that = $result_debt['note_that'];
+            $date_note = $result_debt['date_note'];
+            $under = $result_debt['under'];
+            $along_with = $result_debt['along_with'];
+            $go_practice = $result_debt['go_practice'];
+            $depart_from = $result_debt['depart_from'];
+            $date_depart = $result_debt['date_depart'];
+            $time_depart = $result_debt['time_depart'];
+            $back = $result_debt['back'];
+            $date_back = $result_debt['date_back'];
+            $time_back = $result_debt['time_back'];
+            $open_money = $result_debt['open_money'];
+            $allowance = $result_debt['allowance'];
+            $allowance_day = $result_debt['allowance_day'];
+            $allowance_price = $result_debt['allowance_price'];
+            $allowance_sum = $result_debt['allowance_sum'];
+            $rest = $result_debt['rest'];
+            $rest_day = $result_debt['rest_day'];
+            $rest_sum = $result_debt['rest_sum'];
+            $vehicle = $result_debt['vehicle'];
+            $vehicle_sum = $result_debt['vehicle_sum'];
+            $other = $result_debt['other'];
+            $other_sum = $result_debt['other_sum'];
+            $document_num = $result_debt['document_num'];
+
+            $list = $result_debt['list'];
+            $money_num = $result_debt['money_num'];
+            
+            $approve = $result_debt['approve'];
+            $disburse = $result_debt['disburse'];
+            $payer = $result_debt['payer'];
+
+
+
 ?>
 
 <body id="<?php //echo $body['name'];?>">
@@ -283,8 +334,8 @@
             </tr>
         </table>
     </div>
-    <?php 
-         include 'report_debt2.php'; 
+    <?php
+         include 'report_debt2.php';
          include 'report_debt3.php';
          //include 'report_debt4.php';
          include 'report_debt5.php';
