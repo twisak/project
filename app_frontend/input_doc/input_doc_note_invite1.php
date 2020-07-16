@@ -112,6 +112,13 @@ include '../../administrator/connect.php';
                                                     }
                                     ?>
                                     <div class="row">
+                                        <div class="col-md-12 text-center">
+                                            <div class="form-group">
+                                                <label><h4><b><u>แบบฟอร์มเอกสารเรียนเชิญเป็นวิทยากร</u></b></h4></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label><b>รหัสเอกสารเรียนเชิญเป็นวิทยากร</b></label>
@@ -152,7 +159,7 @@ include '../../administrator/connect.php';
                                         ?>
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label><b>ที่</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
+                                                <label><b>ที่</b></label>
                                                 <input type="text" value="<?=$idd?>" readonly class="form-control form-control-line">
                                                 <input type="hidden" name="at" value="<?=$idd?>" />
                                             </div>
@@ -281,7 +288,7 @@ include '../../administrator/connect.php';
 
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <button type="button" class="btn btn-danger btn-block">ยกเลิก</button>
+                                                <button type="button" class="btn btn-danger btn-block" onClick="JavaScript:history.back();">ยกเลิก</button>
                                             </div>
                                         </div>
 

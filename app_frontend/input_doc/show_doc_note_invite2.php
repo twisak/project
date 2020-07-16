@@ -168,7 +168,7 @@ $id = $_GET['id'];
                                     <div class="row">
                                         <div class="col-md-12 text-center">
                                             <div class="form-group">
-                                                <label><h5><b><u>เอกสารเรียนเชิญเข้าร่วม</u></b></h5></label>
+                                                <label><h4><b><u>รายละเอียดเอกสารเรียนเชิญเข้าร่วม</u></b></h4></label>
                                             </div>
                                         </div>
                                     </div>
@@ -324,7 +324,7 @@ $id = $_GET['id'];
 
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <button type="button" class="btn btn-danger btn-block">ยกเลิก</button>
+                                                <button type="button" class="btn btn-danger btn-block" onClick="JavaScript:history.back();">ยกเลิก</button>
                                             </div>
                                         </div>
 

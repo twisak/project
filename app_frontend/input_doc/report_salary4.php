@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -113,6 +114,7 @@
      $position_name = $result_position['position_name'];
 
 ?>
+
 <body id="<?php //echo $body['name'];?>">
     <div class="page">
         <table border="0" align="center" width="100%" class="statement-view">
@@ -134,12 +136,12 @@
 
             <tr>
                 <td colspan="3" class="statement-header" align="center">
-                <strong>หน่วยงาน โครงการจัดตั้งสถาบันพัฒนาครูและบุคลากรทางการศึกษาชายแดนใต้ มหาวิทยาลัยราชภัฏยะลา</strong>
+                    <strong>หน่วยงาน โครงการจัดตั้งสถาบันพัฒนาครูและบุคลากรทางการศึกษาชายแดนใต้ มหาวิทยาลัยราชภัฏยะลา</strong>
                 </td>
             </tr>
             <tr>
                 <td colspan="3" class="statement-header" align="center">
-                <strong>ชื่อ - สกุล <?php echo $prefix; ?><?php echo $firtname; ?>&nbsp;&nbsp;<?php echo $lastname; ?></strong>
+                    <strong>ชื่อ - สกุล <?php echo $prefix; ?><?php echo $firtname; ?>&nbsp;&nbsp;<?php echo $lastname; ?></strong>
                 </td>
             </tr>
 
@@ -164,7 +166,7 @@
             <tr>
                 <td>
                     <table border="0" align="center" width="100%" class="statement-view text-gray-900">
-                            <?php 
+                        <?php 
                                     $i=1;
                                     $i<="";
                                    $foreword1 = array($foreword);
@@ -199,19 +201,19 @@
             </tr>
             <tr>
                 <td colspan="3">
-                <table border="1" width="100%" class="text-gray-900">
+                    <table border="1" width="100%" class="text-gray-900">
 
-                    <tr>
-                        <td width="15%" align="center">วัน เดือน ปี</td>
-                        <td width="10%" align="center">ระหว่างเวลา..ถึง..</td>
-                        <td width="30%" align="center">งานในหน้าที่</td>
-                        <td width="15%" align="center">งานพิเศษ</td>
-                        <td width="30%" align="center">ข้อเสนอ/ข้อปรับปรุง/ผู้ควบคุมการปฏิบัติงาน</td>
-                    </tr>
+                        <tr>
+                            <td width="20%" align="center">วัน เดือน ปี</td>
+                            <td width="20%" align="center">ระหว่างเวลา..ถึง..</td>
+                            <td width="22%" align="center">งานในหน้าที่</td>
+                            <td width="13%" align="center">งานพิเศษ</td>
+                            <td width="%" align="center">ข้อเสนอ/ข้อปรับปรุง/ผู้ควบคุมการปฏิบัติงาน</td>
+                        </tr>
 
 
 
-                    <?php
+                        <?php
                         $i=1;
                         $i<="";
                             $day_work = unserialize($result_salary['day_work']);
@@ -271,23 +273,84 @@
                                             $value_end_time = $end_time1[$j];
                                             $value_Job = $Job1[$j];
 
+                                $strDate = explode("-", "$value_day_work");//วันปัจจุบัน
+                    
+                                $str_day = $strDate[2];
+                                $str_month = $strDate[1];
+                                $str_year = $strDate[0];
+
+                                $message = "$year";
+                                $numthai = array("๑","๒","๓","๔","๕","๖","๗","๘","๙","๐");
+                                $numarabic = array("1","2","3","4","5","6","7","8","9","0");
+
+                                //$test = str_replace($numthai,$numarabic,$message);
+                                $year_thai = str_replace($numarabic,$numthai,$message);
+                                //echo $year_thai;
+
+                                $message = "$str_day";
+                                $numthai = array("๑","๒","๓","๔","๕","๖","๗","๘","๙","๐");
+                                $numarabic = array("1","2","3","4","5","6","7","8","9","0");
+
+
+                                //$test = str_replace($numthai,$numarabic,$message);
+                                $day_thai = str_replace($numarabic,$numthai,$message);
+
+                                    if($str_month == "01"){
+                                    $month_thai = "ม.ค.";
+                                    }else if($str_month == "02"){
+                                    $month_thai = "ก.พ.";
+                                    }else if($str_month == "03"){
+                                    $month_thai = "มี.ค.";
+                                    }else if($str_month == "04"){
+                                    $month_thai = "เม.ย.";
+                                    }else if($str_month == "05"){
+                                    $month_thai = "พ.ค.";
+                                    }else if($str_month == "06"){
+                                    $month_thai = "มิ.ย.";
+                                    }else if($str_month == "07"){
+                                    $month_thai = "ก.ค.";
+                                    }else if($str_month == "08"){
+                                    $month_thai = "ส.ค.";
+                                    }else if($str_month == "09"){
+                                    $month_thai = "ก.ย.";
+                                    }else if($str_month == "10"){
+                                    $month_thai = "ต.ค.";
+                                    }else if($str_month == "11"){
+                                    $month_thai = "พ.ย.";
+                                    }else if($str_month == "12"){
+                                    $month_thai = "ธ.ค.";
+                                    }
+
+                                $message = "$value_start_time";
+                                $numthai = array("๑","๒","๓","๔","๕","๖","๗","๘","๙","๐");
+                                $numarabic = array("1","2","3","4","5","6","7","8","9","0");
+
+                                //$test = str_replace($numthai,$numarabic,$message);
+                                $value_start_time1 = str_replace($numarabic,$numthai,$message);
+
+                                $message = "$value_end_time";
+                                $numthai = array("๑","๒","๓","๔","๕","๖","๗","๘","๙","๐");
+                                $numarabic = array("1","2","3","4","5","6","7","8","9","0");
+
+                                //$test = str_replace($numthai,$numarabic,$message);
+                                $value_end_time1 = str_replace($numarabic,$numthai,$message);
 
                     ?>
 
-                    <tr>
-                        <?php $i; ?>
-                        <td align="center"><?php echo $value_day_work;?></td>
-                        <td align="center"><?php echo $value_start_time; ?>-<?php echo $value_end_time;?> น.</td>
-                        <td align="center">- <?php echo $value_Job; ?></td>
-                        <td align="center"><?php echo $value_part_time; ?></td>
-                        <td align="center"><?php echo $value_part_time; ?></td>
-                    </tr>
-                    <?php $j++; $i++; }}?>
+                        <tr>
+                            <?php $i; ?>
+                            <td align="center"><?php echo $day_thai;?> <?php echo $month_thai;?> <?php echo $year_thai;?></td>
+                            <td align="center"><?php echo $value_start_time1; ?>-<?php echo $value_end_time1;?> น.</td>
+                            <td align="center">- <?php echo $value_Job; ?></td>
+                            <td align="center"><?php echo $value_part_time; ?></td>
+                            <td align="center"><?php echo $value_part_time; ?></td>
+                        </tr>
+                        <?php $j++; $i++; }}?>
                     </table>
                 </td>
             </tr>
             <tr>
-            <td colspan="2">
+                <td colspan="2">
                     <table width="100%">
                         <tr>
                             <td width="200px" height="1px">
@@ -295,14 +358,14 @@
                                     <tr>
                                         <td width="1" class="text-nowrap border-0 padding-0">มาปฏิบัติงาน จำนวน</td>
                                         <td class="border-0 padding-0 text-center">
-                                        &nbsp;<?php //echo $total;?>
+                                            &nbsp;<?php //echo $total;?>
                                             <div class="line-bottom-dashed"></div>
                                         </td>
                                         <td width="1" class="text-nowrap border-0 padding-0">วัน</td>
 
                                         <td width="1" class="text-nowrap border-0 padding-0 text-indent-50">ไม่มาปฏิบัติ จำนวน</td>
                                         <td class="border-0 padding-0 text-center">
-                                        &nbsp;<?php //echo  convert($x);?>
+                                            &nbsp;<?php //echo  convert($x);?>
                                             <div class="line-bottom-dashed"></div>
                                         </td>
                                         <td width="1" class="text-nowrap border-0 padding-0">วัน</td>
@@ -365,36 +428,6 @@
             </tr>
         </table>
     </div>
-
-    <ul class="right-menu">
-        <li>
-            <a href="#" onclick="window.print();">
-                <span class="fa-stack hightlight fa-2x">
-                    <i class="fa fa-circle fa-stack-2x"></i>
-                    <i class="fa fa-print fa-stack-1x fa-inverse"></i>
-                </span>
-                พิมพ์รายงาน
-            </a>
-        </li>
-        <li>
-            <a href="#" onclick="location.reload();">
-                <span class="fa-stack fa-2x">
-                    <i class="fa fa-circle fa-stack-2x"></i>
-                    <i class="fa fa-refresh fa-stack-1x fa-inverse"></i>
-                </span>
-                Refresh
-            </a>
-        </li>
-        <li>
-            <a href="#" onclick="window.close();">
-                <span class="fa-stack fa-2x">
-                    <i class="fa fa-circle fa-stack-2x"></i>
-                    <i class="fa fa-times fa-stack-1x fa-inverse"></i>
-                </span>
-                ปิดหน้าจอนี้
-            </a>
-        </li>
-    </ul>
 
     <script src="<?php //echo site_common_node_modules_url('jquery/dist/jquery.min.js');?>"></script>
 </body>

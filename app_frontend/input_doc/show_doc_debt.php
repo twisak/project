@@ -194,7 +194,7 @@ include '../../administrator/connect.php';
                               <div class="row">
                                   <div class="col-md-12 text-center">
                                       <div class="form-group">
-                                          <label><b><u>รายละเอียดเอกสารล้างหนี้</u></b></label>
+                                          <label><h4><b><u>รายละเอียดเอกสารล้างหนี้</u></b></h4></label>
                                       </div>
                                   </div>
                               </div>
@@ -498,13 +498,18 @@ include '../../administrator/connect.php';
                                     </div>
 
                                 <div class="row">
-                                    <div class="col-md-4">
+                                    <div class="col-md-3">
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-3">
                                         <div class="form-group">
                                             <a href="edit_form_doc_debt.php?id=<?php echo $id;?>" class="btn btn-warning btn-block">แก้ไขข้อมูลเอกสารจ้างเหมาบริการ</a>
                                         </div>
                                     </div>
+                                    <div class="col-md-3">
+                                            <div class="form-group">
+                                                <button type="button" class="btn btn-danger btn-block" onClick="JavaScript:history.back();">ยกเลิก</button>
+                                            </div>
+                                        </div>
                                 </div>
 
                                 </form>

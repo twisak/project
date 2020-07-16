@@ -29,13 +29,14 @@
         $end_time = serialize($_POST["end_time"]);
         $Job = serialize($_POST["Job"]);
         $part_time = serialize($_POST["part_time"]);
+        $date_current = date('Y-m-d');
 
 
 				$sql = "INSERT INTO tb_salary (doc_id,str_date,stp_date,project_id,activity_id,person_id,period,total_amount,
-                                                perform,month,teacher_id,day_work,start_time,end_time,Job,part_time)
+                                                perform,month,teacher_id,day_work,start_time,end_time,Job,part_time,date_current)
 				 	     VALUES ('$doc_id','$str_date','$stp_date','$project_id','$activity_id','$person_id','$period',
                                  '$total_amount','$perform','$month','$teacher_id','$day_work','$start_time','$end_time',
-                                 '$Job','$part_time')";
+                                 '$Job','$part_time','$date_current')";
         $db_query = mysqli_query($conn,$sql);
 
 

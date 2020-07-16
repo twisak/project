@@ -111,10 +111,10 @@ else
                                                 </div>
                                             </form>
                                         </div>
-                                        <div class="col-md-2 text-right">
+                                        <div class="col-md-3 text-right">
 
                                         </div>
-                                        <div class="col-md-4 text-right">
+                                        <div class="col-md-3 text-right">
                                             <div class="text-right">
                                                 <a href="input_doc_note_record1.php"><button type="button" class="btn btn-primary">กรอกเอกสารเพิ่ม</button></a>
                                             </div>
@@ -237,10 +237,10 @@ else
                                                 </div>
                                             </form>
                                         </div>
-                                        <div class="col-md-2 text-right">
+                                        <div class="col-md-3 text-right">
 
                                         </div>
-                                        <div class="col-md-4 text-right">
+                                        <div class="col-md-3 text-right">
                                             <div class="text-right">
                                                 <a href="input_doc_note_record2.php"><button type="button" class="btn btn-primary">กรอกเอกสารเพิ่ม</button></a>
                                             </div>

@@ -409,14 +409,19 @@ include '../../administrator/connect.php';
                                 </div>
                                                     <?php //$i++; //}?>
                                 <div class="row">
-                                    <div class="col-md-4">
+                                    <div class="col-md-3">
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-3">
                                         <div class="form-group">
                                             <!-- <button type="submit" class="btn btn-warning btn-block">แก้ไขข้อมูลเอกสารสัญญายืม</button> -->
                                             <a href="edit_form_lend.php?id=<?php echo $id; ?>" class="btn btn-warning btn-block">แก้ไขข้อมูลเอกสารสัญญายืม</a>
                                         </div>
                                     </div>
+                                    <div class="col-md-3">
+                                            <div class="form-group">
+                                                <button type="button" class="btn btn-danger btn-block" onClick="JavaScript:history.back();">ยกเลิก</button>
+                                            </div>
+                                        </div>
                                 </div>
                                 </form>
                             </div>

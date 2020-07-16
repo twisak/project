@@ -45,12 +45,19 @@
     <div class="page">
         <table border="0" align="center" width="100%" class="statement-view text-gray-900">
             <tr>
+                <td width="100%" class="statement-header"  align="center">
+                    <table border="0" width="100%" class="statement-view text-gray-900" align="center">
+                        <tr>
+                            <img src="../../administrator/images/Emblem_of_Rajabhat_Yala.png" width="100" height="120" class="img-responsive"> 
+                        </tr>
+                    </table>
+                </td>
             </tr>
             <tr>
                 <td width="100%" class="statement-header">
                     <table border="0" width="100%" class="statement-view text-gray-900" align="center">
                         <tr>
-                            <td align="center">ใบสำคัญรับเงิน</td>
+                            <td align="center"><b>ใบสำคัญรับเงิน</b></td>
                         </tr>
                     </table>
                     <br>
@@ -62,7 +69,7 @@
                     <table border="0" width="100%" class="statement-view text-gray-900">
                         <tr>
                             <td width="50%"></td>
-                            <td width="50%">วันที่ 30 เดือน กันยายน พ.ศ. 2562</td>
+                            <td width="50%">วันที่ <?php echo $day_thai; ?> เดือน <?php echo $month_thai; ?> พ.ศ. <?php echo $year_thai; ?></td>
                         </tr>
                     </table>
                     <br>
@@ -72,58 +79,73 @@
             <tr>
                 <td width="100%" class="statement-header">
                     <table border="0" width="100%" class="statement-view text-gray-900">
-                        <tr>
-                            <td class="text-nowrap border-0 padding-0" width="1%">ข้าพเจ้า</td>
-                            <td colspan="2" class="border-0 padding-0" width="8%">
-                                &nbsp;<?php echo $firtname; ?>&nbsp;&nbsp;<?php echo $lastname; ?>&nbsp;
-                                <div class="line-bottom-dashed">&nbsp;</div>
-                            </td>
-                            <td class="text-nowrap border-0 padding-0">บ้านเลขที่</td>
-                            <td colspan="2" class="border-0 padding-0" width="1%">
-                                &nbsp;<?php echo $house_num; ?>&nbsp;
-                                <div class="line-bottom-dashed">&nbsp;</div>
-                            </td>
-                            <td class="text-nowrap border-0 padding-0" width="1%">หมู่ที่</td>
-                            <td colspan="2" class="border-0 padding-0" width="8%">
-                                &nbsp;<?php echo $village; ?>&nbsp;
-                                <div class="line-bottom-dashed">&nbsp;</div>
-                            </td>
+                        <tr align="left">
+                            <td colspan="1">
+                                <table width="100%" border="0" align="left">
+                                    <tr>
+                                        <td width="1" class="text-nowrap border-0 padding-0">ข้าพเจ้า</td>
+                                        <td class="border-0 padding-0 text-center">
+                                            <?php echo $prefix; ?><?php echo $firtname;?>&nbsp;<?php echo $lastname; ?>
+                                            <div class="line-bottom-dashed"></div>
+                                        </td>
 
-                            <!-- <td >ข้าพเจ้า.........................บ้านเลขที่.................หมู่ที่.................</td> -->
-                        </tr>
-                        <tr>
-
-                            <td class="text-nowrap border-0 padding-0" width="1%">ถนน</td>
-                            <td class="border-0 padding-0" width="8%">
-                                &nbsp;<?php echo $road; ?>&nbsp;
-                                <div class="line-bottom-dashed">&nbsp;</div>
-                            </td>
-                            <td class="text-nowrap border-0 padding-0" width="1%">ตำบล</td>
-                            <td class="border-0 padding-0" width="8%">
-                                &nbsp;<?php echo $name_th_d; ?>&nbsp;
-                                <div class="line-bottom-dashed">&nbsp;</div>
-                            </td>
-                            <td class="text-nowrap border-0 padding-0" width="1%">อำเภอ</td>
-                            <td class="border-0 padding-0" width="8%">
-                                &nbsp;<?php echo $name_th_a; ?>&nbsp;
-                                <div class="line-bottom-dashed">&nbsp;</div>
-                            </td>
-                            <td class="text-nowrap border-0 padding-0" width="1%">จังหวัด</td>
-                            <td class="border-0 padding-0" width="8%">
-                                &nbsp;<?php echo $name_th_p; ?>&nbsp;
-                                <div class="line-bottom-dashed">&nbsp;</div>
+                                        <td width="1" class="text-nowrap border-0 padding-0">บ้านเลขที่</td>
+                                        <td class="border-0 padding-0 text-center">
+                                            <?php echo $house_num;?>
+                                            <div class="line-bottom-dashed"></div>
+                                        </td>
+                                        <!-- <td width="1" class="text-nowrap border-0 padding-0">หมู่ที่</td>
+                                        <td class="border-0 padding-0 text-center">
+                                            <?php //echo $village;?>
+                                            <div class="line-bottom-dashed"></div>
+                                        </td> -->
+                                    </tr>
+                                </table>
                             </td>
                         </tr>
+                        <tr align="left">
+                            <td colspan="1">
+                                <table width="100%" border="0" align="left">
+                                    <tr>
+                                        <!-- <td width="1" class="text-nowrap border-0 padding-0">ถนน</td>
+                                        <td class="border-0 padding-0 text-center">
+                                            <?php //echo $road;?>
+                                            <div class="line-bottom-dashed"></div>
+                                        </td> -->
 
-                        <tr>
-
-                            <td colspan="3" class="text-nowrap border-0 padding-0" width="1%">ได้รับเงินจาก มหาวิทยาลัยราชภัฏยะลา</td>
-                            <td colspan="2" class="border-0 padding-0" width="8%">
-                                &nbsp;<?php echo $t_firstname; ?>&nbsp;&nbsp;<?php echo $t_lastname; ?>&nbsp;
-                                <div class="line-bottom-dashed">&nbsp;</div>
+                                        <td width="1" class="text-nowrap border-0 padding-0">ตำบล</td>
+                                        <td class="border-0 padding-0 text-center">
+                                            <?php echo $name_th_d;?>
+                                            <div class="line-bottom-dashed"></div>
+                                        </td>
+                                        <td width="1" class="text-nowrap border-0 padding-0">อำเภอ</td>
+                                        <td class="border-0 padding-0 text-center">
+                                            <?php echo $name_th_a;?>
+                                            <div class="line-bottom-dashed"></div>
+                                        </td>
+                                        <td width="1" class="text-nowrap border-0 padding-0">จังหวัด</td>
+                                        <td class="border-0 padding-0 text-center">
+                                            <?php echo $name_th_p;?>
+                                            <div class="line-bottom-dashed"></div>
+                                        </td>
+                                    </tr>
+                                </table>
                             </td>
-                            <td colspan="2" class="text-nowrap border-0 padding-0" width="1%">ดังรายละเอียดต่อไปนี้</td>
-
+                        </tr>
+                        <tr align="left">
+                            <td colspan="1">
+                                <table width="100%" border="0" align="left">
+                                    <tr>
+                                        <td width="1" class="text-nowrap border-0 padding-0">ได้รับเงินจาก มหาวิทยาลัยราชภัฏยะลา</td>
+                                        <td class="border-0 padding-0 text-center">
+                                            <?php //echo $name_th_d;?>
+                                            <div class="line-bottom-dashed"></div>
+                                        </td>
+                                        <td width="1" class="text-nowrap border-0 padding-0">ดังรายละเอียดต่อไปนี้</td>
+                                        <td width="1" class="text-nowrap border-0 padding-0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                    </tr>
+                                </table>
+                            </td>
                         </tr>
                     </table>
                     <br>
@@ -141,20 +163,19 @@
                         </tr>
 
                         <tr>
-
                             <td></td>
                             <td align="center">สต.</td>
                         </tr>
 
                         <tr>
-                            <td>- ค่าจ้างเหมาบริการเจ้าหน้าที่ประสานงานโครงการฯ โครงการ "พัฒนาครูและบุคลากรทางการศึกษาเพื่อลดความเหลื่อมล้ำจากผลกระทบของเหตุการณ์ความไม่สงบในพื้นที่ชายแดนใต้" งวดที่ 12 ประจำเดือน กันยายน 2562</td>
-                            <td>15,000</td>
+                            <td>- ค่าจ้างเหมาบริการเจ้าหน้าที่ประสานงานโครงการฯ โครงการ "<?php echo $project_name?>" งวดที่ <?php echo $perform1?> ประจำเดือน <?php echo $month_thaiM?>&nbsp;<?php echo $year_thaiM?></td>
+                            <td><?php echo $period1?></td>
                             <td>-</td>
                         </tr>
 
                         <tr>
-                            <td>รวมเงิน (ตัวอักษร) เป็นเงินหนึ่งหมื่นห้าพันบาทถ้วน</td>
-                            <td>15,000</td>
+                            <td>รวมเงิน (ตัวอักษร) เป็นเงิน<?php echo  convert($x);?></td>
+                            <td><?php echo $period1?></td>
                             <td>-</td>
                         </tr>
 
@@ -216,60 +237,8 @@
                     </table>
                 </td>
             </tr>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         </table>
-
-
     </div>
-
-    <ul class="right-menu">
-        <li>
-            <a href="#" onclick="window.print();">
-                <span class="fa-stack hightlight fa-2x">
-                    <i class="fa fa-circle fa-stack-2x"></i>
-                    <i class="fa fa-print fa-stack-1x fa-inverse"></i>
-                </span>
-                พิมพ์รายงาน
-            </a>
-        </li>
-        <li>
-            <a href="#" onclick="location.reload();">
-                <span class="fa-stack fa-2x">
-                    <i class="fa fa-circle fa-stack-2x"></i>
-                    <i class="fa fa-refresh fa-stack-1x fa-inverse"></i>
-                </span>
-                Refresh
-            </a>
-        </li>
-        <li>
-            <a href="#" onclick="window.close();">
-                <span class="fa-stack fa-2x">
-                    <i class="fa fa-circle fa-stack-2x"></i>
-                    <i class="fa fa-times fa-stack-1x fa-inverse"></i>
-                </span>
-                ปิดหน้าจอนี้
-            </a>
-        </li>
-    </ul>
 
     <script src="<?php //echo site_common_node_modules_url('jquery/dist/jquery.min.js');?>"></script>
 </body>

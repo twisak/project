@@ -147,8 +147,15 @@ $budget = $result_budget['budget'];
                             <div class="card-body">
                                 <form class="form-horizontal form-material" action="edit_command.php" method="post">
 
-    <input type="hidden" name="idd" value="<?php echo $idd; ?>">
+                                        <input type="hidden" name="idd" value="<?php echo $idd; ?>">
 
+                                    <div class="row">
+                                        <div class="col-md-12 text-center">
+                                            <div class="form-group">
+                                                <label><h4><b><u>แก้ไขเอกสารคำสั่ง</u></b></h4></label>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="row">
                                         <div class="col-md-3">
                                             <div class="form-group">
@@ -344,7 +351,7 @@ $budget = $result_budget['budget'];
 
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <button type="button" class="btn btn-danger btn-block">ยกเลิก</button>
+                                                <button type="button" class="btn btn-danger btn-block" onClick="JavaScript:history.back();">ยกเลิก</button>
                                             </div>
                                         </div>
                                     </div>

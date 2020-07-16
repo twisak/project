@@ -130,8 +130,18 @@
             <tr>
                 <td width="100%"  class="statement-header">
                     <table border="0" width="100%" class="statement-view text-gray-900" align="center">
-                      <tr height="35">
-                        <td align="center"><h2><strong>บันทึกข้อความ</strong></h2></td>
+                      <tr>
+                        <td rowspan="2">
+                            <br>
+                            <img src="../../administrator/images/Garuda_Emblem.jpg" width="70" height="80" class="img-responsive">
+                        </td>
+                        <td align="center" width="100%" ></td>
+                        <td width="30%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                      </tr>
+                      <tr>
+                        
+                        <td align="center" width="100%" class="text-nowrap border-0 padding-0"><h2><strong>บันทึกข้อความ</strong></h2></td>
+                        <td width="30%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
                       </tr>
                     </table>
                 </td>

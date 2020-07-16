@@ -106,7 +106,7 @@ include '../../administrator/connect.php';
                                 <form class="form-horizontal form-material" action="INSERT_note_invite3.php" method="post">
                                     <?php
 
-$id = $_GET['id'];
+                                            $id = $_GET['id'];
 
                                             $sql ="SELECT * FROM tb_note_book3 WHERE id = '".$id."' ";
                                             $query = mysqli_query($conn,$sql);
@@ -153,7 +153,7 @@ $id = $_GET['id'];
                                     <div class="row">
                                         <div class="col-md-12 text-center">
                                             <div class="form-group">
-                                                <label><h5><b><u>เอกสารมอบหนังสือ</u></b></h5></label>
+                                                <label><h4><b><u>รายละเอียดเอกสารมอบหนังสือ</u></b></h4></label>
                                             </div>
                                         </div>
                                     </div>
@@ -251,7 +251,7 @@ $id = $_GET['id'];
 
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <button type="button" class="btn btn-danger btn-block">ยกเลิก</button>
+                                                <button type="button" class="btn btn-danger btn-block" onClick="JavaScript:history.back();">ยกเลิก</button>
                                             </div>
                                         </div>
 

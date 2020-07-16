@@ -112,6 +112,13 @@ include '../../administrator/connect.php';
                                                     }
                                     ?>
                                     <div class="row">
+                                        <div class="col-md-12 text-center">
+                                            <div class="form-group">
+                                                <label><h4><b><u>แบบฟอร์มเอกสารขอลาออกเจ้าหน้าที่โครงการ</u></b></h4></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label><b>รหัสเอกสาร</b></label>
@@ -121,8 +128,8 @@ include '../../administrator/connect.php';
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                               <label><b>ชื่อบุคลากร</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
-                                                <input type="text" value="<?php echo $prefix?><?php echo $firtname?>&nbsp;&nbsp;<?php echo $lastname?>" class="form-control form-control-line">
+                                               <label><b>ชื่อบุคลากร</b></label>
+                                                <input type="text" value="<?php echo $prefix?><?php echo $firtname?>&nbsp;&nbsp;<?php echo $lastname?>" readonly class="form-control form-control-line">
                                                 <input type="hidden" class="form-control" name="person_id" value="<?php echo $person_id?>">
                                             </div>
                                         </div>
@@ -177,7 +184,7 @@ include '../../administrator/connect.php';
                                         ?>
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                               <label><b>ที่</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
+                                               <label><b>ที่</b></label>
                                                 <input type="text" value="<?=$idd?>" readonly class="form-control form-control-line">
                                                 <input type="hidden" name="at" value="<?=$idd?>" />
                                             </div>
@@ -241,7 +248,7 @@ include '../../administrator/connect.php';
 
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <button type="button" class="btn btn-danger btn-block">ยกเลิก</button>
+                                                <button type="button" class="btn btn-danger btn-block" onClick="JavaScript:history.back();">ยกเลิก</button>
                                             </div>
                                         </div>
                                     </div>
