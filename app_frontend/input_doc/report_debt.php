@@ -77,10 +77,65 @@
 
             $list = $result_debt['list'];
             $money_num = $result_debt['money_num'];
-            
+
             $approve = $result_debt['approve'];
             $disburse = $result_debt['disburse'];
             $payer = $result_debt['payer'];
+
+            $sql_project = "SELECT * FROM tb_project WHERE project_id = '".$project_id."' ";
+            $query_project = mysqli_query($conn,$sql_project);
+            $result_project = mysqli_fetch_assoc($query_project);
+            $project_name = $result_project['project_name'];
+
+            $sql_activity = "SELECT * FROM tb_activity WHERE activity_id = '".$activity_id."' ";
+            $query_activity = mysqli_query($conn,$sql_activity);
+            $result_activity = mysqli_fetch_assoc($query_activity);
+            $activity = $result_activity['activity'];
+
+            $sql_person = "SELECT * FROM tb_person WHERE person_id = '".$person_id."' ";
+            $query_person = mysqli_query($conn,$sql_person);
+            $result_person = mysqli_fetch_assoc($query_person);
+            $prefix  = $result_person['prefix'];
+            $firtname = $result_person['firtname'];
+            $lastname = $result_person['lastname'];
+            $idcard = $result_person['idcard'];
+            $position_id = $result_person['position_id'];
+            $house_num = $result_person['house_num'];
+            $road = $result_person['road'];
+            $village = $result_person['village'];
+            $alley = $result_person['alley'];
+            $province_id = $result_person['province_id'];
+            $districts_id = $result_person['districts_id'];
+            $amphures_id = $result_person['amphures_id'];
+
+            $sql_position = "SELECT * FROM tb_position WHERE position_id = '".$position_id."' ";
+            $query_position = mysqli_query($conn,$sql_position);
+            $result_position = mysqli_fetch_assoc($query_position);
+            $position_name = $result_position['position_name'];
+
+            $sql_provinces = "SELECT * FROM provinces WHERE id = '".$province_id."' ";
+            $query_provinces = mysqli_query($conn,$sql_provinces);
+            $result_provinces = mysqli_fetch_assoc($query_provinces);
+            $name_th_p = $result_provinces['name_th'];
+
+            $sql_amphures = "SELECT * FROM amphures WHERE id = '".$amphures_id."' ";
+            $query_amphures = mysqli_query($conn,$sql_amphures);
+            $result_amphures = mysqli_fetch_assoc($query_amphures);
+            $name_th_a = $result_amphures['name_th'];
+
+            $sql_districts = "SELECT * FROM districts WHERE id = '".$districts_id."' ";
+            $query_districts = mysqli_query($conn,$sql_districts);
+            $result_districts = mysqli_fetch_assoc($query_districts);
+            $name_th_d = $result_districts['name_th'];
+
+            $sql_teacher = "SELECT * FROM tb_teacher WHERE teacher_id = '".$teacher_id."' ";
+            $query_teacher = mysqli_query($conn,$sql_teacher);
+            $result_teacher = mysqli_fetch_assoc($query_teacher);
+            $t_firstname = $result_teacher['t_firstname'];
+            $t_lastname = $result_teacher['t_lastname'];
+
+
+
 
 
 
@@ -163,13 +218,13 @@
                         <tr>
                             <td width="1" class="text-nowrap border-0 padding-0">ข้าพเจ้า</td>
                             <td class="border-0 padding-0">
-                                &nbsp;&nbsp;<?php //echo $government;?>
+                                &nbsp;&nbsp;<?php echo $prefix; ?><?php echo $firtname; ?>&nbsp;<?php echo $lastname; ?>
                                 <div class="line-bottom-dashed"></div>
                             </td>
 
                             <td width="1" class="text-nowrap border-0 padding-0">บ้านเลขที่</td>
                             <td class="border-0 padding-0">
-                                &nbsp;&nbsp;<?php //echo $government;?>
+                                &nbsp;&nbsp;<?php echo $house_num;?>
                                 <div class="line-bottom-dashed"></div>
                             </td>
                         </tr>
@@ -182,19 +237,19 @@
                         <tr>
                             <td width="1" class="text-nowrap border-0 padding-0">ตำบล/แขวง</td>
                             <td class="border-0 padding-0">
-                                &nbsp;&nbsp;<?php //echo $government;?>
+                                &nbsp;&nbsp;<?php echo $name_th_d;?>
                                 <div class="line-bottom-dashed"></div>
                             </td>
 
                             <td width="1" class="text-nowrap border-0 padding-0">อำเภอ/เขต</td>
                             <td class="border-0 padding-0">
-                                &nbsp;&nbsp;<?php //echo $government;?>
+                                &nbsp;&nbsp;<?php echo $name_th_a;?>
                                 <div class="line-bottom-dashed"></div>
                             </td>
 
                             <td width="1" class="text-nowrap border-0 padding-0">จังหวัด</td>
                             <td class="border-0 padding-0">
-                                &nbsp;&nbsp;<?php //echo $government;?>
+                                &nbsp;&nbsp;<?php echo $name_th_p;?>
                                 <div class="line-bottom-dashed"></div>
                             </td>
                         </tr>
@@ -207,7 +262,7 @@
                         <tr>
                             <td width="1" class="text-nowrap border-0 padding-0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ได้รับเงินจาก</td>
                             <td class="border-0 padding-0">
-                                &nbsp;&nbsp;<?php //echo $government;?>
+                                &nbsp;&nbsp;<?php echo $money_from;?>
                                 <div class="line-bottom-dashed"></div>
                             </td>
                             <td width="1" class="text-nowrap border-0 padding-0">รายละเอียดดังต่อไปนี้</td>
@@ -287,7 +342,7 @@
                                     <tr>
                                         <td width="1" class="text-nowrap border-0 padding-0">ลงชื่อ</td>
                                         <td class="border-0 padding-0 text-center">
-                                            <?php //echo $t_firstname;?>&nbsp;&nbsp;<?php //echo $t_lastname;?>
+                                            <?php echo $firtname;?>&nbsp;&nbsp;<?php echo $lastname;?>
                                             <div class="line-bottom-dashed">&nbsp;</div>
                                         </td>
                                         <td width="1" class="text-nowrap border-0 padding-0">ผู้รับเงิน</td>
@@ -295,7 +350,7 @@
                                     <tr>
                                         <td class="border-0 padding-0" align="right">(</td>
                                         <td align="center" class="border-0 padding-0">
-                                            <?php //echo $t_firstname;?>&nbsp;&nbsp;<?php //echo $t_lastname;?>
+                                            <?php echo $prefix;?><?php echo $firtname;?>&nbsp;<?php echo $lastname;?>
                                         </td>
                                         <td class="border-0 padding-0" align="left">)</td>
                                     </tr>

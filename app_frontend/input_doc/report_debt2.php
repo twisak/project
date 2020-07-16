@@ -62,13 +62,13 @@
                                     <tr>
                                         <td width="1" class="text-nowrap border-0 padding-0">สัญญาเงินยืมเลขที่</td>
                                         <td class="border-0 padding-0">
-                                            &nbsp;&nbsp;<?php //echo $government;?>
+                                            &nbsp;&nbsp;<?php echo $lend_num;?>
                                             <div class="line-bottom-dashed"></div>
                                         </td>
 
                                         <td width="1" class="text-nowrap border-0 padding-0">วันที่</td>
                                         <td class="border-0 padding-0">
-                                            &nbsp;&nbsp;<?php //echo $government;?>
+                                            &nbsp;&nbsp;
                                             <div class="line-bottom-dashed"></div>
                                         </td>
                                     </tr>
@@ -81,13 +81,13 @@
                                     <tr>
                                         <td width="1" class="text-nowrap border-0 padding-0">ชื่อผู้ยืม</td>
                                         <td class="border-0 padding-0">
-                                            &nbsp;&nbsp;<?php //echo $government;?>
+                                            &nbsp;&nbsp;<?php echo $prefix;?><?php echo $firtname;?>&nbsp;<?php echo $lastname;?>
                                             <div class="line-bottom-dashed"></div>
                                         </td>
 
                                         <td width="1" class="text-nowrap border-0 padding-0">จำนวนเงิน</td>
                                         <td class="border-0 padding-0">
-                                            &nbsp;&nbsp;<?php //echo $government;?>
+                                            &nbsp;&nbsp;
                                             <div class="line-bottom-dashed"></div>
                                         </td>
                                         <td width="1" class="text-nowrap border-0 padding-0">บาท</td>
@@ -181,13 +181,13 @@
                                         <td></td>
                                         <td width="1" class="text-nowrap border-0 padding-0">ตามคำสั่ง/บันทึกที่</td>
                                         <td class="border-0 padding-0">
-                                            &nbsp;&nbsp;<?php //echo $government;?>
+                                            &nbsp;&nbsp;<?php echo $note_that;?>
                                             <div class="line-bottom-dashed"></div>
                                         </td>
 
                                         <td width="1" class="text-nowrap border-0 padding-0">ลงวันที่</td>
                                         <td class="border-0 padding-0">
-                                            &nbsp;&nbsp;<?php //echo $government;?>
+                                            &nbsp;&nbsp;<?php echo $date_note;?>
                                             <div class="line-bottom-dashed"></div>
                                         </td>
 
@@ -200,15 +200,15 @@
                             <td colspan="2">
                                 <table width="100%" border="0" align="left">
                                     <tr>
-                                        <td width="1" class="text-nowrap border-0 padding-0">ช้าพเจ้า</td>
+                                        <td width="1" class="text-nowrap border-0 padding-0">ข้าพเจ้า</td>
                                         <td class="border-0 padding-0">
-                                            &nbsp;&nbsp;<?php //echo $government;?>
+                                            &nbsp;&nbsp;<?php echo $prefix;?><?php echo $firtname;?>&nbsp;<?php echo $lastname;?>
                                             <div class="line-bottom-dashed"></div>
                                         </td>
 
                                         <td width="1" class="text-nowrap border-0 padding-0">ตำแหน่ง</td>
                                         <td class="border-0 padding-0">
-                                            &nbsp;&nbsp;<?php //echo $government;?>
+                                            &nbsp;&nbsp;<?php echo $position_name;?>
                                             <div class="line-bottom-dashed"></div>
                                         </td>
                                     </tr>
@@ -221,13 +221,13 @@
                                     <tr>
                                         <td width="1" class="text-nowrap border-0 padding-0">สังกัด</td>
                                         <td class="border-0 padding-0">
-                                            &nbsp;&nbsp;<?php //echo $government;?>
+                                            &nbsp;&nbsp;<?php echo $under;?>
                                             <div class="line-bottom-dashed"></div>
                                         </td>
 
                                         <td width="1" class="text-nowrap border-0 padding-0">พร้อมด้วย</td>
                                         <td class="border-0 padding-0">
-                                            &nbsp;&nbsp;<?php //echo $government;?>
+                                            &nbsp;&nbsp;<?php echo $along_with;?>
                                             <div class="line-bottom-dashed"></div>
                                         </td>
                                     </tr>
@@ -240,7 +240,7 @@
                                     <tr>
                                         <td width="1" class="text-nowrap border-0 padding-0">ไปปฏิบัติราชการ</td>
                                         <td class="border-0 padding-0">
-                                            &nbsp;&nbsp;<?php //echo $government;?>
+                                            &nbsp;&nbsp;<?php echo $go_practice;?>
                                             <div class="line-bottom-dashed"></div>
                                         </td>
 
@@ -274,7 +274,7 @@
                                         </td>
                                         <td width="1" class="text-nowrap border-0 padding-0">เวลา</td>
                                         <td class="border-0 padding-0 text-center">
-                                            <?php //echo $government;?>20.00
+                                            <?php echo $time_depart;?>
                                             <div class="line-bottom-dashed"></div>
                                         </td>
                                         <td width="1" class="text-nowrap border-0 padding-0">น.</td>
@@ -308,7 +308,7 @@
                                         </td>
                                         <td width="1" class="text-nowrap border-0 padding-0">เวลา</td>
                                         <td class="border-0 padding-0 text-center">
-                                            <?php //echo $government;?>20.00
+                                            <?php echo $time_back;?>
                                             <div class="line-bottom-dashed"></div>
                                         </td>
                                         <td width="1" class="text-nowrap border-0 padding-0">น.</td>
@@ -360,26 +360,26 @@
                                     <tr>
                                         <td width="1" class="text-nowrap border-0 padding-0">ค่าเบี้ยเลี้ยงเดินทางประเภท</td>
                                         <td class="border-0 padding-0">
-                                            &nbsp;&nbsp;<?php //echo $government;?>
+                                            &nbsp;&nbsp;<?php echo $allowance;?>
                                             <div class="line-bottom-dashed"></div>
                                         </td>
                                         <td width="1" class="text-nowrap border-0 padding-0">จำนวน</td>
                                         <td class="border-0 padding-0">
-                                            &nbsp;&nbsp;<?php //echo $government;?>
+                                            &nbsp;&nbsp;<?php echo $allowance_day;?>
                                             <div class="line-bottom-dashed"></div>
                                         </td>
                                         <td width="1" class="text-nowrap border-0 padding-0">วัน</td>
                                         <td width="1"></td>
                                         <td width="1" class="text-nowrap border-0 padding-0">วันละ</td>
                                         <td class="border-0 padding-0">
-                                            &nbsp;&nbsp;<?php //echo $government;?>
+                                            &nbsp;&nbsp;<?php echo $allowance_price;?>
                                             <div class="line-bottom-dashed"></div>
                                         </td>
                                         <td width="1" class="text-nowrap border-0 padding-0">บาท</td>
                                         <td width="1"></td>
                                         <td width="1" class="text-nowrap border-0 padding-0">รวม</td>
                                         <td class="border-0 padding-0">
-                                            &nbsp;&nbsp;<?php //echo $government;?>
+                                            &nbsp;&nbsp;<?php echo $allowance_sum;?>
                                             <div class="line-bottom-dashed"></div>
                                         </td>
                                         <td width="1" class="text-nowrap border-0 padding-0">บาท</td>
@@ -393,19 +393,19 @@
                                     <tr>
                                         <td width="1" class="text-nowrap border-0 padding-0">ค่าเช่าที่พักประเภท</td>
                                         <td class="border-0 padding-0">
-                                            &nbsp;&nbsp;<?php //echo $government;?>
+                                            &nbsp;&nbsp;<?php echo $rest;?>
                                             <div class="line-bottom-dashed"></div>
                                         </td>
                                         <td width="1" class="text-nowrap border-0 padding-0">จำนวนวัน</td>
                                         <td class="border-0 padding-0">
-                                            &nbsp;&nbsp;<?php //echo $government;?>
+                                            &nbsp;&nbsp;<?php echo $rest_day;?>
                                             <div class="line-bottom-dashed"></div>
                                         </td>
                                         <td width="1" class="text-nowrap border-0 padding-0">วัน</td>
                                         <td width="1"></td>
                                         <td width="1" class="text-nowrap border-0 padding-0">รวม</td>
                                         <td class="border-0 padding-0">
-                                            &nbsp;&nbsp;<?php //echo $government;?>
+                                            &nbsp;&nbsp<?php echo $rest_sum;?>
                                             <div class="line-bottom-dashed"></div>
                                         </td>
                                         <td width="1" class="text-nowrap border-0 padding-0">บาท</td>
@@ -419,12 +419,12 @@
                                     <tr>
                                         <td width="1" class="text-nowrap border-0 padding-0">ค่าพาหนะ</td>
                                         <td class="border-0 padding-0">
-                                            &nbsp;&nbsp;<?php //echo $government;?>
+                                            &nbsp;&nbsp;<?php echo $vehicle;?>
                                             <div class="line-bottom-dashed"></div>
                                         </td>
                                         <td width="1" class="text-nowrap border-0 padding-0">รวม</td>
                                         <td class="border-0 padding-0">
-                                            &nbsp;&nbsp;<?php //echo $government;?>
+                                            &nbsp;&nbsp;<?php echo $vehicle_sum;?>
                                             <div class="line-bottom-dashed"></div>
                                         </td>
                                         <td width="1" class="text-nowrap border-0 padding-0">บาท</td>
@@ -438,12 +438,12 @@
                                     <tr>
                                         <td width="1" class="text-nowrap border-0 padding-0">ค่าใช้จ่ายอื่น</td>
                                         <td class="border-0 padding-0">
-                                            &nbsp;&nbsp;<?php //echo $government;?>
+                                            &nbsp;&nbsp;<?php echo $other;?>
                                             <div class="line-bottom-dashed"></div>
                                         </td>
                                         <td width="1" class="text-nowrap border-0 padding-0">รวม</td>
                                         <td class="border-0 padding-0">
-                                            &nbsp;&nbsp;<?php //echo $government;?>
+                                            &nbsp;&nbsp;<?php echo $other_sum;?>
                                             <div class="line-bottom-dashed"></div>
                                         </td>
                                         <td width="1" class="text-nowrap border-0 padding-0">บาท</td>
@@ -514,7 +514,7 @@
                                                 <tr>
                                                     <td width="1" class="text-nowrap border-0 padding-0">ลงชื่อ</td>
                                                     <td class="border-0 padding-0 text-center">
-                                                        <?php //echo $t_firstname;?>&nbsp;&nbsp;<?php //echo $t_lastname;?>
+                                                        <?php echo $firtname;?>&nbsp;<?php echo $lastname;?>
                                                         <div class="line-bottom-dashed">&nbsp;</div>
                                                     </td>
                                                     <td width="1" class="text-nowrap border-0 padding-0">ผู้ขอรับเงิน</td>
@@ -522,7 +522,7 @@
                                                 <tr>
                                                     <td class="border-0 padding-0" align="right">(</td>
                                                     <td align="center" class="border-0 padding-0">
-                                                        <?php //echo $t_firstname;?>&nbsp;&nbsp;<?php //echo $t_lastname;?>
+                                                        <?php echo $prefix;?><?php echo $firtname;?>&nbsp;<?php echo $lastname;?>
                                                         <div class="line-bottom-dashed">&nbsp;</div>
                                                     </td>
                                                     <td class="border-0 padding-0" align="left">)</td>
@@ -542,7 +542,7 @@
                                                 <tr>
                                                     <td width="1" class="text-nowrap border-0 padding-0">ตำแหน่ง</td>
                                                     <td class="border-0 padding-0 text-center">
-                                                        <?php //echo $t_firstname;?>&nbsp;&nbsp;<?php //echo $t_lastname;?>
+                                                        <?php echo $position_name;?>
                                                         <div class="line-bottom-dashed">&nbsp;</div>
                                                     </td>
                                                     <td width="1" class="text-nowrap border-0 padding-0"></td>
