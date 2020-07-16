@@ -147,14 +147,14 @@ $budget = $result_budget['budget'];
                                     <div class="row">
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <label>รหัสเอกสาร</label>
+                                                <label><b>รหัสเอกสาร</b></label>
                                                 <input type="text" name="doc_id" value="<?php echo $doc_id; ?>" readonly class="form-control form-control-line">
 
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label>ชื่อบุคลากร</label>
+                                                <label><b>ชื่อบุคลากร</b></label>
                                                 <input type="text" value="<?php echo $prefix?><?php echo $firtname?>&nbsp;&nbsp;<?php echo $lastname?>" class="form-control form-control-line">
                                                 <input type="hidden" class="form-control" name="person_id" value="<?php echo $person_id?>">
                                             </div>
@@ -164,7 +164,7 @@ $budget = $result_budget['budget'];
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label>ชื่อโครงการ</label>
+                                                <label><b>ชื่อโครงการ</b></label>
                                                 <select class="form-control" name="project_id" value="<?php echo $result_record1['project_id']; ?>">
 
                                   <?php
@@ -194,7 +194,7 @@ $budget = $result_budget['budget'];
 
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label>ชื่อกิจกรรม</label>
+                                                <label><b>ชื่อกิจกรรม</b></label>
                                                 <select class="form-control" name="activity_id" value="<?php echo $result_record1['activity_id']; ?>">
 
                                   <?php
@@ -278,7 +278,7 @@ $budget = $result_budget['budget'];
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label>ใช้งบประมาณ</label>
+                                                <label><b>ใช้งบประมาณ</b></label>
                                                 <select class="form-control" name="budget_id" value="<?php echo $result_budget['budget_id']; ?>">
 
                                   <?php
@@ -307,7 +307,7 @@ $budget = $result_budget['budget'];
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label>ปีงบประมาณ</label>
+                                                <label><b>ปีงบประมาณ</b></label>
                                                 <select class="form-control" name="budget_year" id="budget_year" >
                                                     <?php
                                                         $xYear=date('Y'); // เก็บค่าปีปัจจุบันไว้ในตัวแปร
@@ -345,7 +345,7 @@ $budget = $result_budget['budget'];
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label>ผู้ตรวจรับพัสดุ</label>
+                                                <label><b>ผู้ตรวจรับพัสดุ</b></label>
 
                                                 <select class="form-control" name="supplies_id" value="<?php echo $result_record1['supplies_id']; ?>">
 
@@ -376,7 +376,7 @@ $budget = $result_budget['budget'];
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label>ผู้ควบคุมการปฏิบัติงาน</label>
+                                                <label><b>ผู้ควบคุมการปฏิบัติงาน</b></label>
 
                                                 <select class="form-control" name="control_id" value="<?php echo $result_record1['control_id']; ?>">
 

@@ -125,7 +125,7 @@ include '../../administrator/connect.php';
                                     <div class="row">
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <label>รหัสเอกสารมอบหนังสือ</label>
+                                                <label><b>รหัสเอกสารมอบหนังสือ</b></label>
                                                 <input type="text" name="doc_id" value="<?php echo $doc_id; ?>" readonly class="form-control form-control-line">
 
                                             </div>
@@ -173,7 +173,7 @@ include '../../administrator/connect.php';
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label>เรียน</label>
+                                                <label><b>เรียน</b></label>
                                                 <input type="text" class="form-control form-control-line" name="mug" value="<?php echo $mug; ?>">
                                             </div>
                                         </div>
@@ -240,7 +240,7 @@ include '../../administrator/connect.php';
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label>ชื่อโครงการ</label>
+                                                <label><b>ชื่อโครงการ</b></label>
                                                 <select class="form-control" name="project_id" value="<?php echo $result_book3['project_id']; ?>">
 
                                   <?php

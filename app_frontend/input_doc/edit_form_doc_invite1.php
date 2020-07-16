@@ -146,7 +146,7 @@ include '../../administrator/connect.php';
                                     <div class="row">
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <label>รหัสเอกสารเรียนเชิญเป็นวิทยากร</label>
+                                                <label><b>รหัสเอกสารเรียนเชิญเป็นวิทยากร</b></label>
                                                 <input type="text" name="doc_id" value="<?php echo $doc_id; ?>" readonly class="form-control form-control-line">
                                             </div>
                                         </div>
@@ -193,7 +193,7 @@ include '../../administrator/connect.php';
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label>เรียน</label>
+                                                <label><b>เรียน</b></label>
                                                 <input type="text" class="form-control form-control-line" name="mug" value="<?php echo $mug; ?>">
                                             </div>
                                         </div>
@@ -264,7 +264,7 @@ $number1 = array($number);
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label>ชื่อโครงการ</label>
+                                                <label><b>ชื่อโครงการ</b></label>
                                                 <select class="form-control" name="project_id" value="<?php echo $result_book1['project_id']; ?>">
 
                                   <?php
@@ -294,7 +294,7 @@ $number1 = array($number);
 
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label>ชื่อกิจกรรม</label>
+                                                <label><b>ชื่อกิจกรรม</b></label>
                                                 <select class="form-control" name="activity_id" value="<?php echo $result_book1['activity_id']; ?>">
 
                                   <?php
@@ -331,7 +331,7 @@ $number1 = array($number);
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label>หัวเรื่อง</label>
+                                                <label><b>หัวเรื่อง</b></label>
                                                 <input type="text" class="form-control form-control-line" name="heading" value="<?php echo $heading; ?>">
                                             </div>
                                         </div>
@@ -345,7 +345,7 @@ $number1 = array($number);
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label>ถึง วันที่</label>
+                                                <label><b>ถึง วันที่</b></label>
                                                 <input type="date" class="form-control form-control-line" name="stp_date" value="<?php echo $stp_date; ?>">
                                             </div>
                                         </div>
@@ -367,7 +367,7 @@ $number1 = array($number);
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label>ครูในสังกัด</label>
+                                                <label><b>ครูในสังกัด</b></label>
                                                 <input type="text" class="form-control form-control-line" name="teacher_under" value="<?php echo $teacher_under; ?>">
                                             </div>
                                         </div>

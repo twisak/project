@@ -114,7 +114,7 @@ include '../../administrator/connect.php';
                                     <div class="row">
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <label>รหัสเอกสารมอบหนังสือ</label>
+                                                <label><b>รหัสเอกสารมอบหนังสือ</b></label>
                                                 <input type="text" value="<?=$id?>" readonly class="form-control form-control-line">
                                                 <input type="hidden" name="doc_id" value="<?=$id?>" />
                                             </div>
@@ -124,7 +124,7 @@ include '../../administrator/connect.php';
                                     <div class="row">
                                         <div class="col-md-5">
                                             <div class="form-group">
-                                                <label><b>เรื่อง</b></label>
+                                               <label><b>เรื่อง</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
                                                 <select name="title_id" class="form-control">
                                                     <option value="">เลือกชื่อเรื่อง</option>
                                                     <?php
@@ -152,7 +152,7 @@ include '../../administrator/connect.php';
                                         ?>
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label><b>ที่</b></label>
+                                            <label><b>ที่</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
                                                 <input type="text" value="<?=$idd?>" readonly class="form-control form-control-line">
                                                 <input type="hidden" name="at" value="<?=$idd?>" />
                                             </div>
@@ -161,7 +161,7 @@ include '../../administrator/connect.php';
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label>เรียน</label>
+                                           <label><b>เรียน</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
                                                 <input type="text" class="form-control form-control-line" name="mug">
                                             </div>
                                         </div>
@@ -169,7 +169,7 @@ include '../../administrator/connect.php';
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                            <label><b>สิ่งที่ส่งแนบมาด้วย</b></label>
+                                         <label><b>สิ่งที่ส่งแนบมาด้วย</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
                                             </div>
                                         </div>
                                     </div>
@@ -196,7 +196,7 @@ include '../../administrator/connect.php';
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label>ชื่อโครงการ</label>
+                                             <label><b>ชื่อโครงการ</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
                                                 <select name="project_id" id="project" class="form-control">
                                                     <option value="">เลือกโครงการ</option>
                                                     <?php
@@ -286,4 +286,3 @@ include '../../administrator/connect.php';
 </body>
 
 </html>
-

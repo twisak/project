@@ -114,14 +114,14 @@ else
                                     <div class="row">
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label>รหัสเอกสารเงินเดือน</label>
+                                                <label><b>รหัสเอกสารเงินเดือน</b></label>
                                                 <input type="text" value="<?php echo $doc_id; ?>" readonly class="form-control form-control-line">
                                                 <input type="hidden" class="form-control" name="doc_id" value="<?php echo $doc_id?>">
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label>ชื่อบุคลากร</label>
+                                               <label><b>ชื่อบุคลากร</b></label>
                                                 <input type="text" value="<?php echo $prefix?><?php echo $firtname?>&nbsp;&nbsp;<?php echo $lastname?>" class="form-control form-control-line">
                                                 <input type="hidden" class="form-control" name="person_id" value="<?php echo $person_id?>">
                                             </div>
@@ -131,7 +131,7 @@ else
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label>โครงการ</label>
+                                               <label><b>โครงการ</b></label>
                                                 <select class="form-control" name="project_id" value="<?php echo $result_salary['project_id']; ?>">
 
                                   <?php
@@ -160,7 +160,7 @@ else
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="activity">ชื่อกิจกรรม</label>
+                                               <label><b>ชื่อกิจกรรม</b></label>
                                                 <select class="form-control" name="activity_id" value="<?php echo $result_salary['activity_id']; ?>">
 
                                   <?php
@@ -192,13 +192,13 @@ else
                                     <div class="row">
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label>เริ่มต้นวันที่</label>
+                                               <label><b>เริ่มต้นวันที่</b></label>
                                                 <input type="date" class="form-control form-control-line" name="str_date" value="<?php echo $str_date; ?>">
                                             </div>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label>สิ้นสุดวันที่</label>
+                                             <label><b>สิ้นสุดวันที่</b></label>
                                                 <input type="date" class="form-control form-control-line" name="stp_date" value="<?php echo $stp_date; ?>">
                                             </div>
                                         </div>
@@ -207,13 +207,13 @@ else
                                     <div class="row">
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label>งวดล่ะ</label>
+                                         <label><b>งวดล่ะ</b></label>
                                                 <input type="text" class="form-control form-control-line" name="period" value="<?php echo $period; ?>">
                                             </div>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label>รวมเป็นเงินทั้งสิ้น</label>
+                                             <label><b>รวมเป็นเงินทั้งสิ้น</b></label>
                                                 <input type="text" class="form-control form-control-line" name="total_amount" value="<?php echo $total_amount; ?>">
                                             </div>
                                         </div>
@@ -222,13 +222,13 @@ else
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label>ปฎิบัติงานดังกล่าวงวดที่</label>
+                                           <label><b>ปฎิบัติงานดังกล่าวงวดที่</b></label>
                                                 <input type="text" class="form-control form-control-line" name="perform" value="<?php echo $perform; ?>">
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label>เดือนที่</label>
+                                             <label><b>เดือนที่</b></label>
                                                 <input type="date" class="form-control form-control-line" name="month" value="<?php echo $month; ?>">
                                             </div>
                                         </div>
@@ -244,7 +244,7 @@ else
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label>ผู้ควบคุมการปฎิบัติงาน</label>
+                                             <label><b>ผู้ควบคุมการปฎิบัติงาน</b></label>
                                                 <select class="form-control" name="teacher_id" value="<?php echo $result_salary['teacher_id']; ?>">
 
                                   <?php

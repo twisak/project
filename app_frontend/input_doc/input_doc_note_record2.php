@@ -114,24 +114,24 @@ include '../../administrator/connect.php';
                                     <div class="row">
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <label>รหัสเอกสาร</label>
+                                                <label><b>รหัสเอกสาร</b></label>
                                                 <input type="text" value="<?=$id?>" readonly class="form-control form-control-line">
                                                 <input type="hidden" name="doc_id" value="<?=$id?>" />
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label>ชื่อบุคลากร</label>
+                                               <label><b>ชื่อบุคลากร</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
                                                 <input type="text" value="<?php echo $prefix?><?php echo $firtname?>&nbsp;&nbsp;<?php echo $lastname?>" class="form-control form-control-line">
                                                 <input type="hidden" class="form-control" name="person_id" value="<?php echo $person_id?>">
                                             </div>
                                         </div>
                                     </div>
-                                    
+
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label>ชื่อโครงการ</label>
+                                               <label><b>ชื่อโครงการ</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
                                                 <select name="project_id" id="project" class="form-control">
                                                     <option value="">เลือกโครงการ</option>
                                                     <?php
@@ -147,7 +147,7 @@ include '../../administrator/connect.php';
 
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label>ชื่อกิจกรรม</label>
+                                               <label><b>ชื่อกิจกรรม</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
                                                 <select name="activity_id" id="activity" class="form-control">
                                                     <option value="">ชื่อกิจกรรม</option>
                                                 </select>
@@ -158,7 +158,7 @@ include '../../administrator/connect.php';
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label><b>ส่วนราชการ</b></label>
+                                                <label><b>ส่วนราชการ</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
                                                 <input type="text" class="form-control form-control-line" name="government">
                                             </div>
                                         </div>
@@ -177,7 +177,7 @@ include '../../administrator/connect.php';
                                         ?>
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label><b>ที่</b></label>
+                                               <label><b>ที่</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
                                                 <input type="text" value="<?=$idd?>" readonly class="form-control form-control-line">
                                                 <input type="hidden" name="at" value="<?=$idd?>" />
                                             </div>
@@ -192,7 +192,7 @@ include '../../administrator/connect.php';
                                         </div> -->
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label><b>เรื่อง</b></label>
+                                                <label><b>เรื่อง</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
                                                 <select name="title_id" class="form-control">
                                                     <option value="">เลือกชื่อเรื่อง</option>
                                                     <?php
@@ -209,13 +209,13 @@ include '../../administrator/connect.php';
                                     <div class="row">
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <label>เริ่มปฏิบัติตามสัญญาจ้างเหมา เมื่อวันที่</label>
+                                               <label><b>เริ่มปฏิบัติตามสัญญาจ้างเหมา เมื่อวันที่</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
                                                 <input type="date" class="form-control form-control-line" name="str_date">
                                             </div>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <label>ถึง วันที่</label>
+                                              <label><b>ถึง วันที่</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
                                                 <input type="date" class="form-control form-control-line" name="stp_date">
                                             </div>
                                         </div>
@@ -224,12 +224,12 @@ include '../../administrator/connect.php';
                                     <div class="row">
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <label><b>ลาออกจากเจ้างหน้าที่โครงการ มีผลตั้งแต่วันที่</b></label>
+                                                <label><b>ลาออกจากเจ้างหน้าที่โครงการ มีผลตั้งแต่วันท</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
                                                 <input type="date" class="form-control form-control-line" name="real_date">
                                             </div>
                                         </div>
                                     </div>
-                                    
+
                                     <div class="row">
                                         <div class="col-md-3">
                                         </div>

@@ -235,12 +235,12 @@ include '../../administrator/connect.php';
                                 <div class="row">
                                     <div class="col-md-8">
                                         <div class="form-group">
-                                            <?php 
+                                            <?php
                                                         $foreword1 = array($foreword);
 
                                                         foreach ($foreword1 as $foreword1){
                                                           $j=0;
-                                                          echo "<p><b>ตัวชี้วัด</b></p>";
+                                                          echo "<p><label><b>ตัวชี้วัด</b></label></p>";
                                                           echo "<ul>";
                                                           foreach ($foreword1 as $foreword1[$j]){
                                                               $value = $foreword1[$j];
@@ -249,10 +249,10 @@ include '../../administrator/connect.php';
                                                               $j++;
                                                           }
                                                           echo "</ul>";
-                                                          
+
                                                       }
                                               ?>
-                                            
+
                                         </div>
                                     </div>
                                 </div>
@@ -289,13 +289,13 @@ include '../../administrator/connect.php';
                                 <div class="row">
                                     <div class="col-md-2">
                                         <div class="form-group">
-                                            <label>จำนวนงวด</label><br>
+                                            <label><b>จำนวนงวด</b></label><br>
                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $number?>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label>เป็นเงิน</label><br>
+                                            <label><b>เป็นเงิน</b></label><br>
                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $money?>
                                         </div>
                                     </div>
@@ -304,7 +304,7 @@ include '../../administrator/connect.php';
                                                 ?>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label>รวมเป็นเงินทั้งสิ้น</label><br>
+                                            <label><b>รวมเป็นเงินทั้งสิ้น</b></label><br>
                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $amount?>
                                         </div>
                                     </div>
@@ -312,13 +312,13 @@ include '../../administrator/connect.php';
                                 <div class="row">
                                     <div class="col-md-2">
                                         <div class="form-group">
-                                            <label>ปฎิบัติงานงวดที่</label><br>
+                                            <label><b>ปฎิบัติงานงวดที่</b></label><br>
                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $work?>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label>วันที่ปฎิบัติงาน</label><br>
+                                            <label><b>วันที่ปฎิบัติงาน</b></label><br>
                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $date_work?>
                                         </div>
                                     </div>
@@ -333,13 +333,13 @@ include '../../administrator/connect.php';
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label>ส่วนราชการ</label><br>
+                                            <label><b>ส่วนราชการ</b></label><br>
                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $government?>
                                         </div>
                                     </div>
                                     <div class="col-md-2">
                                         <div class="form-group">
-                                            <label>ที่</label><br>
+                                            <label><b>ที่</b></label><br>
                                             &nbsp;&nbsp;&nbsp;&nbsp;<?php echo $that?>
                                         </div>
                                     </div>
@@ -353,7 +353,7 @@ include '../../administrator/connect.php';
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label>เรื่อง</label><br>
+                                            <label><b>เรื่อง</b></label><br>
                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $title?>
                                         </div>
                                     </div>
@@ -361,19 +361,19 @@ include '../../administrator/connect.php';
                                 <div class="row">
                                     <div class="col-md-2">
                                         <div class="form-group">
-                                            <label>จำนวนคน</label><br>
+                                            <label><b>จำนวนคน</b></label><br>
                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $people?>
                                         </div>
                                     </div>
                                     <div class="col-md-2">
                                         <div class="form-group">
-                                            <label>ราคากลางที่คำนวณได้</label><br>
+                                            <label><b>ราคากลางที่คำนวณได้<b></label><br>
                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $mid_price?>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <?php 
+                                    <?php
                                         $sql4 ="SELECT * FROM tb_teacher WHERE teacher_id = '".$chairman."' ";
                                         $query4 = mysqli_query($conn,$sql4);
                                         while($row4 = mysqli_fetch_array($query4,MYSQLI_ASSOC))
@@ -384,11 +384,11 @@ include '../../administrator/connect.php';
                                     ?>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label>ลงชื่อ ประธานกรรมการ</label><br>
+                                            <label><b>ลงชื่อ ประธานกรรมการ</b></label><br>
                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;อาจารย์<?php echo $t_firstname1?>&nbsp;&nbsp;<?php echo $t_lastname1?>
                                         </div>
                                     </div>
-                                    <?php 
+                                    <?php
                                         $sql4 ="SELECT * FROM tb_teacher WHERE teacher_id = '".$committee."' ";
                                         $query4 = mysqli_query($conn,$sql4);
                                         while($row4 = mysqli_fetch_array($query4,MYSQLI_ASSOC))
@@ -399,11 +399,11 @@ include '../../administrator/connect.php';
                                     ?>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label>ลงชื่อ กรรมการ</label><br>
+                                            <label><b>ลงชื่อ กรรมการ</b></label><br>
                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;อาจารย์<?php echo $t_firstname2?>&nbsp;&nbsp;<?php echo $t_lastname2?>
                                         </div>
                                     </div>
-                                    <?php 
+                                    <?php
                                         $sql4 ="SELECT * FROM tb_teacher WHERE teacher_id = '".$secretary."' ";
                                         $query4 = mysqli_query($conn,$sql4);
                                         while($row4 = mysqli_fetch_array($query4,MYSQLI_ASSOC))
@@ -414,7 +414,7 @@ include '../../administrator/connect.php';
                                     ?>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label>ลงชื่อ กรรมการและเลขานุการ</label><br>
+                                            <label><b>ลงชื่อ กรรมการและเลขานุการ</b></label><br>
                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;อาจารย์<?php echo $t_firstname3?>&nbsp;&nbsp;<?php echo $t_lastname3?>
                                         </div>
                                     </div>
@@ -429,7 +429,7 @@ include '../../administrator/connect.php';
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label>รายละเอียดการจ้าง</label><br>
+                                            <label><b>รายละเอียดการจ้าง</b></label><br>
                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $details?>
                                         </div>
                                     </div>
@@ -444,13 +444,13 @@ include '../../administrator/connect.php';
                                 <div class="row">
                                     <div class="col-md-2">
                                         <div class="form-group">
-                                            <label>เริ่มต้นวันที่</label><br>
+                                            <label><b>เริ่มต้นวันที</b>่</label><br>
                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $date_start?>
                                         </div>
                                     </div>
                                     <div class="col-md-2">
                                         <div class="form-group">
-                                            <label>สิ้นสุดวันที่</label><br>
+                                            <label><b>สิ้นสุดวันที</b></label><br>
                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $date_end?>
                                         </div>
                                     </div>
@@ -473,7 +473,7 @@ include '../../administrator/connect.php';
                                                                         $j++;
                                                                     }
                                                                     echo "</ul>";
-                                                                    
+
                                                                 }
                                                         ?>
                                         </div>
@@ -498,7 +498,7 @@ include '../../administrator/connect.php';
                                                                         $j++;
                                                                     }
                                                                     echo "</ul>";
-                                                                    
+
                                                                 }
                                                         ?>
                                         </div>
@@ -531,7 +531,7 @@ include '../../administrator/connect.php';
                                                                         $j++;
                                                                     }
                                                                     echo "</ul>";
-                                                                    
+
                                                                 }
                                                         ?>
                                         </div>
@@ -556,7 +556,7 @@ include '../../administrator/connect.php';
                                                                         $j++;
                                                                     }
                                                                     echo "</ul>";
-                                                                    
+
                                                                 }
                                                         ?>
                                         </div>
@@ -581,7 +581,7 @@ include '../../administrator/connect.php';
                                                                         $j++;
                                                                     }
                                                                     echo "</ul>";
-                                                                    
+
                                                                 }
                                                         ?>
                                         </div>

@@ -159,7 +159,7 @@ include '../../administrator/connect.php';
                                     <div class="row">
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label>รหัสเอกสารจ้างเหมาบริการ</label>
+                                                <label><b>รหัสเอกสารจ้างเหมาบริการ</b></label>
                                                 <input type="text" value="<?php echo $doc_id;?>" readonly class="form-control form-control-line">
                                                 <input type="hidden" name="doc_id" value="<?=$id?>" />
                                             </div>
@@ -167,7 +167,7 @@ include '../../administrator/connect.php';
 
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label>ชื่อบุคลากร</label>
+                                                <label><b>ชื่อบุคลากร</b></label>
                                                 <input type="text" value="<?php echo $prefix?><?php echo $firtname?>&nbsp;&nbsp;<?php echo $lastname?>" class="form-control form-control-line">
                                                 <input type="hidden" class="form-control" name="person_id" value="<?php echo $person_id?>">
                                             </div>
@@ -176,7 +176,7 @@ include '../../administrator/connect.php';
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label>โครงการ</label>
+                                                <label><b>โครงการ</b></label>
                                                 <select name="project_id" id="project" class="form-control">
                                                     <option value="<?php echo $project_id?>"><?php echo $project_name?></option>
                                                     <?php
@@ -192,14 +192,14 @@ include '../../administrator/connect.php';
 
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label for="activity">ชื่อกิจกรรม</label>
+                                                <label for="activity"><b>ชื่อกิจกรรม</b></label>
                                                 <select name="activity_id" id="activity" class="form-control">
                                                     <option value="<?php echo $activity_id?>"><?php echo $activity?></option>
                                                 </select>
                                             </div>
                                         </div>
                                     </div>
-                                    <?php 
+                                    <?php
                                         $id =$_GET['id'];
                                         $sql ="SELECT * FROM tb_contract WHERE id = '".$id."'";
                                         $query = mysqli_query($conn,$sql);
@@ -238,19 +238,19 @@ include '../../administrator/connect.php';
                                             <thead>
                                             </thead>
                                             <tbody>
-                                                        <?php 
+                                                        <?php
                                                              $foreword1 = array($foreword);
 
                                                              foreach ($foreword1 as $foreword1){
                                                                  $j=0;
-                                                                 
+
                                                                  foreach ($foreword1 as $foreword1[$j]){
                                                                      $value = $foreword1[$j];
                                                                      echo "<tr><td class='col-md-8'><div class='row'><div class='col-md-8'><div class='form-group'><input type='text' class='form-control p_input' value='$value' name='foreword[]'></div></div></td></tr>";
                                                                      //echo "<li>{$value}</li>";
                                                                      $j++;
                                                                  }
-                                                                 
+
                                                              }
                                                         ?>
                                             </tbody>
@@ -263,13 +263,13 @@ include '../../administrator/connect.php';
                                     <div class="row">
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label>เริ่มต้นวันที่</label>
+                                                <label><b>เริ่มต้นวันที่</b></label>
                                                 <input type="date" class="form-control form-control-line" name="str_date" value="<?php echo $str_date; ?>">
                                             </div>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label>สิ้นสุดวันที่</label>
+                                                <label><b>สิ้นสุดวันที่</b></label>
                                                 <input type="date" class="form-control form-control-line" name="stp_date" value="<?php echo $stp_date; ?>">
                                             </div>
                                         </div>
@@ -277,7 +277,7 @@ include '../../administrator/connect.php';
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label>ผู้ควบคุมการปฎิบัติงาน</label>
+                                                <label><b>ผู้ควบคุมการปฎิบัติงาน</b></label>
                                                 <select name="teacher_id" class="form-control">
                                                     <option value="<?php echo $teacher_id;?>"><?php echo $t_firstname;?>&nbsp;&nbsp;<?php echo $t_lastname?></option>
                                                     <?php
@@ -294,20 +294,20 @@ include '../../administrator/connect.php';
                                     <div class="row">
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label><u>รายการส่งใช้เงินยืม</u></label>
+                                                <label><u><b>รายการส่งใช้เงินยืม</b></u></label>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label>จำนวนงวด</label>
+                                                <label><b>จำนวนงวด</b></label>
                                                 <input type="text" class="form-control form-control-line" name="number" value="<?php echo $number; ?>">
                                             </div>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label>เป็นเงิน</label>
+                                                <label><b>เป็นเงิน</b></label>
                                                 <input type="text" class="form-control form-control-line" name="money" value="<?php echo $money; ?>">
                                             </div>
                                         </div>
@@ -315,13 +315,13 @@ include '../../administrator/connect.php';
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label>ปฎิบัติงานงวดที่</label>
+                                                <label><b>ปฎิบัติงานงวดที่</b></label>
                                                 <input type="text" class="form-control form-control-line" name="work" value="<?php echo $work; ?>">
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label>วันที่ปฎิบัติงาน</label>
+                                                <label><b>วันที่ปฎิบัติงาน</b></label>
                                                 <input type="date" class="form-control form-control-line" name="date_work" value="<?php echo $date_work; ?>">
                                             </div>
                                         </div>
@@ -329,20 +329,20 @@ include '../../administrator/connect.php';
                                     <div class="row">
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label><u>บันทึกข้อความ</u></label>
+                                                <label><u><b>บันทึกข้อความ</b></u></label>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label>ส่วนราชการ</label>
+                                                <label><b>ส่วนราชการ</b></label>
                                                 <input type="text" class="form-control form-control-line" name="government" value="<?php echo $government; ?>">
                                             </div>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label>ที่</label>
+                                                <label><b>ที่</b></label>
                                                 <input type="text" class="form-control form-control-line" name="that" value="<?php echo $that; ?>">
                                             </div>
                                         </div>
@@ -356,7 +356,7 @@ include '../../administrator/connect.php';
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label>เรื่อง</label>
+                                                <label><b>เรื่อง</b></label>
                                                 <select name="title_id" class="form-control">
                                                     <option value="<?php echo $title_id;?>"><?php echo $title;?></option>
                                                     <?php
@@ -379,13 +379,13 @@ include '../../administrator/connect.php';
                                         </div> -->
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label>จำนวนคน</label>
+                                                <label><b>จำนวนคน</b></label>
                                                 <input type="text" class="form-control form-control-line" name="people" value="<?php echo $people; ?>">
                                             </div>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label>ราคากลางที่คำนวณได้</label>
+                                                <label><b>ราคากลางที่คำนวณได้</b></label>
                                                 <input type="text" class="form-control form-control-line" name="mid_price" value="<?php echo $mid_price; ?>">
                                             </div>
                                         </div>
@@ -393,7 +393,7 @@ include '../../administrator/connect.php';
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label>ลงชื่อ ประธานกรรมการ</label>
+                                                <label><b>ลงชื่อ ประธานกรรมการ</b></label>
                                                 <select name="teacher_id" class="form-control">
                                                     <option value="<?php echo $teacher_id;?>"><?php echo $t_firstname;?>&nbsp;&nbsp;<?php echo $t_lastname?></option>
                                                     <?php
@@ -408,7 +408,7 @@ include '../../administrator/connect.php';
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label>ลงชื่อ กรรมการ</label>
+                                                <label><b>ลงชื่อ กรรมการ</b></label>
                                                 <select name="teacher_id" class="form-control">
                                                     <option value="<?php echo $teacher_id;?>"><?php echo $t_firstname;?>&nbsp;&nbsp;<?php echo $t_lastname?></option>
                                                     <?php
@@ -423,7 +423,7 @@ include '../../administrator/connect.php';
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label>ลงชื่อ กรรมการและเลขานุการ</label>
+                                                <label><b>ลงชื่อ กรรมการและเลขานุการ</b></label>
                                                 <select name="teacher_id" class="form-control">
                                                     <option value="<?php echo $teacher_id;?>"><?php echo $t_firstname;?>&nbsp;&nbsp;<?php echo $t_lastname?></option>
                                                     <?php
@@ -440,14 +440,14 @@ include '../../administrator/connect.php';
                                     <div class="row">
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label><u>ขอบเขตงานจ้างเหมาบริการ</u></label>
+                                                <label><u><b>ขอบเขตงานจ้างเหมาบริการ</b></u></label>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label>รายละเอียดการจ้าง</label>
+                                                <label><b>รายละเอียดการจ้าง</b></label>
                                                 <input type="text" class="form-control form-control-line" name="details" value="<?php echo $details; ?>">
                                             </div>
                                         </div>
@@ -455,20 +455,20 @@ include '../../administrator/connect.php';
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label><u>ระยะเวลาการจ้าง</u></label>
+                                                <label><u><b>ระยะเวลาการจ้าง</b></u></label>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label>เริ่มต้นวันที่</label>
+                                                <label><b>เริ่มต้นวันที</b>่</label>
                                                 <input type="date" class="form-control form-control-line" name="date_start" value="<?php echo $date_start; ?>">
                                             </div>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label>สิ้นสุดวันที่</label>
+                                                <label><b>สิ้นสุดวันที่</b></label>
                                                 <input type="date" class="form-control form-control-line" name="date_end" value="<?php echo $date_end; ?>">
                                             </div>
                                         </div>
@@ -488,17 +488,17 @@ include '../../administrator/connect.php';
                                                 &nbsp;&nbsp;<button type="button" class="btn btn-danger btn-sm" id="clearRows1" value="Clear">ลบทั้งหมด</button>
                                             </div>
                                         </div>
-                                        
+
                                         <table width="100%" border="0" id="myTable1">
-                                            <thead> 
+                                            <thead>
                                             </thead>
                                             <tbody>
-                                                        <?php 
+                                                        <?php
                                                              $property1 = array($property);
 
                                                              foreach ($property1 as $property1){
                                                                  $j=0;
-                                                                 
+
                                                                  foreach ($property1 as $property1[$j]){
                                                                      $value = $property1[$j];
                                                                      echo "<tr><td class='col-md-8'><div class='row'><div class='col-md-8'><div class='form-group'><input type='text' class='form-control p_input' value='$value' name='property[]'></div></div></td></tr>";
@@ -532,19 +532,19 @@ include '../../administrator/connect.php';
 
                                         <table width="100%" border="0" id="myTable2">
                                             <thead>
-                                                        <?php 
+                                                        <?php
                                                              $scope1 = array($scope);
 
                                                              foreach ($scope1 as $scope1){
                                                                  $j=0;
-                                                                 
+
                                                                  foreach ($scope1 as $scope1[$j]){
                                                                      $value = $scope1[$j];
                                                                      echo "<tr><td class='col-md-8'><div class='row'><div class='col-md-8'><div class='form-group'><input type='text' class='form-control form-control-line p_input' name='scope[]' value='$value'></div></div></td></tr>";
                                                                      //echo "<li>{$value}</li>";
                                                                      $j++;
                                                                  }
-                                                                 
+
                                                              }
                                                         ?>
                                             </thead>
@@ -580,12 +580,12 @@ include '../../administrator/connect.php';
 
                                         <table width="100%" border="0" id="myTable3">
                                             <thead>
-                                                        <?php 
+                                                        <?php
                                                              $fine1 = array($fine);
 
                                                              foreach ($fine1 as $fine1){
                                                                  $j=0;
-                                                                 
+
                                                                  foreach ($fine1 as $fine1[$j]){
                                                                      $value = $fine1[$j];
                                                                      echo "<tr><td class='col-md-8'><div class='row'><div class='col-md-8'><div class='form-group'><input type='text' class='form-control p_input' value='$value' name='fine[]'></div></div></td></tr>";
@@ -619,12 +619,12 @@ include '../../administrator/connect.php';
 
                                         <table width="100%" border="0" id="myTable4">
                                             <thead>
-                                                        <?php 
+                                                        <?php
                                                              $payment1 = array($payment);
 
                                                              foreach ($payment1 as $payment1){
                                                                  $j=0;
-                                                                 
+
                                                                  foreach ($payment1 as $payment1[$j]){
                                                                      $value = $payment1[$j];
                                                                      echo "<tr><td class='col-md-8'><div class='row'><div class='col-md-8'><div class='form-group'><input type='text' class='form-control p_input' value='$value' name='payment[]'></div></div></td></tr>";
@@ -658,12 +658,12 @@ include '../../administrator/connect.php';
 
                                         <table width="100%" border="0" id="myTable5">
                                             <thead>
-                                                        <?php 
+                                                        <?php
                                                              $insurance1 = array($insurance);
 
                                                              foreach ($insurance1 as $insurance1){
                                                                  $j=0;
-                                                                 
+
                                                                  foreach ($insurance1 as $insurance1[$j]){
                                                                      $value = $insurance1[$j];
                                                                      echo "<tr><td class='col-md-8'><div class='row'><div class='col-md-8'><div class='form-group'><input type='text' class='form-control p_input' value='$value' name='insurance[]'></div></div></td></tr>";
@@ -724,7 +724,7 @@ include '../../administrator/connect.php';
             <script src="../js/custom.min.js"></script>
             <script src="../js/script.js"></script>
             <script src="http://code.jquery.com/jquery-latest.js"></script>
-                                                
+
             <script type="text/javascript">
                 $(document).ready(function () {
 
