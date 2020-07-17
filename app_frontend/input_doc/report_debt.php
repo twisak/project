@@ -75,8 +75,10 @@
             $other_sum = $result_debt['other_sum'];
             $document_num = $result_debt['document_num'];
 
-            $list = $result_debt['list'];
-            $money_num = $result_debt['money_num'];
+            // $list = $result_debt['list'];
+            $list = unserialize($result_debt['list']);
+            // $money_num = $result_debt['money_num'];
+            $money_num = unserialize($result_debt['money_num']);
 
             $approve = $result_debt['approve'];
             $disburse = $result_debt['disburse'];
@@ -162,9 +164,9 @@
                 <td colspan="2">
                     <table width="100%" border="0" align="left">
                         <tr>
-                            <td width="1" class="text-nowrap border-0 padding-0">ใบสำคัญรับเงิน</td>
+                            <td width="1" class="text-nowrap border-0 padding-0">ชื่อส่วนราชการผู้จัดฝึกอบรม</td>
                             <td class="border-0 padding-0">
-                                &nbsp;&nbsp;<?php //echo $government;?>
+                                &nbsp;&nbsp;<?php echo $name_train;?>
                                 <div class="line-bottom-dashed"></div>
                             </td>
                         </tr>
@@ -175,9 +177,9 @@
                 <td colspan="2">
                     <table width="100%" border="0" align="left">
                         <tr>
-                            <td width="1" class="text-nowrap border-0 padding-0">สำหรับวิทยากร</td>
+                            <td width="1" class="text-nowrap border-0 padding-0">โครงการ/หลักสูตร</td>
                             <td class="border-0 padding-0">
-                                &nbsp;&nbsp;<?php //echo $government;?>
+                                &nbsp;&nbsp;<?php echo $project_name;?>
                                 <div class="line-bottom-dashed"></div>
                             </td>
                         </tr>
@@ -236,18 +238,18 @@
                             <td></td>
                             <td></td>
                             <td width="1" class="text-nowrap border-0 padding-0">วันที่</td>
-                            <td class="border-0 padding-0">
-                                &nbsp;&nbsp;<?php echo str_replace($numarabic,$numthai,$subday_date_current);?>
+                            <td class="border-0 padding-0 text-center">
+                                <?php echo str_replace($numarabic,$numthai,$subday_date_current);?>
                                 <div class="line-bottom-dashed"></div>
                             </td>
                             <td width="1" class="text-nowrap border-0 padding-0">เดือน</td>
-                            <td class="border-0 padding-0">
-                                &nbsp;&nbsp;<?php echo $month_thai;?>
+                            <td class="border-0 padding-0 text-center">
+                                <?php echo $month_thai;?>
                                 <div class="line-bottom-dashed"></div>
                             </td>
                             <td width="1" class="text-nowrap border-0 padding-0">ปี</td>
-                            <td class="border-0 padding-0">
-                                &nbsp;&nbsp;<?php echo str_replace($numarabic,$numthai,$subyear_date_current+543);?>
+                            <td class="border-0 padding-0 text-center">
+                                <?php echo str_replace($numarabic,$numthai,$subyear_date_current+543);?>
                                 <div class="line-bottom-dashed"></div>
                             </td>
                         </tr>
@@ -324,25 +326,90 @@
                             <td align="center">รายการ</td>
                             <td colspan="2" align="center">จำนวนเงิน</td>
                         </tr>
+
+                        <?php
+                                $i=1;
+                                $i<="";
+
+                                $money_num1 = array($money_num);
+
+                                 foreach ($money_num1 as $money_num1){
+                                  $j=0;
+                                  //echo "<p><b>ตัวชี้วัด</b></p>";
+                                  //echo "<ul>";
+                                     foreach ($money_num1 as $money_num1[$j]){
+                                          $value_money_num1 = $money_num1[$j];
+                                          //echo "<tr><td>{$value}</td></tr>";
+                                         //echo "<li>{$value}</li>";
+                                         $j++;
+                                       }
+                                     }
+
+                               $list1 = array($list);
+
+                                foreach ($list1 as $list1){
+                                 $j=0;
+                                 //echo "<p><b>ตัวชี้วัด</b></p>";
+                                 //echo "<ul>";
+                                    foreach ($list1 as $list1[$j]){
+                                         $value_list1 = $list1[$j];
+                                         $value_money_num1 = $money_num1[$j];
+                                         //echo "<tr><td>{$value}</td></tr>";
+                                        //echo "<li>{$value}</li>";
+                                        $j++;
+
+                               // echo "</ul>";
+
+
+                            ?>
                         <tr>
-                            <td width="60%">1</td>
-                            <td>2</td>
-                            <td>3</td>
+                            <td width="60%"><?php echo $value_list1; ?></td>
+                            <td><?php echo $value_money_num1; ?></td>
+                            <td><?php
+
+                            $x = 0;
+
+                            while($x == 0) {
+
+                              $result_y[] =  $value_money_num1;
+
+                              // print_r($result_y);
+                              echo  array_sum ($result_y);
+
+
+                              $x++;
+                            }
+
+
+
+  //                           if($j==0)
+  //                           {
+  //                           $aa =$value_money_num1 + $zero;
+  //                           // echo $aa;
+  //                           $bb = $aa;
+  //                           // echo $bb;
+  //
+  //                         }else{
+  //                           $bb = $value_money_num1 + $bb;
+  //
+  //                         }
+  // echo $bb;
+
+
+
+
+                            ?></td>
                         </tr>
-                        <tr>
-                            <td width="60%">1</td>
-                            <td>2</td>
-                            <td>3</td>
-                        </tr>
-                        <tr>
-                            <td width="60%">1</td>
-                            <td>2</td>
-                            <td>3</td>
-                        </tr>
+                          <?php $i++; }}?>
+
+
+
+
+
                         <tr>
                             <td width="60%" align="right">บาท</td>
-                            <td>2</td>
-                            <td>3</td>
+                            <td></td>
+                            <td><?php       echo  array_sum ($result_y);  ?></td>
                         </tr>
                     </table>
                 </td>
@@ -351,6 +418,72 @@
                 <td class="statement-header" align="center">&nbsp;
                 </td>
             </tr>
+
+            <?php
+
+            function convertAmountToLetter($number)
+            {
+              if (empty($number)) return "";
+              $number = strval($number);
+              $txtnum1 = array('ศูนย์', 'หนึ่ง', 'สอง', 'สาม', 'สี่', 'ห้า', 'หก', 'เจ็ด', 'แปด', 'เก้า', 'สิบ');
+              $txtnum2 = array('', 'สิบ', 'ร้อย', 'พัน', 'หมื่น', 'แสน', 'ล้าน', 'สิบ', 'ร้อย', 'พัน', 'หมื่น', 'แสน', 'ล้าน');
+              $number = str_replace(",", "", $number);
+              $number = str_replace(" ", "", $number);
+              $number = str_replace("บาท", "", $number);
+              $number = explode(".", $number);
+              if (sizeof($number) > 2) {
+                return '';
+                exit;
+              }
+              $strlen = strlen($number[0]);
+              $convert = '';
+              for ($i = 0; $i < $strlen; $i++) {
+                $n = substr($number[0], $i, 1);
+                if ($n != 0) {
+                  if ($i == ($strlen-1) && $n == 1) {
+                    $convert .= 'เอ็ด';
+                  } elseif ($i == ($strlen - 2) && $n == 2) {
+                    $convert .= 'ยี่';
+                  } elseif ($i == ($strlen - 2) && $n == 1) {
+                    $convert .= '';
+                  } else {
+                    $convert .= $txtnum1[$n];
+                  }
+                  $convert .= $txtnum2[$strlen - $i - 1];
+                }
+              }
+              $convert .= 'บาท';
+              if (sizeof($number) == 1) {
+                $convert .= 'ถ้วน';
+              } else {
+                if ($number[1] == '0' || $number[1] == '00' || $number[1] == '') {
+                  $convert .= 'ถ้วน';
+                } else {
+                  $number[1] = substr($number[1], 0, 2);
+                  $strlen = strlen($number[1]);
+                    for ($i = 0; $i < $strlen; $i++) {
+                      $n = substr($number[1], $i, 1);
+                      if ($n != 0) {
+                        if ($i > 0 && $n == 1 ) {
+                          $convert.= 'เอ็ด';
+                        } elseif ($i == 0 && $n == 2) {
+                          $convert .= 'ยี่';
+                        } elseif ($i == 0 && $n == 1) {
+                          $convert .= '';
+                        } else {
+                          $convert .= $txtnum1[$n];
+                        }
+                        $convert .= $i==0 ? $txtnum2[1] : '';
+                      }
+                    }
+                  $convert .= 'สตางค์';
+                }
+              }
+              return $convert.PHP_EOL;
+            }
+
+            ?>
+
             <tr>
                 <td colspan="3" class="border-0 padding-0">
                     <table width="100%" border="0">
@@ -360,7 +493,10 @@
                                     <tr>
                                         <td width="1" class="text-nowrap border-0 padding-0">จำนวนเงิน (</td>
                                         <td class="border-0 padding-0 text-center">
-                                            <?php //echo $t_firstname;?>&nbsp;&nbsp;<?php //echo $t_lastname;?>
+                                            <?php
+                                            $sum_thai = array_sum ($result_y);
+
+                                            echo convertAmountToLetter($sum_thai); ?>
                                             <div class="line-bottom-dashed">&nbsp;</div>
                                         </td>
                                         <td width="1" class="text-nowrap border-0 padding-0">)</td>

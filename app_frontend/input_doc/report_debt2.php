@@ -132,20 +132,20 @@
                                         <td></td>
                                         <td></td>
                                         <td width="1" class="text-nowrap border-0 padding-0">วัน</td>
-                                        <td class="border-0 padding-0">
-                                            &nbsp;&nbsp;<?php //echo $government;?>
+                                        <td class="border-0 padding-0 text-center">
+                                          <?php echo str_replace($numarabic,$numthai,$subday_date_current);?>
                                             <div class="line-bottom-dashed"></div>
                                         </td>
 
                                         <td width="1" class="text-nowrap border-0 padding-0">เดือน</td>
-                                        <td class="border-0 padding-0">
-                                            &nbsp;&nbsp;<?php //echo $government;?>
+                                        <td class="border-0 padding-0 text-center">
+                                                          <?php echo $month_thai;?>
                                             <div class="line-bottom-dashed"></div>
                                         </td>
 
                                         <td width="1" class="text-nowrap border-0 padding-0">ปี</td>
-                                        <td class="border-0 padding-0">
-                                            &nbsp;&nbsp;<?php //echo $government;?>
+                                        <td class="border-0 padding-0 text-center">
+                                          <?php echo str_replace($numarabic,$numthai,$subyear_date_current+543);?>
                                             <div class="line-bottom-dashed"></div>
                                         </td>
                                     </tr>
