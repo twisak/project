@@ -1,17 +1,6 @@
-<?php session_start();
-if($_SESSION['status'] == 'Admin')
-{
-}
-elseif($_SESSION['status'] == 'Personal')
-{
-}
-else
-{
-    echo "<script>";
-    echo "alert(\"คุณไม่มีสิทธิ์เข้าสู่ระบบ\");";
-    echo "</script>";
-    echo "<meta http-equiv='refresh' content='0;url=../../administrator/logout.php'>";
-}
+<?php 
+include('../../config/connect.php');
+include('../../config/constant.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,25 +13,25 @@ else
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo ROOT_PROJECT_FRONTEND;?>/assets/images/favicon.png">
     <title>AdminWrap - Easy to Customize Bootstrap 4 Admin Template</title>
     <!-- Bootstrap Core CSS -->
-    <link href="../assets/node_modules/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../assets/node_modules/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet">
+    <link href="<?php echo ROOT_PROJECT_FRONTEND;?>/assets/node_modules/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?php echo ROOT_PROJECT_FRONTEND;?>/assets/node_modules/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet">
     <!-- This page CSS -->
     <!-- chartist CSS -->
-    <link href="../assets/node_modules/morrisjs/morris.css" rel="stylesheet">
+    <link href="<?php echo ROOT_PROJECT_FRONTEND;?>/assets/node_modules/morrisjs/morris.css" rel="stylesheet">
     <!--c3 CSS -->
-    <link href="../assets/node_modules/c3-master/c3.min.css" rel="stylesheet">
+    <link href="<?php echo ROOT_PROJECT_FRONTEND;?>/assets/node_modules/c3-master/c3.min.css" rel="stylesheet">
     <!-- Custom CSS -->
-    <link href="../css/style.css" rel="stylesheet">
+    <link href="<?php echo ROOT_PROJECT_FRONTEND;?>/css/style.css" rel="stylesheet">
     <!-- Dashboard 1 Page CSS -->
-    <link href="../css/pages/dashboard1.css" rel="stylesheet">
+    <link href="<?php echo ROOT_PROJECT_FRONTEND;?>/css/pages/dashboard1.css" rel="stylesheet">
     <!-- You can change the theme colors from here -->
-    <link href="../css/colors/default.css" id="theme" rel="stylesheet">
+    <link href="<?php echo ROOT_PROJECT_FRONTEND;?>/css/colors/default.css" id="theme" rel="stylesheet">
 
     <link href="https://fonts.googleapis.com/css?family=Prompt&display=swap" rel="stylesheet">
-    <link href="../css/google_fonts/fonts_prompt.css" rel="stylesheet" />
+    <link href="<?php echo ROOT_PROJECT_FRONTEND;?>/css/google_fonts/fonts_prompt.css" rel="stylesheet" />
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -345,29 +334,29 @@ else
     <!-- ============================================================== -->
     <!-- All Jquery -->
     <!-- ============================================================== -->
-    <script src="../assets/node_modules/jquery/jquery.min.js"></script>
+    <script src="<?php echo ROOT_PROJECT_FRONTEND;?>/assets/node_modules/jquery/jquery.min.js"></script>
     <!-- Bootstrap popper Core JavaScript -->
-    <script src="../assets/node_modules/bootstrap/js/popper.min.js"></script>
-    <script src="../assets/node_modules/bootstrap/js/bootstrap.min.js"></script>
+    <script src="<?php echo ROOT_PROJECT_FRONTEND;?>/assets/node_modules/bootstrap/js/popper.min.js"></script>
+    <script src="<?php echo ROOT_PROJECT_FRONTEND;?>/assets/node_modules/bootstrap/js/bootstrap.min.js"></script>
     <!-- slimscrollbar scrollbar JavaScript -->
-    <script src="../js/perfect-scrollbar.jquery.min.js"></script>
+    <script src="<?php echo ROOT_PROJECT_FRONTEND;?>/js/perfect-scrollbar.jquery.min.js"></script>
     <!--Wave Effects -->
-    <script src="../js/waves.js"></script>
+    <script src="<?php echo ROOT_PROJECT_FRONTEND;?>/js/waves.js"></script>
     <!--Menu sidebar -->
-    <script src="../js/sidebarmenu.js"></script>
+    <script src="<?php echo ROOT_PROJECT_FRONTEND;?>/js/sidebarmenu.js"></script>
     <!--Custom JavaScript -->
-    <script src="../js/custom.min.js"></script>
+    <script src="<?php echo ROOT_PROJECT_FRONTEND;?>/js/custom.min.js"></script>
     <!-- ============================================================== -->
     <!-- This page plugins -->
     <!-- ============================================================== -->
     <!--morris JavaScript -->
-    <script src="../assets/node_modules/raphael/raphael-min.js"></script>
-    <script src="../assets/node_modules/morrisjs/morris.min.js"></script>
+    <script src="<?php echo ROOT_PROJECT_FRONTEND;?>/assets/node_modules/raphael/raphael-min.js"></script>
+    <script src="<?php echo ROOT_PROJECT_FRONTEND;?>/assets/node_modules/morrisjs/morris.min.js"></script>
     <!--c3 JavaScript -->
-    <script src="../assets/node_modules/d3/d3.min.js"></script>
-    <script src="../assets/node_modules/c3-master/c3.min.js"></script>
+    <script src="<?php echo ROOT_PROJECT_FRONTEND;?>/assets/node_modules/d3/d3.min.js"></script>
+    <script src="<?php echo ROOT_PROJECT_FRONTEND;?>/assets/node_modules/c3-master/c3.min.js"></script>
     <!-- Chart JS -->
-    <script src="../js/dashboard1.js"></script>
+    <script src="<?php echo ROOT_PROJECT_FRONTEND;?>/js/dashboard1.js"></script>
 </body>
 
 </html>

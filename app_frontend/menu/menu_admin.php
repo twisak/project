@@ -1,6 +1,4 @@
 <?php
-
-    include '../../administrator/connect.php';
     $id = $_SESSION['username'];
     //echo $id;
 // $sql ="SELECT * FROM tb_personnel WHERE username = '".$id."' ";
@@ -28,16 +26,16 @@
                         <!-- Logo icon --><b>
                             <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                             <!-- Dark Logo icon -->
-                            <img src="../assets/images/logo-icon.png" alt="homepage" class="dark-logo" />
+                            <img src="<?php echo ROOT_PROJECT_FRONTEND?>/assets/images/logo-icon.png" alt="homepage" class="dark-logo" />
                             <!-- Light Logo icon -->
-                            <img src="../assets/images/logo-light-icon.png" alt="homepage" class="light-logo" />
+                            <img src="<?php echo ROOT_PROJECT_FRONTEND?>/assets/images/logo-light-icon.png" alt="homepage" class="light-logo" />
                         </b>
                         <!--End Logo icon -->
                         <!-- Logo text --><span>
                          <!-- dark Logo text -->
-                         <img src="../assets/images/logo-text.png" alt="homepage" class="dark-logo" />
+                         <img src="<?php echo ROOT_PROJECT_FRONTEND?>/assets/images/logo-text.png" alt="homepage" class="dark-logo" />
                          <!-- Light Logo text -->
-                         <img src="../assets/images/logo-light-text.png" class="light-logo" alt="homepage" /></span> </a>
+                         <img src="<?php echo ROOT_PROJECT_FRONTEND?>/assets/images/logo-light-text.png" class="light-logo" alt="homepage" /></span> </a>
                 </div>
                 <!-- ============================================================== -->
                 <!-- End Logo -->
@@ -86,21 +84,15 @@
                 </div>
             </nav>
         </header>
-        <!-- ============================================================== -->
-        <!-- End Topbar header -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- Left Sidebar - style you can find in sidebar.scss  -->
-        <!-- ============================================================== -->
         <aside class="left-sidebar">
             <!-- Sidebar scroll-->
             <div class="scroll-sidebar">
                 <!-- Sidebar navigation-->
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
-                        <li> <a class="waves-effect waves-dark" href="../dashboard/index.php" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">Dashboard</span></a>
+                        <li> <a class="waves-effect waves-dark" href="<?php echo ROOT_PROJECT_FRONTEND;?>/dashboard/index.php" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">Dashboard</span></a>
                         </li>
-                        <li> <a class="waves-effect waves-dark" href="../user/tb_user.php" aria-expanded="false"><i class="fa fa-globe"></i><span class="hide-menu">ข้อมูลส่วนตัว</span></a>
+                        <li> <a class="waves-effect waves-dark" href="<?php echo ROOT_PROJECT_FRONTEND;?>/user/tb_user.php" aria-expanded="false"><i class="fa fa-globe"></i><span class="hide-menu">ข้อมูลส่วนตัว</span></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link waves-effect waves-dark collapsed" href="#" data-toggle="collapse" data-target="#collapseB" aria-expanded="false" aria-controls="collapseB">
@@ -109,11 +101,11 @@
                             </a>
                             <div id="collapseB" class="collapse" aria-labelledby="headingB" data-parent="#accordionSidebar">
                                 <div class="bg-white py-2 collapse-inner rounded col-lg-12">
-                                    <a class="waves-effect waves-dark" href="../input_doc/tb_doc_lend.php"><i class="fa fa-caret-right"></i> เอกสารสัญญาณยืม</a>
-                                    <a class="waves-effect waves-dark" href="../input_doc/tb_doc_salary.php"><i class="fa fa-caret-right"></i> เอกสารเงินเดือน</a>
-                                    <a class="waves-effect waves-dark" href="../input_doc/tb_doc_debt.php"><i class="fa fa-caret-right"></i> เอกสารล้างหนี้</a>
-                                    <a class="waves-effect waves-dark" href="../input_doc/tb_doc_contract.php"><i class="fa fa-caret-right"></i> เอกสารจ้างเหมาบริการ</a>
-                                    <a class="waves-effect waves-dark" href="../input_doc/tb_doc_note_command.php"><i class="fa fa-caret-right"></i> เอกสารบันทึกข้อความอื่นๆ</a>
+                                    <a class="waves-effect waves-dark" href="<?php echo ROOT_PROJECT_FRONTEND;?>/input_doc/lend/index.php"><i class="fa fa-caret-right"></i> เอกสารสัญญาณยืม</a>
+                                    <a class="waves-effect waves-dark" href="<?php echo ROOT_PROJECT_FRONTEND;?>/input_doc/salary/index.php"><i class="fa fa-caret-right"></i> เอกสารเงินเดือน</a>
+                                    <a class="waves-effect waves-dark" href="<?php echo ROOT_PROJECT_FRONTEND;?>/input_doc/debt/index.php"><i class="fa fa-caret-right"></i> เอกสารล้างหนี้</a>
+                                    <a class="waves-effect waves-dark" href="<?php echo ROOT_PROJECT_FRONTEND;?>/input_doc/contract/index.php"><i class="fa fa-caret-right"></i> เอกสารจ้างเหมาบริการ</a>
+                                    <a class="waves-effect waves-dark" href="<?php echo ROOT_PROJECT_FRONTEND;?>/input_doc/note/command/index.php"><i class="fa fa-caret-right"></i> เอกสารบันทึกข้อความอื่นๆ</a>
                                 </div>
                             </div>
                         </li>

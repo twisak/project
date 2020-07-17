@@ -1,13 +1,7 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
 
-    <?php
-        include '../../administrator/connect.php';
+<?php
+        include('../../config/connect.php');
+        include('../../config/constant.php');
 
         $id = $_POST['id'];
         $person_id = $_POST['person_id'];
@@ -32,12 +26,12 @@
                                     districts_id  = '".$districts_id."',
                                     amphures_id   = '".$amphures_id."'
                               WHERE id = '".$id."'";
-        echo $sql;
+        //echo $sql;
         $db_query = mysqli_query($conn,$sql);
-        echo '<br>';
-        echo $db_query;
-        // echo "<script>alert('แก้ไขข้อมูลเรียบร้อย')</script>";
-        // echo "<script>window.location='tb_user.php'</script>";
+        // echo '<br>';
+        // echo $db_query;
+        echo "<script>alert('แก้ไขข้อมูลเรียบร้อย')</script>";
+        echo "<script>window.location='tb_user.php'</script>";
     ?>
 
   </body>

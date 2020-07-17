@@ -1,16 +1,21 @@
 <?php session_start();
-if($_SESSION['status'] == 'Admin')
+if(isset($_SESSION['status']))
 {
+    if($_SESSION['status'] == 'Admin')
+    {
+    }
+    elseif($_SESSION['status'] == 'Personal')
+    {
+    }
 }
-elseif($_SESSION['status'] == 'Personal')
-{
-}
+
 else
 {
-    echo "<script>";
-    echo "alert(\"คุณไม่มีสิทธิ์เข้าสู่ระบบ\");";
-    echo "</script>";
-    echo "<meta http-equiv='refresh' content='0;url=../../administrator/logout.php'>";
+    // echo "<script>";
+    // echo "alert(\"คุณไม่มีสิทธิ์เข้าสู่ระบบ\");";
+    // echo "</script>";
+    // echo "<meta http-equiv='refresh' content='0;url=../../administrator/logout.php'>";
+    header("Location:../../administrator/logout.php");
 }
 
 
@@ -111,7 +116,7 @@ else
                                         </div>
                                         <div class="col-md-4 text-right">
                                             <div class="text-right">
-                                                <a href="form_user"><button type="button" class="btn btn-primary">เพิ่มบุคลากร</button></a>
+                                                <a href="form_user.php"><button type="button" class="btn btn-primary">เพิ่มบุคลากร</button></a>
                                             </div>
                                         </div>
                                     </div>
@@ -222,7 +227,7 @@ else
                                                 <td><?php echo $row['password'];?></td>
                                                 <td><?php echo $row['status'];?></td>
                                                 <td>
-                                                    <a href="edit_form_user.php?id=<?php echo $person_id;?>"><button type="button" class="btn btn-warning">แก้ไข</button></a>
+                                                    <a href="edit_form_user.php?id=<?php echo $row['person_id'];?>"><button type="button" class="btn btn-warning">แก้ไข</button></a>
                                                 </td>
                                                 <td><a href="JavaScript:if(confirm('ยืนยันการลบ ?') == true){window.location='delete_user.php?id=<?php echo $row["id"];?>';}" class="btn btn-danger">ลบ</a></td>
                                             </tr>
