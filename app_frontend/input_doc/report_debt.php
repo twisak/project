@@ -184,6 +184,48 @@
                     </table>
                 </td>
             </tr>
+
+            <?php
+
+            $subday_date_current = substr($date_current,8);
+            $submonth_date_current = substr($date_current,5,-3);
+            $subyear_date_current = substr($date_current,0,-6);
+
+
+            $numthai = array("๑","๒","๓","๔","๕","๖","๗","๘","๙","๐");
+            $numarabic = array("1","2","3","4","5","6","7","8","9","0");
+             $test = str_replace($numarabic,$numthai,$subday_date_current);
+
+             $str_month = $submonth_date_current;
+             if($str_month == "01"){
+               $month_thai = "มกราคม";
+             }else if($str_month == "02"){
+               $month_thai = "กุมภาพันธ์";
+             }else if($str_month == "03"){
+               $month_thai = "มีนาคม";
+             }else if($str_month == "04"){
+               $month_thai = "เมษายน";
+             }else if($str_month == "05"){
+               $month_thai = "พฤษภาคม";
+             }else if($str_month == "06"){
+               $month_thai = "มิถุนายน";
+             }else if($str_month == "07"){
+               $month_thai = "กรกฎาคม";
+             }else if($str_month == "08"){
+               $month_thai = "สิงหาคม";
+             }else if($str_month == "09"){
+               $month_thai = "กันยายน";
+             }else if($str_month == "10"){
+               $month_thai = "ตุลาคม";
+             }else if($str_month == "11"){
+               $month_thai = "พฤศจิกายน";
+             }else if($str_month == "12"){
+               $month_thai = "ธันวาคม";
+             }
+
+            ?>
+
+
             <tr align="left">
                 <td colspan="2">
                     <table width="100%" border="0" align="left">
@@ -195,17 +237,17 @@
                             <td></td>
                             <td width="1" class="text-nowrap border-0 padding-0">วันที่</td>
                             <td class="border-0 padding-0">
-                                &nbsp;&nbsp;<?php //echo $government;?>
+                                &nbsp;&nbsp;<?php echo str_replace($numarabic,$numthai,$subday_date_current);?>
                                 <div class="line-bottom-dashed"></div>
                             </td>
                             <td width="1" class="text-nowrap border-0 padding-0">เดือน</td>
                             <td class="border-0 padding-0">
-                                &nbsp;&nbsp;<?php //echo $government;?>
+                                &nbsp;&nbsp;<?php echo $month_thai;?>
                                 <div class="line-bottom-dashed"></div>
                             </td>
                             <td width="1" class="text-nowrap border-0 padding-0">ปี</td>
                             <td class="border-0 padding-0">
-                                &nbsp;&nbsp;<?php //echo $government;?>
+                                &nbsp;&nbsp;<?php echo str_replace($numarabic,$numthai,$subyear_date_current+543);?>
                                 <div class="line-bottom-dashed"></div>
                             </td>
                         </tr>

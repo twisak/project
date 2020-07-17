@@ -185,9 +185,49 @@
                                             <div class="line-bottom-dashed"></div>
                                         </td>
 
+                                        <?php
+
+                                        $subday_date_note = substr($date_note,8);
+                                        $submonth_date_note = substr($date_note,5,-3);
+                                        $subyear_date_note = substr($date_note,0,-6);
+
+
+                                        $numthai = array("๑","๒","๓","๔","๕","๖","๗","๘","๙","๐");
+                                        $numarabic = array("1","2","3","4","5","6","7","8","9","0");
+                                         $test = str_replace($numarabic,$numthai,$subday_date_current);
+
+                                         $str_month1 = $submonth_date_note;
+                                         if($str_month1 == "01"){
+                                           $month_thai1 = "มกราคม";
+                                         }else if($str_month1 == "02"){
+                                           $month_thai1 = "กุมภาพันธ์";
+                                         }else if($str_month1 == "03"){
+                                           $month_thai1 = "มีนาคม";
+                                         }else if($str_month1 == "04"){
+                                           $month_thai1 = "เมษายน";
+                                         }else if($str_month1 == "05"){
+                                           $month_thai1 = "พฤษภาคม";
+                                         }else if($str_month1 == "06"){
+                                           $month_thai1 = "มิถุนายน";
+                                         }else if($str_month1 == "07"){
+                                           $month_thai1 = "กรกฎาคม";
+                                         }else if($str_month1 == "08"){
+                                           $month_thai1 = "สิงหาคม";
+                                         }else if($str_month1 == "09"){
+                                           $month_thai1 = "กันยายน";
+                                         }else if($str_month1 == "10"){
+                                           $month_thai1 = "ตุลาคม";
+                                         }else if($str_month1 == "11"){
+                                           $month_thai1 = "พฤศจิกายน";
+                                         }else if($str_month1 == "12"){
+                                           $month_thai1 = "ธันวาคม";
+                                         }
+
+                                        ?>
+
                                         <td width="1" class="text-nowrap border-0 padding-0">ลงวันที่</td>
                                         <td class="border-0 padding-0">
-                                            &nbsp;&nbsp;<?php echo $date_note;?>
+                                            &nbsp;&nbsp;<?php echo str_replace($numarabic,$numthai,$subday_date_note);?>&nbsp;<?php echo $month_thai1; ?>&nbsp;<?php echo str_replace($numarabic,$numthai,$subyear_date_note+543);?>
                                             <div class="line-bottom-dashed"></div>
                                         </td>
 
@@ -249,27 +289,81 @@
                                 </table>
                             </td>
                         </tr>
+
+                        <?php
+
+                        $subday_date_depart = substr($date_depart,8);
+                        $submonth_date_depart = substr($date_depart,5,-3);
+                        $subyear_date_depart = substr($date_depart,0,-6);
+
+
+                        $numthai = array("๑","๒","๓","๔","๕","๖","๗","๘","๙","๐");
+                        $numarabic = array("1","2","3","4","5","6","7","8","9","0");
+                         $test = str_replace($numarabic,$numthai,$subday_date_depart);
+
+                         $str_month2 = $submonth_date_depart;
+                         if($str_month2 == "01"){
+                           $month_thai2 = "มกราคม";
+                         }else if($str_month2 == "02"){
+                           $month_thai2 = "กุมภาพันธ์";
+                         }else if($str_month2 == "03"){
+                           $month_thai2 = "มีนาคม";
+                         }else if($str_month2 == "04"){
+                           $month_thai2 = "เมษายน";
+                         }else if($str_month2 == "05"){
+                           $month_thai2 = "พฤษภาคม";
+                         }else if($str_month2 == "06"){
+                           $month_thai2 = "มิถุนายน";
+                         }else if($str_month2 == "07"){
+                           $month_thai2 = "กรกฎาคม";
+                         }else if($str_month2 == "08"){
+                           $month_thai2 = "สิงหาคม";
+                         }else if($str_month2 == "09"){
+                           $month_thai2 = "กันยายน";
+                         }else if($str_month2 == "10"){
+                           $month_thai2 = "ตุลาคม";
+                         }else if($str_month2 == "11"){
+                           $month_thai2 = "พฤศจิกายน";
+                         }else if($str_month2 == "12"){
+                           $month_thai2 = "ธันวาคม";
+                         }
+
+                        ?>
+
                         <tr align="left">
                             <td colspan="2">
                                 <table width="100%" border="0" align="left">
                                     <tr>
-                                        <td width="1" class="text-nowrap border-0 padding-0"><input type="radio" name="" value="">บ้านพัก</td>
+
+                                      <?php if($depart_from=="บ้านพัก"){ ?>
+                                        <td width="1" class="text-nowrap border-0 padding-0"><input type="radio" name="" checked value="">บ้านพัก</td>
                                         <td width="1" class="text-nowrap border-0 padding-0"><input type="radio" name="" value="">สำนักงาน</td>
                                         <td width="1" class="text-nowrap border-0 padding-0"><input type="radio" name="" value="">ประเทศไทย</td>
+                                    <?php }elseif($depart_from=="สำนักงาน") { ?>
+                                      <td width="1" class="text-nowrap border-0 padding-0"><input type="radio" name=""  value="">บ้านพัก</td>
+                                      <td width="1" class="text-nowrap border-0 padding-0"><input type="radio" name="" checked value="">สำนักงาน</td>
+                                      <td width="1" class="text-nowrap border-0 padding-0"><input type="radio" name="" value="">ประเทศไทย</td>
+                                    <?php }elseif($depart_from=="ประเทศไทย") { ?>
+                                         <td width="1" class="text-nowrap border-0 padding-0"><input type="radio" name=""  value="">บ้านพัก</td>
+                                         <td width="1" class="text-nowrap border-0 padding-0"><input type="radio" name=""  value="">สำนักงาน</td>
+                                         <td width="1" class="text-nowrap border-0 padding-0"><input type="radio" name="" checked value="">ประเทศไทย</td>
+                                       <?php } ?>
+
+
                                         <td></td>
                                         <td width="1" class="text-nowrap border-0 padding-0">ตั้งแต่วันที่</td>
                                         <td class="border-0 padding-0 text-center">
-                                            <?php //echo $government;?>01
+                                            <?php echo str_replace($numarabic,$numthai,$subday_date_depart);?>
                                             <div class="line-bottom-dashed"></div>
                                         </td>
                                         <td width="1" class="text-nowrap border-0 padding-0">เดือน</td>
                                         <td class="border-0 padding-0 text-center">
-                                            <?php //echo $government;?>พฤศจิกายน
+                                            <?php echo $month_thai2;?>
                                             <div class="line-bottom-dashed"></div>
                                         </td>
                                         <td width="1" class="text-nowrap border-0 padding-0">พ.ศ.</td>
                                         <td class="border-0 padding-0 text-center">
-                                            <?php //echo $government;?>2540
+                                            <?php echo str_replace($numarabic,$numthai,$subyear_date_depart+543);?>
                                             <div class="line-bottom-dashed"></div>
                                         </td>
                                         <td width="1" class="text-nowrap border-0 padding-0">เวลา</td>
@@ -282,28 +376,79 @@
                                 </table>
                             </td>
                         </tr>
+
+                        <?php
+
+                        $subday_date_back = substr($date_back,8);
+                        $submonth_date_back = substr($date_back,5,-3);
+                        $subyear_date_back = substr($date_back,0,-6);
+
+
+                        $numthai = array("๑","๒","๓","๔","๕","๖","๗","๘","๙","๐");
+                        $numarabic = array("1","2","3","4","5","6","7","8","9","0");
+                         $test = str_replace($numarabic,$numthai,$subday_date_depart);
+
+                         $str_month3 = $submonth_date_back;
+                         if($str_month3 == "01"){
+                           $month_thai3 = "มกราคม";
+                         }else if($str_month3 == "02"){
+                           $month_thai3 = "กุมภาพันธ์";
+                         }else if($str_month3 == "03"){
+                           $month_thai3 = "มีนาคม";
+                         }else if($str_month3 == "04"){
+                           $month_thai3 = "เมษายน";
+                         }else if($str_month3 == "05"){
+                           $month_thai3 = "พฤษภาคม";
+                         }else if($str_month3 == "06"){
+                           $month_thai3 = "มิถุนายน";
+                         }else if($str_month3 == "07"){
+                           $month_thai3 = "กรกฎาคม";
+                         }else if($str_month3 == "08"){
+                           $month_thai3 = "สิงหาคม";
+                         }else if($str_month3 == "09"){
+                           $month_thai3 = "กันยายน";
+                         }else if($str_month3 == "10"){
+                           $month_thai3 = "ตุลาคม";
+                         }else if($str_month3 == "11"){
+                           $month_thai3 = "พฤศจิกายน";
+                         }else if($str_month3 == "12"){
+                           $month_thai3 = "ธันวาคม";
+                         }
+
+                        ?>
+
                         <tr align="left">
                             <td colspan="2">
                                 <table width="100%" border="0" align="left">
                                     <tr>
-                                        <td width="1" class="text-nowrap border-0 padding-0">ถึง</td>
-                                        <td width="1" class="text-nowrap border-0 padding-0"><input type="radio" name="" value="">บ้านพัก</td>
+                                      <td width="1" class="text-nowrap border-0 padding-0">ถึง</td>
+                                        <?php if($back=="บ้านพัก"){ ?>
+                                        <td width="1" class="text-nowrap border-0 padding-0"><input type="radio" name="" checked value="">บ้านพัก</td>
                                         <td width="1" class="text-nowrap border-0 padding-0"><input type="radio" name="" value="">สำนักงาน</td>
                                         <td width="1" class="text-nowrap border-0 padding-0"><input type="radio" name="" value="">ประเทศไทย</td>
+                                          <?php }elseif($back=="สำนักงาน") { ?>
+                                            <td width="1" class="text-nowrap border-0 padding-0"><input type="radio" name="" value="">บ้านพัก</td>
+                                            <td width="1" class="text-nowrap border-0 padding-0"><input type="radio" name="" checked value="">สำนักงาน</td>
+                                            <td width="1" class="text-nowrap border-0 padding-0"><input type="radio" name="" value="">ประเทศไทย</td>
+                                          <?php }elseif($back=="ประเทศไทย") { ?>
+                                            <td width="1" class="text-nowrap border-0 padding-0"><input type="radio" name="" value="">บ้านพัก</td>
+                                            <td width="1" class="text-nowrap border-0 padding-0"><input type="radio" name="" value="">สำนักงาน</td>
+                                            <td width="1" class="text-nowrap border-0 padding-0"><input type="radio" name="" checked value="">ประเทศไทย</td>
+                                             <?php } ?>
                                         <td></td>
-                                        <td width="1" class="text-nowrap border-0 padding-0">ตั้งแต่วันที่</td>
+                                        <td width="1" class="text-nowrap border-0 padding-0">ถึงวันที่</td>
                                         <td class="border-0 padding-0 text-center">
-                                            <?php //echo $government;?>01
+                                            <?php echo str_replace($numarabic,$numthai,$subday_date_back);?>
                                             <div class="line-bottom-dashed"></div>
                                         </td>
                                         <td width="1" class="text-nowrap border-0 padding-0">เดือน</td>
                                         <td class="border-0 padding-0 text-center">
-                                            <?php //echo $government;?>พฤศจิกายน
+                                            <?php echo $month_thai3;?>
                                             <div class="line-bottom-dashed"></div>
                                         </td>
                                         <td width="1" class="text-nowrap border-0 padding-0">พ.ศ.</td>
                                         <td class="border-0 padding-0 text-center">
-                                            <?php //echo $government;?>2540
+                                            <?php echo str_replace($numarabic,$numthai,$subyear_date_back+543);?>
                                             <div class="line-bottom-dashed"></div>
                                         </td>
                                         <td width="1" class="text-nowrap border-0 padding-0">เวลา</td>
@@ -346,8 +491,13 @@
                                     <tr>
                                         <td></td>
                                         <td width="1" class="text-nowrap border-0 padding-0 text-indent-50">ข้าพเจ้าขอเบิกค่าใช้จ่ายเดินทางไปราชการสำหรับ</td>
-                                        <td width="1" class="text-nowrap border-0 padding-0"><input type="radio" name="" value="">ข้าพเจ้า</td>
+                                        <?php if($open_money=="ข้าพเจ้า"){ ?>
+                                        <td width="1" class="text-nowrap border-0 padding-0"><input type="radio" name="" checked value="">ข้าพเจ้า</td>
                                         <td width="1" class="text-nowrap border-0 padding-0"><input type="radio" name="" value="">คณะเดินทาง</td>
+                                        <?php }elseif($open_money=="คณะเดินทาง") { ?>
+                                          <td width="1" class="text-nowrap border-0 padding-0"><input type="radio" name="" value="">ข้าพเจ้า</td>
+                                          <td width="1" class="text-nowrap border-0 padding-0"><input type="radio" name="" checked value="">คณะเดินทาง</td>
+                                        <?php } ?>
 
                                         <td width="1" class="text-nowrap border-0 padding-0">ดังนี้</td>
                                     </tr>
