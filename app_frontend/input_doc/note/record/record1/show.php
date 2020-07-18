@@ -52,9 +52,6 @@ include('../../../../../config/constant.php');
 </head>
 
 <body class="fix-header card-no-border fix-sidebar">
-    <!-- ============================================================== -->
-    <!-- Preloader - style you can find in spinners.css -->
-    <!-- ============================================================== -->
     <div class="preloader">
         <div class="loader">
             <div class="loader__figure"></div>
@@ -62,7 +59,7 @@ include('../../../../../config/constant.php');
         </div>
     </div>
     <div id="main-wrapper">
-       <?php include '../../../../menu/menu_admin.php'; ?>
+        <?php include '../../../../menu/menu_admin.php'; ?>
         <div class="page-wrapper">
             <div class="container-fluid">
                 <div class="row page-titles">
@@ -79,7 +76,6 @@ include('../../../../../config/constant.php');
                 <div class="row">
                     <div class="col-lg-12 col-xlg-9 col-md-7">
                         <div class="card">
-                            <!-- Tab panes -->
                             <div class="card-body">
                                 <form class="form-horizontal form-material">
                                     <?php
@@ -301,6 +297,7 @@ include('../../../../../config/constant.php');
                             </div>
                         </div>
                     </div>
+                    <!-- Column -->
                 </div>
             </div>
             <footer class="footer">
@@ -310,8 +307,8 @@ include('../../../../../config/constant.php');
     </div>
     <script src="<?php echo ROOT_PROJECT_FRONTEND; ?>/assets/node_modules/jquery/jquery.min.js"></script>
     <!-- Bootstrap tether Core JavaScript -->
-    <script src="<?php echo ROOT_PROJECT_FRONTEND; ?>/assets/node_modules/bootstr<?php echo ROOT_PROJECT_FRONTEND; ?>/js/popper.min.js"></script>
-    <script src="<?php echo ROOT_PROJECT_FRONTEND; ?>/assets/node_modules/bootstr<?php echo ROOT_PROJECT_FRONTEND; ?>/js/bootstrap.min.js"></script>
+    <script src="<?php echo ROOT_PROJECT_FRONTEND; ?>/assets/node_modules/bootstrap/js/popper.min.js"></script>
+    <script src="<?php echo ROOT_PROJECT_FRONTEND; ?>/assets/node_modules/bootstrap/js/bootstrap.min.js"></script>
     <!-- slimscrollbar scrollbar JavaScript -->
     <script src="<?php echo ROOT_PROJECT_FRONTEND; ?>/js/perfect-scrollbar.jquery.min.js"></script>
     <!--Wave Effects -->

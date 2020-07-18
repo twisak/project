@@ -60,7 +60,6 @@
     </div>
     <div id="main-wrapper">
         <?php include '../../menu/menu_admin.php'; ?>
-
         <div class="page-wrapper">
             <div class="container-fluid">
                 <div class="row page-titles">

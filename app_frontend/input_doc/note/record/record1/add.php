@@ -52,28 +52,16 @@ include('../../../../../config/constant.php');
 </head>
 
 <body class="fix-header card-no-border fix-sidebar">
-    <!-- ============================================================== -->
-    <!-- Preloader - style you can find in spinners.css -->
-    <!-- ============================================================== -->
     <div class="preloader">
         <div class="loader">
             <div class="loader__figure"></div>
             <p class="loader__label">Admin Wrap</p>
         </div>
     </div>
-    <!-- ============================================================== -->
-    <!-- Main wrapper - style you can find in pages.scss -->
-    <!-- ============================================================== -->
     <div id="main-wrapper">
         <?php include '../../../../menu/menu_admin.php'; ?>
         <div class="page-wrapper">
-            <!-- ============================================================== -->
-            <!-- Container fluid  -->
-            <!-- ============================================================== -->
             <div class="container-fluid">
-                <!-- ============================================================== -->
-                <!-- Bread crumb and right sidebar toggle -->
-                <!-- ============================================================== -->
                 <div class="row page-titles">
                     <div class="col-md-5 align-self-center">
                         <h3 class="text-themecolor">เอกสารบันทึกข้อความ/อนุมัติดำเนินการจ้างเหมา</h3>
@@ -82,7 +70,6 @@ include('../../../../../config/constant.php');
                 <div class="row">
                     <div class="col-lg-12 col-xlg-9 col-md-7">
                         <div class="card">
-                            <!-- Tab panes -->
                             <div class="card-body">
                                 <form class="form-horizontal form-material" action="../record1/add_action.php" method="post">
                                     <?php
@@ -305,6 +292,7 @@ include('../../../../../config/constant.php');
                             </div>
                         </div>
                     </div>
+                    <!-- Column -->
                 </div>
             </div>
             <footer class="footer">
@@ -314,8 +302,8 @@ include('../../../../../config/constant.php');
     </div>
     <script src="<?php echo ROOT_PROJECT_FRONTEND; ?>/assets/node_modules/jquery/jquery.min.js"></script>
     <!-- Bootstrap tether Core JavaScript -->
-    <script src="<?php echo ROOT_PROJECT_FRONTEND; ?>/assets/node_modules/bootstr<?php echo ROOT_PROJECT_FRONTEND; ?>/js/popper.min.js"></script>
-    <script src="<?php echo ROOT_PROJECT_FRONTEND; ?>/assets/node_modules/bootstr<?php echo ROOT_PROJECT_FRONTEND; ?>/js/bootstrap.min.js"></script>
+    <script src="<?php echo ROOT_PROJECT_FRONTEND; ?>/assets/node_modules/bootstrap/js/popper.min.js"></script>
+    <script src="<?php echo ROOT_PROJECT_FRONTEND; ?>/assets/node_modules/bootstrap/js/bootstrap.min.js"></script>
     <!-- slimscrollbar scrollbar JavaScript -->
     <script src="<?php echo ROOT_PROJECT_FRONTEND; ?>/js/perfect-scrollbar.jquery.min.js"></script>
     <!--Wave Effects -->
@@ -324,6 +312,56 @@ include('../../../../../config/constant.php');
     <script src="<?php echo ROOT_PROJECT_FRONTEND; ?>/js/sidebarmenu.js"></script>
     <!--Custom JavaScript -->
     <script src="<?php echo ROOT_PROJECT_FRONTEND; ?>/js/custom.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+
+        var rows = 1;
+        $("#createRows").click(function () {
+
+
+            var tr = "<tr>";
+            tr = tr + "<td><div class='row'><div class='col-md-2'><div class='form-group'><label><b>วัน/เดือน/ปี</b></label></label><input type='date' class='form-control p_input' name='date_list[]" + rows + "'></div></div><div class='col-md-2'><div class='form-group'><label><b>การชำระ</b></label><select class='form-control' name='pay_type[]" + rows + "'><option>เงินสด</option><option>ใบสำคัญ</option></select></div></div><div class='col-md-2'><div class='form-group'><label><b>ราคา</b></label></label><input type='text' class='form-control p_input' onKeyUp='IsNumeric(this.value,this)' name='price_list[]" + rows + "'></div></div><div class='col-md-2'><div class='form-group'><label><b>ยอดคงค้าง</b></label><input type='text' class='form-control p_input' onKeyUp='IsNumeric(this.value,this)' name='balance[]" + rows + "'></div></div></div></td>";
+            tr = tr + "</tr>";
+            $('#myTable > tbody:last').append(tr);
+
+            $('#hdnCount').val(rows);
+            rows = rows + 1;
+        });
+
+        $("#deleteRows").click(function () {
+            if ($("#myTable tr").length != 1) {
+                $("#myTable tr:last").remove();
+            }
+        });
+
+        $("#clearRows").click(function () {
+            rows = 1;
+            $('#hdnCount').val(rows);
+            $('#myTable > tbody:last').empty(); // remove all
+        });
+
+    });
+    </script>
+    <!-- listbox 2 ชั้น -->
+    <script src="jquery-1.11.1.min.js" type="text/javascript"></script>
+                <script type="text/javascript">
+                    $(document).ready(function () {
+                        $('#project').change(function () {
+                            $.ajax({
+                                type: 'POST',
+                                data: {
+                                    project: $(this).val()
+                                },
+                                url: '../select_activity.php',
+                                success: function (data) {
+                                    $('#activity').html(data);
+                                }
+                            });
+                            return false;
+                        });
+                    });
+    </script>
+    <!-- listbox 2 ชั้น -->
 </body>
 
 </html>

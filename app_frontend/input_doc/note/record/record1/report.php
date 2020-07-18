@@ -1,6 +1,6 @@
 <?php
-        include('../../../../config/connect.php');
-        include('../../../../config/constant.php');
+        include('../../../../../config/connect.php');
+        include('../../../../../config/constant.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -264,15 +264,6 @@
                     <i class="fa fa-print fa-stack-1x fa-inverse"></i>
                 </span>
                 พิมพ์รายงาน
-            </a>
-        </li>
-        <li>
-            <a href="#" onclick="location.reload();">
-                <span class="fa-stack fa-2x">
-                    <i class="fa fa-circle fa-stack-2x"></i>
-                    <i class="fa fa-refresh fa-stack-1x fa-inverse"></i>
-                </span>
-                Refresh
             </a>
         </li>
         <li>

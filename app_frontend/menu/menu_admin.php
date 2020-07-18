@@ -74,7 +74,7 @@
 
                         <!-- Dropdown - User Information -->
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                            <a class="dropdown-item" href="logout.php">
+                            <a class="dropdown-item" href="<?php echo ROOT_PROJECT;?>/administrator/login.php">
                             <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-900"></i>
                             ออกจากระบบ
                             </a>
@@ -109,7 +109,7 @@
                                 </div>
                             </div>
                         </li>
-                        <li> <a class="waves-effect waves-dark" href="../../administrator/logout.php" aria-expanded="false"><i class="fa fa-table"></i><span class="hide-menu">Logout</span></a>
+                        <li> <a class="waves-effect waves-dark" href="<?php echo ROOT_PROJECT;?>/administrator/login.php" aria-expanded="false"><i class="fa fa-table"></i><span class="hide-menu">Logout</span></a>
                         </li>
                         <!-- <li> <a class="waves-effect waves-dark" href="pages-blank.html" aria-expanded="false"><i class="fa fa-bookmark-o"></i><span class="hide-menu">Blank</span></a>
                         </li>
