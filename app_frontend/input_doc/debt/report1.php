@@ -139,6 +139,42 @@
             $t_firstname = $result_teacher['t_firstname'];
             $t_lastname = $result_teacher['t_lastname'];
 
+            $sql_teacher1 = "SELECT * FROM tb_teacher WHERE teacher_id = '".$approve."' ";
+            $query_teacher1 = mysqli_query($conn,$sql_teacher1);
+            $result_teacher1 = mysqli_fetch_assoc($query_teacher1);
+            $t_firstname1 = $result_teacher1['t_firstname'];
+            $t_lastname1 = $result_teacher1['t_lastname'];
+            $position_id1 = $result_teacher1['position_id'];
+
+            $sql_position1 = "SELECT * FROM tb_position WHERE position_id = '".$position_id1."' ";
+            $query_position1 = mysqli_query($conn,$sql_position1);
+            $result_position1 = mysqli_fetch_assoc($query_position1);
+            $position_name1 = $result_position1['position_name'];
+
+            $sql_teacher2 = "SELECT * FROM tb_teacher WHERE teacher_id = '".$disburse."' ";
+            $query_teacher2 = mysqli_query($conn,$sql_teacher2);
+            $result_teacher2 = mysqli_fetch_assoc($query_teacher2);
+            $t_firstname2 = $result_teacher2['t_firstname'];
+            $t_lastname2 = $result_teacher2['t_lastname'];
+            $position_id2 = $result_teacher2['position_id'];
+
+            $sql_position2 = "SELECT * FROM tb_position WHERE position_id = '".$position_id2."' ";
+            $query_position2 = mysqli_query($conn,$sql_position2);
+            $result_position2 = mysqli_fetch_assoc($query_position2);
+            $position_name2 = $result_position2['position_name'];
+
+            $sql_teacher3 = "SELECT * FROM tb_teacher WHERE teacher_id = '".$payer."' ";
+            $query_teacher3 = mysqli_query($conn,$sql_teacher3);
+            $result_teacher3 = mysqli_fetch_assoc($query_teacher3);
+            $t_firstname3 = $result_teacher3['t_firstname'];
+            $t_lastname3 = $result_teacher3['t_lastname'];
+            $position_id3 = $result_teacher3['position_id'];
+
+            $sql_position3 = "SELECT * FROM tb_position WHERE position_id = '".$position_id3."' ";
+            $query_position3 = mysqli_query($conn,$sql_position3);
+            $result_position3 = mysqli_fetch_assoc($query_position3);
+            $position_name3 = $result_position3['position_name'];
+
 
 
 

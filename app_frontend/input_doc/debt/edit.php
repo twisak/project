@@ -1,4 +1,4 @@
-<?php 
+<?php
     include('../../../config/connect.php');
     include('../../../config/constant.php');
 
@@ -115,6 +115,10 @@
                                         $list = unserialize( $result_debt["list"] );
 
                                         $money_num = unserialize( $result_debt["money_num"] );
+
+                                        $approve = $result_debt['approve'];
+                                        $disburse = $result_debt['disburse'];
+                                        $payer = $result_debt['payer'];
 
                                         // echo $list;
 
@@ -296,7 +300,7 @@
                                                                     foreach ($list1 as $list1[$j]){
                                                                         $value = $list1[$j];
                                                                         $value1 = $money_num1[$j];
-                                                                        //echo "<tr><td>{$value}</td></tr>";
+                                                                        echo "<tr><td class='col-md-8'><div class='row'><div class='col-md-4'><div class='form-group'><label>รายการ</label><input type='text' class='form-control p_input'  name='list[]' value='$value'></div></div><div class='col-md-2'><div class='form-group'><label>จำนวนเงิน</label></label><input type='text' class='form-control p_input'  name='money_num[]' value='$value1'></div></div></div></td></tr>";
                                                                         $j++;
                                                                     }
 
@@ -537,6 +541,118 @@
                                                 <input type="hidden" name="document_num" value="<?php echo $document_num;?>" />
                                             </div>
                                         </div>
+                                    </div>
+
+                                    <div class="row">
+
+                                      <?php
+                                          $sql_teacher = "select * from tb_teacher";
+                                          $query_teacher = mysqli_query($conn,$sql_teacher);
+                                          ?>
+
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                              <label><b>ผู้อนุมัติให้จ่าย</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
+
+                                              <select class="form-control" name="approve" value="<?php echo $result_debt['approve']; ?>">
+
+                                                  <?php
+                                                      $sql_check_teacher = "SELECT * FROM tb_teacher";
+                                                      $query_check_teacher = mysqli_query($conn,$sql_check_teacher);
+
+                                                      $teacher_id1 = $result_debt['approve'];
+                                                      while($result_check_teacher = mysqli_fetch_array($query_check_teacher))
+                                                      {
+                                                      if($teacher_id1 == $result_check_teacher["teacher_id"])
+                                                      {
+                                                      $selected_check_teacher = "selected";
+
+                                                      }
+                                                      else
+                                                      {
+                                                      $selected_check_teacher = "";
+                                                      }
+                                                      ?>
+                                                  <option value="<?php echo $result_check_teacher["teacher_id"];?>" <?php echo $selected_check_teacher;?>><?php echo $result_check_teacher["t_firstname"]; ?>&nbsp;&nbsp;<?php echo $result_check_teacher["t_lastname"]; ?></option>
+                                                  <?php
+                                                      }
+                                                      ?>
+                                              </select>
+
+                                            </div>
+                                        </div>
+
+                                        <?php
+                                            $sql_teacher = "select * from tb_teacher";
+                                            $query_teacher = mysqli_query($conn,$sql_teacher);
+                                            ?>
+
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                              <label><b>ผู้ให้เบิกจ่าย</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
+                                              <select class="form-control" name="disburse" value="<?php echo $result_debt['disburse']; ?>">
+
+                                                  <?php
+                                                      $sql_check_teacher = "SELECT * FROM tb_teacher";
+                                                      $query_check_teacher = mysqli_query($conn,$sql_check_teacher);
+
+                                                      $teacher_id1 = $result_debt['disburse'];
+                                                      while($result_check_teacher = mysqli_fetch_array($query_check_teacher))
+                                                      {
+                                                      if($teacher_id1 == $result_check_teacher["teacher_id"])
+                                                      {
+                                                      $selected_check_teacher = "selected";
+
+                                                      }
+                                                      else
+                                                      {
+                                                      $selected_check_teacher = "";
+                                                      }
+                                                      ?>
+                                                  <option value="<?php echo $result_check_teacher["teacher_id"];?>" <?php echo $selected_check_teacher;?>><?php echo $result_check_teacher["t_firstname"]; ?>&nbsp;&nbsp;<?php echo $result_check_teacher["t_lastname"]; ?></option>
+                                                  <?php
+                                                      }
+                                                      ?>
+                                              </select>
+                                            </div>
+                                        </div>
+
+                                        <?php
+                                            $sql_teacher = "select * from tb_teacher";
+                                            $query_teacher = mysqli_query($conn,$sql_teacher);
+                                            ?>
+
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                              <label><b>ผู้จ่ายเงิน</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
+                                              <select class="form-control" name="payer" value="<?php echo $result_debt['payer']; ?>">
+
+                                                  <?php
+                                                      $sql_check_teacher = "SELECT * FROM tb_teacher";
+                                                      $query_check_teacher = mysqli_query($conn,$sql_check_teacher);
+
+                                                      $teacher_id1 = $result_debt['payer'];
+                                                      while($result_check_teacher = mysqli_fetch_array($query_check_teacher))
+                                                      {
+                                                      if($teacher_id1 == $result_check_teacher["teacher_id"])
+                                                      {
+                                                      $selected_check_teacher = "selected";
+
+                                                      }
+                                                      else
+                                                      {
+                                                      $selected_check_teacher = "";
+                                                      }
+                                                      ?>
+                                                  <option value="<?php echo $result_check_teacher["teacher_id"];?>" <?php echo $selected_check_teacher;?>><?php echo $result_check_teacher["t_firstname"]; ?>&nbsp;&nbsp;<?php echo $result_check_teacher["t_lastname"]; ?></option>
+                                                  <?php
+                                                      }
+                                                      ?>
+                                              </select>
+                                            </div>
+                                        </div>
+
+
                                     </div>
 
                                     <div class="row">
