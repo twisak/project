@@ -338,17 +338,17 @@ $budget = $result_budget['budget'];
         </div>
     </div>
     <script src="<?php echo ROOT_PROJECT_FRONTEND; ?>/assets/node_modules/jquery/jquery.min.js"></script>
-        <!-- Bootstrap tether Core JavaScript -->
-        <script src="<?php echo ROOT_PROJECT_FRONTEND; ?>/assets/node_modules/bootstr<?php echo ROOT_PROJECT_FRONTEND; ?>/js/popper.min.js"></script>
-        <script src="<?php echo ROOT_PROJECT_FRONTEND; ?>/assets/node_modules/bootstr<?php echo ROOT_PROJECT_FRONTEND; ?>/js/bootstrap.min.js"></script>
-        <!-- slimscrollbar scrollbar JavaScript -->
-        <script src="<?php echo ROOT_PROJECT_FRONTEND; ?>/js/perfect-scrollbar.jquery.min.js"></script>
-        <!--Wave Effects -->
-        <script src="<?php echo ROOT_PROJECT_FRONTEND; ?>/js/waves.js"></script>
-        <!--Menu sidebar -->
-        <script src="<?php echo ROOT_PROJECT_FRONTEND; ?>/js/sidebarmenu.js"></script>
-        <!--Custom JavaScript -->
-        <script src="<?php echo ROOT_PROJECT_FRONTEND; ?>/js/custom.min.js"></script>
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="<?php echo ROOT_PROJECT_FRONTEND; ?>/assets/node_modules/bootstrap/js/popper.min.js"></script>
+    <script src="<?php echo ROOT_PROJECT_FRONTEND; ?>/assets/node_modules/bootstrap/js/bootstrap.min.js"></script>
+    <!-- slimscrollbar scrollbar JavaScript -->
+    <script src="<?php echo ROOT_PROJECT_FRONTEND; ?>/js/perfect-scrollbar.jquery.min.js"></script>
+    <!--Wave Effects -->
+    <script src="<?php echo ROOT_PROJECT_FRONTEND; ?>/js/waves.js"></script>
+    <!--Menu sidebar -->
+    <script src="<?php echo ROOT_PROJECT_FRONTEND; ?>/js/sidebarmenu.js"></script>
+    <!--Custom JavaScript -->
+    <script src="<?php echo ROOT_PROJECT_FRONTEND; ?>/js/custom.min.js"></script>
 </body>
 
 </html>

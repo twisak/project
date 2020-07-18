@@ -1,17 +1,6 @@
-<?php session_start();
-if($_SESSION['status'] == 'Admin')
-{
-}
-elseif($_SESSION['status'] == 'Personal')
-{
-}
-else
-{
-    echo "<script>";
-    echo "alert(\"คุณไม่มีสิทธิ์เข้าสู่ระบบ\");";
-    echo "</script>";
-    echo "<meta http-equiv='refresh' content='0;url=../../administrator/logout.php'>";
-}
+<?php 
+        include('../../config/connect.php');
+        include('../../config/constant.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,17 +13,17 @@ else
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo ROOT_PROJECT_BACKEND;?>/assets/images/favicon.png">
     <title>AdminWrap - Easy to Customize Bootstrap 4 Admin Template</title>
     <!-- Bootstrap Core CSS -->
-    <link href="../assets/node_modules/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?php echo ROOT_PROJECT_BACKEND;?>/assets/node_modules/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
-    <link href="../css/style.css" rel="stylesheet">
+    <link href="<?php echo ROOT_PROJECT_BACKEND;?>/css/style.css" rel="stylesheet">
     <!-- You can change the theme colors from here -->
-    <link href="../css/colors/default.css" id="theme" rel="stylesheet">
+    <link href="<?php echo ROOT_PROJECT_BACKEND;?>/css/colors/default.css" id="theme" rel="stylesheet">
 
     <link href="https://fonts.googleapis.com/css?family=Prompt&display=swap" rel="stylesheet">
-    <link href="../css/google_fonts/fonts_prompt.css" rel="stylesheet" />
+    <link href="<?php echo ROOT_PROJECT_BACKEND;?>/css/google_fonts/fonts_prompt.css" rel="stylesheet" />
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -172,21 +161,19 @@ else
             </footer>
         </div>
     </div>
-    <script src="../assets/node_modules/jquery/jquery.min.js"></script>
+    <script src="<?php echo ROOT_PROJECT_BACKEND;?>/assets/node_modules/jquery/jquery.min.js"></script>
     <!-- Bootstrap tether Core JavaScript -->
-    <script src="../assets/node_modules/bootstrap/js/popper.min.js"></script>
-    <script src="../assets/node_modules/bootstrap/js/bootstrap.min.js"></script>
+    <script src="<?php echo ROOT_PROJECT_BACKEND;?>/assets/node_modules/bootstrap/js/popper.min.js"></script>
+    <script src="<?php echo ROOT_PROJECT_BACKEND;?>/assets/node_modules/bootstrap/js/bootstrap.min.js"></script>
     <!-- slimscrollbar scrollbar JavaScript -->
-    <script src="../js/perfect-scrollbar.jquery.min.js"></script>
+    <script src="<?php echo ROOT_PROJECT_BACKEND;?>/js/perfect-scrollbar.jquery.min.js"></script>
     <!--Wave Effects -->
-    <script src="../js/waves.js"></script>
+    <script src="<?php echo ROOT_PROJECT_BACKEND;?>/js/waves.js"></script>
     <!--Menu sidebar -->
-    <script src="../js/sidebarmenu.js"></script>
+    <script src="<?php echo ROOT_PROJECT_BACKEND;?>/js/sidebarmenu.js"></script>
     <!--Custom JavaScript -->
-    <script src="../js/custom.min.js"></script>
-    <!-- jQuery peity -->
-    <script src="../assets/node_modules/peity/jquery.peity.min.js"></script>
-    <script src="../assets/node_modules/peity/jquery.peity.init.js"></script>
+    <script src="<?php echo ROOT_PROJECT_BACKEND;?>/js/custom.min.js"></script>
+    <script src="<?php echo ROOT_PROJECT_BACKEND;?>/js/script.js"></script>
 </body>
 
 </html>

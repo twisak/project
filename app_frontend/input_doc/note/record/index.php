@@ -30,7 +30,6 @@ include('../../../../config/constant.php');
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
 </head>
-
 <body class="fix-header card-no-border fix-sidebar">
     <div class="preloader">
         <div class="loader">
@@ -39,7 +38,7 @@ include('../../../../config/constant.php');
         </div>
     </div>
     <div id="main-wrapper">
-        <?php include '../../../menu/menu_admin.php'; ?>
+    <?php include '../../../menu/menu_admin.php'; ?>
         <div class="page-wrapper">
             <div class="container-fluid">
                 <div class="row page-titles">
@@ -52,6 +51,11 @@ include('../../../../config/constant.php');
                     </div>
                 </div>
                 <div class="row">
+                    <div class="col-lg-12 col-xlg-9 col-md-7">
+                        <div class="card">
+                            <!-- Tab panes -->
+                            <div class="card-body">
+                                <div class="row">
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <a href="../command/index.php" class="btn btn-warning btn-block">เอกสารคำสั่ง</a>
@@ -59,16 +63,20 @@ include('../../../../config/constant.php');
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <a href="index.php" class="btn btn-warning btn-block">เอกสารบันทึกข้อความ</a>
+                                            <a href="../record/index.php" class="btn btn-warning btn-block">เอกสารบันทึกข้อความ</a>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <a href="../invite/index.php" class="btn btn-warning btn-block">เอกสารหนังสือเชิญ/ส่งออก</a>
+                                            <a href="index.php" class="btn btn-warning btn-block">เอกสารหนังสือเชิญ/ส่งออก</a>
                                         </div>
                                     </div>
                                 </div>
-
+                            </div>
+                        </div>
+                        <!-- Column -->
+                    </div>
+                </div>
                 <div class="row">
                     <div class="col-lg-6 col-xlg-3 col-md-5">
                         <div class="card">
@@ -324,23 +332,37 @@ include('../../../../config/constant.php');
                         <!-- Column -->
                     </div>
                 </div>
-                <footer class="footer">
-                    © 2018 Adminwrap by wrappixel.com
-                </footer>
-            </div>
+            <footer class="footer">
+                © 2018 Adminwrap by wrappixel.com
+            </footer>
         </div>
-        <script src="<?php echo ROOT_PROJECT_FRONTEND; ?>/assets/node_modules/jquery/jquery.min.js"></script>
-        <!-- Bootstrap tether Core JavaScript -->
-        <script src="<?php echo ROOT_PROJECT_FRONTEND; ?>/assets/node_modules/bootstr<?php echo ROOT_PROJECT_FRONTEND; ?>/js/popper.min.js"></script>
-        <script src="<?php echo ROOT_PROJECT_FRONTEND; ?>/assets/node_modules/bootstr<?php echo ROOT_PROJECT_FRONTEND; ?>/js/bootstrap.min.js"></script>
-        <!-- slimscrollbar scrollbar JavaScript -->
-        <script src="<?php echo ROOT_PROJECT_FRONTEND; ?>/js/perfect-scrollbar.jquery.min.js"></script>
-        <!--Wave Effects -->
-        <script src="<?php echo ROOT_PROJECT_FRONTEND; ?>/js/waves.js"></script>
-        <!--Menu sidebar -->
-        <script src="<?php echo ROOT_PROJECT_FRONTEND; ?>/js/sidebarmenu.js"></script>
-        <!--Custom JavaScript -->
-        <script src="<?php echo ROOT_PROJECT_FRONTEND; ?>/js/custom.min.js"></script>
+    </div>
+    <script src="<?php echo ROOT_PROJECT_FRONTEND; ?>/assets/node_modules/jquery/jquery.min.js"></script>
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="<?php echo ROOT_PROJECT_FRONTEND; ?>/assets/node_modules/bootstrap/js/popper.min.js"></script>
+    <script src="<?php echo ROOT_PROJECT_FRONTEND; ?>/assets/node_modules/bootstrap/js/bootstrap.min.js"></script>
+    <!-- slimscrollbar scrollbar JavaScript -->
+    <script src="<?php echo ROOT_PROJECT_FRONTEND; ?>/js/perfect-scrollbar.jquery.min.js"></script>
+    <!--Wave Effects -->
+    <script src="<?php echo ROOT_PROJECT_FRONTEND; ?>/js/waves.js"></script>
+    <!--Menu sidebar -->
+    <script src="<?php echo ROOT_PROJECT_FRONTEND; ?>/js/sidebarmenu.js"></script>
+    <!--Custom JavaScript -->
+    <script src="<?php echo ROOT_PROJECT_FRONTEND; ?>/js/custom.min.js"></script>
+    <!-- jQuery peity -->
+    <script src="<?php echo ROOT_PROJECT_FRONTEND; ?>/assets/node_modules/peity/jquery.peity.min.js"></script>
+    <script src="<?php echo ROOT_PROJECT_FRONTEND; ?>/assets/node_modules/peity/jquery.peity.init.js"></script>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+        <script language="javascript">
+            $("#pagelist").change(function () {
+                var viewID = $("#pagelist option:selected").val();
+                $("#pagelist option").each(function () {
+                    var hideID = $(this).val();
+                    $("#" + hideID).hide();
+                });
+                $("#" + viewID).show();
+            });
+        </script>
 </body>
 
 </html>
