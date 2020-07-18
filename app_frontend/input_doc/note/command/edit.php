@@ -60,6 +60,8 @@ $result_budget = mysqli_fetch_assoc($query_budget);
 $budget_id = $result_budget['budget_id'];
 $budget = $result_budget['budget'];
 
+$budget = "";
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

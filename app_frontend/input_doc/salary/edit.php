@@ -188,18 +188,34 @@
                                             </div>
                                         </div>
                                     </div>
-
+                                    <script language="javascript">
+                                        function IsNumeric(sText, obj) {
+                                            var ValidChars = "0123456789/";
+                                            var IsNumber = true;
+                                            var Char;
+                                            for (i = 0; i < sText.length && IsNumber == true; i++) {
+                                                Char = sText.charAt(i);
+                                                if (ValidChars.indexOf(Char) == -1) {
+                                                    IsNumber = false;
+                                                }
+                                            }
+                                            if (IsNumber == false) {
+                                                alert("(ตัวเลข เท่านั้น)");
+                                                obj.value = sText.substr(0, sText.length - 1);
+                                            }
+                                        }
+                                    </script>
                                     <div class="row">
                                         <div class="col-md-2">
                                             <div class="form-group">
                                          <label><b>งวดล่ะ</b></label>
-                                                <input type="text" class="form-control form-control-line" name="period" value="<?php echo $period; ?>">
+                                                <input type="text" class="form-control form-control-line" name="period" value="<?php echo $period; ?>" onKeyUp="IsNumeric(this.value,this)">
                                             </div>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group">
                                              <label><b>รวมเป็นเงินทั้งสิ้น</b></label>
-                                                <input type="text" class="form-control form-control-line" name="total_amount" value="<?php echo $total_amount; ?>">
+                                                <input type="text" class="form-control form-control-line" name="total_amount" value="<?php echo $total_amount; ?>" onKeyUp="IsNumeric(this.value,this)">
                                             </div>
                                         </div>
                                     </div>
@@ -208,7 +224,7 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                            <label><b>ปฎิบัติงานดังกล่าวงวดที่</b></label>
-                                                <input type="text" class="form-control form-control-line" name="perform" value="<?php echo $perform; ?>">
+                                                <input type="text" class="form-control form-control-line" name="perform" value="<?php echo $perform; ?>" onKeyUp="IsNumeric(this.value,this)"> 
                                             </div>
                                         </div>
                                         <div class="col-md-4">

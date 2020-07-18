@@ -330,7 +330,23 @@ include('../../../config/constant.php');
                                                 </select>
                                             </div>
                                         </div>
-
+                                    <script language="javascript">
+                                        function IsNumeric(sText, obj) {
+                                            var ValidChars = "0123456789/";
+                                            var IsNumber = true;
+                                            var Char;
+                                            for (i = 0; i < sText.length && IsNumber == true; i++) {
+                                                Char = sText.charAt(i);
+                                                if (ValidChars.indexOf(Char) == -1) {
+                                                    IsNumber = false;
+                                                }
+                                            }
+                                            if (IsNumber == false) {
+                                                alert("(ตัวเลข เท่านั้น)");
+                                                obj.value = sText.substr(0, sText.length - 1);
+                                            }
+                                        }
+                                    </script>
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label><b>ค่าเบี้ยเลี้ยง</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
@@ -338,24 +354,24 @@ include('../../../config/constant.php');
                                             </div>
                                         </div>
 
-                                        <div class="col-md-1">
+                                        <div class="col-md-2">
                                             <div class="form-group">
                                                 <label><b>จำนวน/วัน</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
-                                                <input type="text" class="form-control form-control-line" name="allowance_day">
+                                                <input type="text" class="form-control form-control-line" name="allowance_day" onKeyUp="IsNumeric(this.value,this)">
                                             </div>
                                         </div>
 
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label><b>วันละ/บาท</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
-                                                <input type="text" class="form-control form-control-line" name="allowance_price">
+                                                <input type="text" class="form-control form-control-line" name="allowance_price" onKeyUp="IsNumeric(this.value,this)">
                                             </div>
                                         </div>
 
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label><b>รวมเป็น</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
-                                                <input type="text" class="form-control form-control-line" name="allowance_sum">
+                                                <input type="text" class="form-control form-control-line" name="allowance_sum"onKeyUp="IsNumeric(this.value,this)">
                                             </div>
                                         </div>
                                     </div>
@@ -369,17 +385,17 @@ include('../../../config/constant.php');
                                             </div>
                                         </div>
 
-                                        <div class="col-md-1">
+                                        <div class="col-md-2">
                                             <div class="form-group">
                                                 <label><b>จำนวน/วัน</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
-                                                <input type="text" class="form-control form-control-line" name="rest_day">
+                                                <input type="text" class="form-control form-control-line" name="rest_day" onKeyUp="IsNumeric(this.value,this)">
                                             </div>
                                         </div>
 
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label><b>รวมเป็น</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
-                                                <input type="text" class="form-control form-control-line" name="rest_sum">
+                                                <input type="text" class="form-control form-control-line" name="rest_sum" onKeyUp="IsNumeric(this.value,this)">
                                             </div>
                                         </div>
                                     </div>
@@ -396,7 +412,7 @@ include('../../../config/constant.php');
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label><b>รวมเป็น</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
-                                                <input type="text" class="form-control form-control-line" name="vehicle_sum">
+                                                <input type="text" class="form-control form-control-line" name="vehicle_sum" onKeyUp="IsNumeric(this.value,this)">
                                             </div>
                                         </div>
                                     </div>
@@ -413,7 +429,7 @@ include('../../../config/constant.php');
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label><b>รวมเป็น</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
-                                                <input type="text" class="form-control form-control-line" name="other_sum">
+                                                <input type="text" class="form-control form-control-line" name="other_sum" onKeyUp="IsNumeric(this.value,this)">
                                             </div>
                                         </div>
                                     </div>

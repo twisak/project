@@ -155,6 +155,7 @@ include('../../../../config/constant.php');
                                             {
                                                 $budget = $row4['budget'];
                                             }
+                                            $budget = "";
                                     ?>
                                     <div class="row">
                                         <div class="col-md-12 text-center">

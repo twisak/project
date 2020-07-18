@@ -119,7 +119,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                  <label><b>โครงการ</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
-                                                <select name="project_id" id="project" class="form-control">
+                                                <select name="project_id" id="project" class="form-control" required>
                                                     <option value="">เลือกโครงการ</option>
                                                     <?php
                                                         $sql = "SELECT * FROM tb_project";
@@ -134,7 +134,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                              <label><b>ชื่อกิจกรรม</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
-                                                <select name="activity_id" id="activity" class="form-control">
+                                                <select name="activity_id" id="activity" class="form-control" required>
                                                     <option value="">ชื่อกิจกรรม</option>
                                                 </select>
                                             </div>
@@ -145,28 +145,44 @@
                                         <div class="col-md-2">
                                             <div class="form-group">
                                          <label><b>เริ่มต้นวันที่</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
-                                                <input type="date" class="form-control form-control-line" name="str_date">
+                                                <input type="date" class="form-control form-control-line" name="str_date" required>
                                             </div>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group">
                                               <label><b>สิ้นสุดวันที่</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
-                                                <input type="date" class="form-control form-control-line" name="stp_date">
+                                                <input type="date" class="form-control form-control-line" name="stp_date" required>
                                             </div>
                                         </div>
                                     </div>
-
+                                    <script language="javascript">
+                                        function IsNumeric(sText, obj) {
+                                            var ValidChars = "0123456789/";
+                                            var IsNumber = true;
+                                            var Char;
+                                            for (i = 0; i < sText.length && IsNumber == true; i++) {
+                                                Char = sText.charAt(i);
+                                                if (ValidChars.indexOf(Char) == -1) {
+                                                    IsNumber = false;
+                                                }
+                                            }
+                                            if (IsNumber == false) {
+                                                alert("(ตัวเลข เท่านั้น)");
+                                                obj.value = sText.substr(0, sText.length - 1);
+                                            }
+                                        }
+                                    </script>
                                     <div class="row">
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                <label><b>งวดล่ะ</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
-                                                <input type="text" class="form-control form-control-line" name="period">
+                                                <input type="text" class="form-control form-control-line" name="period" onKeyUp="IsNumeric(this.value,this)">
                                             </div>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group">
                                             <label><b>รวมเป็นเงินทั้งสิ้น</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
-                                                <input type="text" class="form-control form-control-line" name="total_amount">
+                                                <input type="text" class="form-control form-control-line" name="total_amount" onKeyUp="IsNumeric(this.value,this)">
                                             </div>
                                         </div>
                                     </div>
@@ -175,7 +191,7 @@
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                <label><b>ปฎิบัติงานดังกล่าวงวดที่</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
-                                                <input type="text" class="form-control form-control-line" name="perform">
+                                                <input type="text" class="form-control form-control-line" name="perform" onKeyUp="IsNumeric(this.value,this)">
                                             </div>
                                         </div>
                                         <div class="col-md-2">

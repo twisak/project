@@ -148,7 +148,7 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label><b>ชื่อบุคลากร</b></label>
-                                                <input type="text" value="<?php echo $prefix?><?php echo $firtname?>&nbsp;&nbsp;<?php echo $lastname?>" class="form-control form-control-line">
+                                                <input type="text" value="<?php echo $prefix?><?php echo $firtname?>&nbsp;&nbsp;<?php echo $lastname?>" readonly class="form-control form-control-line">
                                                 <input type="hidden" class="form-control" name="person_id" value="<?php echo $person_id?>">
                                             </div>
                                         </div>
@@ -278,28 +278,45 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <script language="javascript">
+                                        function IsNumeric(sText, obj) {
+                                            var ValidChars = "0123456789/";
+                                            var IsNumber = true;
+                                            var Char;
+                                            for (i = 0; i < sText.length && IsNumber == true; i++) {
+                                                Char = sText.charAt(i);
+                                                if (ValidChars.indexOf(Char) == -1) {
+                                                    IsNumber = false;
+                                                }
+                                            }
+                                            if (IsNumber == false) {
+                                                alert("(ตัวเลข เท่านั้น)");
+                                                obj.value = sText.substr(0, sText.length - 1);
+                                            }
+                                        }
+                                    </script>
                                     <div class="row">
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label><b>จำนวนงวด</b></label>
-                                                <input type="text" class="form-control form-control-line" name="number" value="<?php echo $number; ?>">
+                                                <input type="text" class="form-control form-control-line" name="number" value="<?php echo $number; ?>" onKeyUp="IsNumeric(this.value,this)">
                                             </div>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label><b>เป็นเงิน</b></label>
-                                                <input type="text" class="form-control form-control-line" name="money" value="<?php echo $money; ?>">
+                                                <input type="text" class="form-control form-control-line" name="money" value="<?php echo $money; ?>" onKeyUp="IsNumeric(this.value,this)">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-md-4">
+                                        <div class="col-md-3">
                                             <div class="form-group">
                                                 <label><b>ปฎิบัติงานงวดที่</b></label>
-                                                <input type="text" class="form-control form-control-line" name="work" value="<?php echo $work; ?>">
+                                                <input type="text" class="form-control form-control-line" name="work" value="<?php echo $work; ?>" onKeyUp="IsNumeric(this.value,this)">
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-2">
                                             <div class="form-group">
                                                 <label><b>วันที่ปฎิบัติงาน</b></label>
                                                 <input type="date" class="form-control form-control-line" name="date_work" value="<?php echo $date_work; ?>">
@@ -323,7 +340,7 @@
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label><b>ที่</b></label>
-                                                <input type="text" class="form-control form-control-line" name="that" value="<?php echo $that; ?>">
+                                                <input type="text" class="form-control form-control-line" name="that" readonly value="<?php echo $that; ?>">
                                             </div>
                                         </div>
                                         <!-- <div class="col-md-2">

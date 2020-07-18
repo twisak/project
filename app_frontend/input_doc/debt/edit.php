@@ -421,7 +421,23 @@
                                             </div>
                                         </div>
                                     </div>
-
+                                    <script language="javascript">
+                                        function IsNumeric(sText, obj) {
+                                            var ValidChars = "0123456789/";
+                                            var IsNumber = true;
+                                            var Char;
+                                            for (i = 0; i < sText.length && IsNumber == true; i++) {
+                                                Char = sText.charAt(i);
+                                                if (ValidChars.indexOf(Char) == -1) {
+                                                    IsNumber = false;
+                                                }
+                                            }
+                                            if (IsNumber == false) {
+                                                alert("(ตัวเลข เท่านั้น)");
+                                                obj.value = sText.substr(0, sText.length - 1);
+                                            }
+                                        }
+                                    </script>
                                     <div class="row">
                                         <div class="col-md-2">
                                             <div class="form-group">
@@ -442,7 +458,7 @@
                                         <div class="col-md-2">
                                             <div class="form-group">
                                               <label><b>จำนวน/วัน</b></label>
-                                                <input type="text" value="<?php echo $allowance_day;?>" class="form-control form-control-line">
+                                                <input type="text" value="<?php echo $allowance_day;?>" class="form-control form-control-line" onKeyUp="IsNumeric(this.value,this)">
                                                 <input type="hidden" name="allowance_day" value="<?php echo $allowance_day;?>" />
                                             </div>
                                         </div>
@@ -450,7 +466,7 @@
                                         <div class="col-md-2">
                                             <div class="form-group">
                                               <label><b>วันละ/บาท</b></label>
-                                                <input type="text" value="<?php echo $allowance_price;?>" class="form-control form-control-line">
+                                                <input type="text" value="<?php echo $allowance_price;?>" class="form-control form-control-line" onKeyUp="IsNumeric(this.value,this)">
                                                 <input type="hidden" name="allowance_price" value="<?php echo $allowance_price;?>" />
                                             </div>
                                         </div>
@@ -458,7 +474,7 @@
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label><b>รวมเป็น</b></label>
-                                                <input type="text" value="<?php echo $allowance_sum;?>" class="form-control form-control-line">
+                                                <input type="text" value="<?php echo $allowance_sum;?>" class="form-control form-control-line" onKeyUp="IsNumeric(this.value,this)">
                                                 <input type="hidden" name="allowance_sum" value="<?php echo $allowance_sum;?>" />
                                             </div>
                                         </div>
@@ -476,7 +492,7 @@
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label><b>จำนวน/วัน</b></label>
-                                                <input type="text" value="<?php echo $rest_day;?>" class="form-control form-control-line">
+                                                <input type="text" value="<?php echo $rest_day;?>" class="form-control form-control-line" onKeyUp="IsNumeric(this.value,this)">
                                                 <input type="hidden" name="rest_day" value="<?php echo $rest_day;?>" />
                                             </div>
                                         </div>
@@ -485,7 +501,7 @@
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label><b>รวมเป็น</b></label>
-                                                <input type="text" value="<?php echo $rest_sum;?>" class="form-control form-control-line">
+                                                <input type="text" value="<?php echo $rest_sum;?>" class="form-control form-control-line" onKeyUp="IsNumeric(this.value,this)">
                                                 <input type="hidden" name="rest_sum" value="<?php echo $rest_sum;?>" />
                                             </div>
                                         </div>
@@ -503,7 +519,7 @@
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                   <label><b>รวมเป็น</b></label>
-                                                <input type="text" value="<?php echo $vehicle_sum;?>" class="form-control form-control-line">
+                                                <input type="text" value="<?php echo $vehicle_sum;?>" class="form-control form-control-line" onKeyUp="IsNumeric(this.value,this)">
                                                 <input type="hidden" name="vehicle_sum" value="<?php echo $vehicle_sum;?>" />
                                             </div>
                                         </div>
@@ -522,7 +538,7 @@
                                         <div class="col-md-2">
                                             <div class="form-group">
                                               <label><b>รวมเป็น</b></label>
-                                                <input type="text" value="<?php echo $other_sum;?>" class="form-control form-control-line">
+                                                <input type="text" value="<?php echo $other_sum;?>" class="form-control form-control-line" onKeyUp="IsNumeric(this.value,this)">
                                                 <input type="hidden" name="other_sum" value="<?php echo $other_sum;?>" />
                                             </div>
                                         </div>
