@@ -39,9 +39,13 @@
         $other = $_POST['other'];
         $other_sum = $_POST['other_sum'];
         $document_num = $_POST['document_num'];
-        
+
         $list = serialize($_POST["list"]);
         $money_num = serialize($_POST["money_num"]);
+
+        $approve = $_POST['approve'];
+        $disburse = $_POST['disburse'];
+        $payer = $_POST['payer'];
 
         // print "<pre>";
         // print_r($list);
@@ -61,21 +65,21 @@
 
 	// 		if($list != "")
 	// 		{
-                    $sql = "INSERT INTO tb_debt(doc_id, date_current, name_train, project_id, activity_id, person_id, teacher_id, 
+                    $sql = "INSERT INTO tb_debt(doc_id, date_current, name_train, project_id, activity_id, person_id, teacher_id,
                                                 money_from, lend_num, note_that, date_note, under, along_with, go_practice, depart_from,
-                                                date_depart, time_depart, back, date_back, time_back, open_money, allowance, allowance_day, 
+                                                date_depart, time_depart, back, date_back, time_back, open_money, allowance, allowance_day,
                                                 allowance_price, allowance_sum, rest, rest_day, rest_sum, vehicle, vehicle_sum, other,other_sum,
-                                                document_num,list,money_num )
+                                                document_num,list,money_num,approve,disburse,payer )
                                     VALUES ('$doc_id','$date_current','$name_train','$project_id','$activity_id','$person_id','$teacher_id','$money_from',
                                             '$lend_num','$note_that','$date_note','$under','$along_with','$go_practice',
                                             '$depart_from','$date_depart','$time_depart','$back','$date_back','$time_back','$open_money',
                                             '$allowance','$allowance_day','$allowance_price','$allowance_sum','$rest','$rest_day','$rest_sum',
-                                            '$vehicle','$vehicle_sum','$other','$other_sum','$document_num','$list','$money_num')";
-                
+                                            '$vehicle','$vehicle_sum','$other','$other_sum','$document_num','$list','$money_num','$approve','$disburse','$payer')";
+
 
                     $query = mysqli_query($conn,$sql);
 
-                        
+
                     //  echo $sql;
                     //  echo $query;
                     //  echo "<br>";
@@ -83,7 +87,7 @@
 	// 		}
 	// 	}
     // }
-    
+
 
       echo "<script>alert('บันทึกข้อมูลของท่านเรียบร้อยแล้ว')</script>";
       echo "<script>window.location='../debt/index.php'</script>";

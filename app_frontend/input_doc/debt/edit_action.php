@@ -44,6 +44,11 @@
         $list = serialize( $_POST["list"] );
         $money_num = serialize( $_POST["money_num"] );
 
+        $approve = $_POST['approve'];
+        $disburse = $_POST['disburse'];
+        $payer = $_POST['payer'];
+
+
         //  print "<pre>";
         //  print_r($list);
         //  print "</pre>";
@@ -95,13 +100,16 @@
                                                 other_sum        = '".$other_sum."',
                                                 document_num        = '".$document_num."',
                                                 list        = '".$list."',
-                                                money_num        = '".$money_num."'
+                                                money_num        = '".$money_num."',
+                                                approve        = '".$approve."',
+                                                disburse        = '".$disburse."',
+                                                payer        = '".$payer."'
                               WHERE id = '".$id."'";
                      $db_query = mysqli_query($conn,$sql);
                     //  echo $sql;
                     //  echo $db_query;
                     //  echo "<br>";
-    
+
 
         echo "<script>alert('แก้ไขข้อมูลเรียบร้อย')</script>";
         echo "<script>window.location='http://localhost/project_student/app_frontend/input_doc/debt/show.php?id=$id'</script>";

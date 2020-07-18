@@ -1,4 +1,4 @@
-<?php 
+<?php
 include('../../../config/connect.php');
 include('../../../config/constant.php');
 
@@ -447,6 +447,79 @@ include('../../../config/constant.php');
 
 
                                     <div class="row">
+
+                                      <?php
+                                          $sql_teacher = "select * from tb_teacher";
+                                          $query_teacher = mysqli_query($conn,$sql_teacher);
+                                          ?>
+
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                              <label><b>ผู้อนุมัติให้จ่าย</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
+                                              <select class="form-control" name="approve">
+                                                  <option value="">-- เลือกรายชื่อ --</option>
+                                                  <?php
+                                                      while($result_teacher=mysqli_fetch_array($query_teacher))
+                                                      {
+                                                      ?>
+                                                  <option value='<?php echo $result_teacher['teacher_id'];?>'><?php echo $result_teacher['t_firstname'];?>&nbsp;&nbsp;<?php echo $result_teacher['t_lastname'];?></option>
+                                                  <?php
+                                                      }
+                                                      ?>
+                                              </select>
+                                            </div>
+                                        </div>
+
+                                        <?php
+                                            $sql_teacher = "select * from tb_teacher";
+                                            $query_teacher = mysqli_query($conn,$sql_teacher);
+                                            ?>
+
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                              <label><b>ผู้ให้เบิกจ่าย</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
+                                              <select class="form-control" name="disburse">
+                                                  <option value="">-- เลือกรายชื่อ --</option>
+                                                  <?php
+                                                      while($result_teacher=mysqli_fetch_array($query_teacher))
+                                                      {
+                                                      ?>
+                                                  <option value='<?php echo $result_teacher['teacher_id'];?>'><?php echo $result_teacher['t_firstname'];?>&nbsp;&nbsp;<?php echo $result_teacher['t_lastname'];?></option>
+                                                  <?php
+                                                      }
+                                                      ?>
+                                              </select>
+                                            </div>
+                                        </div>
+
+                                        <?php
+                                            $sql_teacher = "select * from tb_teacher";
+                                            $query_teacher = mysqli_query($conn,$sql_teacher);
+                                            ?>
+
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                              <label><b>ผู้จ่ายเงิน</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
+                                              <select class="form-control" name="payer">
+                                                  <option value="">-- เลือกรายชื่อ --</option>
+                                                  <?php
+                                                      while($result_teacher=mysqli_fetch_array($query_teacher))
+                                                      {
+                                                      ?>
+                                                  <option value='<?php echo $result_teacher['teacher_id'];?>'><?php echo $result_teacher['t_firstname'];?>&nbsp;&nbsp;<?php echo $result_teacher['t_lastname'];?></option>
+                                                  <?php
+                                                      }
+                                                      ?>
+                                              </select>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+
+
+                                    <div class="row">
                                         <div class="col-md-3">
                                         </div>
                                         <div class="col-md-3">
@@ -538,5 +611,25 @@ include('../../../config/constant.php');
 
                     });
             </script>
+            <!-- listbox 2 ชั้น -->
+            <script src="jquery-1.11.1.min.js" type="text/javascript"></script>
+                        <script type="text/javascript">
+                            $(document).ready(function () {
+                                $('#project').change(function () {
+                                    $.ajax({
+                                        type: 'POST',
+                                        data: {
+                                            project: $(this).val()
+                                        },
+                                        url: '../select_activity.php',
+                                        success: function (data) {
+                                            $('#activity').html(data);
+                                        }
+                                    });
+                                    return false;
+                                });
+                            });
+            </script>
+            <!-- listbox 2 ชั้น -->
 </body>
 </html>

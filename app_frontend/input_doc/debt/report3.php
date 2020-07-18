@@ -64,7 +64,7 @@
 
                                         <td width="1" class="border-0 padding-0">ลงชื่อ</td>
                                         <td class="border-0 padding-0 text-center">
-                                            &nbsp;<?php //echo  convert($x);?>
+                                            <?php echo $t_firstname1; ?>&nbsp;<?php echo $t_lastname1; ?>
                                             <div class="line-bottom-dashed"></div>
                                         </td>
                                     </tr>
@@ -89,7 +89,7 @@
                                     <tr>
                                         <td class="border-0 padding-0" align="right">(</td>
                                         <td align="center" class="border-0 padding-0">
-                                            <?php //echo $t_firstname;?>&nbsp;&nbsp;<?php //echo $t_lastname;?>
+                                          <?php echo $t_firstname1; ?>&nbsp;<?php echo $t_lastname1; ?>
                                             <div class="line-bottom-dashed">&nbsp;</div>
                                         </td>
                                         <td class="border-0 padding-0" align="left">)</td>
@@ -114,7 +114,7 @@
                                     <tr>
                                         <td width="1" class="text-nowrap border-0 padding-0">ตำแหน่ง</td>
                                         <td class="border-0 padding-0 text-center">
-                                            <?php //echo $str_date; ?>
+                                            <?php echo $position_name1; ?>
                                             <div class="line-bottom-dashed"></div>
                                         </td>
                                     </tr>
@@ -138,7 +138,7 @@
                                     <tr>
                                         <td width="1" class="text-nowrap border-0 padding-0">วันที่</td>
                                         <td class="border-0 padding-0 text-center">
-                                            <?php //echo $str_date; ?>
+                                                  <?php echo str_replace($numarabic,$numthai,$subday_date_current);?> <?php echo $month_thai;?>    <?php echo str_replace($numarabic,$numthai,$subyear_date_current+543);?>
                                             <div class="line-bottom-dashed"></div>
                                         </td>
                                     </tr>
@@ -167,7 +167,7 @@
                                     <tr>
                                         <td width="1" class="text-nowrap border-0 padding-0">ลงชื่อ</td>
                                         <td class="border-0 padding-0 text-center">
-                                            <?php //echo $str_date; ?>
+                                            <?php echo $t_firstname2; ?>&nbsp;<?php echo $t_lastname2; ?>
                                             <div class="line-bottom-dashed"></div>
                                         </td>
                                     </tr>
@@ -183,7 +183,7 @@
                                     <tr>
                                         <td class="border-0 padding-0" align="right">(</td>
                                         <td align="center" class="border-0 padding-0">
-                                            <?php //echo $t_firstname;?>&nbsp;&nbsp;<?php //echo $t_lastname;?>
+                                              <?php echo $t_firstname2; ?>&nbsp;<?php echo $t_lastname2; ?>
                                             <div class="line-bottom-dashed">&nbsp;</div>
                                         </td>
                                         <td class="border-0 padding-0" align="left">)</td>
@@ -197,7 +197,7 @@
                                     <tr>
                                         <td width="1" class="text-nowrap border-0 padding-0">ตำแหน่ง</td>
                                         <td class="border-0 padding-0 text-center">
-                                            <?php //echo $str_date; ?>
+                                            <?php echo $position_name2; ?>
                                             <div class="line-bottom-dashed"></div>
                                         </td>
                                     </tr>
@@ -210,7 +210,7 @@
                                     <tr>
                                         <td width="1" class="text-nowrap border-0 padding-0">วันที่</td>
                                         <td class="border-0 padding-0 text-center">
-                                            <?php //echo $str_date; ?>
+                                              <?php echo str_replace($numarabic,$numthai,$subday_date_current);?> <?php echo $month_thai;?>    <?php echo str_replace($numarabic,$numthai,$subyear_date_current+543);?>
                                             <div class="line-bottom-dashed"></div>
                                         </td>
                                     </tr>
@@ -291,7 +291,7 @@
                                     <tr>
                                         <td width="1" class="text-nowrap border-0 padding-0">ลงชื่อ</td>
                                         <td class="border-0 padding-0 text-center">
-                                            <?php //echo $str_date; ?>
+                                          <?php echo $firtname; ?>&nbsp;<?php echo $lastname; ?>
                                             <div class="line-bottom-dashed"></div>
                                         </td>
                                         <td width="1" class="text-nowrap border-0 padding-0">ผู้รับเงิน</td>
@@ -305,7 +305,7 @@
                                     <tr>
                                         <td class="border-0 padding-0" align="right">(</td>
                                         <td align="center" class="border-0 padding-0">
-                                            <?php //echo $t_firstname;?>&nbsp;&nbsp;<?php //echo $t_lastname;?>
+                                              <?php echo $prefix; ?><?php echo $firtname; ?>&nbsp;<?php echo $lastname; ?>
                                             <div class="line-bottom-dashed">&nbsp;</div>
                                         </td>
                                         <td class="border-0 padding-0" align="left">)</td>
@@ -319,7 +319,7 @@
                                     <tr>
                                         <td width="1" class="text-nowrap border-0 padding-0">ตำแหน่ง</td>
                                         <td class="border-0 padding-0 text-center">
-                                            <?php //echo $str_date; ?>
+                                            <?php echo $position_name; ?>
                                             <div class="line-bottom-dashed"></div>
                                         </td>
                                     </tr>
@@ -332,7 +332,7 @@
                                     <tr>
                                         <td width="1" class="text-nowrap border-0 padding-0">วันที่</td>
                                         <td class="border-0 padding-0 text-center">
-                                            <?php //echo $str_date; ?>
+                                            <?php echo str_replace($numarabic,$numthai,$subday_date_current);?> <?php echo $month_thai;?>    <?php echo str_replace($numarabic,$numthai,$subyear_date_current+543);?>
                                             <div class="line-bottom-dashed"></div>
                                         </td>
                                     </tr>
@@ -364,7 +364,7 @@
                                     <tr>
                                         <td width="1" class="text-nowrap border-0 padding-0">ลงชื่อ</td>
                                         <td class="border-0 padding-0 text-center">
-                                            <?php //echo $str_date; ?>
+                                            <?php echo $t_firstname3; ?>&nbsp;  <?php echo $t_lastname3; ?>
                                             <div class="line-bottom-dashed"></div>
                                         </td>
                                         <td width="1" class="text-nowrap border-0 padding-0">ผู้จ่ายเงิน</td>
@@ -381,7 +381,7 @@
                                     <tr>
                                         <td class="border-0 padding-0" align="right">(</td>
                                         <td align="center" class="border-0 padding-0">
-                                            <?php //echo $t_firstname;?>&nbsp;&nbsp;<?php //echo $t_lastname;?>
+                                              <?php echo $t_firstname3; ?>&nbsp;  <?php echo $t_lastname3; ?>
                                             <div class="line-bottom-dashed">&nbsp;</div>
                                         </td>
                                         <td class="border-0 padding-0" align="left">)</td>
@@ -395,7 +395,7 @@
                                     <tr>
                                         <td width="1" class="text-nowrap border-0 padding-0">ตำแหน่ง</td>
                                         <td class="border-0 padding-0 text-center">
-                                            <?php //echo $str_date; ?>
+                                            <?php echo $position_name3; ?>
                                             <div class="line-bottom-dashed"></div>
                                         </td>
                                     </tr>
@@ -408,7 +408,7 @@
                                     <tr>
                                         <td width="1" class="text-nowrap border-0 padding-0">วันที่</td>
                                         <td class="border-0 padding-0 text-center">
-                                            <?php //echo $str_date; ?>
+                                            <?php echo str_replace($numarabic,$numthai,$subday_date_current);?> <?php echo $month_thai;?>    <?php echo str_replace($numarabic,$numthai,$subyear_date_current+543);?>
                                             <div class="line-bottom-dashed"></div>
                                         </td>
                                     </tr>
