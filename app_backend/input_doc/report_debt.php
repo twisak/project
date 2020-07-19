@@ -1,18 +1,3 @@
-<?php session_start();
-if($_SESSION['status'] == 'admin')
-{ 
-}
-elseif($_SESSION['status'] == 'staff')
-{  
-}
-else
-{
-    echo "<script>";
-    echo "alert(\"คุณไม่มีสิทธิ์เข้าสู่ระบบ\");";
-    echo "</script>";
-    echo "<meta http-equiv='refresh' content='0;url=../../administrator/logout.php'>";
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,10 +12,14 @@ else
     <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
     <title>AdminWrap - Easy to Customize Bootstrap 4 Admin Template</title>
     <!-- Bootstrap Core CSS -->
-    <link href="../assets/node_modules/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- แบมะ -->
+    <link href="../css/bootstrap_plugin.css" rel="stylesheet">
     <!-- Custom CSS -->
-    <link href="../css/style.css" rel="stylesheet">
     <link href="../css/report.css" rel="stylesheet">
+    <link href="../assets/node_modules/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- แบมะ -->
+
     <!-- You can change the theme colors from here -->
     <link href="../css/colors/default.css" id="theme" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -40,314 +29,506 @@ else
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
 </head>
-<?php 
+<?php
 
-     include '../../administrator/connect.php';
-    //  $sql ="SELECT * FROM tb_person";
-    //  $query = mysqli_query($conn,$sql);
-    //  while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
-    //     {
-    //         $prefix = $row['prefix'];
-    //         $firtname = $row['firtname'];
-    //         $lastname = $row['lastname'];
-    //         $idcard = $row['idcard'];
-    //         $address = $row['address'];
-    //         $position_id = $row['position_id'];
-    //     }
-                                            
-    //     $sql1 ="SELECT * FROM account_login WHERE position_id = '".$position_id."' ";
-    //     $query1 = mysqli_query($conn,$sql1);
-    //     while($row1 = mysqli_fetch_array($query1,MYSQLI_ASSOC))
-    //     {
-    //         $position_id = $row1['position_id'];
-    //         $username = $row1['username'];
-    //         $password = $row1['password'];
-    //         $position = $row1['position'];
-    //     }
+            include '../../administrator/connect.php';
+
+            $doc_id = $_GET['id'];
+            echo $doc_id;
+
+            $sql_debt = "SELECT * FROM tb_debt WHERE doc_id = '".$doc_id."' ";
+            $query_debt = mysqli_query($conn,$sql_debt);
+            $result_debt = mysqli_fetch_assoc($query_debt);
+
+            $doc_id = $result_debt['doc_id'];
+            $date_current = $result_debt['date_current'];
+            $name_train = $result_debt['name_train'];
+            $project_id = $result_debt['project_id'];
+            $activity_id = $result_debt['activity_id'];
+            $person_id = $result_debt['person_id'];
+            $teacher_id = $result_debt['teacher_id'];
+            $money_from = $result_debt['money_from'];
+            $money_from_id = $result_debt['money_from_id'];
+            $lend_num = $result_debt['lend_num'];
+            $note_that = $result_debt['note_that'];
+            $date_note = $result_debt['date_note'];
+            $under = $result_debt['under'];
+            $along_with = $result_debt['along_with'];
+            $go_practice = $result_debt['go_practice'];
+            $depart_from = $result_debt['depart_from'];
+            $date_depart = $result_debt['date_depart'];
+            $time_depart = $result_debt['time_depart'];
+            $back = $result_debt['back'];
+            $date_back = $result_debt['date_back'];
+            $time_back = $result_debt['time_back'];
+            $open_money = $result_debt['open_money'];
+            $allowance = $result_debt['allowance'];
+            $allowance_day = $result_debt['allowance_day'];
+            $allowance_price = $result_debt['allowance_price'];
+            $allowance_sum = $result_debt['allowance_sum'];
+            $rest = $result_debt['rest'];
+            $rest_day = $result_debt['rest_day'];
+            $rest_sum = $result_debt['rest_sum'];
+            $vehicle = $result_debt['vehicle'];
+            $vehicle_sum = $result_debt['vehicle_sum'];
+            $other = $result_debt['other'];
+            $other_sum = $result_debt['other_sum'];
+            $document_num = $result_debt['document_num'];
+
+            // $list = $result_debt['list'];
+            $list = unserialize($result_debt['list']);
+            // $money_num = $result_debt['money_num'];
+            $money_num = unserialize($result_debt['money_num']);
+
+            $approve = $result_debt['approve'];
+            $disburse = $result_debt['disburse'];
+            $payer = $result_debt['payer'];
+
+            $sql_project = "SELECT * FROM tb_project WHERE project_id = '".$project_id."' ";
+            $query_project = mysqli_query($conn,$sql_project);
+            $result_project = mysqli_fetch_assoc($query_project);
+            $project_name = $result_project['project_name'];
+
+            $sql_activity = "SELECT * FROM tb_activity WHERE activity_id = '".$activity_id."' ";
+            $query_activity = mysqli_query($conn,$sql_activity);
+            $result_activity = mysqli_fetch_assoc($query_activity);
+            $activity = $result_activity['activity'];
+
+            $sql_person = "SELECT * FROM tb_person WHERE person_id = '".$person_id."' ";
+            $query_person = mysqli_query($conn,$sql_person);
+            $result_person = mysqli_fetch_assoc($query_person);
+            $prefix  = $result_person['prefix'];
+            $firtname = $result_person['firtname'];
+            $lastname = $result_person['lastname'];
+            $idcard = $result_person['idcard'];
+            $position_id = $result_person['position_id'];
+            $house_num = $result_person['house_num'];
+            $road = $result_person['road'];
+            $village = $result_person['village'];
+            $alley = $result_person['alley'];
+            $province_id = $result_person['province_id'];
+            $districts_id = $result_person['districts_id'];
+            $amphures_id = $result_person['amphures_id'];
+
+            $sql_position = "SELECT * FROM tb_position WHERE position_id = '".$position_id."' ";
+            $query_position = mysqli_query($conn,$sql_position);
+            $result_position = mysqli_fetch_assoc($query_position);
+            $position_name = $result_position['position_name'];
+
+            $sql_provinces = "SELECT * FROM provinces WHERE id = '".$province_id."' ";
+            $query_provinces = mysqli_query($conn,$sql_provinces);
+            $result_provinces = mysqli_fetch_assoc($query_provinces);
+            $name_th_p = $result_provinces['name_th'];
+
+            $sql_amphures = "SELECT * FROM amphures WHERE id = '".$amphures_id."' ";
+            $query_amphures = mysqli_query($conn,$sql_amphures);
+            $result_amphures = mysqli_fetch_assoc($query_amphures);
+            $name_th_a = $result_amphures['name_th'];
+
+            $sql_districts = "SELECT * FROM districts WHERE id = '".$districts_id."' ";
+            $query_districts = mysqli_query($conn,$sql_districts);
+            $result_districts = mysqli_fetch_assoc($query_districts);
+            $name_th_d = $result_districts['name_th'];
+
+            $sql_teacher = "SELECT * FROM tb_teacher WHERE teacher_id = '".$teacher_id."' ";
+            $query_teacher = mysqli_query($conn,$sql_teacher);
+            $result_teacher = mysqli_fetch_assoc($query_teacher);
+            $t_firstname = $result_teacher['t_firstname'];
+            $t_lastname = $result_teacher['t_lastname'];
+
+
+
+
+
+
 ?>
+
 <body id="<?php //echo $body['name'];?>">
     <div class="page">
-        <table border="0" align="center" width="100%" class="statement-view text-gray-900">
+        <table border="0" width="100%" class="statement-view text-gray-900">
             <tr>
-                <td colspan="2">
-
-                </td>
-                <td width="200px" height="1px">
-                    <table width="100%" border="0" align="left">
-                        <tr>
-                            <td width="1" class="text-nowrap border-0 padding-0"><strong>ใบยืมพัสดุเลขที่</strong></td>
-                            <td class="border-0 padding-0 text-center">
-                                <?php //echo print_null($borrow->code);?>
-                                <div class="line-bottom-dashed"></div>
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="3" class="border-0">
-                    &nbsp;
+                <td colspan="3" class="statement-header" align="center">
+                    <strong>ใบสำคัญรับเงิน</strong>
                 </td>
             </tr>
             <tr>
                 <td colspan="3" class="statement-header" align="center">
-                    <h3>แบบฟอร์มการขอยืมพัสดุ</h3>
-                    คณะวิทยาการอิสลาม มหาวิทยาลัยสงขลานครินทร์ <br>
+                    <strong>สำหรับวิทยากร</strong>
                 </td>
             </tr>
             <tr>
-                <td colspan="3" class="text-indent-50" align="left">
-                    เพื่ออำนวยความสะดวกแก่บุคลากร คณะวิทยาการอิสลาม ในการปฏิบัติงานต่างๆ และมีความต้องการใช้พัสดุก่อน สามารถยืมพัสดุของคณะวิทยาการอิสลาม โดยกรอกแบบฟอร์มการขอยืมพัสดุข้างท้ายนี้ ส่งที่งานพัสดุ สำนักงานเลขานุการ คณะวิทยาการอิสลาม ก่อนวันที่ประสงค์จะใช้งานไม่น้อยกว่า 5 วันทำการ
+                <td class="statement-header" align="center">&nbsp;
                 </td>
             </tr>
-            <tr>
-                <td colspan="3" class="border-0">
-                    &nbsp;
-                </td>
-            </tr>
-            <tr>
+            <tr align="left">
                 <td colspan="2">
-
-                </td>
-                <td width="200px" height="1px">
                     <table width="100%" border="0" align="left">
                         <tr>
-                            <td width="1" class="text-nowrap border-0 padding-0"><strong>วันที่</strong></td>
-                            <td class="border-0 padding-0 text-center">
-                                <?php //echo print_null($borrow->created_at);?>
+                            <td width="1" class="text-nowrap border-0 padding-0">ชื่อส่วนราชการผู้จัดฝึกอบรม</td>
+                            <td class="border-0 padding-0">
+                                &nbsp;&nbsp;<?php echo $name_train;?>
                                 <div class="line-bottom-dashed"></div>
                             </td>
                         </tr>
                     </table>
                 </td>
             </tr>
-            <tr>
-                <td colspan="3">
-                    <table width="100%" border="0">
+            <tr align="left">
+                <td colspan="2">
+                    <table width="100%" border="0" align="left">
                         <tr>
-                            <td width="50%" class="border-0 padding-0">
-                                <table width="100%" border="0" align="left">
-                                    <tr>
-                                        <td width="1" class="text-nowrap border-0 padding-0"><strong>ชื่อ-สกุล</strong></td>
-                                        <td class="border-0 padding-0 text-center">
-                                            <?php //echo $prefix;?><?php //echo $firtname;?>&nbsp;&nbsp;<?php //echo $lastname;?>
-                                            <div class="line-bottom-dashed"></div>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </td>
-                            <td width="50%" class="border-0 padding-0">
-                                <table width="100%" border="0" align="right">
-                                    <tr>
-                                        <td width="1" class="text-nowrap border-0 padding-0"><strong>หน่วยงาน</strong></td>
-                                        <td class="border-0 padding-0 text-center">
-                                            <?php //echo print_null($borrow->department);?>
-                                            <div class="line-bottom-dashed"></div>
-                                        </td>
-                                    </tr>
-                                </table>
+                            <td width="1" class="text-nowrap border-0 padding-0">โครงการ/หลักสูตร</td>
+                            <td class="border-0 padding-0">
+                                &nbsp;&nbsp;<?php echo $project_name;?>
+                                <div class="line-bottom-dashed"></div>
                             </td>
                         </tr>
                     </table>
                 </td>
             </tr>
-            <tr>
-                <td colspan="3">
-                    <table width="100%" border="0">
-                        <tr>
-                            <td width="50%" class="border-0">
-                                <table width="100%" border="0" align="right">
-                                    <tr>
-                                        <td width="1" class="text-nowrap border-0 padding-0"><strong>เบอร์ติดต่อ</strong></td>
-                                        <td class="border-0 padding-0 text-center">
-                                            <?php //echo print_null($borrow->tel);?>
-                                            <div class="line-bottom-dashed"></div>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="3">
-                    <strong>มีความประสงค์จะขอยืมพัสดุ ดังรายการต่อไปนี้</strong>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="3">
-                    <table width="100%" border="0">
-                        <?php 
-                        //$r = 1;
-                        //foreach ($borrow->items as $index => $item) {?>
-                        <tr>
-                            <td width="80%" class="border-0 padding-0">
-                                <table width="100%" border="0" align="left">
-                                    <tr>
-                                        <td width="1" height="30" class="text-nowrap border-0 padding-0"><?php //echo ($index+1)?>&nbsp;&nbsp;</td>
-                                        <td class="border-0 padding-0">
-                                            &nbsp;&nbsp;<?php //echo $item['title'];?>
-                                            <div class="line-bottom-dashed">&nbsp;</div>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </td>
-                            <td width="20%" class="border-0 padding-0">
-                                <table width="100%" border="0" align="right">
-                                    <tr>
-                                        <td width="1" class="text-nowrap border-0 padding-0">จำนวน</td>
-                                        <td class="border-0 padding-0">
-                                            &nbsp;&nbsp;<?php //echo $item['count'];?>
-                                            <div class="line-bottom-dashed">&nbsp;</div>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr>
-                        <?php //$r+=1; }?>
 
-                        <?php //for ($i=$r; $i <= 5 ; $i++) {?>
-                        <tr>
-                            <td width="50%" class="border-0 padding-0">
-                                <table width="100%" border="0" align="left">
-                                    <tr>
-                                        <td width="1" height="30"  class="text-nowrap border-0 padding-0"><?php //echo $i;?>&nbsp;&nbsp;</td>
-                                        <td class="border-0 padding-0">
-                                            <div class="line-bottom-dashed">&nbsp;</div>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </td>
-                            <td width="50%" class="border-0 padding-0">
-                                <table width="100%" border="0" align="right">
-                                    <tr>
-                                        <td width="1" class="text-nowrap border-0 padding-0">จำนวน</td>
-                                        <td class="border-0 padding-0">
-                                            <div class="line-bottom-dashed">&nbsp;</div>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr>
-                        <?php //}?>
+            <?php
 
-                    </table>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="3">
-                    <table width="100%" border="0">
+            $subday_date_current = substr($date_current,8);
+            $submonth_date_current = substr($date_current,5,-3);
+            $subyear_date_current = substr($date_current,0,-6);
+
+
+            $numthai = array("๑","๒","๓","๔","๕","๖","๗","๘","๙","๐");
+            $numarabic = array("1","2","3","4","5","6","7","8","9","0");
+             $test = str_replace($numarabic,$numthai,$subday_date_current);
+
+             $str_month = $submonth_date_current;
+             if($str_month == "01"){
+               $month_thai = "มกราคม";
+             }else if($str_month == "02"){
+               $month_thai = "กุมภาพันธ์";
+             }else if($str_month == "03"){
+               $month_thai = "มีนาคม";
+             }else if($str_month == "04"){
+               $month_thai = "เมษายน";
+             }else if($str_month == "05"){
+               $month_thai = "พฤษภาคม";
+             }else if($str_month == "06"){
+               $month_thai = "มิถุนายน";
+             }else if($str_month == "07"){
+               $month_thai = "กรกฎาคม";
+             }else if($str_month == "08"){
+               $month_thai = "สิงหาคม";
+             }else if($str_month == "09"){
+               $month_thai = "กันยายน";
+             }else if($str_month == "10"){
+               $month_thai = "ตุลาคม";
+             }else if($str_month == "11"){
+               $month_thai = "พฤศจิกายน";
+             }else if($str_month == "12"){
+               $month_thai = "ธันวาคม";
+             }
+
+            ?>
+
+
+            <tr align="left">
+                <td colspan="2">
+                    <table width="100%" border="0" align="left">
                         <tr>
-                            <td width="100%" class="border-0 padding-0">
-                                <table width="100%" border="0" align="left">
-                                    <tr>
-                                        <td width="1" class="text-nowrap border-0 padding-0"><strong>วัตถุประสงค์การใช้งานเพื่อ</strong></td>
-                                        <td class="border-0 padding-0">
-                                            &nbsp;&nbsp;<?php //echo print_null($borrow->objective);?>
-                                            <div class="line-bottom-dashed">&nbsp;</div>
-                                        </td>
-                                    </tr>
-                                </table>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td width="1" class="text-nowrap border-0 padding-0">วันที่</td>
+                            <td class="border-0 padding-0 text-center">
+                                <?php echo str_replace($numarabic,$numthai,$subday_date_current);?>
+                                <div class="line-bottom-dashed"></div>
+                            </td>
+                            <td width="1" class="text-nowrap border-0 padding-0">เดือน</td>
+                            <td class="border-0 padding-0 text-center">
+                                <?php echo $month_thai;?>
+                                <div class="line-bottom-dashed"></div>
+                            </td>
+                            <td width="1" class="text-nowrap border-0 padding-0">ปี</td>
+                            <td class="border-0 padding-0 text-center">
+                                <?php echo str_replace($numarabic,$numthai,$subyear_date_current+543);?>
+                                <div class="line-bottom-dashed"></div>
                             </td>
                         </tr>
                     </table>
                 </td>
             </tr>
-            <tr>
-                <td colspan="3">
-                    <table width="100%" border="0">
+            <tr align="left">
+                <td colspan="2">
+                    <table width="100%" border="0" align="left">
                         <tr>
-                            <td width="100%" class="border-0 padding-0">
-                                <table width="100%" border="0" align="left">
-                                    <tr>
-                                        <td width="1" class="text-nowrap border-0 padding-0"><strong>วัน/เวลาที่ประสงค์จะใช้งาน </strong></td>
-                                        <td class="border-0 padding-0 text-center">
-                                            &nbsp;&nbsp;<?php //echo print_null($borrow->start_date);?>
-                                            <div class="line-bottom-dashed"></div>
-                                        </td>
-                                        <td width="1" class="text-nowrap border-0 padding-0"><strong>กำหนดส่งของวัน/เวลาที่ส่งคืน</strong></td>
-                                        <td class="border-0 padding-0 text-center">
-                                            &nbsp;&nbsp;<?php //echo print_null($borrow->return_date);?>
-                                            <div class="line-bottom-dashed"></div>
-                                        </td>
-                                    </tr>
-                                </table>
+                            <td width="1" class="text-nowrap border-0 padding-0">ข้าพเจ้า</td>
+                            <td class="border-0 padding-0">
+                                &nbsp;&nbsp;<?php echo $prefix; ?><?php echo $firtname; ?>&nbsp;<?php echo $lastname; ?>
+                                <div class="line-bottom-dashed"></div>
+                            </td>
+
+                            <td width="1" class="text-nowrap border-0 padding-0">บ้านเลขที่</td>
+                            <td class="border-0 padding-0">
+                                &nbsp;&nbsp;<?php echo $house_num;?>
+                                <div class="line-bottom-dashed"></div>
                             </td>
                         </tr>
                     </table>
                 </td>
             </tr>
-            <tr>
-                <td colspan="3">
-                    <table width="100%" border="0">
+            <tr align="left">
+                <td colspan="2">
+                    <table width="100%" border="0" align="left">
                         <tr>
-                            <td width="100%" class="border-0 padding-0">
-                                <table width="100%" border="0" align="left">
-                                    <tr>
-                                        <td width="1" class="text-nowrap border-0 padding-0"><strong>เบอร์โทรศัพท์ที่สามารถติดต่อได้</strong></td>
-                                        <td class="border-0 padding-0">
-                                            &nbsp;&nbsp;<?php //echo print_null($borrow->tel);?>
-                                            <div class="line-bottom-dashed"></div>
-                                        </td>
-                                    </tr>
-                                </table>
+                            <td width="1" class="text-nowrap border-0 padding-0">ตำบล/แขวง</td>
+                            <td class="border-0 padding-0">
+                                &nbsp;&nbsp;<?php echo $name_th_d;?>
+                                <div class="line-bottom-dashed"></div>
+                            </td>
+
+                            <td width="1" class="text-nowrap border-0 padding-0">อำเภอ/เขต</td>
+                            <td class="border-0 padding-0">
+                                &nbsp;&nbsp;<?php echo $name_th_a;?>
+                                <div class="line-bottom-dashed"></div>
+                            </td>
+
+                            <td width="1" class="text-nowrap border-0 padding-0">จังหวัด</td>
+                            <td class="border-0 padding-0">
+                                &nbsp;&nbsp;<?php echo $name_th_p;?>
+                                <div class="line-bottom-dashed"></div>
                             </td>
                         </tr>
                     </table>
                 </td>
             </tr>
-            <tr>
-                <td colspan="3">
-                    <table width="100%" border="0">
+            <tr align="left">
+                <td colspan="2" >
+                    <table width="100%" border="0" align="left">
                         <tr>
-                            <td width="100%" class="border-0 padding-0">
-                                <table width="100%" border="0" align="left">
-                                    <tr>
-                                        <td width="1" class="text-nowrap border-0 padding-0"><strong>สถานที่ ที่ประสงค์จะใช้งาน</strong></td>
-                                        <td class="border-0 padding-0">
-                                            &nbsp;&nbsp;<?php //echo print_null($borrow->location);?>
-                                            <div class="line-bottom-dashed"></div>
-                                        </td>
-                                    </tr>
-                                </table>
+                            <td width="1" class="text-nowrap border-0 padding-0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ได้รับเงินจาก</td>
+                            <td class="border-0 padding-0">
+                                &nbsp;&nbsp;<?php echo $money_from;?>
+                                <div class="line-bottom-dashed"></div>
                             </td>
+                            <td width="1" class="text-nowrap border-0 padding-0">รายละเอียดดังต่อไปนี้</td>
                         </tr>
                     </table>
                 </td>
             </tr>
             <tr>
-                <td colspan="3">
-                    <strong>หมายเหตุ</strong>
-                    <ol>
-                        <li>กรณีพัสดุที่ยืมชำรุด ผู้ยืมยินดีชำระค่าซ่อมแซมตามความเสียหายของพัสดุ</li>
-                        <li>กรณีพัสดุที่ยืมสูญหาย ผู้ยืมยินดีหาพัสดุเดียวกันมาทดแทนหรือชำระเงินตามราคาพัสดุ</li>
-                        <li>การยืม-คืน ต้องยืมและคืนที่งานพัสดุ เท่านั้น </li>
-                    </ol>
+                <td class="statement-header" align="center">&nbsp;
                 </td>
             </tr>
             <tr>
-                <td colspan="3" height="60" class="border-0">
-                    &nbsp;
+                <td>
+
+                    <table border="1" width="100%" class="statement-view text-gray-900">
+                        <tr>
+                            <td align="center">รายการ</td>
+                            <td colspan="2" align="center">จำนวนเงิน</td>
+                        </tr>
+
+                        <?php
+                                $i=1;
+                                $i<="";
+
+                                $money_num1 = array($money_num);
+
+                                 foreach ($money_num1 as $money_num1){
+                                  $j=0;
+                                  //echo "<p><b>ตัวชี้วัด</b></p>";
+                                  //echo "<ul>";
+                                     foreach ($money_num1 as $money_num1[$j]){
+                                          $value_money_num1 = $money_num1[$j];
+                                          //echo "<tr><td>{$value}</td></tr>";
+                                         //echo "<li>{$value}</li>";
+                                         $j++;
+                                       }
+                                     }
+
+                               $list1 = array($list);
+
+                                foreach ($list1 as $list1){
+                                 $j=0;
+                                 //echo "<p><b>ตัวชี้วัด</b></p>";
+                                 //echo "<ul>";
+                                    foreach ($list1 as $list1[$j]){
+                                         $value_list1 = $list1[$j];
+                                         $value_money_num1 = $money_num1[$j];
+                                         //echo "<tr><td>{$value}</td></tr>";
+                                        //echo "<li>{$value}</li>";
+                                        $j++;
+
+                               // echo "</ul>";
+
+
+                            ?>
+                        <tr>
+                            <td width="60%"><?php echo $value_list1; ?></td>
+                            <td><?php echo $value_money_num1; ?></td>
+                            <td><?php
+
+                            $x = 0;
+
+                            while($x == 0) {
+
+                              $result_y[] =  $value_money_num1;
+
+                              // print_r($result_y);
+                              echo  array_sum ($result_y);
+
+
+                              $x++;
+                            }
+
+
+
+  //                           if($j==0)
+  //                           {
+  //                           $aa =$value_money_num1 + $zero;
+  //                           // echo $aa;
+  //                           $bb = $aa;
+  //                           // echo $bb;
+  //
+  //                         }else{
+  //                           $bb = $value_money_num1 + $bb;
+  //
+  //                         }
+  // echo $bb;
+
+
+
+
+                            ?></td>
+                        </tr>
+                          <?php $i++; }}?>
+
+
+
+
+
+                        <tr>
+                            <td width="60%" align="right">บาท</td>
+                            <td></td>
+                            <td><?php       echo  array_sum ($result_y);  ?></td>
+                        </tr>
+                    </table>
                 </td>
             </tr>
+            <tr>
+                <td class="statement-header" align="center">&nbsp;
+                </td>
+            </tr>
+
+            <?php
+
+            function convertAmountToLetter($number)
+            {
+              if (empty($number)) return "";
+              $number = strval($number);
+              $txtnum1 = array('ศูนย์', 'หนึ่ง', 'สอง', 'สาม', 'สี่', 'ห้า', 'หก', 'เจ็ด', 'แปด', 'เก้า', 'สิบ');
+              $txtnum2 = array('', 'สิบ', 'ร้อย', 'พัน', 'หมื่น', 'แสน', 'ล้าน', 'สิบ', 'ร้อย', 'พัน', 'หมื่น', 'แสน', 'ล้าน');
+              $number = str_replace(",", "", $number);
+              $number = str_replace(" ", "", $number);
+              $number = str_replace("บาท", "", $number);
+              $number = explode(".", $number);
+              if (sizeof($number) > 2) {
+                return '';
+                exit;
+              }
+              $strlen = strlen($number[0]);
+              $convert = '';
+              for ($i = 0; $i < $strlen; $i++) {
+                $n = substr($number[0], $i, 1);
+                if ($n != 0) {
+                  if ($i == ($strlen-1) && $n == 1) {
+                    $convert .= 'เอ็ด';
+                  } elseif ($i == ($strlen - 2) && $n == 2) {
+                    $convert .= 'ยี่';
+                  } elseif ($i == ($strlen - 2) && $n == 1) {
+                    $convert .= '';
+                  } else {
+                    $convert .= $txtnum1[$n];
+                  }
+                  $convert .= $txtnum2[$strlen - $i - 1];
+                }
+              }
+              $convert .= 'บาท';
+              if (sizeof($number) == 1) {
+                $convert .= 'ถ้วน';
+              } else {
+                if ($number[1] == '0' || $number[1] == '00' || $number[1] == '') {
+                  $convert .= 'ถ้วน';
+                } else {
+                  $number[1] = substr($number[1], 0, 2);
+                  $strlen = strlen($number[1]);
+                    for ($i = 0; $i < $strlen; $i++) {
+                      $n = substr($number[1], $i, 1);
+                      if ($n != 0) {
+                        if ($i > 0 && $n == 1 ) {
+                          $convert.= 'เอ็ด';
+                        } elseif ($i == 0 && $n == 2) {
+                          $convert .= 'ยี่';
+                        } elseif ($i == 0 && $n == 1) {
+                          $convert .= '';
+                        } else {
+                          $convert .= $txtnum1[$n];
+                        }
+                        $convert .= $i==0 ? $txtnum2[1] : '';
+                      }
+                    }
+                  $convert .= 'สตางค์';
+                }
+              }
+              return $convert.PHP_EOL;
+            }
+
+            ?>
+
             <tr>
                 <td colspan="3" class="border-0 padding-0">
+                    <table width="100%" border="0">
+                        <tr>
+                            <td width="100%" class="border-0">
+                                <table width="400px" border="0" align="left">
+                                    <tr>
+                                        <td width="1" class="text-nowrap border-0 padding-0">จำนวนเงิน (</td>
+                                        <td class="border-0 padding-0 text-center">
+                                            <?php
+                                            $sum_thai = array_sum ($result_y);
+
+                                            echo convertAmountToLetter($sum_thai); ?>
+                                            <div class="line-bottom-dashed">&nbsp;</div>
+                                        </td>
+                                        <td width="1" class="text-nowrap border-0 padding-0">)</td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td class="statement-header" align="center">&nbsp;
+                </td>
+            </tr>
+            <tr>
+                <td colspan="0">
                     <table width="100%" border="0">
                         <tr>
                             <td width="100%" class="border-0">
                                 <table width="300px" border="0" align="center">
                                     <tr>
                                         <td width="1" class="text-nowrap border-0 padding-0">ลงชื่อ</td>
-                                        <td class="border-0 padding-0">
+                                        <td class="border-0 padding-0 text-center">
+                                            <?php echo $firtname;?>&nbsp;&nbsp;<?php echo $lastname;?>
                                             <div class="line-bottom-dashed">&nbsp;</div>
                                         </td>
-                                        <td width="1" class="text-nowrap border-0 padding-0">ผู้ยืม</td>
+                                        <td width="1" class="text-nowrap border-0 padding-0">ผู้รับเงิน</td>
                                     </tr>
                                     <tr>
                                         <td class="border-0 padding-0" align="right">(</td>
                                         <td align="center" class="border-0 padding-0">
-                                            <?php //echo print_null($borrow->name);?>
+                                            <?php echo $prefix;?><?php echo $firtname;?>&nbsp;<?php echo $lastname;?>
                                         </td>
                                         <td class="border-0 padding-0" align="left">)</td>
                                     </tr>
@@ -358,113 +539,23 @@ else
                 </td>
             </tr>
             <tr>
-                <td colspan="3" class="border-0">
-                    &nbsp;
-                </td>
-            </tr>
-            <tr>
-                <td colspan="3" class="border-0 padding-0">
+                <td colspan="0">
                     <table width="100%" border="0">
                         <tr>
-                            <td width="50%" class="border-0">
-                                <strong class="d-block text-center">ความเห็นผู้รับผิดชอบพัสดุ</strong>
-                                <table width="80%" border="0" align="center">
-                                    <tr>
-                                        <td colspan="3" class="border-0">
-                                            <table border="0" align="center">
-                                                <tr>
-                                                    <td width="20" class="text-nowrap border-0 padding-0">
-                                                        <?php //echo ($borrow->status == 1) ? '&#x2611;' : '&#9744;';?>
-                                                    </td>
-                                                    <td class="text-nowrap border-0 padding-0">อนุมัติ</td>
-                                                    <td width="30">&nbsp;</td>
-                                                    <td class="text-nowrap border-0 padding-0">
-                                                    <?php //echo ($borrow->status == 0) ? '&#x2611;' : '&#9744;';?>
-                                                    </td>
-                                                    <td class="text-nowrap border-0 padding-0">ไม่อนุมัติ</td>
-                                                </tr>
-                                            </table>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="3" height="56" class="border-0">
-                                            &nbsp;
-                                        </td>
-                                    </tr>
+                            <td width="100%" class="border-0">
+                                <table width="300px" border="0" align="center">
                                     <tr>
                                         <td width="1" class="text-nowrap border-0 padding-0">ลงชื่อ</td>
-                                        <td class="border-0 padding-0">
+                                        <td class="border-0 padding-0 text-center">
+                                            <?php //echo $t_firstname;?>&nbsp;&nbsp;<?php //echo $t_lastname;?>
                                             <div class="line-bottom-dashed">&nbsp;</div>
                                         </td>
+                                        <td width="1" class="text-nowrap border-0 padding-0">ผู้จ่ายเงิน</td>
                                     </tr>
                                     <tr>
                                         <td class="border-0 padding-0" align="right">(</td>
                                         <td align="center" class="border-0 padding-0">
-                                            นางสาวนูรไอนี หมาดหมีน
-                                        </td>
-                                        <td class="border-0 padding-0" align="left">)</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-nowrap border-0 padding-0"></td>
-                                        <td align="center" class="border-0 padding-0">
-                                            เจ้าหน้าที่พัสดุ
-                                        </td>
-                                        <td class="border-0 padding-0" align="left"></td>
-                                    </tr>
-                                </table>
-                            </td>
-                            <td width="50%" class="border-0">
-                                <strong class="d-block text-center">ได้คืนพัสดุทั้งหมดแล้ว</strong>
-                                <table width="80%" border="0" align="center">
-                                    <tr>
-                                        <td colspan="3" height="25" class="border-0">
-                                            &nbsp;
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td width="1" class="text-nowrap border-0 padding-0">ลงชื่อ</td>
-                                        <td class="border-0 padding-0">
-                                            <div class="line-bottom-dashed">&nbsp;</div>
-                                        </td>
-                                        <td width="1" class="text-nowrap border-0 padding-0">ผู้คืน</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="border-0 padding-0" align="right">(</td>
-                                        <td align="center" class="border-0 padding-0">
-                                            <?php //echo print_null($borrow->name);?>
-                                        </td>
-                                        <td class="border-0 padding-0" align="left">)</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-nowrap border-0 padding-0">วันที่ (</td>
-                                        <td align="center" class="border-0 padding-0">
-                                            &nbsp;
-                                        </td>
-                                        <td class="border-0 padding-0" align="left">)</td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="3" class="border-0">
-                                            &nbsp;
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td width="1" class="text-nowrap border-0 padding-0">ลงชื่อ</td>
-                                        <td class="border-0 padding-0">
-                                            <div class="line-bottom-dashed">&nbsp;</div>
-                                        </td>
-                                        <td width="1" class="text-nowrap border-0 padding-0">ผู้รับคืน</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="border-0 padding-0" align="right">(</td>
-                                        <td align="center" class="border-0 padding-0">
-                                            นางสาวนูรไอนี หมาดหมีน
-                                        </td>
-                                        <td class="border-0 padding-0" align="left">)</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-nowrap border-0 padding-0">วันที่ (</td>
-                                        <td align="center" class="border-0 padding-0">
-                                            &nbsp;
+                                            <?php //echo $t_firstname;?>&nbsp;&nbsp;<?php //echo $t_lastname;?>
                                         </td>
                                         <td class="border-0 padding-0" align="left">)</td>
                                     </tr>
@@ -476,6 +567,12 @@ else
             </tr>
         </table>
     </div>
+    <?php
+         include 'report_debt2.php';
+         include 'report_debt3.php';
+         //include 'report_debt4.php';
+         include 'report_debt5.php';
+    ?>
 
     <ul class="right-menu">
         <li>
@@ -509,5 +606,5 @@ else
 
     <script src="<?php //echo site_common_node_modules_url('jquery/dist/jquery.min.js');?>"></script>
 </body>
-    
+
 </html>

@@ -1,6 +1,5 @@
 <?php
 
-    include '../../administrator/connect.php';
     //$id = $_SESSION['username'];
     //echo $id;
 // $sql ="SELECT * FROM tb_personnel WHERE username = '".$id."' ";
@@ -110,11 +109,11 @@
                             </a>
                             <div id="collapseA" class="collapse" aria-labelledby="headingA" data-parent="#accordionSidebar">
                                 <div class="bg-white py-2 collapse-inner rounded col-lg-12">
-                                    <a class="waves-effect waves-dark" href="../tb_admin/tb_doc_agreement.php"><i class="fa fa-caret-right"></i> เอกสารสัญญาณยืม</a>
-                                    <a class="waves-effect waves-dark" href="../tb_admin/tb_doc_salary.php"><i class="fa fa-caret-right"></i> เอกสารเงินเดือน</a>
-                                    <a class="waves-effect waves-dark" href="../tb_admin/tb_doc_cleansing.php"><i class="fa fa-caret-right"></i> เอกสารล้างหนี้</a>
-                                    <a class="waves-effect waves-dark" href="../tb_admin/tb_doc_contract.php"><i class="fa fa-caret-right"></i> เอกสารจ้างเหมาบริการ</a>
-                                    <a class="waves-effect waves-dark" href="../tb_admin/tb_doc_note.php"><i class="fa fa-caret-right"></i>    เอกสารบันทึกข้อความอื่นๆ</a>
+                                    <a class="waves-effect waves-dark" href="../input_doc/lend/index.php"><i class="fa fa-caret-right"></i> เอกสารสัญญาณยืม</a>
+                                    <a class="waves-effect waves-dark" href="../input_doc/salary/index.php"><i class="fa fa-caret-right"></i> เอกสารเงินเดือน</a>
+                                    <a class="waves-effect waves-dark" href="../input_doc/debt/index.php"><i class="fa fa-caret-right"></i> เอกสารล้างหนี้</a>
+                                    <a class="waves-effect waves-dark" href="../input_doc/contract/index.php"><i class="fa fa-caret-right"></i> เอกสารจ้างเหมาบริการ</a>
+                                    <a class="waves-effect waves-dark" href="../input_doc/note/command/index.php"><i class="fa fa-caret-right"></i>    เอกสารบันทึกข้อความอื่นๆ</a>
                                 </div>
                             </div>
                         </li>
