@@ -68,6 +68,9 @@ include('../../../../../config/constant.php');
                     <div class="col-md-5 align-self-center">
                         <h3 class="text-themecolor">เอกสารเรียนเชิญเป็นวิทยากร</h3>
                     </div>
+
+<?php                       $id = $_GET['id']; ?>
+
                     <div class="col-md-7 align-self-center">
                         <a href="../invite1/report.php?id=<?php echo $id;?>" class="btn waves-effect waves-light btn btn-info pull-right hidden-sm-down">
                             <i class="fa-fw fa fa-print"></i>

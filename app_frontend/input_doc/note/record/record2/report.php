@@ -1,4 +1,4 @@
-<?php 
+<?php
     include('../../../../../config/connect.php');
     include('../../../../../config/constant.php');
 ?>
@@ -33,6 +33,84 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
 </head>
+
+<?php
+
+$id = $_GET['id'];
+//echo $doc_id;
+
+$sql_note_record2 = "SELECT * FROM tb_note_record2 WHERE id = '".$id."' ";
+$query_note_record2 = mysqli_query($conn,$sql_note_record2);
+$result_note_record2 = mysqli_fetch_assoc($query_note_record2);
+
+$doc_id = $result_note_record2['doc_id'];
+$person_id = $result_note_record2['person_id'];
+$project_id = $result_note_record2['project_id'];
+$activity_id = $result_note_record2['activity_id'];
+$government = $result_note_record2['government'];
+$at = $result_note_record2['at'];
+$date_current = $result_note_record2['date_current'];
+$title_id = $result_note_record2['title_id'];
+$str_date = $result_note_record2['str_date'];
+$stp_date = $result_note_record2['stp_date'];
+$real_date = $result_note_record2['real_date'];
+
+$sql_title= "SELECT * FROM tb_title WHERE title_id = '".$title_id."' ";
+$query_title = mysqli_query($conn,$sql_title);
+$result_title = mysqli_fetch_assoc($query_title);
+$title = $result_title['title'];
+$body = $result_title['body'];
+
+$sql_project = "SELECT * FROM tb_project WHERE project_id = '".$project_id."' ";
+$query_project = mysqli_query($conn,$sql_project);
+$result_project = mysqli_fetch_assoc($query_project);
+$project_name = $result_project['project_name'];
+
+$sql_activity = "SELECT * FROM tb_activity WHERE activity_id = '".$activity_id."' ";
+$query_activity = mysqli_query($conn,$sql_activity);
+$result_activity = mysqli_fetch_assoc($query_activity);
+$activity = $result_activity['activity'];
+
+$sql_person = "SELECT * FROM tb_person WHERE person_id = '".$person_id."' ";
+$query_person = mysqli_query($conn,$sql_person);
+$result_person = mysqli_fetch_assoc($query_person);
+$prefix  = $result_person['prefix'];
+$firtname = $result_person['firtname'];
+$lastname = $result_person['lastname'];
+$idcard = $result_person['idcard'];
+$position_id = $result_person['position_id'];
+$house_num = $result_person['house_num'];
+$road = $result_person['road'];
+$village = $result_person['village'];
+$alley = $result_person['alley'];
+$province_id = $result_person['province_id'];
+$districts_id = $result_person['districts_id'];
+$amphures_id = $result_person['amphures_id'];
+
+$sql_position = "SELECT * FROM tb_position WHERE position_id = '".$position_id."' ";
+$query_position = mysqli_query($conn,$sql_position);
+$result_position = mysqli_fetch_assoc($query_position);
+$position_name = $result_position['position_name'];
+
+$sql_provinces = "SELECT * FROM provinces WHERE id = '".$province_id."' ";
+$query_provinces = mysqli_query($conn,$sql_provinces);
+$result_provinces = mysqli_fetch_assoc($query_provinces);
+$name_th_p = $result_provinces['name_th'];
+
+$sql_amphures = "SELECT * FROM amphures WHERE id = '".$amphures_id."' ";
+$query_amphures = mysqli_query($conn,$sql_amphures);
+$result_amphures = mysqli_fetch_assoc($query_amphures);
+$name_th_a = $result_amphures['name_th'];
+
+$sql_districts = "SELECT * FROM districts WHERE id = '".$districts_id."' ";
+$query_districts = mysqli_query($conn,$sql_districts);
+$result_districts = mysqli_fetch_assoc($query_districts);
+$name_th_d = $result_districts['name_th'];
+
+
+
+?>
+
 <body id="<?php //echo $body['name'];?>">
     <div class="page">
         <table border="0" width="100%" class="statement-view text-gray-900">
@@ -51,25 +129,67 @@
                         <tr>
                             <td width="1" class="text-nowrap border-0 padding-0">ส่วนราชการ</td>
                             <td class="border-0 padding-0">
-                                &nbsp;&nbsp;<?php //echo $government;?>
+                                &nbsp;&nbsp;<?php echo $government;?>
                                 <div class="line-bottom-dashed"></div>
                             </td>
                         </tr>
                     </table>
                 </td>
             </tr>
+
+            <?php
+
+            $subday_date_current = substr($date_current,8);
+            $submonth_date_current = substr($date_current,5,-3);
+            $subyear_date_current = substr($date_current,0,-6);
+
+
+            $numthai = array("๑","๒","๓","๔","๕","๖","๗","๘","๙","๐");
+            $numarabic = array("1","2","3","4","5","6","7","8","9","0");
+             $test = str_replace($numarabic,$numthai,$subday_date_current);
+
+             $str_month = $submonth_date_current;
+             if($str_month == "01"){
+               $month_thai = "มกราคม";
+             }else if($str_month == "02"){
+               $month_thai = "กุมภาพันธ์";
+             }else if($str_month == "03"){
+               $month_thai = "มีนาคม";
+             }else if($str_month == "04"){
+               $month_thai = "เมษายน";
+             }else if($str_month == "05"){
+               $month_thai = "พฤษภาคม";
+             }else if($str_month == "06"){
+               $month_thai = "มิถุนายน";
+             }else if($str_month == "07"){
+               $month_thai = "กรกฎาคม";
+             }else if($str_month == "08"){
+               $month_thai = "สิงหาคม";
+             }else if($str_month == "09"){
+               $month_thai = "กันยายน";
+             }else if($str_month == "10"){
+               $month_thai = "ตุลาคม";
+             }else if($str_month == "11"){
+               $month_thai = "พฤศจิกายน";
+             }else if($str_month == "12"){
+               $month_thai = "ธันวาคม";
+             }
+
+            ?>
+
+
             <tr align="left">
                 <td colspan="2">
                     <table width="100%" border="0" align="left">
                         <tr>
                             <td width="1" class="text-nowrap border-0 padding-0">ที่</td>
                             <td class="border-0 padding-0">
-                                &nbsp;&nbsp;<?php //echo $government;?>
+                                &nbsp;&nbsp;<?php echo $at;?>
                                 <div class="line-bottom-dashed"></div>
                             </td>
                             <td width="1" class="text-nowrap border-0 padding-0">วันที่</td>
                             <td class="border-0 padding-0">
-                                &nbsp;&nbsp;<?php //echo $government;?>
+                                &nbsp;&nbsp;<?php echo str_replace($numarabic,$numthai,$subday_date_current);?>&nbsp;<?php echo $month_thai;?>&nbsp;<?php echo str_replace($numarabic,$numthai,$subyear_date_current+543);?>
                                 <div class="line-bottom-dashed"></div>
                             </td>
                         </tr>
@@ -82,7 +202,7 @@
                         <tr>
                             <td width="1" class="text-nowrap border-0 padding-0">เรื่อง</td>
                             <td class="border-0 padding-0">
-                                &nbsp;&nbsp;<?php //echo $government;?>
+                                &nbsp;&nbsp;<?php echo $title;?>
                                 <div class="line-bottom-dashed"></div>
                             </td>
                         </tr>
@@ -101,20 +221,145 @@
                     </table>
                 </td>
             </tr>
+
+            <?php
+
+            $subday_str_date = substr($str_date,8);
+            $submonth_str_date = substr($str_date,5,-3);
+            $subyear_str_date = substr($str_date,0,-6);
+
+
+            $numthai = array("๑","๒","๓","๔","๕","๖","๗","๘","๙","๐");
+            $numarabic = array("1","2","3","4","5","6","7","8","9","0");
+             $test = str_replace($numarabic,$numthai,$subday_date_current);
+
+             $str_str = $submonth_str_date;
+             if($str_str == "01"){
+               $str_thai = "มกราคม";
+             }else if($str_str == "02"){
+               $str_thai = "กุมภาพันธ์";
+             }else if($str_str == "03"){
+               $str_thai = "มีนาคม";
+             }else if($str_str == "04"){
+               $str_thai = "เมษายน";
+             }else if($str_str == "05"){
+               $str_thai = "พฤษภาคม";
+             }else if($str_str == "06"){
+               $str_thai = "มิถุนายน";
+             }else if($str_str == "07"){
+               $str_thai = "กรกฎาคม";
+             }else if($str_str == "08"){
+               $str_thai = "สิงหาคม";
+             }else if($str_str == "09"){
+               $str_thai = "กันยายน";
+             }else if($str_str == "10"){
+               $str_thai = "ตุลาคม";
+             }else if($str_str == "11"){
+               $str_thai = "พฤศจิกายน";
+             }else if($str_str == "12"){
+               $str_thai = "ธันวาคม";
+             }
+
+            ?>
+
+            <?php
+
+            $subday_stp_date = substr($stp_date,8);
+            $submonth_stp_date = substr($stp_date,5,-3);
+            $subyear_stp_date = substr($stp_date,0,-6);
+
+
+            $numthai = array("๑","๒","๓","๔","๕","๖","๗","๘","๙","๐");
+            $numarabic = array("1","2","3","4","5","6","7","8","9","0");
+             $test = str_replace($numarabic,$numthai,$subday_date_current);
+
+             $str_stp = $submonth_stp_date;
+             if($str_stp == "01"){
+               $stp_thai = "มกราคม";
+             }else if($str_stp == "02"){
+               $stp_thai = "กุมภาพันธ์";
+             }else if($str_stp == "03"){
+               $stp_thai = "มีนาคม";
+             }else if($str_stp == "04"){
+               $stp_thai = "เมษายน";
+             }else if($str_stp == "05"){
+               $stp_thai = "พฤษภาคม";
+             }else if($str_stp == "06"){
+               $stp_thai = "มิถุนายน";
+             }else if($str_stp == "07"){
+               $stp_thai = "กรกฎาคม";
+             }else if($str_stp == "08"){
+               $stp_thai = "สิงหาคม";
+             }else if($str_stp == "09"){
+               $stp_thai = "กันยายน";
+             }else if($str_stp == "10"){
+               $stp_thai = "ตุลาคม";
+             }else if($str_stp == "11"){
+               $stp_thai = "พฤศจิกายน";
+             }else if($str_stp == "12"){
+               $stp_thai = "ธันวาคม";
+             }
+
+            ?>
+
             <tr align="left">
                 <td colspan="2">
                     <table width="100%" border="0" align="left">
                         <tr>
-                            <td  colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ด้วยข้าพเจ้า นางสาวสุรัฏิ์ดาห์ สหสันติวรกุล ตำแหน่งเจ้าหน้าที่โครงการยกระดับคุณภาพการเรียนรู้ด้านการอ่านการเขียนและการคิดวิเคราะห์ของนักเรียนในระดับการศึกษาขั้นพื้นฐานในพื้นที่ชายแดนใต้ มหาวิทยาลัยราชภัฏยะลา เริ่มปฏิบัติตามสัญญาจ้างเหมาบริการ เมื่อวันที่ ๒๔ มกราคม ๒๕๖๒ ถึง ๓๐ กันยายน ๒๕๖๒<td>
+                            <td  colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ด้วยข้าพเจ้า <?php echo $prefix; ?><?php echo $firtname; ?>&nbsp;<?php echo $lastname; ?> ตำแหน่งเจ้าหน้าที่โครงการ "<?php echo $project_name; ?>" มหาวิทยาลัยราชภัฏยะลา เริ่มปฏิบัติตามสัญญาจ้างเหมาบริการ
+                              เมื่อวันที่ <?php echo str_replace($numarabic,$numthai,$subday_str_date);?>&nbsp;<?php echo $str_thai;?>&nbsp;<?php echo str_replace($numarabic,$numthai,$subyear_str_date+543);?>
+                              ถึง <?php echo str_replace($numarabic,$numthai,$subday_stp_date);?>&nbsp;<?php echo $stp_thai;?>&nbsp;<?php echo str_replace($numarabic,$numthai,$subyear_stp_date+543);?><td>
                         </tr>
                     </table>
                 </td>
             </tr>
+
+            <?php
+
+            $subday_real_date = substr($real_date,8);
+            $submonth_real_date = substr($real_date,5,-3);
+            $subyear_real_date = substr($real_date,0,-6);
+
+
+            $numthai = array("๑","๒","๓","๔","๕","๖","๗","๘","๙","๐");
+            $numarabic = array("1","2","3","4","5","6","7","8","9","0");
+             $test = str_replace($numarabic,$numthai,$subday_date_current);
+
+             $str_real = $submonth_real_date;
+             if($str_real == "01"){
+               $real_thai = "มกราคม";
+             }else if($str_real == "02"){
+               $real_thai = "กุมภาพันธ์";
+             }else if($str_real == "03"){
+               $real_thai = "มีนาคม";
+             }else if($str_real == "04"){
+               $real_thai = "เมษายน";
+             }else if($str_real == "05"){
+               $real_thai = "พฤษภาคม";
+             }else if($str_real == "06"){
+               $real_thai = "มิถุนายน";
+             }else if($str_real == "07"){
+               $real_thai = "กรกฎาคม";
+             }else if($str_real == "08"){
+               $real_thai = "สิงหาคม";
+             }else if($str_real == "09"){
+               $real_thai = "กันยายน";
+             }else if($str_real == "10"){
+               $real_thai = "ตุลาคม";
+             }else if($str_real == "11"){
+               $real_thai = "พฤศจิกายน";
+             }else if($str_real == "12"){
+               $real_thai = "ธันวาคม";
+             }
+
+            ?>
+
             <tr align="left">
                 <td colspan="2">
                     <table width="100%" border="0" align="left">
                         <tr>
-                            <td  colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ในการนี้ ข้าพเจ้ามีความประสงค์ขอลาออกจากเจ้าหน้าที่โครงการยกระดับคุณภาพการเรียนรู้ด้านการอ่านและการคิดวิเคราะห์ของนักเรียนในระดับการศึกษาขั้นพื้นฐานในพื้นที่ชายแดนใต้ เนื่องจากได้รับคัดเลือกทำหน้าที่วิทยากรผู้สอนภาษาไทยในโรงเรียนตำรวจตระเวนชายแดน สังกัดกองกำกับการตำรวจตระเวนชายแดนนที่ ๔๔ มีผลตั้งแต่ ๐๓ เมษายน ๒๕๖๒ เป็นต้นไป<td>
+                            <td  colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ในการนี้ ข้าพเจ้ามีความประสงค์ขอลาออกจากเจ้าหน้าที่โครงการ "<?php echo $project_name; ?>" เนื่องจากได้รับคัดเลือกทำหน้าที่วิทยากรผู้สอนภาษาไทยในโรงเรียนตำรวจตระเวนชายแดน สังกัดกองกำกับการตำรวจตระเวนชายแดนที่ ๔๔
+                              มีผลตั้งแต่  <?php echo str_replace($numarabic,$numthai,$subday_real_date);?>&nbsp;<?php echo $real_thai;?>&nbsp;<?php echo str_replace($numarabic,$numthai,$subyear_real_date+543);?> เป็นต้นไป<td>
                         </tr>
                     </table>
                 </td>
@@ -166,12 +411,7 @@
                             <td></td>
                             <td></td>
                             <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>( นางสาวสุรัฏิ์ดาห์ สหสันติวรกุล )</td>
+                            <td>( <?php echo $prefix; ?><?php echo $firtname; ?>&nbsp;<?php echo $lastname; ?> )</td>
                             <td></td>
                         </tr>
                     </table>
@@ -181,7 +421,6 @@
                 <td colspan="2">
                     <table width="100%" border="0" align="left">
                         <tr>
-                            <td></td>
                             <td></td>
                             <td></td>
                             <td></td>

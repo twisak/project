@@ -34,6 +34,92 @@
 <![endif]-->
 </head>
 
+
+<?php
+
+$id = $_GET['id'];
+//echo $doc_id;
+
+$sql_note_command = "SELECT * FROM tb_note_command WHERE id = '".$id."' ";
+$query_note_command = mysqli_query($conn,$sql_note_command);
+$result_note_command = mysqli_fetch_assoc($query_note_command);
+
+$doc_id = $result_note_command['doc_id'];
+$date_current = $result_note_command['date_current'];
+$str_date = $result_note_command['str_date'];
+$stp_date = $result_note_command['stp_date'];
+$title_id = $result_note_command['title_id'];
+$that = $result_note_command['that'];
+$project_id = $result_note_command['project_id'];
+$activity_id = $result_note_command['activity_id'];
+$person_id = $result_note_command['person_id'];
+$travel = $result_note_command['travel'];
+$byusing = $result_note_command['byusing'];
+$driver = $result_note_command['driver'];
+$budget_id = $result_note_command['budget_id'];
+
+$sql_title= "SELECT * FROM tb_title WHERE title_id = '".$title_id."' ";
+$query_title = mysqli_query($conn,$sql_title);
+$result_title = mysqli_fetch_assoc($query_title);
+$title = $result_title['title'];
+$body = $result_title['body'];
+
+$sql_budget= "SELECT * FROM tb_budget WHERE budget_id = '".$budget_id."' ";
+$query_budget = mysqli_query($conn,$sql_budget);
+$result_budget = mysqli_fetch_assoc($query_budget);
+$budget = $result_budget['budget'];
+
+$sql_project = "SELECT * FROM tb_project WHERE project_id = '".$project_id."' ";
+$query_project = mysqli_query($conn,$sql_project);
+$result_project = mysqli_fetch_assoc($query_project);
+$project_name = $result_project['project_name'];
+
+$sql_activity = "SELECT * FROM tb_activity WHERE activity_id = '".$activity_id."' ";
+$query_activity = mysqli_query($conn,$sql_activity);
+$result_activity = mysqli_fetch_assoc($query_activity);
+$activity = $result_activity['activity'];
+
+$sql_person = "SELECT * FROM tb_person WHERE person_id = '".$person_id."' ";
+$query_person = mysqli_query($conn,$sql_person);
+$result_person = mysqli_fetch_assoc($query_person);
+$prefix  = $result_person['prefix'];
+$firtname = $result_person['firtname'];
+$lastname = $result_person['lastname'];
+$idcard = $result_person['idcard'];
+$position_id = $result_person['position_id'];
+$house_num = $result_person['house_num'];
+$road = $result_person['road'];
+$village = $result_person['village'];
+$alley = $result_person['alley'];
+$province_id = $result_person['province_id'];
+$districts_id = $result_person['districts_id'];
+$amphures_id = $result_person['amphures_id'];
+
+$sql_position = "SELECT * FROM tb_position WHERE position_id = '".$position_id."' ";
+$query_position = mysqli_query($conn,$sql_position);
+$result_position = mysqli_fetch_assoc($query_position);
+$position_name = $result_position['position_name'];
+
+$sql_provinces = "SELECT * FROM provinces WHERE id = '".$province_id."' ";
+$query_provinces = mysqli_query($conn,$sql_provinces);
+$result_provinces = mysqli_fetch_assoc($query_provinces);
+$name_th_p = $result_provinces['name_th'];
+
+$sql_amphures = "SELECT * FROM amphures WHERE id = '".$amphures_id."' ";
+$query_amphures = mysqli_query($conn,$sql_amphures);
+$result_amphures = mysqli_fetch_assoc($query_amphures);
+$name_th_a = $result_amphures['name_th'];
+
+$sql_districts = "SELECT * FROM districts WHERE id = '".$districts_id."' ";
+$query_districts = mysqli_query($conn,$sql_districts);
+$result_districts = mysqli_fetch_assoc($query_districts);
+$name_th_d = $result_districts['name_th'];
+
+
+
+?>
+
+
 <body id="<?php //echo $body['name'];?>">
     <div class="page">
         <table border="0" width="100%" class="statement-view text-gray-900">
@@ -44,12 +130,12 @@
             </tr>
             <tr>
                 <td colspan="3" class="statement-header" align="center">
-                    <strong>ที่ ๑๓๗๑ / ๒๕๖๒</strong>
+                    <strong>ที่ <?php echo $that; ?></strong>
                 </td>
             </tr>
             <tr>
                 <td colspan="3" class="statement-header" align="center">
-                    <strong>เรื่อง ให้บุคคลในสถาบันอุดมศึกษาเดินทางไปราชการ</strong>
+                    <strong>เรื่อง <?php echo $title; ?></strong>
                 </td>
             </tr>
             <tr>
@@ -60,7 +146,7 @@
                 <td colspan="2">
                     <table width="100%" border="0" align="left">
                         <tr>
-                            <td  colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ด้วยมหาวิทยาลัคำสั่งมหาวิทยาลัยราชภัฏยะลา ได้ดำเนินโครงการ "ยกระดับคุณภาพการเรยนร฿้ด้านการอ่านการเขียนและการคิดวิเคราะห์ของนักเรียนในระดับการศึกษาขั้นพื้นฐานในพื้นที่ชายแดนใต้" ได้จัดกิจกรรมที่ ๑ สำรวจปัญหาระดับคุณภาพของผู้เรียนด้านการอ่าน การเขียน และการคิดวิเคราะห์ ของแต่ละ โรงเรียน และสนับสนุนการจัดการเรียนรู้ในระดับสถานศึกษา ระหว่างวันที่ ๒๕-๒๗ กุมภาพันธ์ ๒๕๖๒ ณ โรงเรียนบ้านเยาะ อำเภอธารโต จังหวัดยะลา โรงเรียนบ้านน้ำดำ อำเภอหนองจิก จังหวัดปัตตานี และ โรงเรียนชุมชนบ้านซากอ อำเภอศรีสาคร จังหวัดนราธิวาส </td>
+                            <td  colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ด้วยมหาวิทยาลัคำสั่งมหาวิทยาลัยราชภัฏยะลา ได้ดำเนินโครงการ "<?php echo $project_name; ?>" <?php echo $activity; ?>  </td>
                         </tr>
 
                     </table>
@@ -143,6 +229,47 @@
                     </table>
                 </td>
             </tr>
+
+            <?php
+
+            $subday_date_current = substr($date_current,8);
+            $submonth_date_current = substr($date_current,5,-3);
+            $subyear_date_current = substr($date_current,0,-6);
+
+
+            $numthai = array("๑","๒","๓","๔","๕","๖","๗","๘","๙","๐");
+            $numarabic = array("1","2","3","4","5","6","7","8","9","0");
+             $test = str_replace($numarabic,$numthai,$subday_date_current);
+
+             $str_month = $submonth_date_current;
+             if($str_month == "01"){
+               $month_thai = "มกราคม";
+             }else if($str_month == "02"){
+               $month_thai = "กุมภาพันธ์";
+             }else if($str_month == "03"){
+               $month_thai = "มีนาคม";
+             }else if($str_month == "04"){
+               $month_thai = "เมษายน";
+             }else if($str_month == "05"){
+               $month_thai = "พฤษภาคม";
+             }else if($str_month == "06"){
+               $month_thai = "มิถุนายน";
+             }else if($str_month == "07"){
+               $month_thai = "กรกฎาคม";
+             }else if($str_month == "08"){
+               $month_thai = "สิงหาคม";
+             }else if($str_month == "09"){
+               $month_thai = "กันยายน";
+             }else if($str_month == "10"){
+               $month_thai = "ตุลาคม";
+             }else if($str_month == "11"){
+               $month_thai = "พฤศจิกายน";
+             }else if($str_month == "12"){
+               $month_thai = "ธันวาคม";
+             }
+
+            ?>
+
             <tr align="left">
                 <td colspan="2">
                     <table width="100%" border="0" align="left">
@@ -152,7 +279,7 @@
                             <td></td>
                             <td></td>
                             <td></td>
-                            <td>สั่ง ณ วันที่ ๒๒ กุกุมภาพันธ์ ๒๕๖๒</td>
+                            <td>สั่ง ณ วันที่ <?php echo str_replace($numarabic,$numthai,$subday_date_current);?>&nbsp;<?php echo $month_thai;?>&nbsp;<?php echo str_replace($numarabic,$numthai,$subyear_date_current+543);?></td>
                             <td></td>
                             <td></td>
                             <td></td>

@@ -1,4 +1,4 @@
-<?php 
+<?php
 include('../../../../../config/connect.php');
 include('../../../../../config/constant.php');
 
@@ -79,6 +79,9 @@ include('../../../../../config/constant.php');
                     <div class="col-md-5 align-self-center">
                         <h3 class="text-themecolor">เอกสารบันทึกข้อความ/ขอลาออกเจ้าหน้าที่โครงการ</h3>
                     </div>
+
+<?php                                     $id = $_GET['id']; ?>
+
                     <div class="col-md-7 align-self-center">
                         <a href="../record2/report.php?id=<?php echo $id;?>" class="btn waves-effect waves-light btn btn-info pull-right hidden-sm-down">
                             <i class="fa-fw fa fa-print"></i>
@@ -94,7 +97,7 @@ include('../../../../../config/constant.php');
                                 <form class="form-horizontal form-material">
                                     <?php
 
-                                    $id = $_GET['id'];
+
 
                                             $sql ="SELECT * FROM tb_note_record2 WHERE id = '".$id."' ";
                                             $query = mysqli_query($conn,$sql);
