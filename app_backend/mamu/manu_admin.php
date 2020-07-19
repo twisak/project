@@ -97,15 +97,15 @@
                     <ul id="sidebarnav">
                         <li> <a class="waves-effect waves-dark" href="../dashboard/index.php" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">Dashboard</span></a>
                         </li>
-                        <li> <a class="waves-effect waves-dark" href="../tb_user/tb_user.php" aria-expanded="false"><i class="fa fa-user-circle-o"></i><span class="hide-menu">จัดการข้อมูลบุคลากร</span></a>
+                        <li> <a class="waves-effect waves-dark" href="../tb_user/tb_user.php" aria-expanded="false"><i class="fa fa-address-book"></i><span class="hide-menu">จัดการข้อมูลบุคลากร</span></a>
                         </li>
-                        <li> <a class="waves-effect waves-dark" href="../teacher/tb_teacher.php" aria-expanded="false"><i class="fa fa-bookmark-o"></i><span class="hide-menu">จัดการข้อมูลอาจารย์</span></a>
+                        <li> <a class="waves-effect waves-dark" href="../teacher/tb_teacher.php" aria-expanded="false"><i class="fa fa-address-book-o"></i><span class="hide-menu">จัดการข้อมูลอาจารย์</span></a>
                         </li>
-                        <li> <a class="waves-effect waves-dark" href="../position/tb_position.php" aria-expanded="false"><i class="fa fa-bookmark-o"></i><span class="hide-menu">จัดการข้อมูลตำแหน่ง</span></a>
+                        <li> <a class="waves-effect waves-dark" href="../position/tb_position.php" aria-expanded="false"><i class="fa fa-area-chart"></i><span class="hide-menu">จัดการข้อมูลตำแหน่ง</span></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link waves-effect waves-dark collapsed" href="#" data-toggle="collapse" data-target="#collapseA" aria-expanded="false" aria-controls="collapseA">
-                                <i class="fa fa-sun-o"></i>
+                                <i class="fa fa-book"></i>
                                 <span>จัดการข้อมูลเอกสาร</span>
                             </a>
                             <div id="collapseA" class="collapse" aria-labelledby="headingA" data-parent="#accordionSidebar">
@@ -119,15 +119,15 @@
                             </div>
                         </li>
 
-                        <li> <a class="waves-effect waves-dark" href="../project/tb_project.php" aria-expanded="false"><i class="fa fa-globe"></i><span class="hide-menu">จัดการข้อมูลโครงการ</span></a>
+                        <li> <a class="waves-effect waves-dark" href="../project/tb_project.php" aria-expanded="false"><i class="fa fa-folder-open"></i><span class="hide-menu">จัดการข้อมูลโครงการ</span></a>
                         </li>
-                        <li> <a class="waves-effect waves-dark" href="../activity/tb_activity.php" aria-expanded="false"><i class="fa fa-globe"></i><span class="hide-menu">จัดการข้อมูลกิจกรรม</span></a>
+                        <li> <a class="waves-effect waves-dark" href="../activity/tb_activity.php" aria-expanded="false"><i class="fa fa-folder-open-o"></i><span class="hide-menu">จัดการข้อมูลกิจกรรม</span></a>
                         </li>
-                        <li> <a class="waves-effect waves-dark" href="../tb_title/tb_title.php" aria-expanded="false"><i class="fa fa-question-circle"></i><span class="hide-menu">จัดการข้อมูลหัวข้อเรื่อง</span></a>
+                        <li> <a class="waves-effect waves-dark" href="../tb_title/tb_title.php" aria-expanded="false"><i class="fa fa-pencil-square-o"></i><span class="hide-menu">จัดการข้อมูลหัวข้อเรื่อง</span></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link waves-effect waves-dark collapsed" href="#" data-toggle="collapse" data-target="#collapseB" aria-expanded="false" aria-controls="collapseB">
-                                <i class="fa fa-sun-o"></i>
+                                <i class="fa fa-newspaper-o"></i>
                                 <span>จัดการข้อมูลต่างๆ</span>
                             </a>
                             <div id="collapseB" class="collapse" aria-labelledby="headingB" data-parent="#accordionSidebar">
@@ -139,7 +139,7 @@
                                 </div>
                             </div>
                         </li>
-                        <li> <a class="waves-effect waves-dark" href="../../administrator/logout.php" aria-expanded="false"><i class="fa fa-table"></i><span class="hide-menu">Logout</span></a>
+                        <li> <a class="waves-effect waves-dark" href="../../administrator/logout.php" aria-expanded="false"><i class="fa fa-power-off"></i><span class="hide-menu">Logout</span></a>
                         </li>
                     </ul>
                     <!-- <div class="text-center m-t-30">

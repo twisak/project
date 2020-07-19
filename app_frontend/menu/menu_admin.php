@@ -92,11 +92,11 @@
                     <ul id="sidebarnav">
                         <li> <a class="waves-effect waves-dark" href="<?php echo ROOT_PROJECT_FRONTEND;?>/dashboard/index.php" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">Dashboard</span></a>
                         </li>
-                        <li> <a class="waves-effect waves-dark" href="<?php echo ROOT_PROJECT_FRONTEND;?>/user/tb_user.php" aria-expanded="false"><i class="fa fa-globe"></i><span class="hide-menu">ข้อมูลส่วนตัว</span></a>
+                        <li> <a class="waves-effect waves-dark" href="<?php echo ROOT_PROJECT_FRONTEND;?>/user/tb_user.php" aria-expanded="false"><i class="fa fa-address-card"></i><span class="hide-menu">ข้อมูลส่วนตัว</span></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link waves-effect waves-dark collapsed" href="#" data-toggle="collapse" data-target="#collapseB" aria-expanded="false" aria-controls="collapseB">
-                                <i class="fa fa-sun-o"></i>
+                                <i class="fa fa-book"></i>
                                 <span>ข้อมูลเอกสาร</span>
                             </a>
                             <div id="collapseB" class="collapse" aria-labelledby="headingB" data-parent="#accordionSidebar">
@@ -109,7 +109,7 @@
                                 </div>
                             </div>
                         </li>
-                        <li> <a class="waves-effect waves-dark" href="<?php echo ROOT_PROJECT;?>/administrator/login.php" aria-expanded="false"><i class="fa fa-table"></i><span class="hide-menu">Logout</span></a>
+                        <li> <a class="waves-effect waves-dark" href="<?php echo ROOT_PROJECT;?>/administrator/login.php" aria-expanded="false"><i class="fa fa-power-off"></i><span class="hide-menu">Logout</span></a>
                         </li>
                         <!-- <li> <a class="waves-effect waves-dark" href="pages-blank.html" aria-expanded="false"><i class="fa fa-bookmark-o"></i><span class="hide-menu">Blank</span></a>
                         </li>
