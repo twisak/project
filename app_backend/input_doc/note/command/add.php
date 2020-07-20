@@ -1,4 +1,4 @@
-<?php 
+<?php
 include('../../../../config/connect.php');
 include('../../../../config/constant.php');
     $username= $_SESSION['username'];
@@ -65,7 +65,7 @@ include('../../../../config/constant.php');
     <!-- Main wrapper - style you can find in pages.scss -->
     <!-- ============================================================== -->
     <div id="main-wrapper">
-        <?php include '../../../menu/menu_admin.php'; ?>
+        <?php include '../../../mamu/manu_admin.php'; ?>
         <div class="page-wrapper">
             <!-- ============================================================== -->
             <!-- Container fluid  -->
@@ -112,7 +112,7 @@ include('../../../../config/constant.php');
                                     <div class="row">
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <label><b>รหัสเอกสารคำสั่ง</b></label> 
+                                                <label><b>รหัสเอกสารคำสั่ง</b></label>
                                                 <input type="text" value="<?=$id?>" readonly class="form-control form-control-line">
                                                 <input type="hidden" name="doc_id" value="<?=$id?>" />
                                             </div>

@@ -1,4 +1,4 @@
-<?php 
+<?php
     include('../../../config/connect.php');
     include('../../../config/constant.php');
 ?>
@@ -45,7 +45,7 @@
     <!-- Main wrapper - style you can find in pages.scss -->
     <!-- ============================================================== -->
     <div id="main-wrapper">
-        <?php include '../../menu/menu_admin.php'; ?>
+        <?php include '../../mamu/manu_admin.php'; ?>
         <div class="page-wrapper">
             <div class="container-fluid">
                 <div class="row page-titles">
@@ -75,7 +75,7 @@
                                                 if(isset($_GET["txtKeyword"])){
                                                     $strKeyword = $_GET["txtKeyword"];
                                                 }
-                                            ?>                                                                        
+                                            ?>
                                             <form name="frmSearch" method="post" action="<?php echo $_SERVER['SCRIPT_NAME'];?>">
                                                 <div class="container">
                                                     <div class="row">

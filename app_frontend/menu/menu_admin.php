@@ -32,7 +32,7 @@
 
                             <label class="dark-logo text-info text-center"><b>YRU Document</b></label>
                         </b>
-                        
+
                 </div>
                 <!-- ============================================================== -->
                 <!-- End Logo -->
@@ -106,7 +106,7 @@
                                 </div>
                             </div>
                         </li>
-                        <li> <a class="waves-effect waves-dark" href="<?php echo ROOT_PROJECT;?>/administrator/login.php" aria-expanded="false"><i class="fa fa-power-off"></i><span class="hide-menu">Logout</span></a>
+                        <li> <a class="waves-effect waves-dark" href="<?php echo ROOT_PROJECT;?>/administrator/logout.php" aria-expanded="false"><i class="fa fa-power-off"></i><span class="hide-menu">Logout</span></a>
                         </li>
                         <!-- <li> <a class="waves-effect waves-dark" href="pages-blank.html" aria-expanded="false"><i class="fa fa-bookmark-o"></i><span class="hide-menu">Blank</span></a>
                         </li>

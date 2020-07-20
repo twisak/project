@@ -1,4 +1,4 @@
-<?php 
+<?php
     include('../../../config/connect.php');
     include('../../../config/constant.php');
 ?>
@@ -38,9 +38,9 @@
             <p class="loader__label">Admin Wrap</p>
         </div>
     </div>
-    <?php 
+    <?php
 
-    include '../../menu/menu_admin.php';
+    include '../../mamu/manu_admin.php';
 
     $id = $_GET['id'];
 
@@ -224,7 +224,7 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                            <label><b>ปฎิบัติงานดังกล่าวงวดที่</b></label>
-                                                <input type="text" class="form-control form-control-line" name="perform" value="<?php echo $perform; ?>" onKeyUp="IsNumeric(this.value,this)"> 
+                                                <input type="text" class="form-control form-control-line" name="perform" value="<?php echo $perform; ?>" onKeyUp="IsNumeric(this.value,this)">
                                             </div>
                                         </div>
                                         <div class="col-md-4">

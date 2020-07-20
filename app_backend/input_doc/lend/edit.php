@@ -1,4 +1,4 @@
-<?php 
+<?php
 include('../../../config/connect.php');
 include('../../../config/constant.php');
 ?>
@@ -39,7 +39,7 @@ include('../../../config/constant.php');
         </div>
     </div>
     <div id="main-wrapper">
-        <?php include '../../menu/menu_admin.php'; ?>
+        <?php include '../../mamu/manu_admin.php'; ?>
 
         <div class="page-wrapper">
             <div class="container-fluid">
@@ -192,7 +192,7 @@ include('../../../config/constant.php');
                                                 </select>
                                             </div>
                                         </div>
-                                        
+
 
                                     </div>
 
@@ -341,7 +341,7 @@ include('../../../config/constant.php');
                                                                         $value1 = $pay_type1[$j];
                                                                         //echo "<tr><td>{$value}</td></tr>";
                                                                         $j++;
-                                                                        }   
+                                                                        }
                                                                     }
                                                                     $price_list1 = array($price_list);
                                                                     foreach ($price_list1 as $price_list1){
@@ -350,7 +350,7 @@ include('../../../config/constant.php');
                                                                         $value2 = $price_list1[$j];
                                                                         //echo "<tr><td>{$value}</td></tr>";
                                                                         $j++;
-                                                                        }   
+                                                                        }
                                                                     }
                                                                     $balance1 = array($balance);
                                                                     foreach ($balance1 as $balance1){
@@ -359,20 +359,20 @@ include('../../../config/constant.php');
                                                                         $value3 = $balance1[$j];
                                                                         //echo "<tr><td>{$value}</td></tr>";
                                                                         $j++;
-                                                                        }   
+                                                                        }
                                                                     }
 
                                                                     $date_list1 = array($date_list);
 
                                                                     foreach ($date_list1 as $date_list1){
                                                                         $j=0;
-                                                                        
+
                                                                         foreach ($date_list1 as $date_list1[$j]){
                                                                             $value = $date_list1[$j];
                                                                             $value1 = $pay_type1[$j];
                                                                             $value2 = $price_list1[$j];
                                                                             $value3 = $balance1[$j];
-                                                                            
+
                                                                             echo "<tr><td class='col-md-8'><div class='row'><div class='col-md-2'><div class='form-group'><label><b>วัน/เดือน/ปี</b></label><input type='date' class='form-control p_input' value='$value' name='date_list[]'></div></div><div class='col-md-2'><div class='form-group'><label><b>การชำระ</b></label><select class='form-control' name='pay_type[]'><option>$value1</option><option>เงินสด</option><option><b>ใบสำคัญ</b></option></select></div></div><div class='col-md-2'><div class='form-group'><label><b>ราคา</b></label></label><input type='text' class='form-control p_input' onKeyUp='IsNumeric(this.value,this)' value='$value2' name='price_list[]'></div></div><div class='col-md-2'><div class='form-group'><label><b>ยอดคงค้าง</b></label><input type='text' class='form-control p_input' onKeyUp='IsNumeric(this.value,this)' value='$value3' name='balance[]'></div></div></div></td></tr>";
                                                                             //echo "<li>{$value}</li>";
                                                                             $j++;

@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 include('../../../../../config/connect.php');
 include('../../../../../config/constant.php');
@@ -68,7 +68,7 @@ include('../../../../../config/constant.php');
     <!-- Main wrapper - style you can find in pages.scss -->
     <!-- ============================================================== -->
     <div id="main-wrapper">
-        <?php include '../../../../menu/menu_admin.php'; ?>
+        <?php include '../../../../mamu/manu_admin.php'; ?>
         <div class="page-wrapper">
             <!-- ============================================================== -->
             <!-- Container fluid  -->
@@ -130,7 +130,7 @@ include('../../../../../config/constant.php');
                                                         while($result = mysqli_fetch_assoc($query)):
                                                             $title_id = $result['title_id'];
                                                             $title = $result['title'];
-                                                            
+
                                                             $new_title = iconv_substr($title,0,80,'UTF-8'). "...";
                                                     ?>
                                                     <option value="<?php echo $title_id;?>"><?php echo $new_title;?></option>

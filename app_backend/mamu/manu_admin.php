@@ -94,13 +94,13 @@
                 <!-- Sidebar navigation-->
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
-                        <li> <a class="waves-effect waves-dark" href="../dashboard/index.php" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">Dashboard</span></a>
+                        <li> <a class="waves-effect waves-dark" href="<?php echo ROOT_PROJECT_BACKEND;?>/dashboard/index.php" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">Dashboard</span></a>
                         </li>
-                        <li> <a class="waves-effect waves-dark" href="../tb_user/tb_user.php" aria-expanded="false"><i class="fa fa-address-book"></i><span class="hide-menu">จัดการข้อมูลบุคลากร</span></a>
+                        <li> <a class="waves-effect waves-dark" href="<?php echo ROOT_PROJECT_BACKEND;?>/tb_user/tb_user.php" aria-expanded="false"><i class="fa fa-address-book"></i><span class="hide-menu">จัดการข้อมูลบุคลากร</span></a>
                         </li>
-                        <li> <a class="waves-effect waves-dark" href="../teacher/tb_teacher.php" aria-expanded="false"><i class="fa fa-address-book-o"></i><span class="hide-menu">จัดการข้อมูลอาจารย์</span></a>
+                        <li> <a class="waves-effect waves-dark" href="<?php echo ROOT_PROJECT_BACKEND;?>/teacher/tb_teacher.php" aria-expanded="false"><i class="fa fa-address-book-o"></i><span class="hide-menu">จัดการข้อมูลอาจารย์</span></a>
                         </li>
-                        <li> <a class="waves-effect waves-dark" href="../position/tb_position.php" aria-expanded="false"><i class="fa fa-area-chart"></i><span class="hide-menu">จัดการข้อมูลตำแหน่ง</span></a>
+                        <li> <a class="waves-effect waves-dark" href="<?php echo ROOT_PROJECT_BACKEND;?>/position/tb_position.php" aria-expanded="false"><i class="fa fa-area-chart"></i><span class="hide-menu">จัดการข้อมูลตำแหน่ง</span></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link waves-effect waves-dark collapsed" href="#" data-toggle="collapse" data-target="#collapseA" aria-expanded="false" aria-controls="collapseA">
@@ -109,20 +109,20 @@
                             </a>
                             <div id="collapseA" class="collapse" aria-labelledby="headingA" data-parent="#accordionSidebar">
                                 <div class="bg-white py-2 collapse-inner rounded col-lg-12">
-                                    <a class="waves-effect waves-dark" href="../input_doc/lend/index.php"><i class="fa fa-caret-right"></i> เอกสารสัญญาณยืม</a>
-                                    <a class="waves-effect waves-dark" href="../input_doc/salary/index.php"><i class="fa fa-caret-right"></i> เอกสารเงินเดือน</a>
-                                    <a class="waves-effect waves-dark" href="../input_doc/debt/index.php"><i class="fa fa-caret-right"></i> เอกสารล้างหนี้</a>
-                                    <a class="waves-effect waves-dark" href="../input_doc/contract/index.php"><i class="fa fa-caret-right"></i> เอกสารจ้างเหมาบริการ</a>
-                                    <a class="waves-effect waves-dark" href="../input_doc/note/command/index.php"><i class="fa fa-caret-right"></i>    เอกสารบันทึกข้อความอื่นๆ</a>
+                                    <a class="waves-effect waves-dark" href="<?php echo ROOT_PROJECT_BACKEND;?>/input_doc/lend/index.php"><i class="fa fa-caret-right"></i> เอกสารสัญญาณยืม</a>
+                                    <a class="waves-effect waves-dark" href="<?php echo ROOT_PROJECT_BACKEND;?>/input_doc/salary/index.php"><i class="fa fa-caret-right"></i> เอกสารเงินเดือน</a>
+                                    <a class="waves-effect waves-dark" href="<?php echo ROOT_PROJECT_BACKEND;?>/input_doc/debt/index.php"><i class="fa fa-caret-right"></i> เอกสารล้างหนี้</a>
+                                    <a class="waves-effect waves-dark" href="<?php echo ROOT_PROJECT_BACKEND;?>/input_doc/contract/index.php"><i class="fa fa-caret-right"></i> เอกสารจ้างเหมาบริการ</a>
+                                    <a class="waves-effect waves-dark" href="<?php echo ROOT_PROJECT_BACKEND;?>/input_doc/note/command/index.php"><i class="fa fa-caret-right"></i>    เอกสารบันทึกข้อความอื่นๆ</a>
                                 </div>
                             </div>
                         </li>
 
-                        <li> <a class="waves-effect waves-dark" href="../project/tb_project.php" aria-expanded="false"><i class="fa fa-folder-open"></i><span class="hide-menu">จัดการข้อมูลโครงการ</span></a>
+                        <li> <a class="waves-effect waves-dark" href="<?php echo ROOT_PROJECT_BACKEND;?>/project/tb_project.php" aria-expanded="false"><i class="fa fa-folder-open"></i><span class="hide-menu">จัดการข้อมูลโครงการ</span></a>
                         </li>
-                        <li> <a class="waves-effect waves-dark" href="../activity/tb_activity.php" aria-expanded="false"><i class="fa fa-folder-open-o"></i><span class="hide-menu">จัดการข้อมูลกิจกรรม</span></a>
+                        <li> <a class="waves-effect waves-dark" href="<?php echo ROOT_PROJECT_BACKEND;?>/activity/tb_activity.php" aria-expanded="false"><i class="fa fa-folder-open-o"></i><span class="hide-menu">จัดการข้อมูลกิจกรรม</span></a>
                         </li>
-                        <li> <a class="waves-effect waves-dark" href="../tb_title/tb_title.php" aria-expanded="false"><i class="fa fa-pencil-square-o"></i><span class="hide-menu">จัดการข้อมูลหัวข้อเรื่อง</span></a>
+                        <li> <a class="waves-effect waves-dark" href="<?php echo ROOT_PROJECT_BACKEND;?>/tb_title/tb_title.php" aria-expanded="false"><i class="fa fa-pencil-square-o"></i><span class="hide-menu">จัดการข้อมูลหัวข้อเรื่อง</span></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link waves-effect waves-dark collapsed" href="#" data-toggle="collapse" data-target="#collapseB" aria-expanded="false" aria-controls="collapseB">
@@ -131,14 +131,14 @@
                             </a>
                             <div id="collapseB" class="collapse" aria-labelledby="headingB" data-parent="#accordionSidebar">
                                 <div class="bg-white py-2 collapse-inner rounded col-lg-12">
-                                    <a class="waves-effect waves-dark" href="../budget/tb_budget.php"><i class="fa fa-caret-right"></i> ประเภทงบประมาณ</a>
-                                    <a class="waves-effect waves-dark" href="../product/tb_product.php"><i class="fa fa-caret-right"></i> ผลผลิต</a>
-                                    <a class="waves-effect waves-dark" href="../mission/tb_mission.php"><i class="fa fa-caret-right"></i> พันธกิจ</a>
-                                    <a class="waves-effect waves-dark" href="../strategic/tb_strategic.php"><i class="fa fa-caret-right"></i> ยุทธศาสตร์</a>
+                                    <a class="waves-effect waves-dark" href="<?php echo ROOT_PROJECT_BACKEND;?>/budget/tb_budget.php"><i class="fa fa-caret-right"></i> ประเภทงบประมาณ</a>
+                                    <a class="waves-effect waves-dark" href="<?php echo ROOT_PROJECT_BACKEND;?>/product/tb_product.php"><i class="fa fa-caret-right"></i> ผลผลิต</a>
+                                    <a class="waves-effect waves-dark" href="<?php echo ROOT_PROJECT_BACKEND;?>/mission/tb_mission.php"><i class="fa fa-caret-right"></i> พันธกิจ</a>
+                                    <a class="waves-effect waves-dark" href="<?php echo ROOT_PROJECT_BACKEND;?>/strategic/tb_strategic.php"><i class="fa fa-caret-right"></i> ยุทธศาสตร์</a>
                                 </div>
                             </div>
                         </li>
-                        <li> <a class="waves-effect waves-dark" href="../../administrator/logout.php" aria-expanded="false"><i class="fa fa-power-off"></i><span class="hide-menu">Logout</span></a>
+                        <li> <a class="waves-effect waves-dark" href="<?php echo ROOT_PROJECT_BACKEND;?>/../administrator/logout.php" aria-expanded="false"><i class="fa fa-power-off"></i><span class="hide-menu">Logout</span></a>
                         </li>
                     </ul>
                     <!-- <div class="text-center m-t-30">

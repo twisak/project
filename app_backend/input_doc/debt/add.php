@@ -58,7 +58,7 @@ include('../../../config/constant.php');
             <p class="loader__label">Admin Wrap</p>
         </div>
     </div>
-    <?php include '../../menu/menu_admin.php'; ?>
+    <?php include '../../mamu/manu_admin.php'; ?>
     <div id="main-wrapper">
         <div class="page-wrapper">
             <div class="container-fluid">

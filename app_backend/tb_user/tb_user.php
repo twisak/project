@@ -1,4 +1,4 @@
-<?php 
+<?php
         include('../../config/connect.php');
         include('../../config/constant.php');
 ?>
@@ -143,7 +143,7 @@
                                             include '../../administrator/connect.php';
 
 
-                                            $sql ="SELECT tb_person.id, tb_person.prefix , tb_person.firtname , tb_person.lastname , tb_person.idcard, tb_person.house_num , account_login.username , account_login.password , account_login.status, provinces.name_th as name_th_p ,amphures.name_th as name_th_a , districts.name_th as name_th_d   FROM tb_person
+                                            $sql ="SELECT tb_person.id, tb_person.person_id , tb_person.prefix , tb_person.firtname , tb_person.lastname , tb_person.idcard, tb_person.house_num , account_login.username , account_login.password , account_login.status, provinces.name_th as name_th_p ,amphures.name_th as name_th_a , districts.name_th as name_th_d   FROM tb_person
                                             INNER JOIN account_login ON tb_person.person_id = account_login.person_id
                                             INNER JOIN provinces ON tb_person.province_id = provinces.id
                                             INNER JOIN amphures ON tb_person.amphures_id = amphures.id
@@ -209,7 +209,8 @@
                                                 <td><?php echo $row['password'];?></td>
                                                 <td><?php echo $row['status'];?></td>
                                                 <td>
-                                                    <a href="edit_form_user.php?id=<?php echo $row['person_id'];?>"><button type="button" class="btn btn-warning">แก้ไข</button></a>
+                                                    <!-- <a href="edit_form_user.php?id=<?php echo $row['person_id'];?>" class="btn btn-warning">แก้ไข</a> -->
+                                                    <a href="edit_form_user.php?id=<?php echo $row['person_id'];?>" class="btn btn-warning">แก้ไข</a>
                                                 </td>
                                                 <td><a href="JavaScript:if(confirm('ยืนยันการลบ ?') == true){window.location='delete_user.php?id=<?php echo $row['person_id'];?>';}" class="btn btn-danger">ลบ</a></td>
                                             </tr>

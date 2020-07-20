@@ -1,4 +1,4 @@
-<?php 
+<?php
 include('../../../../config/connect.php');
 include('../../../../config/constant.php');
 ?>
@@ -38,7 +38,7 @@ include('../../../../config/constant.php');
         </div>
     </div>
     <div id="main-wrapper">
-    <?php include '../../../menu/menu_admin.php'; ?>
+    <?php include '../../../mamu/manu_admin.php'; ?>
         <div class="page-wrapper">
             <div class="container-fluid">
                 <div class="row page-titles">
@@ -133,7 +133,7 @@ include('../../../../config/constant.php');
                                             </tr>
                                         </thead>
                                         <?php
-                                            
+
                                             // $username= $_SESSION['username'];
                                             // $sql ="SELECT * FROM account_login WHERE username = '".$username."' ";
                                             // $query = mysqli_query($conn,$sql);
