@@ -1,4 +1,4 @@
-<?php 
+<?php
 include('../../config/connect.php');
 include('../../config/constant.php');
 ?>
@@ -86,27 +86,20 @@ include('../../config/constant.php');
                                             $amphures_id= $row1['amphures_id'];
                                         }
 
-                                        $sql2 ="SELECT * FROM provinces WHERE id = '".$province_id."' ";
-                                        $query2 = mysqli_query($conn,$sql2);
-                                        while($row2 = mysqli_fetch_array($query2,MYSQLI_ASSOC))
-                                        {
-                                            $id3 = $row2['id'];
-                                            $name_th = $row2['name_th'];
-                                        }
-                                        $sql3 ="SELECT * FROM districts WHERE id = '".$districts_id."' ";
-                                        $query3 = mysqli_query($conn,$sql3);
-                                        while($row3 = mysqli_fetch_array($query3,MYSQLI_ASSOC))
-                                        {
-                                            $id1 = $row2['id1'];
-                                            $name_th1 = $row3['name_th'];
-                                        }
-                                        $sql4 ="SELECT * FROM amphures WHERE id = '".$amphures_id."' ";
-                                        $query4 = mysqli_query($conn,$sql4);
-                                        while($row4 = mysqli_fetch_array($query4,MYSQLI_ASSOC))
-                                        {
-                                            $id2 = $row2['id2'];
-                                            $name_th2 = $row4['name_th'];
-                                        }
+                                        $sql_provinces = "SELECT * FROM provinces WHERE id = '".$province_id."' ";
+                                        $query_provinces = mysqli_query($conn,$sql_provinces);
+                                        $result_provinces = mysqli_fetch_assoc($query_provinces);
+                                        $name_th_p = $result_provinces['name_th'];
+
+                                        $sql_amphures = "SELECT * FROM amphures WHERE id = '".$amphures_id."' ";
+                                        $query_amphures = mysqli_query($conn,$sql_amphures);
+                                        $result_amphures = mysqli_fetch_assoc($query_amphures);
+                                        $name_th_a = $result_amphures['name_th'];
+
+                                        $sql_districts = "SELECT * FROM districts WHERE id = '".$districts_id."' ";
+                                        $query_districts = mysqli_query($conn,$sql_districts);
+                                        $result_districts = mysqli_fetch_assoc($query_districts);
+                                        $name_th_d = $result_districts['name_th'];
 
                                         $sql5 ="SELECT * FROM tb_position WHERE position_id = '".$position_id."' ";
                                         $query5 = mysqli_query($conn,$sql5);
@@ -126,7 +119,7 @@ include('../../config/constant.php');
                                         </div>
                                         <div class="col-md-4">
                                             <label class="">ตำแหน่ง</label>
-                                            <input type="text" name="position_id" readonly value="<?php echo $position_id?>" class="form-control form-control-line">
+                                            <input type="text" name="position_id" readonly value="<?php echo $position_name;?>" class="form-control form-control-line">
                                         </div>
                                     </div>
                                     </div>
@@ -176,7 +169,7 @@ include('../../config/constant.php');
                                         <div class="col-md-4">
                                             <label for="province">จังหวัด</label>
                                             <select name="province_id" id="province" class="form-control">
-                                                <option value="<?php echo $id3?>"><?php echo $name_th?></option>
+                                                <option value="<?php echo $id3?>"><?php echo $name_th_p?></option>
                                                 <?php
                                                     $sql = "SELECT * FROM provinces";
                                                     $query = mysqli_query($conn, $sql);
@@ -189,13 +182,13 @@ include('../../config/constant.php');
                                         <div class="col-md-4">
                                             <label for="amphure">อำเภอ/เขต</label>
                                             <select name="amphures_id" id="amphure" class="form-control">
-                                                <option value="<?php echo $id1?>"><?php echo $name_th1?></option>
+                                                <option value="<?php echo $id1?>"><?php echo $name_th_a?></option>
                                             </select>
                                         </div>
                                         <div class="col-md-4">
                                             <label for="district">ตำบล/แขวง</label>
                                             <select name="districts_id" id="district" class="form-control">
-                                                <option value="<?php echo $id2?>"><?php echo $name_th2?></option>
+                                                <option value="<?php echo $id2?>"><?php echo $name_th_d?></option>
                                             </select>
                                         </div>
                                     </div>
@@ -218,7 +211,7 @@ include('../../config/constant.php');
                                         <label class="col-md-6">สถานะ</label>
                                         <div class="col-md-6">
                                             <input type="text" name="status" readonly value="<?php echo $status?>" class="form-control form-control-line">
-                                            
+
                                         </div>
                                     </div>
                                 </div>
