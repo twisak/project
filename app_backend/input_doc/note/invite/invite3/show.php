@@ -155,6 +155,12 @@ include('../../../../../config/constant.php');
                                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $doc_id;?>
                                             </div>
                                         </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label><b>ชื่อบุคลากร</b></label><br>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $prefix?><?php echo $firtname?>&nbsp;&nbsp;<?php echo $lastname?>
+                                            </div>
+                                        </div>
                                     </div>
                                     <input type="hidden" class="form-control" name="person_id" value="<?php echo $person_id?>">
                                     <div class="row">

@@ -12,17 +12,19 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo ROOT_PROJECT_BACKEND;?>/assets/images/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
     <title>AdminWrap - Easy to Customize Bootstrap 4 Admin Template</title>
     <!-- Bootstrap Core CSS -->
-    <link href="<?php echo ROOT_PROJECT_BACKEND;?>/assets/node_modules/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/node_modules/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
-    <link href="<?php echo ROOT_PROJECT_BACKEND;?>/css/style.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
     <!-- You can change the theme colors from here -->
-    <link href="<?php echo ROOT_PROJECT_BACKEND;?>/css/colors/default.css" id="theme" rel="stylesheet">
+    <link href="../css/colors/default.css" id="theme" rel="stylesheet">
 
     <link href="https://fonts.googleapis.com/css?family=Prompt&display=swap" rel="stylesheet">
-    <link href="<?php echo ROOT_PROJECT_BACKEND;?>/css/google_fonts/fonts_prompt.css" rel="stylesheet" />
+    <link href="../css/google_fonts/fonts_prompt.css" rel="stylesheet" />
+
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -147,19 +149,19 @@
             </div>
         </div>
 
-        <script src="<?php echo ROOT_PROJECT_BACKEND;?>/assets/node_modules/jquery/jquery.min.js"></script>
+        <script src="../assets/node_modules/jquery/jquery.min.js"></script>
 
         <!-- Bootstrap tether Core JavaScript -->
-        <script src="<?php echo ROOT_PROJECT_BACKEND;?>/assets/node_modules/bootstrap/js/popper.min.js"></script>
-        <script src="<?php echo ROOT_PROJECT_BACKEND;?>/assets/node_modules/bootstrap/js/bootstrap.min.js"></script>
+        <script src="../assets/node_modules/bootstrap/js/popper.min.js"></script>
+        <script src="../assets/node_modules/bootstrap/js/bootstrap.min.js"></script>
         <!-- slimscrollbar scrollbar JavaScript -->
-        <script src="<?php echo ROOT_PROJECT_BACKEND;?>/js/perfect-scrollbar.jquery.min.js"></script>
+        <script src="../js/perfect-scrollbar.jquery.min.js"></script>
         <!--Wave Effects -->
-        <script src="<?php echo ROOT_PROJECT_BACKEND;?>/js/waves.js"></script>
+        <script src="../js/waves.js"></script>
         <!--Menu sidebar -->
-        <script src="<?php echo ROOT_PROJECT_BACKEND;?>/js/sidebarmenu.js"></script>
+        <script src="../js/sidebarmenu.js"></script>
         <!--Custom JavaScript -->
-        <script src="<?php echo ROOT_PROJECT_BACKEND;?>/js/custom.min.js"></script>
+        <script src="../js/custom.min.js"></script>
         <!-- include codemirror (codemirror.css, codemirror.js, xml.js, formatting.js) -->
 
         <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/codemirror/3.20.0/codemirror.js"></script>

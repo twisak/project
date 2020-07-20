@@ -2,26 +2,26 @@
 include('../../../config/connect.php');
 include('../../../config/constant.php');
 
-    $username= $_SESSION['username'];
+    //$username= $_SESSION['username'];
 
-    $sql ="SELECT * FROM account_login WHERE username = '".$username."' ";
-    $query = mysqli_query($conn,$sql);
-    while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
-    {
-        $person_id = $row['person_id'];
-    }
+    // $sql ="SELECT * FROM account_login";
+    // $query = mysqli_query($conn,$sql);
+    // while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
+    // {
+    //     $person_id = $row['person_id'];
+    // }
 
-    $sql1 ="SELECT * FROM tb_person WHERE person_id = '".$person_id."' ";
-    $query1 = mysqli_query($conn,$sql1);
-    while($row1 = mysqli_fetch_array($query1,MYSQLI_ASSOC))
-    {
-        $prefix = $row1['prefix'];
-        $firtname = $row1['firtname'];
-        $lastname = $row1['lastname'];
-        $person_id = $row1['person_id'];
-        // $prefix = $row1['prefix'];
-          // $prefix = $row1['prefix'];
-    }
+    // $sql1 ="SELECT * FROM tb_person  ";
+    // $query1 = mysqli_query($conn,$sql1);
+    // while($row1 = mysqli_fetch_array($query1,MYSQLI_ASSOC))
+    // {
+    //     $prefix = $row1['prefix'];
+    //     $firtname = $row1['firtname'];
+    //     $lastname = $row1['lastname'];
+    //     $person_id = $row1['person_id'];
+    //     // $prefix = $row1['prefix'];
+    //       // $prefix = $row1['prefix'];
+    // }
     //echo $sql1;
 ?>
 <!DOCTYPE html>
@@ -112,8 +112,16 @@ include('../../../config/constant.php');
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label><b>ชื่อบุคลากร</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
-                                                <input type="text" value="<?php echo $prefix?><?php echo $firtname?>&nbsp;&nbsp;<?php echo $lastname?>" readonly class="form-control form-control-line">
-                                                <input type="hidden" class="form-control" name="person_id" value="<?php echo $person_id?>">
+                                                <select name="person_id" class="form-control" required>
+                                                    <option value="">เลือกชื่อบุคลากร</option>
+                                                    <?php
+                                                        $sql = "SELECT * FROM tb_person";
+                                                        $query = mysqli_query($conn, $sql);
+                                                        while($result = mysqli_fetch_assoc($query)):
+                                                    ?>
+                                                    <option value="<?=$result['person_id']?>"><?=$result['prefix']?><?=$result['firtname']?>&nbsp;&nbsp;<?=$result['lastname']?></option>
+                                                    <?php endwhile; ?>
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
@@ -121,7 +129,7 @@ include('../../../config/constant.php');
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label><b>โครงการ</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
-                                                <select name="project_id" id="project" class="form-control">
+                                                <select name="project_id" id="project" class="form-control" required>
                                                     <option value="">เลือกโครงการ</option>
                                                     <?php
                                                     $sql = "SELECT * FROM tb_project";
@@ -137,7 +145,7 @@ include('../../../config/constant.php');
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="activity"><b>ชื่อกิจกรรม</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
-                                                <select name="activity_id" id="activity" class="form-control">
+                                                <select name="activity_id" id="activity" class="form-control" required>
                                                     <option value="">ชื่อกิจกรรม</option>
                                                 </select>
                                             </div>
@@ -176,13 +184,13 @@ include('../../../config/constant.php');
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label><b>เริ่มต้นวันที่</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
-                                                <input type="date" class="form-control form-control-line" name="str_date">
+                                                <input type="date" class="form-control form-control-line" name="str_date" required>
                                             </div>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label><b>สิ้นสุดวันที่</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
-                                                <input type="date" class="form-control form-control-line" name="stp_date">
+                                                <input type="date" class="form-control form-control-line" name="stp_date" required> 
                                             </div>
                                         </div>
                                     </div>
@@ -190,7 +198,7 @@ include('../../../config/constant.php');
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label><b>ผู้ควบคุมการปฎิบัติงาน</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
-                                                <select name="teacher_id" class="form-control">
+                                                <select name="teacher_id" class="form-control" required>
                                                     <option value="">เลือกชื่ออาจารย์</option>
                                                     <?php
                                                         $sql = "SELECT * FROM tb_teacher";
@@ -231,13 +239,13 @@ include('../../../config/constant.php');
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label><b>จำนวนงวด</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
-                                                <input type="text" class="form-control form-control-line" name="number" onKeyUp="IsNumeric(this.value,this)">
+                                                <input type="text" class="form-control form-control-line" name="number" required onKeyUp="IsNumeric(this.value,this)">
                                             </div>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label><b>เป็นเงิน</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
-                                                <input type="text" class="form-control form-control-line" name="money" onKeyUp="IsNumeric(this.value,this)">
+                                                <input type="text" class="form-control form-control-line" name="money" required onKeyUp="IsNumeric(this.value,this)">
                                             </div>
                                         </div>
                                     </div>
@@ -245,13 +253,13 @@ include('../../../config/constant.php');
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label><b>ปฎิบัติงานงวดที่</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
-                                                <input type="text" class="form-control form-control-line" name="work" onKeyUp="IsNumeric(this.value,this)">
+                                                <input type="text" class="form-control form-control-line" name="work" required onKeyUp="IsNumeric(this.value,this)">
                                             </div>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label><b>วันที่ปฎิบัติงาน</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
-                                                <input type="date" class="form-control form-control-line" name="date_work">
+                                                <input type="date" class="form-control form-control-line" required name="date_work">
                                             </div>
                                         </div>
                                     </div>
@@ -267,7 +275,7 @@ include('../../../config/constant.php');
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label><b>ส่วนราชการ</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
-                                                <input type="text" class="form-control form-control-line" name="government">
+                                                <input type="text" class="form-control form-control-line" required name="government">
                                             </div>
                                         </div>
                                         <?php
@@ -301,7 +309,7 @@ include('../../../config/constant.php');
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label><b>เรื่อง</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
-                                                <select name="title_id" class="form-control">
+                                                <select name="title_id" class="form-control" required>
                                                     <option value="">เลือกชื่อเรื่อง</option>
                                                     <?php
                                                         $sql = "SELECT * FROM tb_title";
@@ -324,13 +332,13 @@ include('../../../config/constant.php');
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label><b>จำนวนคน</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
-                                                <input type="text" class="form-control form-control-line" name="people" onKeyUp="IsNumeric(this.value,this)">
+                                                <input type="text" class="form-control form-control-line" required name="people" onKeyUp="IsNumeric(this.value,this)">
                                             </div>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label><b>ราคากลางที่คำนวณได้</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
-                                                <input type="text" class="form-control form-control-line" name="mid_price" onKeyUp="IsNumeric(this.value,this)">
+                                                <input type="text" class="form-control form-control-line" required name="mid_price" onKeyUp="IsNumeric(this.value,this)">
                                             </div>
                                         </div>
                                     </div>
@@ -338,7 +346,7 @@ include('../../../config/constant.php');
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label><b>ลงชื่อ ประธานกรรมการ</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
-                                                <select name="chairman" class="form-control">
+                                                <select name="chairman" class="form-control" required>
                                                     <option value="">เลือกชื่ออาจารย์</option>
                                                     <?php
                                                         $sql = "SELECT * FROM tb_teacher";
@@ -353,7 +361,7 @@ include('../../../config/constant.php');
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label><b>ลงชื่อ กรรมการ</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
-                                                <select name="committee" class="form-control">
+                                                <select name="committee" class="form-control" required>
                                                     <option value="">เลือกชื่ออาจารย์</option>
                                                     <?php
                                                         $sql = "SELECT * FROM tb_teacher";
@@ -368,7 +376,7 @@ include('../../../config/constant.php');
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label><b>ลงชื่อ กรรมการและเลขานุการ</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
-                                                <select name="secretary" class="form-control">
+                                                <select name="secretary" class="form-control" required>
                                                     <option value="">เลือกชื่ออาจารย์</option>
                                                     <?php
                                                         $sql = "SELECT * FROM tb_teacher";
@@ -393,7 +401,7 @@ include('../../../config/constant.php');
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label><b>รายละเอียดการจ้าง</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
-                                                <input type="text" class="form-control form-control-line" name="details">
+                                                <input type="text" class="form-control form-control-line" required name="details">
                                             </div>
                                         </div>
                                     </div>
@@ -408,13 +416,13 @@ include('../../../config/constant.php');
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label><b>เริ่มต้นวันที่</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
-                                                <input type="date" class="form-control form-control-line" name="date_start">
+                                                <input type="date" class="form-control form-control-line" required name="date_start">
                                             </div>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label><b>สิ้นสุดวันที่</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
-                                                <input type="date" class="form-control form-control-line" name="date_end">
+                                                <input type="date" class="form-control form-control-line" required name="date_end">
                                             </div>
                                         </div>
                                     </div>
@@ -476,7 +484,7 @@ include('../../../config/constant.php');
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label><b>ความรับผิดชอบของผู้ว่าจ้าง</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
-                                                <input type="text" class="form-control form-control-line" name="responsible">
+                                                <input type="text" class="form-control form-control-line" required name="responsible">
                                             </div>
                                         </div>
                                     </div>
@@ -614,7 +622,7 @@ include('../../../config/constant.php');
 
 
                         var tr = "<tr>";
-                        tr = tr + "<td class='col-md-8'><div class='row'><div class='col-md-8'><div class='form-group'><input type='text' class='form-control p_input' name='foreword[]" + rows + "'></div></div></td>";
+                        tr = tr + "<td class='col-md-8'><div class='row'><div class='col-md-8'><div class='form-group'><input type='text' class='form-control p_input' required name='foreword[]" + rows + "'></div></div></td>";
                         tr = tr + "</tr>";
                         $('#myTable > tbody:last').append(tr);
 
@@ -665,7 +673,7 @@ include('../../../config/constant.php');
 
 
                         var tr = "<tr>";
-                        tr = tr + "<td class='col-md-8'><div class='row'><div class='col-md-8'><div class='form-group'><input type='text' class='form-control p_input' name='property[]" + rows + "'></div></div></td>";
+                        tr = tr + "<td class='col-md-8'><div class='row'><div class='col-md-8'><div class='form-group'><input type='text' class='form-control p_input' required name='property[]" + rows + "'></div></div></td>";
                         tr = tr + "</tr>";
                         $('#myTable1 > tbody:last').append(tr);
 
@@ -697,7 +705,7 @@ include('../../../config/constant.php');
 
 
                         var tr = "<tr>";
-                        tr = tr + "<td class='col-md-8'><div class='row'><div class='col-md-8'><div class='form-group'><input type='text' class='form-control p_input' name='scope[]" + rows + "'></div></div></td>";
+                        tr = tr + "<td class='col-md-8'><div class='row'><div class='col-md-8'><div class='form-group'><input type='text' required class='form-control p_input' name='scope[]" + rows + "'></div></div></td>";
                         tr = tr + "</tr>";
                         $('#myTable2 > tbody:last').append(tr);
 
@@ -729,7 +737,7 @@ include('../../../config/constant.php');
 
 
                         var tr = "<tr>";
-                        tr = tr + "<td class='col-md-8'><div class='row'><div class='col-md-8'><div class='form-group'><input type='text' class='form-control p_input' name='fine[]" + rows + "'></div></div></td>";
+                        tr = tr + "<td class='col-md-8'><div class='row'><div class='col-md-8'><div class='form-group'><input type='text' required class='form-control p_input' name='fine[]" + rows + "'></div></div></td>";
                         tr = tr + "</tr>";
                         $('#myTable3 > tbody:last').append(tr);
 
@@ -761,7 +769,7 @@ include('../../../config/constant.php');
 
 
                         var tr = "<tr>";
-                        tr = tr + "<td class='col-md-8'><div class='row'><div class='col-md-8'><div class='form-group'><input type='text' class='form-control p_input' name='payment[]" + rows + "'></div></div></td>";
+                        tr = tr + "<td class='col-md-8'><div class='row'><div class='col-md-8'><div class='form-group'><input type='text' required class='form-control p_input' name='payment[]" + rows + "'></div></div></td>";
                         tr = tr + "</tr>";
                         $('#myTable4 > tbody:last').append(tr);
 
@@ -793,7 +801,7 @@ include('../../../config/constant.php');
 
 
                         var tr = "<tr>";
-                        tr = tr + "<td class='col-md-8'><div class='row'><div class='col-md-8'><div class='form-group'><input type='text' class='form-control p_input' name='insurance[]" + rows + "'></div></div></td>";
+                        tr = tr + "<td class='col-md-8'><div class='row'><div class='col-md-8'><div class='form-group'><input type='text' required class='form-control p_input' name='insurance[]" + rows + "'></div></div></td>";
                         tr = tr + "</tr>";
                         $('#myTable5 > tbody:last').append(tr);
 

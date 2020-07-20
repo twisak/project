@@ -33,14 +33,14 @@
         }else
         {
 
-            $check = "SELECT username FROM account_login WHERE username = '$username' ";
+            $check = "SELECT idcard FROM tb_person WHERE idcard = '$idcard' ";
             $db_query = mysqli_query($conn, $check);
             $num=mysqli_num_rows($db_query);
 
             if($num > 0)
             {
                 echo "<script>";
-                echo "alert('Username ซ้ำ! กรุณากรอกข้อมูลใหม่');";
+                echo "alert('เลขบัตรประชาชน ซ้ำ! กรุณากรอกข้อมูลใหม่');";
                 echo "window.history.back();";
                 echo "</script>";
             }else

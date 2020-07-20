@@ -68,7 +68,7 @@ include('../../../../config/constant.php');
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <a href="index.php" class="btn btn-warning btn-block">เอกสารหนังสือเชิญ/ส่งออก</a>
+                                            <a href="../invite/index.php" class="btn btn-warning btn-block">เอกสารหนังสือเชิญ/ส่งออก</a>
                                         </div>
                                     </div>
                                 </div>

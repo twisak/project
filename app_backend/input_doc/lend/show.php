@@ -70,7 +70,7 @@
                                         // {
                                         //     $person_id = $row['person_id'];
                                         // }
-
+                                        
                                         $id =$_GET['id'];
                                         $sql ="SELECT * FROM tb_lend WHERE id = '".$id."'";
                                         $query = mysqli_query($conn,$sql);
@@ -132,6 +132,7 @@
                                             $t_lastname = $row_teacher['t_lastname'];
                                             //$prefix = $row2['prefix'];
                                         }
+                                            
                                     ?>
         <div class="page-wrapper">
             <div class="container-fluid">

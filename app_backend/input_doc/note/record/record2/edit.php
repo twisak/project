@@ -137,8 +137,16 @@ include('../../../../../config/constant.php');
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label><b>ชื่อบุคลากร</b></label>
-                                                <input type="text" value="<?php echo $prefix?><?php echo $firtname?>&nbsp;&nbsp;<?php echo $lastname?>" class="form-control form-control-line">
-                                                <input type="hidden" class="form-control" name="person_id" value="<?php echo $person_id?>">
+                                                <select name="person_id" class="form-control">
+                                                    <option value="<?php echo $person_id?>"><?php echo $prefix?><?php echo $firtname?>&nbsp;&nbsp;<?php echo $lastname?></option>
+                                                    <?php
+                                                        $sql = "SELECT * FROM tb_person";
+                                                        $query = mysqli_query($conn, $sql);
+                                                        while($result = mysqli_fetch_assoc($query)):
+                                                    ?>
+                                                    <option value="<?=$result['person_id']?>"><?=$result['prefix']?><?=$result['firtname']?>&nbsp;&nbsp;<?=$result['lastname']?></option>
+                                                    <?php endwhile; ?>
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
