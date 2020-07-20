@@ -39,7 +39,16 @@
         </div>
     </div>
     <div id="main-wrapper">
-    <?php include '../../menu/menu_admin.php'; ?>
+
+    <?php include '../../menu/menu_admin.php';
+    session_start();
+    $session_id = $_SESSION["username"];
+    $sql_account = "SELECT * FROM account_login WHERE username = '".$session_id."' ";
+    $query_account = mysqli_query($conn,$sql_account);
+    $result_account = mysqli_fetch_assoc($query_account);
+    $person_id_session = $result_account['person_id'];
+
+     ?>
         <div class="page-wrapper">
             <div class="container-fluid">
                 <div class="row page-titles">
@@ -122,7 +131,7 @@
                                             $sql ="SELECT tb_lend.id , tb_lend.doc_id , tb_project.project_name , tb_person.prefix, tb_person.firtname, tb_person.lastname FROM tb_lend
                                             INNER JOIN tb_project ON tb_lend.project_id = tb_project.project_id
                                             INNER JOIN tb_person ON tb_lend.person_id = tb_person.person_id
-                                            WHERE (tb_lend.doc_id LIKE '%".$strKeyword."%' or tb_project.project_name LIKE '%".$strKeyword."%' or tb_person.prefix LIKE '%".$strKeyword."%' or tb_person.firtname LIKE '%".$strKeyword."%'or tb_person.lastname LIKE '%".$strKeyword."%'  ) ";
+                                            WHERE tb_lend.person_id = '".$person_id_session."' AND (tb_lend.doc_id LIKE '%".$strKeyword."%' or tb_project.project_name LIKE '%".$strKeyword."%' or tb_person.prefix LIKE '%".$strKeyword."%' or tb_person.firtname LIKE '%".$strKeyword."%'or tb_person.lastname LIKE '%".$strKeyword."%'  ) ";
 
 
                                             // $sql ="SELECT * FROM tb_lend  WHERE (doc_id LIKE '%".$strKeyword."%') GROUP BY doc_id";

@@ -1,4 +1,4 @@
-<?php 
+<?php
     include('../../../config/connect.php');
     include('../../../config/constant.php');
 ?>
@@ -39,7 +39,16 @@
         </div>
     </div>
     <div id="main-wrapper">
-    <?php include '../../menu/menu_admin.php'; ?>
+    <?php include '../../menu/menu_admin.php';
+
+    session_start();
+    $session_id = $_SESSION["username"];
+    $sql_account = "SELECT * FROM account_login WHERE username = '".$session_id."' ";
+    $query_account = mysqli_query($conn,$sql_account);
+    $result_account = mysqli_fetch_assoc($query_account);
+    $person_id_session = $result_account['person_id'];
+
+     ?>
         <div class="page-wrapper">
             <div class="container-fluid">
                 <div class="row page-titles">
@@ -119,7 +128,7 @@
                                             $sql ="SELECT tb_salary.id , tb_salary.doc_id , tb_project.project_name , tb_person.prefix, tb_person.firtname, tb_person.lastname FROM tb_salary
                                             INNER JOIN tb_project ON tb_salary.project_id = tb_project.project_id
                                             INNER JOIN tb_person ON tb_salary.person_id = tb_person.person_id
-                                            WHERE (tb_salary.doc_id LIKE '%".$strKeyword."%' or tb_project.project_name LIKE '%".$strKeyword."%' or tb_person.prefix LIKE '%".$strKeyword."%' or tb_person.firtname LIKE '%".$strKeyword."%'or tb_person.lastname LIKE '%".$strKeyword."%'  ) ";
+                                            WHERE tb_salary.person_id = '".$person_id_session."' AND (tb_salary.doc_id LIKE '%".$strKeyword."%' or tb_project.project_name LIKE '%".$strKeyword."%' or tb_person.prefix LIKE '%".$strKeyword."%' or tb_person.firtname LIKE '%".$strKeyword."%'or tb_person.lastname LIKE '%".$strKeyword."%'  ) ";
 
                                             // $sql ="SELECT * FROM tb_salary GROUP BY doc_id";
                                             $query = mysqli_query($conn,$sql);

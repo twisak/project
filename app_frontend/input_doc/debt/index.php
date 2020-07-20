@@ -1,4 +1,4 @@
-<?php 
+<?php
     include('../../../config/connect.php');
     include('../../../config/constant.php');
 ?>
@@ -45,7 +45,16 @@
     <!-- Main wrapper - style you can find in pages.scss -->
     <!-- ============================================================== -->
     <div id="main-wrapper">
-        <?php include '../../menu/menu_admin.php'; ?>
+        <?php include '../../menu/menu_admin.php';
+
+        session_start();
+        $session_id = $_SESSION["username"];
+        $sql_account = "SELECT * FROM account_login WHERE username = '".$session_id."' ";
+        $query_account = mysqli_query($conn,$sql_account);
+        $result_account = mysqli_fetch_assoc($query_account);
+        $person_id_session = $result_account['person_id'];
+
+         ?>
         <div class="page-wrapper">
             <div class="container-fluid">
                 <div class="row page-titles">
@@ -75,7 +84,7 @@
                                                 if(isset($_GET["txtKeyword"])){
                                                     $strKeyword = $_GET["txtKeyword"];
                                                 }
-                                            ?>                                                                        
+                                            ?>
                                             <form name="frmSearch" method="post" action="<?php echo $_SERVER['SCRIPT_NAME'];?>">
                                                 <div class="container">
                                                     <div class="row">
@@ -125,7 +134,7 @@
                                             $sql ="SELECT tb_debt.id , tb_debt.doc_id , tb_project.project_name , tb_person.prefix, tb_person.firtname, tb_person.lastname FROM tb_debt
                                             INNER JOIN tb_project ON tb_debt.project_id = tb_project.project_id
                                             INNER JOIN tb_person ON tb_debt.person_id = tb_person.person_id
-                                            WHERE (tb_debt.doc_id LIKE '%".$strKeyword."%' or tb_project.project_name LIKE '%".$strKeyword."%' or tb_person.prefix LIKE '%".$strKeyword."%' or tb_person.firtname LIKE '%".$strKeyword."%'or tb_person.lastname LIKE '%".$strKeyword."%'  ) ";
+                                            WHERE tb_debt.person_id = '".$person_id_session."' AND (tb_debt.doc_id LIKE '%".$strKeyword."%' or tb_project.project_name LIKE '%".$strKeyword."%' or tb_person.prefix LIKE '%".$strKeyword."%' or tb_person.firtname LIKE '%".$strKeyword."%'or tb_person.lastname LIKE '%".$strKeyword."%'  ) ";
 
 
                                             // $sql ="SELECT * FROM tb_debt GROUP BY doc_id";

@@ -1,4 +1,4 @@
-<?php 
+<?php
 include('../../../../config/connect.php');
 include('../../../../config/constant.php');
 ?>
@@ -39,7 +39,16 @@ include('../../../../config/constant.php');
         </div>
     </div>
     <div id="main-wrapper">
-    <?php include '../../../menu/menu_admin.php'; ?>
+    <?php include '../../../menu/menu_admin.php';
+
+    session_start();
+    $session_id = $_SESSION["username"];
+    $sql_account = "SELECT * FROM account_login WHERE username = '".$session_id."' ";
+    $query_account = mysqli_query($conn,$sql_account);
+    $result_account = mysqli_fetch_assoc($query_account);
+    $person_id_session = $result_account['person_id'];
+
+     ?>
         <div class="page-wrapper">
             <div class="container-fluid">
                 <div class="row page-titles">
@@ -93,13 +102,13 @@ include('../../../../config/constant.php');
                                             </td>
                                             <td width="35%">
                                             <div class="col-md-4 text-center">
-                                        
+
                                         </div>
                                             </td>
                                         </tr>
                                     </table>
-                                    
-                                    
+
+
                                 </div>
                             </div>
                         </div>
@@ -162,7 +171,7 @@ include('../../../../config/constant.php');
                                             </tr>
                                         </thead>
                                         <?php
-                                            
+
                                             // $username= $_SESSION['username'];
                                             // $sql ="SELECT * FROM account_login WHERE username = '".$username."' ";
                                             // $query = mysqli_query($conn,$sql);
@@ -177,7 +186,7 @@ include('../../../../config/constant.php');
                                             INNER JOIN tb_project ON tb_note_book1.project_id = tb_project.project_id
                                             INNER JOIN tb_person ON tb_note_book1.person_id = tb_person.person_id
                                             INNER JOIN tb_title ON tb_note_book1.title_id = tb_title.title_id
-                                            WHERE (tb_note_book1.doc_id LIKE '%".$strKeyword."%' or tb_project.project_name LIKE '%".$strKeyword."%' or  tb_note_book1.date_current  LIKE '%".$strKeyword."%' or  tb_person.lastname LIKE '%".$strKeyword."%' or tb_title.title LIKE '%".$strKeyword."%'  ) ";
+                                            WHERE tb_note_book1.person_id = '".$person_id_session."' AND (tb_note_book1.doc_id LIKE '%".$strKeyword."%' or tb_project.project_name LIKE '%".$strKeyword."%' or  tb_note_book1.date_current  LIKE '%".$strKeyword."%' or  tb_person.lastname LIKE '%".$strKeyword."%' or tb_title.title LIKE '%".$strKeyword."%'  ) ";
 
                                             // $sql ="SELECT * FROM tb_note_book1";
                                             $query = mysqli_query($conn,$sql);
@@ -292,7 +301,7 @@ include('../../../../config/constant.php');
                                             </tr>
                                         </thead>
                                         <?php
-                                            
+
                                             // $username= $_SESSION['username'];
                                             // $sql ="SELECT * FROM account_login WHERE username = '".$username."' ";
                                             // $query = mysqli_query($conn,$sql);
@@ -308,7 +317,7 @@ include('../../../../config/constant.php');
                                             INNER JOIN tb_project ON tb_note_book2.project_id = tb_project.project_id
                                             INNER JOIN tb_person ON tb_note_book2.person_id = tb_person.person_id
                                             INNER JOIN tb_title ON tb_note_book2.title_id = tb_title.title_id
-                                            WHERE (tb_note_book2.doc_id LIKE '%".$strKeyword1."%' or tb_project.project_name LIKE '%".$strKeyword1."%' or  tb_note_book2.date_current  LIKE '%".$strKeyword1."%' or  tb_person.lastname LIKE '%".$strKeyword1."%' or tb_title.title LIKE '%".$strKeyword1."%'  ) ";
+                                            WHERE tb_note_book2.person_id = '".$person_id_session."' AND (tb_note_book2.doc_id LIKE '%".$strKeyword1."%' or tb_project.project_name LIKE '%".$strKeyword1."%' or  tb_note_book2.date_current  LIKE '%".$strKeyword1."%' or  tb_person.lastname LIKE '%".$strKeyword1."%' or tb_title.title LIKE '%".$strKeyword1."%'  ) ";
 
                                             // $sql ="SELECT * FROM tb_note_book2";
                                             $query = mysqli_query($conn,$sql);
@@ -421,7 +430,7 @@ include('../../../../config/constant.php');
                                             </tr>
                                         </thead>
                                         <?php
-                                            
+
                                             // $username= $_SESSION['username'];
                                             // $sql ="SELECT * FROM account_login WHERE username = '".$username."' ";
                                             // $query = mysqli_query($conn,$sql);
@@ -436,7 +445,7 @@ include('../../../../config/constant.php');
                                             INNER JOIN tb_project ON tb_note_book3.project_id = tb_project.project_id
                                             INNER JOIN tb_person ON tb_note_book3.person_id = tb_person.person_id
                                             INNER JOIN tb_title ON tb_note_book3.title_id = tb_title.title_id
-                                            WHERE (tb_note_book3.doc_id LIKE '%".$strKeyword2."%' or tb_project.project_name LIKE '%".$strKeyword2."%' or  tb_note_book3.date_current  LIKE '%".$strKeyword2."%' or  tb_person.lastname LIKE '%".$strKeyword2."%' or tb_title.title LIKE '%".$strKeyword2."%'  ) ";
+                                            WHERE tb_note_book3.person_id = '".$person_id_session."' AND (tb_note_book3.doc_id LIKE '%".$strKeyword2."%' or tb_project.project_name LIKE '%".$strKeyword2."%' or  tb_note_book3.date_current  LIKE '%".$strKeyword2."%' or  tb_person.lastname LIKE '%".$strKeyword2."%' or tb_title.title LIKE '%".$strKeyword2."%'  ) ";
 
                                             // $sql ="SELECT * FROM tb_note_book3";
                                             $query = mysqli_query($conn,$sql);
