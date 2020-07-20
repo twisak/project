@@ -155,7 +155,7 @@
                                             $query = mysqli_query($conn,$sql);
                                             while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
                                             {
-                                            //     $id = $row['id'];
+                                                     //$person_id = $row['person_id'];
                                             //     $prefix = $row['prefix'];
                                             //     $firtname = $row['firtname'];
                                             //     $lastname = $row['lastname'];
@@ -211,7 +211,7 @@
                                                 <td>
                                                     <a href="edit_form_user.php?id=<?php echo $row['person_id'];?>"><button type="button" class="btn btn-warning">แก้ไข</button></a>
                                                 </td>
-                                                <td><a href="JavaScript:if(confirm('ยืนยันการลบ ?') == true){window.location='delete_user.php?id=<?php echo $row["id"];?>';}" class="btn btn-danger">ลบ</a></td>
+                                                <td><a href="JavaScript:if(confirm('ยืนยันการลบ ?') == true){window.location='delete_user.php?id=<?php echo $row['person_id'];?>';}" class="btn btn-danger">ลบ</a></td>
                                             </tr>
                                             <?php
                                                 $i++; }

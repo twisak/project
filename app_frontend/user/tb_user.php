@@ -46,7 +46,7 @@
     <!-- Main wrapper - style you can find in pages.scss -->
     <!-- ============================================================== -->
     <div id="main-wrapper">
-    <?php include '../menu/menu_admin.php'; ?>
+        <?php include '../menu/menu_admin.php'; ?>
         <div class="page-wrapper">
             <div class="container-fluid">
                 <div class="row page-titles">
@@ -64,7 +64,7 @@
                         <div class="card">
                             <!-- Tab panes -->
                             <div class="card-body">
-                            <?php
+                                <?php
                                         $username= $_SESSION['username'];
 
                                         $sql ="SELECT * FROM account_login WHERE username = '".$username."' ";
@@ -121,80 +121,93 @@
                                         }
 
                             ?>
-                                    <div class="form-group">
+                            <form class="form-horizontal form-material" action="INSERT_Person.php" name="form_user" method="post">
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-12 text-center">
+                                            <div class="form-group">
+                                                <label>
+                                                    <h4><b><u>ข้อมูลส่วนตัว</u></b></h4>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
                                     <div class="row col-md-12">
                                         <div class="col-md-4">
-                                            <label class="">รหัสเจ้าหน้าที่</label><br>
+                                            <label class=""><b>รหัสเจ้าหน้าที่</b></label><br>
                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $person_id;?>
                                         </div>
                                         <div class="col-md-4">
-                                            <label class="">ตำแหน่ง</label><br>
+                                            <label class=""><b>ตำแหน่ง</b></label><br>
                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $position_name?>
                                         </div>
                                         <div class="col-md-4">
-                                            <label class="">ชื่อ-นามสลุล</label><br>
+                                            <label class=""><b>ชื่อ-นามสลุล</b></label><br>
                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $prefix?><?php echo $firtname?>&nbsp;&nbsp;<?php echo $lastname?>
                                         </div>
                                     </div>
-                                    </div>
+                                </div>
 
                                 <div class="row col-md-12">
                                     <div class="form-group">
                                         <div class="col-md-12">
-                                            <label class="">เลขบัตรประชาชน</label><br>
+                                            <label class=""><b>เลขบัตรประชาชน</b></label><br>
                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $idcard;?>
                                         </div>
                                     </div>
-                                    </div>
+                                </div>
+                                
                                 <div class="row">
-                                <div class="row col-md-12">
-                                    <div class="form-group">
-                                        <div class="col-md-12">
-                                            <label class=""><b>ที่อยู่</b></label>
+                                    <div class="row col-md-12">
+                                        <div class="form-group">
+                                            <div class="col-md-12">
+                                                <label class=""><b>ที่อยู่</b></label>
+                                            </div>
                                         </div>
-                                    </div>
                                     </div>
                                 </div>
                                 <div class="row col-md-12">
                                     <div class="form-group">
                                         <div class="col-md-12">
-                                            <label class="">บ้านเลชที่</label><br>
+                                            <label class=""><b>บ้านเลชที่</b></label><br>
                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $house_num;?>
                                         </div>
                                     </div>
-                                    </div>
-                                    <div class="form-group">
+                                </div>
+                                <div class="form-group">
                                     <div class="row col-md-12">
                                         <div class="col-md-4">
-                                            <label for="province">จังหวัด</label><br>
+                                            <label for="province"><b>จังหวัด</b></label><br>
                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $name_th;?>
                                         </div>
                                         <div class="col-md-4">
-                                            <label for="amphure">อำเภอ/เขต</label><br>
+                                            <label for="amphure"><b>อำเภอ/เขต</b></label><br>
                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $name_th1;?>
                                         </div>
                                         <div class="col-md-4">
-                                            <label for="district">ตำบล/แขวง</label><br>
+                                            <label for="district"><b>ตำบล/แขวง</b></label><br>
                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $name_th2;?>
                                         </div>
                                     </div>
-                                    </div>
-                                    <div class="form-group">
+                                </div>
+                                <div class="form-group">
                                     <div class="row col-md-12">
                                         <div class="col-md-6">
-                                            <label class="">Username</label><br>
+                                            <label class=""><b>Username</b></label><br>
                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $username;?>
                                         </div>
 
                                         <div class="col-md-6">
-                                            <label class="">Psaaword</label><br>
+                                            <label class=""><b>Psaaword</b></label><br>
                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $password;?>
                                         </div>
                                     </div>
-                                    </div>
-                                <div class="col-md-6">
+                                </div>
+                                <div class="col-md-12">
                                     <div class="form-group">
-                                        <label class="col-md-6">สถานะ</label><br>
+                                        <label class="col-md-4"><b>สถานะ</b></label><br>
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $status;?>
                                     </div>
                                 </div>
