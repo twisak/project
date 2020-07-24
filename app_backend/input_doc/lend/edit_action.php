@@ -6,7 +6,6 @@
 	ini_set('display_errors', 1);
     error_reporting(~0);
 
-    $id = $_POST['id'];
     $doc_id = $_POST['doc_id'];
 	$str_date = $_POST['str_date'];
     $stp_date = $_POST['stp_date'];
@@ -46,7 +45,7 @@
         //  print_r($balance);
         //  print "</pre>";
 
-    $sql= "UPDATE tb_lend SET doc_id = '".$doc_id."',
+    $sql= "UPDATE tb_lend SET 
                                             str_date = '".$str_date."',
                                             stp_date = '".$stp_date."',
                                             project_id = '".$project_id."',
@@ -67,7 +66,7 @@
                                             pay_type = '".$pay_type."',
                                             price_list = '".$price_list."',
                                             balance = '".$balance."'
-                          WHERE id = '$id' ";
+                          WHERE doc_id = '$doc_id' ";
 
       $query = mysqli_query($conn,$sql);
                     //  echo $sql;
@@ -75,7 +74,7 @@
                     //  echo "<br>";
 
       echo "<script>alert('บันทึกข้อมูลของท่านเรียบร้อยแล้ว')</script>";
-      echo "<script>window.location='http://localhost/project_student/app_frontend/input_doc/lend/show.php?id=$id'</script>";
+      echo "<script>window.location='http://localhost/project_student/app_backend/input_doc/lend/show.php?doc_id=$doc_id'</script>";
 
 ?>
 </body>

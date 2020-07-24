@@ -71,9 +71,9 @@
                                         //     $person_id = $row['person_id'];
                                         // }
 
-                                        $id =$_GET['id'];
-                                        //echo $id;
-                                        $sql ="SELECT * FROM tb_contract WHERE id = '".$id."'";
+                                        $doc_id =$_GET['doc_id'];
+                                        //echo $doc_id;
+                                        $sql ="SELECT * FROM tb_contract WHERE doc_id = '".$doc_id."'";
                                         $query = mysqli_query($conn,$sql);
                                         $num_rows = mysqli_num_rows($query);
                                         while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
@@ -163,7 +163,7 @@
                         </ol>
                     </div>
                     <div class="col-md-7 align-self-center">
-                        <a href="../contract/report1.php?id=<?php echo $id;?>" class="btn waves-effect waves-light btn btn-info pull-right hidden-sm-down">
+                        <a href="../contract/report1.php?doc_id=<?php echo $doc_id;?>" class="btn waves-effect waves-light btn btn-info pull-right hidden-sm-down">
                             <i class="fa-fw fa fa-print"></i>
                             ส่งออกแบบฟอร์ม
                         </a>
@@ -582,7 +582,7 @@
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
-                                            <a href="../contract/edit.php?id=<?php echo $id;?>" class="btn btn-warning btn-block">แก้ไขข้อมูลเอกสารจ้างเหมาบริการ</a>
+                                            <a href="../contract/edit.php?doc_id=<?php echo $doc_id;?>" class="btn btn-warning btn-block">แก้ไขข้อมูลเอกสารจ้างเหมาบริการ</a>
                                         </div>
                                     </div>
                                     <div class="col-md-3">

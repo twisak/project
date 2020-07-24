@@ -144,7 +144,7 @@ include('../../../../config/constant.php');
                                             $i=1;
                                             $i<="";
 
-                                            $sql ="SELECT tb_note_record1.id , tb_note_record1.doc_id , tb_note_record1.date_current , tb_project.project_name , tb_person.prefix, tb_person.firtname, tb_person.lastname, tb_title.title FROM tb_note_record1
+                                            $sql ="SELECT tb_note_record1.doc_id , tb_note_record1.date_current , tb_project.project_name , tb_person.prefix, tb_person.firtname, tb_person.lastname, tb_title.title FROM tb_note_record1
                                             INNER JOIN tb_project ON tb_note_record1.project_id = tb_project.project_id
                                             INNER JOIN tb_person ON tb_note_record1.person_id = tb_person.person_id
                                             INNER JOIN tb_title ON tb_note_record1.title_id = tb_title.title_id
@@ -187,9 +187,9 @@ include('../../../../config/constant.php');
                                                 <td><?php echo $row['date_current'];?></td>
                                                 <td><?php echo $row['title'];?></td>
                                                 <td>
-                                                    <a href="../record/record1/show.php?id=<?php echo $row['id'];?>"><button type="button" class="btn btn-info">รายละเอียด</button></a>
+                                                    <a href="../record/record1/show.php?doc_id=<?php echo $row['doc_id'];?>"><button type="button" class="btn btn-info">รายละเอียด</button></a>
                                                 </td>
-                                                <td><a href="JavaScript:if(confirm('ยืนยันการลบ ?') == true){window.location='../record/record1/delete.php?id=<?php echo $row["id"];?>';}" class="btn btn-danger">ลบ</a></td>
+                                                <td><a href="JavaScript:if(confirm('ยืนยันการลบ ?') == true){window.location='../record/record1/delete.php?doc_id=<?php echo $row["doc_id"];?>';}" class="btn btn-danger">ลบ</a></td>
                                             </tr>
                                             <?php
                                             $i++;
@@ -270,7 +270,7 @@ include('../../../../config/constant.php');
                                             $i=1;
                                             $i<="";
 
-                                            $sql ="SELECT tb_note_record2.id , tb_note_record2.doc_id , tb_note_record2.date_current , tb_project.project_name , tb_person.prefix, tb_person.firtname, tb_person.lastname, tb_title.title FROM tb_note_record2
+                                            $sql ="SELECT tb_note_record2.doc_id , tb_note_record2.date_current , tb_project.project_name , tb_person.prefix, tb_person.firtname, tb_person.lastname, tb_title.title FROM tb_note_record2
                                             INNER JOIN tb_project ON tb_note_record2.project_id = tb_project.project_id
                                             INNER JOIN tb_person ON tb_note_record2.person_id = tb_person.person_id
                                             INNER JOIN tb_title ON tb_note_record2.title_id = tb_title.title_id
@@ -314,9 +314,9 @@ include('../../../../config/constant.php');
                                                 <td><?php echo $row1['date_current'];?></td>
                                                 <td><?php echo $row1['title'];?></td>
                                                 <td>
-                                                    <a href="../record/record2/show.php?id=<?php echo $row1['id'];?>"><button type="button" class="btn btn-info">รายละเอียด</button></a>
+                                                    <a href="../record/record2/show.php?doc_id=<?php echo $row1['doc_id'];?>"><button type="button" class="btn btn-info">รายละเอียด</button></a>
                                                 </td>
-                                                <td><a href="JavaScript:if(confirm('ยืนยันการลบ ?') == true){window.location='../record/record2/delete.php?id=<?php echo $row1["id"];?>';}" class="btn btn-danger">ลบ</a></td>
+                                                <td><a href="JavaScript:if(confirm('ยืนยันการลบ ?') == true){window.location='../record/record2/delete.php?doc_id=<?php echo $row1["doc_id"];?>';}" class="btn btn-danger">ลบ</a></td>
                                             </tr>
                                             <?php
                                             $i++;

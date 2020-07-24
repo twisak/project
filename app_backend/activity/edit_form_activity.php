@@ -65,9 +65,9 @@
                                         include '../../administrator/connect.php';
 
 
-                                        $id = $_GET['id'];
-                                        // echo $id;
-                                        $sql_activity = "SELECT * FROM tb_activity WHERE id = '".$id."' ";
+                                        $activity_id = $_GET['activity_id'];
+                                        // echo $activity_id;
+                                        $sql_activity = "SELECT * FROM tb_activity WHERE activity_id = '".$activity_id."' ";
                                         $query_activity = mysqli_query($conn,$sql_activity);
                                         $result_activity = mysqli_fetch_array($query_activity);
 

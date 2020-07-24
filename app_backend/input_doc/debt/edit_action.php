@@ -3,7 +3,7 @@
         include('../../../config/connect.php');
         include('../../../config/constant.php');
 
-        $id = $_POST['id'];
+        
         $doc_id = $_POST['doc_id'];
         $date_current = date('Y-m-d');
         $name_train = $_POST['name_train'];
@@ -104,7 +104,7 @@
                                                 approve        = '".$approve."',
                                                 disburse        = '".$disburse."',
                                                 payer        = '".$payer."'
-                              WHERE id = '".$id."'";
+                              WHERE doc_id = '".$doc_id."'";
                      $db_query = mysqli_query($conn,$sql);
                     //  echo $sql;
                     //  echo $db_query;
@@ -112,7 +112,7 @@
 
 
         echo "<script>alert('แก้ไขข้อมูลเรียบร้อย')</script>";
-        echo "<script>window.location='http://localhost/project_student/app_frontend/input_doc/debt/show.php?id=$id'</script>";
+        echo "<script>window.location='http://localhost/project_student/app_backend/input_doc/debt/show.php?doc_id=$doc_id'</script>";
     ?>
 
   </body>

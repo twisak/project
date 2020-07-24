@@ -134,7 +134,7 @@ include('../../../../config/constant.php');
                                             $i=1;
                                             $i<="";
 
-                                            $sql ="SELECT tb_note_command.id , tb_note_command.doc_id , tb_project.project_name , tb_person.prefix, tb_person.firtname, tb_person.lastname, tb_title.title FROM tb_note_command
+                                            $sql ="SELECT tb_note_command.doc_id , tb_project.project_name , tb_person.prefix, tb_person.firtname, tb_person.lastname, tb_title.title FROM tb_note_command
                                             INNER JOIN tb_project ON tb_note_command.project_id = tb_project.project_id
                                             INNER JOIN tb_person ON tb_note_command.person_id = tb_person.person_id
                                             INNER JOIN tb_title ON tb_note_command.title_id = tb_title.title_id
@@ -176,9 +176,9 @@ include('../../../../config/constant.php');
                                                 <td><?php echo $row['prefix'];?><?php echo $row['firtname'];?> <?php echo $row['lastname'];?></td>
                                                 <td><?php echo $row['title'];?></td>
                                                 <td>
-                                                    <a href="../command/show.php?id=<?php echo $row['id'];?>"><button type="button" class="btn btn-info">รายละเอียด</button></a>
+                                                    <a href="../command/show.php?doc_id=<?php echo $row['doc_id'];?>"><button type="button" class="btn btn-info">รายละเอียด</button></a>
                                                 </td>
-                                                <td><a href="JavaScript:if(confirm('ยืนยันการลบ ?') == true){window.location='../command/delete.php?id=<?php echo $row["id"];?>';}" class="btn btn-danger">ลบ</a></td>
+                                                <td><a href="JavaScript:if(confirm('ยืนยันการลบ ?') == true){window.location='../command/delete.php?doc_id=<?php echo $row["doc_id"];?>';}" class="btn btn-danger">ลบ</a></td>
                                             </tr>
                                             <?php
                                             $i++;

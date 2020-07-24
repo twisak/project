@@ -110,7 +110,7 @@
 
                                             include '../../administrator/connect.php';
 
-                                            $sql_mission ="SELECT tb_mission.id, tb_mission.mission , tb_product.product   FROM tb_mission
+                                            $sql_mission ="SELECT tb_mission.mission_id, tb_mission.mission , tb_product.product   FROM tb_mission
                                             INNER JOIN tb_product ON tb_mission.product_id = tb_product.product_id
                                             WHERE (tb_mission.mission LIKE '%".$strKeyword."%' or tb_product.product LIKE '%".$strKeyword."%'  ) ";
 
@@ -134,8 +134,8 @@
                                                 <td class="text-center"><?php echo $i;?></td>
                                                 <td><?php echo $row_mission['product'];?></td>
                                                 <td><?php echo $row_mission['mission'];?></td>
-                                                <td class="text-center"><a href="edit_form_mission.php?id=<?php echo $row_mission['id'];?>" class="btn btn-warning">แก้ไข</a></td>
-                                                <td class="text-center"><a href="JavaScript:if(confirm('ยืนยันการลบ ?') == true){window.location='delete_mission.php?id=<?php echo $row_mission["id"];?>';}" class="btn btn-danger">ลบ</a></td>
+                                                <td class="text-center"><a href="edit_form_mission.php?mission_id=<?php echo $row_mission['mission_id'];?>" class="btn btn-warning">แก้ไข</a></td>
+                                                <td class="text-center"><a href="JavaScript:if(confirm('ยืนยันการลบ ?') == true){window.location='delete_mission.php?mission_id=<?php echo $row_mission["mission_id"];?>';}" class="btn btn-danger">ลบ</a></td>
                                             </tr>
                                             <?php
                                                 $i++;

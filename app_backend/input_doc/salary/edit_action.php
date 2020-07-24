@@ -2,7 +2,7 @@
         include('../../../config/connect.php');
         include('../../../config/constant.php');
 
-        $id = $_POST['id'];
+        
 
         $doc_id = $_POST['doc_id'];
         $str_date = $_POST['str_date'];
@@ -25,7 +25,7 @@
         $Job = serialize($_POST["Job"]);
         $part_time = serialize($_POST["part_time"]);
 
-        $sql= "UPDATE tb_salary SET   doc_id     = '".$doc_id."',
+        $sql= "UPDATE tb_salary SET  
                                     str_date        = '".$str_date."',
                                     stp_date        = '".$stp_date."',
                                     project_id      = '".$project_id."',
@@ -43,14 +43,14 @@
                                     Job        = '".$Job."',
                                     part_time        = '".$part_time."'
 
-                  WHERE id = '".$id."'";
+                  WHERE doc_id = '".$doc_id."'";
          $db_query = mysqli_query($conn,$sql);
         //  echo $sql;
         //  echo $db_query;
         //  echo "<br>";
 
         echo "<script>alert('แก้ไขข้อมูลเรียบร้อย')</script>";
-        echo "<script>window.location='http://localhost/project_student/app_frontend/input_doc/salary/show.php?id=$id'</script>";
+        echo "<script>window.location='http://localhost/project_student/app_backend/input_doc/salary/show.php?doc_id=$doc_id'</script>";
     ?>
 
   </body>

@@ -139,7 +139,7 @@
                                             $query_position = mysqli_query($conn,$sql_position);
                                             while($row_position = mysqli_fetch_array($query_position,MYSQLI_ASSOC))
                                             {
-                                                $id = $row_position['id'];
+                                                //$id = $row_position['id'];
                                                 $position_id = $row_position['position_id'];
                                                 $position_name = $row_position['position_name'];
                                         ?>
@@ -147,8 +147,8 @@
                                             <tr>
                                                 <td><?php echo $i;?></td>
                                                 <td><?php echo $position_name;?></td>
-                                                <td><a href="edit_form_position.php?id=<?php echo $id;?>" class="btn btn-warning">แก้ไข</a></td>
-                                                <td><a href="JavaScript:if(confirm('ยืนยันการลบ ?') == true){window.location='delete_position.php?id=<?php echo $row_position["id"];?>';}" class="btn btn-danger">ลบ</a></td>
+                                                <td><a href="edit_form_position.php?position_id=<?php echo $position_id;?>" class="btn btn-warning">แก้ไข</a></td>
+                                                <td><a href="JavaScript:if(confirm('ยืนยันการลบ ?') == true){window.location='delete_position.php?position_id=<?php echo $position_id;?>';}" class="btn btn-danger">ลบ</a></td>
                                             </tr>
                                             <?php
                                                 $i++;

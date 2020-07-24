@@ -9,9 +9,9 @@
     <?php
         include '../../administrator/connect.php';
 
-        $id = $_GET['id'];
+        $position_id = $_GET['position_id'];
 
-        $sql_position= "DELETE FROM tb_position WHERE id = '$id'";
+        $sql_position= "DELETE FROM tb_position WHERE position_id = '$position_id'";
 
         $db_query_position = mysqli_query($conn,$sql_position);
 

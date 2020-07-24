@@ -1,3 +1,7 @@
+<?php 
+        include('../../config/connect.php');
+        include('../../config/constant.php');
+?>
 <!doctype html>
 <html>
 <head>
@@ -7,7 +11,6 @@
 
 <body>
 <?php
-		include '../../administrator/connect.php';
 
         $person_id = $_POST['person_id'];
 		$prefix = $_POST['prefix'];

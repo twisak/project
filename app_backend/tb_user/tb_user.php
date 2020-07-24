@@ -198,6 +198,7 @@
                                             //     $name_th2 = $row4['name_th'];
                                             // }
                                                 //echo $sql3;
+                                                
                                         ?>
                                         <tbody>
                                             <tr>
@@ -210,9 +211,9 @@
                                                 <td><?php echo $row['status'];?></td>
                                                 <td>
                                                     <!-- <a href="edit_form_user.php?id=<?php echo $row['person_id'];?>" class="btn btn-warning">แก้ไข</a> -->
-                                                    <a href="edit_form_user.php?id=<?php echo $row['person_id'];?>" class="btn btn-warning">แก้ไข</a>
+                                                    <a href="edit_form_user.php?person_id=<?php echo $row['person_id'];?>" class="btn btn-warning">แก้ไข</a>
                                                 </td>
-                                                <td><a href="JavaScript:if(confirm('ยืนยันการลบ ?') == true){window.location='delete_user.php?id=<?php echo $row['person_id'];?>';}" class="btn btn-danger">ลบ</a></td>
+                                                <td><a href="JavaScript:if(confirm('ยืนยันการลบ ?') == true){window.location='delete_user.php?person_id=<?php echo $row['person_id'];?>';}" class="btn btn-danger">ลบ</a></td>
                                             </tr>
                                             <?php
                                                 $i++; }

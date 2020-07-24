@@ -68,9 +68,9 @@
 
                 <?php
                         include '../../administrator/connect.php';
-                      $id =$_GET['id'];
+                      $title_id =$_GET['title_id'];
 
-                       $sql_title = "SELECT * FROM tb_title WHERE id = '".$id."' ";
+                       $sql_title = "SELECT * FROM tb_title WHERE title_id = '".$title_id."' ";
                        //echo $sql_budget;
                        $query_title = mysqli_query($conn,$sql_title);
                        $row_title =mysqli_fetch_assoc($query_title);

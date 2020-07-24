@@ -76,8 +76,8 @@
                                 <form class="form-horizontal form-material" action="edit_product.php" name="form_user" method="post">
                                     <?php
                                             include '../../administrator/connect.php';
-                                            $id =$_GET['id'];
-                                            $sql_product ="SELECT * FROM tb_product WHERE id = '".$id."'";
+                                            $product_id =$_GET['product_id'];
+                                            $sql_product ="SELECT * FROM tb_product WHERE product_id = '".$product_id."'";
                                             $query_product = mysqli_query($conn,$sql_product);
                                             while($row_product = mysqli_fetch_array($query_product,MYSQLI_ASSOC))
                                             {
@@ -117,7 +117,7 @@
                                           $sql_budget = "SELECT * FROM tb_budget";
                                           $query_budget = mysqli_query($conn,$sql_budget);
                                       ?>
-                                        <input type="hidden" name="id" value="<?php echo $id; ?>">
+                                        <input type="hidden" name="product_id" value="<?php echo $product_id; ?>">
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label><b>ชื่อกิจกรรมโครงการ</b></label><br>

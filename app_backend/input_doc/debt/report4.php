@@ -37,7 +37,7 @@
 
 <?php
 
-            $doc_id = $_GET['id'];
+            $doc_id = $_GET['doc_id'];
             //echo $doc_id;
 
             $sql_debt = "SELECT * FROM tb_debt WHERE doc_id = '".$doc_id."' ";
@@ -645,7 +645,7 @@
             </a>
         </li>
         <li>
-            <a href="http://localhost/project_student/app_frontend/input_doc/debt/show.php?id=<?=$id?>" onclick="window.close();">
+            <a href="http://localhost/project_student/app_backend/input_doc/debt/show.php?doc_id=<?=$doc_id?>" onclick="window.close();">
                 <span class="fa-stack fa-2x">
                     <i class="fa fa-circle fa-stack-2x"></i>
                     <i class="fa fa-times fa-stack-1x fa-inverse"></i>

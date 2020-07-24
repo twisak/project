@@ -2,12 +2,12 @@
 include('../../../../../config/connect.php');
 include('../../../../../config/constant.php');
 
-$idd = $_GET['id'];
-$sql_record1 = "SELECT * FROM tb_note_record1 WHERE id = '".$idd."' ";
+$doc_id = $_GET['doc_id'];
+$sql_record1 = "SELECT * FROM tb_note_record1 WHERE doc_id = '".$doc_id."' ";
 $query_record1 = mysqli_query($conn,$sql_record1);
 $result_record1 = mysqli_fetch_assoc($query_record1);
 
-$id = $result_record1['id'];
+
 $doc_id = $result_record1['doc_id'];
 $person_id = $result_record1['person_id'];
 $project_id = $result_record1['project_id'];
@@ -115,8 +115,6 @@ $budget = $result_budget['budget'];
                             <!-- Tab panes -->
                             <div class="card-body">
                                 <form class="form-horizontal form-material" action="../record1/edit_action.php" method="post">
-
-                                            <input type="hidden" name="idd" value="<?php echo $idd; ?>" />
                                     <div class="row">
                                         <div class="col-md-12 text-center">
                                             <div class="form-group">

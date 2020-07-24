@@ -34,10 +34,10 @@
 </head>
 <?php
 
-            $id = $_GET['id'];
-            //echo $id;
+            $doc_id = $_GET['doc_id'];
+            //echo $doc_id;
 
-            $sql ="SELECT * FROM tb_lend WHERE id = '".$id."'";
+            $sql ="SELECT * FROM tb_lend WHERE doc_id = '".$doc_id."'";
             $query = mysqli_query($conn,$sql);
             while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
             {
@@ -662,7 +662,7 @@
             </a>
         </li>
         <li>
-            <a href="http://localhost/project_student/app_frontend/input_doc/lend/show.php?id=<?=$id?>" onClick="JavaScript:history.back();">
+            <a href="http://localhost/project_student/app_backend/input_doc/lend/show.php?doc_id=<?=$doc_id?>" onClick="JavaScript:history.back();">
                 <span class="fa-stack fa-2x">
                     <i class="fa fa-circle fa-stack-2x"></i>
                     <i class="fa fa-times fa-stack-1x fa-inverse"></i>

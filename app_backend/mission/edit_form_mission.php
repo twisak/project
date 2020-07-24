@@ -76,8 +76,8 @@
                                 <form class="form-horizontal form-material" action="edit_mission.php" name="form_user" method="post">
                                     <?php 
                                         include '../../administrator/connect.php';
-                                        $id =$_GET['id'];
-                                        $sql_mission ="SELECT * FROM tb_mission WHERE id = '".$id."'";
+                                        $mission_id =$_GET['mission_id'];
+                                        $sql_mission ="SELECT * FROM tb_mission WHERE mission_id = '".$mission_id."'";
                                         $query_mission = mysqli_query($conn,$sql_mission);
                                         while($row_mission = mysqli_fetch_array($query_mission,MYSQLI_ASSOC))
                                         {
@@ -116,7 +116,7 @@
                                           $sql_product = "SELECT * FROM tb_product";
                                           $query_product = mysqli_query($conn,$sql_product);
                                       ?>
-                                        <input type="hidden" name="id" value="<?php echo $id; ?>">
+                                        <input type="hidden" name="mission_id" value="<?php echo $mission_id; ?>">
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label><b>ชื่อกิจกรรมโครงการ</b></label><br>

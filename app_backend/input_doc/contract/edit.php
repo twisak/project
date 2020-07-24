@@ -2,8 +2,8 @@
     include('../../../config/connect.php');
     include('../../../config/constant.php');
 
-    $idd = $_GET['id'];
-    $sql_contract = "SELECT * FROM tb_contract WHERE id = '".$idd."' ";
+    $doc_id = $_GET['doc_id'];
+    $sql_contract = "SELECT * FROM tb_contract WHERE doc_id = '".$doc_id."' ";
     $query_contract = mysqli_query($conn,$sql_contract);
     $result_contract = mysqli_fetch_assoc($query_contract);
 
@@ -141,7 +141,7 @@
                                             <div class="form-group">
                                                 <label><b>รหัสเอกสารจ้างเหมาบริการ</b></label>
                                                 <input type="text" value="<?php echo $doc_id;?>" readonly class="form-control form-control-line">
-                                                <input type="hidden" name="doc_id" value="<?=$id?>" />
+                                                <input type="hidden" name="doc_id" value="<?=$doc_id?>" />
                                             </div>
                                         </div>
 
@@ -188,8 +188,8 @@
                                         </div>
                                     </div>
                                     <?php
-                                        $id =$_GET['id'];
-                                        $sql ="SELECT * FROM tb_contract WHERE id = '".$id."'";
+                                        $doc_id =$_GET['doc_id'];
+                                        $sql ="SELECT * FROM tb_contract WHERE doc_id = '".$doc_id."'";
                                         $query = mysqli_query($conn,$sql);
                                         $num_rows = mysqli_num_rows($query);
                                         while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))

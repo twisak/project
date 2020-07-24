@@ -4,8 +4,8 @@ include('../../../../../config/constant.php');
 
     $username= $_SESSION['username'];
 
-    $idd = $_GET['id'];
-    $sql_book2 = "SELECT * FROM tb_note_book2 WHERE id = '".$idd."' ";
+    $doc_id = $_GET['doc_id'];
+    $sql_book2 = "SELECT * FROM tb_note_book2 WHERE doc_id = '".$doc_id."' ";
     $query_book2 = mysqli_query($conn,$sql_book2);
     $result_book2 = mysqli_fetch_assoc($query_book2);
 

@@ -27,8 +27,8 @@
 <![endif]-->
 </head>
 <?php
-            $id =$_GET['id'];
-            $sql ="SELECT * FROM tb_contract WHERE id = '".$id."'";
+            $doc_id =$_GET['doc_id'];
+            $sql ="SELECT * FROM tb_contract WHERE doc_id = '".$doc_id."'";
             $query = mysqli_query($conn,$sql);
             $num_rows = mysqli_num_rows($query);
             while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))

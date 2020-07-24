@@ -9,9 +9,9 @@
     <?php
         include '../../administrator/connect.php';
 
-        $id = $_GET['id'];
+        $project_id = $_GET['project_id'];
 
-        $sql_project= "DELETE FROM tb_project WHERE id = '$id'";
+        $sql_project= "DELETE FROM tb_project WHERE project_id = '$project_id'";
 
         $db_query_project = mysqli_query($conn,$sql_project);
 

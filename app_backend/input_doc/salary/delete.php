@@ -2,9 +2,9 @@
         include('../../../config/connect.php');
         include('../../../config/constant.php');
 
-        $id = $_GET['id'];
+        $doc_id = $_GET['doc_id'];
 
-        $sql_tb_salary = "DELETE FROM tb_salary WHERE id = '$id'";
+        $sql_tb_salary = "DELETE FROM tb_salary WHERE doc_id = '$doc_id'";
 
         $db_query_salary = mysqli_query($conn,$sql_tb_salary);
 

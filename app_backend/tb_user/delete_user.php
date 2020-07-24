@@ -1,3 +1,7 @@
+<?php 
+        include('../../config/connect.php');
+        include('../../config/constant.php');
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -7,12 +11,11 @@
   <body>
 
     <?php
-        include '../../administrator/connect.php';
 
-        $id = $_GET['person_id'];
+        $id = $_GET['id'];
 
-        // echo $id;
-        $sql = "SELECT * FROM tb_person WHERE id = '".$id."' ";
+         echo $id;
+        $sql = "SELECT * FROM tb_person WHERE person_id = '".$id."' ";
         $query = mysqli_query($conn,$sql);
         $result = mysqli_fetch_assoc($query);
 
@@ -27,7 +30,7 @@
         $db_query_account_login = mysqli_query($conn,$sql_account_login);
 
         // echo "<script>alert('ลบข้อมูลเรียบร้อย')</script>";
-        echo "<script>window.location='tb_user.php'</script>";
+        //echo "<script>window.location='tb_user.php'</script>";
     ?>
 
   </body>

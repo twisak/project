@@ -33,10 +33,9 @@
 
 <?php
 
-$id = $_GET['id'];
-//echo $doc_id;
+$doc_id = $_GET['doc_id'];
 
-$sql_note_book3 = "SELECT * FROM tb_note_book3 WHERE id = '".$id."' ";
+$sql_note_book3 = "SELECT * FROM tb_note_book3 WHERE doc_id = '".$doc_id."' ";
 $query_note_book3 = mysqli_query($conn,$sql_note_book3);
 $result_note_book3 = mysqli_fetch_assoc($query_note_book3);
 

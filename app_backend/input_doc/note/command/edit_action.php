@@ -1,6 +1,6 @@
 <?php
-    include('../../../../../config/connect.php');
-    include('../../../../../config/constant.php');
+    include('../../../../config/connect.php');
+    include('../../../../config/constant.php');
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -12,7 +12,7 @@
 
     <?php
 
-        $idd = $_POST['idd'];
+       
         $doc_id = $_POST['doc_id'];
         $date_current = date('Y-m-d');
         $str_date = $_POST['str_date'];
@@ -28,7 +28,7 @@
         $budget_id = $_POST['budget_id'];
 
 
-                    $sql= "UPDATE tb_note_command SET   doc_id     = '".$doc_id."',
+                    $sql= "UPDATE tb_note_command SET  
                                                 date_current        = '".$date_current."',
                                                 str_date        = '".$str_date."',
                                                 stp_date      = '".$stp_date."',
@@ -42,7 +42,7 @@
                                                 driver        = '".$driver."',
                                                 budget_id        = '".$budget_id."'
 
-                              WHERE id = '".$idd."'";
+                              WHERE doc_id = '".$doc_id."'";
 
 // echo $sql;
 
@@ -53,8 +53,8 @@
 
 
         echo "<script>alert('แก้ไขข้อมูลเรียบร้อย')</script>";
-        echo "<script>window.location='http://localhost/project_student/app_frontend/input_doc/command/show.php?id=$idd'</script>";
-    ?>
+        echo "<script>window.location='http://localhost/project_student/app_backend/input_doc/note/command/show.php?doc_id=$doc_id'</script>";
+    // ?>
 
   </body>
 </html>

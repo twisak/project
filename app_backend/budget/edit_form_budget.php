@@ -76,8 +76,8 @@
                                 <form class="form-horizontal form-material" action="edit_budget.php" name="form_user" method="post">
                                     <?php 
                                         include '../../administrator/connect.php';
-                                        $id =$_GET['id'];
-                                        $sql_tb_budget ="SELECT * FROM tb_budget WHERE id = '".$id."'";
+                                        $budget_id =$_GET['budget_id'];
+                                        $sql_tb_budget ="SELECT * FROM tb_budget WHERE budget_id = '".$budget_id."'";
                                         $query_tb_budget = mysqli_query($conn,$sql_tb_budget);
                                         while($row_budget = mysqli_fetch_array($query_tb_budget,MYSQLI_ASSOC))
                                         {

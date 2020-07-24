@@ -34,8 +34,8 @@
 <![endif]-->
 </head>
 <?php
-     $idd = $_GET['id'];
-     $sql_salary = "SELECT * FROM tb_salary WHERE id = '".$idd."' ";
+     $doc_id = $_GET['doc_id'];
+     $sql_salary = "SELECT * FROM tb_salary WHERE doc_id = '".$doc_id."' ";
      $query_salary = mysqli_query($conn,$sql_salary);
      $result_salary = mysqli_fetch_assoc($query_salary);
 
@@ -562,8 +562,9 @@
                 พิมพ์รายงาน
             </a>
         </li>
+       
         <li>
-            <a href="http://localhost/project_student/app_frontend/input_doc/salary/show.php?id=<?=$idd?>">
+            <a href="http://localhost/project_student/app_backend/input_doc/salary/show.php?doc_id=<?=$doc_id?>">
                 <span class="fa-stack fa-2x">
                     <i class="fa fa-circle fa-stack-2x"></i>
                     <i class="fa fa-times fa-stack-1x fa-inverse"></i>

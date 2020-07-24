@@ -36,10 +36,9 @@
 
 <?php
 
-$id = $_GET['id'];
-//echo $doc_id;
+$doc_id = $_GET['doc_id'];
 
-$sql_note_book3 = "SELECT * FROM tb_note_book3 WHERE id = '".$id."' ";
+$sql_note_book3 = "SELECT * FROM tb_note_book3 WHERE doc_id = '".$doc_id."' ";
 $query_note_book3 = mysqli_query($conn,$sql_note_book3);
 $result_note_book3 = mysqli_fetch_assoc($query_note_book3);
 
@@ -565,7 +564,7 @@ $name_th_d = $result_districts['name_th'];
             </a>
         </li>
         <li>
-            <a href="http://localhost/project_student/app_frontend/input_doc/note/invite/invite3/show.php?id=<?=$id;?>" onclick="window.close();">
+            <a href="http://localhost/project_student/app_backend/input_doc/note/invite/invite3/show.php?doc_id=<?=$doc_id;?>" onclick="window.close();">
                 <span class="fa-stack fa-2x">
                     <i class="fa fa-circle fa-stack-2x"></i>
                     <i class="fa fa-times fa-stack-1x fa-inverse"></i>

@@ -9,9 +9,9 @@
     <?php
         include '../../administrator/connect.php';
 
-        $id = $_GET['id'];
+        $budget_id = $_GET['budget_id'];
 
-        $sql_tb_budget = "DELETE FROM tb_budget WHERE id = '$id'";
+        $sql_tb_budget = "DELETE FROM tb_budget WHERE budget_id = '$budget_id'";
 
         $db_query_budget = mysqli_query($conn,$sql_tb_budget);
 

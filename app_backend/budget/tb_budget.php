@@ -139,7 +139,7 @@
                                             $query_tb_budget = mysqli_query($conn,$sql_tb_budget);
                                             while($row_budget = mysqli_fetch_array($query_tb_budget,MYSQLI_ASSOC))
                                             {
-                                                $id = $row_budget['id'];
+                                                $budget_id = $row_budget['budget_id'];
                                                 $budget = $row_budget['budget'];
 
                                         ?>
@@ -147,8 +147,8 @@
                                             <tr>
                                                 <td><?php echo $i;?></td>
                                                 <td><?php echo $budget;?></td>
-                                                <td><a href="edit_form_budget.php?id=<?php echo $id;?>" class="btn btn-warning">แก้ไข</a></td>
-                                                <td><a href="JavaScript:if(confirm('ยืนยันการลบ ?') == true){window.location='delete_budget.php?id=<?php echo $row_budget["id"];?>';}" class="btn btn-danger">ลบ</a></td>
+                                                <td><a href="edit_form_budget.php?budget_id=<?php echo $budget_id;?>" class="btn btn-warning">แก้ไข</a></td>
+                                                <td><a href="JavaScript:if(confirm('ยืนยันการลบ ?') == true){window.location='delete_budget.php?budget_id=<?php echo $budget_id;?>';}" class="btn btn-danger">ลบ</a></td>
                                             </tr>
                                             <?php
                                                 $i++;

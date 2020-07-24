@@ -125,8 +125,8 @@
                                                 <td class="text-center"><?php echo $i;?></td>
                                                 <td class="text-center"><?php echo $project_id;?></td>
                                                 <td><?php echo $project_name;?></td>
-                                                <td><a href="edit_form_project.php?id=<?php echo $row_project['id'];?>" class="btn btn-warning">แก้ไข</a></td>
-                                                <td><a href="JavaScript:if(confirm('ยืนยันการลบ ?') == true){window.location='delete_project.php?id=<?php echo $row_project["id"];?>';}" class="btn btn-danger">ลบ</a></td>
+                                                <td><a href="edit_form_project.php?project_id=<?php echo $project_id;?>" class="btn btn-warning">แก้ไข</a></td>
+                                                <td><a href="JavaScript:if(confirm('ยืนยันการลบ ?') == true){window.location='delete_project.php?project_id=<?php echo $project_id;?>';}" class="btn btn-danger">ลบ</a></td>
                                             </tr>
                                             <?php
                                                 $i++;

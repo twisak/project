@@ -9,9 +9,9 @@
     <?php
         include '../../administrator/connect.php';
 
-        $id = $_GET['id'];
+        $activity_id = $_GET['activity_id'];
 
-        $sql_activity= "DELETE FROM tb_activity WHERE id = '$id'";
+        $sql_activity= "DELETE FROM tb_activity WHERE activity_id = '$activity_id'";
 
         $db_query_activity = mysqli_query($conn,$sql_activity);
 

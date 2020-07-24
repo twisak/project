@@ -69,9 +69,9 @@
 
                 <?php
 
-                            $id = $_GET['id'];
+                            $teacher_id = $_GET['teacher_id'];
                             // echo $id;
-                            $sql_teacher = "SELECT * FROM tb_teacher WHERE id = '".$id."' ";
+                            $sql_teacher = "SELECT * FROM tb_teacher WHERE teacher_id = '".$teacher_id."' ";
                             $query_teacher = mysqli_query($conn,$sql_teacher);
                             $result_teacher = mysqli_fetch_array($query_teacher);
 

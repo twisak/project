@@ -1,3 +1,7 @@
+<?php 
+        include('../../config/connect.php');
+        include('../../config/constant.php');
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -7,9 +11,8 @@
   <body>
 
     <?php
-        include '../../administrator/connect.php';
 
-        $id = $_POST['id'];
+        //$id = $_POST['id'];
         $person_id = $_POST['person_id'];
         $prefix = $_POST['prefix'];
         $firtname = $_POST['firtname'];
@@ -34,8 +37,7 @@
         }else
         {
 
-                $sql= "UPDATE tb_person SET person_id     = '".$person_id."',
-                                            prefix        = '".$prefix."',
+                $sql= "UPDATE tb_person SET prefix        = '".$prefix."',
                                             firtname      = '".$firtname."',
                                             lastname      = '".$lastname."',
                                             idcard        = '".$idcard."',
@@ -44,7 +46,7 @@
                                             province_id   = '".$province_id."',
                                             districts_id  = '".$districts_id."',
                                             amphures_id   = '".$amphures_id."'
-                                    WHERE id = '".$id."'";
+                                    WHERE person_id = '".$person_id."'";
                 //echo $sql;
                 $db_query = mysqli_query($conn,$sql);
 

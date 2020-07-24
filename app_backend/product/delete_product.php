@@ -9,9 +9,9 @@
     <?php
         include '../../administrator/connect.php';
 
-        $id = $_GET['id'];
+        $product_id = $_GET['product_id'];
 
-        $sql_tb_product = "DELETE FROM tb_product WHERE id = '$id'";
+        $sql_tb_product = "DELETE FROM tb_product WHERE product_id = '$product_id'";
 
         $db_query_product = mysqli_query($conn,$sql_tb_product);
 

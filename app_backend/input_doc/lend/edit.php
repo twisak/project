@@ -54,8 +54,8 @@ include('../../../config/constant.php');
                 </div>
 
                 <?php
-                    $id =$_GET['id'];
-                    $sql ="SELECT * FROM tb_lend WHERE id = '".$id."'";
+                    $doc_id =$_GET['doc_id'];
+                    $sql ="SELECT * FROM tb_lend WHERE doc_id = '".$doc_id."'";
                     $query = mysqli_query($conn,$sql);
                     while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
                     {

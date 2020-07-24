@@ -1,4 +1,5 @@
-<?php include('../../config/connect.php');
+<?php 
+        include('../../config/connect.php');
         include('../../config/constant.php');
 ?>
 <!DOCTYPE html>
@@ -70,7 +71,7 @@
                             <div class="card-body">
                                 <?php
                                         include '../../administrator/connect.php';
-                                        $person_id =$_GET['id'];
+                                        $person_id =$_GET['person_id'];
 
                                         $sql ="SELECT * FROM account_login WHERE person_id = '".$person_id."' ";
                                         $query = mysqli_query($conn,$sql);

@@ -9,16 +9,15 @@
     <?php
         include '../../administrator/connect.php';
 
-        $id = $_POST['$id_auto'];
+        
         //$product_id = $_POST['product_id'];
         $title_id = $_POST['title_id'];
         $title = $_POST['title'];
         $body = $_POST['body'];
 
-        $sql= "UPDATE tb_title SET title_id = '".$title_id."',
-                                             title = '".$title."',
-                                              body = '".$body."'
-                              WHERE id = '$id' ";
+        $sql= "UPDATE tb_title SET  title = '".$title."',
+                                    body = '".$body."'
+                              WHERE title_id = '$title_id' ";
 // echo $sql;
        $db_query = mysqli_query($conn,$sql);
 

@@ -9,9 +9,9 @@
     <?php
         include '../../administrator/connect.php';
 
-        $id = $_GET['id'];
+        $strategic_id = $_GET['strategic_id'];
 
-        $sql_tb_strategic = "DELETE FROM tb_strategic WHERE id = '$id'";
+        $sql_tb_strategic = "DELETE FROM tb_strategic WHERE strategic_id = '$strategic_id'";
 
         $db_query_strategic = mysqli_query($conn,$sql_tb_strategic);
 

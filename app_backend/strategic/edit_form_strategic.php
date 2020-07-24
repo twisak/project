@@ -76,8 +76,8 @@
                                 <form class="form-horizontal form-material" action="edit_strategic.php" name="form_user" method="post">
                                 <?php
                                         include '../../administrator/connect.php';
-                                        $id = $_GET['id'];
-                                        $sql_strategic ="SELECT * FROM tb_strategic WHERE id = '".$id."'";
+                                        $strategic_id = $_GET['strategic_id'];
+                                        $sql_strategic ="SELECT * FROM tb_strategic WHERE strategic_id = '".$strategic_id."'";
                                         $query_strategic = mysqli_query($conn,$sql_strategic);
                                         while($row_strategic = mysqli_fetch_array($query_strategic,MYSQLI_ASSOC))
                                         {
@@ -112,7 +112,7 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                    <input type="hidden" name="id" value="<?php echo $id; ?>">
+                                    <input type="hidden" name="strategic_id" value="<?php echo $strategic_id; ?>">
                                     <div class="col-md-4">
                                             <div class="form-group">
                                                 <label><b>ชื่อกิจกรรมโครงการ</b></label><br>

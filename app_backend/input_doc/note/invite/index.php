@@ -173,7 +173,7 @@ include('../../../../config/constant.php');
                                             $i=1;
                                             $i<="";
 
-                                            $sql ="SELECT tb_note_book1.id , tb_note_book1.doc_id , tb_note_book1.date_current , tb_project.project_name , tb_person.prefix, tb_person.firtname, tb_person.lastname, tb_title.title FROM tb_note_book1
+                                            $sql ="SELECT tb_note_book1.doc_id , tb_note_book1.date_current , tb_project.project_name , tb_person.prefix, tb_person.firtname, tb_person.lastname, tb_title.title FROM tb_note_book1
                                             INNER JOIN tb_project ON tb_note_book1.project_id = tb_project.project_id
                                             INNER JOIN tb_person ON tb_note_book1.person_id = tb_person.person_id
                                             INNER JOIN tb_title ON tb_note_book1.title_id = tb_title.title_id
@@ -216,9 +216,9 @@ include('../../../../config/constant.php');
                                                 <td><?php echo $row['date_current'];?></td>
                                                 <td><?php echo $row['title'];?></td>
                                                 <td>
-                                                    <a href="../invite/invite1/show.php?id=<?php echo $row['id'];?>"><button type="button" class="btn btn-info">รายละเอียด</button></a>
+                                                    <a href="../invite/invite1/show.php?doc_id=<?php echo $row['doc_id'];?>"><button type="button" class="btn btn-info">รายละเอียด</button></a>
                                                 </td>
-                                                <td><a href="JavaScript:if(confirm('ยืนยันการลบ ?') == true){window.location='../invite/invite1/delete.php?id=<?php echo $row["id"];?>';}" class="btn btn-danger">ลบ</a></td>
+                                                <td><a href="JavaScript:if(confirm('ยืนยันการลบ ?') == true){window.location='../invite/invite1/delete.php?doc_id=<?php echo $row["doc_id"];?>';}" class="btn btn-danger">ลบ</a></td>
                                             </tr>
                                             <?php
                                             $i++;
@@ -304,7 +304,7 @@ include('../../../../config/constant.php');
                                             $i<="";
 
 
-                                            $sql ="SELECT tb_note_book2.id , tb_note_book2.doc_id , tb_note_book2.date_current , tb_project.project_name , tb_person.prefix, tb_person.firtname, tb_person.lastname, tb_title.title FROM tb_note_book2
+                                            $sql ="SELECT tb_note_book2.doc_id , tb_note_book2.date_current , tb_project.project_name , tb_person.prefix, tb_person.firtname, tb_person.lastname, tb_title.title FROM tb_note_book2
                                             INNER JOIN tb_project ON tb_note_book2.project_id = tb_project.project_id
                                             INNER JOIN tb_person ON tb_note_book2.person_id = tb_person.person_id
                                             INNER JOIN tb_title ON tb_note_book2.title_id = tb_title.title_id
@@ -347,9 +347,9 @@ include('../../../../config/constant.php');
                                                 <td><?php echo $row1['date_current'];?></td>
                                                 <td><?php echo $row1['title'];?></td>
                                                 <td>
-                                                    <a href="../invite/invite2/show.php?id=<?php echo $row1['id'];?>"><button type="button" class="btn btn-info">รายละเอียด</button></a>
+                                                    <a href="../invite/invite2/show.php?doc_id=<?php echo $row1['doc_id'];?>"><button type="button" class="btn btn-info">รายละเอียด</button></a>
                                                 </td>
-                                                <td><a href="JavaScript:if(confirm('ยืนยันการลบ ?') == true){window.location='../invite/invite2/delete.php?id=<?php echo $row1["id"];?>';}" class="btn btn-danger">ลบ</a></td>
+                                                <td><a href="JavaScript:if(confirm('ยืนยันการลบ ?') == true){window.location='../invite/invite2/delete.php?doc_id=<?php echo $row1["doc_id"];?>';}" class="btn btn-danger">ลบ</a></td>
                                             </tr>
                                             <?php
                                             $i++;
@@ -432,7 +432,7 @@ include('../../../../config/constant.php');
                                             $i=1;
                                             $i<="";
 
-                                            $sql ="SELECT tb_note_book3.id , tb_note_book3.doc_id , tb_note_book3.date_current , tb_project.project_name , tb_person.prefix, tb_person.firtname, tb_person.lastname, tb_title.title FROM tb_note_book3
+                                            $sql ="SELECT tb_note_book3.doc_id , tb_note_book3.date_current , tb_project.project_name , tb_person.prefix, tb_person.firtname, tb_person.lastname, tb_title.title FROM tb_note_book3
                                             INNER JOIN tb_project ON tb_note_book3.project_id = tb_project.project_id
                                             INNER JOIN tb_person ON tb_note_book3.person_id = tb_person.person_id
                                             INNER JOIN tb_title ON tb_note_book3.title_id = tb_title.title_id
@@ -475,9 +475,9 @@ include('../../../../config/constant.php');
                                                 <td><?php echo $row2["date_current"];?></td>
                                                 <td><?php echo $row2["project_name"];?></td>
                                                 <td>
-                                                    <a href="../invite/invite3/show.php?id=<?php echo $row2["id"];?>"><button type="button" class="btn btn-info">รายละเอียด</button></a>
+                                                    <a href="../invite/invite3/show.php?doc_id=<?php echo $row2["doc_id"];?>"><button type="button" class="btn btn-info">รายละเอียด</button></a>
                                                 </td>
-                                                <td><a href="JavaScript:if(confirm('ยืนยันการลบ ?') == true){window.location='../invite/invite3/delete.php?id=<?php echo $row2["id"];?>';}" class="btn btn-danger">ลบ</a></td>
+                                                <td><a href="JavaScript:if(confirm('ยืนยันการลบ ?') == true){window.location='../invite/invite3/delete.php?doc_id=<?php echo $row2["doc_id"];?>';}" class="btn btn-danger">ลบ</a></td>
                                             </tr>
                                             <?php
                                             $i++;

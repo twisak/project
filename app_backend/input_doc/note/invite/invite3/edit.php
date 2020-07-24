@@ -4,8 +4,8 @@ include('../../../../../config/constant.php');
 
     $username= $_SESSION['username'];
 
-    $idd = $_GET['id'];
-    $sql_book3 = "SELECT * FROM tb_note_book3 WHERE id = '".$idd."' ";
+    $doc_id = $_GET['doc_id'];
+    $sql_book3 = "SELECT * FROM tb_note_book3 WHERE doc_id = '".$doc_id."' ";
     $query_book3 = mysqli_query($conn,$sql_book3);
     $result_book3 = mysqli_fetch_assoc($query_book3);
 
@@ -109,7 +109,7 @@ include('../../../../../config/constant.php');
                             <!-- Tab panes -->
                             <div class="card-body">
                                 <form class="form-horizontal form-material" action="../invite3/edit_action.php" method="post">
-                                    <input type="hidden" name="idd" value="<?php echo $idd; ?>" />
+                                    
                                     <div class="row">
                                         <div class="col-md-12 text-center">
                                             <div class="form-group">

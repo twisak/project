@@ -9,7 +9,6 @@
     <?php
         include '../../administrator/connect.php';
 
-        $id = $_POST['id'];
         $project_id = $_POST['project_id'];
         $project_name = $_POST['project_name'];
         $fiscal_year = $_POST['fiscal_year'];
@@ -18,14 +17,13 @@
         $mission_id = $_POST['mission_id'];
         $strategic_id = $_POST['strategic_id'];
 
-        $sql_project= "UPDATE tb_project SET project_id = '".$project_id."',
-                                                project_name = '".$project_name."',
+        $sql_project= "UPDATE tb_project SET    project_name = '".$project_name."',
                                                 fiscal_year = '".$fiscal_year."',
                                                 budget_id = '".$budget_id."',
                                                 product_id = '".$product_id."',
                                                 mission_id = '".$mission_id."',
                                                 strategic_id = '".$strategic_id."'
-                              WHERE id = '$id' ";
+                              WHERE project_id = '$project_id' ";
 
 
         $db_query_project = mysqli_query($conn,$sql_project);

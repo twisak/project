@@ -9,7 +9,7 @@
     <?php
         include '../../administrator/connect.php';
 
-        $id = $_POST['id'];
+        $strategic_id = $_POST['strategic_id'];
         $strategic = $_POST['strategic'];
         $mission_id = $_POST['mission_id'];
         $project_id = $_POST['project_id'];
@@ -17,7 +17,7 @@
         $sql= "UPDATE tb_strategic SET strategic = '".$strategic."',
                                      mission_id = '".$mission_id."',
                                      project_id = '".$project_id."'
-                              WHERE id = '$id'";
+                              WHERE strategic_id = '$strategic_id'";
 //echo $sql;
        $db_query = mysqli_query($conn,$sql);
 

@@ -9,17 +9,16 @@
     <?php
         include '../../administrator/connect.php';
 
-        $id = $_POST['id'];
+        //$id = $_POST['id'];
         $teacher_id = $_POST['teacher_id'];
         $t_firstname = $_POST['t_firstname'];
         $t_lastname = $_POST['t_lastname'];
         $position_id = $_POST['position_id'];
 
-        $sql_teacher= "UPDATE tb_teacher SET teacher_id = '".$teacher_id."',
-                                                t_firstname = '".$t_firstname."',
+        $sql_teacher= "UPDATE tb_teacher SET    t_firstname = '".$t_firstname."',
                                                 t_lastname = '".$t_lastname."',
                                                 position_id = '".$position_id."'
-                              WHERE id = '$id' ";
+                              WHERE teacher_id = '$teacher_id' ";
 
 
         $db_query_teacher = mysqli_query($conn,$sql_teacher);

@@ -109,7 +109,7 @@
                                             include '../../administrator/connect.php';
 
 
-                                            $sql_strategic ="SELECT tb_strategic.id, tb_strategic.strategic , tb_mission.mission   FROM tb_strategic
+                                            $sql_strategic ="SELECT tb_strategic.strategic_id, tb_strategic.strategic , tb_mission.mission   FROM tb_strategic
                                             INNER JOIN tb_mission ON tb_strategic.mission_id = tb_mission.mission_id
                                             WHERE (tb_strategic.strategic LIKE '%".$strKeyword."%' or tb_mission.mission LIKE '%".$strKeyword."%'  ) ";
 
@@ -134,8 +134,8 @@
                                                 <td><?php echo $i;?></td>
                                                 <td><?php echo $row_strategic['strategic'];?></td>
                                                 <td><?php echo $row_strategic['mission'];?></td>
-                                                <td><a href="edit_form_strategic.php?id=<?php echo $row_strategic['id'];?>" class="btn btn-warning">แก้ไข</a></td>
-                                                <td><a href="JavaScript:if(confirm('ยืนยันการลบ ?') == true){window.location='delete_strategic.php?id=<?php echo $row_strategic["id"];?>';}" class="btn btn-danger">ลบ</a></td>
+                                                <td><a href="edit_form_strategic.php?strategic_id=<?php echo $row_strategic['strategic_id'];?>" class="btn btn-warning">แก้ไข</a></td>
+                                                <td><a href="JavaScript:if(confirm('ยืนยันการลบ ?') == true){window.location='delete_strategic.php?strategic_id=<?php echo $row_strategic["strategic_id"];?>';}" class="btn btn-danger">ลบ</a></td>
                                             </tr>
                                             <?php
                                                 $i++;

@@ -67,10 +67,10 @@ include('../../../../../config/constant.php');
                         <h3 class="text-themecolor">เอกสารบันทึกข้อความ/อนุมัติดำเนินการจ้างเหมา</h3>
                     </div>
 
-<?php     $id = $_GET['id']; ?>
+<?php     $doc_id = $_GET['doc_id']; ?>
 
                     <div class="col-md-7 align-self-center">
-                        <a href="../record1/report.php?id=<?php echo $id;?>" class="btn waves-effect waves-light btn btn-info pull-right hidden-sm-down">
+                        <a href="../record1/report.php?doc_id=<?php echo $doc_id;?>" class="btn waves-effect waves-light btn btn-info pull-right hidden-sm-down">
                             <i class="fa-fw fa fa-print"></i>
                             ส่งออกแบบฟอร์ม
                         </a>
@@ -85,7 +85,7 @@ include('../../../../../config/constant.php');
 
 
 
-                                            $sql ="SELECT * FROM tb_note_record1 WHERE id = '".$id."' ";
+                                            $sql ="SELECT * FROM tb_note_record1 WHERE doc_id = '".$doc_id."' ";
                                             $query = mysqli_query($conn,$sql);
                                             while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
                                             {
@@ -285,7 +285,7 @@ include('../../../../../config/constant.php');
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <a href="../record1/edit.php?id=<?php echo $id;?>" class="btn btn-warning btn-block">แก้ไขข้อมูลเอกสาร</a>
+                                                <a href="../record1/edit.php?doc_id=<?php echo $doc_id;?>" class="btn btn-warning btn-block">แก้ไขข้อมูลเอกสาร</a>
                                             </div>
                                         </div>
 

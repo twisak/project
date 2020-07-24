@@ -142,7 +142,7 @@
 
                                             include '../../administrator/connect.php';
 
-                                            $sql_product ="SELECT tb_product.id, tb_product.product , tb_budget.budget   FROM tb_product
+                                            $sql_product ="SELECT tb_product.product_id, tb_product.product , tb_budget.budget   FROM tb_product
                                             INNER JOIN tb_budget ON tb_product.budget_id = tb_budget.budget_id
                                             WHERE (tb_product.product LIKE '%".$strKeyword."%' or tb_budget.budget LIKE '%".$strKeyword."%'  ) ";
 
@@ -168,8 +168,8 @@
                                                 <td><?php echo $i;?></td>
                                                 <td><?php echo $row_product['product'];?></td>
                                                 <td><?php echo $row_product['budget'];?></td>
-                                                <td><a href="edit_form_product.php?id=<?php echo $row_product['id'];?>" class="btn btn-warning">แก้ไข</a></td>
-                                                <td><a href="JavaScript:if(confirm('ยืนยันการลบ ?') == true){window.location='delete_product.php?id=<?php echo $row_product["id"];?>';}" class="btn btn-danger">ลบ</a></td>
+                                                <td><a href="edit_form_product.php?product_id=<?php echo $row_product['product_id'];?>" class="btn btn-warning">แก้ไข</a></td>
+                                                <td><a href="JavaScript:if(confirm('ยืนยันการลบ ?') == true){window.location='delete_product.php?product_id=<?php echo $row_product["product_id"];?>';}" class="btn btn-danger">ลบ</a></td>
                                             </tr>
                                             <?php
                                                 $i++;

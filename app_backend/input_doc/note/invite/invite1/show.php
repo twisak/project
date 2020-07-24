@@ -69,10 +69,10 @@ include('../../../../../config/constant.php');
                         <h3 class="text-themecolor">เอกสารเรียนเชิญเป็นวิทยากร</h3>
                     </div>
 
-<?php                       $id = $_GET['id']; ?>
+<?php                       $doc_id = $_GET['doc_id']; ?>
 
                     <div class="col-md-7 align-self-center">
-                        <a href="../invite1/report.php?id=<?php echo $id;?>" class="btn waves-effect waves-light btn btn-info pull-right hidden-sm-down">
+                        <a href="../invite1/report.php?doc_id=<?php echo $doc_id;?>" class="btn waves-effect waves-light btn btn-info pull-right hidden-sm-down">
                             <i class="fa-fw fa fa-print"></i>
                             ส่งออกแบบฟอร์ม
                         </a>
@@ -86,9 +86,9 @@ include('../../../../../config/constant.php');
                                 <form class="form-horizontal form-material">
                                     <?php
 
-                                            $id = $_GET['id'];
+                                            $doc_id = $_GET['doc_id'];
 
-                                            $sql ="SELECT * FROM tb_note_book1 WHERE id = '".$id."' ";
+                                            $sql ="SELECT * FROM tb_note_book1 WHERE doc_id = '".$doc_id."' ";
                                             $query = mysqli_query($conn,$sql);
                                             while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
                                             {
@@ -302,7 +302,7 @@ include('../../../../../config/constant.php');
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <a href="edit.php?id=<?php echo $id;?>" class="btn btn-warning btn-block">แก้ไขข้อมูลเอกสาร</a>
+                                                <a href="edit.php?doc_id=<?php echo $doc_id;?>" class="btn btn-warning btn-block">แก้ไขข้อมูลเอกสาร</a>
                                             </div>
                                         </div>
 

@@ -112,7 +112,7 @@
 
                                             include '../../administrator/connect.php';
 
-                                            $sql_teacher ="SELECT tb_teacher.id, tb_teacher.t_firstname , tb_teacher.t_lastname , tb_position.position_name  FROM tb_teacher
+                                            $sql_teacher ="SELECT tb_teacher.teacher_id, tb_teacher.t_firstname , tb_teacher.t_lastname , tb_position.position_name  FROM tb_teacher
                                             INNER JOIN tb_position ON tb_teacher.position_id = tb_position.position_id
                                             WHERE (tb_teacher.t_firstname LIKE '%".$strKeyword."%' or tb_teacher.t_lastname LIKE '%".$strKeyword."%' or tb_position.position_name LIKE '%".$strKeyword."%'  ) ";
 
@@ -137,8 +137,8 @@
                                                 <td><?php echo $i;?></td>
                                                 <td><?php echo $row_teacher['t_firstname'];?>&nbsp;&nbsp;<?php echo $row_teacher['t_lastname'];?></td>
                                                 <td><?php echo $row_teacher['position_name'];?></td>
-                                                <td><a href="edit_form_teacher.php?id=<?php echo $row_teacher['id'];?>" class="btn btn-warning">แก้ไข</a></td>
-                                                <td><a href="JavaScript:if(confirm('ยืนยันการลบ ?') == true){window.location='delete_teacher.php?id=<?php echo $row_teacher["id"];?>';}" class="btn btn-danger">ลบ</a></td>
+                                                <td><a href="edit_form_teacher.php?teacher_id=<?php echo $row_teacher['teacher_id'];?>" class="btn btn-warning">แก้ไข</a></td>
+                                                <td><a href="JavaScript:if(confirm('ยืนยันการลบ ?') == true){window.location='delete_teacher.php?teacher_id=<?php echo $row_teacher["teacher_id"];?>';}" class="btn btn-danger">ลบ</a></td>
                                             </tr>
                                             <?php
                                                 $i++;

@@ -114,7 +114,7 @@
 
                                             include '../../administrator/connect.php';
 
-                                            $sql_tb_activity ="SELECT tb_activity.id, tb_activity.activity , tb_project.project_id , tb_project.project_name  FROM tb_activity
+                                            $sql_tb_activity ="SELECT tb_activity.activity_id, tb_activity.activity , tb_project.project_id , tb_project.project_name  FROM tb_activity
                                             INNER JOIN tb_project ON tb_activity.project_id = tb_project.project_id
                                             WHERE (tb_activity.activity LIKE '%".$strKeyword."%'  or tb_project.project_name LIKE '%".$strKeyword."%'  ) ";
 
@@ -139,8 +139,8 @@
                                                 <td class="text-center"><?php echo $i;?></td>
                                                 <td><?php echo $row_tb_activity['project_name']; ?></td>
                                                 <td><?php echo $row_tb_activity['activity']; ?></td>
-                                                <td><a href="edit_form_activity.php?id=<?php echo $row_tb_activity['id'];?>" class="btn btn-warning">แก้ไข</a></td>
-                                                <td><a href="JavaScript:if(confirm('ยืนยันการลบ ?') == true){window.location='delete_activity.php?id=<?php echo $row_tb_activity["id"];?>';}" class="btn btn-danger">ลบ</a></td>
+                                                <td><a href="edit_form_activity.php?activity_id=<?php echo $row_tb_activity['activity_id'];?>" class="btn btn-warning">แก้ไข</a></td>
+                                                <td><a href="JavaScript:if(confirm('ยืนยันการลบ ?') == true){window.location='delete_activity.php?activity_id=<?php echo $row_tb_activity["activity_id"];?>';}" class="btn btn-danger">ลบ</a></td>
                                             </tr>
                                             <?php
                                                 $i++;

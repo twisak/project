@@ -32,10 +32,9 @@
 
 <?php
 
-$id = $_GET['id'];
-//echo $doc_id;
+$doc_id = $_GET['doc_id'];
 
-$sql_note_record1 = "SELECT * FROM tb_note_record1 WHERE id = '".$id."' ";
+$sql_note_record1 = "SELECT * FROM tb_note_record1 WHERE doc_id = '".$doc_id."' ";
 $query_note_record1 = mysqli_query($conn,$sql_note_record1);
 $result_note_record1 = mysqli_fetch_assoc($query_note_record1);
 
@@ -486,7 +485,7 @@ function convertAmountToLetter($number)
             </a>
         </li>
         <li>
-            <a href="http://localhost/project_student/app_frontend/input_doc/note/record/record1/show.php?id=<?=$id?>" onclick="window.close();">
+            <a href="http://localhost/project_student/app_backend/input_doc/note/record/record1/show.php?doc_id=<?=$doc_id?>" onclick="window.close();">
                 <span class="fa-stack fa-2x">
                     <i class="fa fa-circle fa-stack-2x"></i>
                     <i class="fa fa-times fa-stack-1x fa-inverse"></i>

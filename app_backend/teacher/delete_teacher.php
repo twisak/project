@@ -9,9 +9,9 @@
     <?php
         include '../../administrator/connect.php';
 
-        $id = $_GET['id'];
+        $teacher_id = $_GET['teacher_id'];
 
-        $sql_teacher= "DELETE FROM tb_teacher WHERE id = '$id'";
+        $sql_teacher= "DELETE FROM tb_teacher WHERE teacher_id = '$teacher_id'";
 
         $db_query_teacher = mysqli_query($conn,$sql_teacher);
 

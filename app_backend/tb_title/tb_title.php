@@ -116,7 +116,7 @@
                                             $query_title = mysqli_query($conn,$sql_title);
                                             while($row_title = mysqli_fetch_array($query_title,MYSQLI_ASSOC))
                                             {
-                                                $id = $row_title['id'];
+                                                $title_id = $row_title['title_id'];
                                                 $title = $row_title['title'];
                                                 $body = $row_title['body'];
 
@@ -126,8 +126,8 @@
                                                 <td class="text-center"><?php echo $i;?></td>
                                                 <td><?php echo $title;?></td>
                                                 <td><?php echo $body;?></td>
-                                                <td><a href="edit_form_title.php?id=<?php echo $row_title['id'];?>" class="btn btn-warning">แก้ไข</a></td>
-                                                <td><a href="JavaScript:if(confirm('ยืนยันการลบ ?') == true){window.location='delete_title.php?id=<?php echo $row_title["id"];?>';}" class="btn btn-danger">ลบ</a></td>
+                                                <td><a href="edit_form_title.php?title_id=<?php echo $title_id;?>" class="btn btn-warning">แก้ไข</a></td>
+                                                <td><a href="JavaScript:if(confirm('ยืนยันการลบ ?') == true){window.location='delete_title.php?title_id=<?php echo $title_id;?>';}" class="btn btn-danger">ลบ</a></td>
                                             </tr>
                                             <?php
                                                 $i++;

@@ -116,7 +116,7 @@
                                             $i=1;
                                             $i<="";
 
-                                            $sql ="SELECT tb_contract.id , tb_contract.doc_id , tb_project.project_name , tb_person.prefix, tb_person.firtname, tb_person.lastname FROM tb_contract
+                                            $sql ="SELECT tb_contract.doc_id , tb_project.project_name , tb_person.prefix, tb_person.firtname, tb_person.lastname FROM tb_contract
                                             INNER JOIN tb_project ON tb_contract.project_id = tb_project.project_id
                                             INNER JOIN tb_person ON tb_contract.person_id = tb_person.person_id
                                             WHERE (tb_contract.doc_id LIKE '%".$strKeyword."%' or tb_project.project_name LIKE '%".$strKeyword."%' or tb_person.prefix LIKE '%".$strKeyword."%' or tb_person.firtname LIKE '%".$strKeyword."%'or tb_person.lastname LIKE '%".$strKeyword."%'  ) ";
@@ -159,9 +159,9 @@
                                                 <td><?php echo $row['prefix'];?><?php echo $row['firtname'];?>  <?php echo $row['lastname'];?></td>
                                                 <td><?php echo $row['project_name'];?></td>
                                                 <td>
-                                                <a href="../contract/show.php?id=<?php echo $row['id'];?>"><button type="button" class="btn btn-info">รายละเอียด</button></a>
+                                                <a href="../contract/show.php?doc_id=<?php echo $row['doc_id'];?>"><button type="button" class="btn btn-info">รายละเอียด</button></a>
                                                 </td>
-                                                <td><a href="JavaScript:if(confirm('ยืนยันการลบ ?') == true){window.location='../contract/delete.php?id=<?php echo $row["id"];?>';}" class="btn btn-danger">ลบ</a></td>
+                                                <td><a href="JavaScript:if(confirm('ยืนยันการลบ ?') == true){window.location='../contract/delete.php?doc_id=<?php echo $row["doc_id"];?>';}" class="btn btn-danger">ลบ</a></td>
                                             </tr>
                                             <?php
                                             $i++;

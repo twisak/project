@@ -12,7 +12,6 @@
 
     <?php
 
-        $idd = $_POST['idd'];
         $doc_id = $_POST['doc_id'];
         $date_current = date('Y-m-d');
         $person_id = $_POST['person_id'];
@@ -36,7 +35,7 @@
                                                 str_date        = '".$str_date."',
                                                 stp_date        = '".$stp_date."',
                                                 real_date        = '".$real_date."'
-                              WHERE id = '".$idd."' ";
+                              WHERE doc_id = '".$doc_id."' ";
 
 // echo $sql;
 
@@ -47,7 +46,7 @@
 
 
         echo "<script>alert('แก้ไขข้อมูลเรียบร้อย')</script>";
-        echo "<script>window.location='http://localhost/project_student/app_frontend/input_doc/record/record2/show.php?id=$idd'</script>";
+        echo "<script>window.location='http://localhost/project_student/app_backend/input_doc/note/record/record2/show.php?doc_id=$doc_id'</script>";
     ?>
 
   </body>

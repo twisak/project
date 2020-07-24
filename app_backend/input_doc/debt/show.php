@@ -71,9 +71,9 @@
                                         //     $person_id = $row['person_id'];
                                         // }
 
-                                        $id =$_GET['id'];
+                                        $doc_id =$_GET['doc_id'];
 
-                                        $sql_debt = "SELECT * FROM tb_debt WHERE id = '".$id."' ";
+                                        $sql_debt = "SELECT * FROM tb_debt WHERE doc_id = '".$doc_id."' ";
                                         $query_debt = mysqli_query($conn,$sql_debt);
                                         $result_debt = mysqli_fetch_assoc($query_debt);
 
@@ -159,13 +159,13 @@
                         </ol>
                     </div>
                     <div class="col-md-6 align-self-center">
-                        <a href="../debt/report4.php?id=<?php echo $doc_id;?>" class="btn waves-effect waves-light btn btn-info pull-right hidden-sm-down">
+                        <a href="../debt/report4.php?doc_id=<?php echo $doc_id;?>" class="btn waves-effect waves-light btn btn-info pull-right hidden-sm-down">
                             <i class="fa-fw fa fa-print"></i>
                             หลักฐานการจ่ายเงิน
                         </a>
                     </div>
                     <div class="col-md-2 align-self-center">
-                        <a href="../debt/report1.php?id=<?php echo $doc_id;?>" class="btn waves-effect waves-light btn btn-info pull-right hidden-sm-down">
+                        <a href="../debt/report1.php?doc_id=<?php echo $doc_id;?>" class="btn waves-effect waves-light btn btn-info pull-right hidden-sm-down">
                             <i class="fa-fw fa fa-print"></i>
                             ส่งออกแบบฟอร์ม
                         </a>
@@ -489,7 +489,7 @@
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
-                                            <a href="../debt/edit.php?id=<?php echo $id;?>" class="btn btn-warning btn-block">แก้ไขข้อมูลเอกสารจ้างเหมาบริการ</a>
+                                            <a href="../debt/edit.php?doc_id=<?php echo $doc_id;?>" class="btn btn-warning btn-block">แก้ไขข้อมูลเอกสารจ้างเหมาบริการ</a>
                                         </div>
                                     </div>
                                     <div class="col-md-3">

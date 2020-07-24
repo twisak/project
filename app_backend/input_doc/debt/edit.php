@@ -71,9 +71,9 @@
                                         //     $person_id = $row['person_id'];
                                         // }
 
-                                        $id =$_GET['id'];
+                                        $doc_id =$_GET['doc_id'];
 
-                                        $sql_debt = "SELECT * FROM tb_debt WHERE id = '".$id."' ";
+                                        $sql_debt = "SELECT * FROM tb_debt WHERE doc_id = '".$doc_id."' ";
                                         $query_debt = mysqli_query($conn,$sql_debt);
                                         $result_debt = mysqli_fetch_assoc($query_debt);
 

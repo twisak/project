@@ -9,13 +9,11 @@
     <?php
         include '../../administrator/connect.php';
 
-        $id = $_POST['id'];
         $position_id = $_POST['position_id'];
         $position_name = $_POST['position_name'];
 
-        $sql= "UPDATE tb_position SET position_id = '".$position_id."',
-                                             position_name = '".$position_name."'
-                              WHERE id = '$id' ";
+        $sql= "UPDATE tb_position SET position_name = '".$position_name."'
+                                WHERE position_id = '$position_id' ";
 
        $db_query = mysqli_query($conn,$sql);
 

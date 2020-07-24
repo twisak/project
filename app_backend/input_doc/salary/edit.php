@@ -42,9 +42,9 @@
 
     include '../../mamu/manu_admin.php';
 
-    $id = $_GET['id'];
+    $doc_id = $_GET['doc_id'];
 
-    $sql_salary = "SELECT * FROM tb_salary WHERE id = '".$id."' ";
+    $sql_salary = "SELECT * FROM tb_salary WHERE doc_id = '".$doc_id."' ";
     $query_salary = mysqli_query($conn,$sql_salary);
     $result_salary = mysqli_fetch_assoc($query_salary);
 

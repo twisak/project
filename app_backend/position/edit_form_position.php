@@ -59,9 +59,9 @@
 
                     <?php
                           include '../../administrator/connect.php';
-                        $id =$_GET['id'];
+                        $position_id =$_GET['position_id'];
 
-                         $sql_position = "SELECT * FROM tb_position WHERE id = '".$id."' ";
+                         $sql_position = "SELECT * FROM tb_position WHERE position_id = '".$position_id."' ";
                          //echo $sql_budget;
                          $query_position = mysqli_query($conn,$sql_position);
                          $row_position =mysqli_fetch_assoc($query_position);

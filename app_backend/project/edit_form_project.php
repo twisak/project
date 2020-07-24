@@ -64,9 +64,9 @@
                                 <?php
                                         include '../../administrator/connect.php';
 
-                                        $id = $_GET['id'];
-                                        // echo $id;
-                                        $sql_project = "SELECT * FROM tb_project WHERE id = '".$id."' ";
+                                        $project_id = $_GET['project_id'];
+                                        // echo $project_id;
+                                        $sql_project = "SELECT * FROM tb_project WHERE project_id = '".$project_id."' ";
                                         $query_project = mysqli_query($conn,$sql_project);
                                         $result_project = mysqli_fetch_array($query_project);
                                         

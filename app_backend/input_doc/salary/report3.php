@@ -38,7 +38,7 @@
                                         while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
                                         {
                                             $id = $row['id'];
-                                            $doc_id = $row['doc_id'];
+                                            //$doc_id1 = $row['doc_id'];
                                             $foreword = unserialize($row['foreword']);
                                             // $str_date = $row['str_date'];
                                             // $stp_date = $row['stp_date'];
