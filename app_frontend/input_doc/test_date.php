@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <!--  -->
   </head>
   <body>
 
@@ -13,7 +14,7 @@
     echo "date= ".$strDate[0];
     echo "month= ".$strDate[1];
     echo "year= ".$strDate[2];
-    
+
     $str_day = 2;
     $str_month = 3;
     $str_year = 4;
