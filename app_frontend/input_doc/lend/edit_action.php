@@ -2,7 +2,7 @@
 <?php
     include('../../../config/connect.php');
     include('../../../config/constant.php');
-    
+
 	ini_set('display_errors', 1);
     error_reporting(~0);
 
@@ -67,7 +67,7 @@
                                             pay_type = '".$pay_type."',
                                             price_list = '".$price_list."',
                                             balance = '".$balance."'
-                          WHERE id = '$id' ";
+                          WHERE doc_id = '$doc_id' ";
 
       $query = mysqli_query($conn,$sql);
                     //  echo $sql;
@@ -75,7 +75,7 @@
                     //  echo "<br>";
 
       echo "<script>alert('บันทึกข้อมูลของท่านเรียบร้อยแล้ว')</script>";
-      echo "<script>window.location='http://localhost/project_student/app_frontend/input_doc/lend/show.php?id=$id'</script>";
+      echo "<script>window.location='http://localhost/project_student/app_frontend/input_doc/lend/show.php?id=$doc_id'</script>";
 
 ?>
 </body>

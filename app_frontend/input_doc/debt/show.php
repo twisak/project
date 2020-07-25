@@ -1,4 +1,4 @@
-<?php 
+<?php
     include('../../../config/connect.php');
     include('../../../config/constant.php');
 
@@ -71,9 +71,9 @@
                                         //     $person_id = $row['person_id'];
                                         // }
 
-                                        $id =$_GET['id'];
+                                        $doc_id =$_GET['id'];
 
-                                        $sql_debt = "SELECT * FROM tb_debt WHERE id = '".$id."' ";
+                                        $sql_debt = "SELECT * FROM tb_debt WHERE doc_id = '".$doc_id."' ";
                                         $query_debt = mysqli_query($conn,$sql_debt);
                                         $result_debt = mysqli_fetch_assoc($query_debt);
 
@@ -489,7 +489,7 @@
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
-                                            <a href="../debt/edit.php?id=<?php echo $id;?>" class="btn btn-warning btn-block">แก้ไขข้อมูลเอกสารจ้างเหมาบริการ</a>
+                                            <a href="../debt/edit.php?id=<?php echo $doc_id;?>" class="btn btn-warning btn-block">แก้ไขข้อมูลเอกสารจ้างเหมาบริการ</a>
                                         </div>
                                     </div>
                                     <div class="col-md-3">

@@ -1,9 +1,9 @@
-<?php 
+<?php
     include('../../../config/connect.php');
     include('../../../config/constant.php');
 
-    $idd = $_GET['id'];
-    $sql_contract = "SELECT * FROM tb_contract WHERE id = '".$idd."' ";
+    $doc_id = $_GET['id'];
+    $sql_contract = "SELECT * FROM tb_contract WHERE doc_id = '".$doc_id."' ";
     $query_contract = mysqli_query($conn,$sql_contract);
     $result_contract = mysqli_fetch_assoc($query_contract);
 
@@ -135,13 +135,13 @@
                             <!-- Tab panes -->
                             <div class="card-body">
                                 <form class="form-horizontal form-material" action="../contract/edit_action.php" method="post">
-                                <input type="hidden" name="id" value="<?php echo $idd; ?>">
+                                <!-- <input type="hidden" name="id" value="<?php echo $idd; ?>"> -->
                                     <div class="row">
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label><b>รหัสเอกสารจ้างเหมาบริการ</b></label>
-                                                <input type="text" value="<?php echo $doc_id;?>" readonly class="form-control form-control-line">
-                                                <input type="hidden" name="doc_id" value="<?=$id?>" />
+                                                <input type="text" value="<?php echo $doc_id;?>"  name="doc_id" readonly class="form-control form-control-line">
+                                                <!-- <input type="hidden" name="doc_id" value="<?=$id?>" /> -->
                                             </div>
                                         </div>
 
@@ -180,8 +180,8 @@
                                         </div>
                                     </div>
                                     <?php
-                                        $id =$_GET['id'];
-                                        $sql ="SELECT * FROM tb_contract WHERE id = '".$id."'";
+                                        $doc_id =$_GET['id'];
+                                        $sql ="SELECT * FROM tb_contract WHERE doc_id = '".$doc_id."'";
                                         $query = mysqli_query($conn,$sql);
                                         $num_rows = mysqli_num_rows($query);
                                         while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))

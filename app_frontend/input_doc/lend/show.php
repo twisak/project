@@ -71,8 +71,8 @@
                                         //     $person_id = $row['person_id'];
                                         // }
 
-                                        $id =$_GET['id'];
-                                        $sql ="SELECT * FROM tb_lend WHERE id = '".$id."'";
+                                        $doc_id =$_GET['id'];
+                                        $sql ="SELECT * FROM tb_lend WHERE doc_id = '".$doc_id."'";
                                         $query = mysqli_query($conn,$sql);
                                         while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
                                         {
@@ -400,7 +400,7 @@
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <!-- <button type="submit" class="btn btn-warning btn-block">แก้ไขข้อมูลเอกสารสัญญายืม</button> -->
-                                            <a href="../lend/edit.php?id=<?php echo $id; ?>" class="btn btn-warning btn-block">แก้ไขข้อมูลเอกสารสัญญายืม</a>
+                                            <a href="../lend/edit.php?id=<?php echo $doc_id; ?>" class="btn btn-warning btn-block">แก้ไขข้อมูลเอกสารสัญญายืม</a>
                                         </div>
                                     </div>
                                     <div class="col-md-3">

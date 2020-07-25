@@ -104,15 +104,16 @@
                                                 approve        = '".$approve."',
                                                 disburse        = '".$disburse."',
                                                 payer        = '".$payer."'
-                              WHERE id = '".$id."'";
+                              WHERE doc_id = '".$doc_id."'";
                      $db_query = mysqli_query($conn,$sql);
-                    //  echo $sql;
-                    //  echo $db_query;
-                    //  echo "<br>";
+
+                     // echo $sql;
+                     // echo $db_query;
+                     echo "<br>";
 
 
         echo "<script>alert('แก้ไขข้อมูลเรียบร้อย')</script>";
-        echo "<script>window.location='http://localhost/project_student/app_frontend/input_doc/debt/show.php?id=$id'</script>";
+        echo "<script>window.location='http://localhost/project_student/app_frontend/input_doc/debt/show.php?id=$doc_id'</script>";
     ?>
 
   </body>

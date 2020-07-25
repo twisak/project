@@ -1,4 +1,4 @@
-<?php 
+<?php
     include('../../../config/connect.php');
     include('../../../config/constant.php');
 
@@ -71,13 +71,14 @@
                                         //     $person_id = $row['person_id'];
                                         // }
 
-                                        $id =$_GET['id'];
+                                        $doc_id =$_GET['id'];
                                         //echo $id;
-                                        $sql ="SELECT * FROM tb_contract WHERE id = '".$id."'";
+                                        $sql ="SELECT * FROM tb_contract WHERE doc_id = '".$doc_id."'";
                                         $query = mysqli_query($conn,$sql);
                                         $num_rows = mysqli_num_rows($query);
-                                        while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
-                                        {
+                                        $row = mysqli_fetch_assoc($query);
+                                        // while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
+                                        // {
                                             $idd = $row['id'];
                                             $doc_id = $row['doc_id'];
                                             $foreword = unserialize($row['foreword']);
@@ -93,7 +94,7 @@
                                             $date_work = $row['date_work'];
                                             $government = $row['government'];
                                             $that = $row['that'];
-                                            $c_day = $row['c_day'];
+                                            // $c_day = $row['c_day'];
                                             $title_id = $row['title_id'];
                                             $people = $row['people'];
                                             $mid_price = $row['mid_price'];
@@ -109,47 +110,84 @@
                                             $fine = unserialize($row["fine"]);
                                             $payment = unserialize( $row["payment"] );
                                             $insurance = unserialize( $row["insurance"] );
-                                        }
+                                        // }
 
-                                        $sql1 ="SELECT * FROM tb_project WHERE project_id = '".$project_id."' ";
-                                        $query1 = mysqli_query($conn,$sql1);
-                                        while($row1 = mysqli_fetch_array($query1,MYSQLI_ASSOC))
-                                        {
-                                            $project_name = $row1['project_name'];
-                                            $project_id = $row1['project_id'];
-                                        }
 
-                                        $sql3 ="SELECT * FROM tb_activity WHERE activity_id = '".$activity_id."' ";
-                                        $query3 = mysqli_query($conn,$sql3);
-                                        while($row3 = mysqli_fetch_array($query3,MYSQLI_ASSOC))
-                                        {
-                                            $activity = $row3['activity'];
-                                        }
+                                        $sql_project = "SELECT * FROM tb_project WHERE project_id = '".$project_id."' ";
+                                        $query_project = mysqli_query($conn,$sql_project);
+                                        $result_project = mysqli_fetch_assoc($query_project);
 
-                                        $sql2 ="SELECT * FROM tb_person WHERE person_id = '".$person_id."' ";
-                                        $query2 = mysqli_query($conn,$sql2);
-                                        while($row2 = mysqli_fetch_array($query2,MYSQLI_ASSOC))
-                                        {
-                                            $prefix = $row2['prefix'];
-                                            $firtname = $row2['firtname'];
-                                            $lastname = $row2['lastname'];
-                                            //$prefix = $row2['prefix'];
-                                        }
-                                        $sql4 ="SELECT * FROM tb_teacher WHERE teacher_id = '".$teacher_id."' ";
-                                        $query4 = mysqli_query($conn,$sql4);
-                                        while($row4 = mysqli_fetch_array($query4,MYSQLI_ASSOC))
-                                        {
-                                            $t_firstname = $row4['t_firstname'];
-                                            $t_lastname = $row4['t_lastname'];
-                                            $position_id = $row4['position_id'];
-                                        }
+                                        $project_name = $result_project['project_name'];
+                                        $project_id = $result_project['project_id'];
+
+                                        $sql_activity = "SELECT * FROM tb_activity WHERE activity_id = '".$activity_id."' ";
+                                        $query_activity = mysqli_query($conn,$sql_activity);
+                                        $result_activity = mysqli_fetch_assoc($query_activity);
+
+                                        $activity = $result_activity['activity'];
+
+                                        $sql_person = "SELECT * FROM tb_person WHERE person_id = '".$person_id."' ";
+                                        $query_person = mysqli_query($conn,$sql_person);
+                                        $result_person = mysqli_fetch_assoc($query_person);
+
+                                        $prefix = $result_person['prefix'];
+                                        $firtname = $result_person['firtname'];
+                                        $lastname = $result_person['lastname'];
+
+                                        $sql_teacher = "SELECT * FROM tb_teacher WHERE teacher_id = '".$teacher_id."' ";
+                                        $query_teacher = mysqli_query($conn,$sql_teacher);
+                                        $result_teacher = mysqli_fetch_assoc($query_teacher);
+
+                                        $t_firstname = $result_teacher['t_firstname'];
+                                        $t_lastname = $result_teacher['t_lastname'];
+
+                                        $sql_title = "SELECT * FROM tb_title WHERE title_id = '".$title_id."' ";
+                                        $query_title = mysqli_query($conn, $sql_title);
+                                        $result_title = mysqli_fetch_assoc($query_title);
+
+                                          $title = $result_title['title'];
+
+
+
+                                        // $sql1 ="SELECT * FROM tb_project WHERE project_id = '".$project_id."' ";
+                                        // $query1 = mysqli_query($conn,$sql1);
+                                        // while($row1 = mysqli_fetch_array($query1,MYSQLI_ASSOC))
+                                        // {
+                                        //     $project_name = $row1['project_name'];
+                                        //     $project_id = $row1['project_id'];
+                                        // }
+
+                                        // $sql3 ="SELECT * FROM tb_activity WHERE activity_id = '".$activity_id."' ";
+                                        // $query3 = mysqli_query($conn,$sql3);
+                                        // while($row3 = mysqli_fetch_array($query3,MYSQLI_ASSOC))
+                                        // {
+                                        //     $activity = $row3['activity'];
+                                        // }
+
+                                        // $sql2 ="SELECT * FROM tb_person WHERE person_id = '".$person_id."' ";
+                                        // $query2 = mysqli_query($conn,$sql2);
+                                        // while($row2 = mysqli_fetch_array($query2,MYSQLI_ASSOC))
+                                        // {
+                                        //     $prefix = $row2['prefix'];
+                                        //     $firtname = $row2['firtname'];
+                                        //     $lastname = $row2['lastname'];
+                                        //     //$prefix = $row2['prefix'];
+                                        // }
+                                        // $sql4 ="SELECT * FROM tb_teacher WHERE teacher_id = '".$teacher_id."' ";
+                                        // $query4 = mysqli_query($conn,$sql4);
+                                        // while($row4 = mysqli_fetch_array($query4,MYSQLI_ASSOC))
+                                        // {
+                                        //     $t_firstname = $row4['t_firstname'];
+                                        //     $t_lastname = $row4['t_lastname'];
+                                        //     $position_id = $row4['position_id'];
+                                        // }
                                                 //echo $position_id;
-                                        $sql5 ="SELECT * FROM tb_title WHERE title_id = '".$title_id."' ";
-                                        $query5 = mysqli_query($conn,$sql5);
-                                        while($row5 = mysqli_fetch_array($query5,MYSQLI_ASSOC))
-                                        {
-                                            $title = $row5['title'];
-                                        }
+                                        // $sql5 ="SELECT * FROM tb_title WHERE title_id = '".$title_id."' ";
+                                        // $query5 = mysqli_query($conn,$sql5);
+                                        // while($row5 = mysqli_fetch_array($query5,MYSQLI_ASSOC))
+                                        // {
+                                        //     $title = $row5['title'];
+                                        // }
 
                                     ?>
         <div class="page-wrapper">
@@ -582,7 +620,7 @@
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
-                                            <a href="../contract/edit.php?id=<?php echo $id;?>" class="btn btn-warning btn-block">แก้ไขข้อมูลเอกสารจ้างเหมาบริการ</a>
+                                            <a href="../contract/edit.php?id=<?php echo $doc_id;?>" class="btn btn-warning btn-block">แก้ไขข้อมูลเอกสารจ้างเหมาบริการ</a>
                                         </div>
                                     </div>
                                     <div class="col-md-3">

@@ -1,8 +1,8 @@
 <?php
         include('../../../config/connect.php');
         include('../../../config/constant.php');
-        
-        $id = $_POST['id'];
+
+        // $id = $_POST['id'];
         $doc_id = $_POST['doc_id'];
         $foreword = serialize( $_POST["foreword"] );
         $str_date = $_POST['str_date'];
@@ -18,7 +18,7 @@
         $date_work = $_POST['date_work'];
         $government = $_POST['government'];
         $that = $_POST['that'];
-        $c_day = $_POST['c_day'];
+        // $c_day = $_POST['c_day'];
         $title_id = $_POST['title_id'];
         $people = $_POST['people'];
         $mid_price = $_POST['mid_price'];
@@ -64,7 +64,6 @@
                                                 date_work        = '".$date_work."',
                                                 government        = '".$government."',
                                                 that        = '".$that."',
-                                                c_day        = '".$c_day."',
                                                 title_id        = '".$title_id."',
                                                 people        = '".$people."',
                                                 mid_price        = '".$mid_price."',
@@ -77,15 +76,20 @@
                                                 fine        = '".$fine."',
                                                 payment        = '".$payment."',
                                                 insurance        = '".$insurance."'
-                              WHERE id = '".$id."'";
+                              WHERE doc_id = '".$doc_id."'";
                     $db_query = mysqli_query($conn,$sql);
                     //  echo $sql;
                     //  echo $db_query;
                     //  echo "<br>";
-    
+
+                    // echo $db_query;
+
+        // 
+        // echo "<script>alert('แก้ไขข้อมูลเรียบร้อย')</script>";
+        // echo "<script>window.location='../contract/index.php'</script>";
 
         echo "<script>alert('แก้ไขข้อมูลเรียบร้อย')</script>";
-        echo "<script>window.location='../contract/index.php'</script>";
+        echo "<script>window.location='http://localhost/project_student/app_frontend/input_doc/contract/show.php?id=$doc_id'</script>";
     ?>
 
   </body>

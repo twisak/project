@@ -1,4 +1,4 @@
-<?php 
+<?php
         include('../../../config/connect.php');
         include('../../../config/constant.php');
 ?>
@@ -42,9 +42,9 @@
     <div id="main-wrapper">
         <?php
 
-                                        $id =$_GET['id'];
+                                        $doc_id =$_GET['id'];
 
-                                        $sql_salary ="SELECT * FROM tb_salary WHERE id = '".$id."'";
+                                        $sql_salary ="SELECT * FROM tb_salary WHERE doc_id = '".$doc_id."'";
                                         $query_salary = mysqli_query($conn,$sql_salary);
                                         $result_salary = mysqli_fetch_assoc($query_salary);
 
@@ -359,7 +359,7 @@
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <!-- <button type="submit" class="btn btn-warning btn-block">แก้ไขข้อมูลเอกสารสัญญายืม</button> -->
-                                            <a href="../salary/edit.php?id=<?php echo $id; ?>" class="btn btn-warning btn-block">แก้ไขข้อมูลเอกสารสัญญายืม</a>
+                                            <a href="../salary/edit.php?id=<?php echo $doc_id; ?>" class="btn btn-warning btn-block">แก้ไขข้อมูลเอกสารสัญญายืม</a>
                                         </div>
                                     </div>
                                     <div class="col-md-3">

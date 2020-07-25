@@ -71,9 +71,9 @@
                                         //     $person_id = $row['person_id'];
                                         // }
 
-                                        $id =$_GET['id'];
+                                        $doc_id =$_GET['id'];
 
-                                        $sql_debt = "SELECT * FROM tb_debt WHERE id = '".$id."' ";
+                                        $sql_debt = "SELECT * FROM tb_debt WHERE doc_id = '".$doc_id."' ";
                                         $query_debt = mysqli_query($conn,$sql_debt);
                                         $result_debt = mysqli_fetch_assoc($query_debt);
 
@@ -256,8 +256,8 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label><b>ได้รับเงินจาก</b></label></label>
-                                                <input type="text" value="<?php echo $money_from;?>" class="form-control form-control-line">
-                                                <input type="hidden" name="money_from" value="<?php echo $money_from;?>" />
+                                                <input type="text" value="<?php echo $money_from;?>" name="money_from" class="form-control form-control-line">
+                    
                                             </div>
                                         </div>
                                     </div>
