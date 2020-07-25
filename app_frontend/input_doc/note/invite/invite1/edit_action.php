@@ -1,4 +1,4 @@
-<?php 
+<?php
 include('../../../../../config/connect.php');
 include('../../../../../config/constant.php');
 ?>
@@ -11,9 +11,9 @@ include('../../../../../config/constant.php');
   <body>
 
     <?php
-        
 
-        $idd = $_POST['idd'];
+
+        // $idd = $_POST['idd'];
 
         $doc_id = $_POST['doc_id'];
         $title_id = $_POST['title_id'];
@@ -58,14 +58,14 @@ include('../../../../../config/constant.php');
                                     date_current        = '".$date_current."',
                                     person_id = '".$person_id."'
 
-                  WHERE id = '".$idd."'";
+                  WHERE doc_id = '".$doc_id."'";
          $db_query = mysqli_query($conn,$sql);
         //  echo $sql;
         //  echo $db_query;
         //  echo "<br>";
 
         echo "<script>alert('แก้ไขข้อมูลเรียบร้อย')</script>";
-        echo "<script>window.location='http://localhost/project_student/app_frontend/input_doc/note/invite/invite1/show.php?id=$idd'</script>";
+        echo "<script>window.location='http://localhost/project_student/app_frontend/input_doc/note/invite/invite1/show.php?id=$doc_id'</script>";
     ?>
 
   </body>

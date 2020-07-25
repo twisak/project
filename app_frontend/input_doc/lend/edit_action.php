@@ -6,7 +6,7 @@
 	ini_set('display_errors', 1);
     error_reporting(~0);
 
-    $id = $_POST['id'];
+    // $id = $_POST['id'];
     $doc_id = $_POST['doc_id'];
 	$str_date = $_POST['str_date'];
     $stp_date = $_POST['stp_date'];

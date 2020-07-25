@@ -33,10 +33,10 @@
 
 <?php
 
-$id = $_GET['id'];
+$doc_id = $_GET['id'];
 //echo $doc_id;
 
-$sql_note_book3 = "SELECT * FROM tb_note_book3 WHERE id = '".$id."' ";
+$sql_note_book3 = "SELECT * FROM tb_note_book3 WHERE doc_id = '".$doc_id."' ";
 $query_note_book3 = mysqli_query($conn,$sql_note_book3);
 $result_note_book3 = mysqli_fetch_assoc($query_note_book3);
 
@@ -117,9 +117,9 @@ $name_th_d = $result_districts['name_th'];
                             <table border="1" width="25%"  align="center">
                             <tr>
                                 <td align="center" width="25%">
-                                    <h2><strong>- สำเนา -</strong></h2>  
+                                    <h2><strong>- สำเนา -</strong></h2>
                                 </td>
-                                
+
                             </tr>
                             </table>
                         </td>

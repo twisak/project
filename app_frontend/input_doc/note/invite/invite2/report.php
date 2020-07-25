@@ -36,10 +36,10 @@
 
 <?php
 
-$id = $_GET['id'];
+$doc_id = $_GET['id'];
 //echo $doc_id;
 
-$sql_note_book2 = "SELECT * FROM tb_note_book2 WHERE id = '".$id."' ";
+$sql_note_book2 = "SELECT * FROM tb_note_book2 WHERE doc_id = '".$doc_id."' ";
 $query_note_book2 = mysqli_query($conn,$sql_note_book2);
 $result_note_book2 = mysqli_fetch_assoc($query_note_book2);
 
@@ -365,9 +365,9 @@ $name_th_d = $result_districts['name_th'];
                     </table>
                 </td>
             </tr>
-            <?php 
+            <?php
                     $strDate = explode("-", "$day");//วันเริ่ม
-                    
+
                     $str_day = $strDate[2];
                     $str_month = $strDate[1];
                     $str_year = $strDate[0];
@@ -445,7 +445,7 @@ $name_th_d = $result_districts['name_th'];
                     //echo $day_thai;
 
                     $strDate = explode("-", "$date_inside");//วันที่จบ
-                    
+
                     $str_day = $strDate[2];
                     $str_month = $strDate[1];
                     $str_year = $strDate[0];

@@ -181,7 +181,7 @@
                                   </div>
                               </div>
                               <form class="form-horizontal form-material" action="../debt/edit_action.php" method="post">
-                              <input type="hidden" name="id" value="<?php echo $id; ?>">
+                              <!-- <input type="hidden" name="id" value="<?php echo $id; ?>"> -->
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="form-group">
@@ -257,7 +257,7 @@
                                             <div class="form-group">
                                                 <label><b>ได้รับเงินจาก</b></label></label>
                                                 <input type="text" value="<?php echo $money_from;?>" name="money_from" class="form-control form-control-line">
-                    
+
                                             </div>
                                         </div>
                                     </div>

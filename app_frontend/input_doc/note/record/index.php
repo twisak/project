@@ -197,9 +197,9 @@ include('../../../../config/constant.php');
                                                 <td><?php echo $row['date_current'];?></td>
                                                 <td><?php echo $row['title'];?></td>
                                                 <td>
-                                                    <a href="../record/record1/show.php?id=<?php echo $row['id'];?>"><button type="button" class="btn btn-info">รายละเอียด</button></a>
+                                                    <a href="../record/record1/show.php?id=<?php echo $row['doc_id'];?>"><button type="button" class="btn btn-info">รายละเอียด</button></a>
                                                 </td>
-                                                <td><a href="JavaScript:if(confirm('ยืนยันการลบ ?') == true){window.location='../record/record1/delete.php?id=<?php echo $row["id"];?>';}" class="btn btn-danger">ลบ</a></td>
+                                                <td><a href="JavaScript:if(confirm('ยืนยันการลบ ?') == true){window.location='../record/record1/delete.php?id=<?php echo $row["doc_id"];?>';}" class="btn btn-danger">ลบ</a></td>
                                             </tr>
                                             <?php
                                             $i++;
@@ -325,9 +325,9 @@ include('../../../../config/constant.php');
                                                 <td><?php echo $row1['date_current'];?></td>
                                                 <td><?php echo $row1['title'];?></td>
                                                 <td>
-                                                    <a href="../record/record2/show.php?id=<?php echo $row1['id'];?>"><button type="button" class="btn btn-info">รายละเอียด</button></a>
+                                                    <a href="../record/record2/show.php?id=<?php echo $row1['doc_id'];?>"><button type="button" class="btn btn-info">รายละเอียด</button></a>
                                                 </td>
-                                                <td><a href="JavaScript:if(confirm('ยืนยันการลบ ?') == true){window.location='../record/record2/delete.php?id=<?php echo $row1["id"];?>';}" class="btn btn-danger">ลบ</a></td>
+                                                <td><a href="JavaScript:if(confirm('ยืนยันการลบ ?') == true){window.location='../record/record2/delete.php?id=<?php echo $row1["doc_id"];?>';}" class="btn btn-danger">ลบ</a></td>
                                             </tr>
                                             <?php
                                             $i++;

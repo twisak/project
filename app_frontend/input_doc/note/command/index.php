@@ -186,9 +186,9 @@ include('../../../../config/constant.php');
                                                 <td><?php echo $row['prefix'];?><?php echo $row['firtname'];?> <?php echo $row['lastname'];?></td>
                                                 <td><?php echo $row['title'];?></td>
                                                 <td>
-                                                    <a href="../command/show.php?id=<?php echo $row['id'];?>"><button type="button" class="btn btn-info">รายละเอียด</button></a>
+                                                    <a href="../command/show.php?id=<?php echo $row['doc_id'];?>"><button type="button" class="btn btn-info">รายละเอียด</button></a>
                                                 </td>
-                                                <td><a href="JavaScript:if(confirm('ยืนยันการลบ ?') == true){window.location='../command/delete.php?id=<?php echo $row["id"];?>';}" class="btn btn-danger">ลบ</a></td>
+                                                <td><a href="JavaScript:if(confirm('ยืนยันการลบ ?') == true){window.location='../command/delete.php?id=<?php echo $row["doc_id"];?>';}" class="btn btn-danger">ลบ</a></td>
                                             </tr>
                                             <?php
                                             $i++;

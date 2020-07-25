@@ -2,7 +2,7 @@
         include('../../../config/connect.php');
         include('../../../config/constant.php');
 
-        $id = $_POST['id'];
+        // $id = $_POST['id'];
 
         $doc_id = $_POST['doc_id'];
         $str_date = $_POST['str_date'];

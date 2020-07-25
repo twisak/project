@@ -1,4 +1,4 @@
-<?php 
+<?php
     include('../../../../../config/connect.php');
     include('../../../../../config/constant.php');
 ?>
@@ -12,9 +12,9 @@
 
     <?php
 
-        $id = $_GET['id'];
+        $doc_id = $_GET['id'];
 
-        $sql_tb_debt = "DELETE FROM tb_note_book3 WHERE id = '$id'";
+        $sql_tb_debt = "DELETE FROM tb_note_book3 WHERE doc_id = '$doc_id'";
 
         $db_query_debt = mysqli_query($conn,$sql_tb_debt);
 

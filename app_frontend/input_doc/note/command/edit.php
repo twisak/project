@@ -1,13 +1,13 @@
-<?php 
+<?php
 include('../../../../config/connect.php');
 include('../../../../config/constant.php');
 
-$idd = $_GET['id'];
-$sql_command = "SELECT * FROM tb_note_command WHERE id = '".$idd."' ";
+$doc_id = $_GET['id'];
+$sql_command = "SELECT * FROM tb_note_command WHERE doc_id = '".$doc_id."' ";
 $query_command = mysqli_query($conn,$sql_command);
 $result_command = mysqli_fetch_assoc($query_command);
 
-$id = $result_command['id'];
+// $id = $result_command['id'];
 $doc_id = $result_command['doc_id'];
 $date_current = $result_command['date_current'];
 $str_date = $result_command['str_date'];
@@ -119,7 +119,7 @@ $budget = "";
                             <div class="card-body">
                                 <form class="form-horizontal form-material" action="../command/edit_action.php" method="post">
 
-                                        <input type="hidden" name="idd" value="<?php echo $idd; ?>">
+                                        <!-- <input type="hidden" name="idd" value="<?php echo $idd; ?>"> -->
 
                                     <div class="row">
                                         <div class="col-md-12 text-center">

@@ -114,7 +114,7 @@ include('../../../config/constant.php');
                             <!-- Tab panes -->
                             <div class="card-body">
                                 <form class="form-horizontal form-material" action="../lend/edit_action.php" name="insertlend" method="post">
-                                    <input type="hidden" name="id" value="<?php echo $id; ?>">
+                                    <!-- <input type="hidden" name="id" value="<?php echo $id; ?>"> -->
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-md-12 text-center">

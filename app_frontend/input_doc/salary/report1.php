@@ -1,4 +1,4 @@
-<?php 
+<?php
     include('../../../config/connect.php');
     include('../../../config/constant.php');
 ?>
@@ -34,8 +34,8 @@
 <![endif]-->
 </head>
 <?php
-     $idd = $_GET['id'];
-     $sql_salary = "SELECT * FROM tb_salary WHERE id = '".$idd."' ";
+     $doc_id = $_GET['id'];
+     $sql_salary = "SELECT * FROM tb_salary WHERE doc_id = '".$doc_id."' ";
      $query_salary = mysqli_query($conn,$sql_salary);
      $result_salary = mysqli_fetch_assoc($query_salary);
 
@@ -121,7 +121,7 @@
 
 
      $strDate = explode("-", "$date_current");//วันปัจจุบัน
-                    
+
      $str_day = $strDate[2];
      $str_month = $strDate[1];
      $str_year = $strDate[0];
@@ -221,9 +221,9 @@
                     เรียน อธิการบดีมหาวิทยาลัมหาวิทยาลัยราชภัฏยะลา
                 </td>
             </tr>
-            <?php 
+            <?php
                     $strDate = explode("-", "$str_date");//วันเริ่ม
-                    
+
                     $str_day = $strDate[2];
                     $str_month = $strDate[1];
                     $str_year = $strDate[0];
@@ -272,9 +272,9 @@
                     }else if($str_month == "12"){
                     $month_thaiS = "ธันวาคม";
                     }
-                    
+
                     $strDate = explode("-", "$stp_date");//วันที่จบ
-                    
+
                     $str_day = $strDate[2];
                     $str_month = $strDate[1];
                     $str_year = $strDate[0];
@@ -373,9 +373,9 @@
                     ตามที่ สถาบันพัฒนาครูและบุคลากรทางการศึกษาชายแดนใต้ มหาวิทยาลัยราชภัฏยะลา ได้จ้างให้ข้าพเจ้าเป็นเจ้าหน้าที่ประจำโครงการ "<?php echo $project_name?>" ตั้งแต่ <?php echo $day_thaiS?>&nbsp;<?php echo $month_thaiS?>&nbsp;<?php echo $year_thaiS?> ถึง <?php echo $day_thaiE?>&nbsp;<?php echo $month_thaiE?>&nbsp;<?php echo $year_thaiE?> งวดล่ะ <?php echo $period1?> รวมเป็นเงินทั้งสิ้น <?php echo $total_amount1?> บาท(<?php echo  convert($x);?>) นั้น
                 </td>
             </tr>
-            <?php 
+            <?php
                     $strDate = explode("-", "$month");//วันที่จบ
-                    
+
                     $str_day = $strDate[2];
                     $str_month = $strDate[1];
                     $str_year = $strDate[0];
@@ -388,7 +388,7 @@
 
                     //$test = str_replace($numthai,$numarabic,$message);
                     $year_thaiM = str_replace($numarabic,$numthai,$message);
-                    
+
 
                     if($str_month == "01"){
                     $month_thaiM = "มกราคม";
@@ -544,8 +544,8 @@
         </table>
     </div>
 
-    <?php 
-        include '../salary/report2.php'; 
+    <?php
+        include '../salary/report2.php';
         include '../salary/report3.php';
         include '../salary/report4.php';
     ?>

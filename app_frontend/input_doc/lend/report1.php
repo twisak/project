@@ -1,4 +1,4 @@
-<?php 
+<?php
         include('../../../config/connect.php');
         include('../../../config/constant.php');
 ?>
@@ -34,10 +34,10 @@
 </head>
 <?php
 
-            $id = $_GET['id'];
+            $doc_id = $_GET['id'];
             //echo $id;
 
-            $sql ="SELECT * FROM tb_lend WHERE id = '".$id."'";
+            $sql ="SELECT * FROM tb_lend WHERE doc_id = '".$doc_id."'";
             $query = mysqli_query($conn,$sql);
             while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
             {
@@ -107,7 +107,7 @@
 
             $strStartDate = $str_date;
             $strEndDate = $stp_date;
-            $intTotalDay = ((strtotime($strEndDate) - strtotime($strStartDate))/  ( 60 * 60  )) ;  
+            $intTotalDay = ((strtotime($strEndDate) - strtotime($strStartDate))/  ( 60 * 60  )) ;
 
             //echo "////////$intTotalDay/////////";
 ?>

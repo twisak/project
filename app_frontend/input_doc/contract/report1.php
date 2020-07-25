@@ -1,4 +1,4 @@
-<?php 
+<?php
     include('../../../config/connect.php');
     include('../../../config/constant.php');
 ?>
@@ -32,8 +32,8 @@
 
 <?php
 
-                                        $id =$_GET['id'];
-                                        $sql ="SELECT * FROM tb_contract WHERE id = '".$id."'";
+                                        $doc_id =$_GET['id'];
+                                        $sql ="SELECT * FROM tb_contract WHERE doc_id = '".$doc_id."'";
                                         $query = mysqli_query($conn,$sql);
                                         $num_rows = mysqli_num_rows($query);
                                         while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
@@ -119,13 +119,13 @@
                                         // echo "year= ".$strDate[0];
                                         // echo "month= ".$strDate[1];
                                         // echo "date= ".$strDate[2];
-                                        
+
                                         $str_day = $strDate[2];
                                         $str_month = $strDate[1];
                                         $str_year = $strDate[0];
 
                                         $year=date("$str_year")+543;
-                                        
+
                                         //echo $year;
 
                                         $message = "$year";
@@ -273,7 +273,7 @@
                 <td>
                     <br>
                     <table border="1" align="center" width="100%" class="statement-view text-gray-900">
-                            <?php 
+                            <?php
                                     $i=1;
                                     $i<="";
 
@@ -288,10 +288,10 @@
                                              //echo "<tr><td>{$value}</td></tr>";
                                             //echo "<li>{$value}</li>";
                                             $j++;
-                                    
+
                                    // echo "</ul>";
-                                                          
-                                    
+
+
                                 ?>
                         <tr>
                             <td colspan="3" align="left">
@@ -341,13 +341,13 @@
         </table>
     </div>
 
-    <?php 
+    <?php
             include '../contract/report2.php';
             include '../contract/report3.php';
             include '../contract/report4.php';
     ?>
 
-    
+
 
     <ul class="right-menu">
         <li>

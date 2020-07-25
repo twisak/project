@@ -1,11 +1,11 @@
-<?php 
+<?php
 include('../../../../../config/connect.php');
 include('../../../../../config/constant.php');
 
     $username= $_SESSION['username'];
 
-    $idd = $_GET['id'];
-    $sql_book2 = "SELECT * FROM tb_note_book2 WHERE id = '".$idd."' ";
+    $doc_id = $_GET['id'];
+    $sql_book2 = "SELECT * FROM tb_note_book2 WHERE doc_id = '".$doc_id."' ";
     $query_book2 = mysqli_query($conn,$sql_book2);
     $result_book2 = mysqli_fetch_assoc($query_book2);
 
@@ -128,7 +128,7 @@ include('../../../../../config/constant.php');
                             <form class="form-horizontal form-material" action="../invite2/edit_action.php" method="post">
 
 
-                                        <input type="hidden" name="idd" value="<?php echo $idd; ?>" />
+                                        <!-- <input type="hidden" name="idd" value="<?php echo $idd; ?>" /> -->
                                     <div class="row">
                                         <div class="col-md-12 text-center">
                                             <div class="form-group">
@@ -157,7 +157,7 @@ include('../../../../../config/constant.php');
                                                         while($result = mysqli_fetch_assoc($query)):
                                                             $title_id = $result['title_id'];
                                                             $title = $result['title'];
-                                                            
+
                                                             $new_title = iconv_substr($title,0,80,'UTF-8'). "...";
                                                     ?>
                                                     <option value="<?php echo $title_id;?>"><?php echo $new_title;?></option>

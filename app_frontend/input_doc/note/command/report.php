@@ -37,13 +37,13 @@
 
 <?php
 
-$id = $_GET['id'];
+$doc_id = $_GET['id'];
 
-$sql_note_command = "SELECT * FROM tb_note_command WHERE id = '".$id."' ";
+$sql_note_command = "SELECT * FROM tb_note_command WHERE doc_id = '".$doc_id."' ";
 $query_note_command = mysqli_query($conn,$sql_note_command);
 $result_note_command = mysqli_fetch_assoc($query_note_command);
 
-$id = $result_note_command['id'];
+// $id = $result_note_command['id'];
 $doc_id = $result_note_command['doc_id'];
 $date_current = $result_note_command['date_current'];
 $str_date = $result_note_command['str_date'];
@@ -116,7 +116,7 @@ $result_districts = mysqli_fetch_assoc($query_districts);
 $name_th_d = $result_districts['name_th'];
 
 $strDate = explode("-", "$str_date");//วันเริ่ม
-                    
+
                     $str_day = $strDate[2];
                     $str_month = $strDate[1];
                     $str_year = $strDate[0];
@@ -165,9 +165,9 @@ $strDate = explode("-", "$str_date");//วันเริ่ม
                     }else if($str_month == "12"){
                     $month_thaiS = "ธันวาคม";
                     }
-                    
+
                     $strDate = explode("-", "$stp_date");//วันที่จบ
-                    
+
                     $str_day = $strDate[2];
                     $str_month = $strDate[1];
                     $str_year = $strDate[0];
@@ -275,7 +275,7 @@ $strDate = explode("-", "$str_date");//วันเริ่ม
                             <td></td>
                             <td></td>
                         </tr>
-                        <?php 
+                        <?php
                                 $i=1;
                                 $i<="";
 
@@ -287,7 +287,7 @@ $strDate = explode("-", "$str_date");//วันเริ่ม
                                      $t_firstname = $row_teacher['t_firstname'];
                                      $t_lastname = $row_teacher['t_lastname'];
                                      $position_id = $row_teacher['position_id'];
-                                
+
                                 $sql_position = "SELECT * FROM tb_position WHERE position_id = '".$position_id."' ";
                                 $query_position = mysqli_query($conn,$sql_position);
                                 $row_position =mysqli_fetch_assoc($query_position);
@@ -312,7 +312,7 @@ $strDate = explode("-", "$str_date");//วันเริ่ม
                             <td></td>
                             <td></td>
                         </tr>
-                        <?php 
+                        <?php
                                 $i=1;
                                 $i<="";
 

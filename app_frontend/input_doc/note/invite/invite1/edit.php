@@ -1,12 +1,12 @@
-<?php 
+<?php
 
 include('../../../../../config/connect.php');
 include('../../../../../config/constant.php');
 
     $username= $_SESSION['username'];
 
-    $idd = $_GET['id'];
-    $sql_book1 = "SELECT * FROM tb_note_book1 WHERE id = '".$idd."' ";
+    $doc_id = $_GET['id'];
+    $sql_book1 = "SELECT * FROM tb_note_book1 WHERE doc_id = '".$doc_id."' ";
     $query_book1 = mysqli_query($conn,$sql_book1);
     $result_book1 = mysqli_fetch_assoc($query_book1);
 
@@ -130,7 +130,7 @@ include('../../../../../config/constant.php');
                             <div class="card-body">
                                 <form class="form-horizontal form-material" action="edit_action.php" method="post">
 
-                                    <input type="hidden" name="idd" value="<?php echo $idd; ?>" />
+                                    <!-- <input type="hidden" name="idd" value="<?php echo $idd; ?>" /> -->
                                     <div class="row">
                                         <div class="col-md-12 text-center">
                                             <div class="form-group">
@@ -151,7 +151,7 @@ include('../../../../../config/constant.php');
                                         <div class="col-md-5">
                                             <div class="form-group">
                                                 <label><b>เรื่อง</b></label>
-                                                
+
                                                 <select name="title_id" class="form-control"">
                                                     <option value="<?php echo $title_id; ?>"><?php echo $title; ?></option>
                                                     <?php
@@ -160,7 +160,7 @@ include('../../../../../config/constant.php');
                                                         while($result = mysqli_fetch_assoc($query)):
                                                             $title_id = $result['title_id'];
                                                             $title = $result['title'];
-                                                            
+
                                                             $new_title = iconv_substr($title,0,80,'UTF-8'). "...";
                                                     ?>
                                                     <option value="<?php echo $title_id;?>"><?php echo $new_title;?></option>

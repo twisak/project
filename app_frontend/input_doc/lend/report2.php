@@ -66,10 +66,10 @@
                             $i=1;
                             $i<="";
 
-                            $id = $_GET['id'];
+                            $doc_id = $_GET['id'];
                             //echo $id;
 
-                            $sql ="SELECT * FROM tb_lend WHERE id = '".$id."'";
+                            $sql ="SELECT * FROM tb_lend WHERE doc_id = '".$doc_id."'";
                             $query = mysqli_query($conn,$sql);
                             while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
                             {
@@ -118,7 +118,7 @@
                                     $value1 = $balance1[$j];
                                     $value2 = $price_list1[$j];
                                     $value3 = $pay_type1[$j];
-                                    
+
                                 //}
                                 //echo "</ul>";
                             //}

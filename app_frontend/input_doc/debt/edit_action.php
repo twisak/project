@@ -3,7 +3,7 @@
         include('../../../config/connect.php');
         include('../../../config/constant.php');
 
-        $id = $_POST['id'];
+        // $id = $_POST['id'];
         $doc_id = $_POST['doc_id'];
         $date_current = date('Y-m-d');
         $name_train = $_POST['name_train'];

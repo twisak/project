@@ -1,4 +1,4 @@
-<?php 
+<?php
         include('../../../../../config/connect.php');
         include('../../../../../config/constant.php');
 ?>
@@ -12,7 +12,7 @@
 
     <?php
 
-        $idd = $_POST['idd'];
+        // $idd = $_POST['idd'];
         $doc_id = $_POST['doc_id'];
         $date_current = date('Y-m-d');
         $person_id = $_POST['person_id'];
@@ -45,7 +45,7 @@
                                                 price_period        = '".$price_period."',
                                                 supplies_id        = '".$supplies_id."',
                                                 control_id        = '".$control_id."'
-                              WHERE id = '".$idd."' ";
+                              WHERE doc_id = '".$doc_id."' ";
 
 // echo $sql;
 
@@ -56,7 +56,7 @@
 
 
         echo "<script>alert('แก้ไขข้อมูลเรียบร้อย')</script>";
-        echo "<script>window.location='http://localhost/project_student/app_frontend/input_doc/record/record1/show.php?id=$idd'</script>";
+        echo "<script>window.location='http://localhost/project_student/app_frontend/input_doc/note/record/record1/show.php?id=$doc_id'</script>";
     ?>
 
   </body>

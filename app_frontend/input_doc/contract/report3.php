@@ -28,8 +28,8 @@
 </head>
 <?php
 
-            $id =$_GET['id'];
-            $sql ="SELECT * FROM tb_contract WHERE id = '".$id."'";
+            $doc_id =$_GET['id'];
+            $sql ="SELECT * FROM tb_contract WHERE doc_id = '".$doc_id."'";
             $query = mysqli_query($conn,$sql);
             $num_rows = mysqli_num_rows($query);
             while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
@@ -138,7 +138,7 @@
                         <td width="30%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
                       </tr>
                       <tr>
-                        
+
                         <td align="center" width="100%" class="text-nowrap border-0 padding-0"><h2><strong>บันทึกข้อความ</strong></h2></td>
                         <td width="30%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
                       </tr>
@@ -204,15 +204,15 @@
                       </tr>
                       <tr  align="left">
                         <td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ตามบันทึก ที่ <?php echo $that1;?> ลงวันที่ <?php echo $day_thaiS;?>&nbsp;<?php echo $month_thaiS;?>&nbsp;<?php echo $year_thaiS;?> เรื่องแต่งตั้งคณะกรรมการจัดทำขอบเขตของงานและราคากลางงานจ้างเหมาบริการเจ้าหน้าที่โครงการ : <?php echo $project_name;?> นั้น</td>
-                        
+
                       </tr>
                       <tr  align="left">
                         <td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;บัดนี้ คณะกรรมการจัดทำราคากลาง ได้ดำเนินการจัดทำราคากลางงานจ้างเหมาบริการเจ้าหน้าที่โครงการ : <?php echo $project_name;?> จำนวน ๑ คน ดังกล่าวเสร็จเรียบร้อยแล้ว ราคากลางทีคำนวณได้ เป็นเงิน ๑๘๐,๐๐๐ บาท (หนึ่งแสนแปดหมื่นบาทถ้วน) ตามรายละเอียดการคำนวณราคากลางที่แนบ</td>
-                        
+
                       </tr>
                       <tr  align="left">
                         <td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;จึงเรียนมาเพื่อโปรดพิจารณาเห็นชอบ</td>
-                        
+
                       </tr>
                     </table>
                     <br>
@@ -225,7 +225,7 @@
                       <tr  align="left">
                             <td width="50%" ></td>
                         <td width="50%">
-                                    <?php 
+                                    <?php
                                         $sql4 ="SELECT * FROM tb_teacher WHERE teacher_id = '".$chairman."' ";
                                         $query4 = mysqli_query($conn,$sql4);
                                         while($row4 = mysqli_fetch_array($query4,MYSQLI_ASSOC))
@@ -270,7 +270,7 @@
                       <tr  align="left">
                         <td width="50%" ></td>
                         <td width="50%" >
-                                 <?php 
+                                 <?php
                                         $sql4 ="SELECT * FROM tb_teacher WHERE teacher_id = '".$committee."' ";
                                         $query4 = mysqli_query($conn,$sql4);
                                         while($row4 = mysqli_fetch_array($query4,MYSQLI_ASSOC))
@@ -314,7 +314,7 @@
                       <tr  align="left">
                         <td width="50%" ></td>
                         <td width="50%" >
-                                    <?php 
+                                    <?php
                                         $sql4 ="SELECT * FROM tb_teacher WHERE teacher_id = '".$secretary."' ";
                                         $query4 = mysqli_query($conn,$sql4);
                                         while($row4 = mysqli_fetch_array($query4,MYSQLI_ASSOC))

@@ -1,6 +1,6 @@
 <?php
-    include('../../../../../config/connect.php');
-    include('../../../../../config/constant.php');
+    include('../../../../config/connect.php');
+    include('../../../../config/constant.php');
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -12,7 +12,7 @@
 
     <?php
 
-        $idd = $_POST['idd'];
+        // $idd = $_POST['idd'];
         $doc_id = $_POST['doc_id'];
         $date_current = date('Y-m-d');
         $str_date = $_POST['str_date'];
@@ -42,18 +42,20 @@
                                                 driver        = '".$driver."',
                                                 budget_id        = '".$budget_id."'
 
-                              WHERE id = '".$idd."'";
+                              WHERE doc_id = '".$doc_id."'";
 
 // echo $sql;
 
                      $db_query = mysqli_query($conn,$sql);
-                    //  echo $sql;
-                    //  echo $db_query;
-                    //  echo "<br>";
+                     // echo $sql;
+                     // echo $db_query;
+                     // echo "<br>";
+
+
 
 
         echo "<script>alert('แก้ไขข้อมูลเรียบร้อย')</script>";
-        echo "<script>window.location='http://localhost/project_student/app_frontend/input_doc/command/show.php?id=$idd'</script>";
+        echo "<script>window.location='http://localhost/project_student/app_frontend/input_doc/note/command/show.php?id=$doc_id'</script>";
     ?>
 
   </body>

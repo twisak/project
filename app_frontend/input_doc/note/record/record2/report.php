@@ -36,10 +36,10 @@
 
 <?php
 
-$id = $_GET['id'];
+$doc_id = $_GET['id'];
 //echo $doc_id;
 
-$sql_note_record2 = "SELECT * FROM tb_note_record2 WHERE id = '".$id."' ";
+$sql_note_record2 = "SELECT * FROM tb_note_record2 WHERE doc_id = '".$doc_id."' ";
 $query_note_record2 = mysqli_query($conn,$sql_note_record2);
 $result_note_record2 = mysqli_fetch_assoc($query_note_record2);
 
@@ -126,7 +126,7 @@ $name_th_d = $result_districts['name_th'];
                         <td width="30%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
                       </tr>
                       <tr>
-                        
+
                         <td align="center" width="100%" class="text-nowrap border-0 padding-0"><h2><strong>บันทึกข้อความ</strong></h2></td>
                         <td width="30%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
                       </tr>
