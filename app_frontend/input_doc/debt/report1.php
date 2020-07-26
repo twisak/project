@@ -42,7 +42,6 @@
             $query_debt = mysqli_query($conn,$sql_debt);
             $result_debt = mysqli_fetch_assoc($query_debt);
 
-            $id = $result_debt['id'];
             $doc_id = $result_debt['doc_id'];
             $date_current = $result_debt['date_current'];
             $name_train = $result_debt['name_train'];
@@ -623,7 +622,7 @@
             </a>
         </li>
         <li>
-            <a href="http://localhost/project_student/app_frontend/input_doc/debt/show.php?id=<?=$id?>" onclick="window.close();">
+            <a href="http://localhost/project_student/app_frontend/input_doc/debt/show.php?id=<?=$doc_id?>" onclick="window.close();">
                 <span class="fa-stack fa-2x">
                     <i class="fa fa-circle fa-stack-2x"></i>
                     <i class="fa fa-times fa-stack-1x fa-inverse"></i>

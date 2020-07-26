@@ -495,7 +495,7 @@ $strDate = explode("-", "$str_date");//วันเริ่ม
             </a>
         </li>
         <li>
-            <a href="http://localhost/project_student/app_frontend/input_doc/note/command/show.php?id=<?=$id?>" onClick="JavaScript:back();">
+            <a href="http://localhost/project_student/app_frontend/input_doc/note/command/show.php?id=<?=$doc_id?>" onClick="JavaScript:back();">
                 <span class="fa-stack fa-2x">
                     <i class="fa fa-circle fa-stack-2x"></i>
                     <i class="fa fa-times fa-stack-1x fa-inverse"></i>

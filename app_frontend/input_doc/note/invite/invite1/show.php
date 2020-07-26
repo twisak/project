@@ -86,13 +86,13 @@ include('../../../../../config/constant.php');
                                 <form class="form-horizontal form-material">
                                     <?php
 
-                                            $id = $_GET['id'];
+                                            
 
                                             $sql ="SELECT * FROM tb_note_book1 WHERE doc_id = '".$doc_id."' ";
                                             $query = mysqli_query($conn,$sql);
                                             while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
                                             {
-                                                $id = $row['id'];
+                                                
                                                 $doc_id = $row['doc_id'];
                                                 $title_id = $row['title_id'];
                                                 $at = $row['at'];

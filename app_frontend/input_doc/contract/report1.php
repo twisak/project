@@ -38,7 +38,6 @@
                                         $num_rows = mysqli_num_rows($query);
                                         while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
                                         {
-                                            $id = $row['id'];
                                             $doc_id = $row['doc_id'];
                                             $foreword = unserialize($row['foreword']);
                                             $str_date = $row['str_date'];
@@ -360,7 +359,7 @@
             </a>
         </li>
         <li>
-            <a href="http://localhost/project_student/app_frontend/input_doc/contract/show.php?id=<?=$id?>" onClick="JavaScript:back();">
+            <a href="http://localhost/project_student/app_frontend/input_doc/contract/show.php?id=<?=$doc_id?>" onClick="JavaScript:back();">
                 <span class="fa-stack fa-2x">
                     <i class="fa fa-circle fa-stack-2x"></i>
                     <i class="fa fa-times fa-stack-1x fa-inverse"></i>

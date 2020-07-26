@@ -563,7 +563,7 @@
             </a>
         </li>
         <li>
-            <a href="http://localhost/project_student/app_frontend/input_doc/salary/show.php?id=<?=$idd?>">
+            <a href="http://localhost/project_student/app_frontend/input_doc/salary/show.php?id=<?=$doc_id?>">
                 <span class="fa-stack fa-2x">
                     <i class="fa fa-circle fa-stack-2x"></i>
                     <i class="fa fa-times fa-stack-1x fa-inverse"></i>
