@@ -131,7 +131,7 @@
                                             $i=1;
                                             $i<="";
 
-                                            $sql ="SELECT tb_debt.id , tb_debt.doc_id , tb_project.project_name , tb_person.prefix, tb_person.firtname, tb_person.lastname FROM tb_debt
+                                            $sql ="SELECT tb_debt.doc_id , tb_project.project_name , tb_person.prefix, tb_person.firtname, tb_person.lastname FROM tb_debt
                                             INNER JOIN tb_project ON tb_debt.project_id = tb_project.project_id
                                             INNER JOIN tb_person ON tb_debt.person_id = tb_person.person_id
                                             WHERE tb_debt.person_id = '".$person_id_session."' AND (tb_debt.doc_id LIKE '%".$strKeyword."%' or tb_project.project_name LIKE '%".$strKeyword."%' or tb_person.prefix LIKE '%".$strKeyword."%' or tb_person.firtname LIKE '%".$strKeyword."%'or tb_person.lastname LIKE '%".$strKeyword."%'  ) ";

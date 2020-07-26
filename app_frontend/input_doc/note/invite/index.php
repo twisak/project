@@ -182,7 +182,7 @@ include('../../../../config/constant.php');
                                             $i=1;
                                             $i<="";
 
-                                            $sql ="SELECT tb_note_book1.id , tb_note_book1.doc_id , tb_note_book1.date_current , tb_project.project_name , tb_person.prefix, tb_person.firtname, tb_person.lastname, tb_title.title FROM tb_note_book1
+                                            $sql ="SELECT tb_note_book1.doc_id , tb_note_book1.date_current , tb_project.project_name , tb_person.prefix, tb_person.firtname, tb_person.lastname, tb_title.title FROM tb_note_book1
                                             INNER JOIN tb_project ON tb_note_book1.project_id = tb_project.project_id
                                             INNER JOIN tb_person ON tb_note_book1.person_id = tb_person.person_id
                                             INNER JOIN tb_title ON tb_note_book1.title_id = tb_title.title_id
@@ -313,7 +313,7 @@ include('../../../../config/constant.php');
                                             $i<="";
 
 
-                                            $sql ="SELECT tb_note_book2.id , tb_note_book2.doc_id , tb_note_book2.date_current , tb_project.project_name , tb_person.prefix, tb_person.firtname, tb_person.lastname, tb_title.title FROM tb_note_book2
+                                            $sql ="SELECT tb_note_book2.doc_id , tb_note_book2.date_current , tb_project.project_name , tb_person.prefix, tb_person.firtname, tb_person.lastname, tb_title.title FROM tb_note_book2
                                             INNER JOIN tb_project ON tb_note_book2.project_id = tb_project.project_id
                                             INNER JOIN tb_person ON tb_note_book2.person_id = tb_person.person_id
                                             INNER JOIN tb_title ON tb_note_book2.title_id = tb_title.title_id
@@ -441,7 +441,7 @@ include('../../../../config/constant.php');
                                             $i=1;
                                             $i<="";
 
-                                            $sql ="SELECT tb_note_book3.id , tb_note_book3.doc_id , tb_note_book3.date_current , tb_project.project_name , tb_person.prefix, tb_person.firtname, tb_person.lastname, tb_title.title FROM tb_note_book3
+                                            $sql ="SELECT tb_note_book3.doc_id , tb_note_book3.date_current , tb_project.project_name , tb_person.prefix, tb_person.firtname, tb_person.lastname, tb_title.title FROM tb_note_book3
                                             INNER JOIN tb_project ON tb_note_book3.project_id = tb_project.project_id
                                             INNER JOIN tb_person ON tb_note_book3.person_id = tb_person.person_id
                                             INNER JOIN tb_title ON tb_note_book3.title_id = tb_title.title_id

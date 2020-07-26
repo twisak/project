@@ -77,7 +77,7 @@ include('../../../../config/constant.php');
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <a href="index.php" class="btn btn-warning btn-block">เอกสารหนังสือเชิญ/ส่งออก</a>
+                                            <a href="../invite/index.php" class="btn btn-warning btn-block">เอกสารหนังสือเชิญ/ส่งออก</a>
                                         </div>
                                     </div>
                                 </div>
@@ -153,7 +153,7 @@ include('../../../../config/constant.php');
                                             $i=1;
                                             $i<="";
 
-                                            $sql ="SELECT tb_note_record1.id , tb_note_record1.doc_id , tb_note_record1.date_current , tb_project.project_name , tb_person.prefix, tb_person.firtname, tb_person.lastname, tb_title.title FROM tb_note_record1
+                                            $sql ="SELECT tb_note_record1.doc_id , tb_note_record1.date_current , tb_project.project_name , tb_person.prefix, tb_person.firtname, tb_person.lastname, tb_title.title FROM tb_note_record1
                                             INNER JOIN tb_project ON tb_note_record1.project_id = tb_project.project_id
                                             INNER JOIN tb_person ON tb_note_record1.person_id = tb_person.person_id
                                             INNER JOIN tb_title ON tb_note_record1.title_id = tb_title.title_id
@@ -280,7 +280,7 @@ include('../../../../config/constant.php');
                                             $i=1;
                                             $i<="";
 
-                                            $sql ="SELECT tb_note_record2.id , tb_note_record2.doc_id , tb_note_record2.date_current , tb_project.project_name , tb_person.prefix, tb_person.firtname, tb_person.lastname, tb_title.title FROM tb_note_record2
+                                            $sql ="SELECT tb_note_record2.doc_id , tb_note_record2.date_current , tb_project.project_name , tb_person.prefix, tb_person.firtname, tb_person.lastname, tb_title.title FROM tb_note_record2
                                             INNER JOIN tb_project ON tb_note_record2.project_id = tb_project.project_id
                                             INNER JOIN tb_person ON tb_note_record2.person_id = tb_person.person_id
                                             INNER JOIN tb_title ON tb_note_record2.title_id = tb_title.title_id
