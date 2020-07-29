@@ -1,6 +1,6 @@
 <?php
 
-    //$id = $_SESSION['username'];
+    $id = $_SESSION['username'];
     //echo $id;
 // $sql ="SELECT * FROM tb_personnel WHERE username = '".$id."' ";
 // $query = mysqli_query($conn,$sql);
@@ -23,7 +23,7 @@
                 <!-- Logo -->
                 <!-- ============================================================== -->
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand" href="#">
                         <!-- Logo icon --><b>
                             <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                             <!-- Dark Logo icon -->
@@ -65,7 +65,7 @@
                         <li class="dropdown no-arrow">
                         <a class="nav-link dropdown-toggle waves-effect waves-dark profile-pic" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span class="hidden-md-down">
-                                <?php //echo $id; ?>&nbsp;
+                                <?php echo $id; ?>&nbsp;
                             </span>
                             <i class="fa fa-user-circle-o"></i>
                         </a>

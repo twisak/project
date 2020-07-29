@@ -74,7 +74,7 @@
                        //echo $sql_budget;
                        $query_title = mysqli_query($conn,$sql_title);
                        $row_title =mysqli_fetch_assoc($query_title);
-                       $id_auto = $row_title['id'];
+                       
                        $title_id = $row_title['title_id'];
                        $title = $row_title['title'];
                        $body = $row_title['body'];

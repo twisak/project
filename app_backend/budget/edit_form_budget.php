@@ -81,7 +81,7 @@
                                         $query_tb_budget = mysqli_query($conn,$sql_tb_budget);
                                         while($row_budget = mysqli_fetch_array($query_tb_budget,MYSQLI_ASSOC))
                                         {
-                                            $id = $row_budget['id'];
+                                            
                                             $budget = $row_budget['budget'];
                                             $project_id= $row_budget['project_id'];
                                         }

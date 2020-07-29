@@ -3,7 +3,7 @@
         include('../../config/connect.php');
         include('../../config/constant.php');
 
-        $id = $_POST['id'];
+        
         $person_id = $_POST['person_id'];
         $prefix = $_POST['prefix'];
         $firtname = $_POST['firtname'];
@@ -15,7 +15,7 @@
         $districts_id = $_POST['districts_id'];
         $amphures_id = $_POST['amphures_id'];
 
-        $sql= "UPDATE tb_person SET person_id     = '".$person_id."',
+        $sql= "UPDATE tb_person SET 
                                     prefix        = '".$prefix."',
                                     firtname      = '".$firtname."',
                                     lastname      = '".$lastname."',
@@ -25,7 +25,7 @@
                                     province_id   = '".$province_id."',
                                     districts_id  = '".$districts_id."',
                                     amphures_id   = '".$amphures_id."'
-                              WHERE id = '".$id."'";
+                              WHERE person_id = '".$person_id."'";
         //echo $sql;
         $db_query = mysqli_query($conn,$sql);
         // echo '<br>';

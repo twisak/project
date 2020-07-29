@@ -81,7 +81,7 @@
                                         $query_mission = mysqli_query($conn,$sql_mission);
                                         while($row_mission = mysqli_fetch_array($query_mission,MYSQLI_ASSOC))
                                         {
-                                            $id = $row_mission['id'];
+                                            
                                             $mission = $row_mission['mission'];
                                             $product_id = $row_mission['product_id'];
                                             $project_id = $row_mission['project_id'];

@@ -81,7 +81,7 @@
                                         $query_strategic = mysqli_query($conn,$sql_strategic);
                                         while($row_strategic = mysqli_fetch_array($query_strategic,MYSQLI_ASSOC))
                                         {
-                                            $id = $row_strategic['id'];
+                                            
                                             $strategic = $row_strategic['strategic'];
                                             $mission_id = $row_strategic['mission_id'];
                                             $project_id = $row_strategic['project_id'];

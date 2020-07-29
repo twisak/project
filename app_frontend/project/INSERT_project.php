@@ -1,8 +1,10 @@
-
+<?php
+include('../../config/connect.php');
+include('../../config/constant.php');
+?>
 <?php
 	ini_set('display_errors', 1);
     error_reporting(~0);
-    include '../../administrator/connect.php';
 
 		$project_id = $_POST['project_id'];
 		$project_name = $_POST['project_name'];

@@ -143,22 +143,20 @@
                                             <label class=""><b>ตำแหน่ง</b></label><br>
                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $position_name?>
                                         </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row col-md-12">
+                                        <div class="col-md-4">
+                                            <label class=""><b>เลขบัตรประชาชน</b></label><br>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $idcard;?>
+                                        </div>
                                         <div class="col-md-4">
                                             <label class=""><b>ชื่อ-นามสลุล</b></label><br>
                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $prefix?><?php echo $firtname?>&nbsp;&nbsp;<?php echo $lastname?>
                                         </div>
                                     </div>
                                 </div>
-
-                                <div class="row col-md-12">
-                                    <div class="form-group">
-                                        <div class="col-md-12">
-                                            <label class=""><b>เลขบัตรประชาชน</b></label><br>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $idcard;?>
-                                        </div>
-                                    </div>
-                                </div>
-                                
                                 <div class="row">
                                     <div class="row col-md-12">
                                         <div class="form-group">

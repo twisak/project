@@ -81,7 +81,7 @@
                                             $query_product = mysqli_query($conn,$sql_product);
                                             while($row_product = mysqli_fetch_array($query_product,MYSQLI_ASSOC))
                                             {
-                                                $id = $row_product['id'];
+                                                
                                                 $product_id = $row_product['product_id'];
                                                 $product = $row_product['product'];
                                                 $budget_id = $row_product['budget_id'];

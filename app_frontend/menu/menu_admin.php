@@ -91,6 +91,8 @@
                         </li>
                         <li> <a class="waves-effect waves-dark" href="<?php echo ROOT_PROJECT_FRONTEND;?>/user/tb_user.php" aria-expanded="false"><i class="fa fa-address-card"></i><span class="hide-menu">ข้อมูลส่วนตัว</span></a>
                         </li>
+                        <li> <a class="waves-effect waves-dark" href="<?php echo ROOT_PROJECT_FRONTEND;?>/project/tb_project.php" aria-expanded="false"><i class="fa fa-folder-open"></i><span class="hide-menu">จัดการข้อมูลโครงการ</span></a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link waves-effect waves-dark collapsed" href="#" data-toggle="collapse" data-target="#collapseB" aria-expanded="false" aria-controls="collapseB">
                                 <i class="fa fa-book"></i>

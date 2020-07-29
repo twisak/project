@@ -87,7 +87,7 @@
                                         $query1 = mysqli_query($conn,$sql1);
                                         while($row1 = mysqli_fetch_array($query1,MYSQLI_ASSOC))
                                         {
-                                            $id = $row1['id'];
+                                            
                                             $person_id = $row1['person_id'];
                                             $prefix = $row1['prefix'];
                                             $firtname = $row1['firtname'];
