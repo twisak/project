@@ -11,7 +11,7 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="<?php echo ROOT_PROJECT_FRONTEND; ?>/assets/images/favicon.png">
-    <title>AdminWrap - Easy to Customize Bootstrap 4 Admin Template</title>
+<?php include '../../include_title.php'; ?>
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo ROOT_PROJECT_FRONTEND; ?>/css/bootstrap_plugin.css" rel="stylesheet">
     <!-- Custom CSS -->
@@ -116,13 +116,13 @@
                                         // echo "year= ".$strDate[0];
                                         // echo "month= ".$strDate[1];
                                         // echo "date= ".$strDate[2];
-                                        
+
                                         $str_day = $strDate[2];
                                         $str_month = $strDate[1];
                                         $str_year = $strDate[0];
 
                                         $year=date("$str_year")+543;
-                                        
+
                                         //echo $year;
 
                                         $message = "$year";
@@ -172,7 +172,7 @@
                                         //echo $day_thai;
                                         //echo $month_thai;
 
-                                        
+
 ?>
 <body id="<?php //echo $body['name'];?>">
 <div class="page">
@@ -221,11 +221,11 @@
                 เรียน อธิการบดีมหาวิทยาลัมหาวิทยาลัยราชภัฏยะลา
             </td>
             </tr>
-                <?php 
+                <?php
                     $total = $number * $money;
 
                     $strDate = explode("-", "$str_date");//วันเริ่ม
-                    
+
                     $str_day = $strDate[2];
                     $str_month = $strDate[1];
                     $str_year = $strDate[0];
@@ -274,9 +274,9 @@
                     }else if($str_month == "12"){
                     $month_thaiS = "ธันวาคม";
                     }
-                    
+
                     $strDate = explode("-", "$stp_date");//วันที่จบ
-                    
+
                     $str_day = $strDate[2];
                     $str_month = $strDate[1];
                     $str_year = $strDate[0];
@@ -380,28 +380,28 @@
 
                         return $convert;
                         }
-                        $x = $money;                    
-                
+                        $x = $money;
+
                 ?>
-                
+
             <tr>
                <td colspan="2" class="text-indent-50" align="left">
                  <?php //echo $body;?>ตามที่ สถาบันพัฒนาครูและบุคลากรทางการศึกษาชายแดนใต้ มหาวิทยาลัยราชภัฏยะลา ได้จ้างให้ข้าพเจ้าเป็นเจ้าหน้าที่ประจำโครงการ "<?php echo $project_name?>" ตั้งแต่วันที่ <?php echo $day_thaiS;?>&nbsp;<?php echo $month_thaiS;?>&nbsp;<?php echo $year_thaiS;?>  ถึง <?php echo $day_thaiE;?>&nbsp;<?php echo $month_thaiE;?>&nbsp;<?php echo $year_thaiE;?>  จำนวน <?php echo $number1?> งวด (<?php echo $money1?> = <?php echo $total1?> บาท) เป็นเงิน <?php echo $money1?> บาท รวมเป็นเงินทั้งสิ้น <?php echo $money1?> บาท(<?php echo  convert($x);?>) นั้น
               </td>
             </tr>
-<?php 
+<?php
         $strDate = explode("-", "$date_work");
 
         // echo "year= ".$strDate[0];
         // echo "month= ".$strDate[1];
         // echo "date= ".$strDate[2];
-        
+
         $str_day = $strDate[2];
         $str_month = $strDate[1];
         $str_year = $strDate[0];
 
         $year=date("$str_year")+543;
-        
+
         //echo $year;
 
         $message = "$year";
@@ -501,7 +501,7 @@
                 ข้าพเจ้า อาจารย์<?php echo $t_firstname;?>&nbsp;&nbsp;<?php echo $t_lastname;?> ตำแหน่ง <?php echo $position_name;?> เป็นบุคคลที่ควบคุมการปฏิบัติงานของผู้รับจ้าง ผู้ปฏิบัติงานจ้างเหมาบริการ เจ้าหน้าที่ประจำโครงการ "<?php echo $project_name?>" มหาวิทยาลุยราชภัฏยะลา ขอรับรองว่า<?php echo $prefix;?><?php echo $firtname;?>&nbsp;&nbsp;<?php echo $lastname;?> ได้ปฏิบัติงานเรียบร้อยแล้วตั้งแต่วันที่ <?php echo $day_thaiS;?>&nbsp;<?php echo $month_thaiS;?>&nbsp;<?php echo $year_thaiS;?>  ถึง <?php echo $day_thaiE;?>&nbsp;<?php echo $month_thaiE;?>&nbsp;<?php echo $year_thaiE;?>
             </td>
             </tr>
-                
+
             <tr>
                 <td colspan="3" class="border-0 padding-0" align="right">
                     <table width="100%" border="0">

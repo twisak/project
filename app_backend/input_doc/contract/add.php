@@ -36,7 +36,7 @@ include('../../../config/constant.php');
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="<?php echo ROOT_PROJECT_FRONTEND; ?>/assets/images/favicon.png">
-    <title>AdminWrap - Easy to Customize Bootstrap 4 Admin Template</title>
+<?php include '../../include_title.php'; ?>
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo ROOT_PROJECT_FRONTEND; ?>/assets/node_modules/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
@@ -190,7 +190,7 @@ include('../../../config/constant.php');
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label><b>สิ้นสุดวันที่</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
-                                                <input type="date" class="form-control form-control-line" name="stp_date" required> 
+                                                <input type="date" class="form-control form-control-line" name="stp_date" required>
                                             </div>
                                         </div>
                                     </div>

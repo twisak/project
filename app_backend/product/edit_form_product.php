@@ -13,7 +13,7 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="<?php echo ROOT_PROJECT_BACKEND;?>/assets/images/favicon.png">
-    <title>AdminWrap - Easy to Customize Bootstrap 4 Admin Template</title>
+<?php include '../include_title.php'; ?>
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo ROOT_PROJECT_BACKEND;?>/assets/node_modules/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
@@ -81,7 +81,7 @@
                                             $query_product = mysqli_query($conn,$sql_product);
                                             while($row_product = mysqli_fetch_array($query_product,MYSQLI_ASSOC))
                                             {
-                                                
+
                                                 $product_id = $row_product['product_id'];
                                                 $product = $row_product['product'];
                                                 $budget_id = $row_product['budget_id'];
@@ -101,7 +101,7 @@
                                             $project_name = $result['project_name'];
                                             $project_id = $result['project_id'];
                                     ?>
-                                    <div class="form-group">    
+                                    <div class="form-group">
                                         <div class="row">
                                             <div class="col-md-12 text-center">
                                                 <div class="form-group">

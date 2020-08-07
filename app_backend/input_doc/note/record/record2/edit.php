@@ -8,7 +8,7 @@ include('../../../../../config/constant.php');
     $query_record2 = mysqli_query($conn,$sql_record2);
     $result_record2 = mysqli_fetch_assoc($query_record2);
 
-   
+
     $doc_id = $result_record2['doc_id'];
     $person_id = $result_record2['person_id'];
     $project_id = $result_record2['project_id'];
@@ -65,7 +65,7 @@ include('../../../../../config/constant.php');
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="<?php echo ROOT_PROJECT_FRONTEND; ?>/assets/images/favicon.png">
-    <title>AdminWrap - Easy to Customize Bootstrap 4 Admin Template</title>
+<?php include '../../../../include_title.php'; ?>
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo ROOT_PROJECT_FRONTEND; ?>/assets/node_modules/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->

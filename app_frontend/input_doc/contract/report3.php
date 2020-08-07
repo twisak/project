@@ -11,7 +11,7 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="<?php echo ROOT_PROJECT_FRONTEND; ?>/assets/images/favicon.png">
-    <title>AdminWrap - Easy to Customize Bootstrap 4 Admin Template</title>
+<?php include '../../include_title.php'; ?>
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo ROOT_PROJECT_FRONTEND; ?>/css/bootstrap_plugin.css" rel="stylesheet">
     <!-- Custom CSS -->
@@ -34,7 +34,7 @@
             $num_rows = mysqli_num_rows($query);
             while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
             {
-                
+
                 $doc_id = $row['doc_id'];
                 $foreword = unserialize($row['foreword']);
                 $str_date = $row['str_date'];

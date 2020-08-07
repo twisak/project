@@ -13,7 +13,7 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="<?php echo ROOT_PROJECT_BACKEND;?>/assets/images/favicon.png">
-    <title>AdminWrap - Easy to Customize Bootstrap 4 Admin Template</title>
+<?php include '../include_title.php'; ?>
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo ROOT_PROJECT_BACKEND;?>/assets/node_modules/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
@@ -74,12 +74,12 @@
                        //echo $sql_budget;
                        $query_title = mysqli_query($conn,$sql_title);
                        $row_title =mysqli_fetch_assoc($query_title);
-                       
+
                        $title_id = $row_title['title_id'];
                        $title = $row_title['title'];
                        $body = $row_title['body'];
                 ?>
-                
+
                 <div class="row">
                     <div class="col-lg-12 col-xlg-9 col-md-7">
                         <div class="card">

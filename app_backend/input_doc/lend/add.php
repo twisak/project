@@ -34,7 +34,7 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="<?php echo ROOT_PROJECT_FRONTEND; ?>/assets/images/favicon.png">
-    <title>AdminWrap - Easy to Customize Bootstrap 4 Admin Template</title>
+<?php include '../../include_title.php'; ?>
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo ROOT_PROJECT_FRONTEND; ?>/assets/node_modules/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
@@ -175,7 +175,7 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label><b>โครงการ</b></label>&nbsp;<label class="text-danger"><b>*</b></label>
-                                                <select name="project_id" id="project" class="form-control" required> 
+                                                <select name="project_id" id="project" class="form-control" required>
                                                     <option value="">-- เลือกชื่อโครงการ --</option>
                                                     <?php
                                                     $sql = "SELECT * FROM tb_project";

@@ -1,4 +1,4 @@
-<?php 
+<?php
     include('../../../config/connect.php');
     include('../../../config/constant.php');
 ?>
@@ -14,7 +14,7 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="<?php echo ROOT_PROJECT_FRONTEND; ?>/assets/images/favicon.png">
-    <title>AdminWrap - Easy to Customize Bootstrap 4 Admin Template</title>
+<?php include '../../include_title.php'; ?>
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo ROOT_PROJECT_FRONTEND; ?>/css/bootstrap_plugin.css" rel="stylesheet">
     <!-- Custom CSS -->
@@ -119,13 +119,13 @@
                                         // echo "year= ".$strDate[0];
                                         // echo "month= ".$strDate[1];
                                         // echo "date= ".$strDate[2];
-                                        
+
                                         $str_day = $strDate[2];
                                         $str_month = $strDate[1];
                                         $str_year = $strDate[0];
 
                                         $year=date("$str_year")+543;
-                                        
+
                                         //echo $year;
 
                                         $message = "$year";
@@ -273,7 +273,7 @@
                 <td>
                     <br>
                     <table border="1" align="center" width="100%" class="statement-view text-gray-900">
-                            <?php 
+                            <?php
                                     $i=1;
                                     $i<="";
 
@@ -288,10 +288,10 @@
                                              //echo "<tr><td>{$value}</td></tr>";
                                             //echo "<li>{$value}</li>";
                                             $j++;
-                                    
+
                                    // echo "</ul>";
-                                                          
-                                    
+
+
                                 ?>
                         <tr>
                             <td colspan="3" align="left">
@@ -341,13 +341,13 @@
         </table>
     </div>
 
-    <?php 
+    <?php
             include '../contract/report2.php';
             include '../contract/report3.php';
             include '../contract/report4.php';
     ?>
 
-    
+
 
     <ul class="right-menu">
         <li>

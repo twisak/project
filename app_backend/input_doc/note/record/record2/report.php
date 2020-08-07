@@ -14,7 +14,7 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="<?php echo ROOT_PROJECT_FRONTEND; ?>/assets/images/favicon.png">
-    <title>AdminWrap - Easy to Customize Bootstrap 4 Admin Template</title>
+<?php include '../../../../include_title.php'; ?>
     <!-- Bootstrap Core CSS -->
 
     <!-- แบมะ -->
@@ -125,7 +125,7 @@ $name_th_d = $result_districts['name_th'];
                         <td width="30%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
                       </tr>
                       <tr>
-                        
+
                         <td align="center" width="100%" class="text-nowrap border-0 padding-0"><h2><strong>บันทึกข้อความ</strong></h2></td>
                         <td width="30%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
                       </tr>

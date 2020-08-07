@@ -14,7 +14,7 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="<?php echo ROOT_PROJECT_FRONTEND; ?>/assets/images/favicon.png">
-    <title>AdminWrap - Easy to Customize Bootstrap 4 Admin Template</title>
+<?php include '../../../../include_title.php'; ?>
     <!-- Bootstrap Core CSS -->
 
     <!-- แบมะ -->
@@ -364,9 +364,9 @@ $name_th_d = $result_districts['name_th'];
                     </table>
                 </td>
             </tr>
-            <?php 
+            <?php
                     $strDate = explode("-", "$day");//วันเริ่ม
-                    
+
                     $str_day = $strDate[2];
                     $str_month = $strDate[1];
                     $str_year = $strDate[0];
@@ -444,7 +444,7 @@ $name_th_d = $result_districts['name_th'];
                     //echo $day_thai;
 
                     $strDate = explode("-", "$date_inside");//วันที่จบ
-                    
+
                     $str_day = $strDate[2];
                     $str_month = $strDate[1];
                     $str_year = $strDate[0];

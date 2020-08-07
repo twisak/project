@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="<?php echo ROOT_PROJECT_FRONTEND; ?>/assets/images/favicon.png">
-    <title>AdminWrap - Easy to Customize Bootstrap 4 Admin Template</title>
+<?php include '../../../../include_title.php'; ?>
     <!-- Bootstrap Core CSS -->
 
     <!-- แบมะ -->
@@ -128,7 +128,7 @@ $name_th_d = $result_districts['name_th'];
                     <table border="1" width="25%" align="center">
                         <tr>
                             <td align="center" width="25%">
-                                <h2><strong>- สำเนา -</strong></h2>  
+                                <h2><strong>- สำเนา -</strong></h2>
                             </td>
                         </tr>
                     </tabie>

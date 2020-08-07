@@ -11,7 +11,7 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="<?php echo ROOT_PROJECT_FRONTEND; ?>/assets/images/favicon.png">
-    <title>AdminWrap - Easy to Customize Bootstrap 4 Admin Template</title>
+<?php include '../../include_title.php'; ?>
     <!-- Bootstrap Core CSS -->
 
     <!-- แบมะ -->
@@ -38,7 +38,7 @@
                 <td width="100%" class="statement-header"  align="center">
                     <table border="0" width="100%" class="statement-view text-gray-900" align="center">
                         <tr>
-                            <img src="../../../administrator/images/Emblem_of_Rajabhat_Yala.png" width="100" height="120" class="img-responsive"> 
+                            <img src="../../../administrator/images/Emblem_of_Rajabhat_Yala.png" width="100" height="120" class="img-responsive">
                         </tr>
                     </table>
                 </td>

@@ -1,4 +1,4 @@
-<?php 
+<?php
         include('../../../config/connect.php');
         include('../../../config/constant.php');
 ?>
@@ -13,7 +13,7 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="<?php echo ROOT_PROJECT_FRONTEND; ?>/assets/images/favicon.png">
-    <title>AdminWrap - Easy to Customize Bootstrap 4 Admin Template</title>
+<?php include '../../include_title.php'; ?>
     <!-- Bootstrap Core CSS -->
 
     <!-- แบมะ -->
@@ -107,7 +107,7 @@
 
             $strStartDate = $str_date;
             $strEndDate = $stp_date;
-            $intTotalDay = ((strtotime($strEndDate) - strtotime($strStartDate))/  ( 60 * 60  )) ;  
+            $intTotalDay = ((strtotime($strEndDate) - strtotime($strStartDate))/  ( 60 * 60  )) ;
 
             //echo "////////$intTotalDay/////////";
 ?>

@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="<?php echo ROOT_PROJECT_FRONTEND; ?>/assets/images/favicon.png">
-    <title>AdminWrap - Easy to Customize Bootstrap 4 Admin Template</title>
+<?php include '../../include_title.php'; ?>
     <!-- Bootstrap Core CSS -->
 
     <!-- แบมะ -->
@@ -153,7 +153,7 @@
 
                 </td>
             </tr>
-            <?php 
+            <?php
                 $project_id= $result_salary['project_id'];
 
                 $sql ="SELECT * FROM tb_contract WHERE project_id = '".$project_id."'";
@@ -169,7 +169,7 @@
             <tr>
                 <td>
                     <table border="0" align="center" width="100%" class="statement-view text-gray-900">
-                        <?php 
+                        <?php
                                     $i=1;
                                     $i<="";
                                    $foreword1 = array($foreword);
@@ -183,10 +183,10 @@
                                              //echo "<tr><td>{$value}</td></tr>";
                                             //echo "<li>{$value}</li>";
                                             $j++;
-                                    
+
                                    // echo "</ul>";
-                                                          
-                                    
+
+
                                 ?>
                         <tr>
                             <td colspan="3" align="left">
@@ -277,7 +277,7 @@
                                             $value_Job = $Job1[$j];
 
                                 $strDate = explode("-", "$value_day_work");//วันปัจจุบัน
-                    
+
                                 $str_day = $strDate[2];
                                 $str_month = $strDate[1];
                                 $str_year = $strDate[0];

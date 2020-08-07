@@ -13,7 +13,7 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="<?php echo ROOT_PROJECT_BACKEND;?>/assets/images/favicon.png">
-    <title>AdminWrap - Easy to Customize Bootstrap 4 Admin Template</title>
+<?php include '../include_title.php'; ?>
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo ROOT_PROJECT_BACKEND;?>/assets/node_modules/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
@@ -145,7 +145,7 @@
                                                     </select>
                                                 </div>
 
-                                        
+
                                         <div class="col-md-3">
                                                     <label for="mission"><b>พันธกิจ</b></label>&nbsp;<label class="text-danger"><b>*</b></label>
                                                     <select name="mission_id" id="mission" class="form-control">

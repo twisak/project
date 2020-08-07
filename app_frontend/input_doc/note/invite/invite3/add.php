@@ -1,4 +1,4 @@
-<?php 
+<?php
 include('../../../../../config/connect.php');
 include('../../../../../config/constant.php');
 
@@ -35,7 +35,7 @@ include('../../../../../config/constant.php');
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="<?php echo ROOT_PROJECT_FRONTEND; ?>/assets/images/favicon.png">
-    <title>AdminWrap - Easy to Customize Bootstrap 4 Admin Template</title>
+<?php include '../../../../include_title.php'; ?>
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo ROOT_PROJECT_FRONTEND; ?>/assets/node_modules/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
@@ -128,7 +128,7 @@ include('../../../../../config/constant.php');
                                                         while($result = mysqli_fetch_assoc($query)):
                                                             $title_id = $result['title_id'];
                                                             $title = $result['title'];
-                                                            
+
                                                             $new_title = iconv_substr($title,0,80,'UTF-8'). "...";
                                                     ?>
                                                     <option value="<?php echo $title_id;?>"><?php echo $new_title;?></option>

@@ -13,7 +13,7 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="<?php echo ROOT_PROJECT_BACKEND;?>/assets/images/favicon.png">
-    <title>AdminWrap - Easy to Customize Bootstrap 4 Admin Template</title>
+<?php include '../include_title.php'; ?>
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo ROOT_PROJECT_BACKEND;?>/assets/node_modules/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
@@ -74,14 +74,14 @@
                             <!-- Tab panes -->
                             <div class="card-body">
                                 <form class="form-horizontal form-material" action="edit_budget.php" name="form_user" method="post">
-                                    <?php 
+                                    <?php
                                         include '../../administrator/connect.php';
                                         $budget_id =$_GET['budget_id'];
                                         $sql_tb_budget ="SELECT * FROM tb_budget WHERE budget_id = '".$budget_id."'";
                                         $query_tb_budget = mysqli_query($conn,$sql_tb_budget);
                                         while($row_budget = mysqli_fetch_array($query_tb_budget,MYSQLI_ASSOC))
                                         {
-                                            
+
                                             $budget = $row_budget['budget'];
                                             $project_id= $row_budget['project_id'];
                                         }
@@ -176,4 +176,3 @@
 </body>
 
 </html>
-

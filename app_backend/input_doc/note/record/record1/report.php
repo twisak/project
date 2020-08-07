@@ -14,7 +14,7 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="<?php echo ROOT_PROJECT_FRONTEND; ?>/assets/images/favicon.png">
-    <title>AdminWrap - Easy to Customize Bootstrap 4 Admin Template</title>
+<?php include '../../../../include_title.php'; ?>
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo ROOT_PROJECT_FRONTEND; ?>/css/bootstrap_plugin.css" rel="stylesheet">
     <!-- Custom CSS -->
@@ -207,7 +207,7 @@ function convertAmountToLetter($number)
                         <td width="30%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
                       </tr>
                       <tr>
-                        
+
                         <td align="center" width="100%" class="text-nowrap border-0 padding-0"><h2><strong>บันทึกข้อความ</strong></h2></td>
                         <td width="30%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
                       </tr>
@@ -235,13 +235,13 @@ function convertAmountToLetter($number)
             $submonth_date_current = substr($date_current,5,-3);
             $subyear_date_current = substr($date_current,0,-6);
 
-            
+
 
             $budget_year1 = substr($budget_year,+543);
 
             $numthai = array("๑","๒","๓","๔","๕","๖","๗","๘","๙","๐");
             $numarabic = array("1","2","3","4","5","6","7","8","9","0");
-            
+
             $budget_year2 = str_replace($numarabic,$numthai,$budget_year1);
 
              $str_month = $submonth_date_current;

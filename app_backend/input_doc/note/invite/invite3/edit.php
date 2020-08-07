@@ -58,7 +58,7 @@ include('../../../../../config/constant.php');
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="<?php echo ROOT_PROJECT_FRONTEND; ?>/assets/images/favicon.png">
-    <title>AdminWrap - Easy to Customize Bootstrap 4 Admin Template</title>
+<?php include '../../../../include_title.php'; ?>
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo ROOT_PROJECT_FRONTEND; ?>/assets/node_modules/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
@@ -109,7 +109,7 @@ include('../../../../../config/constant.php');
                             <!-- Tab panes -->
                             <div class="card-body">
                                 <form class="form-horizontal form-material" action="../invite3/edit_action.php" method="post">
-                                    
+
                                     <div class="row">
                                         <div class="col-md-12 text-center">
                                             <div class="form-group">

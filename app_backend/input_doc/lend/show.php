@@ -35,7 +35,7 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="<?php echo ROOT_PROJECT_FRONTEND; ?>/assets/images/favicon.png">
-    <title>AdminWrap - Easy to Customize Bootstrap 4 Admin Template</title>
+<?php include '../../include_title.php'; ?>
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo ROOT_PROJECT_FRONTEND; ?>/assets/node_modules/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
@@ -70,7 +70,7 @@
                                         // {
                                         //     $person_id = $row['person_id'];
                                         // }
-                                        
+
                                         $doc_id =$_GET['doc_id'];
                                         $sql ="SELECT * FROM tb_lend WHERE doc_id = '".$doc_id."'";
                                         $query = mysqli_query($conn,$sql);
@@ -132,7 +132,7 @@
                                             $t_lastname = $row_teacher['t_lastname'];
                                             //$prefix = $row2['prefix'];
                                         }
-                                            
+
                                     ?>
         <div class="page-wrapper">
             <div class="container-fluid">

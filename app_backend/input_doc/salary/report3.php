@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="<?php echo ROOT_PROJECT_FRONTEND; ?>/assets/images/favicon.png">
-    <title>AdminWrap - Easy to Customize Bootstrap 4 Admin Template</title>
+<?php include '../../include_title.php'; ?>
     <!-- Bootstrap Core CSS -->
 
     <!-- แบมะ -->
@@ -154,7 +154,7 @@
                 <td>
                     <br>
                     <table border="1" align="center" width="100%" class="statement-view text-gray-900">
-                            <?php 
+                            <?php
                                     $i=1;
                                     $i<="";
                                    $foreword1 = array($foreword);
@@ -168,10 +168,10 @@
                                              //echo "<tr><td>{$value}</td></tr>";
                                             //echo "<li>{$value}</li>";
                                             $j++;
-                                    
+
                                    // echo "</ul>";
-                                                          
-                                    
+
+
                                 ?>
                         <tr>
                             <td colspan="3" align="left">

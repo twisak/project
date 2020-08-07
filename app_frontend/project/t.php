@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
-    <title>AdminWrap - Easy to Customize Bootstrap 4 Admin Template</title>
+<?php include '../include_title.php'; ?>
     <!-- Bootstrap Core CSS -->
     <link href="../assets/node_modules/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
@@ -32,7 +32,7 @@ $(document).ready(function(){
 						tr = tr + "<td><input type='text' name='txtCustomerID"+rows+"' id='txtCustomerID"+rows+"' size='5'></td>";
 						tr = tr + "</tr>";
 						$('#myTable > tbody:last').append(tr);
-					
+
 						$('#hdnCount').val(rows);
 						rows = rows + 1;
 		});
@@ -93,4 +93,3 @@ $(document).ready(function(){
     <script src="../js/custom.min.js"></script>
 </body>
 </html>
-

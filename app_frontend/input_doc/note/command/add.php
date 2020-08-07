@@ -1,4 +1,4 @@
-<?php 
+<?php
 include('../../../../config/connect.php');
 include('../../../../config/constant.php');
     $username= $_SESSION['username'];
@@ -34,7 +34,7 @@ include('../../../../config/constant.php');
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="<?php echo ROOT_PROJECT_FRONTEND; ?>/assets/images/favicon.png">
-    <title>AdminWrap - Easy to Customize Bootstrap 4 Admin Template</title>
+<?php include '../../../include_title.php'; ?>
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo ROOT_PROJECT_FRONTEND; ?>/assets/node_modules/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
@@ -112,7 +112,7 @@ include('../../../../config/constant.php');
                                     <div class="row">
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <label><b>รหัสเอกสารคำสั่ง</b></label> 
+                                                <label><b>รหัสเอกสารคำสั่ง</b></label>
                                                 <input type="text" value="<?=$id?>" readonly class="form-control form-control-line">
                                                 <input type="hidden" name="doc_id" value="<?=$id?>" />
                                             </div>

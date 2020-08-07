@@ -13,7 +13,7 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="<?php echo ROOT_PROJECT_BACKEND;?>/assets/images/favicon.png">
-    <title>AdminWrap - Easy to Customize Bootstrap 4 Admin Template</title>
+<?php include '../include_title.php'; ?>
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo ROOT_PROJECT_BACKEND;?>/assets/node_modules/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
@@ -74,14 +74,14 @@
                             <!-- Tab panes -->
                             <div class="card-body">
                                 <form class="form-horizontal form-material" action="edit_mission.php" name="form_user" method="post">
-                                    <?php 
+                                    <?php
                                         include '../../administrator/connect.php';
                                         $mission_id =$_GET['mission_id'];
                                         $sql_mission ="SELECT * FROM tb_mission WHERE mission_id = '".$mission_id."'";
                                         $query_mission = mysqli_query($conn,$sql_mission);
                                         while($row_mission = mysqli_fetch_array($query_mission,MYSQLI_ASSOC))
                                         {
-                                            
+
                                             $mission = $row_mission['mission'];
                                             $product_id = $row_mission['product_id'];
                                             $project_id = $row_mission['project_id'];
@@ -227,4 +227,3 @@
 </body>
 
 </html>
-

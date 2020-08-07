@@ -11,7 +11,7 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="<?php echo ROOT_PROJECT_FRONTEND; ?>/assets/images/favicon.png">
-    <title>AdminWrap - Easy to Customize Bootstrap 4 Admin Template</title>
+<?php include '../../include_title.php'; ?>
     <!-- Bootstrap Core CSS -->
 
     <!-- แบมะ -->
@@ -131,7 +131,7 @@
                             <td width="200px" height="1px" align="">
                                 <table width="90%" border="0" align="right">
                                     <tr>
-                                        
+
                                         <td width="1" class="border-0 padding-0">ลงชื่อ</td>
                                         <td class="border-0 padding-0 text-center">
                                             &nbsp;<?php //echo  convert($x);?>
@@ -177,7 +177,7 @@
             </table>
 
     </div>
-    
+
     <script src="<?php //echo site_common_node_modules_url('jquery/dist/jquery.min.js');?>"></script>
 </body>
 

@@ -14,7 +14,7 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="<?php echo ROOT_PROJECT_FRONTEND; ?>/assets/images/favicon.png">
-    <title>AdminWrap - Easy to Customize Bootstrap 4 Admin Template</title>
+<?php include '../../../include_title.php'; ?>
     <!-- Bootstrap Core CSS -->
 
     <!-- แบมะ -->
@@ -116,7 +116,7 @@ $result_districts = mysqli_fetch_assoc($query_districts);
 $name_th_d = $result_districts['name_th'];
 
 $strDate = explode("-", "$str_date");//วันเริ่ม
-                    
+
                     $str_day = $strDate[2];
                     $str_month = $strDate[1];
                     $str_year = $strDate[0];
@@ -165,9 +165,9 @@ $strDate = explode("-", "$str_date");//วันเริ่ม
                     }else if($str_month == "12"){
                     $month_thaiS = "ธันวาคม";
                     }
-                    
+
                     $strDate = explode("-", "$stp_date");//วันที่จบ
-                    
+
                     $str_day = $strDate[2];
                     $str_month = $strDate[1];
                     $str_year = $strDate[0];
@@ -275,7 +275,7 @@ $strDate = explode("-", "$str_date");//วันเริ่ม
                             <td></td>
                             <td></td>
                         </tr>
-                        <?php 
+                        <?php
                                 $i=1;
                                 $i<="";
 
@@ -287,7 +287,7 @@ $strDate = explode("-", "$str_date");//วันเริ่ม
                                      $t_firstname = $row_teacher['t_firstname'];
                                      $t_lastname = $row_teacher['t_lastname'];
                                      $position_id = $row_teacher['position_id'];
-                                
+
                                 $sql_position = "SELECT * FROM tb_position WHERE position_id = '".$position_id."' ";
                                 $query_position = mysqli_query($conn,$sql_position);
                                 $row_position =mysqli_fetch_assoc($query_position);
@@ -312,7 +312,7 @@ $strDate = explode("-", "$str_date");//วันเริ่ม
                             <td></td>
                             <td></td>
                         </tr>
-                        <?php 
+                        <?php
                                 $i=1;
                                 $i<="";
 

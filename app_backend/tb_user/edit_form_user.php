@@ -1,4 +1,4 @@
-<?php 
+<?php
         include('../../config/connect.php');
         include('../../config/constant.php');
 ?>
@@ -14,7 +14,7 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="<?php echo ROOT_PROJECT_BACKEND;?>/assets/images/favicon.png">
-    <title>AdminWrap - Easy to Customize Bootstrap 4 Admin Template</title>
+<?php include '../include_title.php'; ?>
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo ROOT_PROJECT_BACKEND;?>/assets/node_modules/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
@@ -87,7 +87,7 @@
                                         $query1 = mysqli_query($conn,$sql1);
                                         while($row1 = mysqli_fetch_array($query1,MYSQLI_ASSOC))
                                         {
-                                            
+
                                             $person_id = $row1['person_id'];
                                             $prefix = $row1['prefix'];
                                             $firtname = $row1['firtname'];

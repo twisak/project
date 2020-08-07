@@ -13,7 +13,7 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="<?php echo ROOT_PROJECT_BACKEND;?>/assets/images/favicon.png">
-    <title>AdminWrap - Easy to Customize Bootstrap 4 Admin Template</title>
+<?php include '../include_title.php'; ?>
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo ROOT_PROJECT_BACKEND;?>/assets/node_modules/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
@@ -81,7 +81,7 @@
                                         $query_strategic = mysqli_query($conn,$sql_strategic);
                                         while($row_strategic = mysqli_fetch_array($query_strategic,MYSQLI_ASSOC))
                                         {
-                                            
+
                                             $strategic = $row_strategic['strategic'];
                                             $mission_id = $row_strategic['mission_id'];
                                             $project_id = $row_strategic['project_id'];
@@ -97,7 +97,7 @@
 
                                         $project_name = $result['project_name'];
                                         $project_id = $result['project_id'];
-                                                
+
 
                                 ?>
                                     <div class="form-group">
@@ -132,7 +132,7 @@
                                                 </select>
                                             </div>
                                         </div>
-                                       
+
                                       <?php
                                           $sql_mission = "SELECT * FROM tb_mission";
                                           $query_mission = mysqli_query($conn,$sql_mission);

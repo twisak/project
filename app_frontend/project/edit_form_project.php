@@ -14,7 +14,7 @@ include('../../config/constant.php');
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="<?php echo ROOT_PROJECT_BACKEND;?>/assets/images/favicon.png">
-    <title>AdminWrap - Easy to Customize Bootstrap 4 Admin Template</title>
+<?php include '../include_title.php'; ?>
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo ROOT_PROJECT_BACKEND;?>/assets/node_modules/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
@@ -70,7 +70,7 @@ include('../../config/constant.php');
                                         $sql_project = "SELECT * FROM tb_project WHERE project_id = '".$project_id."' ";
                                         $query_project = mysqli_query($conn,$sql_project);
                                         $result_project = mysqli_fetch_array($query_project);
-                                        
+
 
                             ?>
                                 <form class="form-horizontal form-material" action="edit_project.php" name="form_user" method="post">
@@ -286,7 +286,7 @@ $selected_check_strategic = "";
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label><b>งบประมาณ</b></label>&nbsp;<label class="text-danger"><b>*</b></label>
-                                                <input type="text" name="budget" class="form-control form-control-line" value="<?php echo $result_project['budget'] ?>"> 
+                                                <input type="text" name="budget" class="form-control form-control-line" value="<?php echo $result_project['budget'] ?>">
                                             </div>
                                         </div>
                                     </div>

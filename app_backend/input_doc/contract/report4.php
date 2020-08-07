@@ -11,7 +11,7 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="<?php echo ROOT_PROJECT_FRONTEND; ?>/assets/images/favicon.png">
-    <title>AdminWrap - Easy to Customize Bootstrap 4 Admin Template</title>
+<?php include '../../include_title.php'; ?>
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo ROOT_PROJECT_FRONTEND; ?>/css/bootstrap_plugin.css" rel="stylesheet">
     <!-- Custom CSS -->
@@ -198,7 +198,7 @@
                                     foreach ($scope1 as $scope1){
                                     $j=0;
                                     foreach ($scope1 as $scope1[$j]){
-                                        $value = $scope1[$j]; 
+                                        $value = $scope1[$j];
                                 ?>
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $i;?>.<?php echo $value;?><br>
                             <?php $j++; $i++; }}?>
@@ -268,7 +268,7 @@
                                 foreach ($payment1 as $payment1[$j]){
                                     $value = $payment1[$j];
                         ?>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $i;?>.<?php echo $value;?><br> 
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $i;?>.<?php echo $value;?><br>
                             <?php $j++; $i++; }}?>
                         </td>
                       </tr>
@@ -295,7 +295,7 @@
                                 foreach ($insurance1 as $insurance1[$j]){
                                     $value = $insurance1[$j];
                         ?>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $i;?>.<?php echo $value;?><br> 
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $i;?>.<?php echo $value;?><br>
                             <?php $j++; $i++; }}?>
                         </td>
                       </tr>
@@ -310,7 +310,7 @@
                       <tr  align="left">
                             <td width="50%" ></td>
                         <td width="50%">
-                                    <?php 
+                                    <?php
                                         $sql4 ="SELECT * FROM tb_teacher WHERE teacher_id = '".$chairman."' ";
                                         $query4 = mysqli_query($conn,$sql4);
                                         while($row4 = mysqli_fetch_array($query4,MYSQLI_ASSOC))
@@ -355,7 +355,7 @@
                       <tr  align="left">
                         <td width="50%" ></td>
                         <td width="50%" >
-                                 <?php 
+                                 <?php
                                         $sql4 ="SELECT * FROM tb_teacher WHERE teacher_id = '".$committee."' ";
                                         $query4 = mysqli_query($conn,$sql4);
                                         while($row4 = mysqli_fetch_array($query4,MYSQLI_ASSOC))
@@ -399,7 +399,7 @@
                       <tr  align="left">
                         <td width="50%" ></td>
                         <td width="50%" >
-                                    <?php 
+                                    <?php
                                         $sql4 ="SELECT * FROM tb_teacher WHERE teacher_id = '".$secretary."' ";
                                         $query4 = mysqli_query($conn,$sql4);
                                         while($row4 = mysqli_fetch_array($query4,MYSQLI_ASSOC))
