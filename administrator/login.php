@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>YRU Document ระบบเอกสาร</title>
+	<title>Document management</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->
@@ -33,18 +33,18 @@
 
 					<!-- <div class="card">
 			      <div class="card-body text-center"> -->
-							 <b><h4 class="card-title text-center"><u>ระบบจัดการเอกสาร</u></h4></b>
+							 <b><h6 class="card-title text-center"><u>ระบบการจัดการเอกสารสําหรับสถาบันพัฒนาครูและบุคลากรทางการศึกษาชายแดนใต้</u></h6></b>
 			      <!-- </div>
 			    </div> -->
 
 
 
-					<img src="images/yru.png" alt="IMG">
+					<img src="images/system.jpg" alt="IMG">
 				</div>
 
 				<form class="login100-form validate-form" action="ckpass.php" method="post">
 					<span class="login100-form-title">
-						YRU Document
+						Account Login
 					</span>
 
 					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">

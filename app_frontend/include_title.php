@@ -1,1 +1,1 @@
-  <title>YRU Document ระบบเอกสาร</title>
+  <title>Document management</title>
