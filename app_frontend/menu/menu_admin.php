@@ -26,11 +26,11 @@
                         <!-- Logo icon --><b>
                             <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                             <!-- Dark Logo icon -->
+
                             <img src="<?php echo ROOT_PROJECT_FRONTEND?>/assets/images/logo-icon.png" alt="homepage" class="dark-logo" />
-                            <!-- Light Logo icon -->
                             <img src="<?php echo ROOT_PROJECT_FRONTEND?>/assets/images/logo-light-icon.png" alt="homepage" class="light-logo" />
 
-                            <label class="dark-logo text-info text-center"><b>YRU Document</b></label>
+                            <label class="dark-logo text-info text-center"><b>PST YRU</b></label>
                         </b>
 
                 </div>
