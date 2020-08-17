@@ -207,7 +207,7 @@
                                                 <td><?php echo $row['idcard'];?></td>
                                                 <td><?php echo $row['house_num'];?>&nbsp;<?php echo $row['name_th_p'];?>&nbsp;<?php echo $row['name_th_a'];?>&nbsp;<?php echo $row['name_th_d'];?></td>
                                                 <td><?php echo $row['username'];?></td>
-                                                <td><?php echo $row['password'];?></td>
+                                                <td>********</td>
                                                 <td><?php echo $row['status'];?></td>
                                                 <td>
                                                     <!-- <a href="edit_form_user.php?id=<?php echo $row['person_id'];?>" class="btn btn-warning">แก้ไข</a> -->

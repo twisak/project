@@ -24,18 +24,18 @@
         $districts_id = $_POST['districts_id'];
         $amphures_id = $_POST['amphures_id'];
         $username = $_POST['username'];
-		$password = $_POST['password'];
+		//$password = $_POST['password'];
        	$status = $_POST['status'];
-        $con_password = $_POST['con_password'];
+        //$con_password = $_POST['con_password'];
 
-        if($password != $con_password)
-		{
-            echo "<script>";
-            echo "alert('กรุณายืนยันรหัสผ่านให้ถูกต้อง');";
-            echo "window.history.back();";
-            echo "</script>";
-        }else
-        {
+        // if($password != $con_password)
+		// {
+        //     echo "<script>";
+        //     echo "alert('กรุณายืนยันรหัสผ่านให้ถูกต้อง');";
+        //     echo "window.history.back();";
+        //     echo "</script>";
+        // }else
+        // {
 
                 $sql= "UPDATE tb_person SET prefix        = '".$prefix."',
                                             firtname      = '".$firtname."',
@@ -50,8 +50,8 @@
                 //echo $sql;
                 $db_query = mysqli_query($conn,$sql);
 
-                $sql1= "UPDATE account_login SET username = '".$username."',
-                                                 password = '".$password."'
+                $sql1= "UPDATE account_login SET username = '".$username."'
+                                                 
                                     WHERE person_id = '".$person_id."'";
                 //echo $sql;
                 $db_query1 = mysqli_query($conn,$sql1);
@@ -66,7 +66,7 @@
                 }
 
             
-        }
+        //}
     ?>
 
   </body>
