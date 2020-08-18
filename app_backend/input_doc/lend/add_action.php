@@ -17,14 +17,35 @@
 
     $allowance = $_POST['allowance'];
     $allowance_price = $_POST['allowance_price'];
-    $rest = $_POST['rest'];
+    
     $rest_price = $_POST['rest_price'];
-    $vehicle = $_POST['vehicle'];
+    $room = $_POST['room'];
+    $num_night = $_POST['num_night'];
+
+    $vehicle_num = $_POST['vehicle_num'];
     $vehicle_price = $_POST['vehicle_price'];
+
     $regis = $_POST['regis'];
     $regis_num = $_POST['regis_num'];
-    $other = $_POST['other'];
-    $other_price = $_POST['other_price'];
+
+    $fication_day = $_POST['fication_day'];
+    $num_people = $_POST['num_people'];
+    $num_hour = $_POST['num_hour'];
+    $price_hour = $_POST['price_hour'];
+
+    $students_work = $_POST['students_work'];
+    $work_day = $_POST['work_day'];
+    $work_price = $_POST['work_price'];
+
+    $hand_food = $_POST['hand_food'];
+    $num_food = $_POST['num_food'];
+    $food_price = $_POST['food_price']; 
+
+    $snack = $_POST['snack'];
+    $num_snack = $_POST['num_snack'];
+    $snack_price = $_POST['snack_price'];
+
+    
 
     $date_list = serialize( $_POST["date_list"] );
     $pay_type = serialize( $_POST["pay_type"] );
@@ -61,11 +82,13 @@
 			// if($date_list != "")
 			// {
                 $sql = "INSERT INTO tb_lend (doc_id,str_date,stp_date,project_id,person_id,teacher_id,activity_id,allowance, 
-                                            allowance_price,rest,rest_price,vehicle,vehicle_price,regis,regis_num,other,
-                                            other_price,date_list,pay_type,price_list,balance,date_current)
+                                             allowance_price,rest_price,room,num_night,vehicle_num,vehicle_price,regis,regis_num,
+                                             fication_day,num_people,num_hour,price_hour,students_work,work_day,work_price,hand_food,
+                                             num_food,food_price,snack,num_snack,snack_price,date_list,pay_type,price_list,balance,date_current)
                                 VALUES ('$doc_id','$str_date','$stp_date','$project_id','$person_id','$teacher_id','$activity_id','$allowance',
-                                        '$allowance_price','$rest','$rest_price','$vehicle','$vehicle_price','$regis','$regis_num',
-                                        '$other','$other_price','$date_list','$pay_type','$price_list','$balance','$date_current')";
+                                        '$allowance_price','$rest_price','$room','$num_night','$vehicle_num','$vehicle_price','$regis','$regis_num',
+                                        '$fication_day','$num_people','$num_hour','$price_hour','$students_work','$work_day','$work_price','$hand_food',
+                                        '$num_food','$food_price','$snack','$num_snack','$snack_price','$date_list','$pay_type','$price_list','$balance','$date_current')";
                 
                 $query = mysqli_query($conn,$sql);
                 //  echo $sql;

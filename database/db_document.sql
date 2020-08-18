@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 29, 2020 at 07:45 PM
+-- Generation Time: Aug 18, 2020 at 09:23 PM
 -- Server version: 10.3.16-MariaDB
 -- PHP Version: 7.2.20
 
@@ -10233,14 +10233,26 @@ CREATE TABLE `tb_lend` (
   `activity_id` varchar(20) NOT NULL COMMENT 'รหัสกิจกรรม	',
   `allowance` varchar(100) DEFAULT NULL COMMENT 'ค่าเบี้ยเลี้ยงกรอก',
   `allowance_price` varchar(20) DEFAULT NULL COMMENT 'ค่าเบี้ยเลี้ยงราคา',
-  `rest` varchar(100) DEFAULT NULL COMMENT 'ค่าที่พัก',
   `rest_price` varchar(20) DEFAULT NULL COMMENT 'ราคาที่พัก',
-  `vehicle` varchar(100) DEFAULT NULL COMMENT 'พาหนะ',
+  `room` varchar(20) NOT NULL COMMENT 'ห้อง',
+  `num_night` varchar(20) NOT NULL COMMENT 'กี่คืน',
+  `vehicle_num` varchar(20) NOT NULL COMMENT 'จำนวนกี่คัน',
   `vehicle_price` varchar(20) DEFAULT NULL COMMENT 'ราคาพาหนะ',
   `regis` varchar(100) DEFAULT NULL COMMENT 'ลงทะเบียน',
   `regis_num` varchar(3) DEFAULT NULL COMMENT 'จำนวนคน',
-  `other` varchar(200) DEFAULT NULL COMMENT 'อื่นๆ',
-  `other_price` varchar(10) DEFAULT NULL COMMENT 'ราคาอื่นๆ',
+  `fication_day` varchar(20) NOT NULL COMMENT 'ค่าสมนาคุณวิทยากรผู้ทรงคุณวุฒิ/วัน',
+  `num_people` varchar(20) NOT NULL COMMENT 'กี่คน',
+  `num_hour` varchar(20) NOT NULL COMMENT 'กี่ชั่วโมง',
+  `price_hour` varchar(20) NOT NULL COMMENT 'ชั่วโมงกี่บาท',
+  `students_work` varchar(20) NOT NULL COMMENT 'ค่าตอบแทนนักศึกษาช่วยงาน/กี่คน',
+  `work_day` varchar(20) NOT NULL COMMENT 'กี่วัน',
+  `work_price` varchar(20) NOT NULL COMMENT 'วันล่ะ/บาท',
+  `hand_food` varchar(20) NOT NULL COMMENT 'ค่าอาหารมือหลัก/จำนวนกี่คน',
+  `num_food` varchar(20) NOT NULL COMMENT 'กี่มื่อ',
+  `food_price` varchar(20) NOT NULL COMMENT 'มื่อล่ะ/บาท',
+  `snack` varchar(20) NOT NULL COMMENT 'ค่าอาหารว่างและเครื่องดื่ม/จำนวนกี่คน',
+  `num_snack` varchar(20) NOT NULL COMMENT 'กี่มื่อ',
+  `snack_price` varchar(20) NOT NULL COMMENT 'มื่อล่ะ/บาท',
   `date_list` longtext NOT NULL COMMENT 'วัน/เดือน/ปี',
   `pay_type` longtext NOT NULL COMMENT 'การชำระ',
   `price_list` longtext NOT NULL COMMENT 'ราคา',
@@ -10252,10 +10264,8 @@ CREATE TABLE `tb_lend` (
 -- Dumping data for table `tb_lend`
 --
 
-INSERT INTO `tb_lend` (`doc_id`, `str_date`, `stp_date`, `project_id`, `person_id`, `teacher_id`, `activity_id`, `allowance`, `allowance_price`, `rest`, `rest_price`, `vehicle`, `vehicle_price`, `regis`, `regis_num`, `other`, `other_price`, `date_list`, `pay_type`, `price_list`, `balance`, `date_current`) VALUES
-('L001', '2020-06-30', '2020-07-02', 'P001', 'PS001', '001', 'A004', 'นศ', '200', 'โรงแรง', '3000', 'รถมหาลัย', '800', '100', '100', 'ค่าเดิมทาง', '1500', 'a:3:{i:0;s:10:\"2020-06-30\";i:1;s:10:\"2020-07-01\";i:2;s:10:\"2020-07-02\";}', 'a:3:{i:0;s:21:\"ใบสำคัญ\";i:1;s:18:\"เงินสด\";i:2;s:21:\"ใบสำคัญ\";}', 'a:3:{i:0;s:4:\"1000\";i:1;s:3:\"300\";i:2;s:4:\"5000\";}', 'a:3:{i:0;s:4:\"2000\";i:1;s:3:\"700\";i:2;s:3:\"800\";}', '2020-07-10'),
-('L002', '0000-00-00', '0000-00-00', 'P002', 'PS001', '001', 'A005', 'ของกิน ', '200', 'พัก2', '500', 'หนะ3', '200', '200 บาท', '1', 'สำนักงาน', '250', 'a:1:{i:0;s:10:\"2020-07-24\";}', 'a:1:{i:0;s:21:\"ใบสำคัญ\";}', 'a:1:{i:0;s:4:\"2500\";}', 'a:1:{i:0;s:3:\"100\";}', '2020-07-16'),
-('L003', '2020-07-27', '2020-07-31', 'P001', 'PS002', '001', 'A004', 'นศ', '200', 'โรงแรง', '2000', 'รถมหาลัย', '800', '200', '20', '', '', 'a:3:{i:0;s:10:\"2020-07-27\";i:1;s:10:\"2020-07-28\";i:2;s:10:\"2020-07-29\";}', 'a:3:{i:0;s:18:\"เงินสด\";i:1;s:18:\"เงินสด\";i:2;s:21:\"ใบสำคัญ\";}', 'a:3:{i:0;s:4:\"5000\";i:1;s:3:\"300\";i:2;s:3:\"200\";}', 'a:3:{i:0;s:0:\"\";i:1;s:0:\"\";i:2;s:0:\"\";}', '2020-07-27');
+INSERT INTO `tb_lend` (`doc_id`, `str_date`, `stp_date`, `project_id`, `person_id`, `teacher_id`, `activity_id`, `allowance`, `allowance_price`, `rest_price`, `room`, `num_night`, `vehicle_num`, `vehicle_price`, `regis`, `regis_num`, `fication_day`, `num_people`, `num_hour`, `price_hour`, `students_work`, `work_day`, `work_price`, `hand_food`, `num_food`, `food_price`, `snack`, `num_snack`, `snack_price`, `date_list`, `pay_type`, `price_list`, `balance`, `date_current`) VALUES
+('L001', '2020-08-19', '2020-09-19', 'P003', 'PS002', '002', 'A009', 'ค่าเบี้ยเลี้ยง', '200', '2000', '2', '5', '3', '800', '100', '50', '3', '4', '6', '1200', '4', '3', '400', '30', '3', '100', '30', '8', '35', 'a:2:{i:0;s:10:\"2020-08-20\";i:1;s:10:\"2020-08-20\";}', 'a:2:{i:0;s:18:\"เงินสด\";i:1;s:21:\"ใบสำคัญ\";}', 'a:2:{i:0;s:4:\"5000\";i:1;s:3:\"300\";}', 'a:2:{i:0;s:3:\"800\";i:1;s:3:\"700\";}', '2020-08-19');
 
 -- --------------------------------------------------------
 
@@ -10488,7 +10498,7 @@ CREATE TABLE `tb_person` (
 --
 
 INSERT INTO `tb_person` (`person_id`, `prefix`, `firtname`, `lastname`, `idcard`, `position_id`, `house_num`, `road`, `village`, `alley`, `province_id`, `districts_id`, `amphures_id`) VALUES
-('PS001', 'นาง', 'ฟาตีเมาะ2222', 'การี', '1234567891234', 'นักศึกษา', '54633', NULL, NULL, NULL, '<br />\r\n<b', '<br />\r\n<b', '<br />\r\n<b'),
+('PS001', 'นาง', 'ฟาตีเมาะ2222', 'การี', '1234567891234', '001', '54633', NULL, NULL, NULL, '75', '950201', '978'),
 ('PS002', 'นาย', 'สมามะ', 'ฮะยี', '1234567895465', '001', '45', NULL, NULL, NULL, '74', '941010', '974');
 
 -- --------------------------------------------------------

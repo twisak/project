@@ -49,14 +49,27 @@
                 $teacher_id = $row['teacher_id'];
                 $allowance = $row['allowance'];
                 $allowance_price = $row['allowance_price'];
-                $rest = $row['rest'];
+
                 $rest_price = $row['rest_price'];
-                $vehicle = $row['vehicle'];
+                $room = $row['room'];
+                $num_night = $row['num_night'];
+                $vehicle_num = $row['vehicle_num'];
                 $vehicle_price = $row['vehicle_price'];
                 $regis = $row['regis'];
                 $regis_num = $row['regis_num'];
-                $other = $row['other'];
-                $other_price = $row['other_price'];
+                $fication_day = $row['fication_day'];
+                $num_people = $row['num_people'];
+                $num_hour = $row['num_hour'];
+                $price_hour = $row['price_hour'];
+                $students_work = $row['students_work'];
+                $work_day = $row['work_day'];
+                $work_price = $row['work_price'];
+                $hand_food = $row['hand_food'];
+                $num_food = $row['num_food'];
+                $food_price = $row['food_price'];
+                $snack = $row['snack'];
+                $num_snack = $row['num_snack'];
+                $snack_price = $row['snack_price'];
 
                 $date_list = unserialize( $row["date_list"] );
                 $pay_type = unserialize( $row["pay_type"] );
@@ -113,7 +126,7 @@
 ?>
 <body id="<?php //echo $body['name'];?>">
     <div class="page">
-        <table border="0" width="100%" class="statement-view text-gray-900">
+        <table border="1" width="100%" class="statement-view text-gray-900">
             <tr>
                 <td width="100%" colspan="2">
 
@@ -218,7 +231,7 @@
                                     <tr>
                                         <td width="1" class="text-nowrap border-0 padding-0">ค่าที่พัก</td>
                                         <td class="border-0 padding-0">
-                                        &nbsp;<?php echo $rest; ?>
+                                        &nbsp;จ่ายจริง คืนล่ะ <?php echo $rest_price;?>บาท x <?php echo $room;?>ห้อง x <?php echo $num_night;?>คืน
                                             <div class="line-bottom-dashed"></div>
                                         </td>
                                     </tr>
@@ -231,7 +244,7 @@
                                     <tr>
                                         <td width="1" class="text-nowrap border-0 padding-0">ค่าพาหนะ</td>
                                         <td class="border-0 padding-0 ">
-                                        &nbsp;<?php echo $vehicle; ?>
+                                        &nbsp;ค่ารถรับจ้างคุณวิทยากรผู้ทรงคุณวุฒิ จำนวน <?php echo $vehicle_num;?>คัน คันล่ะ<?php echo $vehicle_price;?>
                                             <div class="line-bottom-dashed"></div>
                                         </td>
                                     </tr>
@@ -267,17 +280,31 @@
                                 <table width="100%" border="0" align="left">
                                     <tr>
                                         <td width="1" class="text-nowrap border-0 padding-0">อื่นๆ</td>
-                                        <td class="border-0 padding-0 text-center">
-                                        &nbsp;<?php echo $other; ?>
+                                        <td class="border-0 padding-0">
+                                        &nbsp;ค่าสมนาคุณวิทยากรผู้ทรงคุณวุฒิ <?php echo $fication_day;?> วัน  วันละ <?php echo $num_people;?> คน คนละ <?php echo $num_hour;?> ชม ชมละ <?php echo $price_hour;?> บาท<br>
+                                              ค่าตอบแทนนักศึกษาช่วยงาน <?php echo $students_work;?> คน <?php echo $work_day;?> วัน <?php echo $work_price;?> บาท<br>
+                                              ค่าอาหารมือหลัก จำนวน <?php echo $hand_food;?> คน คนละ <?php echo $num_food;?> มื่อ มื่อล่ะ <?php echo $food_price;?> บาท<br>
+                                              ค่าอาหารว่างและเครื่องดื่ม จำนวน <?php echo $snack;?> คน คนละ <?php echo $num_snack;?> มื่อ มื่อล่ะ <?php echo $snack_price;?> บาท
                                             <div class="line-bottom-dashed"></div>
                                         </td>
+                                        <br>
                                     </tr>
                                 </table>
                             </td>
                         </tr>
                         <?php
-                            $num = $regis * $regis_num;
-                            $total = $allowance_price + $rest_price + $vehicle_price + $num + $other_price;
+                            $sum_room = $rest_price * $room * $num_night;
+                            $sum_vehicle = $vehicle_num * $vehicle_price;
+                            $sum_regis = $regis * $regis_num;
+
+                            $sum_fication = $fication_day * $num_people * $num_hour * $price_hour;
+                            $sum_students = $students_work * $work_day * $work_price;
+                            $sum_food = $hand_food * $num_food * $food_price;
+                            $sum_snack = $snack * $num_snack * $snack_price;
+
+                            $sum = $sum_fication + $sum_students + $sum_food + $sum_snack;
+                      
+                            $total = $allowance_price + $sum_room + $sum_vehicle + $sum_regis + $sum;
 
                                 function convert($total){
                                 $txtnum1 = array('ศูนย์','หนึ่ง','สอง','สาม','สี่','ห้า','หก','เจ็ด','แปด','เก้า','สิบ');
@@ -340,11 +367,12 @@
                         </td>
                       </tr>
                       <tr>
+                            <?php $sum_room = $rest_price * $room * $num_night;?>
                           <td width="20%" height="1px">
                             <table width="100%" border="0" align="left">
                                 <tr>
                                     <td class="border-0 padding-0 text-center">
-                                    &nbsp;<?php echo $rest_price; ?>
+                                    &nbsp;<?php echo $sum_room; ?>
                                         <div class="line-bottom-dashed"></div>
                                     </td>
                                 </tr>
@@ -352,11 +380,12 @@
                         </td>
                       </tr>
                       <tr>
+                            <?php $sum_vehicle = $vehicle_num * $vehicle_price;?>
                           <td width="20%" height="1px">
                             <table width="100%" border="0" align="left">
                                 <tr>
                                     <td class="border-0 padding-0 text-center">
-                                    &nbsp;<?php echo $vehicle_price; ?>
+                                    &nbsp;<?php echo $sum_vehicle; ?>
                                         <div class="line-bottom-dashed"></div>
                                     </td>
                                 </tr>
@@ -364,23 +393,34 @@
                         </td>
                       </tr>
                       <tr>
+                            <?php $sum_regis = $regis * $regis_num;?>
                           <td width="20%" height="1px">
                             <table width="100%" border="0" align="left">
                                 <tr>
                                     <td class="border-0 padding-0 text-center">
-                                    &nbsp;<?php echo $num; ?>
+                                    &nbsp;<?php echo $sum_regis; ?>
                                         <div class="line-bottom-dashed"></div>
                                     </td>
                                 </tr>
                             </table>
                         </td>
                       </tr>
+                      <?php 
+                            $sum_fication = $fication_day * $num_people * $num_hour * $price_hour;
+                            $sum_students = $students_work * $work_day * $work_price;
+                            $sum_food = $hand_food * $num_food * $food_price;
+                            $sum_snack = $snack * $num_snack * $snack_price;
+
+                            $sum = $sum_fication + $sum_students + $sum_food + $sum_snack;
+                      
+                            $total = $allowance_price + $sum_room + $sum_vehicle + $sum_regis + $sum;
+                      ?>
                       <tr>
                           <td width="20%" height="1px">
                             <table width="100%" border="0" align="left">
                                 <tr>
-                                    <td class="border-0 padding-0 text-center">
-                                    &nbsp;<?php echo $other_price; ?>
+                                    <td class="border-0 padding-0 text-center"><br><br><br><br><br>
+                                    &nbsp;<?php echo $sum; ?>
                                         <div class="line-bottom-dashed"></div>
                                     </td>
                                 </tr>
@@ -482,7 +522,7 @@
                                     <tr>
                                         <td width="1" class="text-nowrap border-0 padding-0 text-indent-50">ลงชื่อ</td>
                                         <td class="border-0 padding-0 text-center">
-                                        &nbsp;<?php //echo  convert($x);?>
+                                        &nbsp;<?php echo  convert($x);?>
                                             <div class="line-bottom-dashed"></div>
                                         </td>
                                         <td width="1" class="text-nowrap border-0 padding-0">หัวหน้างานการคลัง</td>
@@ -549,7 +589,7 @@
                                     <tr>
                                         <td width="1" class="text-nowrap border-0 padding-0 text-indent-50">ลงชื่อ</td>
                                         <td class="border-0 padding-0 text-center">
-                                        &nbsp;<?php //echo  convert($x);?>
+                                        &nbsp;<?php echo  convert($x);?>
                                             <div class="line-bottom-dashed"></div>
                                         </td>
                                         <td width="1" class="text-nowrap border-0 padding-0">ผู้อนุมัติ</td>
@@ -598,7 +638,7 @@
                                     <tr>
                                         <td class="border-0 padding-0" align="right">(</td>
                                         <td class="border-0 padding-0 text-center">
-                                        &nbsp;<?php echo  convert($x);?>
+                                        &nbsp;<?php echo convert($x);?>
                                             <div class="line-bottom-dashed"></div>
                                         </td>
                                         <td class="border-0 padding-0" align="left">)ไปเป็นการถูกต้อง</td>
@@ -612,7 +652,7 @@
                                     <tr>
                                         <td width="1" class="text-nowrap border-0 padding-0">ลงชื่อ</td>
                                         <td class="border-0 padding-0 text-center">
-                                        &nbsp;<?php //echo  convert($x);?>
+                                        &nbsp;<?php echo convert($x);?>
                                             <div class="line-bottom-dashed"></div>
                                         </td>
                                         <td width="1" class="text-nowrap border-0 padding-0">ผู้รับเงิน</td>
