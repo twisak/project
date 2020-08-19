@@ -217,6 +217,13 @@ $strDate = explode("-", "$str_date");//วันเริ่ม
                     $month_thaiE = "ธันวาคม";
                     }
 
+                    $message = "$that";//รวมเป็น
+                    $numthai = array("๑","๒","๓","๔","๕","๖","๗","๘","๙","๐");
+                    $numarabic = array("1","2","3","4","5","6","7","8","9","0");
+        
+                    //$test = str_replace($numthai,$numarabic,$message);
+                    $that1 = str_replace($numarabic,$numthai,$message);
+                    //echo $day_thai;
 
 ?>
 
@@ -231,7 +238,7 @@ $strDate = explode("-", "$str_date");//วันเริ่ม
             </tr>
             <tr>
                 <td colspan="3" class="statement-header" align="center">
-                    <strong>ที่ <?php echo $that; ?></strong>
+                    <strong>ที่ <?php echo $that1; ?></strong>
                 </td>
             </tr>
             <tr>

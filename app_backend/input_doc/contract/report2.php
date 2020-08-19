@@ -34,7 +34,7 @@
             $num_rows = mysqli_num_rows($query);
             while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
             {
-                $id = $row['id'];
+               
                 $doc_id = $row['doc_id'];
                 $foreword = unserialize($row['foreword']);
                 $str_date = $row['str_date'];

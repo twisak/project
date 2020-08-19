@@ -44,7 +44,7 @@
             $query_debt = mysqli_query($conn,$sql_debt);
             $result_debt = mysqli_fetch_assoc($query_debt);
 
-            $id = $result_debt['id'];
+            
             $doc_id = $result_debt['doc_id'];
             $date_current = $result_debt['date_current'];
             $name_train = $result_debt['name_train'];

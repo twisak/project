@@ -8,7 +8,7 @@ include('../../../../../config/constant.php');
     $query_record2 = mysqli_query($conn,$sql_record2);
     $result_record2 = mysqli_fetch_assoc($query_record2);
 
-    $id = $result_record2['id'];
+    
     $doc_id = $result_record2['doc_id'];
     $person_id = $result_record2['person_id'];
     $project_id = $result_record2['project_id'];

@@ -107,7 +107,7 @@ include('../../../../config/constant.php');
                                            $query = mysqli_query($conn,$sql);
                                            while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
                                            {
-                                               $id = $row['id'];
+                                              
                                                $doc_id = $row['doc_id'];
                                                $str_date = $row['str_date'];
                                                $stp_date = $row['stp_date'];

@@ -92,7 +92,7 @@ include('../../../../../config/constant.php');
                                             $query = mysqli_query($conn,$sql);
                                             while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
                                             {
-                                                $id = $row['id'];
+                                               
                                                 $doc_id = $row['doc_id'];
                                                 $title_id = $row['title_id'];
                                                 $at = $row['at'];

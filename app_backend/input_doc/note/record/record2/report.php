@@ -183,7 +183,13 @@ $name_th_d = $result_districts['name_th'];
              }else if($str_month == "12"){
                $month_thai = "ธันวาคม";
              }
-
+             $message = "$at";//รวมเป็น
+             $numthai = array("๑","๒","๓","๔","๕","๖","๗","๘","๙","๐");
+             $numarabic = array("1","2","3","4","5","6","7","8","9","0");
+ 
+             //$test = str_replace($numthai,$numarabic,$message);
+             $at1 = str_replace($numarabic,$numthai,$message);
+             //echo $day_thai;
             ?>
 
 
@@ -193,7 +199,7 @@ $name_th_d = $result_districts['name_th'];
                         <tr>
                             <td width="1" class="text-nowrap border-0 padding-0">ที่</td>
                             <td class="border-0 padding-0">
-                                &nbsp;&nbsp;<?php echo $at;?>
+                                &nbsp;&nbsp;<?php echo $at1;?>
                                 <div class="line-bottom-dashed"></div>
                             </td>
                             <td width="1" class="text-nowrap border-0 padding-0">วันที่</td>

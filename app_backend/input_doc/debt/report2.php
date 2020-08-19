@@ -52,13 +52,22 @@
 
                             </td>
                         </tr>
+                        <?php 
+                            $message = "$lend_num";//รวมเป็น
+                            $numthai = array("๑","๒","๓","๔","๕","๖","๗","๘","๙","๐");
+                            $numarabic = array("1","2","3","4","5","6","7","8","9","0");
+                
+                            //$test = str_replace($numthai,$numarabic,$message);
+                            $lend_num1 = str_replace($numarabic,$numthai,$message);
+                            //echo $day_thai;
+                        ?>
                         <tr align="left">
                             <td colspan="2">
                                 <table width="100%" border="0" align="right">
                                     <tr>
                                         <td width="1" class="text-nowrap border-0 padding-0">สัญญาเงินยืมเลขที่</td>
                                         <td class="border-0 padding-0">
-                                            &nbsp;&nbsp;<?php echo $lend_num;?>
+                                            &nbsp;&nbsp;<?php echo $lend_num1;?>
                                             <div class="line-bottom-dashed"></div>
                                         </td>
 
@@ -169,7 +178,15 @@
                             </td>
                         </tr>
 
-
+                        <?php 
+                            $message = "$note_that";//รวมเป็น
+                            $numthai = array("๑","๒","๓","๔","๕","๖","๗","๘","๙","๐");
+                            $numarabic = array("1","2","3","4","5","6","7","8","9","0");
+                
+                            //$test = str_replace($numthai,$numarabic,$message);
+                            $note_that1 = str_replace($numarabic,$numthai,$message);
+                            //echo $day_thai;
+                        ?>
                         <tr align="left">
                             <td colspan="2">
                                 <table width="100%" border="0" align="left">
@@ -177,7 +194,7 @@
                                         <td></td>
                                         <td width="1" class="text-nowrap border-0 padding-0">ตามคำสั่ง/บันทึกที่</td>
                                         <td class="border-0 padding-0">
-                                            &nbsp;&nbsp;<?php echo $note_that;?>
+                                            &nbsp;&nbsp;<?php echo $note_that1;?>
                                             <div class="line-bottom-dashed"></div>
                                         </td>
 

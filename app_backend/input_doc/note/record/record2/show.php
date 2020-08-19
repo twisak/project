@@ -103,7 +103,7 @@ include('../../../../../config/constant.php');
                                             $query = mysqli_query($conn,$sql);
                                             while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
                                             {
-                                                $id = $row['id'];
+                                                
                                                 $doc_id = $row['doc_id'];
                                                 $person_id = $row['person_id'];
                                                 $project_id = $row['project_id'];

@@ -120,7 +120,13 @@ $query_districts = mysqli_query($conn,$sql_districts);
 $result_districts = mysqli_fetch_assoc($query_districts);
 $name_th_d = $result_districts['name_th'];
 
-
+                            $message = "$at";//รวมเป็น
+                            $numthai = array("๑","๒","๓","๔","๕","๖","๗","๘","๙","๐");
+                            $numarabic = array("1","2","3","4","5","6","7","8","9","0");
+                
+                            //$test = str_replace($numthai,$numarabic,$message);
+                            $at1 = str_replace($numarabic,$numthai,$message);
+                            //echo $day_thai;
 
 ?>
 
@@ -145,7 +151,7 @@ $name_th_d = $result_districts['name_th'];
               <td colspan="2">
                   <table width="100%" border="0" align="left">
                       <tr>
-                          <td >ที่ <?php echo $at; ?></td>
+                          <td >ที่ <?php echo $at1; ?></td>
                           <td></td>
                           <td></td>
                           <td></td>
