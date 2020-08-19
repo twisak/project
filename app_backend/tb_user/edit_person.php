@@ -24,9 +24,11 @@
         $districts_id = $_POST['districts_id'];
         $amphures_id = $_POST['amphures_id'];
         $username = $_POST['username'];
-		//$password = $_POST['password'];
+		$password = $_POST['password'];
        	$status = $_POST['status'];
         //$con_password = $_POST['con_password'];
+
+        
 
         // if($password != $con_password)
 		// {
@@ -50,11 +52,28 @@
                 //echo $sql;
                 $db_query = mysqli_query($conn,$sql);
 
-                $sql1= "UPDATE account_login SET username = '".$username."'
-                                                 
-                                    WHERE person_id = '".$person_id."'";
-                //echo $sql;
-                $db_query1 = mysqli_query($conn,$sql1);
+                if($password == ""){
+
+                    $sql ="SELECT * FROM account_login WHERE person_id = '".$person_id."'";
+                    $query = mysqli_query($conn,$sql);
+                    while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
+                        {
+                            $password= $row['password'];
+                        }
+
+                    $sql1= "UPDATE account_login SET username = '".$username."',
+                                                    password = '".$password."'
+                                        WHERE person_id = '".$person_id."'";
+                    //echo $sql;
+                    $db_query1 = mysqli_query($conn,$sql1);
+                }else
+                {
+                    $sql1= "UPDATE account_login SET username = '".$username."',
+                                                     password = '".$password."'
+                                        WHERE person_id = '".$person_id."'";
+                        //echo $sql;
+                        $db_query1 = mysqli_query($conn,$sql1);
+                }
                 //echo '<br>';
                 //echo $db_query;
                 if($db_query)

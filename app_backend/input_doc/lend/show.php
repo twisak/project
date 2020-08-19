@@ -288,7 +288,22 @@
                                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $num_night; ?>
                                             </div>
                                         </div>
-                                        <?php $sum_room = $rest_price * $room * $num_night;?>
+                                        <?php 
+                                                if( $rest_price && $room && $num_night == "-") {
+                                                        
+                                                    //echo "-";
+                                                    $rest_price = "0";
+                                                    $room = "0";
+                                                    $num_night = "0";
+                                                
+                                                }elseif($rest_price && $room && $num_night != "-"){
+                                                
+                                                    $rest_price;
+                                                    $room;
+                                                    $num_night;
+                                                }
+                                                $sum_room = $rest_price * $room * $num_night;
+                                        ?>
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label><b>รวมทั้งหมด/บาม</b></label><br>
@@ -321,7 +336,20 @@
                                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $vehicle_price; ?>
                                             </div>
                                         </div>
-                                        <?php $sum_vehicle = $vehicle_num * $vehicle_price;?>
+                                        <?php 
+                                                if( $vehicle_num && $vehicle_price == "-") {
+                                                        
+                                                    //echo "-";
+                                                    $vehicle_num = "0";
+                                                    $vehicle_price = "0";
+                                                
+                                                }elseif($vehicle_num && $vehicle_price != "-"){
+                                                
+                                                    $vehicle_num;
+                                                    $vehicle_price;
+                                                }
+                                                $sum_vehicle = $vehicle_num * $vehicle_price;
+                                        ?>
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label><b>รวมทั้งหมด/บาม</b></label><br>
@@ -354,7 +382,20 @@
                                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $regis_num; ?>
                                             </div>
                                         </div>
-                                        <?php $sum_regis = $regis * $regis_num;?>
+                                        <?php 
+                                                if( $regis && $regis_num == "-") {
+                                                        
+                                                    //echo "-";
+                                                    $regis = "0";
+                                                    $regis_num = "0";
+                                                
+                                                }elseif($regis && $regis_num != "-"){
+                                                
+                                                    $regis;
+                                                    $regis_num;
+                                                }
+                                                $sum_regis = $regis * $regis_num;
+                                        ?>
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label><b>รวมทั้งหมด/บาม</b></label><br>
@@ -399,7 +440,27 @@
                                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $price_hour; ?>
                                             </div>
                                         </div>
-                                        <?php $sum_fication = $fication_day * $num_people * $num_hour * $price_hour;?>
+                                        <?php 
+
+                                                if( $fication_day && $num_people && $num_hour && $price_hour == "-") {
+                                                                                                        
+                                                    //echo "-";
+                                                    $fication_day = "0";
+                                                    $num_people = "0";
+                                                    $num_hour = "0";
+                                                    $price_hour = "0";
+
+                                                }elseif($fication_day && $num_people && $num_hour && $price_hour != "-"){
+
+                                                    $fication_day;
+                                                    $num_people;
+                                                    $num_hour;
+                                                    $price_hour;
+                                                }
+
+                                            $sum_fication = $fication_day * $num_people * $num_hour * $price_hour;
+                                            
+                                        ?>
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label><b>รวมทั้งหมด/บาม</b></label><br>
@@ -431,7 +492,24 @@
                                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $work_price; ?>
                                             </div>
                                         </div>
-                                        <?php $sum_students = $students_work * $work_day * $work_price;?>
+                                        <?php 
+
+                                            if( $students_work && $work_day && $work_price == "-") {
+                                                        
+                                                //echo "-";
+                                                $students_work = "0";
+                                                $work_day = "0";
+                                                $work_price = "0";
+                                            
+                                            }elseif($students_work && $work_day && $work_price != "-"){
+                                            
+                                                $students_work;
+                                                $work_day;
+                                                $work_price;
+                                            }
+                                            $sum_students = $students_work * $work_day * $work_price;
+                                            
+                                        ?>
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label><b>รวมทั้งหมด/บาม</b></label><br>
@@ -463,7 +541,24 @@
                                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $food_price; ?>
                                             </div>
                                         </div>
-                                        <?php $sum_food = $hand_food * $num_food * $food_price;?>
+                                        <?php 
+                                            
+                                            if( $hand_food && $num_food && $food_price == "-") {
+                                                        
+                                                //echo "-";
+                                                $hand_food = "0";
+                                                $num_food = "0";
+                                                $food_price = "0";
+                                            
+                                            }elseif($hand_food && $num_food && $food_price != "-"){
+                                            
+                                                $hand_food;
+                                                $num_food;
+                                                $food_price;
+                                            }
+                                            $sum_food = $hand_food * $num_food * $food_price;
+                                            
+                                        ?>
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label><b>รวมทั้งหมด/บาม</b></label><br>
@@ -495,7 +590,22 @@
                                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $snack_price ; ?>
                                             </div>
                                         </div>
-                                        <?php $sum_snack = $snack * $num_snack * $snack_price;?>
+                                        <?php 
+                                                    if( $snack && $num_snack && $snack_price == "-") {
+                                                                
+                                                        //echo "-";
+                                                        $snack = "0";
+                                                        $num_snack = "0";
+                                                        $snack_price = "0";
+                                                    
+                                                    }elseif($snack && $num_snack && $snack_price != "-"){
+                                                    
+                                                         $snack;
+                                                         $num_snack;
+                                                         $snack_price;
+                                                    }
+                                                    $sum_snack = $snack * $num_snack * $snack_price;
+                                        ?>
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label><b>รวมทั้งหมด/บาม</b></label><br>
@@ -519,7 +629,7 @@
 
                                                                   foreach ($date_list1 as $date_list1){
                                                                     $j=0;
-                                                                    echo "<p><label><b>รายการ</b></label></p>";
+                                                                    echo "<p><label class='col-md-8'><b>รายการ</b></label></p>";
                                                                     echo "<ul>";
                                                                     foreach ($date_list1 as $date_list1[$j]){
                                                                         $value = $date_list1[$j];

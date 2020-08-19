@@ -84,14 +84,27 @@
                                             $teacher_id = $row['teacher_id'];
                                             $allowance = $row['allowance'];
                                             $allowance_price = $row['allowance_price'];
-                                            $rest = $row['rest'];
                                             $rest_price = $row['rest_price'];
-                                            $vehicle = $row['vehicle'];
+                                            $room = $row['room'];
+                                            $num_night = $row['num_night'];
+                                            $vehicle_num = $row['vehicle_num'];
                                             $vehicle_price = $row['vehicle_price'];
                                             $regis = $row['regis'];
                                             $regis_num = $row['regis_num'];
-                                            $other = $row['other'];
-                                            $other_price = $row['other_price'];
+
+                                            $fication_day = $row['fication_day'];
+                                            $num_people = $row['num_people'];
+                                            $num_hour = $row['num_hour'];
+                                            $price_hour = $row['price_hour'];
+                                            $students_work = $row['students_work'];
+                                            $work_day = $row['work_day'];
+                                            $work_price = $row['work_price'];
+                                            $hand_food = $row['hand_food'];
+                                            $num_food = $row['num_food'];
+                                            $food_price = $row['food_price'];
+                                            $snack = $row['snack'];
+                                            $num_snack = $row['num_snack'];
+                                            $snack_price = $row['snack_price'];
 
                                             $date_list = unserialize( $row["date_list"] );
                                             $pay_type = unserialize( $row["pay_type"] );
@@ -244,61 +257,359 @@
                                 </div>
 
                                 <div class="row">
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label><b>ค่าที่พัก</b></label><br>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $rest; ?>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label><b>ค่าที่พัก</b></label>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-2">
-                                        <div class="form-group">
-                                            <label><b>ราคา</b></label><br>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $rest_price; ?>
+                                    <div class="row">
+                                        <div class="">
+                                            <div class="form-group">
+                                            &nbsp;&nbsp;&nbsp;&nbsp;
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label><b>จ่ายจริง คืนล่ะ/บาท</b></label><br>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $rest_price; ?>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label><b>กี่ห้อง</b></label><br>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $room; ?>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label><b>กี่คืน</b></label><br>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $num_night; ?>
+                                            </div>
+                                        </div>
+                                        <?php 
+                                                if( $rest_price && $room && $num_night == "-") {
+                                                        
+                                                    //echo "-";
+                                                    $rest_price = "0";
+                                                    $room = "0";
+                                                    $num_night = "0";
+                                                
+                                                }elseif($rest_price && $room && $num_night != "-"){
+                                                
+                                                    $rest_price;
+                                                    $room;
+                                                    $num_night;
+                                                }
+                                                $sum_room = $rest_price * $room * $num_night;
+                                        ?>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label><b>รวมทั้งหมด/บาม</b></label><br>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $sum_room; ?>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label><b>ค่าพาหนะ</b></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="">
+                                            <div class="form-group">
+                                            &nbsp;&nbsp;&nbsp;&nbsp;
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label><b>ค่ารถรับจ้างคุณวิทยากรผู้ทรงคุณวุฒิ/กี่คัน</b></label><br>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $vehicle_num; ?>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label><b>คันล่ะ/บาท</b></label><br>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $vehicle_price; ?>
+                                            </div>
+                                        </div>
+                                        <?php 
+                                                if( $vehicle_num && $vehicle_price == "-") {
+                                                        
+                                                    //echo "-";
+                                                    $vehicle_num = "0";
+                                                    $vehicle_price = "0";
+                                                
+                                                }elseif($vehicle_num && $vehicle_price != "-"){
+                                                
+                                                    $vehicle_num;
+                                                    $vehicle_price;
+                                                }
+                                                $sum_vehicle = $vehicle_num * $vehicle_price;
+                                        ?>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label><b>รวมทั้งหมด/บาม</b></label><br>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $sum_vehicle; ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label><b>ค่าลงทะเบียน</b></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="">
+                                            <div class="form-group">
+                                            &nbsp;&nbsp;&nbsp;&nbsp;
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label><b>ค่าลงทะเบียนอบรม/บาท</b></label><br>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $regis; ?>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label><b>จำนวน/คน</b></label><br>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $regis_num; ?>
+                                            </div>
+                                        </div>
+                                        <?php 
+                                                if( $regis && $regis_num == "-") {
+                                                        
+                                                    //echo "-";
+                                                    $regis = "0";
+                                                    $regis_num = "0";
+                                                
+                                                }elseif($regis && $regis_num != "-"){
+                                                
+                                                    $regis;
+                                                    $regis_num;
+                                                }
+                                                $sum_regis = $regis * $regis_num;
+                                        ?>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label><b>รวมทั้งหมด/บาม</b></label><br>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $sum_regis; ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label><b>ค่าอื่นๆ</b></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="">
+                                            <div class="form-group">
+                                            &nbsp;&nbsp;&nbsp;&nbsp;
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label><b>ค่าสมนาคุณวิทยากรผู้ทรงคุณวุฒิ/วัน</b></label><br>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $fication_day; ?>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label><b>กี่คน</b></label><br>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $num_people; ?>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label><b>กี่ชั่วโมง</b></label><br>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $num_hour; ?>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label><b>ชั่วโมง/บาท</b></label><br>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $price_hour; ?>
+                                            </div>
+                                        </div>
+                                        <?php 
 
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label><b>ค่าพาหนะ</b></label><br>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $vehicle; ?>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <div class="form-group">
-                                            <label><b>ราคา</b></label><br>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $vehicle_price; ?>
-                                        </div>
-                                    </div>
-                                </div>
+                                                if( $fication_day && $num_people && $num_hour && $price_hour == "-") {
+                                                                                                        
+                                                    //echo "-";
+                                                    $fication_day = "0";
+                                                    $num_people = "0";
+                                                    $num_hour = "0";
+                                                    $price_hour = "0";
 
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label><b>ค่าลงทะเบียน</b></label><br>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $regis; ?>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <div class="form-group">
-                                            <label><b>จำนวน/คน</b></label><br>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $regis_num; ?>
-                                        </div>
-                                    </div>
-                                </div>
+                                                }elseif($fication_day && $num_people && $num_hour && $price_hour != "-"){
 
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label><b>อื่นๆ</b></label><br>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $other; ?>
+                                                    $fication_day;
+                                                    $num_people;
+                                                    $num_hour;
+                                                    $price_hour;
+                                                }
+
+                                            $sum_fication = $fication_day * $num_people * $num_hour * $price_hour;
+                                            
+                                        ?>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label><b>รวมทั้งหมด/บาม</b></label><br>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $sum_fication; ?>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-2">
-                                        <div class="form-group">
-                                            <label><b>จำนวน/คน</b></label><br>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $other_price; ?>
+                                    <div class="row">
+                                        <div class="">
+                                            <div class="form-group">
+                                            &nbsp;&nbsp;&nbsp;&nbsp;
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label><b>ค่าตอบแทนนักศึกษาช่วยงาน/กี่คน</b></label><br>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $students_work; ?>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label><b>กี่วัน</b></label><br>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $work_day; ?>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label><b>วันล่ะ/บาท</b></label><br>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $work_price; ?>
+                                            </div>
+                                        </div>
+                                        <?php 
+
+                                            if( $students_work && $work_day && $work_price == "-") {
+                                                        
+                                                //echo "-";
+                                                $students_work = "0";
+                                                $work_day = "0";
+                                                $work_price = "0";
+                                            
+                                            }elseif($students_work && $work_day && $work_price != "-"){
+                                            
+                                                $students_work;
+                                                $work_day;
+                                                $work_price;
+                                            }
+                                            $sum_students = $students_work * $work_day * $work_price;
+                                            
+                                        ?>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label><b>รวมทั้งหมด/บาม</b></label><br>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $sum_students; ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="">
+                                            <div class="form-group">
+                                            &nbsp;&nbsp;&nbsp;&nbsp;
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label><b>ค่าอาหารมือหลัก/จำนวนกี่คน</b></label><br>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $hand_food; ?>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label><b>กี่มื่อ</b></label><br>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $num_food; ?>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label><b>มื่อล่ะ/บาท</b></label><br>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $food_price; ?>
+                                            </div>
+                                        </div>
+                                        <?php 
+                                            
+                                            if( $hand_food && $num_food && $food_price == "-") {
+                                                        
+                                                //echo "-";
+                                                $hand_food = "0";
+                                                $num_food = "0";
+                                                $food_price = "0";
+                                            
+                                            }elseif($hand_food && $num_food && $food_price != "-"){
+                                            
+                                                $hand_food;
+                                                $num_food;
+                                                $food_price;
+                                            }
+                                            $sum_food = $hand_food * $num_food * $food_price;
+                                            
+                                        ?>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label><b>รวมทั้งหมด/บาม</b></label><br>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $sum_food; ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="">
+                                            <div class="form-group">
+                                            &nbsp;&nbsp;&nbsp;&nbsp;
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label><b>ค่าอาหารว่างและเครื่องดื่ม/จำนวนกี่คน</b></label><br>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $snack; ?>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label><b>กี่มื่อ</b></label><br>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $num_snack; ?>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label><b>มื่อล่ะ/บาท</b></label><br>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $snack_price ; ?>
+                                            </div>
+                                        </div>
+                                        <?php 
+                                                    if( $snack && $num_snack && $snack_price == "-") {
+                                                                
+                                                        //echo "-";
+                                                        $snack = "0";
+                                                        $num_snack = "0";
+                                                        $snack_price = "0";
+                                                    
+                                                    }elseif($snack && $num_snack && $snack_price != "-"){
+                                                    
+                                                         $snack;
+                                                         $num_snack;
+                                                         $snack_price;
+                                                    }
+                                                    $sum_snack = $snack * $num_snack * $snack_price;
+                                        ?>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label><b>รวมทั้งหมด/บาม</b></label><br>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $sum_snack; ?>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -317,7 +628,7 @@
 
                                                                   foreach ($date_list1 as $date_list1){
                                                                     $j=0;
-                                                                    echo "<p><label><b>รายการ</b></label></p>";
+                                                                    echo "<p><label class='col-md-8'><b>รายการ</b></label></p>";
                                                                     echo "<ul>";
                                                                     foreach ($date_list1 as $date_list1[$j]){
                                                                         $value = $date_list1[$j];

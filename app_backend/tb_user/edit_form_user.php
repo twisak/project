@@ -283,12 +283,13 @@
                                             <!-- <label>(ตัวเลข 4-8 ตัวเท่านั้น)</label> -->
                                             <div class="col-md-4">
                                             <label class=""><b>Psaaword</b></label>&nbsp;
-                                                <input type="text" value="********" readonly maxlength="8" minlength="4" class="form-control form-control-line" onKeyUp="IsNumeric(this.value,this)">
+                                                <input type="text" name="password" value="<?php $password;?>" placeholder="********" maxlength="8" minlength="4" class="form-control form-control-line" onKeyUp="IsNumeric(this.value,this)">
+                                                <!-- <input type="hidden" name="password" value="<?php //echo $password;?>" /> -->
                                             </div>
-                                            <div class="col-md-4">
+                                            <!-- <div class="col-md-4">
                                                     <label class=""><b>Confirm password</b></label>
-                                                    <input type="text" value="********" readonly maxlength="8" minlength="4" class="form-control form-control-line" onKeyUp="IsNumeric(this.value,this)">
-                                                </div>
+                                                    <input type="text" value="********" placeholder="" name="con_password" maxlength="8" minlength="4" class="form-control form-control-line" onKeyUp="IsNumeric(this.value,this)">
+                                            </div> -->
                                         </div>
                                     </div>
                                     <div class="row">

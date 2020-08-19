@@ -191,7 +191,7 @@
                                     </div>
                                     <script language="javascript">
                                         function IsNumeric(sText, obj) {
-                                            var ValidChars = "0123456789/";
+                                            var ValidChars = "0123456789/-";
                                             var IsNumber = true;
                                             var Char;
                                             for (i = 0; i < sText.length && IsNumber == true; i++) {
@@ -223,68 +223,204 @@
                                     </div>
 
                                     <div class="row">
-                                        <div class="col-md-5">
-                                            <div class="form-group">
-                                                <label><b>ค่าที่พัก</b></label>&nbsp;<label class="text-danger"><b>*</b></label>
-                                                <input type="text" class="form-control form-control-line" name="rest">
-                                            </div>
-                                        </div>
-
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label><b>ราคา</b></label>&nbsp;<label class="text-danger"><b>*</b></label>
-                                                <input type="text" class="form-control form-control-line" name="rest_price" onKeyUp="IsNumeric(this.value,this)">
+                                                <label><b>ค่าที่พัก</b></label>
                                             </div>
                                         </div>
                                     </div>
-
                                     <div class="row">
-                                        <div class="col-md-5">
+                                        <div class="">
                                             <div class="form-group">
-                                                <label><b>พาหนะ</b></label>&nbsp;<label class="text-danger"><b>*</b></label>
-                                                <input type="text" class="form-control form-control-line" name="vehicle">
+                                            &nbsp;&nbsp;&nbsp;&nbsp;
                                             </div>
                                         </div>
-
-                                        <div class="col-md-2">
+                                        <div class="col-md-3">
                                             <div class="form-group">
-                                                <label><b>ราคา</b></label>&nbsp;<label class="text-danger"><b>*</b></label>
-                                                <input type="text" class="form-control form-control-line" name="vehicle_price" onKeyUp="IsNumeric(this.value,this)">
+                                                <label><b>จ่ายจริง คืนล่ะ/บาท</b></label>&nbsp;<label class="text-danger"><b>*</b></label>
+                                                <input type="text" class="form-control form-control-line" required name="rest_price" onKeyUp="IsNumeric(this.value,this)">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label><b>กี่ห้อง</b></label>&nbsp;<label class="text-danger"><b>*</b></label>
+                                                <input type="text" class="form-control form-control-line" name="room" required onKeyUp="IsNumeric(this.value,this)">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label><b>กี่คืน</b></label>&nbsp;<label class="text-danger"><b>*</b></label>
+                                                <input type="text" class="form-control form-control-line" name="num_night" required onKeyUp="IsNumeric(this.value,this)">
                                             </div>
                                         </div>
                                     </div>
-
                                     <div class="row">
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label><b>ค่าพาหนะ</b></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="">
+                                            <div class="form-group">
+                                            &nbsp;&nbsp;&nbsp;&nbsp;
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label><b>ค่ารถรับจ้างคุณวิทยากรผู้ทรงคุณวุฒิ/กี่คัน</b></label>&nbsp;<label class="text-danger"><b>*</b></label>
+                                                <input type="text" class="form-control form-control-line" name="vehicle_num" required onKeyUp="IsNumeric(this.value,this)">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label><b>คันล่ะ/บาท</b></label>&nbsp;<label class="text-danger"><b>*</b></label>
+                                                <input type="text" class="form-control form-control-line" required name="vehicle_price" onKeyUp="IsNumeric(this.value,this)">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label><b>ค่าลงทะเบียน</b></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="">
+                                            <div class="form-group">
+                                            &nbsp;&nbsp;&nbsp;&nbsp;
+                                            </div>
+                                        </div>
                                         <div class="col-md-5">
                                             <div class="form-group">
-                                                <label><b>ค่าลงทะเบียน/บาท</b></label>&nbsp;<label class="text-danger"><b>*</b></label>
-                                                <input type="text" class="form-control form-control-line" name="regis" onKeyUp="IsNumeric(this.value,this)">
+                                                <label><b>ค่าลงทะเบียนอบรม/บาท</b></label>&nbsp;<label class="text-danger"><b>*</b></label>
+                                                <input type="text" class="form-control form-control-line" name="regis" required onKeyUp="IsNumeric(this.value,this)">
                                             </div>
                                         </div>
 
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label><b>จำนวน/คน</b></label>&nbsp;<label class="text-danger"><b>*</b></label>
-                                                <input type="number" class="form-control form-control-line" name="regis_num">
+                                                <input type="text" class="form-control form-control-line" required name="regis_num" onKeyUp="IsNumeric(this.value,this)">
                                             </div>
                                         </div>
                                     </div>
-
                                     <div class="row">
-                                        <div class="col-md-5">
+                                        <div class="col-md-4">
                                             <div class="form-group">
-                                                <label><b>พาหนะ</b></label>&nbsp;<label class="text-danger"><b>*</b></label>
-                                                <input type="text" class="form-control form-control-line" name="other">
+                                                <label><b>ค่าอื่นๆ</b></label>&nbsp;<label class="text-danger">( หมายเหตุ ถ้าไม่มีข้อมูล กรุณากรอกเครื่องหมาย - )</label>
                                             </div>
                                         </div>
-
+                                    </div>
+                                    <div class="row">
+                                        <div class="">
+                                            <div class="form-group">
+                                            &nbsp;&nbsp;&nbsp;&nbsp;
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label><b>ค่าสมนาคุณวิทยากรผู้ทรงคุณวุฒิ/วัน</b></label>
+                                                <input type="text" class="form-control form-control-line" required name="fication_day" onKeyUp="IsNumeric(this.value,this)">
+                                            </div>
+                                        </div>
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label><b>ราคา</b></label>&nbsp;<label class="text-danger"><b>*</b></label>
-                                                <input type="text" class="form-control form-control-line" name="other_price" onKeyUp="IsNumeric(this.value,this)">
+                                                <label><b>กี่คน</b></label>
+                                                <input type="text" class="form-control form-control-line" required name="num_people" onKeyUp="IsNumeric(this.value,this)">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label><b>กี่ชั่วโมง</b></label>
+                                                <input type="text" class="form-control form-control-line" required name="num_hour" onKeyUp="IsNumeric(this.value,this)">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label><b>ชั่วโมง/บาท</b></label>
+                                                <input type="text" class="form-control form-control-line" required name="price_hour" onKeyUp="IsNumeric(this.value,this)">
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="row">
+                                        <div class="">
+                                            <div class="form-group">
+                                            &nbsp;&nbsp;&nbsp;&nbsp;
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label><b>ค่าตอบแทนนักศึกษาช่วยงาน/กี่คน</b></label>
+                                                <input type="text" class="form-control form-control-line" required name="students_work" onKeyUp="IsNumeric(this.value,this)">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label><b>กี่วัน</b></label>
+                                                <input type="text" class="form-control form-control-line" required name="work_day" onKeyUp="IsNumeric(this.value,this)">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label><b>วันล่ะ/บาท</b></label>
+                                                <input type="text" class="form-control form-control-line" required name="work_price" onKeyUp="IsNumeric(this.value,this)">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="">
+                                            <div class="form-group">
+                                            &nbsp;&nbsp;&nbsp;&nbsp;
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label><b>ค่าอาหารมือหลัก/จำนวนกี่คน</b></label>
+                                                <input type="text" class="form-control form-control-line" required name="hand_food" onKeyUp="IsNumeric(this.value,this)">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label><b>กี่มื่อ</b></label>
+                                                <input type="text" class="form-control form-control-line" required name="num_food" onKeyUp="IsNumeric(this.value,this)">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label><b>มื่อล่ะ/บาท</b></label>
+                                                <input type="text" class="form-control form-control-line" required name="food_price" onKeyUp="IsNumeric(this.value,this)">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="">
+                                            <div class="form-group">
+                                            &nbsp;&nbsp;&nbsp;&nbsp;
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label><b>ค่าอาหารว่างและเครื่องดื่ม/จำนวนกี่คน</b></label>
+                                                <input type="text" class="form-control form-control-line" required name="snack" onKeyUp="IsNumeric(this.value,this)">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label><b>กี่มื่อ</b></label>
+                                                <input type="text" class="form-control form-control-line" required name="num_snack" onKeyUp="IsNumeric(this.value,this)">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label><b>มื่อล่ะ/บาท</b></label>
+                                                <input type="text" class="form-control form-control-line" required name="snack_price" onKeyUp="IsNumeric(this.value,this)">
+                                            </div>
+                                        </div>
+                                    </div>
+
 
                                     <div class="row">
                                         <div class="col-md-2">

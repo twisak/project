@@ -67,14 +67,27 @@ include('../../../config/constant.php');
                         $person_id = $row['person_id'];
                         $allowance = $row['allowance'];
                         $allowance_price = $row['allowance_price'];
-                        $rest = $row['rest'];
+
                         $rest_price = $row['rest_price'];
-                        $vehicle = $row['vehicle'];
+                        $room = $row['room'];
+                        $num_night = $row['num_night'];
+                        $vehicle_num = $row['vehicle_num'];
                         $vehicle_price = $row['vehicle_price'];
                         $regis = $row['regis'];
                         $regis_num = $row['regis_num'];
-                        $other = $row['other'];
-                        $other_price = $row['other_price'];
+                        $fication_day = $row['fication_day'];
+                        $num_people = $row['num_people'];
+                        $num_hour = $row['num_hour'];
+                        $price_hour = $row['price_hour'];
+                        $students_work = $row['students_work'];
+                        $work_day = $row['work_day'];
+                        $work_price = $row['work_price'];
+                        $hand_food = $row['hand_food'];
+                        $num_food = $row['num_food'];
+                        $food_price = $row['food_price'];
+                        $snack = $row['snack'];
+                        $num_snack = $row['num_snack'];
+                        $snack_price = $row['snack_price'];
 
                         $date_list = unserialize( $row["date_list"] );
                         $pay_type = unserialize( $row["pay_type"] );
@@ -224,7 +237,7 @@ include('../../../config/constant.php');
                                     </div>
                                     <script language="javascript">
                                         function IsNumeric(sText, obj) {
-                                            var ValidChars = "0123456789/";
+                                            var ValidChars = "0123456789/-";
                                             var IsNumber = true;
                                             var Char;
                                             for (i = 0; i < sText.length && IsNumber == true; i++) {
@@ -256,41 +269,79 @@ include('../../../config/constant.php');
                                     </div>
 
                                     <div class="row">
-                                        <div class="col-md-5">
+                                        <div class="col-md-2">
                                             <div class="form-group">
                                                 <label><b>ค่าที่พัก</b></label>
-                                                <input type="text" class="form-control form-control-line" name="rest" value="<?php echo $rest; ?>">
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-2">
-                                            <div class="form-group">
-                                                <label><b>ราคา</b></label>
-                                                <input type="text" class="form-control form-control-line" name="rest_price" value="<?php echo $rest_price; ?>" onKeyUp="IsNumeric(this.value,this)">
                                             </div>
                                         </div>
                                     </div>
-
                                     <div class="row">
-                                        <div class="col-md-5">
+                                        <div class="">
                                             <div class="form-group">
-                                                <label><b>พาหนะ</b></label>
-                                                <input type="text" class="form-control form-control-line" name="vehicle" value="<?php echo $vehicle; ?>">
+                                            &nbsp;&nbsp;&nbsp;&nbsp;
                                             </div>
                                         </div>
-
-                                        <div class="col-md-2">
+                                        <div class="col-md-3">
                                             <div class="form-group">
-                                                <label><b>ราคา</b></label>
-                                                <input type="text" class="form-control form-control-line" name="vehicle_price" value="<?php echo $vehicle_price; ?>" onKeyUp="IsNumeric(this.value,this)">
+                                                <label><b>จ่ายจริง คืนล่ะ/บาท</b></label>
+                                                <input type="text" class="form-control form-control-line" name="rest_price" value="<?php echo $allowance_price; ?>" onKeyUp="IsNumeric(this.value,this)">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label><b>กี่ห้อง</b></label>
+                                                <input type="number" class="form-control form-control-line" name="room" value="<?php echo $allowance_price; ?>" onKeyUp="IsNumeric(this.value,this)">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label><b>กี่คืน</b></label>
+                                                <input type="number" class="form-control form-control-line" name="num_night" value="<?php echo $allowance_price; ?>" onKeyUp="IsNumeric(this.value,this)">
                                             </div>
                                         </div>
                                     </div>
-
                                     <div class="row">
-                                        <div class="col-md-5">
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label><b>ค่าพาหนะ</b></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="">
+                                            <div class="form-group">
+                                            &nbsp;&nbsp;&nbsp;&nbsp;
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label><b>ค่ารถรับจ้างคุณวิทยากรผู้ทรงคุณวุฒิ/กี่คัน</b></label>
+                                                <input type="text" class="form-control form-control-line" name="vehicle_num" value="<?php echo $allowance_price; ?>" onKeyUp="IsNumeric(this.value,this)">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label><b>คันล่ะ/บาท</b></label>
+                                                <input type="text" class="form-control form-control-line" name="vehicle_price" onKeyUp="IsNumeric(this.value,this)" value="<?php echo $allowance_price; ?>">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-2">
                                             <div class="form-group">
                                                 <label><b>ค่าลงทะเบียน</b></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="">
+                                            <div class="form-group">
+                                            &nbsp;&nbsp;&nbsp;&nbsp;
+                                            </div>
+                                        </div>
+                                        <div class="col-md-5">
+                                            <div class="form-group">
+                                                <label><b>ค่าลงทะเบียนอบรม/บาท</b></label>
                                                 <input type="text" class="form-control form-control-line" name="regis" value="<?php echo $regis; ?>" onKeyUp="IsNumeric(this.value,this)">
                                             </div>
                                         </div>
@@ -302,19 +353,116 @@ include('../../../config/constant.php');
                                             </div>
                                         </div>
                                     </div>
-
                                     <div class="row">
-                                        <div class="col-md-5">
+                                        <div class="col-md-4">
                                             <div class="form-group">
-                                                <label><b>อื่นๆ</b></label>
-                                                <input type="text" class="form-control form-control-line" name="other" value="<?php echo $other; ?>">
+                                                <label><b>ค่าอื่นๆ</b></label>&nbsp;<label class="text-danger">( หมายเหตุ ถ้าไม่มีข้อมูล กรุณากรอกเครื่องหมาย - )</label>
                                             </div>
                                         </div>
-
+                                    </div>
+                                    <div class="row">
+                                        <div class="">
+                                            <div class="form-group">
+                                            &nbsp;&nbsp;&nbsp;&nbsp;
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label><b>ค่าสมนาคุณวิทยากรผู้ทรงคุณวุฒิ/วัน</b></label>
+                                                <input type="text" class="form-control form-control-line" name="fication_day" value="<?php echo $fication_day; ?>" onKeyUp="IsNumeric(this.value,this)"> 
+                                            </div>
+                                        </div>
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label><b>ราคา</b></label>
-                                                <input type="text" class="form-control form-control-line" name="other_price" value="<?php echo $other_price; ?>">
+                                                <label><b>กี่คน</b></label>
+                                                <input type="text" class="form-control form-control-line" name="num_people" value="<?php echo $num_people; ?>" onKeyUp="IsNumeric(this.value,this)">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label><b>กี่ชั่วโมง</b></label>
+                                                <input type="text" class="form-control form-control-line" name="num_hour" value="<?php echo $num_hour; ?>" onKeyUp="IsNumeric(this.value,this)">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label><b>ชั่วโมง/บาท</b></label>
+                                                <input type="text" class="form-control form-control-line" name="price_hour" value="<?php echo $price_hour; ?>" onKeyUp="IsNumeric(this.value,this)">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="">
+                                            <div class="form-group">
+                                            &nbsp;&nbsp;&nbsp;&nbsp;
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label><b>ค่าตอบแทนนักศึกษาช่วยงาน/กี่คน</b></label>
+                                                <input type="text" class="form-control form-control-line" name="students_work" value="<?php echo $students_work; ?>" onKeyUp="IsNumeric(this.value,this)">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label><b>กี่วัน</b></label>
+                                                <input type="text" class="form-control form-control-line" name="work_day" value="<?php echo $work_day; ?>" onKeyUp="IsNumeric(this.value,this)">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label><b>วันล่ะ/บาท</b></label>
+                                                <input type="text" class="form-control form-control-line" name="work_price" value="<?php echo $work_price; ?>" onKeyUp="IsNumeric(this.value,this)">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="">
+                                            <div class="form-group">
+                                            &nbsp;&nbsp;&nbsp;&nbsp;
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label><b>ค่าอาหารมือหลัก/จำนวนกี่คน</b></label>
+                                                <input type="text" class="form-control form-control-line" name="hand_food" value="<?php echo $hand_food; ?>" onKeyUp="IsNumeric(this.value,this)">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label><b>กี่มื่อ</b></label>
+                                                <input type="text" class="form-control form-control-line" name="num_food" value="<?php echo $num_food; ?>" onKeyUp="IsNumeric(this.value,this)">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label><b>มื่อล่ะ/บาท</b></label>
+                                                <input type="text" class="form-control form-control-line" name="food_price" value="<?php echo $food_price; ?>" onKeyUp="IsNumeric(this.value,this)">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="">
+                                            <div class="form-group">
+                                            &nbsp;&nbsp;&nbsp;&nbsp;
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label><b>ค่าอาหารว่างและเครื่องดื่ม/จำนวนกี่คน</b></label>
+                                                <input type="text" class="form-control form-control-line" name="snack" value="<?php echo $snack; ?>" onKeyUp="IsNumeric(this.value,this)">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label><b>กี่มื่อ</b></label>
+                                                <input type="text" class="form-control form-control-line" name="num_snack" value="<?php echo $num_snack; ?>" onKeyUp="IsNumeric(this.value,this)">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label><b>มื่อล่ะ/บาท</b></label>
+                                                <input type="text" class="form-control form-control-line" name="snack_price" value="<?php echo $snack_price; ?>" onKeyUp="IsNumeric(this.value,this)">
                                             </div>
                                         </div>
                                     </div>
