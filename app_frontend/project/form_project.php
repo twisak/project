@@ -110,7 +110,8 @@ include('../../config/constant.php');
                                                 <label><b>ปีงบประมาณ</b></label>&nbsp;<label class="text-danger"><b>*</b></label>
                                                 <select class="form-control" name="fiscal_year" id="fiscal_year">
                                                     <?php
-                                                        $xYear=date('Y'); // เก็บค่าปีปัจจุบันไว้ในตัวแปร
+                                                        $y=date('Y');
+                                                        $xYear=$y + 543; // เก็บค่าปีปัจจุบันไว้ในตัวแปร
                                                                 echo '<option value="'.$xYear.'">'.$xYear.'</option>'; // ปีปัจจุบัน
                                                         for($i=1;$i<=30;$i++){
                                                         echo '<option value="'.($xYear-$i).'">'.($xYear-$i).'</option>';
