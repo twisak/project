@@ -12,10 +12,10 @@
 
     <?php
 
-        $id = $_GET['id'];
+        $person_id = $_GET['person_id'];
 
-         echo $id;
-        $sql = "SELECT * FROM tb_person WHERE person_id = '".$id."' ";
+     
+        $sql = "SELECT * FROM tb_person WHERE person_id = '".$person_id."' ";
         $query = mysqli_query($conn,$sql);
         $result = mysqli_fetch_assoc($query);
 
@@ -29,8 +29,8 @@
 
         $db_query_account_login = mysqli_query($conn,$sql_account_login);
 
-        // echo "<script>alert('ลบข้อมูลเรียบร้อย')</script>";
-        //echo "<script>window.location='tb_user.php'</script>";
+        echo "<script>alert('ลบข้อมูลเรียบร้อย')</script>";
+        echo "<script>window.location='tb_user.php'</script>";
     ?>
 
   </body>
