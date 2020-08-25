@@ -2,25 +2,25 @@
     include('../../../config/connect.php');
     include('../../../config/constant.php');
 
-    $username= $_SESSION['username'];
+    // $username= $_SESSION['username'];
 
-    $sql ="SELECT * FROM account_login WHERE username = '".$username."' ";
-    $query = mysqli_query($conn,$sql);
-    while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
-    {
-        $person_id = $row['person_id'];
-    }
+    // $sql ="SELECT * FROM account_login WHERE username = '".$username."' ";
+    // $query = mysqli_query($conn,$sql);
+    // while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
+    // {
+    //     $person_id = $row['person_id'];
+    // }
 
-    $sql1 ="SELECT * FROM tb_person WHERE person_id = '".$person_id."' ";
-    $query1 = mysqli_query($conn,$sql1);
-    while($row1 = mysqli_fetch_array($query1,MYSQLI_ASSOC))
-    {
-        $prefix = $row1['prefix'];
-        $firtname = $row1['firtname'];
-        $lastname = $row1['lastname'];
-        $person_id = $row1['person_id'];
-        // $prefix = $row1['prefix'];
-    }
+    // $sql1 ="SELECT * FROM tb_person WHERE person_id = '".$person_id."' ";
+    // $query1 = mysqli_query($conn,$sql1);
+    // while($row1 = mysqli_fetch_array($query1,MYSQLI_ASSOC))
+    // {
+    //     $prefix = $row1['prefix'];
+    //     $firtname = $row1['firtname'];
+    //     $lastname = $row1['lastname'];
+    //     $person_id = $row1['person_id'];
+    //     // $prefix = $row1['prefix'];
+    // }
     //echo $sql1;
 ?>
 <!DOCTYPE html>
@@ -77,7 +77,7 @@
                                         $query_debt = mysqli_query($conn,$sql_debt);
                                         $result_debt = mysqli_fetch_assoc($query_debt);
 
-                                        $id = $result_debt['id'];
+                                        
                                         $doc_id = $result_debt['doc_id'];
                                         $name_train = $result_debt['name_train'];
                                         $project_id = $result_debt['project_id'];

@@ -1,26 +1,26 @@
 <?php
 include('../../../../../config/connect.php');
 include('../../../../../config/constant.php');
-    $username= $_SESSION['username'];
+    // $username= $_SESSION['username'];
 
-    $sql ="SELECT * FROM account_login WHERE username = '".$username."' ";
-    $query = mysqli_query($conn,$sql);
-    while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
-    {
-        $person_id = $row['person_id'];
-    }
+    // $sql ="SELECT * FROM account_login WHERE username = '".$username."' ";
+    // $query = mysqli_query($conn,$sql);
+    // while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
+    // {
+    //     $person_id = $row['person_id'];
+    // }
 
-    $sql1 ="SELECT * FROM tb_person WHERE person_id = '".$person_id."' ";
-    $query1 = mysqli_query($conn,$sql1);
-    while($row1 = mysqli_fetch_array($query1,MYSQLI_ASSOC))
-    {
-        $prefix = $row1['prefix'];
-        $firtname = $row1['firtname'];
-        $lastname = $row1['lastname'];
-        $person_id = $row1['person_id'];
-        // $prefix = $row1['prefix'];
-          // $prefix = $row1['prefix'];
-    }
+    // $sql1 ="SELECT * FROM tb_person WHERE person_id = '".$person_id."' ";
+    // $query1 = mysqli_query($conn,$sql1);
+    // while($row1 = mysqli_fetch_array($query1,MYSQLI_ASSOC))
+    // {
+    //     $prefix = $row1['prefix'];
+    //     $firtname = $row1['firtname'];
+    //     $lastname = $row1['lastname'];
+    //     $person_id = $row1['person_id'];
+    //     // $prefix = $row1['prefix'];
+    //       // $prefix = $row1['prefix'];
+    // }
 ?>
 <!DOCTYPE html>
 <html lang="en">
