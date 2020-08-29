@@ -112,20 +112,19 @@
                                             $balance = unserialize( $row["balance"] );
                                         }
 
-                                        $sql1 ="SELECT * FROM tb_project WHERE project_id = '".$project_id."' ";
+                                        $sql1 ="SELECT * FROM tb_project WHERE project_id = '".$project_id."'  ";
                                         $query1 = mysqli_query($conn,$sql1);
-                                        while($row1 = mysqli_fetch_array($query1,MYSQLI_ASSOC))
-                                        {
-                                            $project_name = $row1['project_name'];
-                                            $project_id = $row1['project_id'];
-                                        }
+                                        $result = mysqli_fetch_assoc($query1);
+                                            
+                                            $project_name = $result['project_name'];
+                                            $project_id = $result['project_id'];
 
                                         $sql3 ="SELECT * FROM tb_activity WHERE project_id = '".$project_id."' ";
                                         $query3 = mysqli_query($conn,$sql3);
-                                        while($row3 = mysqli_fetch_array($query3,MYSQLI_ASSOC))
-                                        {
-                                            $activity = $row3['activity'];
-                                        }
+                                        $result = mysqli_fetch_assoc($query3);
+                                        
+                                            $activity = $result['activity'];
+                                        
 
                                         $sql2 ="SELECT * FROM tb_person WHERE person_id = '".$person_id."' ";
                                         $query2 = mysqli_query($conn,$sql2);
@@ -199,13 +198,6 @@
                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $str_date?>
                                         </div>
                                     </div>
-
-                                    <div class="col-md-2">
-                                        <div class="form-group">
-                                            <label><b>สิ้นสุดวันที่</b></label><br>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $stp_date?>
-                                        </div>
-                                    </div>
                                 </div>
 
                                 <div class="row">
@@ -223,7 +215,17 @@
                                         </div>
                                     </div>
                                 </div>
+                                <?php 
+                                        if( $project_name == "") {
+                                                            
+                                            //echo "-";
+                                            $project_name = "-";
 
+                                        }elseif($project_name != ""){
+                    
+                                            $project_name;
+                                        }
+                                ?>
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
@@ -232,7 +234,17 @@
                                         </div>
                                     </div>
                                 </div>
+                                <?php 
+                                        if( $activity == "") {
+                                                            
+                                            //echo "-";
+                                            $activity = "-";
 
+                                        }elseif($activity != ""){
+                    
+                                            $activity;
+                                        }
+                                ?>
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">

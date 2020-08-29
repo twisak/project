@@ -94,21 +94,19 @@ include('../../../config/constant.php');
                         $balance = unserialize( $row["balance"] );
                     }
 
-                    $sql1 ="SELECT * FROM tb_project WHERE project_id = '".$project_id."' ";
+                    $sql1 ="SELECT * FROM tb_project WHERE project_id = '".$project_id."'  ";
                     $query1 = mysqli_query($conn,$sql1);
-                    while($row1 = mysqli_fetch_array($query1,MYSQLI_ASSOC))
-                    {
-                        $project_name = $row1['project_name'];
-                        $project_id = $row1['project_id'];
-                    }
+                    $result = mysqli_fetch_assoc($query1);
+                        
+                        $project_name = $result['project_name'];
+                        $project_id = $result['project_id'];
 
-                    $sql3 ="SELECT * FROM tb_activity WHERE activity_id = '".$activity_id."' ";
+                    $sql3 ="SELECT * FROM tb_activity WHERE project_id = '".$project_id."' ";
                     $query3 = mysqli_query($conn,$sql3);
-                    while($row3 = mysqli_fetch_array($query3,MYSQLI_ASSOC))
-                    {
-                        $activity_id = $row3['activity_id'];
-                        $activity = $row3['activity'];
-                    }
+                    $result = mysqli_fetch_assoc($query3);
+                    
+                        $activity = $result['activity'];
+                        $activity_id = $result['activity_id'];
 
                     $sql2 ="SELECT * FROM tb_person WHERE person_id = '".$person_id."' ";
                     $query2 = mysqli_query($conn,$sql2);
@@ -150,13 +148,6 @@ include('../../../config/constant.php');
                                             <div class="form-group">
                                                 <label><b>เริ่มต้นวันที่</b></label>
                                                 <input type="date" class="form-control form-control-line" name="str_date" value="<?php echo $str_date; ?>">
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-2">
-                                            <div class="form-group">
-                                                <label><b>สิ้นสุดวันที่</b></label>
-                                                <input type="date" class="form-control form-control-line" name="stp_date" value="<?php echo $stp_date; ?>">
                                             </div>
                                         </div>
                                     </div>
@@ -212,10 +203,18 @@ include('../../../config/constant.php');
                                                 </select>
                                             </div>
                                         </div>
-
-
                                     </div>
+                                    <?php 
+                                        if( $project_name == "") {
+                                                            
+                                            //echo "-";
+                                            $project_name = "-";
 
+                                        }elseif($project_name != ""){
+                    
+                                            $project_name;
+                                        }
+                                    ?>
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="form-group">
@@ -232,7 +231,17 @@ include('../../../config/constant.php');
                                                 </select>
                                             </div>
                                         </div>
+                                        <?php 
+                                            if( $activity == "") {
+                                                                
+                                                //echo "-";
+                                                $activity = "-";
 
+                                            }elseif($activity != ""){
+                        
+                                                $activity;
+                                            }
+                                        ?>
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="activity"><b>ชื่อกิจกรรม</b></label>

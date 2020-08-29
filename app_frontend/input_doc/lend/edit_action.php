@@ -8,7 +8,6 @@
 
     $doc_id = $_POST['doc_id'];
 	$str_date = $_POST['str_date'];
-    $stp_date = $_POST['stp_date'];
     $project_id = $_POST['project_id'];
     $activity_id = $_POST['activity_id'];
     $person_id = $_POST['person_id'];
@@ -44,7 +43,6 @@
 
     $sql= "UPDATE tb_lend SET 
                                             str_date = '".$str_date."',
-                                            stp_date = '".$stp_date."',
                                             project_id = '".$project_id."',
                                             activity_id = '".$activity_id."',
                                             person_id = '".$person_id."',

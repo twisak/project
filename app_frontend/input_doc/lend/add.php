@@ -116,13 +116,6 @@
                                                 <input type="date" class="form-control form-control-line" name="str_date">
                                             </div>
                                         </div>
-
-                                        <div class="col-md-2">
-                                            <div class="form-group">
-                                                <label><b>สิ้นสุดวันที่</b></label>&nbsp;<label class="text-danger"><b>*</b></label>
-                                                <input type="date" class="form-control form-control-line" name="stp_date">
-                                            </div>
-                                        </div>
                                     </div>
 
                                     <div class="row">

@@ -1,20 +1,14 @@
 <?php
     $id = $_SESSION['username'];
     //echo $id;
-// $sql ="SELECT * FROM tb_personnel WHERE username = '".$id."' ";
-// $query = mysqli_query($conn,$sql);
-// while($row = mysqli_fetch_array($query,MYSQLI_ASSOC)){
-
-//     $id = $row['id'];
-//     $name = $row['name'];
-//     $lasname = $row['lasname'];
-//     $address = $row['address'];
-//     $mail = $row['mail'];
-//     $tel = $row['tel'];
-//     $username = $row['username'];
-//     $password = $row['password'];
-//     $status = $row['status'];
-//}
+    $sql ="SELECT * FROM account_login WHERE username = '".$id."' ";
+    $query = mysqli_query($conn,$sql);
+    $result = mysqli_fetch_assoc($query);
+    
+        $person_id = $result['person_id'];
+        $username = $result['username'];
+        $password = $result['password'];
+        $status = $result['status'];
 ?>
 <header class="topbar">
             <nav class="navbar top-navbar navbar-expand-md navbar-light">
@@ -64,7 +58,7 @@
                         <li class="dropdown no-arrow">
                         <a class="nav-link dropdown-toggle waves-effect waves-dark profile-pic" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span class="hidden-md-down">
-                                <?php echo $id; ?>&nbsp;
+                                <?php echo $username; ?>&nbsp;
                             </span>
                             <i class="fa fa-user-circle-o"></i>
                         </a>

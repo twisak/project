@@ -103,6 +103,7 @@
                                                 <th class="text-center"><b>ลำดับ</b></th>
                                                 <th class="text-center"><b>รหัสโครงการ</b></th>
                                                 <th class="text-center"><b>ชื่อโครงการ</b></th>
+                                                <th class="text-center"><b>ผู้บันทึก</b></th>
                                                 <th class="text-center"><b>แก้ไข</b></th>
                                                 <th class="text-center"><b>ลบ</b></th>
                                             </tr>
@@ -118,13 +119,24 @@
                                             {
                                                 $project_id = $row_project['project_id'];
                                                 $project_name = $row_project['project_name'];
+                                                $recorder = $row_project['recorder'];
 
+                                            $sql2 ="SELECT * FROM tb_person WHERE person_id = '".$recorder."' ";
+                                            $query2 = mysqli_query($conn,$sql2);
+                                            while($row2 = mysqli_fetch_array($query2,MYSQLI_ASSOC))
+                                            {
+                                                $prefix = $row2['prefix'];
+                                                $firtname = $row2['firtname'];
+                                                $lastname = $row2['lastname'];
+                                                //$prefix = $row2['prefix'];
+                                            }
                                         ?>
                                         <tbody>
                                             <tr>
                                                 <td class="text-center"><?php echo $i;?></td>
                                                 <td class="text-center"><?php echo $project_id;?></td>
                                                 <td><?php echo $project_name;?></td>
+                                                <td><?php echo $prefix;?><?php echo $firtname;?>  <?php echo $lastname;?></td>
                                                 <td><a href="edit_form_project.php?project_id=<?php echo $project_id;?>" class="btn btn-warning">แก้ไข</a></td>
                                                 <td><a href="JavaScript:if(confirm('ยืนยันการลบ ?') == true){window.location='delete_project.php?project_id=<?php echo $project_id;?>';}" class="btn btn-danger">ลบ</a></td>
                                             </tr>

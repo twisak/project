@@ -1,5 +1,8 @@
 <?php include('../../config/connect.php');
         include('../../config/constant.php');
+
+        $id = $_SESSION['username'];
+        //echo $id;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -78,6 +81,7 @@
                             ?>
                                 <form class="form-horizontal form-material" action="insert_project.php" name="form_user" method="post">
 
+                                <input type="hidden" name="recorder" value="<?php echo $person_id;?>" />
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-md-12 text-center">

@@ -116,13 +116,6 @@
                                                 <input type="date" class="form-control form-control-line" name="str_date" required>
                                             </div>
                                         </div>
-
-                                        <div class="col-md-2">
-                                            <div class="form-group">
-                                                <label><b>สิ้นสุดวันที่</b></label>&nbsp;<label class="text-danger"><b>*</b></label>
-                                                <input type="date" class="form-control form-control-line" name="stp_date" required>
-                                            </div>
-                                        </div>
                                     </div>
 
                                     <div class="row">
@@ -174,24 +167,18 @@
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label><b>โครงการ</b></label>&nbsp;<label class="text-danger"><b>*</b></label>
-                                                <select name="project_id" id="project" class="form-control" required>
+                                                <label><b>โครงการ</b></label>
+                                                <select name="project_id" id="project" class="form-control" readonly>
                                                     <option value="">-- เลือกชื่อโครงการ --</option>
-                                                    <?php
-                                                    $sql = "SELECT * FROM tb_project";
-                                                    $query = mysqli_query($conn, $sql);
-                                                    while($result = mysqli_fetch_assoc($query)):
-                                                ?>
-                                                    <option value="<?=$result['project_id']?>"><?=$result['project_name']?></option>
-                                                    <?php endwhile; ?>
+                                                   
                                                 </select>
                                             </div>
                                         </div>
 
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label for="activity"><b>ชื่อกิจกรรม</b></label>&nbsp;<label class="text-danger"><b>*</b></label>
-                                                <select name="activity_id" id="activity" class="form-control" required>
+                                                <label for="activity"><b>ชื่อกิจกรรม</b></label>
+                                                <select name="activity_id" id="activity" class="form-control" readonly>
                                                     <option value="">-- เลือกชื่อกิจกรรม --</option>
                                                 </select>
                                             </div>
