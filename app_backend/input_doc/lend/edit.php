@@ -61,7 +61,6 @@ include('../../../config/constant.php');
                     {
                         $doc_id = $row['doc_id'];
                         $str_date = $row['str_date'];
-                        $stp_date = $row['stp_date'];
                         $project_id = $row['project_id'];
                         $activity_id = $row['activity_id'];
                         $person_id = $row['person_id'];
