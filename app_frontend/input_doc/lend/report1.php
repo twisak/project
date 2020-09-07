@@ -43,8 +43,9 @@
             {
                 $doc_id = $row['doc_id'];
                 $str_date = $row['str_date'];
-                $stp_date = $row['stp_date'];
-                $project_id = $row['project_id'];
+                //$stp_date = $row['stp_date'];
+                $project = $row['project'];
+                $activity = $row['activity'];
                 $person_id = $row['person_id'];
                 $teacher_id = $row['teacher_id'];
                 $allowance = $row['allowance'];
@@ -77,21 +78,6 @@
                 $balance = unserialize( $row["balance"] );
             }
 
-            $sql1 ="SELECT * FROM tb_project WHERE project_id = '".$project_id."' ";
-            $query1 = mysqli_query($conn,$sql1);
-            while($row1 = mysqli_fetch_array($query1,MYSQLI_ASSOC))
-            {
-                $project_name = $row1['project_name'];
-                $project_id = $row1['project_id'];
-            }
-
-            $sql3 ="SELECT * FROM tb_activity WHERE project_id = '".$project_id."' ";
-            $query3 = mysqli_query($conn,$sql3);
-            while($row3 = mysqli_fetch_array($query3,MYSQLI_ASSOC))
-            {
-                $activity = $row3['activity'];
-            }
-
             $sql2 ="SELECT * FROM tb_person WHERE person_id = '".$person_id."' ";
             $query2 = mysqli_query($conn,$sql2);
             while($row2 = mysqli_fetch_array($query2,MYSQLI_ASSOC))
@@ -118,9 +104,9 @@
                 //$prefix = $row2['prefix'];
             }
 
-            $strStartDate = $str_date;
-            $strEndDate = $stp_date;
-            $intTotalDay = ((strtotime($strEndDate) - strtotime($strStartDate))/  ( 60 * 60  )) ;
+            // $strStartDate = $str_date;
+            // $strEndDate = $stp_date;
+            // $intTotalDay = ((strtotime($strEndDate) - strtotime($strStartDate))/  ( 60 * 60  )) ;
 
             //echo "////////$intTotalDay/////////";
 ?>
@@ -152,7 +138,7 @@
                                     <tr>
                                         <td width="1" class="text-nowrap border-0 padding-0"><strong>วันครบกำหนด</strong></td>
                                         <td class="border-0 padding-0 text-center">
-                                            <?php echo $stp_date;?>
+                                            <?php //echo $stp_date;?>
                                             <div class="line-bottom-dashed"></div>
                                         </td>
                                     </tr>
@@ -198,7 +184,7 @@
                                     <tr>
                                         <td width="1" class="text-nowrap border-0 padding-0">เพื่อเป็นค่าใช้จ่าย</td>
                                         <td class="border-0 padding-0 ">
-                                        &nbsp;<?php echo $project_name; ?>
+                                        &nbsp;<?php echo $project; ?>
                                             <div class="line-bottom-dashed"></div>
                                         </td>
                                     </tr>
@@ -541,7 +527,7 @@
                 <td colspan="2">
                     <table>
                         <tr>
-                            <td colspan="2" class="text-indent-50">ข้าพเจ้าจะสัญญาว่าจะปฏิบัติตามระเบียบของทางราชกรทุกประการและจำนำใบสำคัญคู่จ่ายที่ถูกต้องพร้อมทั้งเงินเหลือจ่าย(ถ้ามี) ส่งใช้ภายในกำนหดไว้ในระเบียบการเบิกจ่ายเงินจากคลัง คือภายใน <?php echo $intTotalDay;?> วัน นับแต่วันที่ได้รับเงินยืมนี้ ถ้าข้าพเจ้าไม่ส่งตามกำหนดข้าำเจ้ายินยอมให้หักเงินเดือน ค่าจ้าง เบี้ยหวัด บำเหน็จ บำนาญ หรือเงินอื่นใดที่ข้าพเจ้าจะพึงได้รับจากทางราชการชดใช้จำนวนเงินที่ยืมไปจนครบถ้วนได้ทันที
+                            <td colspan="2" class="text-indent-50">ข้าพเจ้าจะสัญญาว่าจะปฏิบัติตามระเบียบของทางราชกรทุกประการและจำนำใบสำคัญคู่จ่ายที่ถูกต้องพร้อมทั้งเงินเหลือจ่าย(ถ้ามี) ส่งใช้ภายในกำนหดไว้ในระเบียบการเบิกจ่ายเงินจากคลัง คือภายใน <?php //echo $intTotalDay;?> วัน นับแต่วันที่ได้รับเงินยืมนี้ ถ้าข้าพเจ้าไม่ส่งตามกำหนดข้าำเจ้ายินยอมให้หักเงินเดือน ค่าจ้าง เบี้ยหวัด บำเหน็จ บำนาญ หรือเงินอื่นใดที่ข้าพเจ้าจะพึงได้รับจากทางราชการชดใช้จำนวนเงินที่ยืมไปจนครบถ้วนได้ทันที
                             </td>
                         </tr>
                     </table>

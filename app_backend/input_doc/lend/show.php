@@ -79,7 +79,8 @@
                                             $doc_id = $row['doc_id'];
                                             $str_date = $row['str_date'];
                                             $stp_date = $row['stp_date'];
-                                            $project_id = $row['project_id'];
+                                            $project = $row['project'];
+                                            $activity = $row['activity'];
                                             $person_id = $row['person_id'];
                                             $teacher_id = $row['teacher_id'];
                                             $allowance = $row['allowance'];
@@ -111,21 +112,7 @@
                                             $price_list = unserialize( $row["price_list"] );
                                             $balance = unserialize( $row["balance"] );
                                         }
-
-                                        $sql1 ="SELECT * FROM tb_project WHERE project_id = '".$project_id."'  ";
-                                        $query1 = mysqli_query($conn,$sql1);
-                                        $result = mysqli_fetch_assoc($query1);
-                                            
-                                            $project_name = $result['project_name'];
-                                            $project_id = $result['project_id'];
-
-                                        $sql3 ="SELECT * FROM tb_activity WHERE project_id = '".$project_id."' ";
-                                        $query3 = mysqli_query($conn,$sql3);
-                                        $result = mysqli_fetch_assoc($query3);
                                         
-                                            $activity = $result['activity'];
-                                        
-
                                         $sql2 ="SELECT * FROM tb_person WHERE person_id = '".$person_id."' ";
                                         $query2 = mysqli_query($conn,$sql2);
                                         while($row2 = mysqli_fetch_array($query2,MYSQLI_ASSOC))
@@ -215,36 +202,14 @@
                                         </div>
                                     </div>
                                 </div>
-                                <?php 
-                                        if( $project_name == "") {
-                                                            
-                                            //echo "-";
-                                            $project_name = "-";
-
-                                        }elseif($project_name != ""){
-                    
-                                            $project_name;
-                                        }
-                                ?>
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label><b>โครงการ</b></label><br>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $project_name?>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $project?>
                                         </div>
                                     </div>
                                 </div>
-                                <?php 
-                                        if( $activity == "") {
-                                                            
-                                            //echo "-";
-                                            $activity = "-";
-
-                                        }elseif($activity != ""){
-                    
-                                            $activity;
-                                        }
-                                ?>
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">

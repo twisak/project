@@ -168,19 +168,14 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label><b>โครงการ</b></label>
-                                                <select name="project_id" id="project" class="form-control" readonly>
-                                                    <option value="">-- เลือกชื่อโครงการ --</option>
-                                                   
-                                                </select>
+                                                <input type="text" class="form-control form-control-line" name="project" required ">
                                             </div>
                                         </div>
 
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="activity"><b>ชื่อกิจกรรม</b></label>
-                                                <select name="activity_id" id="activity" class="form-control" readonly>
-                                                    <option value="">-- เลือกชื่อกิจกรรม --</option>
-                                                </select>
+                                                <input type="text" class="form-control form-control-line" name="activity" required ">
                                             </div>
                                         </div>
                                     </div>

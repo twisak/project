@@ -57,6 +57,7 @@
      $Job = unserialize($result_salary['Job']);
      $part_time = unserialize($result_salary['part_time']);
      $date_current = $result_salary['date_current'];
+
      // $day_work = $result_salary['day_work'];
      // $start_time = $result_salary['start_time'];
      // $end_time = $result_salary['end_time'];
@@ -120,7 +121,7 @@
      $position_name = $result_position['position_name'];
 
 
-     $strDate = explode("-", "$date_current");//วันปัจจุบัน
+     $strDate = explode("-", "$stp_date");//วันปัจจุบัน
 
      $str_day = $strDate[2];
      $str_month = $strDate[1];

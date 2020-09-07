@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -85,6 +86,15 @@
      $province_id = $result_person['province_id'];
      $districts_id = $result_person['districts_id'];
      $amphures_id = $result_person['amphures_id'];
+
+     $sql ="SELECT * FROM account_login WHERE person_id = '".$person_id."' ";
+     $query = mysqli_query($conn,$sql);
+     $result = mysqli_fetch_assoc($query);
+        
+        $person_id = $result['person_id'];
+        $username = $result['username'];
+        $password = $result['password'];
+        $status = $result['status'];
 
      $sql_province = "SELECT * FROM provinces WHERE id = '".$province_id."' ";
      $query_province = mysqli_query($conn,$sql_province);

@@ -160,25 +160,14 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label><b>โครงการ</b></label>&nbsp;<label class="text-danger"><b>*</b></label>
-                                                <select name="project_id" id="project" class="form-control">
-                                                    <option value="">-- เลือกชื่อโครงการ --</option>
-                                                    <?php
-                                                    $sql = "SELECT * FROM tb_project";
-                                                    $query = mysqli_query($conn, $sql);
-                                                    while($result = mysqli_fetch_assoc($query)):
-                                                ?>
-                                                    <option value="<?=$result['project_id']?>"><?=$result['project_name']?></option>
-                                                    <?php endwhile; ?>
-                                                </select>
+                                                <input type="text" class="form-control form-control-line" name="project" required ">
                                             </div>
                                         </div>
 
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="activity"><b>ชื่อกิจกรรม</b></label>&nbsp;<label class="text-danger"><b>*</b></label>
-                                                <select name="activity_id" id="activity" class="form-control">
-                                                    <option value="">ชื่อกิจกรรม</option>
-                                                </select>
+                                                <input type="text" class="form-control form-control-line" name="activity" required ">
                                             </div>
                                         </div>
                                     </div>

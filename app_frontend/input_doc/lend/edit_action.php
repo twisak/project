@@ -8,8 +8,8 @@
 
     $doc_id = $_POST['doc_id'];
 	$str_date = $_POST['str_date'];
-    $project_id = $_POST['project_id'];
-    $activity_id = $_POST['activity_id'];
+    $project = $_POST['project'];
+    $activity = $_POST['activity'];
     $person_id = $_POST['person_id'];
 	$teacher_id = $_POST['teacher_id'];
     $allowance = $_POST['allowance'];
@@ -43,8 +43,8 @@
 
     $sql= "UPDATE tb_lend SET 
                                             str_date = '".$str_date."',
-                                            project_id = '".$project_id."',
-                                            activity_id = '".$activity_id."',
+                                            project = '".$project."',
+                                            activity = '".$activity."',
                                             person_id = '".$person_id."',
 											teacher_id = '".$teacher_id."',
                                             allowance = '".$allowance."',

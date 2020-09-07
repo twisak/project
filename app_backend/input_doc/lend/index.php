@@ -133,7 +133,7 @@
                                             $query = mysqli_query($conn,$sql);
                                             while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
                                             {
-                                                $project_id = $row['project_id'];
+                                                $project = $row['project'];
                                                 $person_id = $row['person_id'];
                                            
                                             $sql2 ="SELECT * FROM tb_person WHERE person_id = '".$person_id."' ";
@@ -145,28 +145,28 @@
                                                 $lastname = $row2['lastname'];
                                                 //$prefix = $row2['prefix'];
                                             }
-                                            $sql1 ="SELECT * FROM tb_project WHERE project_id = '".$project_id."'  ";
-                                            $query1 = mysqli_query($conn,$sql1);
-                                            $result = mysqli_fetch_assoc($query1);
+                                            // $sql1 ="SELECT * FROM tb_project WHERE project_id = '".$project_id."'  ";
+                                            // $query1 = mysqli_query($conn,$sql1);
+                                            // $result = mysqli_fetch_assoc($query1);
                                             
-                                                $project_name = $result['project_name'];
+                                            //     $project_name = $result['project_name'];
                                            
-                                            if( $project_name == "") {
+                                            // if( $project_name == "") {
                                                             
-                                                //echo "-";
-                                                $project_name = "-";
+                                            //     //echo "-";
+                                            //     $project_name = "-";
 
-                                            }elseif($project_name != ""){
+                                            // }elseif($project_name != ""){
                         
-                                                $project_name;
-                                            }
+                                            //     $project_name;
+                                            // }
                                         ?>
                                         <tbody>
                                             <tr>
                                                 <td><?php echo $i;?></td>
                                                 <td><?php echo $row['doc_id'];?></td>
                                                 <td><?php echo $prefix;?><?php echo $firtname;?>  <?php echo $lastname;?></td>
-                                                <td><?php echo $project_name;?></td>
+                                                <td><?php echo $project;?></td>
                                                 <td>
                                                 <a href="../lend/show.php?doc_id=<?php echo $row['doc_id'];;?>"><button type="button" class="btn btn-info">รายละเอียด</button></a>
                                                 </td>

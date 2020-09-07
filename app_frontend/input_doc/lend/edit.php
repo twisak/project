@@ -61,8 +61,8 @@ include('../../../config/constant.php');
                     {
                         $doc_id = $row['doc_id'];
                         $str_date = $row['str_date'];
-                        $project_id = $row['project_id'];
-                        $activity_id = $row['activity_id'];
+                        $project = $row['project'];
+                        $activity = $row['activity'];
                         $person_id = $row['person_id'];
                         $allowance = $row['allowance'];
                         $allowance_price = $row['allowance_price'];
@@ -93,21 +93,6 @@ include('../../../config/constant.php');
                         $price_list = unserialize( $row["price_list"] );
                         $balance = unserialize( $row["balance"] );
                     }
-
-                    $sql1 ="SELECT * FROM tb_project WHERE project_id = '".$project_id."'  ";
-                    $query1 = mysqli_query($conn,$sql1);
-                    $result = mysqli_fetch_assoc($query1);
-                        
-                        $project_name = $result['project_name'];
-                        $project_id = $result['project_id'];
-
-                    $sql3 ="SELECT * FROM tb_activity WHERE project_id = '".$project_id."' ";
-                    $query3 = mysqli_query($conn,$sql3);
-                    $result = mysqli_fetch_assoc($query3);
-                    
-                        $activity = $result['activity'];
-                        $activity_id = $result['activity_id'];
-                    
 
                     $sql2 ="SELECT * FROM tb_person WHERE person_id = '".$person_id."' ";
                     $query2 = mysqli_query($conn,$sql2);
@@ -197,50 +182,17 @@ include('../../../config/constant.php');
                                             </div>
                                         </div>
                                     </div>
-                                    <?php 
-                                        if( $project_name == "") {
-                                                            
-                                            //echo "-";
-                                            $project_name = "-";
-
-                                        }elseif($project_name != ""){
-                    
-                                            $project_name;
-                                        }
-                                    ?>
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label><b>โครงการ</b></label>
-                                                <select name="project_id" id="project" class="form-control">
-                                                    <option value="<?php echo $project_id?>"><?php echo $project_name?></option>
-                                                    <?php
-                                                    $sql = "SELECT * FROM tb_project";
-                                                    $query = mysqli_query($conn, $sql);
-                                                    while($result = mysqli_fetch_assoc($query)):
-                                                ?>
-                                                    <option value="<?=$result['project_id']?>"><?=$result['project_name']?></option>
-                                                    <?php endwhile; ?>
-                                                </select>
+                                                <input type="text" class="form-control form-control-line" name="project" value="<?php echo $project; ?>">
                                             </div>
                                         </div>
-                                        <?php 
-                                            if( $activity == "") {
-                                                                
-                                                //echo "-";
-                                                $activity = "-";
-
-                                            }elseif($activity != ""){
-                        
-                                                $activity;
-                                            }
-                                        ?>
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="activity"><b>ชื่อกิจกรรม</b></label>
-                                                <select name="activity_id" id="activity" class="form-control">
-                                                    <option value="<?php echo $activity_id?>"><?php echo $activity?></option>
-                                                </select>
+                                                <input type="text" class="form-control form-control-line" name="activity" value="<?php echo $activity; ?>">
                                             </div>
                                         </div>
                                     </div>

@@ -8,10 +8,10 @@
 
     $doc_id = $_POST['doc_id'];
 	$str_date = $_POST['str_date'];
-    $project_id = $_POST['project_id'];
+    $project = $_POST['project'];
     $person_id = $_POST['person_id'];
     $teacher_id = $_POST['teacher_id'];
-    $activity_id = $_POST['activity_id'];
+    $activity = $_POST['activity'];
     $allowance = $_POST['allowance'];
     $allowance_price = $_POST['allowance_price'];
     
@@ -72,11 +72,11 @@
             
 			// if($date_list != "")
 			// {
-                $sql = "INSERT INTO tb_lend (doc_id,str_date,project_id,person_id,teacher_id,activity_id,allowance, 
+                $sql = "INSERT INTO tb_lend (doc_id,str_date,project,person_id,teacher_id,activity,allowance, 
                                              allowance_price,rest_price,room,num_night,vehicle_num,vehicle_price,regis,regis_num,
                                              fication_day,num_people,num_hour,price_hour,students_work,work_day,work_price,hand_food,
                                              num_food,food_price,snack,num_snack,snack_price,date_list,pay_type,price_list,balance,date_current)
-                                VALUES ('$doc_id','$str_date','$project_id','$person_id','$teacher_id','$activity_id','$allowance',
+                                VALUES ('$doc_id','$str_date','$project','$person_id','$teacher_id','$activity','$allowance',
                                         '$allowance_price','$rest_price','$room','$num_night','$vehicle_num','$vehicle_price','$regis','$regis_num',
                                         '$fication_day','$num_people','$num_hour','$price_hour','$students_work','$work_day','$work_price','$hand_food',
                                         '$num_food','$food_price','$snack','$num_snack','$snack_price','$date_list','$pay_type','$price_list','$balance','$date_current')";
