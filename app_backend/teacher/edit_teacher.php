@@ -11,11 +11,13 @@
 
         //$id = $_POST['id'];
         $teacher_id = $_POST['teacher_id'];
+        $prefix = $_POST['prefix'];
         $t_firstname = $_POST['t_firstname'];
         $t_lastname = $_POST['t_lastname'];
         $position_id = $_POST['position_id'];
 
-        $sql_teacher= "UPDATE tb_teacher SET    t_firstname = '".$t_firstname."',
+        $sql_teacher= "UPDATE tb_teacher SET    prefix = '".$prefix."',
+                                                t_firstname = '".$t_firstname."',
                                                 t_lastname = '".$t_lastname."',
                                                 position_id = '".$position_id."'
                               WHERE teacher_id = '$teacher_id' ";

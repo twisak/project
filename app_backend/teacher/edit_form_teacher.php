@@ -76,6 +76,7 @@
                             $result_teacher = mysqli_fetch_array($query_teacher);
 
                             $teacher_id = $result_teacher['teacher_id'];
+                            $prefix = $result_teacher['prefix'];
                             $t_firstname = $result_teacher['t_firstname'];
                             $t_lastname = $result_teacher['t_lastname'];
 
@@ -127,6 +128,13 @@
 
                                         <div class="col-md-3">
                                             <div class="form-group">
+                                                <label><b>คำนำหน้า</b></label></label>&nbsp;<label>(ภาษาไทย & อังกฤษ)</label>
+                                                <input type="text" name="prefix" value="<?php echo $prefix; ?>" class="form-control form-control-line" onKeyUp="IsCharacter(this.value,this)">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <div class="form-group">
                                                 <label><b>ชื่อ</b></label></label>&nbsp;<label>(ภาษาไทย & อังกฤษ)</label>
                                                 <input type="text" name="t_firstname" value="<?php echo $t_firstname; ?>" class="form-control form-control-line" onKeyUp="IsCharacter(this.value,this)">
                                             </div>
@@ -139,7 +147,10 @@
                                             </div>
                                         </div>
 
-                                        <div class="col-md-2">
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-3">
                                             <div class="form-group">
                                                 <label><b>ตำแหน่ง</b></label></label>
                                                 <select class="form-control" name="position_id" value="<?php echo $result_teacher['position_id']; ?>">

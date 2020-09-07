@@ -57,6 +57,7 @@ $travel = $result_note_command['travel'];
 $byusing = $result_note_command['byusing'];
 $driver = $result_note_command['driver'];
 $budget_id = $result_note_command['budget_id'];
+$teacher_id = $result_note_command['teacher_id'];
 
 $sql_title= "SELECT * FROM tb_title WHERE title_id = '".$title_id."' ";
 $query_title = mysqli_query($conn,$sql_title);
@@ -114,6 +115,21 @@ $sql_districts = "SELECT * FROM districts WHERE id = '".$districts_id."' ";
 $query_districts = mysqli_query($conn,$sql_districts);
 $result_districts = mysqli_fetch_assoc($query_districts);
 $name_th_d = $result_districts['name_th'];
+
+$sql_teacher = "SELECT * FROM tb_teacher WHERE teacher_id = '".$teacher_id."' ";
+$query_teacher = mysqli_query($conn,$sql_teacher);
+$result_teacher = mysqli_fetch_assoc($query_teacher);
+
+$prefixt = $result_teacher['prefix'];
+$t_firstname1 = $result_teacher['t_firstname'];
+$t_lastname1 = $result_teacher['t_lastname'];
+$position_id1 = $result_teacher['position_id'];
+
+$sql = "SELECT * FROM tb_position WHERE position_id = '".$position_id1."' ";
+$query = mysqli_query($conn,$sql);
+$result = mysqli_fetch_assoc($query);
+
+$position_name1 = $result['position_name'];
 
 $strDate = explode("-", "$str_date");//วันเริ่ม
 
@@ -231,6 +247,15 @@ $strDate = explode("-", "$str_date");//วันเริ่ม
 <body id="<?php //echo $body['name'];?>">
     <div class="page">
         <table border="0" width="100%" class="statement-view text-gray-900">
+            <tr>
+                <td width="100%" class="statement-header"  align="center">
+                    <table border="0" width="100%" class="statement-view text-gray-900" align="center">
+                        <tr>
+                            <img src="../../../../administrator/images/Garuda_Emblem.jpg" width="100" height="120" class="img-responsive">
+                        </tr>
+                    </table>
+                </td>
+            </tr>
             <tr>
                 <td colspan="3" class="statement-header" align="center">
                     <strong>คำสั่งมหาวิทยาลัยราชภัฏยะลา</strong>
@@ -459,7 +484,7 @@ $strDate = explode("-", "$str_date");//วันเริ่ม
                             <td></td>
                             <td></td>
                             <td></td>
-                            <td>( ผู้ช่ผู้ช่วยศาสตราจารย์ ดร.สมบัติ โยธาทิพย์ )</td>
+                            <td>( <?php echo $prefixt;?>&nbsp;<?php echo $t_firstname1;?>&nbsp;&nbsp;<?php echo $t_lastname1;?> )</td>
                             <td></td>
                         </tr>
                     </table>
@@ -480,7 +505,7 @@ $strDate = explode("-", "$str_date");//วันเริ่ม
                             <td></td>
                             <td></td>
                             <td></td>
-                            <td>อธิการมหาวิทยาลัยราชภัฏยะลา</td>
+                            <td><?php echo $position_name1;?></td>
                             <td></td>
                         </tr>
                     </table>

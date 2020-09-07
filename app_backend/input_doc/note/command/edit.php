@@ -7,7 +7,7 @@ $sql_command = "SELECT * FROM tb_note_command WHERE doc_id = '".$doc_id."' ";
 $query_command = mysqli_query($conn,$sql_command);
 $result_command = mysqli_fetch_assoc($query_command);
 
-$id = $result_command['id'];
+
 $doc_id = $result_command['doc_id'];
 $date_current = $result_command['date_current'];
 $str_date = $result_command['str_date'];
@@ -21,6 +21,7 @@ $travel = $result_command['travel'];
 $byusing = $result_command['byusing'];
 $driver = $result_command['driver'];
 $budget_id = $result_command['budget_id'];
+$teacher_id = $result_command['teacher_id'];
 
 
 $sql_title = "SELECT * FROM tb_title WHERE title_id = '".$title_id."' ";
@@ -61,6 +62,14 @@ $budget_id = $result_budget['budget_id'];
 $budget = $result_budget['budget'];
 
 $budget = "";
+
+$sql_teacher = "SELECT * FROM tb_teacher WHERE teacher_id = '".$teacher_id."' ";
+$query_teacher = mysqli_query($conn,$sql_teacher);
+$result_teacher = mysqli_fetch_assoc($query_teacher);
+
+$prefix = $result_teacher['prefix'];
+$t_firstname = $result_teacher['t_firstname'];
+$t_lastname = $result_teacher['t_lastname'];
 
 ?>
 <!DOCTYPE html>
@@ -292,28 +301,44 @@ $budget = "";
                                                 <label><b>ใช้งบประมาณ</b></label>
                                                 <select class="form-control" name="budget_id" value="<?php echo $result_budget['budget_id']; ?>">
 
-                                  <?php
-                                  $sql_check_budget = "SELECT * FROM tb_budget";
-                                  $query_check_budget = mysqli_query($conn,$sql_check_budget);
+                                                        <?php
+                                                        $sql_check_budget = "SELECT * FROM tb_budget";
+                                                        $query_check_budget = mysqli_query($conn,$sql_check_budget);
 
-                                  $budget_id1 = $result_budget['budget_id'];
-                                  while($result_check_budget = mysqli_fetch_array($query_check_budget))
-                                  {
-                                  if($budget_id1 == $result_check_budget["budget_id"])
-                                  {
-                                  $selected_check_budget = "selected";
+                                                        $budget_id1 = $result_budget['budget_id'];
+                                                        while($result_check_budget = mysqli_fetch_array($query_check_budget))
+                                                        {
+                                                        if($budget_id1 == $result_check_budget["budget_id"])
+                                                        {
+                                                        $selected_check_budget = "selected";
 
-                                  }
-                                  else
-                                  {
-                                  $selected_check_budget = "";
-                                  }
-                                  ?>
-                                  <option value="<?php echo $result_check_budget["budget_id"];?>"<?php echo $selected_check_budget;?>><?php echo $result_check_budget["budget"]; ?></option>
-                                  <?php
-                                  }
-                                  ?>
-                                  </select>
+                                                        }
+                                                        else
+                                                        {
+                                                        $selected_check_budget = "";
+                                                        }
+                                                        ?>
+                                                        <option value="<?php echo $result_check_budget["budget_id"];?>"<?php echo $selected_check_budget;?>><?php echo $result_check_budget["budget"]; ?></option>
+                                                        <?php
+                                                        }
+                                                        ?>
+                                                        </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                  <label><b>ชื่ออาจารย์</b></label></label>
+                                                <select name="teacher_id" class="form-control">
+                                                    <option value="<?php echo $teacher_id;?>"><?php echo $t_firstname;?>&nbsp;&nbsp;<?php echo $t_lastname?></option>
+                                                    <?php
+                                                        $sql = "SELECT * FROM tb_teacher";
+                                                        $query = mysqli_query($conn, $sql);
+                                                        while($result = mysqli_fetch_assoc($query)):
+                                                    ?>
+                                                    <option value="<?=$result['teacher_id']?>"><?=$result['t_firstname']?>&nbsp;&nbsp;<?=$result['t_lastname']?></option>
+                                                    <?php endwhile; ?>
+                                                </select>
                                             </div>
                                         </div>
                                     </div>

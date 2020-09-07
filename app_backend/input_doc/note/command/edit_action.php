@@ -26,7 +26,7 @@
         $byusing = $_POST['byusing'];
         $driver = $_POST['driver'];
         $budget_id = $_POST['budget_id'];
-
+        $teacher_id = $_POST['teacher_id'];
 
                     $sql= "UPDATE tb_note_command SET  
                                                 date_current        = '".$date_current."',
@@ -40,7 +40,8 @@
                                                 travel        = '".$travel."',
                                                 byusing        = '".$byusing."',
                                                 driver        = '".$driver."',
-                                                budget_id        = '".$budget_id."'
+                                                budget_id        = '".$budget_id."',
+                                                teacher_id        = '".$teacher_id."'
 
                               WHERE doc_id = '".$doc_id."'";
 

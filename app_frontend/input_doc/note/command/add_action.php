@@ -18,10 +18,11 @@
     $byusing = $_POST['byusing'];
     $driver = $_POST['driver'];
     $budget_id = $_POST['budget_id'];
+    $teacher_id = $_POST['teacher_id'];
     
 
-        $sql = "INSERT INTO tb_note_command (doc_id,date_current,str_date,stp_date,title_id,that,project_id,activity_id,person_id,travel,byusing,driver,budget_id)
-        VALUES('$doc_id','$date_current','$str_date','$stp_date','$title_id','$that','$project_id','$activity_id','$person_id','$travel','$byusing','$driver','$budget_id')";
+        $sql = "INSERT INTO tb_note_command (doc_id,date_current,str_date,stp_date,title_id,that,project_id,activity_id,person_id,travel,byusing,driver,budget_id,teacher_id)
+        VALUES('$doc_id','$date_current','$str_date','$stp_date','$title_id','$that','$project_id','$activity_id','$person_id','$travel','$byusing','$driver','$budget_id','$teacher_id')";
 
         $db_query = mysqli_query($conn,$sql);
         // echo $sql;

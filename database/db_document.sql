@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 18, 2020 at 09:23 PM
+-- Generation Time: Sep 07, 2020 at 06:44 PM
 -- Server version: 10.3.16-MariaDB
 -- PHP Version: 7.2.20
 
@@ -40,9 +40,8 @@ CREATE TABLE `account_login` (
 --
 
 INSERT INTO `account_login` (`person_id`, `username`, `password`, `status`) VALUES
-('', 'admin', '123', 'Admin'),
 ('PS001', 'fa', '123456', 'Personal'),
-('PS002', 'mang', '123456', 'Personal');
+('PS002', 'admin', '11111111', 'Admin');
 
 -- --------------------------------------------------------
 
@@ -10226,11 +10225,10 @@ INSERT INTO `tb_debt` (`doc_id`, `date_current`, `name_train`, `project_id`, `ac
 CREATE TABLE `tb_lend` (
   `doc_id` varchar(11) NOT NULL COMMENT 'รหัสเอกสารสัญญาเงินยืม	',
   `str_date` date DEFAULT NULL COMMENT 'วันที่เริ่มต้น',
-  `stp_date` date DEFAULT NULL COMMENT 'วันที่สิ้นสุด',
-  `project_id` varchar(11) DEFAULT NULL COMMENT 'รหัสโครงการ',
+  `project` longtext DEFAULT NULL COMMENT 'โครงการ',
   `person_id` varchar(11) DEFAULT NULL COMMENT 'รหัสบุคลากร',
   `teacher_id` varchar(20) NOT NULL COMMENT 'รหัสอาจารย์',
-  `activity_id` varchar(20) NOT NULL COMMENT 'รหัสกิจกรรม	',
+  `activity` longtext NOT NULL COMMENT 'กิจกรรม	',
   `allowance` varchar(100) DEFAULT NULL COMMENT 'ค่าเบี้ยเลี้ยงกรอก',
   `allowance_price` varchar(20) DEFAULT NULL COMMENT 'ค่าเบี้ยเลี้ยงราคา',
   `rest_price` varchar(20) DEFAULT NULL COMMENT 'ราคาที่พัก',
@@ -10264,8 +10262,8 @@ CREATE TABLE `tb_lend` (
 -- Dumping data for table `tb_lend`
 --
 
-INSERT INTO `tb_lend` (`doc_id`, `str_date`, `stp_date`, `project_id`, `person_id`, `teacher_id`, `activity_id`, `allowance`, `allowance_price`, `rest_price`, `room`, `num_night`, `vehicle_num`, `vehicle_price`, `regis`, `regis_num`, `fication_day`, `num_people`, `num_hour`, `price_hour`, `students_work`, `work_day`, `work_price`, `hand_food`, `num_food`, `food_price`, `snack`, `num_snack`, `snack_price`, `date_list`, `pay_type`, `price_list`, `balance`, `date_current`) VALUES
-('L001', '2020-08-19', '2020-09-19', 'P003', 'PS002', '002', 'A009', 'ค่าเบี้ยเลี้ยง', '200', '2000', '2', '5', '3', '800', '100', '50', '3', '4', '6', '1200', '4', '3', '400', '30', '3', '100', '30', '8', '35', 'a:2:{i:0;s:10:\"2020-08-20\";i:1;s:10:\"2020-08-20\";}', 'a:2:{i:0;s:18:\"เงินสด\";i:1;s:21:\"ใบสำคัญ\";}', 'a:2:{i:0;s:4:\"5000\";i:1;s:3:\"300\";}', 'a:2:{i:0;s:3:\"800\";i:1;s:3:\"700\";}', '2020-08-19');
+INSERT INTO `tb_lend` (`doc_id`, `str_date`, `project`, `person_id`, `teacher_id`, `activity`, `allowance`, `allowance_price`, `rest_price`, `room`, `num_night`, `vehicle_num`, `vehicle_price`, `regis`, `regis_num`, `fication_day`, `num_people`, `num_hour`, `price_hour`, `students_work`, `work_day`, `work_price`, `hand_food`, `num_food`, `food_price`, `snack`, `num_snack`, `snack_price`, `date_list`, `pay_type`, `price_list`, `balance`, `date_current`) VALUES
+('L001', '2020-08-30', 'sdasfasdfasdfasdf555555555555', 'PS001', '001', 'พัฒนาสถานศึกษาต้นแบบพหุภาษา ', '11111111', '200', '200', '200', '200', '200', '200', '5', '5', '5', '5', '5', '5', '5', '55', '5', '5', '5', '5', '5', '5', '5', 'a:1:{i:0;s:10:\"2020-08-30\";}', 'a:1:{i:0;s:18:\"เงินสด\";}', 'a:1:{i:0;s:4:\"5000\";}', 'a:1:{i:0;s:3:\"800\";}', '2020-08-30');
 
 -- --------------------------------------------------------
 
@@ -10399,17 +10397,17 @@ CREATE TABLE `tb_note_command` (
   `travel` varchar(255) NOT NULL COMMENT 'เดินทางไปราชการ',
   `byusing` varchar(255) NOT NULL COMMENT 'โดยใช้',
   `driver` varchar(100) NOT NULL COMMENT 'พนักงานขับรถ',
-  `budget_id` varchar(20) NOT NULL COMMENT 'งบประมาณ'
+  `budget_id` varchar(20) NOT NULL COMMENT 'งบประมาณ',
+  `teacher_id` varchar(20) NOT NULL COMMENT 'รหัสอาจารย์'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `tb_note_command`
 --
 
-INSERT INTO `tb_note_command` (`doc_id`, `date_current`, `str_date`, `stp_date`, `title_id`, `that`, `project_id`, `activity_id`, `person_id`, `travel`, `byusing`, `driver`, `budget_id`) VALUES
-('NC002', '2020-07-25', '2020-07-17', '2020-07-25', '002', 'อว.000001', 'P001', 'A001', 'PS001', 'sddasdasdasds', 'sdas', 'mmmmmmmmmmmm', 'B002'),
-('NC003', '2020-07-25', '2020-07-19', '2020-07-25', '002', 'อว.000002', 'P001', 'A001', 'PS001', 'ณ โรงเรียนบ้านสามอ จ.ยะลา อ.เมือง ', 'รถยนต์จ้างเหมา', 'นายรุสลัม ดูมีแด', 'B002'),
-('NC004', '2020-07-27', '2020-07-27', '2020-07-30', '002', 'อว.000003', 'P001', 'A001', 'PS002', 'sdd', 'sdas', 'mmmmmmmmmmmm', '');
+INSERT INTO `tb_note_command` (`doc_id`, `date_current`, `str_date`, `stp_date`, `title_id`, `that`, `project_id`, `activity_id`, `person_id`, `travel`, `byusing`, `driver`, `budget_id`, `teacher_id`) VALUES
+('NC001', '2020-09-07', '2020-09-07', '2020-09-10', '002', 'อว.000001', 'P001', 'A001', 'PS002', 'sddasdasdasds', 'sdas', 'mmmmmmmmmmmm', 'B002', '002'),
+('NC002', '2020-09-07', '2020-09-07', '2020-09-11', '002', 'อว.000002', 'P001', 'A001', 'PS001', 'sddasdasdasds', 'รถยนต์จ้างเหมา', 'นายรุสลัม ดูมีแด', 'B002', '001');
 
 -- --------------------------------------------------------
 
@@ -10498,8 +10496,8 @@ CREATE TABLE `tb_person` (
 --
 
 INSERT INTO `tb_person` (`person_id`, `prefix`, `firtname`, `lastname`, `idcard`, `position_id`, `house_num`, `road`, `village`, `alley`, `province_id`, `districts_id`, `amphures_id`) VALUES
-('PS001', 'นาง', 'ฟาตีเมาะ2222', 'การี', '1234567891234', '001', '54633', NULL, NULL, NULL, '75', '950201', '978'),
-('PS002', 'นาย', 'สมามะ', 'ฮะยี', '1234567895465', '001', '45', NULL, NULL, NULL, '74', '941010', '974');
+('PS001', 'นาง', 'ฟาตีเมาะ', 'การี', '1234567891234', '001', '54633', NULL, NULL, NULL, '75', '950201', '978'),
+('PS002', 'นาย', 'สมามะ', 'ดา', '1211111111111', '004', '85', NULL, NULL, NULL, '18', '270110', '206');
 
 -- --------------------------------------------------------
 
@@ -10558,18 +10556,21 @@ CREATE TABLE `tb_project` (
   `project_name` text NOT NULL COMMENT 'ชื่อโครงการ',
   `fiscal_year` varchar(20) DEFAULT NULL COMMENT 'ปีงบประมาณ',
   `principle` varchar(100) DEFAULT NULL COMMENT 'หลักการและเหตุผล',
-  `budget` varchar(20) DEFAULT NULL COMMENT 'งบประมาณ'
+  `budget` varchar(20) DEFAULT NULL COMMENT 'งบประมาณ',
+  `recorder` varchar(20) NOT NULL COMMENT 'ผู้บันทึก'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `tb_project`
 --
 
-INSERT INTO `tb_project` (`project_id`, `project_name`, `fiscal_year`, `principle`, `budget`) VALUES
-('P001', 'โครงการพัฒนาครูและบุคลากรทางการศึกษาเพื่อลดความ1เหลื่อมล้ำจากผลกระทบเหตุการณ์ความไม่สงบในพื้นทีชายแดนใต้', '2020', 'เพื่อผลประโยชน์ของมหาวิยทลัย', '5000'),
-('P002', 'โครงการ ยกระดับคุณภาพการเรียนรู้ด้านการอ่าน การเขียนและการคิดวิเคราะห์ของนักเรียนในระดับการศึกษาขั้นพื้นฐานในพื้นที่ชายแดนใต้', '2020', 'เพื่อผลประโยชน์ของมหาวิยทลัย', '3000'),
-('P003', 'โครงการส่งเสริมและเผยแพร่ความจริงที่ถูกต้องเพื่อสนับสนุนการแก้ไขปัญหา', '2020', 'เพื่อผลประโยชน์ของมหาวิยทลัย', '1000'),
-('P004', 'โครงการจัดตั้งสถาบันพัฒนาครูและบุคลากรทางการศึกษาชายแดนใต้ มหาวิทยาลัยราชภัฏยะลา', '2020', 'เพื่อผลประโยชน์ของมหาวิยทลัย', '4000');
+INSERT INTO `tb_project` (`project_id`, `project_name`, `fiscal_year`, `principle`, `budget`, `recorder`) VALUES
+('P001', 'โครงการพัฒนาครูและบุคลากรทางการศึกษาเพื่อลดความ1เหลื่อมล้ำจากผลกระทบเหตุการณ์ความไม่สงบในพื้นทีชายแดนใต้', '2020', 'เพื่อผลประโยชน์ของมหาวิยทลัย', '5000', 'PS002'),
+('P002', 'โครงการ ยกระดับคุณภาพการเรียนรู้ด้านการอ่าน การเขียนและการคิดวิเคราะห์ของนักเรียนในระดับการศึกษาขั้นพื้นฐานในพื้นที่ชายแดนใต้', '2020', 'เพื่อผลประโยชน์ของมหาวิยทลัย', '3000', 'PS002'),
+('P003', 'โครงการส่งเสริมและเผยแพร่ความจริงที่ถูกต้องเพื่อสนับสนุนการแก้ไขปัญหา', '2020', 'เพื่อผลประโยชน์ของมหาวิยทลัย', '1000', 'PS002'),
+('P004', 'โครงการจัดตั้งสถาบันพัฒนาครูและบุคลากรทางการศึกษาชายแดนใต้ มหาวิทยาลัยราชภัฏยะลา', '2020', 'เพื่อผลประโยชน์ของมหาวิยทลัย', '4000', 'PS002'),
+('P005', 'การบ้าน', '2563', 'เพื่อผลประโยชน์ของมหาวิยทลัย', 'ประเภทงบประมาณ1', 'PS001'),
+('P006', 'การบ้าน44444444', '2563', 'เพื่อผลประโยชน์ของมหาวิยทลัย', 'ประเภทงบประมาณ1', 'PS001');
 
 -- --------------------------------------------------------
 
@@ -10634,6 +10635,7 @@ INSERT INTO `tb_strategic` (`strategic_id`, `strategic`, `mission_id`, `project_
 
 CREATE TABLE `tb_teacher` (
   `teacher_id` varchar(20) NOT NULL COMMENT 'รหัสอาจารย์',
+  `prefix` varchar(100) NOT NULL COMMENT 'คำนำหน้า',
   `t_firstname` varchar(100) NOT NULL COMMENT 'ชื่อ',
   `t_lastname` varchar(100) NOT NULL COMMENT 'สกุุล',
   `position_id` varchar(100) NOT NULL COMMENT 'รหัสตำแหน่ง'
@@ -10643,10 +10645,9 @@ CREATE TABLE `tb_teacher` (
 -- Dumping data for table `tb_teacher`
 --
 
-INSERT INTO `tb_teacher` (`teacher_id`, `t_firstname`, `t_lastname`, `position_id`) VALUES
-('001', 'ซอและ', 'เกปัน', '009'),
-('002', 'จันจลี', 'ถนอมลิขิตวงศ์', '008'),
-('003', 'พุมพนิต', 'คงแสง', '008');
+INSERT INTO `tb_teacher` (`teacher_id`, `prefix`, `t_firstname`, `t_lastname`, `position_id`) VALUES
+('001', 'ศาสตราจารย์', 'ปนัดดา', 'เรืองสงค์', '004'),
+('002', 'ศาสตราจารย์', 'ซอแล', 'เกปัน', '005');
 
 -- --------------------------------------------------------
 

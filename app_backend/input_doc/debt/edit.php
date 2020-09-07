@@ -253,7 +253,7 @@
                                                         $query = mysqli_query($conn, $sql);
                                                         while($result = mysqli_fetch_assoc($query)):
                                                     ?>
-                                                    <option value="<?=$result['teacher_id']?>"><?=$result['t_firstname']?><?=$result['t_lastname']?></option>
+                                                    <option value="<?=$result['teacher_id']?>"><?=$result['t_firstname']?>&nbsp;&nbsp;<?=$result['t_lastname']?></option>
                                                     <?php endwhile; ?>
                                                 </select>
                                             </div>

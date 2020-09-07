@@ -120,6 +120,7 @@ include('../../../../config/constant.php');
                                                $byusing = $row['byusing'];
                                                $driver = $row['driver'];
                                                $budget_id = $row['budget_id'];
+                                               $teacher_id = $row['teacher_id'];
                                            }
                                            // echo $doc_id;
                                            // echo $person_id;
@@ -147,6 +148,14 @@ include('../../../../config/constant.php');
                                                 $project_name = $row1['project_name'];
                                                 $project_id = $row1['project_id'];
                                             }
+
+                                            $sql_teacher = "SELECT * FROM tb_teacher WHERE teacher_id = '".$teacher_id."' ";
+                                            $query_teacher = mysqli_query($conn,$sql_teacher);
+                                            $result_teacher = mysqli_fetch_assoc($query_teacher);
+
+                                            $prefix = $result_teacher['prefix'];
+                                            $t_firstname = $result_teacher['t_firstname'];
+                                            $t_lastname = $result_teacher['t_lastname'];
 
                                             $sql3 ="SELECT * FROM tb_activity WHERE activity_id = '".$activity_id."' ";
                                             $query3 = mysqli_query($conn,$sql3);
@@ -252,6 +261,12 @@ include('../../../../config/constant.php');
                                             <div class="form-group">
                                                 <label><b>ใช้งบประมาณ</b></label><br>
                                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $budget;?>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label><b>ชื่ออาจารย์</b></label><br>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $prefix;?><?php echo $t_firstname;?>&nbsp;&nbsp;<?php echo $t_lastname;?>
                                             </div>
                                         </div>
                                     </div>

@@ -78,7 +78,7 @@
                                 ?>
                                     <script language="javascript">
                                         function IsCharacter(sText, obj) {
-                                            var ValidChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ.abcdefghijklmnopqrstuvwxyz.กขฃคฅฆงจฉชซฌญฎฏฐฑฒณดตถทธนบปผฝพฟภมยรลวศษสหฬอฮ. ื.์.่.๋.้.็.า.เ.ๆ.ำ.ะ.ั.ี.๊.ึ.ุ.ู.";
+                                            var ValidChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ.abcdefghijklmnopqrstuvwxyz.กขฃคฅฆงจฉชซฌญฎฏฐฑฒณดตถทธนบปผฝพฟภมยรลวศษสหฬอฮ. ื.์.่.๋.้.็.า.เ.ๆ.ำ.ะ.ั.ี.๊.ึ.ุ.ู.แ";
                                             var IsCharacter = true;
                                             var Char;
                                             for (i = 0; i < sText.length && IsCharacter == true; i++) {
@@ -114,6 +114,13 @@
 
                                         <div class="col-md-3">
                                             <div class="form-group">
+                                                <label><b>คำนำหน้า</b></label>&nbsp;<label class="text-danger"><b>*</b></label>&nbsp;<label>(ภาษาไทย & อังกฤษ)</label>
+                                                <input type="text" name="prefix" required class="form-control form-control-line" onKeyUp="IsCharacter(this.value,this)">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <div class="form-group">
                                                 <label><b>ชื่อ</b></label>&nbsp;<label class="text-danger"><b>*</b></label>&nbsp;<label>(ภาษาไทย & อังกฤษ)</label>
                                                 <input type="text" name="t_firstname" required class="form-control form-control-line" onKeyUp="IsCharacter(this.value,this)">
                                             </div>
@@ -126,12 +133,14 @@
                                             </div>
                                         </div>
 
+                                    </div>
+                                    <div class="row">
                                       <?php
                                           $sql_position = "SELECT * FROM tb_position";
                                           $query_position = mysqli_query($conn,$sql_position);
                                       ?>
 
-                                      <div class="col-md-2">
+                                      <div class="col-md-3">
                                           <div class="form-group">
                                               <label><b>ตำแหน่ง</b></label>&nbsp;<label class="text-danger"><b>*</b></label>
                                               <select class="form-control" name="position_id" required>

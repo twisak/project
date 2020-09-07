@@ -240,6 +240,27 @@ include('../../../../config/constant.php');
                                                 </select>
                                             </div>
                                         </div>
+                                        
+                                        <?php
+                                            $sql_teacher = "select * from tb_teacher";
+                                            $query_teacher = mysqli_query($conn,$sql_teacher);
+                                            ?>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label><b>ชื่ออาจารย์</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
+                                                <select class="form-control" name="teacher_id" required>
+                                                    <option value="">-- เลือกชื่ออาจารย์ --</option>
+                                                    <?php
+                                                        while($result_teacher=mysqli_fetch_array($query_teacher))
+                                                        {
+                                                        ?>
+                                                    <option value='<?php echo $result_teacher['teacher_id'];?>'><?php echo $result_teacher['t_firstname'];?>&nbsp;&nbsp;<?php echo $result_teacher['t_lastname'];?></option>
+                                                    <?php
+                                                        }
+                                                        ?>
+                                                </select>
+                                            </div>
+                                        </div>
                                     </div>
 
 
