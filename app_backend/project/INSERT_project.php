@@ -4,7 +4,7 @@
     error_reporting(~0);
     include '../../administrator/connect.php';
     
-        $recorder = $_POST['recorder'];
+        //$recorder = $_POST['recorder'];
 		$project_id = $_POST['project_id'];
 		$project_name = $_POST['project_name'];
 		$fiscal_year = $_POST['fiscal_year'];

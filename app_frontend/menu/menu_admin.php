@@ -1,32 +1,33 @@
 <?php
+
     $id = $_SESSION['username'];
     //echo $id;
-    $sql ="SELECT * FROM account_login WHERE username = '".$id."' ";
-    $query = mysqli_query($conn,$sql);
-    $result = mysqli_fetch_assoc($query);
-    
-        $person_id = $result['person_id'];
-        $username = $result['username'];
-        $password = $result['password'];
-        $status = $result['status'];
+$sql ="SELECT * FROM account_login WHERE username = '".$id."' ";
+$query = mysqli_query($conn,$sql);
+$result = mysqli_fetch_assoc($query);
+
+    $person_id = $result['person_id'];
+    $username = $result['username'];
+    $password = $result['password'];
+    $status = $result['status'];
+
 ?>
 <header class="topbar">
-            <nav class="navbar top-navbar navbar-expand-md navbar-light">
+            <nav class="navbar top-navbar navbar-expand-md navbar-red">
                 <!-- ============================================================== -->
                 <!-- Logo -->
                 <!-- ============================================================== -->
-                <div class="navbar-header">
+                <div class="navbar-header text-center">
                     <a class="navbar-brand" href="#">
                         <!-- Logo icon --><b>
                             <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                             <!-- Dark Logo icon -->
-
-                            <img src="<?php echo ROOT_PROJECT_FRONTEND?>/assets/images/logo-icon.png" alt="homepage" class="dark-logo" />
-                            <img src="<?php echo ROOT_PROJECT_FRONTEND?>/assets/images/logo-light-icon.png" alt="homepage" class="light-logo" />
-
-                            <label class="dark-logo text-info text-center"><b>PST YRU</b></label>
+                            
+                            <!-- Light Logo icon -->
+                            <span class="hidden-md-down ">
+                                <b>PST YRU</b>
+                            </span>
                         </b>
-
                 </div>
                 <!-- ============================================================== -->
                 <!-- End Logo -->
@@ -40,10 +41,7 @@
                         <!-- ============================================================== -->
                         <!-- Search -->
                         <!-- ============================================================== -->
-                        <li class="nav-item hidden-xs-down search-box"> <a class="nav-link hidden-sm-down waves-effect waves-dark" href="javascript:void(0)"><i class="fa fa-search"></i></a>
-                            <form class="app-search">
-                                <input type="text" class="form-control" placeholder="Search & enter"> <a class="srh-btn"><i class="fa fa-times"></i></a> </form>
-                        </li>
+                       <br>
                     </ul>
                     <!-- ============================================================== -->
                     <!-- User profile and search -->
@@ -75,6 +73,12 @@
                 </div>
             </nav>
         </header>
+        <!-- ============================================================== -->
+        <!-- End Topbar header -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
         <aside class="left-sidebar">
             <!-- Sidebar scroll-->
             <div class="scroll-sidebar">

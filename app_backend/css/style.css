@@ -77,7 +77,7 @@ html {
 }
 
 a {
-    color: #20aee3;
+    color: #eaeff1;
 }
 
 a:hover,
@@ -1311,6 +1311,7 @@ File: scss
 .topbar .top-navbar {
     min-height: 70px;
     padding: 0px;
+    background: linear-gradient(to bottom right, #820207, #770d11);
 }
 
 .topbar .top-navbar .dropdown-toggle::after {
@@ -1321,6 +1322,7 @@ File: scss
     line-height: 72px;
     padding-left: 10px;
     border-right: 1px solid rgba(120, 130, 140, 0.13);
+    background: linear-gradient(to bottom right, #820207, #770d11);
 }
 
 .topbar .top-navbar .navbar-header .navbar-brand {
