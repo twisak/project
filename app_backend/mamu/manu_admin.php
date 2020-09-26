@@ -10,7 +10,6 @@ $result = mysqli_fetch_assoc($query);
     $username = $result['username'];
     $password = $result['password'];
     $status = $result['status'];
-
 ?>
 <header class="topbar">
             <nav class="navbar top-navbar navbar-expand-md navbar-red">
