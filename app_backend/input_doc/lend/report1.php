@@ -731,7 +731,7 @@
                                     <tr>
                                         <td width="1" class="text-nowrap border-0 padding-0">ลงชื่อ</td>
                                         <td class="border-0 padding-0 text-center">
-                                        &nbsp;<?php echo convert($x);?>
+                                        
                                             <div class="line-bottom-dashed"></div>
                                         </td>
                                         <td width="1" class="text-nowrap border-0 padding-0">ผู้รับเงิน</td>

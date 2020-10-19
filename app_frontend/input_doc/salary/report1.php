@@ -120,7 +120,7 @@
      $position_name = $result_position['position_name'];
 
 
-     $strDate = explode("-", "$date_current");//วันปัจจุบัน
+     $strDate = explode("-", "$stp_date");//วันปัจจุบัน
 
      $str_day = $strDate[2];
      $str_month = $strDate[1];
@@ -452,10 +452,37 @@
                         return $convert;
                         }
                         $x = $period;
+
+
+                            if($perform == "1"){
+                            $month = "ตุลาคม";
+                            }else if($perform == "2"){
+                            $month = "พฤศจิกายน";
+                            }else if($perform == "3"){
+                            $month = "ธันวาคม";
+                            }else if($perform == "4"){
+                            $month = "มกราคม";
+                            }else if($perform == "5"){
+                            $month = "กุมภาพันธ์";
+                            }else if($perform == "6"){
+                            $month = "มีนาคม";
+                            }else if($perform == "7"){
+                            $month = "เมษายน";
+                            }else if($perform == "8"){
+                            $month = "พฤษภาคม";
+                            }else if($perform == "9"){
+                            $month = "มิถุนายน";
+                            }else if($perform == "10"){
+                            $month = "กรกฎาคม";
+                            }else if($perform == "11"){
+                            $month = "สิงหาคม";
+                            }else if($perform == "12"){
+                            $month = "กันยายน";
+                            }
             ?>
             <tr>
                 <td colspan="2" class="text-indent-50" align="left">
-                    บัดนี้ ข้าพเจ้าได้ปฏิบัติงานดังกล่าวงวดที่ <?php echo $perform1?> (เดือน <?php echo $month_thaiM?>&nbsp;<?php echo $year_thaiM?>) เสร็จเรียบร้อยแล้ว
+                    บัดนี้ ข้าพเจ้าได้ปฏิบัติงานดังกล่าวงวดที่ <?php echo $perform1?> (เดือน <?php echo $month?>) เสร็จเรียบร้อยแล้ว
                 </td>
             </tr>
 
@@ -477,7 +504,7 @@
                                     <tr>
                                         <td width="1" class="text-nowrap border-0 padding-0">ลงชื่อ</td>
                                         <td class="border-0 padding-0 text-center">
-                                            <?php echo $prefix; ?><?php echo $firtname; ?>&nbsp;&nbsp;<?php echo $lastname; ?>
+                                           
                                             <div class="line-bottom-dashed">&nbsp;</div>
                                         </td>
                                         <td width="1" class="text-nowrap border-0 padding-0">ผู้รับจ้าง</td>
@@ -520,7 +547,7 @@
                                     <tr>
                                         <td width="1" class="text-nowrap border-0 padding-0">ลงชื่อ</td>
                                         <td class="border-0 padding-0 text-center">
-                                            <?php echo $t_firstname; ?>&nbsp;&nbsp;<?php echo $t_lastname; ?>
+                                            
                                             <div class="line-bottom-dashed">&nbsp;</div>
                                         </td>
                                         <td width="1" class="text-nowrap border-0 padding-0"></td>

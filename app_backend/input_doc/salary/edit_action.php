@@ -14,7 +14,7 @@
         $period = $_POST['period'];
         $total_amount = $_POST['total_amount'];
         $perform = $_POST['perform'];
-        $month = $_POST['month'];
+        //$month = $_POST['month'];
         $teacher_id = $_POST['teacher_id'];
 
         $day_work = serialize($_POST["day_work"]);
@@ -35,7 +35,6 @@
                                     period        = '".$period."',
                                     total_amount        = '".$total_amount."',
                                     perform        = '".$perform."',
-                                    month        = '".$month."',
                                     teacher_id        = '".$teacher_id."',
                                     day_work        = '".$day_work."',
                                     start_time        = '".$start_time."',

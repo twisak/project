@@ -111,7 +111,7 @@
                 $title = $row5['title'];
                 $body = $row5['body'];
             }
-                                        $strDate = explode("-", "$date_current");
+                                        $strDate = explode("-", "$stp_date");
 
                                         // echo "year= ".$strDate[0];
                                         // echo "month= ".$strDate[1];
@@ -446,10 +446,36 @@
         //$test = str_replace($numthai,$numarabic,$message);
         $work1 = str_replace($numarabic,$numthai,$message);
         //echo $day_thai;
+
+            if($work == "1"){
+            $month = "ตุลาคม";
+            }else if($work == "2"){
+            $month = "พฤศจิกายน";
+            }else if($work == "3"){
+            $month = "ธันวาคม";
+            }else if($work == "4"){
+            $month = "มกราคม";
+            }else if($work == "5"){
+            $month = "กุมภาพันธ์";
+            }else if($work == "6"){
+            $month = "มีนาคม";
+            }else if($work == "7"){
+            $month = "เมษายน";
+            }else if($work == "8"){
+            $month = "พฤษภาคม";
+            }else if($work == "9"){
+            $month = "มิถุนายน";
+            }else if($work == "10"){
+            $month = "กรกฎาคม";
+            }else if($work == "11"){
+            $month = "สิงหาคม";
+            }else if($work == "12"){
+            $month = "กันยายน";
+            }
 ?>
             <tr>
               <td colspan="2" class="text-indent-50" align="left">
-                บัดนี้ ข้าพเจ้าได้ปฏิบัติงานดังกล่าวงวดที่ <?php echo $work1?> (เดือน <?php echo $month_thai?> <?php echo $year_thai1?>) เสร็จเรียบร้อยแล้ว
+                บัดนี้ ข้าพเจ้าได้ปฏิบัติงานดังกล่าวงวดที่ <?php echo $work1?> (เดือน <?php echo $month?>) เสร็จเรียบร้อยแล้ว
              </td>
             </tr>
 
@@ -471,7 +497,7 @@
                                     <tr>
                                         <td width="1" class="text-nowrap border-0 padding-0">ลงชื่อ</td>
                                         <td class="border-0 padding-0 text-center">
-                                        <?php echo $prefix;?><?php echo $firtname;?>&nbsp;&nbsp;<?php echo $lastname;?>
+                                        <?php //echo $prefix;?><?php //echo $firtname;?>&nbsp;&nbsp;<?php //echo $lastname;?>
                                             <div class="line-bottom-dashed">&nbsp;</div>
                                         </td>
                                         <td width="1" class="text-nowrap border-0 padding-0">รับจ้าง</td>
@@ -511,7 +537,7 @@
                                     <tr>
                                         <td width="1" class="text-nowrap border-0 padding-0">ลงชื่อ</td>
                                         <td class="border-0 padding-0 text-center">
-                                        <?php echo $t_firstname;?>&nbsp;&nbsp;<?php echo $t_lastname;?>
+                                        
                                             <div class="line-bottom-dashed">&nbsp;</div>
                                         </td>
                                         <td width="1" class="text-nowrap border-0 padding-0"></td>

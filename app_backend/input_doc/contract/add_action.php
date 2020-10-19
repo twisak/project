@@ -17,7 +17,7 @@
         $money = $_POST['money'];
         //$amount = $_POST['amount'];
         $work = $_POST['work'];
-        $date_work = $_POST['date_work'];
+        //$date_work = $_POST['date_work'];
         $government = $_POST['government'];
         $that = $_POST['that'];
         $c_day = $_POST['c_day'];
@@ -56,11 +56,11 @@
          
 		
 				$sql = "INSERT INTO tb_contract (doc_id,foreword,str_date,stp_date,project_id,activity_id,person_id,
-                                                teacher_id,number,money,work,date_work,government,that,
+                                                teacher_id,number,money,work,government,that,
                                                 c_day,title_id,people,mid_price,chairman,committee,secretary,
                                                 details,date_start,date_end,property,scope,responsible,fine,payment,insurance,date_current)
 				 	     VALUES ('$doc_id','$foreword','$str_date','$stp_date','$project_id','$activity_id','$person_id','$teacher_id','$number',
-                                 '$money','$work','$date_work','$government','$that','$c_day','$title_id','$people','$mid_price','$chairman','$committee','$secretary',
+                                 '$money','$work','$government','$that','$c_day','$title_id','$people','$mid_price','$chairman','$committee','$secretary',
                                  '$details','$date_start','$date_end','$property','$scope','$responsible','$fine','$payment','$insurance','$date_current')";
                 $db_query = mysqli_query($conn,$sql);
                 //  echo $sql;

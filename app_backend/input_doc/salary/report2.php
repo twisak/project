@@ -158,7 +158,7 @@
                         </tr>
 
                         <tr>
-                            <td>- ค่าจ้างเหมาบริการเจ้าหน้าที่ประสานงานโครงการฯ โครงการ "<?php echo $project_name?>" งวดที่ <?php echo $perform1?> ประจำเดือน <?php echo $month_thaiM?>&nbsp;<?php echo $year_thaiM?></td>
+                            <td>- ค่าจ้างเหมาบริการเจ้าหน้าที่ประสานงานโครงการฯ โครงการ "<?php echo $project_name?>" งวดที่ <?php echo $perform1?> ประจำเดือน <?php echo $month?></td>
                             <td><?php echo $period1?></td>
                             <td>-</td>
                         </tr>
@@ -182,7 +182,7 @@
                                     <tr>
                                         <td width="1" class="text-nowrap border-0 padding-0">ลงชื่อ</td>
                                         <td class="border-0 padding-0 text-center">
-                                        <?php echo $prefix; ?><?php echo $firtname; ?>&nbsp;&nbsp;<?php echo $lastname; ?>
+                                        
                                             <div class="line-bottom-dashed">&nbsp;</div>
                                         </td>
                                         <td width="1" class="text-nowrap border-0 padding-0">ผู้รับเงิน</td>

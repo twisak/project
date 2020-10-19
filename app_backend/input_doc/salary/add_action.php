@@ -16,7 +16,7 @@
         $period = $_POST['period'];
         $total_amount = $_POST['total_amount'];
         $perform = $_POST['perform'];
-        $month = $_POST['month'];
+        //$month = $_POST['month'];
         $teacher_id = $_POST['teacher_id'];
         //$day_work = $_POST['day_work'];
         // $start_time = $_POST['start_time'];
@@ -35,9 +35,9 @@
 
 
 				$sql = "INSERT INTO tb_salary (doc_id,str_date,stp_date,project_id,activity_id,person_id,period,total_amount,
-                                                perform,month,teacher_id,day_work,start_time,end_time,Job,part_time,date_current)
+                                                perform,teacher_id,day_work,start_time,end_time,Job,part_time,date_current)
 				 	     VALUES ('$doc_id','$str_date','$stp_date','$project_id','$activity_id','$person_id','$period',
-                                 '$total_amount','$perform','$month','$teacher_id','$day_work','$start_time','$end_time',
+                                 '$total_amount','$perform','$teacher_id','$day_work','$start_time','$end_time',
                                  '$Job','$part_time','$date_current')";
         $db_query = mysqli_query($conn,$sql);
 

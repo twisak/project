@@ -15,7 +15,7 @@
         $money = $_POST['money'];
         //$amount = $_POST['amount'];
         $work = $_POST['work'];
-        $date_work = $_POST['date_work'];
+        //$date_work = $_POST['date_work'];
         $government = $_POST['government'];
         $that = $_POST['that'];
         // $c_day = $_POST['c_day'];
@@ -33,13 +33,13 @@
         $payment = serialize( $_POST["payment"] );
         $insurance = serialize( $_POST["insurance"] );
 
-         print "<pre>";
-         print_r($foreword);
-         print "</pre>";
+        //  print "<pre>";
+        //  print_r($foreword);
+        //  print "</pre>";
 
-         print "<pre>";
-         print_r($insurance);
-         print "</pre>";
+        //  print "<pre>";
+        //  print_r($insurance);
+        //  print "</pre>";
 
     // if($foreword != "")
     // {
@@ -61,7 +61,6 @@
                                                 number        = '".$number."',
                                                 money        = '".$money."',
                                                 work        = '".$work."',
-                                                date_work        = '".$date_work."',
                                                 government        = '".$government."',
                                                 that        = '".$that."',
                                                 title_id        = '".$title_id."',

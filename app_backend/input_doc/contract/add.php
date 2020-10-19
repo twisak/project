@@ -256,12 +256,12 @@ include('../../../config/constant.php');
                                                 <input type="text" class="form-control form-control-line" name="work" required onKeyUp="IsNumeric(this.value,this)">
                                             </div>
                                         </div>
-                                        <div class="col-md-2">
+                                        <!-- <div class="col-md-2">
                                             <div class="form-group">
                                                 <label><b>วันที่ปฎิบัติงาน</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
                                                 <input type="date" class="form-control form-control-line" required name="date_work">
                                             </div>
-                                        </div>
+                                        </div> -->
                                     </div>
                                     <br>
                                     <div class="row">

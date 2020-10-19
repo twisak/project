@@ -34,7 +34,8 @@
 
      //$id = $_GET['id'];
 
-     $sql_salary = "SELECT * FROM tb_salary ";
+     $doc_id = $_GET['doc_id'];
+     $sql_salary = "SELECT * FROM tb_salary WHERE doc_id = '".$doc_id."' ";
      $query_salary = mysqli_query($conn,$sql_salary);
      $result_salary = mysqli_fetch_assoc($query_salary);
 
@@ -164,15 +165,21 @@
                 </td>
             </tr>
             <?php
-                $project_id= $result_salary['project_id'];
+                $doc_id = $_GET['doc_id'];
+                $sql_salary = "SELECT * FROM tb_salary WHERE doc_id = '".$doc_id."' ";
+                $query_salary = mysqli_query($conn,$sql_salary);
+                $result_salary = mysqli_fetch_assoc($query_salary);
 
-                $sql ="SELECT * FROM tb_contract WHERE project_id = '".$project_id."'";
+               
+                $person_id = $result_salary['person_id'];
+
+              
+                $sql ="SELECT * FROM tb_contract WHERE person_id = '".$person_id."' ";
                 $query = mysqli_query($conn,$sql);
                 $num_rows = mysqli_num_rows($query);
                 while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
                 {
-                    
-                    $doc_id1 = $row['doc_id'];
+                    $doc_id = $row['doc_id'];
                     $foreword = unserialize($row['foreword']);
                 }
             ?>
@@ -408,14 +415,14 @@
                                     <tr>
                                         <td width="1" class="text-nowrap border-0 padding-0">ลงชื่อ</td>
                                         <td class="border-0 padding-0 text-center">
-                                            <?php echo $prefix; ?><?php echo $firtname; ?>&nbsp;&nbsp;<?php echo $lastname; ?>
+                                            
                                             <div class="line-bottom-dashed">&nbsp;</div>
                                         </td>
                                         <td width="10" class="text-nowrap border-0 padding-0">ผู้บันทึก</td>
                                         <td></td>
                                         <td width="10" class="text-nowrap border-0 padding-0">ลงชื่อ</td>
                                         <td class="border-0 padding-0 text-center">
-                                            <?php echo $t_firstname; ?>&nbsp;&nbsp;<?php echo $t_lastname; ?>
+                                            
                                             <div class="line-bottom-dashed"></div>
                                         </td>
                                         <td width="1" class="text-nowrap border-0 padding-0">ผู้ควบคุม</td>

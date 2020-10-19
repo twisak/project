@@ -31,8 +31,26 @@
 </head>
 
 <?php
-                                        // $id =$_GET['id'];
-                                        $sql ="SELECT * FROM tb_contract";
+
+                                        $doc_id = $_GET['id'];
+                                        $sql_salary = "SELECT * FROM tb_salary WHERE doc_id = '".$doc_id."' ";
+                                        $query_salary = mysqli_query($conn,$sql_salary);
+                                        $result_salary = mysqli_fetch_assoc($query_salary);
+
+                                        $doc_id = $result_salary['doc_id'];
+                                        $str_date = $result_salary['str_date'];
+                                        $stp_date = $result_salary['stp_date'];
+                                        $project_id = $result_salary['project_id'];
+                                        $activity_id = $result_salary['activity_id'];
+                                        $person_id = $result_salary['person_id'];
+                                        $period = $result_salary['period'];
+                                        $total_amount = $result_salary['total_amount'];
+                                        $perform = $result_salary['perform'];
+                                        $month = $result_salary['month'];
+                                        $teacher_id = $result_salary['teacher_id'];
+
+                                      
+                                        $sql ="SELECT * FROM tb_contract WHERE person_id = '".$person_id."' ";
                                         $query = mysqli_query($conn,$sql);
                                         $num_rows = mysqli_num_rows($query);
                                         while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
@@ -190,7 +208,7 @@
                                     <tr>
                                         <td width="1" class="text-nowrap border-0 padding-0">ลงชื่อ</td>
                                         <td class="border-0 padding-0 text-center">
-                                        <?php echo $t_firstname;?>&nbsp;&nbsp;<?php echo $t_lastname;?>
+                                        
                                             <div class="line-bottom-dashed">&nbsp;</div>
                                         </td>
                                         <td width="1" class="text-nowrap border-0 padding-0"></td>

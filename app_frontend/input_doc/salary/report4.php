@@ -31,9 +31,8 @@
 </head>
 <?php
 
-     //$id = $_GET['id'];
-
-     $sql_salary = "SELECT * FROM tb_salary ";
+     $doc_id = $_GET['id'];
+     $sql_salary = "SELECT * FROM tb_salary WHERE doc_id = '".$doc_id."' ";
      $query_salary = mysqli_query($conn,$sql_salary);
      $result_salary = mysqli_fetch_assoc($query_salary);
 
@@ -109,12 +108,13 @@
      $t_firstname = $result_teacher['t_firstname'];
      $t_lastname = $result_teacher['t_lastname'];
      $position_id = $result_teacher['position_id'];
-
+     
      $sql_position = "SELECT * FROM tb_position WHERE position_id = '".$position_id."' ";
      $query_position = mysqli_query($conn,$sql_position);
      $result_position = mysqli_fetch_assoc($query_position);
 
      $position_name = $result_position['position_name'];
+     
 
 ?>
 
@@ -398,14 +398,14 @@
                                     <tr>
                                         <td width="1" class="text-nowrap border-0 padding-0">ลงชื่อ</td>
                                         <td class="border-0 padding-0 text-center">
-                                            <?php echo $prefix; ?><?php echo $firtname; ?>&nbsp;&nbsp;<?php echo $lastname; ?>
+                                            
                                             <div class="line-bottom-dashed">&nbsp;</div>
                                         </td>
                                         <td width="10" class="text-nowrap border-0 padding-0">ผู้บันทึก</td>
                                         <td></td>
                                         <td width="10" class="text-nowrap border-0 padding-0">ลงชื่อ</td>
                                         <td class="border-0 padding-0 text-center">
-                                            <?php echo $t_firstname; ?>&nbsp;&nbsp;<?php echo $t_lastname; ?>
+                                            <?php //echo $t_firstname; ?>&nbsp;&nbsp;<?php //echo $t_lastname; ?>
                                             <div class="line-bottom-dashed"></div>
                                         </td>
                                         <td width="1" class="text-nowrap border-0 padding-0">ผู้ควบคุม</td>

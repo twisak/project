@@ -311,7 +311,6 @@
                                     <tr>
                                         <td width="1" class="text-nowrap border-0 padding-0">ลงชื่อ</td>
                                         <td class="border-0 padding-0 text-center">
-                                        <?php echo $t_firstname;?>&nbsp;&nbsp;<?php echo $t_lastname;?>
                                             <div class="line-bottom-dashed">&nbsp;</div>
                                         </td>
                                         <td width="1" class="text-nowrap border-0 padding-0"></td>

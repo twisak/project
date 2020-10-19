@@ -194,12 +194,12 @@
                                                 <input type="text" class="form-control form-control-line" name="perform" onKeyUp="IsNumeric(this.value,this)">
                                             </div>
                                         </div>
-                                        <div class="col-md-2">
+                                        <!-- <div class="col-md-2">
                                             <div class="form-group">
                                               <label><b>เดือนที่</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
                                                 <input type="date" class="form-control form-control-line" name="month">
                                             </div>
-                                        </div>
+                                        </div> -->
                                     </div>
 
                                     <div class="row">
@@ -220,7 +220,7 @@
                                                         $query = mysqli_query($conn, $sql);
                                                         while($result = mysqli_fetch_assoc($query)):
                                                     ?>
-                                                    <option value="<?=$result['teacher_id']?>"><?=$result['t_firstname']?><?=$result['t_lastname']?></option>
+                                                    <option value="<?=$result['teacher_id']?>"><?=$result['t_firstname']?>&nbsp;&nbsp;<?=$result['t_lastname']?></option>
                                                     <?php endwhile; ?>
                                                 </select>
                                             </div>

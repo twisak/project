@@ -18,7 +18,7 @@
     $number = $result_contract['number'];
     $money = $result_contract['money'];
     $work = $result_contract['work'];
-    $date_work = $result_contract['date_work'];
+    //$date_work = $result_contract['date_work'];
     $government = $result_contract['government'];
     $that = $result_contract['that'];
     $c_day = $result_contract['c_day'];
@@ -324,12 +324,12 @@
                                                 <input type="text" class="form-control form-control-line" name="work" value="<?php echo $work; ?>" onKeyUp="IsNumeric(this.value,this)">
                                             </div>
                                         </div>
-                                        <div class="col-md-2">
+                                        <!-- <div class="col-md-2">
                                             <div class="form-group">
                                                 <label><b>วันที่ปฎิบัติงาน</b></label>
-                                                <input type="date" class="form-control form-control-line" name="date_work" value="<?php echo $date_work; ?>">
+                                                <input type="date" class="form-control form-control-line" name="date_work" value="<?php //echo $date_work; ?>">
                                             </div>
-                                        </div>
+                                        </div> -->
                                     </div>
                                     <div class="row">
                                         <div class="col-md-2">

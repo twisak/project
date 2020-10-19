@@ -57,7 +57,7 @@
     $period = $result_salary['period'];
     $total_amount = $result_salary['total_amount'];
     $perform = $result_salary['perform'];
-    $month = $result_salary['month'];
+    //$month = $result_salary['month'];
     $teacher_id = $result_salary['teacher_id'];
 
     $day_work = unserialize( $result_salary["day_work"] );
@@ -235,12 +235,12 @@
                                                 <input type="text" class="form-control form-control-line" name="perform" value="<?php echo $perform; ?>" onKeyUp="IsNumeric(this.value,this)">
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
+                                        <!-- <div class="col-md-4">
                                             <div class="form-group">
                                              <label><b>เดือนที่</b></label>
-                                                <input type="date" class="form-control form-control-line" name="month" value="<?php echo $month; ?>">
+                                                <input type="date" class="form-control form-control-line" name="month" value="<?php //echo $month; ?>">
                                             </div>
-                                        </div>
+                                        </div> -->
                                     </div>
 
                                     <div class="row">

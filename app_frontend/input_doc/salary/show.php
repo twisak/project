@@ -57,7 +57,7 @@
                                         $period = $result_salary['period'];
                                         $total_amount = $result_salary['total_amount'];
                                         $perform = $result_salary['perform'];
-                                        $month = $result_salary['month'];
+                                        //$month = $result_salary['month'];
                                         $teacher_id = $result_salary['teacher_id'];
 
                                         $day_work = unserialize( $result_salary["day_work"] );
@@ -210,12 +210,12 @@
                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $perform; ?>
                                         </div>
                                     </div>
-                                    <div class="col-md-2">
+                                    <!-- <div class="col-md-2">
                                         <div class="form-group">
                                             <label for="activity"><b>เดือนที่</b></label><br>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $month; ?>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php //echo $month; ?>
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
 
                                 <!-- <div class="row">

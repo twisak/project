@@ -558,7 +558,7 @@
                                     <tr>
                                         <td width="1" class="text-nowrap border-0 padding-0">ลงชื่อ</td>
                                         <td class="border-0 padding-0 text-center">
-                                            <?php echo $firtname;?>&nbsp;&nbsp;<?php echo $lastname;?>
+                                            
                                             <div class="line-bottom-dashed">&nbsp;</div>
                                         </td>
                                         <td width="1" class="text-nowrap border-0 padding-0">ผู้รับเงิน</td>
