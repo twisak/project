@@ -99,17 +99,17 @@
                                         $date_back = $result_debt['date_back'];
                                         $time_back = $result_debt['time_back'];
                                         $open_money	= $result_debt['open_money'];
-                                        $allowance = $result_debt['allowance'];
-                                        $allowance_day = $result_debt['allowance_day'];
-                                        $allowance_price = $result_debt['allowance_price'];
-                                        $allowance_sum = $result_debt['allowance_sum'];
-                                        $rest = $result_debt['rest'];
-                                        $rest_day = $result_debt['rest_day'];
-                                        $rest_sum = $result_debt['rest_sum'];
-                                        $vehicle = $result_debt['vehicle'];
-                                        $vehicle_sum = $result_debt['vehicle_sum'];
-                                        $other = $result_debt['other'];
-                                        $other_sum = $result_debt['other_sum'];
+                                        // $allowance = $result_debt['allowance'];
+                                        // $allowance_day = $result_debt['allowance_day'];
+                                        // $allowance_price = $result_debt['allowance_price'];
+                                        // $allowance_sum = $result_debt['allowance_sum'];
+                                        // $rest = $result_debt['rest'];
+                                        // $rest_day = $result_debt['rest_day'];
+                                        // $rest_sum = $result_debt['rest_sum'];
+                                        // $vehicle = $result_debt['vehicle'];
+                                        // $vehicle_sum = $result_debt['vehicle_sum'];
+                                        // $other = $result_debt['other'];
+                                        // $other_sum = $result_debt['other_sum'];
                                         $document_num = $result_debt['document_num'];
 
                                         $list = unserialize( $result_debt["list"] );
@@ -181,7 +181,7 @@
                                   </div>
                               </div>
                               <form class="form-horizontal form-material" action="../debt/edit_action.php" method="post">
-                              <input type="hidden" name="id" value="<?php echo $id; ?>">
+                              <!-- <input type="hidden" name="id" value="<?php echo $id; ?>"> -->
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="form-group">
@@ -230,16 +230,8 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label><b>ชื่อบุคลากร</b></label></label>
-                                                <select name="person_id" class="form-control">
-                                                    <option value="<?php echo $person_id?>"><?php echo $prefix?><?php echo $firtname?>&nbsp;&nbsp;<?php echo $lastname?></option>
-                                                    <?php
-                                                        $sql = "SELECT * FROM tb_person";
-                                                        $query = mysqli_query($conn, $sql);
-                                                        while($result = mysqli_fetch_assoc($query)):
-                                                    ?>
-                                                    <option value="<?=$result['person_id']?>"><?=$result['prefix']?><?=$result['firtname']?>&nbsp;&nbsp;<?=$result['lastname']?></option>
-                                                    <?php endwhile; ?>
-                                                </select>
+                                                <input type="text" value="<?php echo $prefix?><?php echo $firtname?>&nbsp;&nbsp;<?php echo $lastname?>" class="form-control form-control-line">
+                                                <input type="hidden" class="form-control" name="person_id" value="<?php echo $person_id?>">
                                             </div>
                                         </div>
 
@@ -253,7 +245,7 @@
                                                         $query = mysqli_query($conn, $sql);
                                                         while($result = mysqli_fetch_assoc($query)):
                                                     ?>
-                                                    <option value="<?=$result['teacher_id']?>"><?=$result['t_firstname']?>&nbsp;&nbsp;<?=$result['t_lastname']?></option>
+                                                    <option value="<?=$result['teacher_id']?>"><?=$result['t_firstname']?><?=$result['t_lastname']?></option>
                                                     <?php endwhile; ?>
                                                 </select>
                                             </div>
@@ -264,8 +256,8 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label><b>ได้รับเงินจาก</b></label></label>
-                                                <input type="text" value="<?php echo $money_from;?>" class="form-control form-control-line">
-                                                <input type="hidden" name="money_from" value="<?php echo $money_from;?>" />
+                                                <input type="text" value="<?php echo $money_from;?>" name="money_from" class="form-control form-control-line">
+
                                             </div>
                                         </div>
                                     </div>
@@ -332,10 +324,23 @@
 
                                     <div class="row">
                                         <div class="col-md-2">
-                                            <div class="form-group">
+                                            <!-- <div class="form-group">
                                                 <label><b>สัญญาเงินยืมเลขที่</b></label>
                                                 <input type="text" value="<?php echo $lend_num;?>" class="form-control form-control-line">
                                                 <input type="hidden" name="lend_num" value="<?php echo $lend_num;?>" />
+                                            </div> -->
+                                            <div class="form-group">
+                                                <label><b>สัญญาเงินยืมเลขที่</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
+                                                <select name="lend_num" class="form-control">
+                                                    <option value="<?php echo $lend_num;?>"><?php echo $lend_num;?></option>
+                                                    <?php
+                                                    $sql = "SELECT * FROM tb_lend WHERE person_id = '".$person_id."' ";
+                                                    $query = mysqli_query($conn, $sql);
+                                                    while($result = mysqli_fetch_assoc($query)):
+                                                ?>
+                                                    <option value="<?=$result['doc_id']?>"><?=$result['doc_id']?></option>
+                                                    <?php endwhile; ?>
+                                                </select>
                                             </div>
                                         </div>
 
@@ -459,53 +464,53 @@
                                             </div>
                                         </div>
 
-                                        <div class="col-md-2">
+                                        <!-- <div class="col-md-2">
                                             <div class="form-group">
                                               <label><b>ค่าเบี้ยเลี้ยง</b></label>
-                                                <input type="text" value="<?php echo $allowance;?>" class="form-control form-control-line">
-                                                <input type="hidden" name="allowance" value="<?php echo $allowance;?>" />
+                                                <input type="text" value="<?php //echo $allowance;?>" class="form-control form-control-line">
+                                                <input type="hidden" name="allowance" value="<?php //echo $allowance;?>" />
                                             </div>
                                         </div>
 
                                         <div class="col-md-2">
                                             <div class="form-group">
                                               <label><b>จำนวน/วัน</b></label>
-                                                <input type="text" value="<?php echo $allowance_day;?>" class="form-control form-control-line" onKeyUp="IsNumeric(this.value,this)">
-                                                <input type="hidden" name="allowance_day" value="<?php echo $allowance_day;?>" />
+                                                <input type="text" value="<?php //echo $allowance_day;?>" class="form-control form-control-line" onKeyUp="IsNumeric(this.value,this)">
+                                                <input type="hidden" name="allowance_day" value="<?php //echo $allowance_day;?>" />
                                             </div>
                                         </div>
 
                                         <div class="col-md-2">
                                             <div class="form-group">
                                               <label><b>วันละ/บาท</b></label>
-                                                <input type="text" value="<?php echo $allowance_price;?>" class="form-control form-control-line" onKeyUp="IsNumeric(this.value,this)">
-                                                <input type="hidden" name="allowance_price" value="<?php echo $allowance_price;?>" />
+                                                <input type="text" value="<?php //echo $allowance_price;?>" class="form-control form-control-line" onKeyUp="IsNumeric(this.value,this)">
+                                                <input type="hidden" name="allowance_price" value="<?php //echo $allowance_price;?>" />
                                             </div>
                                         </div>
 
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label><b>รวมเป็น</b></label>
-                                                <input type="text" value="<?php echo $allowance_sum;?>" class="form-control form-control-line" onKeyUp="IsNumeric(this.value,this)">
-                                                <input type="hidden" name="allowance_sum" value="<?php echo $allowance_sum;?>" />
+                                                <input type="text" value="<?php //echo $allowance_sum;?>" class="form-control form-control-line" onKeyUp="IsNumeric(this.value,this)">
+                                                <input type="hidden" name="allowance_sum" value="<?php //echo $allowance_sum;?>" />
                                             </div>
-                                        </div>
+                                        </div> -->
                                     </div>
 
-                                    <div class="row">
+                                    <!-- <div class="row">
                                         <div class="col-md-2">
                                             <div class="form-group">
                                               <label><b>ค่าที่พัก</b></label>
-                                                <input type="text" value="<?php echo $rest;?>" class="form-control form-control-line">
-                                                <input type="hidden" name="rest" value="<?php echo $rest;?>" />
+                                                <input type="text" value="<?php //echo $rest;?>" class="form-control form-control-line">
+                                                <input type="hidden" name="rest" value="<?php //echo $rest;?>" />
                                             </div>
                                         </div>
 
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label><b>จำนวน/วัน</b></label>
-                                                <input type="text" value="<?php echo $rest_day;?>" class="form-control form-control-line" onKeyUp="IsNumeric(this.value,this)">
-                                                <input type="hidden" name="rest_day" value="<?php echo $rest_day;?>" />
+                                                <input type="text" value="<?php //echo $rest_day;?>" class="form-control form-control-line" onKeyUp="IsNumeric(this.value,this)">
+                                                <input type="hidden" name="rest_day" value="<?php //echo $rest_day;?>" />
                                             </div>
                                         </div>
 
@@ -513,49 +518,49 @@
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label><b>รวมเป็น</b></label>
-                                                <input type="text" value="<?php echo $rest_sum;?>" class="form-control form-control-line" onKeyUp="IsNumeric(this.value,this)">
-                                                <input type="hidden" name="rest_sum" value="<?php echo $rest_sum;?>" />
+                                                <input type="text" value="<?php //echo $rest_sum;?>" class="form-control form-control-line" onKeyUp="IsNumeric(this.value,this)">
+                                                <input type="hidden" name="rest_sum" value="<?php //echo $rest_sum;?>" />
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
 
-                                    <div class="row">
+                                    <!-- <div class="row">
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label><b>ค่าพาหนะ</b></label>
-                                                <input type="text" value="<?php echo $vehicle;?>" class="form-control form-control-line">
-                                                <input type="hidden" name="vehicle" value="<?php echo $vehicle;?>" />
+                                                <input type="text" value="<?php //echo $vehicle;?>" class="form-control form-control-line">
+                                                <input type="hidden" name="vehicle" value="<?php //echo $vehicle;?>" />
                                             </div>
                                         </div>
 
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                   <label><b>รวมเป็น</b></label>
-                                                <input type="text" value="<?php echo $vehicle_sum;?>" class="form-control form-control-line" onKeyUp="IsNumeric(this.value,this)">
-                                                <input type="hidden" name="vehicle_sum" value="<?php echo $vehicle_sum;?>" />
+                                                <input type="text" value="<?php //echo $vehicle_sum;?>" class="form-control form-control-line" onKeyUp="IsNumeric(this.value,this)">
+                                                <input type="hidden" name="vehicle_sum" value="<?php //echo $vehicle_sum;?>" />
                                             </div>
                                         </div>
 
-                                    </div>
+                                    </div> -->
 
-                                    <div class="row">
+                                    <!-- <div class="row">
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label><b>ค่าใช้จ่ายอื่นๆ</b></label>
-                                                <input type="text" value="<?php echo $other;?>" class="form-control form-control-line">
-                                                <input type="hidden" name="other" value="<?php echo $other;?>" />
+                                                <input type="text" value="<?php //echo $other;?>" class="form-control form-control-line">
+                                                <input type="hidden" name="other" value="<?php //echo $other;?>" />
                                             </div>
                                         </div>
 
                                         <div class="col-md-2">
                                             <div class="form-group">
                                               <label><b>รวมเป็น</b></label>
-                                                <input type="text" value="<?php echo $other_sum;?>" class="form-control form-control-line" onKeyUp="IsNumeric(this.value,this)">
-                                                <input type="hidden" name="other_sum" value="<?php echo $other_sum;?>" />
+                                                <input type="text" value="<?php //echo $other_sum;?>" class="form-control form-control-line" onKeyUp="IsNumeric(this.value,this)">
+                                                <input type="hidden" name="other_sum" value="<?php //echo $other_sum;?>" />
                                             </div>
                                         </div>
 
-                                    </div>
+                                    </div> -->
 
                                     <div class="row">
                                         <div class="col-md-2">

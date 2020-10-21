@@ -18,7 +18,7 @@
     $number = $result_contract['number'];
     $money = $result_contract['money'];
     $work = $result_contract['work'];
-    //$date_work = $result_contract['date_work'];
+    $date_work = $result_contract['date_work'];
     $government = $result_contract['government'];
     $that = $result_contract['that'];
     $c_day = $result_contract['c_day'];
@@ -324,12 +324,23 @@
                                                 <input type="text" class="form-control form-control-line" name="work" value="<?php echo $work; ?>" onKeyUp="IsNumeric(this.value,this)">
                                             </div>
                                         </div>
-                                        <!-- <div class="col-md-2">
+                                        <div class="col-md-2">
                                             <div class="form-group">
-                                                <label><b>วันที่ปฎิบัติงาน</b></label>
-                                                <input type="date" class="form-control form-control-line" name="date_work" value="<?php //echo $date_work; ?>">
+                                                <label><b>ภายในปี</b></label>&nbsp;<label class="text-danger"><b>*</b></label>
+                                                <select class="form-control" name="date_work" id="date_work">
+                                                    <?php
+                                                        $y=date('Y');
+                                                        $xYear=$y + 543; // เก็บค่าปีปัจจุบันไว้ในตัวแปร
+                                                                echo '<option value="'.$date_work.'">'.$date_work.'</option>'; 
+                                                                echo '<option value="'.$xYear.'">'.$xYear.'</option>'; // ปีปัจจุบัน
+                                                        for($i=1;$i<=30;$i++){
+                                                        echo '<option value="'.($xYear-$i).'">'.($xYear-$i).'</option>';
+                                                            }
+                                                    ?>
+                                                </select>
+
                                             </div>
-                                        </div> -->
+                                        </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-2">

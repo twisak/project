@@ -32,24 +32,13 @@
 </head>
 <?php
 
-     //$id = $_GET['id'];
-
-     $doc_id = $_GET['doc_id'];
+     $doc_id = $_GET['id'];
      $sql_salary = "SELECT * FROM tb_salary WHERE doc_id = '".$doc_id."' ";
      $query_salary = mysqli_query($conn,$sql_salary);
      $result_salary = mysqli_fetch_assoc($query_salary);
 
      $doc_id = $result_salary['doc_id'];
-     $str_date = $result_salary['str_date'];
-     $stp_date = $result_salary['stp_date'];
-     $project_id = $result_salary['project_id'];
-     $activity_id = $result_salary['activity_id'];
      $person_id = $result_salary['person_id'];
-     $period = $result_salary['period'];
-     $total_amount = $result_salary['total_amount'];
-     $perform = $result_salary['perform'];
-     $month = $result_salary['month'];
-     $teacher_id = $result_salary['teacher_id'];
 
      $day_work = unserialize($result_salary['day_work']);
      $start_time = unserialize($result_salary['start_time']);
@@ -88,15 +77,6 @@
      $districts_id = $result_person['districts_id'];
      $amphures_id = $result_person['amphures_id'];
 
-     $sql ="SELECT * FROM account_login WHERE person_id = '".$person_id."' ";
-     $query = mysqli_query($conn,$sql);
-     $result = mysqli_fetch_assoc($query);
-        
-        $person_id = $result['person_id'];
-        $username = $result['username'];
-        $password = $result['password'];
-        $status = $result['status'];
-
      $sql_province = "SELECT * FROM provinces WHERE id = '".$province_id."' ";
      $query_province = mysqli_query($conn,$sql_province);
      $result_province = mysqli_fetch_assoc($query_province);
@@ -120,12 +100,13 @@
      $t_firstname = $result_teacher['t_firstname'];
      $t_lastname = $result_teacher['t_lastname'];
      $position_id = $result_teacher['position_id'];
-
+     
      $sql_position = "SELECT * FROM tb_position WHERE position_id = '".$position_id."' ";
      $query_position = mysqli_query($conn,$sql_position);
      $result_position = mysqli_fetch_assoc($query_position);
 
      $position_name = $result_position['position_name'];
+     
 
 ?>
 
@@ -165,20 +146,14 @@
                 </td>
             </tr>
             <?php
-                $doc_id = $_GET['doc_id'];
-                $sql_salary = "SELECT * FROM tb_salary WHERE doc_id = '".$doc_id."' ";
-                $query_salary = mysqli_query($conn,$sql_salary);
-                $result_salary = mysqli_fetch_assoc($query_salary);
+                $contract_id = $result_salary['contract_id'];
 
-               
-                $person_id = $result_salary['person_id'];
-
-              
-                $sql ="SELECT * FROM tb_contract WHERE person_id = '".$person_id."' ";
+                $sql ="SELECT * FROM tb_contract WHERE doc_id = '".$contract_id."'";
                 $query = mysqli_query($conn,$sql);
                 $num_rows = mysqli_num_rows($query);
                 while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
                 {
+                   
                     $doc_id = $row['doc_id'];
                     $foreword = unserialize($row['foreword']);
                 }
@@ -422,7 +397,7 @@
                                         <td></td>
                                         <td width="10" class="text-nowrap border-0 padding-0">ลงชื่อ</td>
                                         <td class="border-0 padding-0 text-center">
-                                            
+                                            <?php //echo $t_firstname; ?>&nbsp;&nbsp;<?php //echo $t_lastname; ?>
                                             <div class="line-bottom-dashed"></div>
                                         </td>
                                         <td width="1" class="text-nowrap border-0 padding-0">ผู้ควบคุม</td>

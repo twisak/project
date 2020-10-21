@@ -84,7 +84,9 @@
                                             $person_id = $row['person_id'];
                                             $teacher_id = $row['teacher_id'];
                                             $allowance = $row['allowance'];
+                                            $allowance_day = $row['allowance_day'];
                                             $allowance_price = $row['allowance_price'];
+                                            $rest = $row['rest'];
                                             $rest_price = $row['rest_price'];
                                             $room = $row['room'];
                                             $num_night = $row['num_night'];
@@ -231,6 +233,12 @@
                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $allowance_price; ?>
                                         </div>
                                     </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label><b>กี่วัน</b></label><br>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $allowance_day; ?>
+                                        </div>
+                                    </div>
                                 </div>
 
                                 <div class="row">
@@ -244,6 +252,12 @@
                                         <div class="">
                                             <div class="form-group">
                                             &nbsp;&nbsp;&nbsp;&nbsp;
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label><b>ค่าเช่าที่พักประเภท</b></label><br>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $rest; ?>
                                             </div>
                                         </div>
                                         <div class="col-md-2">

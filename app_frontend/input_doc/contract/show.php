@@ -341,12 +341,12 @@
                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $work?>
                                         </div>
                                     </div>
-                                    <!-- <div class="col-md-4">
+                                    <div class="col-md-4">
                                         <div class="form-group">
-                                            <label><b>วันที่ปฎิบัติงาน</b></label><br>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php //echo $date_work?>
+                                            <label><b>ปีที่ปฎิบัติงาน</b></label><br>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $date_work?>
                                         </div>
-                                    </div> -->
+                                    </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-2">

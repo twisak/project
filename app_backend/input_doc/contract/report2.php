@@ -390,54 +390,14 @@
               </td>
             </tr>
 <?php
-        $strDate = explode("-", "$date_work");
 
-        // echo "year= ".$strDate[0];
-        // echo "month= ".$strDate[1];
-        // echo "date= ".$strDate[2];
-
-        $str_day = $strDate[2];
-        $str_month = $strDate[1];
-        $str_year = $strDate[0];
-
-        $year=date("$str_year")+543;
-
-        //echo $year;
-
-        $message = "$year";
+        $message = "$date_work";
         $numthai = array("๑","๒","๓","๔","๕","๖","๗","๘","๙","๐");
         $numarabic = array("1","2","3","4","5","6","7","8","9","0");
 
+        $date_work1 = str_replace($numarabic,$numthai,$message);
 
-        //$test = str_replace($numthai,$numarabic,$message);
-        $year_thai1 = str_replace($numarabic,$numthai,$message);
-        //echo $year_thai1;
-
-        if($str_month == "01"){
-        $month_thai = "มกราคม";
-        }else if($str_month == "02"){
-        $month_thai = "กุมภาพันธ์";
-        }else if($str_month == "03"){
-        $month_thai = "มีนาคม";
-        }else if($str_month == "04"){
-        $month_thai = "เมษายน";
-        }else if($str_month == "05"){
-        $month_thai = "พฤษภาคม";
-        }else if($str_month == "06"){
-        $month_thai = "มิถุนายน";
-        }else if($str_month == "07"){
-        $month_thai = "กรกฎาคม";
-        }else if($str_month == "08"){
-        $month_thai = "สิงหาคม";
-        }else if($str_month == "09"){
-        $month_thai = "กันยายน";
-        }else if($str_month == "10"){
-        $month_thai = "ตุลาคม";
-        }else if($str_month == "11"){
-        $month_thai = "พฤศจิกายน";
-        }else if($str_month == "12"){
-        $month_thai = "ธันวาคม";
-        }
+        
 
         $message = "$work";//รวมเป็น
         $numthai = array("๑","๒","๓","๔","๕","๖","๗","๘","๙","๐");
@@ -475,7 +435,7 @@
 ?>
             <tr>
               <td colspan="2" class="text-indent-50" align="left">
-                บัดนี้ ข้าพเจ้าได้ปฏิบัติงานดังกล่าวงวดที่ <?php echo $work1?> (เดือน <?php echo $month?>) เสร็จเรียบร้อยแล้ว
+                บัดนี้ ข้าพเจ้าได้ปฏิบัติงานดังกล่าวงวดที่ <?php echo $work1?> (เดือน <?php echo $month?> <?php echo $date_work1?>) เสร็จเรียบร้อยแล้ว
              </td>
             </tr>
 

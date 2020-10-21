@@ -13,8 +13,9 @@
     $teacher_id = $_POST['teacher_id'];
     $activity = $_POST['activity'];
     $allowance = $_POST['allowance'];
+    $allowance_day = $_POST['allowance_day'];
     $allowance_price = $_POST['allowance_price'];
-    
+    $rest = $_POST['rest'];
     $rest_price = $_POST['rest_price'];
     $room = $_POST['room'];
     $num_night = $_POST['num_night'];
@@ -72,12 +73,12 @@
             
 			// if($date_list != "")
 			// {
-                $sql = "INSERT INTO tb_lend (doc_id,str_date,project,person_id,teacher_id,activity,allowance, 
-                                             allowance_price,rest_price,room,num_night,vehicle_num,vehicle_price,regis,regis_num,
+                $sql = "INSERT INTO tb_lend (doc_id,str_date,project,person_id,teacher_id,activity,allowance, allowance_day,
+                                             allowance_price,rest,rest_price,room,num_night,vehicle_num,vehicle_price,regis,regis_num,
                                              fication_day,num_people,num_hour,price_hour,students_work,work_day,work_price,hand_food,
                                              num_food,food_price,snack,num_snack,snack_price,date_list,pay_type,price_list,balance,date_current)
-                                VALUES ('$doc_id','$str_date','$project','$person_id','$teacher_id','$activity','$allowance',
-                                        '$allowance_price','$rest_price','$room','$num_night','$vehicle_num','$vehicle_price','$regis','$regis_num',
+                                VALUES ('$doc_id','$str_date','$project','$person_id','$teacher_id','$activity','$allowance','$allowance_day',
+                                        '$allowance_price','$rest','$rest_price','$room','$num_night','$vehicle_num','$vehicle_price','$regis','$regis_num',
                                         '$fication_day','$num_people','$num_hour','$price_hour','$students_work','$work_day','$work_price','$hand_food',
                                         '$num_food','$food_price','$snack','$num_snack','$snack_price','$date_list','$pay_type','$price_list','$balance','$date_current')";
                 

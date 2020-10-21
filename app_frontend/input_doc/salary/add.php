@@ -116,111 +116,17 @@
                                     </div>
 
                                     <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                 <label><b>โครงการ</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
-                                                <select name="project_id" id="project" class="form-control" required>
-                                                    <option value="">เลือกโครงการ</option>
-                                                    <?php
-                                                        $sql = "SELECT * FROM tb_project";
-                                                        $query = mysqli_query($conn, $sql);
-                                                        while($result = mysqli_fetch_assoc($query)):
-                                                    ?>
-                                                    <option value="<?=$result['project_id']?>"><?=$result['project_name']?></option>
-                                                    <?php endwhile; ?>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                             <label><b>ชื่อกิจกรรม</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
-                                                <select name="activity_id" id="activity" class="form-control" required>
-                                                    <option value="">ชื่อกิจกรรม</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-md-2">
-                                            <div class="form-group">
-                                         <label><b>เริ่มต้นวันที่</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
-                                                <input type="date" class="form-control form-control-line" name="str_date" required>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <div class="form-group">
-                                              <label><b>สิ้นสุดวันที่</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
-                                                <input type="date" class="form-control form-control-line" name="stp_date" required>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <script language="javascript">
-                                        function IsNumeric(sText, obj) {
-                                            var ValidChars = "0123456789/";
-                                            var IsNumber = true;
-                                            var Char;
-                                            for (i = 0; i < sText.length && IsNumber == true; i++) {
-                                                Char = sText.charAt(i);
-                                                if (ValidChars.indexOf(Char) == -1) {
-                                                    IsNumber = false;
-                                                }
-                                            }
-                                            if (IsNumber == false) {
-                                                alert("(ตัวเลข เท่านั้น)");
-                                                obj.value = sText.substr(0, sText.length - 1);
-                                            }
-                                        }
-                                    </script>
-                                    <div class="row">
-                                        <div class="col-md-2">
-                                            <div class="form-group">
-                                               <label><b>งวดล่ะ</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
-                                                <input type="text" class="form-control form-control-line" name="period" onKeyUp="IsNumeric(this.value,this)">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <div class="form-group">
-                                            <label><b>รวมเป็นเงินทั้งสิ้น</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
-                                                <input type="text" class="form-control form-control-line" name="total_amount" onKeyUp="IsNumeric(this.value,this)">
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-md-2">
-                                            <div class="form-group">
-                                               <label><b>ปฎิบัติงานดังกล่าวงวดที่</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
-                                                <input type="text" class="form-control form-control-line" name="perform" onKeyUp="IsNumeric(this.value,this)">
-                                            </div>
-                                        </div>
-                                        <!-- <div class="col-md-2">
-                                            <div class="form-group">
-                                              <label><b>เดือนที่</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
-                                                <input type="date" class="form-control form-control-line" name="month">
-                                            </div>
-                                        </div> -->
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label><b>บันทึกรับรองที่ปฎิบัติงานของผู้ควมคุมงาน</b></label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                              <label><b>ผู้ควบคุมการปฎิบัติงาน</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
-                                                <select name="teacher_id" class="form-control">
-                                                    <option value="">เลือกชื่ออาจารย์</option>
+                                            <label><b>งานจ้างเหมาเลขที่</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
+                                                <select name="contract_id" class="form-control">
+                                                    <option value="">เลือก</option>
                                                     <?php
-                                                        $sql = "SELECT * FROM tb_teacher";
-                                                        $query = mysqli_query($conn, $sql);
-                                                        while($result = mysqli_fetch_assoc($query)):
-                                                    ?>
-                                                    <option value="<?=$result['teacher_id']?>"><?=$result['t_firstname']?>&nbsp;&nbsp;<?=$result['t_lastname']?></option>
+                                                    $sql = "SELECT * FROM tb_contract WHERE person_id = '".$person_id."' ";
+                                                    $query = mysqli_query($conn, $sql);
+                                                    while($result = mysqli_fetch_assoc($query)):
+                                                ?>
+                                                    <option value="<?=$result['doc_id']?>"><?=$result['doc_id']?></option>
                                                     <?php endwhile; ?>
                                                 </select>
                                             </div>

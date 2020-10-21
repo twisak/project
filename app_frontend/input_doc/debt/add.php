@@ -217,9 +217,22 @@ include('../../../config/constant.php');
 
                                     <div class="row">
                                         <div class="col-md-4">
-                                            <div class="form-group">
+                                            <!-- <div class="form-group">
                                                 <label><b>สัญญาเงินยืมเลขที่</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
                                                 <input type="text" class="form-control form-control-line" name="lend_num">
+                                            </div> -->
+                                            <div class="form-group">
+                                                <label><b>สัญญาเงินยืมเลขที่</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
+                                                <select name="lend_num" class="form-control">
+                                                    <option value="">เลือก</option>
+                                                    <?php
+                                                    $sql = "SELECT * FROM tb_lend WHERE person_id = '".$person_id."' ";
+                                                    $query = mysqli_query($conn, $sql);
+                                                    while($result = mysqli_fetch_assoc($query)):
+                                                ?>
+                                                    <option value="<?=$result['doc_id']?>"><?=$result['doc_id']?></option>
+                                                    <?php endwhile; ?>
+                                                </select>
                                             </div>
                                         </div>
 
@@ -347,7 +360,7 @@ include('../../../config/constant.php');
                                             }
                                         }
                                     </script>
-                                        <div class="col-md-4">
+                                        <!-- <div class="col-md-4">
                                             <div class="form-group">
                                                 <label><b>ค่าเบี้ยเลี้ยง</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
                                                 <input type="text" class="form-control form-control-line" name="allowance">
@@ -373,10 +386,10 @@ include('../../../config/constant.php');
                                                 <label><b>รวมเป็น</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
                                                 <input type="text" class="form-control form-control-line" name="allowance_sum"onKeyUp="IsNumeric(this.value,this)">
                                             </div>
-                                        </div>
+                                        </div> -->
                                     </div>
 
-                                    <div class="row">
+                                    <!-- <div class="row">
 
                                         <div class="col-md-4">
                                             <div class="form-group">
@@ -398,9 +411,9 @@ include('../../../config/constant.php');
                                                 <input type="text" class="form-control form-control-line" name="rest_sum" onKeyUp="IsNumeric(this.value,this)">
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
 
-                                    <div class="row">
+                                    <!-- <div class="row">
 
                                         <div class="col-md-4">
                                             <div class="form-group">
@@ -415,9 +428,9 @@ include('../../../config/constant.php');
                                                 <input type="text" class="form-control form-control-line" name="vehicle_sum" onKeyUp="IsNumeric(this.value,this)">
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
 
-                                    <div class="row">
+                                    <!-- <div class="row">
 
                                         <div class="col-md-4">
                                             <div class="form-group">
@@ -432,7 +445,7 @@ include('../../../config/constant.php');
                                                 <input type="text" class="form-control form-control-line" name="other_sum" onKeyUp="IsNumeric(this.value,this)">
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
 
                                     <div class="row">
                                         <div class="col-md-2">

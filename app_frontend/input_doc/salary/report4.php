@@ -37,16 +37,7 @@
      $result_salary = mysqli_fetch_assoc($query_salary);
 
      $doc_id = $result_salary['doc_id'];
-     $str_date = $result_salary['str_date'];
-     $stp_date = $result_salary['stp_date'];
-     $project_id = $result_salary['project_id'];
-     $activity_id = $result_salary['activity_id'];
      $person_id = $result_salary['person_id'];
-     $period = $result_salary['period'];
-     $total_amount = $result_salary['total_amount'];
-     $perform = $result_salary['perform'];
-     $month = $result_salary['month'];
-     $teacher_id = $result_salary['teacher_id'];
 
      $day_work = unserialize($result_salary['day_work']);
      $start_time = unserialize($result_salary['start_time']);
@@ -154,9 +145,9 @@
                 </td>
             </tr>
             <?php
-                $project_id= $result_salary['project_id'];
+                $contract_id = $result_salary['contract_id'];
 
-                $sql ="SELECT * FROM tb_contract WHERE project_id = '".$project_id."'";
+                $sql ="SELECT * FROM tb_contract WHERE doc_id = '".$contract_id."'";
                 $query = mysqli_query($conn,$sql);
                 $num_rows = mysqli_num_rows($query);
                 while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))

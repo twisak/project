@@ -439,7 +439,7 @@
                             <table width="100%" border="0" align="left">
                                 <tr>
                                     <td class="border-0 padding-0 text-center">
-                                    &nbsp;<?php echo $allowance_price; ?>
+                                    &nbsp;<?php echo number_format($allowance_price, 0, ".", ",") . "\n"; // US format ?>
                                         <div class="line-bottom-dashed"></div>
                                     </td>
                                 </tr>
@@ -452,7 +452,7 @@
                             <table width="100%" border="0" align="left">
                                 <tr>
                                     <td class="border-0 padding-0 text-center">
-                                    &nbsp;<?php echo $sum_room; ?>
+                                    &nbsp;<?php echo number_format($sum_room, 0, ".", ",") . "\n"; // US format ?>
                                         <div class="line-bottom-dashed"></div>
                                     </td>
                                 </tr>
@@ -465,7 +465,7 @@
                             <table width="100%" border="0" align="left">
                                 <tr>
                                     <td class="border-0 padding-0 text-center">
-                                    &nbsp;<?php echo $sum_vehicle; ?>
+                                    &nbsp;<?php echo number_format($sum_vehicle, 0, ".", ",") . "\n"; // US format ?>
                                         <div class="line-bottom-dashed"></div>
                                     </td>
                                 </tr>
@@ -478,7 +478,7 @@
                             <table width="100%" border="0" align="left">
                                 <tr>
                                     <td class="border-0 padding-0 text-center">
-                                    &nbsp;<?php echo $sum_regis; ?>
+                                    &nbsp;<?php echo number_format($sum_regis, 0, ".", ",") . "\n"; // US format ?>
                                         <div class="line-bottom-dashed"></div>
                                     </td>
                                 </tr>
@@ -500,7 +500,7 @@
                             <table width="100%" border="0" align="left">
                                 <tr>
                                     <td class="border-0 padding-0 text-center"><br><br><br>
-                                    &nbsp;<?php echo $sum; ?>
+                                    &nbsp;<?php echo number_format($sum, 0, ".", ",") . "\n"; // US format ?>
                                         <div class="line-bottom-dashed"></div>
                                     </td>
                                 </tr>
@@ -512,7 +512,7 @@
                             <table width="100%" border="0" align="left">
                                 <tr>
                                     <td class="border-0 padding-0 text-center">
-                                    &nbsp;<?php echo $total; ?>
+                                    &nbsp;<?php echo number_format($total, 0, ".", ",") . "\n"; // US format ?>
                                         <div class="line-bottom-dashed"></div>
                                     </td>
                                 </tr>
@@ -535,7 +535,7 @@
                                 <tr>
                                     <td width="1" class="text-nowrap border-0 padding-0">ลงชื่อ</td>
                                     <td class="border-0 padding-0 text-center">
-                                    <?php echo $prefix; ?><?php echo $firtname; ?>&nbsp;&nbsp;<?php echo $lastname; ?>
+                                   
                                         <div class="line-bottom-dashed">&nbsp;</div>
                                     </td>
                                     <td width="1" class="text-nowrap border-0 padding-0">ผู้ยืม</td>
@@ -548,11 +548,28 @@
                                     <td class="border-0 padding-0" align="left">)</td>
                                 </tr>
                             </table>
+                            <?php 
+                                    $strDate = explode("-", "$str_date");
+
+                                    // echo "year= ".$strDate[0];
+                                    // echo "month= ".$strDate[1];
+                                    // echo "date= ".$strDate[2];
+
+                                    $str_day = $strDate[2];
+                                    $str_month = $strDate[1];
+                                    $str_year = $strDate[0];
+
+                                    $year=date("$str_year")+543;
+
+                                    // echo $str_day;
+                                    // echo $str_month;
+                                    // echo $year;
+                            ?>
                             <table width="300px" border="0" align="center">
                                 <tr>
                                     <td width="1" class="text-nowrap border-0 padding-0">วันที่</td>
                                     <td class="border-0 padding-0 text-center">
-                                    <?php echo $str_date; ?>
+                                    <?php echo $str_day; ?>/<?php echo $str_month; ?>/<?php echo $year; ?>
                                         <div class="line-bottom-dashed">&nbsp;</div>
                                     </td>
                                 </tr>
@@ -576,7 +593,7 @@
                                     <tr>
                                         <td width="1" class="text-nowrap border-0 padding-0 text-indent-50">จำนวน</td>
                                         <td class="border-0 padding-0 text-center">
-                                        &nbsp;<?php echo $total;?>
+                                        &nbsp;<?php echo number_format($total, 0, ".", ",") . "\n"; // US format ?>
                                             <div class="line-bottom-dashed"></div>
                                         </td>
                                         <td width="1" class="text-nowrap border-0 padding-0">บาท</td>
@@ -614,7 +631,7 @@
                                     <tr>
                                         <td width="1" class="text-nowrap border-0 padding-0">วันที่</td>
                                         <td class="border-0 padding-0 text-center">
-                                        &nbsp;<?php echo $str_date; ?>
+                                        &nbsp;<?php echo $str_day; ?>/<?php echo $str_month; ?>/<?php echo $year; ?>
                                             <div class="line-bottom-dashed"></div>
                                         </td>
                                     </tr>
@@ -643,7 +660,7 @@
                                     <tr>
                                         <td width="1" class="text-nowrap border-0 padding-0 text-indent-50">จำนวน</td>
                                         <td class="border-0 padding-0 text-center">
-                                        &nbsp;<?php echo $total;?>
+                                        &nbsp;<?php echo number_format($total, 0, ".", ",") . "\n"; // US format ?>
                                             <div class="line-bottom-dashed"></div>
                                         </td>
                                         <td width="1" class="text-nowrap border-0 padding-0">บาท</td>
@@ -681,7 +698,7 @@
                                     <tr>
                                         <td width="1" class="text-nowrap border-0 padding-0">วันที่</td>
                                         <td class="border-0 padding-0 text-center">
-                                        <?php echo $str_date; ?>
+                                        <?php echo $str_day; ?>/<?php echo $str_month; ?>/<?php echo $year; ?>
                                             <div class="line-bottom-dashed"></div>
                                         </td>
                                     </tr>
@@ -706,7 +723,7 @@
                                     <tr>
                                         <td width="1" class="text-nowrap border-0 padding-0">ได้รีบเงินยืมจำนวน</td>
                                         <td class="border-0 padding-0 text-center">
-                                        &nbsp;<?php echo $total;?>
+                                        &nbsp;<?php echo number_format($total, 0, ".", ",") . "\n"; // US format ?>
                                             <div class="line-bottom-dashed"></div>
                                         </td>
                                         <td width="1" class="text-nowrap border-0 padding-0">บาท</td>
@@ -754,7 +771,7 @@
                                     <tr>
                                         <td width="1" class="text-nowrap border-0 padding-0">วันที่</td>
                                         <td class="border-0 padding-0 text-center">
-                                        <?php echo $str_date; ?>
+                                        <?php echo $str_day; ?>/<?php echo $str_month; ?>/<?php echo $year; ?>
                                             <div class="line-bottom-dashed"></div>
                                         </td>
                                     </tr>

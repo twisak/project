@@ -110,7 +110,7 @@ include('../../../config/constant.php');
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label><b>ชื่อส่วนราชการผู้จัดฝึกอบรม</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
-                                                <input type="text" class="form-control form-control-line" name="name_train" required>
+                                                <input type="text" class="form-control form-control-line" name="name_train">
                                             </div>
                                         </div>
                                     </div>
@@ -123,17 +123,9 @@ include('../../../config/constant.php');
 
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label><b>ชื่อบุคลากร</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
-                                                <select name="person_id" class="form-control" required>
-                                                    <option value="">-- เลือกชื่อบุคลากร --</option>
-                                                    <?php
-                                                        $sql = "SELECT * FROM tb_person";
-                                                        $query = mysqli_query($conn, $sql);
-                                                        while($result = mysqli_fetch_assoc($query)):
-                                                    ?>
-                                                    <option value="<?=$result['person_id']?>"><?=$result['prefix']?><?=$result['firtname']?>&nbsp;&nbsp;<?=$result['lastname']?></option>
-                                                    <?php endwhile; ?>
-                                                </select>
+                                                <label><b>ชื่อบุคลากร</b></label>
+                                                <input type="text" value="<?php echo $prefix?><?php echo $firtname?>&nbsp;&nbsp;<?php echo $lastname?>" readonly class="form-control form-control-line">
+                                                <input type="hidden" class="form-control" name="person_id" value="<?php echo $person_id?>">
                                             </div>
                                         </div>
 
@@ -145,8 +137,8 @@ include('../../../config/constant.php');
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label><b>ชื่ออาจารย์</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
-                                                <select class="form-control" name="teacher_id" required>
-                                                    <option value="">-- เลือกชื่ออาจารย์ --</option>
+                                                <select class="form-control" name="teacher_id">
+                                                    <option value="">-- เลือกรายชื่อ --</option>
                                                     <?php
                                                         while($result_teacher=mysqli_fetch_array($query_teacher))
                                                         {
@@ -164,7 +156,7 @@ include('../../../config/constant.php');
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label><b>โครงการ</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
-                                                <select name="project_id" id="project" class="form-control" required>
+                                                <select name="project_id" id="project" class="form-control">
                                                     <option value="">เลือกโครงการ</option>
                                                     <?php
                                                     $sql = "SELECT * FROM tb_project";
@@ -180,7 +172,7 @@ include('../../../config/constant.php');
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="activity"><b>ชื่อกิจกรรม</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
-                                                <select name="activity_id" id="activity" class="form-control" required>
+                                                <select name="activity_id" id="activity" class="form-control">
                                                     <option value="">ชื่อกิจกรรม</option>
                                                 </select>
                                             </div>
@@ -191,7 +183,7 @@ include('../../../config/constant.php');
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label><b>ได้รับเงินจาก</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
-                                                <input type="text" class="form-control form-control-line" name="money_from" required>
+                                                <input type="text" class="form-control form-control-line" name="money_from">
                                             </div>
                                         </div>
                                     </div>
@@ -225,23 +217,36 @@ include('../../../config/constant.php');
 
                                     <div class="row">
                                         <div class="col-md-4">
+                                            <!-- <div class="form-group">
+                                                <label><b>สัญญาเงินยืมเลขที่</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
+                                                <input type="text" class="form-control form-control-line" name="lend_num">
+                                            </div> -->
                                             <div class="form-group">
                                                 <label><b>สัญญาเงินยืมเลขที่</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
-                                                <input type="text" class="form-control form-control-line" name="lend_num" required>
+                                                <select name="lend_num" class="form-control">
+                                                    <option value="">เลือก</option>
+                                                    <?php
+                                                    $sql = "SELECT * FROM tb_lend WHERE person_id = '".$person_id."' ";
+                                                    $query = mysqli_query($conn, $sql);
+                                                    while($result = mysqli_fetch_assoc($query)):
+                                                ?>
+                                                    <option value="<?=$result['doc_id']?>"><?=$result['doc_id']?></option>
+                                                    <?php endwhile; ?>
+                                                </select>
                                             </div>
                                         </div>
 
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label><b>ตามคำสั่ง/บันทึกที่</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
-                                                <input type="text" class="form-control form-control-line" name="note_that" required>
+                                                <input type="text" class="form-control form-control-line" name="note_that">
                                             </div>
                                         </div>
 
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label><b>ลงวันที่</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
-                                                <input type="date" class="form-control form-control-line" name="date_note" required>
+                                                <input type="date" class="form-control form-control-line" name="date_note">
                                             </div>
                                         </div>
                                     </div>
@@ -250,14 +255,14 @@ include('../../../config/constant.php');
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label><b>สังกัด</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
-                                                <input type="text" class="form-control form-control-line" name="under" required>
+                                                <input type="text" class="form-control form-control-line" name="under">
                                             </div>
                                         </div>
 
                                         <div class="col-md-8">
                                             <div class="form-group">
                                                 <label><b>พร้อมด้วย</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
-                                                <input type="text" class="form-control form-control-line" name="along_with" required>
+                                                <input type="text" class="form-control form-control-line" name="along_with">
                                             </div>
                                         </div>
                                     </div>
@@ -266,7 +271,7 @@ include('../../../config/constant.php');
                                         <div class="col-md-8">
                                             <div class="form-group">
                                                 <label><b>ไปปฏิบัติราชการ</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
-                                                <input type="text" class="form-control form-control-line" name="go_practice" required>
+                                                <input type="text" class="form-control form-control-line" name="go_practice">
                                             </div>
                                         </div>
                                     </div>
@@ -275,7 +280,7 @@ include('../../../config/constant.php');
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label><b>ออกเดินทางจาก</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
-                                                <select class="form-control" name="depart_from" required>
+                                                <select class="form-control" name="depart_from">
                                                     <option value="">-- เลือก --</option>
                                                     <option>บ้านพัก</option>
                                                     <option>สำนักงาน</option>
@@ -287,21 +292,21 @@ include('../../../config/constant.php');
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label><b>ตั้งแต่วันที่</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
-                                                <input type="date" class="form-control form-control-line" name="date_depart" required>
+                                                <input type="date" class="form-control form-control-line" name="date_depart">
                                             </div>
                                         </div>
 
                                         <div class="col-md-1">
                                             <div class="form-group">
                                                 <label><b>เวลา</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
-                                                <input type="time" class="form-control form-control-line" name="time_depart" required>
+                                                <input type="time" class="form-control form-control-line" name="time_depart">
                                             </div>
                                         </div>
 
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label><b>กลับถึง</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
-                                                <select class="form-control" name="back" required>
+                                                <select class="form-control" name="back">
                                                     <option value="">-- เลือก --</option>
                                                     <option>บ้านพัก</option>
                                                     <option>สำนักงาน</option>
@@ -313,14 +318,14 @@ include('../../../config/constant.php');
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label><b>ถึงวันที่</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
-                                                <input type="date" class="form-control form-control-line" name="date_back" required>
+                                                <input type="date" class="form-control form-control-line" name="date_back">
                                             </div>
                                         </div>
 
                                         <div class="col-md-1">
                                             <div class="form-group">
                                                 <label><b>เวลา</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
-                                                <input type="time" class="form-control form-control-line" name="time_back" required>
+                                                <input type="time" class="form-control form-control-line" name="time_back">
                                             </div>
                                         </div>
                                     </div>
@@ -331,7 +336,7 @@ include('../../../config/constant.php');
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label><b>เบิกค่าใช้จ่ายสำหรับ</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
-                                                <select class="form-control" name="open_money" required>
+                                                <select class="form-control" name="open_money">
                                                     <option value="">-- เลือก --</option>
                                                     <option>ข้าพเจ้า</option>
                                                     <option>คณะเดินทาง</option>
@@ -355,77 +360,77 @@ include('../../../config/constant.php');
                                             }
                                         }
                                     </script>
-                                        <div class="col-md-4">
+                                        <!-- <div class="col-md-4">
                                             <div class="form-group">
                                                 <label><b>ค่าเบี้ยเลี้ยง</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
-                                                <input type="text" class="form-control form-control-line" name="allowance" required>
+                                                <input type="text" class="form-control form-control-line" name="allowance">
                                             </div>
                                         </div>
 
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label><b>จำนวน/วัน</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
-                                                <input type="text" class="form-control form-control-line" name="allowance_day" required onKeyUp="IsNumeric(this.value,this)">
+                                                <input type="text" class="form-control form-control-line" name="allowance_day" onKeyUp="IsNumeric(this.value,this)">
                                             </div>
                                         </div>
 
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label><b>วันละ/บาท</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
-                                                <input type="text" class="form-control form-control-line" name="allowance_price" required onKeyUp="IsNumeric(this.value,this)">
+                                                <input type="text" class="form-control form-control-line" name="allowance_price" onKeyUp="IsNumeric(this.value,this)">
                                             </div>
                                         </div>
 
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label><b>รวมเป็น</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
-                                                <input type="text" class="form-control form-control-line" required name="allowance_sum" onKeyUp="IsNumeric(this.value,this)">
+                                                <input type="text" class="form-control form-control-line" name="allowance_sum"onKeyUp="IsNumeric(this.value,this)">
                                             </div>
-                                        </div>
+                                        </div> -->
                                     </div>
 
-                                    <div class="row">
+                                    <!-- <div class="row">
 
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label><b>ค่าที่พัก</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
-                                                <input type="text" class="form-control form-control-line" required name="rest">
+                                                <input type="text" class="form-control form-control-line" name="rest">
                                             </div>
                                         </div>
 
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label><b>จำนวน/วัน</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
-                                                <input type="text" class="form-control form-control-line" required name="rest_day" onKeyUp="IsNumeric(this.value,this)">
+                                                <input type="text" class="form-control form-control-line" name="rest_day" onKeyUp="IsNumeric(this.value,this)">
                                             </div>
                                         </div>
 
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label><b>รวมเป็น</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
-                                                <input type="text" class="form-control form-control-line" required name="rest_sum" onKeyUp="IsNumeric(this.value,this)">
+                                                <input type="text" class="form-control form-control-line" name="rest_sum" onKeyUp="IsNumeric(this.value,this)">
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
 
-                                    <div class="row">
+                                    <!-- <div class="row">
 
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label><b>ค่าพาหนะ</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
-                                                <input type="text" class="form-control form-control-line" required name="vehicle">
+                                                <input type="text" class="form-control form-control-line" name="vehicle">
                                             </div>
                                         </div>
 
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label><b>รวมเป็น</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
-                                                <input type="text" class="form-control form-control-line" required name="vehicle_sum" onKeyUp="IsNumeric(this.value,this)">
+                                                <input type="text" class="form-control form-control-line" name="vehicle_sum" onKeyUp="IsNumeric(this.value,this)">
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
 
-                                    <div class="row">
+                                    <!-- <div class="row">
 
                                         <div class="col-md-4">
                                             <div class="form-group">
@@ -440,7 +445,7 @@ include('../../../config/constant.php');
                                                 <input type="text" class="form-control form-control-line" name="other_sum" onKeyUp="IsNumeric(this.value,this)">
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
 
                                     <div class="row">
                                         <div class="col-md-2">

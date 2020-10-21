@@ -40,17 +40,9 @@
      $result_salary = mysqli_fetch_assoc($query_salary);
 
      $doc_id = $result_salary['doc_id'];
-     $str_date = $result_salary['str_date'];
-     $stp_date = $result_salary['stp_date'];
-     $project_id = $result_salary['project_id'];
-     $activity_id = $result_salary['activity_id'];
      $person_id = $result_salary['person_id'];
-     $period = $result_salary['period'];
-     $total_amount = $result_salary['total_amount'];
-     $perform = $result_salary['perform'];
-     $month = $result_salary['month'];
-     $teacher_id = $result_salary['teacher_id'];
-
+     $contract_id = $result_salary['contract_id'];
+     
      $day_work = unserialize($result_salary['day_work']);
      $start_time = unserialize($result_salary['start_time']);
      $end_time = unserialize($result_salary['end_time']);
@@ -62,6 +54,41 @@
      // $end_time = $result_salary['end_time'];
      // $Job = $result_salary['Job'];
      // $part_time = $result_salary['part_time'];
+
+     $sql ="SELECT * FROM tb_contract WHERE doc_id = '".$contract_id."'";
+     $query = mysqli_query($conn,$sql);
+     $num_rows = mysqli_num_rows($query);
+     while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
+     {
+         $doc_id = $row['doc_id'];
+         $foreword = unserialize($row['foreword']);
+         $str_date = $row['str_date'];
+         $stp_date = $row['stp_date'];
+         $project_id = $row['project_id'];
+         $activity_id = $row['activity_id'];
+         $person_id = $row['person_id'];
+         $teacher_id = $row['teacher_id'];
+         $number = $row['number'];
+         $money = $row['money'];
+         $work = $row['work'];
+         $date_work = $row['date_work'];
+         $government = $row['government'];
+         $that = $row['that'];
+         $c_day = $row['c_day'];
+         $title_id = $row['title_id'];
+         $people = $row['people'];
+         $mid_price = $row['mid_price'];
+         $details = $row['details'];
+         $date_start  = $row['date_start'];
+         $date_end = $row['date_end'];
+         $property = unserialize($row['property']);
+         $scope = unserialize($row["scope"]);
+         $responsible = $row['responsible'];
+         $fine = unserialize($row["fine"]);
+         $payment = unserialize( $row["payment"] );
+         $insurance = unserialize( $row["insurance"] );
+     }
+
 
      $sql_project = "SELECT * FROM tb_project WHERE project_id = '".$project_id."' ";
      $query_project = mysqli_query($conn,$sql_project);
@@ -324,12 +351,14 @@
                     $month_thaiE = "ธันวาคม";
                     }
 
-                    $message = "$period";
+                    $message = "$money";
                     $numthai = array("๑","๒","๓","๔","๕","๖","๗","๘","๙","๐");
                     $numarabic = array("1","2","3","4","5","6","7","8","9","0");
 
                     //$test = str_replace($numthai,$numarabic,$message);
-                    $period1 = str_replace($numarabic,$numthai,$message);
+                    $money1 = str_replace($numarabic,$numthai,$message);
+
+                    $total_amount = $money * 12;
 
                     $message = "$total_amount";
                     $numthai = array("๑","๒","๓","๔","๕","๖","๗","๘","๙","๐");
@@ -370,74 +399,74 @@
             ?>
             <tr>
                 <td colspan="2" class="text-indent-50" align="left">
-                    ตามที่ สถาบันพัฒนาครูและบุคลากรทางการศึกษาชายแดนใต้ มหาวิทยาลัยราชภัฏยะลา ได้จ้างให้ข้าพเจ้าเป็นเจ้าหน้าที่ประจำโครงการ "<?php echo $project_name?>" ตั้งแต่ <?php echo $day_thaiS?>&nbsp;<?php echo $month_thaiS?>&nbsp;<?php echo $year_thaiS?> ถึง <?php echo $day_thaiE?>&nbsp;<?php echo $month_thaiE?>&nbsp;<?php echo $year_thaiE?> งวดล่ะ <?php echo $period1?> รวมเป็นเงินทั้งสิ้น <?php echo $total_amount1?> บาท(<?php echo  convert($x);?>) นั้น
+                    ตามที่ สถาบันพัฒนาครูและบุคลากรทางการศึกษาชายแดนใต้ มหาวิทยาลัยราชภัฏยะลา <br>ได้จ้างให้ข้าพเจ้าเป็นเจ้าหน้าที่ประจำโครงการ "<?php echo $project_name?>" ตั้งแต่ <?php echo $day_thaiS?>&nbsp;<?php echo $month_thaiS?>&nbsp;<?php echo $year_thaiS?> ถึง <?php echo $day_thaiE?>&nbsp;<?php echo $month_thaiE?>&nbsp;<?php echo $year_thaiE?> งวดล่ะ <?php echo $money1?> รวมเป็นเงินทั้งสิ้น <?php echo $total_amount1?> บาท<br>(<?php echo  convert($x);?>) นั้น
                 </td>
             </tr>
             <?php
-                    $strDate = explode("-", "$month");//วันที่จบ
+                    // $strDate = explode("-", "$month");//วันที่จบ
 
-                    $str_day = $strDate[2];
-                    $str_month = $strDate[1];
-                    $str_year = $strDate[0];
+                    // $str_day = $strDate[2];
+                    // $str_month = $strDate[1];
+                    // $str_year = $strDate[0];
 
-                    $year=date("$str_year")+543;
+                    // $year=date("$str_year")+543;
 
-                    $message = "$year";
+                    // $message = "$year";
+                    // $numthai = array("๑","๒","๓","๔","๕","๖","๗","๘","๙","๐");
+                    // $numarabic = array("1","2","3","4","5","6","7","8","9","0");
+
+                    // //$test = str_replace($numthai,$numarabic,$message);
+                    // $year_thaiM = str_replace($numarabic,$numthai,$message);
+
+
+                    // if($str_month == "01"){
+                    // $month_thaiM = "มกราคม";
+                    // }else if($str_month == "02"){
+                    // $month_thaiM = "กุมภาพันธ์";
+                    // }else if($str_month == "03"){
+                    // $month_thaiM = "มีนาคม";
+                    // }else if($str_month == "04"){
+                    // $month_thaiM = "เมษายน";
+                    // }else if($str_month == "05"){
+                    // $month_thaiM = "พฤษภาคม";
+                    // }else if($str_month == "06"){
+                    // $month_thaiM = "มิถุนายน";
+                    // }else if($str_month == "07"){
+                    // $month_thaiM = "กรกฎาคม";
+                    // }else if($str_month == "08"){
+                    // $month_thaiM = "สิงหาคม";
+                    // }else if($str_month == "09"){
+                    // $month_thaiM = "กันยายน";
+                    // }else if($str_month == "10"){
+                    // $month_thaiM = "ตุลาคม";
+                    // }else if($str_month == "11"){
+                    // $month_thaiM = "พฤศจิกายน";
+                    // }else if($str_month == "12"){
+                    // $month_thaiM = "ธันวาคม";
+                    // }
+
+                    $message = "$number";
                     $numthai = array("๑","๒","๓","๔","๕","๖","๗","๘","๙","๐");
                     $numarabic = array("1","2","3","4","5","6","7","8","9","0");
 
                     //$test = str_replace($numthai,$numarabic,$message);
-                    $year_thaiM = str_replace($numarabic,$numthai,$message);
+                    $number1 = str_replace($numarabic,$numthai,$message);
 
-
-                    if($str_month == "01"){
-                    $month_thaiM = "มกราคม";
-                    }else if($str_month == "02"){
-                    $month_thaiM = "กุมภาพันธ์";
-                    }else if($str_month == "03"){
-                    $month_thaiM = "มีนาคม";
-                    }else if($str_month == "04"){
-                    $month_thaiM = "เมษายน";
-                    }else if($str_month == "05"){
-                    $month_thaiM = "พฤษภาคม";
-                    }else if($str_month == "06"){
-                    $month_thaiM = "มิถุนายน";
-                    }else if($str_month == "07"){
-                    $month_thaiM = "กรกฎาคม";
-                    }else if($str_month == "08"){
-                    $month_thaiM = "สิงหาคม";
-                    }else if($str_month == "09"){
-                    $month_thaiM = "กันยายน";
-                    }else if($str_month == "10"){
-                    $month_thaiM = "ตุลาคม";
-                    }else if($str_month == "11"){
-                    $month_thaiM = "พฤศจิกายน";
-                    }else if($str_month == "12"){
-                    $month_thaiM = "ธันวาคม";
-                    }
-
-                    $message = "$perform";
-                    $numthai = array("๑","๒","๓","๔","๕","๖","๗","๘","๙","๐");
-                    $numarabic = array("1","2","3","4","5","6","7","8","9","0");
-
-                    //$test = str_replace($numthai,$numarabic,$message);
-                    $perform1 = str_replace($numarabic,$numthai,$message);
-
-                    function convertA($period){
+                    function convertA($money){
                         $txtnum1 = array('ศูนย์','หนึ่ง','สอง','สาม','สี่','ห้า','หก','เจ็ด','แปด','เก้า','สิบ');
                         $txtnum2 = array('','สิบ','ร้อย','พัน','หมื่น','แสน','ล้าน','สิบ','ร้อย','พัน','หมื่น','แสน','ล้าน');
-                        $period = str_replace(",","",$period);
-                        $period = str_replace(" ","",$period);
-                        $period = str_replace("บาท","",$period);
-                        $period = explode(".",$period);
-                        if(sizeof($period)>2){
+                        $money = str_replace(",","",$money);
+                        $money = str_replace(" ","",$money);
+                        $money = str_replace("บาท","",$money);
+                        $money = explode(".",$money);
+                        if(sizeof($money)>2){
                             return 'ทศนิยมหลายตัวนะจ๊ะ';
                             exit;
                         }
-                        $strlen = strlen($period[0]);
+                        $strlen = strlen($money[0]);
                         $convert = '';
                         for($i=0;$i<$strlen;$i++){
-                            $n = substr($period[0], $i,1);
+                            $n = substr($money[0], $i,1);
                             if($n!=0){
                                 if($i==($strlen-1) AND $n==1){ $convert .= 'เอ็ด'; }
                                 elseif($i==($strlen-2) AND $n==2){  $convert .= 'ยี่'; }
@@ -451,44 +480,58 @@
 
                         return $convert;
                         }
-                        $x = $period;
+                        $x = $money;
 
 
-                            if($perform == "1"){
+                        $message = "$date_work";
+                        $numthai = array("๑","๒","๓","๔","๕","๖","๗","๘","๙","๐");
+                        $numarabic = array("1","2","3","4","5","6","7","8","9","0");
+                
+                        $date_work1 = str_replace($numarabic,$numthai,$message);
+                
+                        $message = "$work";//รวมเป็น
+                        $numthai = array("๑","๒","๓","๔","๕","๖","๗","๘","๙","๐");
+                        $numarabic = array("1","2","3","4","5","6","7","8","9","0");
+                
+                        //$test = str_replace($numthai,$numarabic,$message);
+                        $work1 = str_replace($numarabic,$numthai,$message);
+                        //echo $day_thai;
+                
+                            if($number == "1"){
                             $month = "ตุลาคม";
-                            }else if($perform == "2"){
+                            }else if($number == "2"){
                             $month = "พฤศจิกายน";
-                            }else if($perform == "3"){
+                            }else if($number == "3"){
                             $month = "ธันวาคม";
-                            }else if($perform == "4"){
+                            }else if($number == "4"){
                             $month = "มกราคม";
-                            }else if($perform == "5"){
+                            }else if($number == "5"){
                             $month = "กุมภาพันธ์";
-                            }else if($perform == "6"){
+                            }else if($number == "6"){
                             $month = "มีนาคม";
-                            }else if($perform == "7"){
+                            }else if($number == "7"){
                             $month = "เมษายน";
-                            }else if($perform == "8"){
+                            }else if($number == "8"){
                             $month = "พฤษภาคม";
-                            }else if($perform == "9"){
+                            }else if($number == "9"){
                             $month = "มิถุนายน";
-                            }else if($perform == "10"){
+                            }else if($number == "10"){
                             $month = "กรกฎาคม";
-                            }else if($perform == "11"){
+                            }else if($number == "11"){
                             $month = "สิงหาคม";
-                            }else if($perform == "12"){
+                            }else if($number == "12"){
                             $month = "กันยายน";
                             }
             ?>
             <tr>
                 <td colspan="2" class="text-indent-50" align="left">
-                    บัดนี้ ข้าพเจ้าได้ปฏิบัติงานดังกล่าวงวดที่ <?php echo $perform1?> (เดือน <?php echo $month?>) เสร็จเรียบร้อยแล้ว
+                    บัดนี้ ข้าพเจ้าได้ปฏิบัติงานดังกล่าวงวดที่ <?php echo $number1?> (เดือน <?php echo $month?> <?php echo $date_work1?>) เสร็จเรียบร้อยแล้ว
                 </td>
             </tr>
 
             <tr>
                 <td colspan="2" class="text-indent-50" align="left">
-                    จึงเรียนมาเพื่อโปรดให้คณะกรรมการตรวจรับจ้าง ทำการตรวจรับงานจ้างและขอเบิก-จ่ายค่าจ้างเป็นจำนวนเงิน <?php echo $period1?> บาท(<?php echo  convert($x);?>) ให้กับจ้าพเจ้าต่อไปด้วย
+                    จึงเรียนมาเพื่อโปรดให้คณะกรรมการตรวจรับจ้าง ทำการตรวจรับงานจ้างและขอเบิก-จ่ายค่าจ้างเป็นจำนวนเงิน <?php echo $money1?> บาท(<?php echo  convert($x);?>) ให้กับจ้าพเจ้าต่อไปด้วย
                 </td>
             </tr>
 

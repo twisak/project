@@ -28,17 +28,17 @@
         $date_back = $_POST['date_back'];
         $time_back = $_POST['time_back'];
         $open_money = $_POST['open_money'];
-        $allowance = $_POST['allowance'];
-        $allowance_day = $_POST['allowance_day'];
-        $allowance_price = $_POST['allowance_price'];
-        $allowance_sum = $_POST['allowance_sum'];
-        $rest = $_POST['rest'];
-        $rest_day = $_POST['rest_day'];
-        $rest_sum = $_POST['rest_sum'];
-        $vehicle = $_POST['vehicle'];
-        $vehicle_sum = $_POST['vehicle_sum'];
-        $other = $_POST['other'];
-        $other_sum = $_POST['other_sum'];
+        // $allowance = $_POST['allowance'];
+        // $allowance_day = $_POST['allowance_day'];
+        // $allowance_price = $_POST['allowance_price'];
+        // $allowance_sum = $_POST['allowance_sum'];
+        // $rest = $_POST['rest'];
+        // $rest_day = $_POST['rest_day'];
+        // $rest_sum = $_POST['rest_sum'];
+        // $vehicle = $_POST['vehicle'];
+        // $vehicle_sum = $_POST['vehicle_sum'];
+        // $other = $_POST['other'];
+        // $other_sum = $_POST['other_sum'];
         $document_num = $_POST['document_num'];
 
         $list = serialize( $_POST["list"] );
@@ -87,17 +87,6 @@
                                                 date_back        = '".$date_back."',
                                                 time_back        = '".$time_back."',
                                                 open_money        = '".$open_money."',
-                                                allowance        = '".$allowance."',
-                                                allowance_day        = '".$allowance_day."',
-                                                allowance_price        = '".$allowance_price."',
-                                                allowance_sum        = '".$allowance_sum."',
-                                                rest        = '".$rest."',
-                                                rest_day        = '".$rest_day."',
-                                                rest_sum	        = '".$rest_sum	."',
-                                                vehicle        = '".$vehicle."',
-                                                vehicle_sum        = '".$vehicle_sum."',
-                                                other        = '".$other."',
-                                                other_sum        = '".$other_sum."',
                                                 document_num        = '".$document_num."',
                                                 list        = '".$list."',
                                                 money_num        = '".$money_num."',
@@ -109,7 +98,7 @@
 
                      // echo $sql;
                      // echo $db_query;
-                     echo "<br>";
+                     //echo "<br>";
 
 
         echo "<script>alert('แก้ไขข้อมูลเรียบร้อย')</script>";

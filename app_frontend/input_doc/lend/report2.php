@@ -122,13 +122,29 @@
                                 //}
                                 //echo "</ul>";
                             //}
+
+                            $strDate = explode("-", "$value");
+
+                                    // echo "year= ".$strDate[0];
+                                    // echo "month= ".$strDate[1];
+                                    // echo "date= ".$strDate[2];
+
+                                    $str_day = $strDate[2];
+                                    $str_month = $strDate[1];
+                                    $str_year = $strDate[0];
+
+                                    $year=date("$str_year")+543;
+
+                                    // echo $str_day;
+                                    // echo $str_month;
+                                    // echo $year;
                         ?>
                       <tr align="center">
                         <td ><?php echo $i;?></td>
-                        <td ><?php echo $value;?></td>
+                        <td ><?php echo $str_day; ?>/<?php echo $str_month; ?>/<?php echo $year; ?></td>
                         <td ><?php echo $value3;?></td>
-                        <td ><?php echo $value2;?></td>
-                        <td ><?php echo $value1;?></td>
+                        <td ><?php echo number_format($value2, 0, ".", ",") . "\n"; // US format ?></td>
+                        <td ><?php echo number_format($value1, 0, ".", ",") . "\n"; // US format ?></td>
                         <td ></td>
                         <td ></td>
                       </tr>

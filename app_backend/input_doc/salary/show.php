@@ -42,23 +42,16 @@
     <div id="main-wrapper">
         <?php
 
-                                        $doc_id =$_GET['doc_id'];
+                                        $doc_id =$_GET['id'];
 
                                         $sql_salary ="SELECT * FROM tb_salary WHERE doc_id = '".$doc_id."'";
                                         $query_salary = mysqli_query($conn,$sql_salary);
                                         $result_salary = mysqli_fetch_assoc($query_salary);
 
                                         $doc_id = $result_salary['doc_id'];
-                                        $str_date = $result_salary['str_date'];
-                                        $stp_date = $result_salary['stp_date'];
-                                        $project_id = $result_salary['project_id'];
-                                        $activity_id = $result_salary['activity_id'];
                                         $person_id = $result_salary['person_id'];
-                                        $period = $result_salary['period'];
-                                        $total_amount = $result_salary['total_amount'];
-                                        $perform = $result_salary['perform'];
-                                        //$month = $result_salary['month'];
-                                        $teacher_id = $result_salary['teacher_id'];
+                                        $contract_id = $result_salary['contract_id'];
+                                       
 
                                         $day_work = unserialize( $result_salary["day_work"] );
                                         $start_time = unserialize( $result_salary["start_time"] );
@@ -74,24 +67,7 @@
                                         $firtname = $result_person['firtname'];
                                         $lastname = $result_person['lastname'];
 
-                                        $sql_teacher = "SELECT * FROM tb_teacher WHERE teacher_id = '".$teacher_id."' ";
-                                        $query_teacher = mysqli_query($conn,$sql_teacher);
-                                        $result_teacher = mysqli_fetch_assoc($query_teacher);
-
-                                        $t_firstname = $result_teacher['t_firstname'];
-                                        $t_lastname = $result_teacher['t_lastname'];
-
-                                        $sql_project = "SELECT * FROM tb_project WHERE project_id = '".$project_id."' ";
-                                        $query_project = mysqli_query($conn,$sql_project);
-                                        $result_project = mysqli_fetch_assoc($query_project);
-
-                                        $project_name = $result_project['project_name'];
-
-                                        $sql_activity = "SELECT * FROM tb_activity WHERE activity_id = '".$activity_id."' ";
-                                        $query_activity = mysqli_query($conn,$sql_activity);
-                                        $result_activity = mysqli_fetch_assoc($query_activity);
-
-                                        $activity = $result_activity['activity'];
+                                        
 
 
 
@@ -107,7 +83,7 @@
                         </ol>
                     </div>
                     <div class="col-md-7 align-self-center">
-                        <a href="../salary/report1.php?doc_id=<?php echo $doc_id;?>" class="btn waves-effect waves-light btn btn-info pull-right hidden-sm-down">
+                        <a href="../salary/report1.php?id=<?php echo $doc_id;?>" class="btn waves-effect waves-light btn btn-info pull-right hidden-sm-down">
                             <i class="fa-fw fa fa-print"></i>
                             ส่งออกแบบฟอร์ม
                         </a>
@@ -136,99 +112,19 @@
                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $doc_id;?>
                                         </div>
                                     </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-md-2">
-                                        <div class="form-group">
-                                            <label><b>เริ่มต้นวันที่</b></label><br>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $str_date?>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-2">
-                                        <div class="form-group">
-                                            <label><b>สิ้นสุดวันที่</b></label><br>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $stp_date?>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row">
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label><b>ชื่อบุคลากร</b></label><br>
                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $prefix; ?><?php echo $firtname; ?>&nbsp;&nbsp;<?php echo $lastname; ?>
                                         </div>
                                     </div>
-
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label><b>ชื่ออาจารย์</b></label><br>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $t_firstname;?>&nbsp;&nbsp;<?php echo $t_lastname;?>
-                                        </div>
-                                    </div>
                                 </div>
 
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <label><b>โครงการ</b></label><br>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $project_name?>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="form-group">
-                                            <label for="activity"><b>ชื่อกิจกรรม</b></label><br>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $activity?>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-md-2">
-                                        <div class="form-group">
-                                            <label for="activity"><b>งวดละ</b></label><br>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $period; ?>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <div class="form-group">
-                                            <label for="activity"><b>รวมเงินทั้งสิ้น</b></label><br>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $total_amount; ?>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-md-2">
-                                        <div class="form-group">
-                                            <label for="activity"><b>ปฏิบัติงานดังกล่าวงวดที่</b></label><br>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $perform; ?>
-                                        </div>
-                                    </div>
-                                    <!-- <div class="col-md-2">
-                                        <div class="form-group">
-                                            <label for="activity"><b>เดือนที่</b></label><br>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php //echo $month; ?>
-                                        </div>
-                                    </div> -->
-                                </div>
-
-                                <!-- <div class="row">
-                                    <div class="col-md-4">
-                                      <label for="activity"><b>บันทึกรับรองที่ปฎิบัติงานของผู้ควมคุมงาน</b></label><br>
-                                    </div>
-                                </div> -->
-
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label for="activity"><b>ผู้ควบคุมปฏิบัติงาน</b></label><br>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $t_firstname; ?>&nbsp;<?php echo $t_lastname; ?>
+                                            <label><b>งานจ้างเหมาเลชที่</b></label><br>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $contract_id?>
                                         </div>
                                     </div>
                                 </div>
@@ -359,7 +255,7 @@
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <!-- <button type="submit" class="btn btn-warning btn-block">แก้ไขข้อมูลเอกสารสัญญายืม</button> -->
-                                            <a href="../salary/edit.php?doc_id=<?php echo $doc_id; ?>" class="btn btn-warning btn-block">แก้ไขข้อมูลเอกสารสัญญายืม</a>
+                                            <a href="../salary/edit.php?id=<?php echo $doc_id; ?>" class="btn btn-warning btn-block">แก้ไขข้อมูลเอกสารสัญญายืม</a>
                                         </div>
                                     </div>
                                     <div class="col-md-3">

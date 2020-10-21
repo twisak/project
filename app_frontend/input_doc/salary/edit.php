@@ -49,16 +49,9 @@
     $result_salary = mysqli_fetch_assoc($query_salary);
 
     $doc_id = $result_salary['doc_id'];
-    $str_date = $result_salary['str_date'];
-    $stp_date = $result_salary['stp_date'];
-    // $project_id = $result_salary['project_id'];
-    $activity_id = $result_salary['activity_id'];
     $person_id = $result_salary['person_id'];
-    $period = $result_salary['period'];
-    $total_amount = $result_salary['total_amount'];
-    $perform = $result_salary['perform'];
-    //$month = $result_salary['month'];
-    $teacher_id = $result_salary['teacher_id'];
+    $contract_id = $result_salary['contract_id'];
+    
 
     $day_work = unserialize( $result_salary["day_work"] );
     $start_time = unserialize( $result_salary["start_time"] );
@@ -70,7 +63,7 @@
     $query_person = mysqli_query($conn,$sql_person);
     $result_person = mysqli_fetch_assoc($query_person);
 
-    $prefix = $result_person['$prefix'];
+    $prefix = $result_person['prefix'];
     $firtname = $result_person['firtname'];
     $lastname = $result_person['lastname'];
 
@@ -114,165 +107,23 @@
                                     </div>
 
                                     <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                               <label><b>โครงการ</b></label>
-                                                <select class="form-control" name="project_id" value="<?php echo $result_salary['project_id']; ?>">
-
-                                  <?php
-                                  $sql_check_project = "SELECT * FROM tb_project";
-                                  $query_check_project = mysqli_query($conn,$sql_check_project);
-
-                                  $project_id1 = $result_salary['project_id'];
-                                  while($result_check_project = mysqli_fetch_array($query_check_project))
-                                  {
-                                  if($project_id1 == $result_check_project["project_id"])
-                                  {
-                                  $selected_check_project = "selected";
-
-                                  }
-                                  else
-                                  {
-                                  $selected_check_project = "";
-                                  }
-                                  ?>
-                                  <option value="<?php echo $result_check_project["project_id"];?>"<?php echo $selected_check_project;?>><?php echo $result_check_project["project_name"]; ?></option>
-                                  <?php
-                                  }
-                                  ?>
-                                  </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                               <label><b>ชื่อกิจกรรม</b></label>
-                                                <select class="form-control" name="activity_id" value="<?php echo $result_salary['activity_id']; ?>">
-
-                                  <?php
-                                  $sql_check_activity = "SELECT * FROM tb_activity";
-                                  $query_check_activity = mysqli_query($conn,$sql_check_activity);
-
-                                  $activity_id1 = $result_salary['activity_id'];
-                                  while($result_check_activity = mysqli_fetch_array($query_check_activity))
-                                  {
-                                  if($activity_id1 == $result_check_activity["activity_id"])
-                                  {
-                                  $selected_check_activity = "selected";
-
-                                  }
-                                  else
-                                  {
-                                  $selected_check_activity = "";
-                                  }
-                                  ?>
-                                  <option value="<?php echo $result_check_activity["activity_id"];?>"<?php echo $selected_check_activity;?>><?php echo $result_check_activity["activity"]; ?></option>
-                                  <?php
-                                  }
-                                  ?>
-                                  </select>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-md-2">
-                                            <div class="form-group">
-                                               <label><b>เริ่มต้นวันที่</b></label>
-                                                <input type="date" class="form-control form-control-line" name="str_date" value="<?php echo $str_date; ?>">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <div class="form-group">
-                                             <label><b>สิ้นสุดวันที่</b></label>
-                                                <input type="date" class="form-control form-control-line" name="stp_date" value="<?php echo $stp_date; ?>">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <script language="javascript">
-                                        function IsNumeric(sText, obj) {
-                                            var ValidChars = "0123456789/";
-                                            var IsNumber = true;
-                                            var Char;
-                                            for (i = 0; i < sText.length && IsNumber == true; i++) {
-                                                Char = sText.charAt(i);
-                                                if (ValidChars.indexOf(Char) == -1) {
-                                                    IsNumber = false;
-                                                }
-                                            }
-                                            if (IsNumber == false) {
-                                                alert("(ตัวเลข เท่านั้น)");
-                                                obj.value = sText.substr(0, sText.length - 1);
-                                            }
-                                        }
-                                    </script>
-                                    <div class="row">
-                                        <div class="col-md-2">
-                                            <div class="form-group">
-                                         <label><b>งวดล่ะ</b></label>
-                                                <input type="text" class="form-control form-control-line" name="period" value="<?php echo $period; ?>" onKeyUp="IsNumeric(this.value,this)">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <div class="form-group">
-                                             <label><b>รวมเป็นเงินทั้งสิ้น</b></label>
-                                                <input type="text" class="form-control form-control-line" name="total_amount" value="<?php echo $total_amount; ?>" onKeyUp="IsNumeric(this.value,this)">
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                           <label><b>ปฎิบัติงานดังกล่าวงวดที่</b></label>
-                                                <input type="text" class="form-control form-control-line" name="perform" value="<?php echo $perform; ?>" onKeyUp="IsNumeric(this.value,this)">
-                                            </div>
-                                        </div>
-                                        <!-- <div class="col-md-4">
-                                            <div class="form-group">
-                                             <label><b>เดือนที่</b></label>
-                                                <input type="date" class="form-control form-control-line" name="month" value="<?php //echo $month; ?>">
-                                            </div>
-                                        </div> -->
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label><b>บันทึกรับรองที่ปฎิบัติงานของผู้ควมคุมงาน</b></label>
+                                            <label><b>งานจ้างเหมาเลขที่</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
+                                                <select name="contract_id" class="form-control">
+                                                    <option value="<?php echo $contract_id?>"><?php echo $contract_id?></option>
+                                                    <?php
+                                                    $sql = "SELECT * FROM tb_contract WHERE person_id = '".$person_id."' ";
+                                                    $query = mysqli_query($conn, $sql);
+                                                    while($result = mysqli_fetch_assoc($query)):
+                                                ?>
+                                                    <option value="<?=$result['doc_id']?>"><?=$result['doc_id']?></option>
+                                                    <?php endwhile; ?>
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                             <label><b>ผู้ควบคุมการปฎิบัติงาน</b></label>
-                                                <select class="form-control" name="teacher_id" value="<?php echo $result_salary['teacher_id']; ?>">
-
-                                  <?php
-                                  $sql_check_teacher = "SELECT * FROM tb_teacher";
-                                  $query_check_teacher = mysqli_query($conn,$sql_check_teacher);
-
-                                  $teacher_id1 = $result_salary['teacher_id'];
-                                  while($result_check_teacher = mysqli_fetch_array($query_check_teacher))
-                                  {
-                                  if($teacher_id1 == $result_check_teacher["teacher_id"])
-                                  {
-                                  $selected_check_teacher = "selected";
-
-                                  }
-                                  else
-                                  {
-                                  $selected_check_teacher = "";
-                                  }
-                                  ?>
-                                  <option value="<?php echo $result_check_teacher["teacher_id"];?>"<?php echo $selected_check_teacher;?>><?php echo $result_check_teacher["t_firstname"]; ?>&nbsp;<?php echo $result_check_teacher["t_lastname"]; ?></option>
-                                  <?php
-                                  }
-                                  ?>
-                                  </select>
-                                            </div>
-                                        </div>
-                                    </div>
+                                   
 
                                     <div class="row">
                                     <div class="col-md-2">

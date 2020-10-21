@@ -27,17 +27,17 @@
         $date_back = $_POST['date_back'];
         $time_back = $_POST['time_back'];
         $open_money = $_POST['open_money'];
-        $allowance = $_POST['allowance'];
-        $allowance_day = $_POST['allowance_day'];
-        $allowance_price = $_POST['allowance_price'];
-        $allowance_sum = $_POST['allowance_sum'];
-        $rest = $_POST['rest'];
-        $rest_day = $_POST['rest_day'];
-        $rest_sum = $_POST['rest_sum'];
-        $vehicle = $_POST['vehicle'];
-        $vehicle_sum = $_POST['vehicle_sum'];
-        $other = $_POST['other'];
-        $other_sum = $_POST['other_sum'];
+        // $allowance = $_POST['allowance'];
+        // $allowance_day = $_POST['allowance_day'];
+        // $allowance_price = $_POST['allowance_price'];
+        // $allowance_sum = $_POST['allowance_sum'];
+        // $rest = $_POST['rest'];
+        // $rest_day = $_POST['rest_day'];
+        // $rest_sum = $_POST['rest_sum'];
+        // $vehicle = $_POST['vehicle'];
+        // $vehicle_sum = $_POST['vehicle_sum'];
+        // $other = $_POST['other'];
+        // $other_sum = $_POST['other_sum'];
         $document_num = $_POST['document_num'];
 
         $list = serialize($_POST["list"]);
@@ -67,14 +67,12 @@
 	// 		{
                     $sql = "INSERT INTO tb_debt(doc_id, date_current, name_train, project_id, activity_id, person_id, teacher_id,
                                                 money_from, lend_num, note_that, date_note, under, along_with, go_practice, depart_from,
-                                                date_depart, time_depart, back, date_back, time_back, open_money, allowance, allowance_day,
-                                                allowance_price, allowance_sum, rest, rest_day, rest_sum, vehicle, vehicle_sum, other,other_sum,
-                                                document_num,list,money_num,approve,disburse,payer )
+                                                date_depart, time_depart, back, date_back, time_back, open_money,document_num,list,
+                                                money_num,approve,disburse,payer )
                                     VALUES ('$doc_id','$date_current','$name_train','$project_id','$activity_id','$person_id','$teacher_id','$money_from',
                                             '$lend_num','$note_that','$date_note','$under','$along_with','$go_practice',
                                             '$depart_from','$date_depart','$time_depart','$back','$date_back','$time_back','$open_money',
-                                            '$allowance','$allowance_day','$allowance_price','$allowance_sum','$rest','$rest_day','$rest_sum',
-                                            '$vehicle','$vehicle_sum','$other','$other_sum','$document_num','$list','$money_num','$approve','$disburse','$payer')";
+                                            '$document_num','$list','$money_num','$approve','$disburse','$payer')";
 
 
                     $query = mysqli_query($conn,$sql);

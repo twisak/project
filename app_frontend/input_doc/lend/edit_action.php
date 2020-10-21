@@ -13,8 +13,9 @@
     $person_id = $_POST['person_id'];
 	$teacher_id = $_POST['teacher_id'];
     $allowance = $_POST['allowance'];
+    $allowance_day = $_POST['allowance_day'];
     $allowance_price = $_POST['allowance_price'];
-
+    $rest = $_POST['rest'];
     $rest_price = $_POST['rest_price'];
     $room = $_POST['room'];
     $num_night = $_POST['num_night'];
@@ -48,7 +49,9 @@
                                             person_id = '".$person_id."',
 											teacher_id = '".$teacher_id."',
                                             allowance = '".$allowance."',
+                                            allowance_day = '".$allowance_day."',
                                             allowance_price = '".$allowance_price."',
+                                            rest = '".$rest."',
                                             rest_price = '".$rest_price."',
                                             room = '".$room."',
                                             num_night = '".$num_night."',

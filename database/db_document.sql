@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 19, 2020 at 08:11 PM
+-- Generation Time: Oct 21, 2020 at 10:17 PM
 -- Server version: 10.3.16-MariaDB
 -- PHP Version: 7.2.20
 
@@ -41,8 +41,8 @@ CREATE TABLE `account_login` (
 
 INSERT INTO `account_login` (`person_id`, `username`, `password`, `status`) VALUES
 ('PS001', 'fa', '123456', 'Personal'),
-('PS002', 'admin', '123123', 'Admin'),
-('PS003', 'ma', '1234', 'Personal');
+('PS002', 'ma', '123123', 'Personal'),
+('PS003', 'admin', '1234', 'Admin');
 
 -- --------------------------------------------------------
 
@@ -10131,7 +10131,7 @@ CREATE TABLE `tb_contract` (
   `number` varchar(20) NOT NULL COMMENT 'จำนวนงวด',
   `money` varchar(20) NOT NULL COMMENT 'เป็นเงิน',
   `work` varchar(10) NOT NULL COMMENT 'ปฎิบัติงานงวดที่',
-  `date_work` date NOT NULL COMMENT 'วันที่ปฎิบัติงาน',
+  `date_work` varchar(20) NOT NULL COMMENT 'ปีที่ปฎิบัติงาน',
   `government` varchar(200) NOT NULL COMMENT 'ส่วนราชการ',
   `that` varchar(110) NOT NULL COMMENT 'ที่',
   `c_day` date NOT NULL COMMENT 'วันที่ปัจจุบัน',
@@ -10158,8 +10158,9 @@ CREATE TABLE `tb_contract` (
 --
 
 INSERT INTO `tb_contract` (`doc_id`, `foreword`, `str_date`, `stp_date`, `project_id`, `activity_id`, `person_id`, `teacher_id`, `number`, `money`, `work`, `date_work`, `government`, `that`, `c_day`, `title_id`, `people`, `mid_price`, `chairman`, `committee`, `secretary`, `details`, `date_start`, `date_end`, `property`, `scope`, `responsible`, `fine`, `payment`, `insurance`, `date_current`) VALUES
-('C002', 'a:4:{i:0;s:132:\"สถาบันพัฒนาครูและบุคลากรทางการศึกษาชายแดนใต้\";i:1;s:63:\"มหาวิทยาลัยราชภัฏยะลา\";i:2;s:162:\"จึงเรียนมาเพื่อโปรดให้คณะกรรมการตรวจรับงานจ้างดังกล่าว\";i:3;s:153:\"เผยแพร่ความจริงที่ถูกต้องเพื่อสนับสนุนการแก้ไขปัญหา\";}', '2020-07-01', '2020-07-30', 'P003', 'A009', 'PS001', '002', '6', '8000', '10', '2020-07-02', 'ศึกษาพัฒนามหาลัย', 'อว.123.456', '2020-07-25', '001', '8', '6000', '001', '002', '001', 'กกกกกกกกกกกกกกกกกกกกก', '2020-07-01', '2020-07-30', 'a:3:{i:0;s:10:\"2222222222\";i:1;s:7:\"4545645\";i:2;s:9:\"วัว\";}', 'a:4:{i:0;s:9:\"ตาย\";i:1;s:9:\"แดง\";i:2;s:12:\"เงิน\";i:3;s:6:\"ดำ\";}', 'ผู้ว่าจ้างยินยอมให้ผู้รับจ้าง', 'a:2:{i:0;s:12:\"ปรับ\";i:1;s:36:\"ฟหกฟหกฟหกกฟห\";}', 'a:2:{i:0;s:9:\"โอน\";i:1;s:9:\"แจก\";}', 'a:1:{i:0;s:11:\"66666666666\";}', '2020-07-16'),
-('C004', 'a:2:{i:0;s:21:\"111111111111111111111\";i:1;s:17:\"22222222222222222\";}', '2020-10-20', '2020-10-24', 'P001', 'A001', 'PS003', '001', '6', '1000', '2', '0000-00-00', 'ศึกษาพัฒนามหาลัย', 'อว.000002', '0000-00-00', '007', '8', '6000', '001', '001', '002', 'asa', '2020-10-20', '2020-10-24', 'a:1:{i:0;s:1:\"s\";}', 'a:1:{i:0;s:1:\"d\";}', 'ผู้ว่าจ้างยินยอมให้ผู้รับจ้าง', 'a:1:{i:0;s:1:\"s\";}', 'a:1:{i:0;s:1:\"a\";}', 'a:1:{i:0;s:1:\"a\";}', '2020-10-20');
+('C002', 'a:4:{i:0;s:132:\"สถาบันพัฒนาครูและบุคลากรทางการศึกษาชายแดนใต้\";i:1;s:63:\"มหาวิทยาลัยราชภัฏยะลา\";i:2;s:162:\"จึงเรียนมาเพื่อโปรดให้คณะกรรมการตรวจรับงานจ้างดังกล่าว\";i:3;s:153:\"เผยแพร่ความจริงที่ถูกต้องเพื่อสนับสนุนการแก้ไขปัญหา\";}', '2020-07-01', '2020-07-30', 'P003', 'A009', 'PS002', '002', '6', '8000', '10', '2560', 'ศึกษาพัฒนามหาลัย', 'อว.123.456', '2020-10-21', '001', '8', '6000', '001', '002', '001', 'กกกกกกกกกกกกกกกกกกกกก', '2020-07-01', '2020-07-30', 'a:3:{i:0;s:10:\"2222222222\";i:1;s:7:\"4545645\";i:2;s:9:\"วัว\";}', 'a:4:{i:0;s:9:\"ตาย\";i:1;s:9:\"แดง\";i:2;s:12:\"เงิน\";i:3;s:6:\"ดำ\";}', 'ผู้ว่าจ้างยินยอมให้ผู้รับจ้าง', 'a:2:{i:0;s:12:\"ปรับ\";i:1;s:36:\"ฟหกฟหกฟหกกฟห\";}', 'a:2:{i:0;s:9:\"โอน\";i:1;s:9:\"แจก\";}', 'a:1:{i:0;s:11:\"66666666666\";}', '2020-07-16'),
+('C004', 'a:2:{i:0;s:21:\"111111111111111111111\";i:1;s:17:\"22222222222222222\";}', '2020-10-20', '2020-10-24', 'P001', 'A001', 'PS002', '001', '6', '1000', '2', '2544', 'ศึกษาพัฒนามหาลัย', 'อว.000002', '2020-10-21', '007', '8', '6000', '001', '001', '002', 'asa', '2020-10-20', '2020-10-24', 'a:1:{i:0;s:1:\"s\";}', 'a:1:{i:0;s:1:\"d\";}', 'ผู้ว่าจ้างยินยอมให้ผู้รับจ้าง', 'a:1:{i:0;s:1:\"s\";}', 'a:1:{i:0;s:1:\"a\";}', 'a:1:{i:0;s:1:\"a\";}', '2020-10-20'),
+('C005', 'a:2:{i:0;s:8:\"55555555\";i:1;s:3:\"222\";}', '2020-10-21', '2020-10-21', 'P002', 'A005', 'PS001', '001', '6', '1000', '12', '2559', 'ศึกษาพัฒนามหาลัย', 'อว.000003', '0000-00-00', '001', '8', '6000', '001', '002', '001', 'fsfs', '2020-10-21', '2020-10-23', 'a:1:{i:0;s:3:\"asd\";}', 'a:1:{i:0;s:6:\"fsdfsd\";}', 'ผู้ว่าจ้างยินยอมให้ผู้รับจ้าง', 'a:2:{i:0;s:3:\"sdf\";i:1;s:1:\"f\";}', 'a:1:{i:0;s:2:\"sf\";}', 'a:1:{i:0;s:3:\"ggg\";}', '2020-10-21');
 
 -- --------------------------------------------------------
 
@@ -10190,17 +10191,6 @@ CREATE TABLE `tb_debt` (
   `date_back` date DEFAULT NULL COMMENT 'วันที่กลับ',
   `time_back` varchar(200) DEFAULT NULL COMMENT 'เวลากลับ',
   `open_money` varchar(200) DEFAULT NULL COMMENT 'checkเบิกค่่าใช้จ่าย ข้าพเจ้า/คณะเดินทาง',
-  `allowance` varchar(200) DEFAULT NULL COMMENT 'ค่าเบี้ยเลี้ยง',
-  `allowance_day` varchar(200) DEFAULT NULL COMMENT 'จำนวนวัน',
-  `allowance_price` varchar(200) DEFAULT NULL COMMENT 'วันละเท่าไร',
-  `allowance_sum` varchar(200) DEFAULT NULL COMMENT 'รวมเบี้ยเลี้ยง',
-  `rest` varchar(200) DEFAULT NULL COMMENT 'เช่าที่พัก',
-  `rest_day` varchar(200) DEFAULT NULL COMMENT 'จำนวนวัน',
-  `rest_sum` varchar(200) DEFAULT NULL COMMENT 'รวมค่าที่พัก',
-  `vehicle` varchar(200) DEFAULT NULL COMMENT 'ค่าพาหนะ',
-  `vehicle_sum` varchar(200) DEFAULT NULL COMMENT 'รวมค่าพาหนะ',
-  `other` varchar(200) DEFAULT NULL COMMENT 'ค่าใช้จ่ายอื่นๆ',
-  `other_sum` varchar(200) DEFAULT NULL COMMENT 'รวมค่าใช้จ่ายอื่นๆ',
   `document_num` varchar(20) DEFAULT NULL COMMENT 'จำนวนเอกสารกี่ฉบับ',
   `list` longtext NOT NULL COMMENT 'รายการรับเงิน',
   `money_num` longtext NOT NULL COMMENT 'จำนวนรับเงิน',
@@ -10213,9 +10203,10 @@ CREATE TABLE `tb_debt` (
 -- Dumping data for table `tb_debt`
 --
 
-INSERT INTO `tb_debt` (`doc_id`, `date_current`, `name_train`, `project_id`, `activity_id`, `person_id`, `teacher_id`, `money_from`, `money_from_id`, `lend_num`, `note_that`, `date_note`, `under`, `along_with`, `go_practice`, `depart_from`, `date_depart`, `time_depart`, `back`, `date_back`, `time_back`, `open_money`, `allowance`, `allowance_day`, `allowance_price`, `allowance_sum`, `rest`, `rest_day`, `rest_sum`, `vehicle`, `vehicle_sum`, `other`, `other_sum`, `document_num`, `list`, `money_num`, `approve`, `disburse`, `payer`) VALUES
-('D001', '2020-07-25', 'ชื่อส่วนราชการผู้จัดฝึกอบรม', 'P003', 'A010', 'PS001', '001', 'วค', NULL, '12.23', 'อว.123', '2020-06-29', 'บ้านบ้า', 'คนโง่', 'ที่บ้าน', 'สำนักงาน', '2020-06-29', '18:00', 'บ้านพัก', '2020-06-30', '20:00', 'คณะเดินทาง', 'นศ', '2', '500', '1000', 'โรงแรง', '2', '1000', 'รถมหาลัย', '2000', '', '', '12354', 'a:5:{i:0;s:21:\"ค่าจ้าง\";i:1;s:27:\"ค่าที่พัก\";i:2;s:24:\"ค่าอาหาร\";i:3;s:15:\"ค่ารถ\";i:4;s:30:\"ค่าเดิมทาง\";}', 'a:5:{i:0;s:3:\"100\";i:1;s:3:\"500\";i:2;s:3:\"150\";i:3;s:4:\"2000\";i:4;s:4:\"3000\";}', '001', '001', '001'),
-('D002', '2020-07-27', '131312', 'P001', 'A002', 'PS002', '001', 'วค', NULL, 'าสวาส', 'สวาส', '2020-07-13', 'าสวาส', 'คนโง่', 'ที่บ้าน', 'บ้านพัก', '2020-07-27', '01:25', 'บ้านพัก', '2020-07-28', '02:25', 'ข้าพเจ้า', '1000', '2', '200', '400', 'โรงแรง', '2', '200', 'รถมหาลัย', '2000', '', '', '12354', 'a:1:{i:0;s:24:\"ค่าอาหาร\";}', 'a:1:{i:0;s:3:\"100\";}', '001', '002', '003');
+INSERT INTO `tb_debt` (`doc_id`, `date_current`, `name_train`, `project_id`, `activity_id`, `person_id`, `teacher_id`, `money_from`, `money_from_id`, `lend_num`, `note_that`, `date_note`, `under`, `along_with`, `go_practice`, `depart_from`, `date_depart`, `time_depart`, `back`, `date_back`, `time_back`, `open_money`, `document_num`, `list`, `money_num`, `approve`, `disburse`, `payer`) VALUES
+('D001', '2020-10-21', 'ชื่อส่วนราชการผู้จัดฝึกอบรม', 'P003', 'A010', 'PS001', '001', 'วค', NULL, 'L001', 'อว.123', '2020-06-29', 'บ้านบ้า', 'คนโง่', 'ที่บ้าน', 'สำนักงาน', '2020-06-29', '18:00', 'บ้านพัก', '2020-06-30', '20:00', 'คณะเดินทาง', '12354', 'a:5:{i:0;s:21:\"ค่าจ้าง\";i:1;s:27:\"ค่าที่พัก\";i:2;s:24:\"ค่าอาหาร\";i:3;s:15:\"ค่ารถ\";i:4;s:30:\"ค่าเดิมทาง\";}', 'a:5:{i:0;s:3:\"100\";i:1;s:3:\"500\";i:2;s:3:\"150\";i:3;s:4:\"2000\";i:4;s:4:\"3000\";}', '001', '001', '001'),
+('D002', '2020-07-27', '131312', 'P001', 'A002', 'PS002', '001', 'วค', NULL, 'าสวาส', 'สวาส', '2020-07-13', 'าสวาส', 'คนโง่', 'ที่บ้าน', 'บ้านพัก', '2020-07-27', '01:25', 'บ้านพัก', '2020-07-28', '02:25', 'ข้าพเจ้า', '12354', 'a:1:{i:0;s:24:\"ค่าอาหาร\";}', 'a:1:{i:0;s:3:\"100\";}', '001', '002', '003'),
+('D003', '2020-10-21', '1111111111111111', 'P004', 'A014', 'PS001', '001', 'วค', NULL, 'าสวาส', 'สวาส', '2020-10-21', 'าสวาส', 'าสวาสาส', 'วาสวาส', 'สำนักงาน', '2020-10-21', '00:34', 'สำนักงาน', '2020-10-22', '00:33', 'ข้าพเจ้า', '12354', 'N;', 'N;', '002', '001', '001');
 
 -- --------------------------------------------------------
 
@@ -10231,7 +10222,9 @@ CREATE TABLE `tb_lend` (
   `teacher_id` varchar(20) NOT NULL COMMENT 'รหัสอาจารย์',
   `activity` longtext NOT NULL COMMENT 'กิจกรรม	',
   `allowance` varchar(100) DEFAULT NULL COMMENT 'ค่าเบี้ยเลี้ยงกรอก',
+  `allowance_day` varchar(100) NOT NULL COMMENT 'กี่วัน',
   `allowance_price` varchar(20) DEFAULT NULL COMMENT 'ค่าเบี้ยเลี้ยงราคา',
+  `rest` varchar(200) NOT NULL COMMENT 'ประเภทที่พัก',
   `rest_price` varchar(20) DEFAULT NULL COMMENT 'ราคาที่พัก',
   `room` varchar(20) NOT NULL COMMENT 'ห้อง',
   `num_night` varchar(20) NOT NULL COMMENT 'กี่คืน',
@@ -10263,8 +10256,10 @@ CREATE TABLE `tb_lend` (
 -- Dumping data for table `tb_lend`
 --
 
-INSERT INTO `tb_lend` (`doc_id`, `str_date`, `project`, `person_id`, `teacher_id`, `activity`, `allowance`, `allowance_price`, `rest_price`, `room`, `num_night`, `vehicle_num`, `vehicle_price`, `regis`, `regis_num`, `fication_day`, `num_people`, `num_hour`, `price_hour`, `students_work`, `work_day`, `work_price`, `hand_food`, `num_food`, `food_price`, `snack`, `num_snack`, `snack_price`, `date_list`, `pay_type`, `price_list`, `balance`, `date_current`) VALUES
-('L001', '2020-08-30', 'sdasfasdfasdfasdf555555555555', 'PS001', '001', 'พัฒนาสถานศึกษาต้นแบบพหุภาษา ', '11111111', '200', '200', '200', '200', '200', '200', '5', '5', '5', '5', '5', '5', '5', '55', '5', '5', '5', '5', '5', '5', '5', 'a:1:{i:0;s:10:\"2020-08-30\";}', 'a:1:{i:0;s:18:\"เงินสด\";}', 'a:1:{i:0;s:4:\"5000\";}', 'a:1:{i:0;s:3:\"800\";}', '2020-08-30');
+INSERT INTO `tb_lend` (`doc_id`, `str_date`, `project`, `person_id`, `teacher_id`, `activity`, `allowance`, `allowance_day`, `allowance_price`, `rest`, `rest_price`, `room`, `num_night`, `vehicle_num`, `vehicle_price`, `regis`, `regis_num`, `fication_day`, `num_people`, `num_hour`, `price_hour`, `students_work`, `work_day`, `work_price`, `hand_food`, `num_food`, `food_price`, `snack`, `num_snack`, `snack_price`, `date_list`, `pay_type`, `price_list`, `balance`, `date_current`) VALUES
+('L001', '2020-08-30', 'sdasfasdfasdfasdf555555555555', 'PS001', '001', 'พัฒนาสถานศึกษาต้นแบบพหุภาษา ', '11111111', '2', '200', 'โรงแรง', '200', '2', '3', '200', '200', '5', '5', '5', '5', '5', '5', '5', '55', '5', '5', '5', '5', '5', '5', '5', 'a:1:{i:0;s:10:\"2020-08-30\";}', 'a:1:{i:0;s:18:\"เงินสด\";}', 'a:1:{i:0;s:4:\"5000\";}', 'a:1:{i:0;s:3:\"800\";}', '2020-08-30'),
+('L002', '2020-10-21', 'sdasfasdfasdfasdf555555555555', 'PS001', '001', 'พัฒนาศักยภาพครู ผู้บริหารและสถานศึกษาในพื้นที่เสริมสร้างความมั่นคง(สีแสด) พื้นที่เร่งรัดพัฒนา (สีเหลือง) ในการจัดการเรียนรู้ที่ส่งเสริมความสามารถด้านการอ่านออกเขียนได้ ทักษะการรู้หนังสือ ด้วยการ Coaching Mentoring', '0', '10', '200', 'โรงแรง', '200', '200', '200', '200', '200', '100', '100', '-', '-', '-', '-', '2', '3', '3', '2', '3', '10', '50', '8', '50', 'a:1:{i:0;s:10:\"2020-10-21\";}', 'a:1:{i:0;s:18:\"เงินสด\";}', 'a:1:{i:0;s:4:\"5000\";}', 'a:1:{i:0;s:3:\"800\";}', '2020-10-21'),
+('L003', '2020-10-21', 'sdasfasdfasdfasdf555555555555', 'PS003', '001', 'พัฒนาศักยภาพครูและบุคลากรทางการศึกษาด้านการศึกษาและพัฒนาเด็กที่มีความต้องการพิเศษในพื้นที่ชายแดนใต้', '2', '', '200', '', '2000', '2', '2', '5', '800', '100', '100', '-', '-', '-', '-', '2', '3', '1', '1', '2', '2', '2', '2', '2', 'a:1:{i:0;s:10:\"2020-10-21\";}', 'a:1:{i:0;s:21:\"ใบสำคัญ\";}', 'a:1:{i:0;s:4:\"5000\";}', 'a:1:{i:0;s:3:\"800\";}', '2020-10-21');
 
 -- --------------------------------------------------------
 
@@ -10601,17 +10596,18 @@ CREATE TABLE `tb_salary` (
   `end_time` longtext NOT NULL COMMENT 'เวลาสิ้นสุด',
   `Job` longtext NOT NULL COMMENT 'งานในหน้าที่',
   `part_time` longtext NOT NULL COMMENT 'งานพิเศษ',
-  `date_current` date NOT NULL COMMENT 'วันที่ปัจุบัน'
+  `date_current` date NOT NULL COMMENT 'วันที่ปัจุบัน',
+  `contract_id` varchar(20) NOT NULL COMMENT 'รหัสเอกสารจ้างเหมาบริการ	'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `tb_salary`
 --
 
-INSERT INTO `tb_salary` (`doc_id`, `str_date`, `stp_date`, `project_id`, `activity_id`, `person_id`, `period`, `total_amount`, `perform`, `month`, `teacher_id`, `day_work`, `start_time`, `end_time`, `Job`, `part_time`, `date_current`) VALUES
-('S001', '2020-10-28', '2020-10-31', 'P002', 'A006', 'PS003', '', '', '3', '2020-10-19', '002', 'a:1:{i:0;s:10:\"2020-10-20\";}', 'a:1:{i:0;s:5:\"23:34\";}', 'a:1:{i:0;s:5:\"23:35\";}', 'a:1:{i:0;s:14:\"aAfsfSDFsdfsdf\";}', 'a:1:{i:0;s:0:\"\";}', '2020-10-19'),
-('S002', '2020-10-29', '2020-10-23', 'P003', 'A003', 'PS003', '3000', '9000', '3', '2020-10-20', '001', 'a:1:{i:0;s:10:\"2020-10-21\";}', 'a:1:{i:0;s:5:\"23:37\";}', 'a:1:{i:0;s:5:\"23:38\";}', 'a:1:{i:0;s:14:\"aAfsfSDFsdfsdf\";}', 'a:1:{i:0;s:0:\"\";}', '2020-10-19'),
-('S003', '2020-10-21', '2020-10-22', 'P001', 'A001', 'PS001', '3000', '9000', '3', '2020-10-19', '002', 'a:1:{i:0;s:10:\"2020-11-06\";}', 'a:1:{i:0;s:5:\"23:46\";}', 'a:1:{i:0;s:5:\"23:46\";}', 'a:1:{i:0;s:14:\"aAfsfSDFsdfsdf\";}', 'a:1:{i:0;s:0:\"\";}', '2020-10-19');
+INSERT INTO `tb_salary` (`doc_id`, `str_date`, `stp_date`, `project_id`, `activity_id`, `person_id`, `period`, `total_amount`, `perform`, `month`, `teacher_id`, `day_work`, `start_time`, `end_time`, `Job`, `part_time`, `date_current`, `contract_id`) VALUES
+('S003', NULL, NULL, NULL, '', 'PS001', '', '', '', '0000-00-00', '', 'a:1:{i:0;s:10:\"2020-11-05\";}', 'a:1:{i:0;s:5:\"01:10\";}', 'a:1:{i:0;s:5:\"01:10\";}', 'a:1:{i:0;s:15:\"ววววว\";}', 'a:1:{i:0;s:0:\"\";}', '2020-10-22', 'C005'),
+('S004', NULL, NULL, NULL, '', 'PS001', '', '', '', '0000-00-00', '', 'a:1:{i:0;s:10:\"2020-10-30\";}', 'a:1:{i:0;s:5:\"01:04\";}', 'a:1:{i:0;s:5:\"01:04\";}', 'a:1:{i:0;s:14:\"aAfsfSDFsdfsdf\";}', 'a:1:{i:0;s:0:\"\";}', '2020-10-22', 'C002'),
+('S005', NULL, NULL, NULL, '', 'PS002', '', '', '', '0000-00-00', '', 'a:2:{i:0;s:10:\"2020-10-22\";i:1;s:10:\"2020-10-24\";}', 'a:2:{i:0;s:5:\"02:22\";i:1;s:5:\"02:18\";}', 'a:2:{i:0;s:5:\"02:23\";i:1;s:5:\"02:19\";}', 'a:2:{i:0;s:5:\"sasas\";i:1;s:9:\"บ้า\";}', 'a:2:{i:0;s:0:\"\";i:1;s:0:\"\";}', '2020-10-22', 'C002');
 
 -- --------------------------------------------------------
 

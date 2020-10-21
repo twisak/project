@@ -158,14 +158,14 @@
                         </tr>
 
                         <tr>
-                            <td>- ค่าจ้างเหมาบริการเจ้าหน้าที่ประสานงานโครงการฯ โครงการ "<?php echo $project_name?>" งวดที่ <?php echo $perform1?> ประจำเดือน <?php echo $month?></td>
-                            <td><?php echo $period1?></td>
+                            <td>- ค่าจ้างเหมาบริการเจ้าหน้าที่ประสานงานโครงการฯ โครงการ "<?php echo $project_name?>" งวดที่ <?php echo $number1?> ประจำเดือน <?php echo $month?> <?php echo $date_work1?></td>
+                            <td><?php echo $money1?></td>
                             <td>-</td>
                         </tr>
 
                         <tr>
                             <td>รวมเงิน (ตัวอักษร) เป็นเงิน<?php echo  convert($x);?></td>
-                            <td><?php echo $period1?></td>
+                            <td><?php echo $money1?></td>
                             <td>-</td>
                         </tr>
 
@@ -230,7 +230,7 @@
         </table>
     </div>
 
-    <script src="<?php //echo site_common_node_modules_url('jquery/dist/jquery.min.js');?>"></script>
+    <script src="<?php //echo site_common_node_modules_url('jquery/dist/jquery.min.js';?>"></script>
 </body>
 
 </html>

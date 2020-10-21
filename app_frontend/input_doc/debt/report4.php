@@ -66,17 +66,17 @@
             $date_back = $result_debt['date_back'];
             $time_back = $result_debt['time_back'];
             $open_money = $result_debt['open_money'];
-            $allowance = $result_debt['allowance'];
-            $allowance_day = $result_debt['allowance_day'];
-            $allowance_price = $result_debt['allowance_price'];
-            $allowance_sum = $result_debt['allowance_sum'];
-            $rest = $result_debt['rest'];
-            $rest_day = $result_debt['rest_day'];
-            $rest_sum = $result_debt['rest_sum'];
-            $vehicle = $result_debt['vehicle'];
-            $vehicle_sum = $result_debt['vehicle_sum'];
-            $other = $result_debt['other'];
-            $other_sum = $result_debt['other_sum'];
+            // $allowance = $result_debt['allowance'];
+            // $allowance_day = $result_debt['allowance_day'];
+            // $allowance_price = $result_debt['allowance_price'];
+            // $allowance_sum = $result_debt['allowance_sum'];
+            // $rest = $result_debt['rest'];
+            // $rest_day = $result_debt['rest_day'];
+            // $rest_sum = $result_debt['rest_sum'];
+            // $vehicle = $result_debt['vehicle'];
+            // $vehicle_sum = $result_debt['vehicle_sum'];
+            // $other = $result_debt['other'];
+            // $other_sum = $result_debt['other_sum'];
             $document_num = $result_debt['document_num'];
 
             // $list = $result_debt['list'];
@@ -175,6 +175,8 @@
             $query_position3 = mysqli_query($conn,$sql_position3);
             $result_position3 = mysqli_fetch_assoc($query_position3);
             $position_name3 = $result_position3['position_name'];
+
+            
 
 
 
@@ -313,49 +315,75 @@
                         <?php
                         $i=1;
                         $i<="";
+
+                        $sql ="SELECT * FROM tb_lend WHERE doc_id = '".$lend_num."'";
+                        $query = mysqli_query($conn,$sql);
+                        while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
+                        {
+                            $str_date = $row['str_date'];
+                            $allowance = $row['allowance'];
+                            $allowance_day = $row['allowance_day'];
+                            $allowance_price = $row['allowance_price'];
+                            $rest = $row['rest'];
+                            $rest_price = $row['rest_price'];
+                            $room = $row['room'];
+                            $num_night = $row['num_night'];
+                            $vehicle_num = $row['vehicle_num'];
+                            $vehicle_price = $row['vehicle_price'];
+                            $regis = $row['regis'];
+                            $regis_num = $row['regis_num'];
+                            $fication_day = $row['fication_day'];
+                            $num_people = $row['num_people'];
+                            $num_hour = $row['num_hour'];
+                            $price_hour = $row['price_hour'];
+                            $students_work = $row['students_work'];
+                            $work_day = $row['work_day'];
+                            $work_price = $row['work_price'];
+                           
+                        }
                         ?>
 
                         <tr>
                             <td class="text-nowrap padding-0"><?php echo $i; ?></td>
                             <td class="text-nowrap padding-0"><?php echo $prefix; ?><?php echo $firtname; ?>&nbsp;<?php echo $lastname; ?></td>
                             <td class="text-nowrap padding-0"><?php echo $position_name; ?></td>
-                            <td class="text-nowrap padding-0"><?php echo $allowance_sum; ?></td>
-                            <td class="text-nowrap padding-0"><?php echo $rest_sum; ?></td>
-                            <td class="text-nowrap padding-0"><?php echo $vehicle_sum; ?></td>
-                            <td class="text-nowrap padding-0"><?php echo $other_sum; ?></td>
+                            <td class="text-nowrap padding-0"><?php echo $allowance_price; ?></td>
+                            <td class="text-nowrap padding-0"><?php echo $rest_price; ?></td>
+                            <td class="text-nowrap padding-0"><?php echo $vehicle_price; ?></td>
+                            <td class="text-nowrap padding-0"><?php //echo $other_sum; ?></td>
                             <td class="text-nowrap padding-0">
                             <?php
 
-                            if($allowance_sum=="")
+                            if($allowance_price=="")
                             {
-                              $allowance_sum_a = 0;
+                              $allowance_price1 = 0;
                             }else{
-                              $allowance_sum_a = $allowance_sum;
+                              $allowance_price1 = $allowance_price;
                             }
 
-                            if($rest_sum=="")
+                            if($rest_price=="")
                             {
-                              $rest_sum_a = 0;
+                              $rest_price_a = 0;
                             }else{
-                              $rest_sum_a = $rest_sum;
+                              $rest_price_a = $rest_price;
                             }
 
-                            if($vehicle_sum=="")
+                            if($vehicle_price=="")
                             {
-                              $vehicle_sum_a = 0;
+                              $vehicle_price_a = 0;
                             }else{
-                              $vehicle_sum_a = $vehicle_sum;
+                              $vehicle_price_a = $vehicle_price;
                             }
 
-                            if($other_sum=="")
-                            {
-                              $other_sum_a = 0;
-                            }else{
-                              $other_sum_a = $other_sum;
-                            }
+                            // if($other_sum=="")
+                            // {
+                            //   $other_sum_a = 0;
+                            // }else{
+                            //   $other_sum_a = $other_sum;
+                            // }
 
 
-                            $sum_price = $allowance_sum_a+$rest_sum_a+$vehicle_sum_a+$other_sum_a;
+                            $sum_price = $allowance_price+$rest_price_a+$vehicle_price_a;
                             echo $sum_price; ?></td>
                             <td class="text-nowrap padding-0"><?php echo $prefix; ?><?php echo $firtname; ?>&nbsp;<?php echo $lastname; ?></td>
                             <td class="text-nowrap padding-0"><?php echo str_replace($numarabic,$numthai,$subday_date_current);?> <?php echo $month_thai;?>    <?php echo str_replace($numarabic,$numthai,$subyear_date_current+543);?></td>
@@ -372,49 +400,51 @@
                             <td class="text-nowrap padding-0"></td> -->
                             <td class="text-nowrap padding-0" colspan="5">                            <?php
 
-                                                        if($allowance_sum=="")
+                                                        if($allowance_price=="")
                                                         {
-                                                          $allowance_sum_a = 0;
+                                                        $allowance_price1 = 0;
                                                         }else{
-                                                          $allowance_sum_a = $allowance_sum;
+                                                        $allowance_price1 = $allowance_price;
                                                         }
 
-                                                        if($rest_sum=="")
+                                                        if($rest_price=="")
                                                         {
-                                                          $rest_sum_a = 0;
+                                                        $rest_price_a = 0;
                                                         }else{
-                                                          $rest_sum_a = $rest_sum;
+                                                        $rest_price_a = $rest_price;
                                                         }
 
-                                                        if($vehicle_sum=="")
+                                                        if($vehicle_price=="")
                                                         {
-                                                          $vehicle_sum_a = 0;
+                                                        $vehicle_price_a = 0;
                                                         }else{
-                                                          $vehicle_sum_a = $vehicle_sum;
-                                                        }
-
-                                                        if($other_sum=="")
-                                                        {
-                                                          $other_sum_a = 0;
-                                                        }else{
-                                                          $other_sum_a = $other_sum;
+                                                        $vehicle_price_a = $vehicle_price;
                                                         }
 
 
-                                                        $sum_price = $allowance_sum_a+$rest_sum_a+$vehicle_sum_a+$other_sum_a;
+                                                        $sum_price = $allowance_price+$rest_price_a+$vehicle_price_a;
                                                         echo $sum_price; ?></td>
                             <td colspan="3" class="text-nowrap padding-0">
                                 <table width="90%" border="0" align="center">
                                     <tr>
                                         <td width="1" class="text-nowrap border-0 padding-0">ตามสัญญาเงินยืมเลขที่</td>
                                         <td class="border-0 padding-0 text-center">
-                                            <?php //echo $str_date; ?>
+                                            <?php echo $lend_num; ?>
                                             <div class="line-bottom-dashed"></div>
                                         </td>
+                                        <?php 
+                                                $strDate = explode("-", "$str_date");
 
+                                                $str_day = $strDate[2];
+                                                $str_month = $strDate[1];
+                                                $str_year = $strDate[0];
+
+                                                $year=date("$str_year")+543;
+
+                                        ?>
                                         <td width="1" class="text-nowrap border-0 padding-0">วันที่</td>
                                         <td class="border-0 padding-0 text-center">
-                                            <?php //echo $str_date; ?>
+                                        <?php echo $str_day; ?>/<?php echo $str_month; ?>/<?php echo $year; ?>
                                               <!-- <?php echo str_replace($numarabic,$numthai,$subday_date_current);?> <?php echo $month_thai;?>    <?php echo str_replace($numarabic,$numthai,$subyear_date_current+543);?> -->
                                             <div class="line-bottom-dashed"></div>
                                         </td>

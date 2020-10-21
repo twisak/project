@@ -32,7 +32,7 @@
 </head>
 
 <body id="<?php //echo $body['name'];?>">
-    <div class="page">
+   <div class="page">
         <table border="0" align="center" width="100%" class="statement-view text-gray-900">
             <tr>
                 <td width="100%" class="statement-header"  align="center">
@@ -158,14 +158,14 @@
                         </tr>
 
                         <tr>
-                            <td>- ค่าจ้างเหมาบริการเจ้าหน้าที่ประสานงานโครงการฯ โครงการ "<?php echo $project_name?>" งวดที่ <?php echo $perform1?> ประจำเดือน <?php echo $month?></td>
-                            <td><?php echo $period1?></td>
+                            <td>- ค่าจ้างเหมาบริการเจ้าหน้าที่ประสานงานโครงการฯ โครงการ "<?php echo $project_name?>" งวดที่ <?php echo $number1?> ประจำเดือน <?php echo $month?> <?php echo $date_work1?></td>
+                            <td><?php echo $money1?></td>
                             <td>-</td>
                         </tr>
 
                         <tr>
                             <td>รวมเงิน (ตัวอักษร) เป็นเงิน<?php echo  convert($x);?></td>
-                            <td><?php echo $period1?></td>
+                            <td><?php echo $money1?></td>
                             <td>-</td>
                         </tr>
 

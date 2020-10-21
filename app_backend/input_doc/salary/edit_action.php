@@ -5,17 +5,8 @@
         
 
         $doc_id = $_POST['doc_id'];
-        $str_date = $_POST['str_date'];
-        $stp_date = $_POST['stp_date'];
         $project_id = $_POST['project_id'];
-        $activity_id = $_POST['activity_id'];
-        $person_id = $_POST['person_id'];
-
-        $period = $_POST['period'];
-        $total_amount = $_POST['total_amount'];
-        $perform = $_POST['perform'];
-        //$month = $_POST['month'];
-        $teacher_id = $_POST['teacher_id'];
+        $contract_id = $_POST['contract_id'];
 
         $day_work = serialize($_POST["day_work"]);
         // print_r($day_work);
@@ -25,14 +16,10 @@
         $Job = serialize($_POST["Job"]);
         $part_time = serialize($_POST["part_time"]);
 
-        $sql= "UPDATE tb_salary SET  
-                                    str_date        = '".$str_date."',
-                                    stp_date        = '".$stp_date."',
-                                    project_id      = '".$project_id."',
-                                    activity_id      = '".$activity_id."',
-                                    person_id        = '".$person_id."',
+        $sql= "UPDATE tb_salary SET   doc_id     = '".$doc_id."',
+                                      person_id        = '".$person_id."',
 
-                                    period        = '".$period."',
+                                    contract_id        = '".$contract_id."',
                                     total_amount        = '".$total_amount."',
                                     perform        = '".$perform."',
                                     teacher_id        = '".$teacher_id."',

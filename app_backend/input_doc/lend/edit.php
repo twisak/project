@@ -65,8 +65,9 @@ include('../../../config/constant.php');
                         $activity = $row['activity'];
                         $person_id = $row['person_id'];
                         $allowance = $row['allowance'];
+                        $allowance_day = $row['allowance_day'];
                         $allowance_price = $row['allowance_price'];
-
+                        $rest = $row['rest'];
                         $rest_price = $row['rest_price'];
                         $room = $row['room'];
                         $num_night = $row['num_night'];
@@ -110,7 +111,7 @@ include('../../../config/constant.php');
                             <!-- Tab panes -->
                             <div class="card-body">
                                 <form class="form-horizontal form-material" action="../lend/edit_action.php" name="insertlend" method="post">
-                                    <input type="hidden" name="id" value="<?php echo $id; ?>">
+                                    <!-- <input type="hidden" name="id" value="<?php echo $id; ?>"> -->
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-md-12 text-center">
@@ -147,16 +148,8 @@ include('../../../config/constant.php');
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label><b>ชื่อบุคลากร</b></label>
-                                                <select name="person_id" class="form-control">
-                                                    <option value="<?php echo $person_id?>"><?php echo $prefix?><?php echo $firtname?>&nbsp;&nbsp;<?php echo $lastname?></option>
-                                                    <?php
-                                                        $sql = "SELECT * FROM tb_person";
-                                                        $query = mysqli_query($conn, $sql);
-                                                        while($result = mysqli_fetch_assoc($query)):
-                                                    ?>
-                                                    <option value="<?=$result['person_id']?>"><?=$result['prefix']?><?=$result['firtname']?>&nbsp;&nbsp;<?=$result['lastname']?></option>
-                                                    <?php endwhile; ?>
-                                                </select>
+                                                <input type="text" value="<?php echo $prefix?><?php echo $firtname?>&nbsp;&nbsp;<?php echo $lastname?>" class="form-control form-control-line">
+                                                <input type="hidden" class="form-control" name="person_id" value="<?php echo $person_id?>">
                                             </div>
                                         </div>
 
@@ -199,7 +192,7 @@ include('../../../config/constant.php');
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label><b>ชื่อกิจกรรม</b></label>
+                                                <label for="activity"><b>ชื่อกิจกรรม</b></label>
                                                 <input type="text" class="form-control form-control-line" name="activity" value="<?php echo $activity; ?>">
                                             </div>
                                         </div>
@@ -235,6 +228,13 @@ include('../../../config/constant.php');
                                                 <input type="text" class="form-control form-control-line" name="allowance_price" value="<?php echo $allowance_price; ?>" onKeyUp="IsNumeric(this.value,this)">
                                             </div>
                                         </div>
+
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label><b>กี่วัน</b></label>
+                                                <input type="text" class="form-control form-control-line" name="allowance_day" value="<?php echo $allowance_day; ?>" onKeyUp="IsNumeric(this.value,this)">
+                                            </div>
+                                        </div>
                                     </div>
 
                                     <div class="row">
@@ -252,20 +252,34 @@ include('../../../config/constant.php');
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
+                                                <label><b>ค่าเช่าที่พักประเภท</b></label>
+                                                <input type="text" class="form-control form-control-line" name="rest" value="<?php echo $rest; ?>" >
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
                                                 <label><b>จ่ายจริง คืนล่ะ/บาท</b></label>
-                                                <input type="text" class="form-control form-control-line" name="rest_price" value="<?php echo $allowance_price; ?>" onKeyUp="IsNumeric(this.value,this)">
+                                                <input type="text" class="form-control form-control-line" name="rest_price" value="<?php echo $rest_price; ?>" onKeyUp="IsNumeric(this.value,this)">
                                             </div>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label><b>กี่ห้อง</b></label>
-                                                <input type="number" class="form-control form-control-line" name="room" value="<?php echo $allowance_price; ?>" onKeyUp="IsNumeric(this.value,this)">
+                                                <input type="number" class="form-control form-control-line" name="room" value="<?php echo $room; ?>" onKeyUp="IsNumeric(this.value,this)">
                                             </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="">
+                                            <div class="form-group">
+                                            &nbsp;&nbsp;&nbsp;&nbsp;
+                                            </div>
+                                        </div>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label><b>กี่คืน</b></label>
-                                                <input type="number" class="form-control form-control-line" name="num_night" value="<?php echo $allowance_price; ?>" onKeyUp="IsNumeric(this.value,this)">
+                                                <input type="number" class="form-control form-control-line" name="num_night" value="<?php echo $num_night; ?>" onKeyUp="IsNumeric(this.value,this)">
                                             </div>
                                         </div>
                                     </div>

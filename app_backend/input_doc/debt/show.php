@@ -99,17 +99,7 @@
                                         $date_back = $result_debt['date_back'];
                                         $time_back = $result_debt['time_back'];
                                         $open_money	= $result_debt['open_money'];
-                                        $allowance = $result_debt['allowance'];
-                                        $allowance_day = $result_debt['allowance_day'];
-                                        $allowance_price = $result_debt['allowance_price'];
-                                        $allowance_sum = $result_debt['allowance_sum'];
-                                        $rest = $result_debt['rest'];
-                                        $rest_day = $result_debt['rest_day'];
-                                        $rest_sum = $result_debt['rest_sum'];
-                                        $vehicle = $result_debt['vehicle'];
-                                        $vehicle_sum = $result_debt['vehicle_sum'];
-                                        $other = $result_debt['other'];
-                                        $other_sum = $result_debt['other_sum'];
+                                        
                                         $document_num = $result_debt['document_num'];
 
                                         $list = unserialize( $result_debt["list"] );
@@ -387,92 +377,6 @@
                                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $open_money; ?>
                                             </div>
                                         </div>
-
-                                        <div class="col-md-2">
-                                            <div class="form-group">
-                                                <label for="activity"><b>ค่าเบี้ยเลี้ยง</b></label><br>
-                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $allowance; ?>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-2">
-                                            <div class="form-group">
-                                                <label for="activity"><b>จำนวน/วัน</b></label><br>
-                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $allowance_day; ?>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-2">
-                                            <div class="form-group">
-                                                <label for="activity"><b>วันละ/บาท</b></label><br>
-                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $allowance_price; ?>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-2">
-                                            <div class="form-group">
-                                                <label for="activity"><b>รวมเป็น</b></label><br>
-                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $allowance_sum; ?>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-md-2">
-                                            <div class="form-group">
-                                                <label for="activity"><b>ค่าที่พัก</b></label><br>
-                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $rest; ?>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-2">
-                                            <div class="form-group">
-                                                <label for="activity"><b>จำนวน/วัน</b></label><br>
-                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $rest_day; ?>
-                                            </div>
-                                        </div>
-
-
-                                        <div class="col-md-2">
-                                            <div class="form-group">
-                                                <label for="activity"><b>รวมเป็น</b></label><br>
-                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $rest_sum; ?>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-md-2">
-                                            <div class="form-group">
-                                                <label for="activity"><b>ค่าพาหนะ</b></label><br>
-                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $vehicle; ?>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-2">
-                                            <div class="form-group">
-                                                <label for="activity"><b>รวมเป็น</b></label><br>
-                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $vehicle_sum; ?>
-                                            </div>
-                                        </div>
-
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-md-2">
-                                            <div class="form-group">
-                                                <label for="activity"><b>ค่าใช้จ่ายอื่นๆ</b></label><br>
-                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $other; ?>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-2">
-                                            <div class="form-group">
-                                                <label for="activity"><b>รวมเป็น</b></label><br>
-                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $other_sum; ?>
-                                            </div>
-                                        </div>
-
                                     </div>
 
                                     <div class="row">

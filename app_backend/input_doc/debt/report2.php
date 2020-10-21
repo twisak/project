@@ -30,6 +30,7 @@
 <![endif]-->
 </head>
 
+
 <body id="<?php //echo $body['name'];?>">
     <div class="page">
 
@@ -53,13 +54,13 @@
                             </td>
                         </tr>
                         <?php 
-                            $message = "$lend_num";//รวมเป็น
-                            $numthai = array("๑","๒","๓","๔","๕","๖","๗","๘","๙","๐");
-                            $numarabic = array("1","2","3","4","5","6","7","8","9","0");
-                
-                            //$test = str_replace($numthai,$numarabic,$message);
-                            $lend_num1 = str_replace($numarabic,$numthai,$message);
-                            //echo $day_thai;
+                                $message = "$lend_num";//รวมเป็น
+                                $numthai = array("๑","๒","๓","๔","๕","๖","๗","๘","๙","๐");
+                                $numarabic = array("1","2","3","4","5","6","7","8","9","0");
+                    
+                                //$test = str_replace($numthai,$numarabic,$message);
+                                $lend_num1 = str_replace($numarabic,$numthai,$message);
+                                //echo $day_thai;
                         ?>
                         <tr align="left">
                             <td colspan="2">
@@ -178,7 +179,7 @@
                             </td>
                         </tr>
 
-                        <?php 
+                        <?php
                             $message = "$note_that";//รวมเป็น
                             $numthai = array("๑","๒","๓","๔","๕","๖","๗","๘","๙","๐");
                             $numarabic = array("1","2","3","4","5","6","7","8","9","0");
@@ -517,6 +518,38 @@
                                 </table>
                             </td>
                         </tr>
+                        <?php 
+                                $sql_debt = "SELECT * FROM tb_debt WHERE doc_id = '".$doc_id."' ";
+                                $query_debt = mysqli_query($conn,$sql_debt);
+                                $result_debt = mysqli_fetch_assoc($query_debt);
+                    
+                                $lend_num = $result_debt['lend_num'];
+
+                                $sql ="SELECT * FROM tb_lend WHERE doc_id = '".$lend_num."'";
+                                $query = mysqli_query($conn,$sql);
+                                while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
+                                {
+                                    $allowance = $row['allowance'];
+                                    $allowance_day = $row['allowance_day'];
+                                    $allowance_price = $row['allowance_price'];
+                                    $rest = $row['rest'];
+                                    $rest_price = $row['rest_price'];
+                                    $room = $row['room'];
+                                    $num_night = $row['num_night'];
+                                    $vehicle_num = $row['vehicle_num'];
+                                    $vehicle_price = $row['vehicle_price'];
+                                    $regis = $row['regis'];
+                                    $regis_num = $row['regis_num'];
+                                    $fication_day = $row['fication_day'];
+                                    $num_people = $row['num_people'];
+                                    $num_hour = $row['num_hour'];
+                                    $price_hour = $row['price_hour'];
+                                    $students_work = $row['students_work'];
+                                    $work_day = $row['work_day'];
+                                    $work_price = $row['work_price'];
+                                   
+                                }
+                        ?>
                         <tr align="left">
                             <td colspan="2">
                                 <table width="100%" border="0" align="left">
@@ -535,14 +568,17 @@
                                         <td width="1"></td>
                                         <td width="1" class="text-nowrap border-0 padding-0">วันละ</td>
                                         <td class="border-0 padding-0">
-                                            &nbsp;&nbsp;<?php echo $allowance_price;?>
+                                            &nbsp;&nbsp;<?php echo number_format($allowance_price, 0, ".", ",") . "\n"; // US format ?>
                                             <div class="line-bottom-dashed"></div>
                                         </td>
+                                        <?php 
+                                                $allowance_sum = $allowance_day * $allowance_price;
+                                        ?>
                                         <td width="1" class="text-nowrap border-0 padding-0">บาท</td>
                                         <td width="1"></td>
                                         <td width="1" class="text-nowrap border-0 padding-0">รวม</td>
                                         <td class="border-0 padding-0">
-                                            &nbsp;&nbsp;<?php echo $allowance_sum;?>
+                                            &nbsp;&nbsp;<?php echo number_format($allowance_sum, 0, ".", ",") . "\n"; // US format ?>
                                             <div class="line-bottom-dashed"></div>
                                         </td>
                                         <td width="1" class="text-nowrap border-0 padding-0">บาท</td>
@@ -561,14 +597,24 @@
                                         </td>
                                         <td width="1" class="text-nowrap border-0 padding-0">จำนวนวัน</td>
                                         <td class="border-0 padding-0">
-                                            &nbsp;&nbsp;<?php echo $rest_day;?>
+                                            &nbsp;&nbsp;<?php echo $num_night;?>
                                             <div class="line-bottom-dashed"></div>
                                         </td>
                                         <td width="1" class="text-nowrap border-0 padding-0">วัน</td>
                                         <td width="1"></td>
-                                        <td width="1" class="text-nowrap border-0 padding-0">รวม</td>
+                                        <td width="1" class="text-nowrap border-0 padding-0">ราคา</td>
                                         <td class="border-0 padding-0">
-                                            &nbsp;&nbsp<?php echo $rest_sum;?>
+                                            &nbsp;&nbsp;<?php echo number_format($rest_price, 0, ".", ",") . "\n"; // US format ?>
+                                            <div class="line-bottom-dashed"></div>
+                                        </td>
+                                        <td width="1" class="text-nowrap border-0 padding-0">บาท</td>
+                                        <td width="1"></td>
+                                        <td width="1" class="text-nowrap border-0 padding-0">รวม</td>
+                                        <?php 
+                                                $rest_sum = $num_night * $rest_price;
+                                        ?>
+                                        <td class="border-0 padding-0">
+                                            &nbsp;&nbsp;<?php echo number_format($rest_sum, 0, ".", ",") . "\n"; // US format ?>
                                             <div class="line-bottom-dashed"></div>
                                         </td>
                                         <td width="1" class="text-nowrap border-0 padding-0">บาท</td>
@@ -582,12 +628,24 @@
                                     <tr>
                                         <td width="1" class="text-nowrap border-0 padding-0">ค่าพาหนะ</td>
                                         <td class="border-0 padding-0">
-                                            &nbsp;&nbsp;<?php echo $vehicle;?>
+                                            &nbsp;&nbsp;<?php echo $vehicle_num;?>
                                             <div class="line-bottom-dashed"></div>
                                         </td>
-                                        <td width="1" class="text-nowrap border-0 padding-0">รวม</td>
+                                        <td width="1" class="text-nowrap border-0 padding-0">คัน</td>
+                                        <td width="1"></td>
+                                        <td width="1" class="text-nowrap border-0 padding-0">คันล่ะ</td>
                                         <td class="border-0 padding-0">
-                                            &nbsp;&nbsp;<?php echo $vehicle_sum;?>
+                                            &nbsp;&nbsp;<?php echo number_format($vehicle_price, 0, ".", ",") . "\n"; // US format ?>
+                                            <div class="line-bottom-dashed"></div>
+                                        </td>
+                                        <td width="1" class="text-nowrap border-0 padding-0">บาท</td>
+                                        <td width="1"></td>
+                                        <td width="1" class="text-nowrap border-0 padding-0">รวม</td>
+                                        <?php 
+                                                $vehicle_sum = $vehicle_num * $vehicle_price;
+                                        ?>
+                                        <td class="border-0 padding-0">
+                                            &nbsp;&nbsp;<?php echo number_format($vehicle_sum, 0, ".", ",") . "\n"; // US format ?>
                                             <div class="line-bottom-dashed"></div>
                                         </td>
                                         <td width="1" class="text-nowrap border-0 padding-0">บาท</td>
@@ -601,12 +659,12 @@
                                     <tr>
                                         <td width="1" class="text-nowrap border-0 padding-0">ค่าใช้จ่ายอื่น</td>
                                         <td class="border-0 padding-0">
-                                            &nbsp;&nbsp;<?php echo $other;?>
+                                            &nbsp;&nbsp;<?php //echo $other;?>
                                             <div class="line-bottom-dashed"></div>
                                         </td>
                                         <td width="1" class="text-nowrap border-0 padding-0">รวม</td>
                                         <td class="border-0 padding-0">
-                                            &nbsp;&nbsp;<?php echo $other_sum;?>
+                                            &nbsp;&nbsp;<?php //echo $other_sum;?>
                                             <div class="line-bottom-dashed"></div>
                                         </td>
                                         <td width="1" class="text-nowrap border-0 padding-0">บาท</td>
@@ -614,6 +672,9 @@
                                 </table>
                             </td>
                         </tr>
+                                        <?php 
+                                                $government = $allowance_sum + $rest_sum + $vehicle_sum;
+                                        ?>
                         <tr align="left">
                             <td width="100%">
                                 <table width="100%" border="0" align="left">
@@ -621,7 +682,7 @@
                                         <td></td>
                                         <td width="1" class="text-nowrap border-0 padding-0">รวมเงินทั้งสิ้น</td>
                                         <td class="border-0 padding-0">
-                                            &nbsp;&nbsp;<?php //echo $government;?>
+                                            &nbsp;&nbsp;<?php echo number_format($government, 0, ".", ",") . "\n"; // US format ?>
                                             <div class="line-bottom-dashed"></div>
                                         </td>
                                         <td width="1" class="text-nowrap border-0 padding-0">บาท</td>
@@ -629,6 +690,37 @@
                                 </table>
                             </td>
                         </tr>
+                        <?php 
+                                    function convert($government){
+                                    $txtnum1 = array('ศูนย์','หนึ่ง','สอง','สาม','สี่','ห้า','หก','เจ็ด','แปด','เก้า','สิบ');
+                                    $txtnum2 = array('','สิบ','ร้อย','พัน','หมื่น','แสน','ล้าน','สิบ','ร้อย','พัน','หมื่น','แสน','ล้าน');
+                                    $government = str_replace(",","",$government);
+                                    $government = str_replace(" ","",$government);
+                                    $government = str_replace("บาท","",$government);
+                                    $government = explode(".",$government);
+                                    if(sizeof($government)>2){
+                                        return 'ทศนิยมหลายตัวนะจ๊ะ';
+                                        exit;
+                                    }
+                                    $strlen = strlen($government[0]);
+                                    $convert = '';
+                                    for($i=0;$i<$strlen;$i++){
+                                        $n = substr($government[0], $i,1);
+                                        if($n!=0){
+                                            if($i==($strlen-1) AND $n==1){ $convert .= 'เอ็ด'; }
+                                            elseif($i==($strlen-2) AND $n==2){  $convert .= 'ยี่'; }
+                                            elseif($i==($strlen-2) AND $n==1){ $convert .= ''; }
+                                            else{ $convert .= $txtnum1[$n]; }
+                                            $convert .= $txtnum2[$strlen-$i-1];
+                                        }
+                                    }
+            
+                                    $convert .= 'บาทถ้วน';
+            
+                                    return $convert;
+                                    }
+                                    $x = $government;
+                        ?>
                         <tr align="left">
                             <td width="100%">
                                 <table width="100%" border="0" align="left">
@@ -636,7 +728,7 @@
                                         <td></td>
                                         <td width="1" class="text-nowrap border-0 padding-0">จำนวนเงิน(ตัวอักษร)</td>
                                         <td class="border-0 padding-0">
-                                            &nbsp;&nbsp;<?php //echo $government;?>
+                                            &nbsp;&nbsp;<?php echo  convert($x);?>
                                             <div class="line-bottom-dashed"></div>
                                         </td>
                                         <td width="1" class="text-nowrap border-0 padding-0"></td>

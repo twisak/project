@@ -202,6 +202,13 @@
                                                 <input type="text" class="form-control form-control-line" name="allowance_price" onKeyUp="IsNumeric(this.value,this)">
                                             </div>
                                         </div>
+
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label><b>กี่วัน</b></label>&nbsp;<label class="text-danger"><b>*</b></label>
+                                                <input type="text" class="form-control form-control-line" name="allowance_day" onKeyUp="IsNumeric(this.value,this)">
+                                            </div>
+                                        </div>
                                     </div>
 
                                     <div class="row">
@@ -219,6 +226,12 @@
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
+                                                <label><b>ค่าเช่าที่พักประเภท</b></label>&nbsp;<label class="text-danger"><b>*</b></label>
+                                                <input type="text" class="form-control form-control-line" required name="rest">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
                                                 <label><b>จ่ายจริง คืนล่ะ/บาท</b></label>&nbsp;<label class="text-danger"><b>*</b></label>
                                                 <input type="text" class="form-control form-control-line" required name="rest_price" onKeyUp="IsNumeric(this.value,this)">
                                             </div>
@@ -227,6 +240,13 @@
                                             <div class="form-group">
                                                 <label><b>กี่ห้อง</b></label>&nbsp;<label class="text-danger"><b>*</b></label>
                                                 <input type="text" class="form-control form-control-line" name="room" required onKeyUp="IsNumeric(this.value,this)">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="">
+                                            <div class="form-group">
+                                            &nbsp;&nbsp;&nbsp;&nbsp;
                                             </div>
                                         </div>
                                         <div class="col-md-3">
