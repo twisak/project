@@ -664,6 +664,38 @@
                             <td colspan="2">
                                 <table width="100%" border="0" align="left">
                                     <tr>
+                                        <td width="1" class="text-nowrap border-0 padding-0">ค่าลงทะเบียนอบรม</td>
+                                        <td class="border-0 padding-0">
+                                            &nbsp;&nbsp;<?php echo number_format($regis, 0, ".", ",") . "\n"; // US format ?>
+                                            <div class="line-bottom-dashed"></div>
+                                        </td>
+                                        <td width="1" class="text-nowrap border-0 padding-0">บาท/คน</td>
+                                        <td width="1"></td>
+                                        <td width="1" class="text-nowrap border-0 padding-0">จำนวน</td>
+                                        <td class="border-0 padding-0">
+                                            &nbsp;&nbsp;<?php echo $regis_num;?>
+                                            <div class="line-bottom-dashed"></div>
+                                        </td>
+                                        <td width="1" class="text-nowrap border-0 padding-0">คน</td>
+                                        <td width="1"></td>
+                                        <td width="1" class="text-nowrap border-0 padding-0">รวม</td>
+                                        <?php 
+                                                $regis_sum = $regis * $regis_num;
+                                        ?>
+                                        <td class="border-0 padding-0">
+                                            &nbsp;&nbsp;<?php echo number_format($regis_sum, 0, ".", ",") . "\n"; // US format ?>
+                                            <div class="line-bottom-dashed"></div>
+                                        </td>
+                                        <td width="1" class="text-nowrap border-0 padding-0">บาท</td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        
+                        <tr align="left">
+                            <td colspan="2">
+                                <table width="100%" border="0" align="left">
+                                    <tr>
                                         <td width="1" class="text-nowrap border-0 padding-0">ค่าใช้จ่ายอื่น</td>
                                         <td class="border-0 padding-0">
                                             &nbsp;&nbsp;ค่าสมนาคุณวิทยากรผู้ทรงคุณวุฒิ <?php echo $fication_day;?> วัน  วันละ <?php echo $num_people;?> คน<br> &nbsp;&nbsp;คนละ <?php echo $num_hour;?> ชม ชมละ <?php echo $price_hour;?> บาท<br>
@@ -804,7 +836,7 @@
                             </td>
                         </tr>
                                         <?php 
-                                                $government = $allowance_sum + $rest_sum + $vehicle_sum + $sum;
+                                                $government = $allowance_sum + $rest_sum + $vehicle_sum + $regis_sum + $sum;
                                         ?>
                         <tr align="left">
                             <td width="100%">
