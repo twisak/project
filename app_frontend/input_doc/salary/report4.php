@@ -1,3 +1,8 @@
+
+<?php
+    include('../../../config/connect.php');
+    include('../../../config/constant.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,7 +21,7 @@
     <!-- แบมะ -->
     <link href="<?php echo ROOT_PROJECT_FRONTEND; ?>/css/bootstrap_plugin.css" rel="stylesheet">
     <!-- Custom CSS -->
-    <link href="<?php echo ROOT_PROJECT_FRONTEND; ?>/css/report.css" rel="stylesheet">
+    <link href="<?php echo ROOT_PROJECT_FRONTEND; ?>/css/report1.css" rel="stylesheet">
     <link href="<?php echo ROOT_PROJECT_FRONTEND; ?>/assets/node_modules/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <!-- แบมะ -->
 
@@ -31,80 +36,117 @@
 </head>
 <?php
 
-     $doc_id = $_GET['id'];
-     $sql_salary = "SELECT * FROM tb_salary WHERE doc_id = '".$doc_id."' ";
-     $query_salary = mysqli_query($conn,$sql_salary);
-     $result_salary = mysqli_fetch_assoc($query_salary);
+$doc_id = $_GET['id'];
+$sql_salary = "SELECT * FROM tb_salary WHERE doc_id = '".$doc_id."' ";
+$query_salary = mysqli_query($conn,$sql_salary);
+$result_salary = mysqli_fetch_assoc($query_salary);
 
-     $doc_id = $result_salary['doc_id'];
-     $person_id = $result_salary['person_id'];
+//$doc_id = $result_salary['doc_id'];
+$person_id = $result_salary['person_id'];
+$contract_id = $result_salary['contract_id'];
 
-     $day_work = unserialize($result_salary['day_work']);
-     $start_time = unserialize($result_salary['start_time']);
-     $end_time = unserialize($result_salary['end_time']);
-     $Job = unserialize($result_salary['Job']);
-     $part_time = unserialize($result_salary['part_time']);
-     // $day_work = $result_salary['day_work'];
-     // $start_time = $result_salary['start_time'];
-     // $end_time = $result_salary['end_time'];
-     // $Job = $result_salary['Job'];
-     // $part_time = $result_salary['part_time'];
+$day_work = unserialize($result_salary['day_work']);
+$start_time = unserialize($result_salary['start_time']);
+$end_time = unserialize($result_salary['end_time']);
+$Job = unserialize($result_salary['Job']);
+$part_time = unserialize($result_salary['part_time']);
+$date_current = $result_salary['date_current'];
+// $day_work = $result_salary['day_work'];
+// $start_time = $result_salary['start_time'];
+// $end_time = $result_salary['end_time'];
+// $Job = $result_salary['Job'];
+// $part_time = $result_salary['part_time'];
 
-     $sql_project = "SELECT * FROM tb_project WHERE project_id = '".$project_id."' ";
-     $query_project = mysqli_query($conn,$sql_project);
-     $result_project = mysqli_fetch_assoc($query_project);
-
-     $project_name = $result_project['project_name'];
-
-     $sql_activity = "SELECT * FROM tb_activity WHERE activity_id = '".$activity_id."' ";
-     $query_activity = mysqli_query($conn,$sql_activity);
-     $result_activity = mysqli_fetch_assoc($query_activity);
-
-     $activity = $result_activity['activity'];
-
-     $sql_person = "SELECT * FROM tb_person WHERE person_id = '".$person_id."' ";
-     $query_person = mysqli_query($conn,$sql_person);
-     $result_person = mysqli_fetch_assoc($query_person);
-
-     $prefix = $result_person['prefix'];
-     $firtname = $result_person['firtname'];
-     $lastname = $result_person['lastname'];
-     $house_num = $result_person['house_num'];
-     $road = $result_person['road'];
-     $village = $result_person['village'];
-     $province_id = $result_person['province_id'];
-     $districts_id = $result_person['districts_id'];
-     $amphures_id = $result_person['amphures_id'];
-
-     $sql_province = "SELECT * FROM provinces WHERE id = '".$province_id."' ";
-     $query_province = mysqli_query($conn,$sql_province);
-     $result_province = mysqli_fetch_assoc($query_province);
-     $name_th_p = $result_province['name_th'];
-
-     $sql_districts = "SELECT * FROM districts WHERE id = '".$districts_id."' ";
-     $query_districts = mysqli_query($conn,$sql_districts);
-     $result_districts = mysqli_fetch_assoc($query_districts);
-     $name_th_d = $result_districts['name_th'];
-
-     $sql_amphures = "SELECT * FROM amphures WHERE id = '".$amphures_id."' ";
-     $query_amphures = mysqli_query($conn,$sql_amphures);
-     $result_amphures = mysqli_fetch_assoc($query_amphures);
-     $name_th_a = $result_amphures['name_th'];
+$sql ="SELECT * FROM tb_contract WHERE doc_id = '".$contract_id."'";
+$query = mysqli_query($conn,$sql);
+$num_rows = mysqli_num_rows($query);
+while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
+{
+    //$doc_id = $row['doc_id'];
+    $foreword = unserialize($row['foreword']);
+    $str_date = $row['str_date'];
+    $stp_date = $row['stp_date'];
+    $project_id = $row['project_id'];
+    $activity_id = $row['activity_id'];
+    $person_id = $row['person_id'];
+    $teacher_id = $row['teacher_id'];
+    $number = $row['number'];
+    $money = $row['money'];
+    $work = $row['work'];
+    $date_work = $row['date_work'];
+    $government = $row['government'];
+    $that = $row['that'];
+    $c_day = $row['c_day'];
+    $title_id = $row['title_id'];
+    $people = $row['people'];
+    $mid_price = $row['mid_price'];
+    $details = $row['details'];
+    $date_start  = $row['date_start'];
+    $date_end = $row['date_end'];
+    $property = unserialize($row['property']);
+    $scope = unserialize($row["scope"]);
+    $responsible = $row['responsible'];
+    $fine = unserialize($row["fine"]);
+    $payment = unserialize( $row["payment"] );
+    $insurance = unserialize( $row["insurance"] );
+}
 
 
-     $sql_teacher = "SELECT * FROM tb_teacher WHERE teacher_id = '".$teacher_id."' ";
-     $query_teacher = mysqli_query($conn,$sql_teacher);
-     $result_teacher = mysqli_fetch_assoc($query_teacher);
+$sql_project = "SELECT * FROM tb_project WHERE project_id = '".$project_id."' ";
+$query_project = mysqli_query($conn,$sql_project);
+$result_project = mysqli_fetch_assoc($query_project);
 
-     $t_firstname = $result_teacher['t_firstname'];
-     $t_lastname = $result_teacher['t_lastname'];
-     $position_id = $result_teacher['position_id'];
-     
-     $sql_position = "SELECT * FROM tb_position WHERE position_id = '".$position_id."' ";
-     $query_position = mysqli_query($conn,$sql_position);
-     $result_position = mysqli_fetch_assoc($query_position);
+$project_name = $result_project['project_name'];
 
-     $position_name = $result_position['position_name'];
+$sql_activity = "SELECT * FROM tb_activity WHERE activity_id = '".$activity_id."' ";
+$query_activity = mysqli_query($conn,$sql_activity);
+$result_activity = mysqli_fetch_assoc($query_activity);
+
+$activity = $result_activity['activity'];
+
+$sql_person = "SELECT * FROM tb_person WHERE person_id = '".$person_id."' ";
+$query_person = mysqli_query($conn,$sql_person);
+$result_person = mysqli_fetch_assoc($query_person);
+
+$prefix = $result_person['prefix'];
+$firtname = $result_person['firtname'];
+$lastname = $result_person['lastname'];
+$house_num = $result_person['house_num'];
+$road = $result_person['road'];
+$village = $result_person['village'];
+$province_id = $result_person['province_id'];
+$districts_id = $result_person['districts_id'];
+$amphures_id = $result_person['amphures_id'];
+
+$sql_province = "SELECT * FROM provinces WHERE id = '".$province_id."' ";
+$query_province = mysqli_query($conn,$sql_province);
+$result_province = mysqli_fetch_assoc($query_province);
+$name_th_p = $result_province['name_th'];
+
+$sql_districts = "SELECT * FROM districts WHERE id = '".$districts_id."' ";
+$query_districts = mysqli_query($conn,$sql_districts);
+$result_districts = mysqli_fetch_assoc($query_districts);
+$name_th_d = $result_districts['name_th'];
+
+$sql_amphures = "SELECT * FROM amphures WHERE id = '".$amphures_id."' ";
+$query_amphures = mysqli_query($conn,$sql_amphures);
+$result_amphures = mysqli_fetch_assoc($query_amphures);
+$name_th_a = $result_amphures['name_th'];
+
+
+$sql_teacher = "SELECT * FROM tb_teacher WHERE teacher_id = '".$teacher_id."' ";
+$query_teacher = mysqli_query($conn,$sql_teacher);
+$result_teacher = mysqli_fetch_assoc($query_teacher);
+
+$t_firstname = $result_teacher['t_firstname'];
+$t_lastname = $result_teacher['t_lastname'];
+$position_id = $result_teacher['position_id'];
+
+$sql_position = "SELECT * FROM tb_position WHERE position_id = '".$position_id."' ";
+$query_position = mysqli_query($conn,$sql_position);
+$result_position = mysqli_fetch_assoc($query_position);
+
+$position_name = $result_position['position_name'];
      
 
 ?>
@@ -153,7 +195,7 @@
                 while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
                 {
                    
-                    $doc_id = $row['doc_id'];
+                    //$doc_id = $row['doc_id'];
                     $foreword = unserialize($row['foreword']);
                 }
             ?>
@@ -267,13 +309,15 @@
                                             $value_end_time = $end_time1[$j];
                                             $value_Job = $Job1[$j];
 
+                                            //echo "//////////$value_day_work///////////";
+
                                 $strDate = explode("-", "$value_day_work");//วันปัจจุบัน
 
                                 $str_day = $strDate[2];
                                 $str_month = $strDate[1];
                                 $str_year = $strDate[0];
 
-                                $message = "$year";
+                                $message = "$str_year";
                                 $numthai = array("๑","๒","๓","๔","๕","๖","๗","๘","๙","๐");
                                 $numarabic = array("1","2","3","4","5","6","7","8","9","0");
 
@@ -422,6 +466,27 @@
             </tr>
         </table>
     </div>
+
+    <ul class="right-menu">
+        <li>
+            <a href="#" onclick="window.print();">
+                <span class="fa-stack hightlight fa-2x">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-print fa-stack-1x fa-inverse"></i>
+                </span>
+                พิมพ์รายงาน
+            </a>
+        </li>
+        <li>
+            <a href="http://localhost/project_student/app_frontend/input_doc/salary/show.php?id=<?=$doc_id?>">
+                <span class="fa-stack fa-2x">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-times fa-stack-1x fa-inverse"></i>
+                </span>
+                ปิดหน้าจอนี้
+            </a>
+        </li>
+    </ul>
 
     <script src="<?php //echo site_common_node_modules_url('jquery/dist/jquery.min.js');?>"></script>
 </body>

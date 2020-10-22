@@ -60,7 +60,7 @@
      $num_rows = mysqli_num_rows($query);
      while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
      {
-         $doc_id = $row['doc_id'];
+         //$doc_id = $row['doc_id'];
          $foreword = unserialize($row['foreword']);
          $str_date = $row['str_date'];
          $stp_date = $row['stp_date'];
@@ -617,7 +617,6 @@
     <?php
         include '../salary/report2.php';
         include '../salary/report3.php';
-        include '../salary/report4.php';
     ?>
 
 
@@ -634,7 +633,7 @@
         </li>
 
         <li>
-            <a href="http://localhost/project_student/app_backend/input_doc/salary/show.php?doc_id=<?=$doc_id?>">
+            <a href="http://localhost/project_student/app_backend/input_doc/salary/show.php?id=<?=$doc_id?>">
                 <span class="fa-stack fa-2x">
                     <i class="fa fa-circle fa-stack-2x"></i>
                     <i class="fa fa-times fa-stack-1x fa-inverse"></i>

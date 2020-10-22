@@ -39,7 +39,7 @@
      $query_salary = mysqli_query($conn,$sql_salary);
      $result_salary = mysqli_fetch_assoc($query_salary);
 
-     $doc_id = $result_salary['doc_id'];
+     //$doc_id = $result_salary['doc_id'];
      $person_id = $result_salary['person_id'];
      $contract_id = $result_salary['contract_id'];
      
@@ -60,7 +60,7 @@
      $num_rows = mysqli_num_rows($query);
      while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
      {
-         $doc_id = $row['doc_id'];
+         //$doc_id = $row['doc_id'];
          $foreword = unserialize($row['foreword']);
          $str_date = $row['str_date'];
          $stp_date = $row['stp_date'];
@@ -617,7 +617,6 @@
     <?php
         include '../salary/report2.php';
         include '../salary/report3.php';
-        include '../salary/report4.php';
     ?>
 
 

@@ -546,6 +546,14 @@
                                     $students_work = $row['students_work'];
                                     $work_day = $row['work_day'];
                                     $work_price = $row['work_price'];
+
+                                    
+                                    $hand_food = $row['hand_food'];
+                                    $num_food = $row['num_food'];
+                                    $food_price = $row['food_price'];
+                                    $snack = $row['snack'];
+                                    $num_snack = $row['num_snack'];
+                                    $snack_price = $row['snack_price'];
                                    
                                 }
                         ?>
@@ -658,12 +666,136 @@
                                     <tr>
                                         <td width="1" class="text-nowrap border-0 padding-0">ค่าใช้จ่ายอื่น</td>
                                         <td class="border-0 padding-0">
-                                            &nbsp;&nbsp;<?php //echo $other;?>
+                                            &nbsp;&nbsp;ค่าสมนาคุณวิทยากรผู้ทรงคุณวุฒิ <?php echo $fication_day;?> วัน  วันละ <?php echo $num_people;?> คน<br> &nbsp;&nbsp;คนละ <?php echo $num_hour;?> ชม ชมละ <?php echo $price_hour;?> บาท<br>
+                                            &nbsp;&nbsp;ค่าตอบแทนนักศึกษาช่วยงาน <?php echo $students_work;?> คน <?php echo $work_day;?> วัน <?php echo $work_price;?> บาท<br>
+                                            &nbsp;&nbsp;ค่าอาหารมือหลัก จำนวน <?php echo $hand_food;?> คน คนละ <?php echo $num_food;?> มื่อ มื่อล่ะ <?php echo $food_price;?> บาท<br>
+                                            &nbsp;&nbsp;ค่าอาหารว่างและเครื่องดื่ม จำนวน <?php echo $snack;?> คน คนละ <?php echo $num_snack;?> มื่อ มื่อล่ะ <?php echo $snack_price;?> บาท
                                             <div class="line-bottom-dashed"></div>
                                         </td>
-                                        <td width="1" class="text-nowrap border-0 padding-0">รวม</td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <?php 
+                            if( $rest_price && $room && $num_night == "-") {
+                                                        
+                                //echo "-";
+                                $rest_price = "0";
+                                $room = "0";
+                                $num_night = "0";
+                            
+                            }elseif($rest_price && $room && $num_night != "-"){
+                            
+                                $rest_price;
+                                $room;
+                                $num_night;
+                                $sum_room = $rest_price * $room * $num_night;
+                            }
+
+                            if( $vehicle_num && $vehicle_price == "-") {
+                                                        
+                                //echo "-";
+                                $vehicle_num = "0";
+                                $vehicle_price = "0";
+                            
+                            }elseif($vehicle_num && $vehicle_price != "-"){
+                            
+                                $vehicle_num;
+                                $vehicle_price;
+                            }
+                            $sum_vehicle = $vehicle_num * $vehicle_price;
+
+                            if( $regis && $regis_num == "-") {
+                                                        
+                                //echo "-";
+                                $regis = "0";
+                                $regis_num = "0";
+                            
+                            }elseif($regis && $regis_num != "-"){
+                            
+                                $regis;
+                                $regis_num;
+                            }
+                            $sum_regis = $regis * $regis_num;
+                            
+                            if( $fication_day && $num_people && $num_hour && $price_hour == "-") {
+                                                                                                        
+                                //echo "-";
+                                $fication_day = "0";
+                                $num_people = "0";
+                                $num_hour = "0";
+                                $price_hour = "0";
+
+                            }elseif($fication_day && $num_people && $num_hour && $price_hour != "-"){
+
+                                $fication_day;
+                                $num_people;
+                                $num_hour;
+                                $price_hour;
+                            }
+                            $sum_fication = $fication_day * $num_people * $num_hour * $price_hour;
+
+                            if( $students_work && $work_day && $work_price == "-") {
+                                                        
+                                //echo "-";
+                                $students_work = "0";
+                                $work_day = "0";
+                                $work_price = "0";
+                            
+                            }elseif($students_work && $work_day && $work_price != "-"){
+                            
+                                $students_work;
+                                $work_day;
+                                $work_price;
+                            }
+                            $sum_students = $students_work * $work_day * $work_price;
+
+                            if( $hand_food && $num_food && $food_price == "-") {
+                                                        
+                                //echo "-";
+                                $hand_food = "0";
+                                $num_food = "0";
+                                $food_price = "0";
+                            
+                            }elseif($hand_food && $num_food && $food_price != "-"){
+                            
+                                $hand_food;
+                                $num_food;
+                                $food_price;
+                            }
+                            $sum_food = $hand_food * $num_food * $food_price;
+
+                            if( $snack && $num_snack && $snack_price == "-") {
+                                                                
+                                //echo "-";
+                                $snack = "0";
+                                $num_snack = "0";
+                                $snack_price = "0";
+                            
+                            }elseif($snack && $num_snack && $snack_price != "-"){
+                            
+                                 $snack;
+                                 $num_snack;
+                                 $snack_price;
+                            }
+
+                                $sum_fication = $fication_day * $num_people * $num_hour * $price_hour;
+                                $sum_students = $students_work * $work_day * $work_price;
+                                $sum_food = $hand_food * $num_food * $food_price;
+                                $sum_snack = $snack * $num_snack * $snack_price;
+    
+                                $sum = $sum_fication + $sum_students + $sum_food + $sum_snack;
+                          
+                                // $total = $allowance_sum + $sum_room + $sum_vehicle + $sum_regis + $sum;
+                        ?>
+                        <tr align="left">
+                            <td width="100%">
+                                <table width="100%" border="0" align="left">
+                                    <tr>
+                                        <td></td>
+                                        <td width="1" class="text-nowrap border-0 padding-0">รวมเงินค่าใช้จ่ายอื่น</td>
                                         <td class="border-0 padding-0">
-                                            &nbsp;&nbsp;<?php //echo $other_sum;?>
+                                            &nbsp;&nbsp;<?php echo number_format($sum, 0, ".", ",") . "\n"; // US format ?>
                                             <div class="line-bottom-dashed"></div>
                                         </td>
                                         <td width="1" class="text-nowrap border-0 padding-0">บาท</td>
@@ -672,7 +804,7 @@
                             </td>
                         </tr>
                                         <?php 
-                                                $government = $allowance_sum + $rest_sum + $vehicle_sum;
+                                                $government = $allowance_sum + $rest_sum + $vehicle_sum + $sum;
                                         ?>
                         <tr align="left">
                             <td width="100%">

@@ -49,6 +49,7 @@
                 $teacher_id = $row['teacher_id'];
                 $allowance = $row['allowance'];
                 $allowance_price = $row['allowance_price'];
+                $allowance_day = $row['allowance_day'];
 
                 $rest_price = $row['rest_price'];
                 $room = $row['room'];
@@ -203,9 +204,10 @@
                                     <tr>
                                         <td width="1" class="text-nowrap border-0 padding-0">ค่าเบี้ยเลี้ยง</td>
                                         <td class="border-0 padding-0">
-                                        &nbsp;<?php echo $allowance; ?>
+                                        &nbsp;<?php echo $allowance; ?> <?php echo $allowance_day; ?>วัน วันล่ะ <?php echo $allowance_price; ?> บาท
                                             <div class="line-bottom-dashed"></div>
                                         </td>
+                                       
                                     </tr>
                                 </table>
                             </td>
@@ -437,8 +439,11 @@
                         <td width="20%" height="1px">
                             <table width="100%" border="0" align="left">
                                 <tr>
+                                <?php 
+                                      $allowance_sum = $allowance_day * $allowance_price;
+                                ?>
                                     <td class="border-0 padding-0 text-center">
-                                    &nbsp;<?php echo number_format($allowance_price, 0, ".", ",") . "\n"; // US format ?>
+                                    &nbsp;<?php echo number_format($allowance_sum, 0, ".", ",") . "\n"; // US format ?>
                                         <div class="line-bottom-dashed"></div>
                                     </td>
                                 </tr>
@@ -492,7 +497,7 @@
 
                             $sum = $sum_fication + $sum_students + $sum_food + $sum_snack;
                       
-                            $total = $allowance_price + $sum_room + $sum_vehicle + $sum_regis + $sum;
+                            $total = $allowance_sum + $sum_room + $sum_vehicle + $sum_regis + $sum;
                       ?>
                       <tr>
                           <td width="20%" height="1px">
