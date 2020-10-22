@@ -602,6 +602,13 @@
                                             &nbsp;&nbsp;<?php echo $rest;?>
                                             <div class="line-bottom-dashed"></div>
                                         </td>
+                                        <td width="1" class="text-nowrap border-0 padding-0">จำนวนห้อง</td>
+                                        <td class="border-0 padding-0">
+                                            &nbsp;<?php echo $room;?>
+                                            <div class="line-bottom-dashed"></div>
+                                        </td>
+                                        <td width="1" class="text-nowrap border-0 padding-0">ห้อง</td>
+                                        <td width="1"></td>
                                         <td width="1" class="text-nowrap border-0 padding-0">จำนวนวัน</td>
                                         <td class="border-0 padding-0">
                                             &nbsp;&nbsp;<?php echo $num_night;?>
@@ -618,7 +625,7 @@
                                         <td width="1"></td>
                                         <td width="1" class="text-nowrap border-0 padding-0">รวม</td>
                                         <?php 
-                                                $rest_sum = $num_night * $rest_price;
+                                                $rest_sum = $num_night * $room * $rest_price;
                                         ?>
                                         <td class="border-0 padding-0">
                                             &nbsp;&nbsp;<?php echo number_format($rest_sum, 0, ".", ",") . "\n"; // US format ?>
