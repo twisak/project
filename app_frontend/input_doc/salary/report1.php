@@ -55,7 +55,7 @@
      // $Job = $result_salary['Job'];
      // $part_time = $result_salary['part_time'];
 
-     $sql ="SELECT * FROM tb_contract WHERE doc_id = '".$contract_id."'";
+     $sql ="SELECT * FROM tb_contract WHERE person_id = '".$person_id."' ";
      $query = mysqli_query($conn,$sql);
      $num_rows = mysqli_num_rows($query);
      while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))

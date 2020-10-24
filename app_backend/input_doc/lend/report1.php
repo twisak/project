@@ -99,9 +99,17 @@
             $query_teacher = mysqli_query($conn,$sql_teacher);
             while($row_teacher = mysqli_fetch_array($query_teacher,MYSQLI_ASSOC))
             {
+                $prefix1 = $row_teacher['prefix'];
                 $t_firstname = $row_teacher['t_firstname'];
                 $t_lastname = $row_teacher['t_lastname'];
-                //$prefix = $row2['prefix'];
+                $position_id1 = $row_teacher['position_id'];
+            }
+
+            $sql6 ="SELECT * FROM tb_position WHERE position_id = '".$position_id1."' ";
+            $query6 = mysqli_query($conn,$sql6);
+            while($row6 = mysqli_fetch_array($query6,MYSQLI_ASSOC))
+            {
+                $position_name1 = $row6['position_name'];
             }
 
             // $strStartDate = $str_date;
@@ -159,7 +167,7 @@
                                     <tr>
                                         <td width="1" class="text-nowrap border-0 padding-0">ข้าพเจ้า</td>
                                         <td class="border-0 padding-0 text-center">
-                                        &nbsp;<?php echo $prefix; ?><?php echo $firtname; ?>&nbsp;&nbsp;<?php echo $lastname; ?>
+                                        &nbsp;<?php echo $prefix1; ?><?php echo $t_firstname; ?>&nbsp;&nbsp;<?php echo $t_lastname; ?>
                                             <div class="line-bottom-dashed"></div>
                                         </td>
                                     </tr>
@@ -168,7 +176,7 @@
                                     <tr>
                                         <td width="5" class="text-nowrap border-0 padding-0">&nbsp;ตำแหน่ง</td>
                                         <td class="border-0 padding-0 text-center">
-                                        &nbsp;<?php echo $position_name; ?>
+                                        &nbsp;<?php echo $position_name1; ?>
                                             <div class="line-bottom-dashed"></div>
                                         </td>
                                     </tr>
@@ -466,6 +474,7 @@
                       <tr>
                             <?php $sum_vehicle = $vehicle_num * $vehicle_price;?>
                           <td width="20%" height="1px">
+                          <br>
                             <table width="100%" border="0" align="left">
                                 <tr>
                                     <td class="border-0 padding-0 text-center">
@@ -501,6 +510,7 @@
                       ?>
                       <tr>
                           <td width="20%" height="1px">
+                          <br>
                             <table width="100%" border="0" align="left">
                                 <tr>
                                     <td class="border-0 padding-0 text-center"><br><br><br>
@@ -511,8 +521,11 @@
                             </table>
                         </td>
                       </tr>
+                      
                       <tr>
+                      
                           <td width="20%" height="1px">
+                          
                             <table width="100%" border="0" align="left">
                                 <tr>
                                     <td class="border-0 padding-0 text-center">

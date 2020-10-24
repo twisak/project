@@ -611,14 +611,14 @@
                                         <td width="1"></td>
                                         <td width="1" class="text-nowrap border-0 padding-0">จำนวนวัน</td>
                                         <td class="border-0 padding-0">
-                                            &nbsp;&nbsp;<?php echo $num_night;?>
+                                            &nbsp;<?php echo $num_night;?>
                                             <div class="line-bottom-dashed"></div>
                                         </td>
                                         <td width="1" class="text-nowrap border-0 padding-0">วัน</td>
                                         <td width="1"></td>
                                         <td width="1" class="text-nowrap border-0 padding-0">ราคา</td>
                                         <td class="border-0 padding-0">
-                                            &nbsp;&nbsp;<?php echo number_format($rest_price, 0, ".", ",") . "\n"; // US format ?>
+                                            &nbsp;<?php echo number_format($rest_price, 0, ".", ",") . "\n"; // US format ?>
                                             <div class="line-bottom-dashed"></div>
                                         </td>
                                         <td width="1" class="text-nowrap border-0 padding-0">บาท</td>
@@ -628,7 +628,7 @@
                                                 $rest_sum = $num_night * $room * $rest_price;
                                         ?>
                                         <td class="border-0 padding-0">
-                                            &nbsp;&nbsp;<?php echo number_format($rest_sum, 0, ".", ",") . "\n"; // US format ?>
+                                            &nbsp;<?php echo number_format($rest_sum, 0, ".", ",") . "\n"; // US format ?>
                                             <div class="line-bottom-dashed"></div>
                                         </td>
                                         <td width="1" class="text-nowrap border-0 padding-0">บาท</td>

@@ -188,7 +188,7 @@
 
 
 <body id="<?php //echo $body['name'];?>">
-    <div class="page">
+<div class="page">
         <table border="0" width="100%" class="statement-view text-gray-900">
             <tr>
                 <td colspan="3" class="statement-header" align="right">
@@ -262,25 +262,25 @@
                         <tr>
                             <td width="1" class="text-nowrap border-0 padding-0">ประกอบใบเบิกค่าใช้จ่ายในการเดินทางของ</td>
                             <td class="border-0 padding-0">
-                                &nbsp;&nbsp;<?php echo $prefix;?><?php echo $firtname;?>&nbsp;<?php echo $lastname;?>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php //echo $prefix;?><?php //echo $firtname;?>&nbsp;<?php //echo $lastname;?>
                                 <div class="line-bottom-dashed"></div>
                             </td>
 
                             <td width="1" class="text-nowrap border-0 padding-0">ลงวันที่</td>
                             <td class="border-0 padding-0 text-center">
-                                <?php echo str_replace($numarabic,$numthai,$subday_date_current);?>
+                            &nbsp;<?php //echo str_replace($numarabic,$numthai,$subday_date_current);?>
                                 <div class="line-bottom-dashed"></div>
                             </td>
 
                             <td width="1" class="text-nowrap border-0 padding-0">เดือน</td>
                             <td class="border-0 padding-0 text-center">
-                                <?php echo $month_thai;?>
+                            &nbsp;&nbsp;&nbsp;<?php //echo $month_thai;?>
                                 <div class="line-bottom-dashed"></div>
                             </td>
 
                             <td width="1" class="text-nowrap border-0 padding-0">พ.ศ.</td>
                             <td class="border-0 padding-0 text-center">
-                                <?php echo str_replace($numarabic,$numthai,$subyear_date_current+543);?>
+                            &nbsp;&nbsp;<?php //echo str_replace($numarabic,$numthai,$subyear_date_current+543);?>
                                 <div class="line-bottom-dashed"></div>
                             </td>
                         </tr>
@@ -293,17 +293,17 @@
             </tr>
             <tr align="left">
                 <td colspan="2">
-                    <table width="100%" border="1" align="right">
+                    <table width="100%" border="1" align="center">
                         <tr>
-                            <td rowspan="2" class="text-nowrap padding-0">ลำดับที่</td>
-                            <td rowspan="2" class="text-nowrap padding-0">ชื่อ</td>
-                            <td rowspan="2" class="text-nowrap padding-0">ตำแหน่ง</td>
-                            <td colspan="4" class="text-nowrap padding-0">ค่าใช้จ่าย</td>
+                            <td rowspan="2" align="center" class="text-nowrap padding-0">ลำดับที่</td>
+                            <td rowspan="2" align="center" class="text-nowrap padding-0">ชื่อ</td>
+                            <td rowspan="2" align="center" class="text-nowrap padding-0">ตำแหน่ง</td>
+                            <td colspan="4" align="center" class="text-nowrap padding-0">ค่าใช้จ่าย</td>
 
-                            <td rowspan="2" class="text-nowrap padding-0">รวม</td>
-                            <td rowspan="2" class="text-nowrap padding-0">ลายมือชื่อผู้รับเงิน</td>
-                            <td rowspan="2" class="text-nowrap padding-0">วัน/เดือน/ปี ที่รับเงิน</td>
-                            <td rowspan="2" class="text-nowrap padding-0">หมายเหตุ</td>
+                            <td rowspan="2" align="center" class="text-nowrap padding-0">รวม</td>
+                            <td rowspan="2" align="center" class="text-nowrap padding-0">ลายมือชื่อ<br>ผู้รับเงิน</td>
+                            <td rowspan="2" align="center" class="text-nowrap padding-0">วัน/เดือน/ปี <br>ที่รับเงิน</td>
+                            <td rowspan="2" align="center" class="text-nowrap padding-0">หมายเหตุ</td>
                         </tr>
                         <tr align="center">
                             <td class="text-nowrap padding-0">ค่าเบี้ยเลี้ยง</td>
@@ -344,49 +344,42 @@
                         ?>
 
                         <tr>
-                            <td class="text-nowrap padding-0"><?php echo $i; ?></td>
-                            <td class="text-nowrap padding-0"><?php echo $prefix; ?><?php echo $firtname; ?>&nbsp;<?php echo $lastname; ?></td>
-                            <td class="text-nowrap padding-0"><?php echo $position_name; ?></td>
-                            <td class="text-nowrap padding-0"><?php echo $allowance_price; ?></td>
-                            <td class="text-nowrap padding-0"><?php echo $rest_price; ?></td>
-                            <td class="text-nowrap padding-0"><?php echo $vehicle_price; ?></td>
+                            <td class="text-nowrap padding-0"><?php //echo $i; ?></td>
+                            <td class="text-nowrap padding-0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                            <td class="text-nowrap padding-0"><?php //echo $position_name; ?></td>
+                            <td class="text-nowrap padding-0"><?php //echo $allowance_price; ?></td>
+                            <td class="text-nowrap padding-0"></td>
+                            <td class="text-nowrap padding-0"><?php //echo $vehicle_price; ?></td>
                             <td class="text-nowrap padding-0"><?php //echo $other_sum; ?></td>
-                            <td class="text-nowrap padding-0">
-                            <?php
-
-                            if($allowance_price=="")
-                            {
-                              $allowance_price1 = 0;
-                            }else{
-                              $allowance_price1 = $allowance_price;
-                            }
-
-                            if($rest_price=="")
-                            {
-                              $rest_price_a = 0;
-                            }else{
-                              $rest_price_a = $rest_price;
-                            }
-
-                            if($vehicle_price=="")
-                            {
-                              $vehicle_price_a = 0;
-                            }else{
-                              $vehicle_price_a = $vehicle_price;
-                            }
-
-                            // if($other_sum=="")
-                            // {
-                            //   $other_sum_a = 0;
-                            // }else{
-                            //   $other_sum_a = $other_sum;
-                            // }
-
-
-                            $sum_price = $allowance_price+$rest_price_a+$vehicle_price_a;
-                            echo $sum_price; ?></td>
-                            <td class="text-nowrap padding-0"><?php echo $prefix; ?><?php echo $firtname; ?>&nbsp;<?php echo $lastname; ?></td>
-                            <td class="text-nowrap padding-0"><?php echo str_replace($numarabic,$numthai,$subday_date_current);?> <?php echo $month_thai;?>    <?php echo str_replace($numarabic,$numthai,$subyear_date_current+543);?></td>
+                            <td class="text-nowrap padding-0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                            <td class="text-nowrap padding-0"><?php //echo $prefix; ?><?php //echo $firtname; ?>&nbsp;<?php //echo $lastname; ?></td>
+                            <td class="text-nowrap padding-0"><?php //echo str_replace($numarabic,$numthai,$subday_date_current);?> <?php //echo $month_thai;?>    <?php //echo str_replace($numarabic,$numthai,$subyear_date_current+543);?></td>
+                            <td class="text-nowrap padding-0"></td>
+                        </tr>
+                        <tr>
+                            <td class="text-nowrap padding-0"><?php //echo $i; ?></td>
+                            <td class="text-nowrap padding-0"><?php //echo $prefix; ?><?php //echo $firtname; ?>&nbsp;<?php //echo $lastname; ?></td>
+                            <td class="text-nowrap padding-0"><?php //echo $position_name; ?></td>
+                            <td class="text-nowrap padding-0"><?php //echo $allowance_price; ?></td>
+                            <td class="text-nowrap padding-0"><?php //echo $rest_price; ?></td>
+                            <td class="text-nowrap padding-0"><?php //echo $vehicle_price; ?></td>
+                            <td class="text-nowrap padding-0"><?php //echo $other_sum; ?></td>
+                            <td class="text-nowrap padding-0"></td>
+                            <td class="text-nowrap padding-0"><?php //echo $prefix; ?><?php //echo $firtname; ?>&nbsp;<?php //echo $lastname; ?></td>
+                            <td class="text-nowrap padding-0"><?php //echo str_replace($numarabic,$numthai,$subday_date_current);?> <?php //echo $month_thai;?>    <?php //echo str_replace($numarabic,$numthai,$subyear_date_current+543);?></td>
+                            <td class="text-nowrap padding-0"></td>
+                        </tr>
+                        <tr>
+                            <td class="text-nowrap padding-0"><?php //echo $i; ?></td>
+                            <td class="text-nowrap padding-0"><?php //echo $prefix; ?><?php //echo $firtname; ?>&nbsp;<?php //echo $lastname; ?></td>
+                            <td class="text-nowrap padding-0"><?php //echo $position_name; ?></td>
+                            <td class="text-nowrap padding-0"><?php //echo $allowance_price; ?></td>
+                            <td class="text-nowrap padding-0"><?php //echo $rest_price; ?></td>
+                            <td class="text-nowrap padding-0"><?php //echo $vehicle_price; ?></td>
+                            <td class="text-nowrap padding-0"><?php //echo $other_sum; ?></td>
+                            <td class="text-nowrap padding-0"></td>
+                            <td class="text-nowrap padding-0"><?php //echo $prefix; ?><?php //echo $firtname; ?>&nbsp;<?php //echo $lastname; ?></td>
+                            <td class="text-nowrap padding-0"><?php //echo str_replace($numarabic,$numthai,$subday_date_current);?> <?php //echo $month_thai;?>    <?php //echo str_replace($numarabic,$numthai,$subyear_date_current+543);?></td>
                             <td class="text-nowrap padding-0"></td>
                         </tr>
 
@@ -423,13 +416,13 @@
 
 
                                                         $sum_price = $allowance_price+$rest_price_a+$vehicle_price_a;
-                                                        echo $sum_price; ?></td>
+                                                        //echo $sum_price; ?></td>
                             <td colspan="3" class="text-nowrap padding-0">
                                 <table width="90%" border="0" align="center">
                                     <tr>
                                         <td width="1" class="text-nowrap border-0 padding-0">ตามสัญญาเงินยืมเลขที่</td>
                                         <td class="border-0 padding-0 text-center">
-                                            <?php echo $lend_num; ?>
+                                            <?php //echo $lend_num; ?>&nbsp;&nbsp;
                                             <div class="line-bottom-dashed"></div>
                                         </td>
                                         <?php 
@@ -444,8 +437,8 @@
                                         ?>
                                         <td width="1" class="text-nowrap border-0 padding-0">วันที่</td>
                                         <td class="border-0 padding-0 text-center">
-                                        <?php echo $str_day; ?>/<?php echo $str_month; ?>/<?php echo $year; ?>
-                                              <!-- <?php echo str_replace($numarabic,$numthai,$subday_date_current);?> <?php echo $month_thai;?>    <?php echo str_replace($numarabic,$numthai,$subyear_date_current+543);?> -->
+                                        &nbsp;<?php //echo $str_day; ?>/&nbsp;<?php //echo $str_month; ?>/&nbsp;<?php //echo $year; ?>
+                                              <!-- <?php //echo str_replace($numarabic,$numthai,$subday_date_current);?> <?php //echo $month_thai;?>    <?php echo str_replace($numarabic,$numthai,$subyear_date_current+543);?> -->
                                             <div class="line-bottom-dashed"></div>
                                         </td>
                                     </tr>
@@ -535,7 +528,7 @@
                                     <tr>
                                         <td width="1" class="text-nowrap border-0 padding-0">รวมเงินทั้งสิ้น (ตัวอักษร)</td>
                                         <td class="border-0 padding-0 text-center">
-                                            <?php echo convertAmountToLetter($sum_price); ?>
+                                            <?php //echo convertAmountToLetter($sum_price); ?>
                                             <div class="line-bottom-dashed"></div>
                                         </td>
                                     </tr>
@@ -561,7 +554,7 @@
                                     <tr>
                                         <td class="border-0 padding-0" align="right">(</td>
                                         <td align="center" class="border-0 padding-0">
-                                              <?php echo $t_firstname3; ?>&nbsp;<?php echo $t_lastname3; ?>
+                                              <?php //echo $t_firstname3; ?>&nbsp;&nbsp;&nbsp;&nbsp;<?php //echo $t_lastname3; ?>
                                             <div class="line-bottom-dashed">&nbsp;</div>
                                         </td>
                                         <td class="border-0 padding-0" align="left">)</td>
@@ -576,7 +569,7 @@
                                     <tr>
                                         <td width="1" class="text-nowrap border-0 padding-0">ตำแหน่ง</td>
                                         <td class="border-0 padding-0 text-center">
-                                            <?php echo $position_name3; ?>
+                                            <?php //echo $position_name3; ?>
                                             <div class="line-bottom-dashed"></div>
                                         </td>
                                     </tr>
@@ -590,7 +583,7 @@
                                     <tr>
                                         <td width="1" class="text-nowrap border-0 padding-0">วันที่</td>
                                         <td class="border-0 padding-0 text-center">
-                                            <?php echo str_replace($numarabic,$numthai,$subday_date_current);?> <?php echo $month_thai;?>    <?php echo str_replace($numarabic,$numthai,$subyear_date_current+543);?>
+                                            <?php //echo str_replace($numarabic,$numthai,$subday_date_current);?> <?php //echo $month_thai;?>    <?php //echo str_replace($numarabic,$numthai,$subyear_date_current+543);?>
                                             <div class="line-bottom-dashed"></div>
                                         </td>
                                     </tr>
@@ -662,29 +655,5 @@
         </table>
 
     </div>
-
-    <ul class="right-menu">
-        <li>
-            <a href="#" onclick="window.print();">
-                <span class="fa-stack hightlight fa-2x">
-                    <i class="fa fa-circle fa-stack-2x"></i>
-                    <i class="fa fa-print fa-stack-1x fa-inverse"></i>
-                </span>
-                พิมพ์รายงาน
-            </a>
-        </li>
-        <li>
-            <a href="http://localhost/project_student/app_frontend/input_doc/debt/show.php?id=<?=$doc_id?>" onclick="window.close();">
-                <span class="fa-stack fa-2x">
-                    <i class="fa fa-circle fa-stack-2x"></i>
-                    <i class="fa fa-times fa-stack-1x fa-inverse"></i>
-                </span>
-                ปิดหน้าจอนี้
-            </a>
-        </li>
-    </ul>
-
-    <script src="<?php //echo site_common_node_modules_url('jquery/dist/jquery.min.js');?>"></script>
-</body>
 
 </html>

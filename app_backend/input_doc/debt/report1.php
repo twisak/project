@@ -35,7 +35,7 @@
 </head>
 <?php
 
-            $doc_id = $_GET['doc_id'];
+            $doc_id = $_GET['id'];
             //echo $doc_id;
 
             $sql_debt = "SELECT * FROM tb_debt WHERE doc_id = '".$doc_id."' ";

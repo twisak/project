@@ -48,6 +48,31 @@
         $disburse = $_POST['disburse'];
         $payer = $_POST['payer'];
 
+        $allowance = $_POST['allowance'];
+        $allowance_day = $_POST['allowance_day'];
+        $allowance_price = $_POST['allowance_price'];
+        $rest = $_POST['rest'];
+        $rest_price = $_POST['rest_price'];
+        $room = $_POST['room'];
+        $num_night = $_POST['num_night'];
+        $vehicle_num = $_POST['vehicle_num'];
+        $vehicle_price = $_POST['vehicle_price'];
+        $regis = $_POST['regis'];
+        $regis_num = $_POST['regis_num'];
+        $fication_day = $_POST['fication_day'];
+        $num_people = $_POST['num_people'];
+        $num_hour = $_POST['num_hour'];
+        $price_hour = $_POST['price_hour'];
+        $students_work = $_POST['students_work'];
+        $work_day = $_POST['work_day'];
+        $work_price = $_POST['work_price'];
+        $hand_food = $_POST['hand_food'];
+        $num_food = $_POST['num_food'];
+        $food_price = $_POST['food_price']; 
+        $snack = $_POST['snack'];
+        $num_snack = $_POST['num_snack'];
+        $snack_price = $_POST['snack_price'];
+
 
         //  print "<pre>";
         //  print_r($list);
@@ -96,10 +121,41 @@
                               WHERE doc_id = '".$doc_id."'";
                      $db_query = mysqli_query($conn,$sql);
 
-                     // echo $sql;
-                     // echo $db_query;
-                     //echo "<br>";
+                    //  echo $sql;
+                    //  echo $db_query;
+                    //  echo "<br>";
+                    //  echo "<br>";
 
+                    $sql1= "UPDATE tb_lend SET 
+                                            allowance = '".$allowance."',
+                                            allowance_day = '".$allowance_day."',
+                                            allowance_price = '".$allowance_price."',
+                                            rest = '".$rest."',
+                                            rest_price = '".$rest_price."',
+                                            room = '".$room."',
+                                            num_night = '".$num_night."',
+                                            vehicle_num = '".$vehicle_num."',
+                                            vehicle_price = '".$vehicle_price."',
+                                            regis = '".$regis."',
+                                            regis_num = '".$regis_num."',
+                                            fication_day = '".$fication_day."',
+                                            num_people = '".$num_people."',
+                                            num_hour = '".$num_hour."',
+                                            price_hour = '".$price_hour."',
+                                            students_work = '".$students_work."',
+                                            work_day = '".$work_day."',
+                                            work_price = '".$work_price."',
+                                            hand_food = '".$hand_food."',
+                                            num_food = '".$num_food."',
+                                            food_price = '".$food_price."',
+                                            snack = '".$snack."',
+                                            num_snack = '".$num_snack."',
+                                            snack_price = '".$snack_price."'
+                          WHERE doc_id = '$lend_num' ";
+
+      $query1 = mysqli_query($conn,$sql1);
+// echo "/////////$sql1///////";
+// echo "////$query1///////";
 
         echo "<script>alert('แก้ไขข้อมูลเรียบร้อย')</script>";
         echo "<script>window.location='http://localhost/project_student/app_frontend/input_doc/debt/show.php?id=$doc_id'</script>";
