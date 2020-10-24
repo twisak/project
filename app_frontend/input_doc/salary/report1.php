@@ -41,7 +41,6 @@
 
      //$doc_id = $result_salary['doc_id'];
      $person_id = $result_salary['person_id'];
-     $contract_id = $result_salary['contract_id'];
      
      $day_work = unserialize($result_salary['day_work']);
      $start_time = unserialize($result_salary['start_time']);

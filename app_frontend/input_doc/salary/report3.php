@@ -39,7 +39,6 @@
 
                                         $doc_id = $result_salary['doc_id'];
                                         $person_id = $result_salary['person_id'];
-                                        $contract_id = $result_salary['contract_id'];
 
                                       
                                         $sql ="SELECT * FROM tb_contract WHERE person_id = '".$person_id."' ";

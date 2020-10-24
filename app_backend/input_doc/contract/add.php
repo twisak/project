@@ -163,7 +163,7 @@ include('../../../config/constant.php');
                                     <div class="row">
                                         <div class="col-md-7">
                                             <div class="form-group">
-                                                <button type="button" class="btn btn-info btn-sm" id="createRows" value="Add">เพิ่ม</button>
+                                                <button type="button" class="btn btn-info btn-sm" id="createRows" required value="Add">เพิ่ม</button>
                                                 &nbsp;&nbsp;<button type="button" class="btn btn-warning btn-sm" id="deleteRows" value="Del">ลบ</button>
                                                 &nbsp;&nbsp;<button type="button" class="btn btn-danger btn-sm" id="clearRows" value="Clear">ลบทั้งหมด</button>
                                             </div>
@@ -446,7 +446,7 @@ include('../../../config/constant.php');
                                     <div class="row">
                                         <div class="col-md-7">
                                             <div class="form-group">
-                                                <button type="button" class="btn btn-info btn-sm" id="createRows1" value="Add">เพิ่ม</button>
+                                                <button type="button" class="btn btn-info btn-sm" id="createRows1" required value="Add">เพิ่ม</button>
                                                 &nbsp;&nbsp;<button type="button" class="btn btn-warning btn-sm" id="deleteRows1" value="Del">ลบ</button>
                                                 &nbsp;&nbsp;<button type="button" class="btn btn-danger btn-sm" id="clearRows1" value="Clear">ลบทั้งหมด</button>
                                             </div>
@@ -473,7 +473,7 @@ include('../../../config/constant.php');
                                     <div class="row">
                                         <div class="col-md-7">
                                             <div class="form-group">
-                                                <button type="button" class="btn btn-info btn-sm" id="createRows2" value="Add">เพิ่ม</button>
+                                                <button type="button" class="btn btn-info btn-sm" id="createRows2" required value="Add">เพิ่ม</button>
                                                 &nbsp;&nbsp;<button type="button" class="btn btn-warning btn-sm" id="deleteRows2" value="Del">ลบ</button>
                                                 &nbsp;&nbsp;<button type="button" class="btn btn-danger btn-sm" id="clearRows2" value="Clear">ลบทั้งหมด</button>
                                             </div>
@@ -508,7 +508,7 @@ include('../../../config/constant.php');
                                     <div class="row">
                                         <div class="col-md-7">
                                             <div class="form-group">
-                                                <button type="button" class="btn btn-info btn-sm" id="createRows3" value="Add">เพิ่ม</button>
+                                                <button type="button" class="btn btn-info btn-sm" id="createRows3" required value="Add">เพิ่ม</button>
                                                 &nbsp;&nbsp;<button type="button" class="btn btn-warning btn-sm" id="deleteRows3" value="Del">ลบ</button>
                                                 &nbsp;&nbsp;<button type="button" class="btn btn-danger btn-sm" id="clearRows3" value="Clear">ลบทั้งหมด</button>
                                             </div>
@@ -535,7 +535,7 @@ include('../../../config/constant.php');
                                     <div class="row">
                                         <div class="col-md-7">
                                             <div class="form-group">
-                                                <button type="button" class="btn btn-info btn-sm" id="createRows4" value="Add">เพิ่ม</button>
+                                                <button type="button" class="btn btn-info btn-sm" id="createRows4" required value="Add">เพิ่ม</button>
                                                 &nbsp;&nbsp;<button type="button" class="btn btn-warning btn-sm" id="deleteRows4" value="Del">ลบ</button>
                                                 &nbsp;&nbsp;<button type="button" class="btn btn-danger btn-sm" id="clearRows4" value="Clear">ลบทั้งหมด</button>
                                             </div>
@@ -562,7 +562,7 @@ include('../../../config/constant.php');
                                     <div class="row">
                                         <div class="col-md-7">
                                             <div class="form-group">
-                                                <button type="button" class="btn btn-info btn-sm" id="createRows5" value="Add">เพิ่ม</button>
+                                                <button type="button" class="btn btn-info btn-sm" id="createRows5" required value="Add">เพิ่ม</button>
                                                 &nbsp;&nbsp;<button type="button" class="btn btn-warning btn-sm" id="deleteRows5" value="Del">ลบ</button>
                                                 &nbsp;&nbsp;<button type="button" class="btn btn-danger btn-sm" id="clearRows5" value="Clear">ลบทั้งหมด</button>
                                             </div>

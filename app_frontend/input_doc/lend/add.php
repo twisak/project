@@ -113,7 +113,7 @@
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label><b>เริ่มต้นวันที่</b></label>&nbsp;<label class="text-danger"><b>*</b></label>
-                                                <input type="date" class="form-control form-control-line" name="str_date">
+                                                <input type="date" class="form-control form-control-line" required name="str_date">
                                             </div>
                                         </div>
                                     </div>
@@ -128,7 +128,7 @@
                                             <div class="form-group">
                                                 <label><b>ชื่อบุคลากร</b></label>
                                                 <input type="text" value="<?php echo $prefix?><?php echo $firtname?>&nbsp;&nbsp;<?php echo $lastname?>" class="form-control form-control-line">
-                                                <input type="hidden" class="form-control" name="person_id" value="<?php echo $person_id?>">
+                                                <input type="hidden" class="form-control" name="person_id" required value="<?php echo $person_id?>">
                                             </div>
                                         </div>
 
@@ -140,7 +140,7 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label><b>ชื่ออาจารย์</b></label>&nbsp;<label class="text-danger"><b>*</b></label>
-                                                <select class="form-control" name="teacher_id">
+                                                <select class="form-control" name="teacher_id" required>
                                                     <option value="">-- เลือกรายชื่ออาจารย์ --</option>
                                                     <?php
                                                         while($result_teacher=mysqli_fetch_array($query_teacher))
@@ -160,14 +160,14 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label><b>โครงการ</b></label>&nbsp;<label class="text-danger"><b>*</b></label>
-                                                <input type="text" class="form-control form-control-line" name="project" required ">
+                                                <input type="text" class="form-control form-control-line" required name="project" required ">
                                             </div>
                                         </div>
 
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="activity"><b>ชื่อกิจกรรม</b></label>&nbsp;<label class="text-danger"><b>*</b></label>
-                                                <input type="text" class="form-control form-control-line" name="activity" required ">
+                                                <input type="text" class="form-control form-control-line" required name="activity" required ">
                                             </div>
                                         </div>
                                     </div>
@@ -435,7 +435,7 @@
                                     <div class="row">
                                         <div class="col-md-7">
                                             <div class="form-group">
-                                                <button type="button" class="btn btn-info" id="createRows" value="Add">เพิ่มหัวข้อย่อย</button>&nbsp;&nbsp;
+                                                <button type="button" class="btn btn-info" id="createRows" required value="Add">เพิ่มหัวข้อย่อย</button>&nbsp;&nbsp;
                                                 <button type="button" class="btn btn-warning" id="deleteRows" value="Del">ลบหัวข้อย่อย</button>&nbsp;&nbsp;
                                                 <button type="button" class="btn btn-danger" id="clearRows" value="Clear">ลบทั้งหมด</button>
                                             </div>
@@ -506,7 +506,7 @@
 
 
             var tr = "<tr>";
-            tr = tr + "<td><div class='row'><div class='col-md-2'><div class='form-group'><label><b>วัน/เดือน/ปี</b></label></label><input type='date' class='form-control p_input' name='date_list[]" + rows + "'></div></div><div class='col-md-2'><div class='form-group'><label><b>การชำระ</b></label><select class='form-control' name='pay_type[]" + rows + "'><option>เงินสด</option><option>ใบสำคัญ</option></select></div></div><div class='col-md-2'><div class='form-group'><label><b>ราคา</b></label></label><input type='text' class='form-control p_input' onKeyUp='IsNumeric(this.value,this)' name='price_list[]" + rows + "'></div></div><div class='col-md-2'><div class='form-group'><label><b>ยอดคงค้าง</b></label><input type='text' class='form-control p_input' onKeyUp='IsNumeric(this.value,this)' name='balance[]" + rows + "'></div></div></div></td>";
+            tr = tr + "<td><div class='row'><div class='col-md-2'><div class='form-group'><label><b>วัน/เดือน/ปี</b></label></label><input type='date' required class='form-control p_input' name='date_list[]" + rows + "'></div></div><div class='col-md-2'><div class='form-group'><label><b>การชำระ</b></label><select class='form-control' name='pay_type[]" + rows + "'><option>เงินสด</option><option>ใบสำคัญ</option></select></div></div><div class='col-md-2'><div class='form-group'><label><b>ราคา</b></label></label><input type='text' class='form-control p_input' onKeyUp='IsNumeric(this.value,this)' name='price_list[]" + rows + "'></div></div><div class='col-md-2'><div class='form-group'><label><b>ยอดคงค้าง</b></label><input type='text' class='form-control p_input' onKeyUp='IsNumeric(this.value,this)' name='balance[]" + rows + "'></div></div></div></td>";
             tr = tr + "</tr>";
             $('#myTable > tbody:last').append(tr);
 

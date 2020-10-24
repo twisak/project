@@ -109,7 +109,6 @@
                                                 <th class="text-center"><b>#</b></th>
                                                 <th class="text-center"><b>รหัสเอกสาร</b></th>
                                                 <th class="text-center"><b>ชื่อ-สกุล</b></th>
-                                                <th class="text-center"><b>งานจ้างเหมาเลชที่</b></th>
                                                 <th class="text-center"><b>รายละเอียดเอกสาร</b></th>
                                                 <th class="text-center"><b>ลบ</b></th>
                                             </tr>
@@ -130,7 +129,7 @@
                                             while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
                                             {
                                                   $doc_id = $row['doc_id'];
-                                                  $contract_id = $row['contract_id'];
+                                                  $date_current = $row['date_current'];
                                                   $person_id = $row['person_id'];
 
                                             $sql_person = "SELECT * FROM tb_person WHERE person_id = '".$person_id."' ";
@@ -148,7 +147,6 @@
                                                 <td><?php echo $i;?></td>
                                                 <td><?php echo $doc_id;?></td>
                                                 <td><?php echo $prefix;?><?php echo $firtname;?>  <?php echo $lastname;?></td>
-                                                <td><?php echo $contract_id;?></td>
                                                 <td>
                                                 <a href="../salary/show.php?id=<?php echo $doc_id;?>"><button type="button" class="btn btn-info">รายละเอียด</button></a>
                                                 </td>

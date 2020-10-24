@@ -6,6 +6,7 @@
     error_reporting(~0);
 
         $doc_id = $_POST['doc_id'];
+        echo $doc_id;
         $foreword = serialize( $_POST["foreword"] );
         $str_date = $_POST['str_date'];
         $stp_date = $_POST['stp_date'];
@@ -39,20 +40,8 @@
         $payment = serialize( $_POST["payment"] );
         $insurance = serialize( $_POST["insurance"] );
         $date_current = date('Y-m-d');
+
         
-        // print "<pre>";
-        // print_r($scope);
-        // print "</pre>";
-
-        // print "<pre>";
-        // print_r($property);
-        // print "</pre>";
-
-        // print "<pre>";
-        // print_r($fine);
-        // print "</pre>";
-
-            //$foreword = $_POST["foreword$i"];
          
 		
 				$sql = "INSERT INTO tb_contract (doc_id,foreword,str_date,stp_date,project_id,activity_id,person_id,
@@ -63,10 +52,13 @@
                                  '$money','$work','$date_work','$government','$that','$c_day','$title_id','$people','$mid_price','$chairman','$committee','$secretary',
                                  '$details','$date_start','$date_end','$property','$scope','$responsible','$fine','$payment','$insurance','$date_current')";
                 $db_query = mysqli_query($conn,$sql);
-                //  echo $sql;
+                  echo $sql;
                 //  echo $db_query;
                 //  echo "<br>";
                 //  echo "<br>";
+       
+            
+        
 	
     
     if($db_query)

@@ -275,7 +275,6 @@ include('../../../config/constant.php');
                                             &nbsp;&nbsp;&nbsp;&nbsp;
                                             </div>
                                         </div>
-                                        </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label><b>กี่คืน</b></label>

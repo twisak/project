@@ -474,7 +474,6 @@
                       <tr>
                             <?php $sum_vehicle = $vehicle_num * $vehicle_price;?>
                           <td width="20%" height="1px">
-                          <br>
                             <table width="100%" border="0" align="left">
                                 <tr>
                                     <td class="border-0 padding-0 text-center">
@@ -510,7 +509,6 @@
                       ?>
                       <tr>
                           <td width="20%" height="1px">
-                          <br>
                             <table width="100%" border="0" align="left">
                                 <tr>
                                     <td class="border-0 padding-0 text-center"><br><br><br>
