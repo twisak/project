@@ -105,24 +105,6 @@
                                             </div>
                                         </div>
                                     </div>
-
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                            <label><b>งานจ้างเหมาเลขที่</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
-                                                <select name="contract_id" class="form-control">
-                                                    <option value="<?php echo $contract_id?>"><?php echo $contract_id?></option>
-                                                    <?php
-                                                    $sql = "SELECT * FROM tb_contract WHERE person_id = '".$person_id."' ";
-                                                    $query = mysqli_query($conn, $sql);
-                                                    while($result = mysqli_fetch_assoc($query)):
-                                                ?>
-                                                    <option value="<?=$result['doc_id']?>"><?=$result['doc_id']?></option>
-                                                    <?php endwhile; ?>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
                                    
 
                                     <div class="row">

@@ -8,7 +8,6 @@
 
     $doc_id = $_POST['doc_id'];
     $person_id = $_POST['person_id'];
-    $contract_id = $_POST['contract_id'];
     $day_work = serialize($_POST["day_work"]);
             // print_r($day_work);
 
@@ -19,8 +18,8 @@
     $date_current = date('Y-m-d');
 
 
-            $sql = "INSERT INTO tb_salary (doc_id,person_id,contract_id,day_work,start_time,end_time,Job,part_time,date_current)
-                      VALUES ('$doc_id','$person_id','$contract_id','$day_work','$start_time','$end_time',
+            $sql = "INSERT INTO tb_salary (doc_id,person_id,day_work,start_time,end_time,Job,part_time,date_current)
+                      VALUES ('$doc_id','$person_id','$day_work','$start_time','$end_time',
                              '$Job','$part_time','$date_current')";
     $db_query = mysqli_query($conn,$sql);
 

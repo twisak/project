@@ -126,14 +126,6 @@
                                     </div>
                                 </div>
 
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="form-group">
-                                            <label><b>งานจ้างเหมาเลชที่</b></label><br>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $contract_id?>
-                                        </div>
-                                    </div>
-                                </div>
 
                                 <hr>
 

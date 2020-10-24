@@ -50,7 +50,6 @@
 
                                         $doc_id = $result_salary['doc_id'];
                                         $person_id = $result_salary['person_id'];
-                                        $contract_id = $result_salary['contract_id'];
                                        
 
                                         $day_work = unserialize( $result_salary["day_work"] );
@@ -126,14 +125,14 @@
                                     </div>
                                 </div>
 
-                                <div class="row">
+                                <!-- <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label><b>งานจ้างเหมาเลชที่</b></label><br>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $contract_id?>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php //echo $contract_id?>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
 
                                 <hr>
 

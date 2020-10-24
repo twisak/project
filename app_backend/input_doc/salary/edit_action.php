@@ -6,7 +6,6 @@
 
         $doc_id = $_POST['doc_id'];
         $project_id = $_POST['project_id'];
-        $contract_id = $_POST['contract_id'];
 
         $day_work = serialize($_POST["day_work"]);
         // print_r($day_work);
@@ -19,7 +18,6 @@
         $sql= "UPDATE tb_salary SET   doc_id     = '".$doc_id."',
                                       person_id        = '".$person_id."',
 
-                                    contract_id        = '".$contract_id."',
                                     total_amount        = '".$total_amount."',
                                     perform        = '".$perform."',
                                     teacher_id        = '".$teacher_id."',
