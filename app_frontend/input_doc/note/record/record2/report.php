@@ -322,7 +322,7 @@ $name_th_d = $result_districts['name_th'];
                 <td colspan="2">
                     <table width="100%" border="0" align="left">
                         <tr>
-                            <td  colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ด้วยข้าพเจ้า <?php echo $prefix; ?><?php echo $firtname; ?>&nbsp;<?php echo $lastname; ?> ตำแหน่งเจ้าหน้าที่โครงการ "<?php echo $project_name; ?>" มหาวิทยาลัยราชภัฏยะลา เริ่มปฏิบัติตามสัญญาจ้างเหมาบริการ
+                            <td  colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ด้วยข้าพเจ้า <?php echo $prefix; ?><?php echo $firtname; ?>&nbsp;<?php echo $lastname; ?> ตำแหน่งเจ้าหน้าที่โครงการ "<?php echo $project_name; ?>" มหาวิทยาลัยราชภัฏยะลา เริ่มปฏิบัติตามสัญญาจ้างเหมาบริการ
                               เมื่อวันที่ <?php echo str_replace($numarabic,$numthai,$subday_str_date);?>&nbsp;<?php echo $str_thai;?>&nbsp;<?php echo str_replace($numarabic,$numthai,$subyear_str_date+543);?>
                               ถึง <?php echo str_replace($numarabic,$numthai,$subday_stp_date);?>&nbsp;<?php echo $stp_thai;?>&nbsp;<?php echo str_replace($numarabic,$numthai,$subyear_stp_date+543);?><td>
                         </tr>
@@ -374,7 +374,7 @@ $name_th_d = $result_districts['name_th'];
                 <td colspan="2">
                     <table width="100%" border="0" align="left">
                         <tr>
-                            <td  colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ในการนี้ ข้าพเจ้ามีความประสงค์ขอลาออกจากเจ้าหน้าที่โครงการ "<?php echo $project_name; ?>" เนื่องจากได้รับคัดเลือกทำหน้าที่วิทยากรผู้สอนภาษาไทยในโรงเรียนตำรวจตระเวนชายแดน สังกัดกองกำกับการตำรวจตระเวนชายแดนที่ ๔๔
+                            <td  colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ในการนี้ ข้าพเจ้ามีความประสงค์ขอลาออกจากเจ้าหน้าที่โครงการ "<?php echo $project_name; ?>" เนื่องจากได้รับคัดเลือกทำหน้าที่วิทยากรผู้สอนภาษาไทยในโรงเรียนตำรวจตระเวนชายแดน สังกัดกองกำกับการตำรวจตระเวนชายแดนที่ ๔๔
                               มีผลตั้งแต่  <?php echo str_replace($numarabic,$numthai,$subday_real_date);?>&nbsp;<?php echo $real_thai;?>&nbsp;<?php echo str_replace($numarabic,$numthai,$subyear_real_date+543);?> เป็นต้นไป<td>
                         </tr>
                     </table>

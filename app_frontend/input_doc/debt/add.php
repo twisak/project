@@ -152,19 +152,19 @@ include('../../../config/constant.php');
                                         </div>
                                     </div>
 
-                                    <div class="row">
+                                    <!-- <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label><b>โครงการ</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
                                                 <select name="project_id" id="project" required class="form-control">
                                                     <option value="">เลือกโครงการ</option>
                                                     <?php
-                                                    $sql = "SELECT * FROM tb_project";
-                                                    $query = mysqli_query($conn, $sql);
-                                                    while($result = mysqli_fetch_assoc($query)):
+                                                    // $sql = "SELECT * FROM tb_project";
+                                                    // $query = mysqli_query($conn, $sql);
+                                                    // while($result = mysqli_fetch_assoc($query)):
                                                 ?>
-                                                    <option value="<?=$result['project_id']?>"><?=$result['project_name']?></option>
-                                                    <?php endwhile; ?>
+                                                    <option value="<?//=$result['project_id']?>"><?//=$result['project_name']?></option>
+                                                    <?php //endwhile; ?>
                                                 </select>
                                             </div>
                                         </div>
@@ -177,7 +177,7 @@ include('../../../config/constant.php');
                                                 </select>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
 
                                     <div class="row">
                                         <div class="col-md-4">

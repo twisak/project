@@ -137,7 +137,7 @@
                                             while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
                                             {
 
-                                            $sql ="SELECT * FROM tb_lend";
+                                            $sql ="SELECT * FROM tb_lend WHERE person_id = '".$person_id_session."'";
                                             $query = mysqli_query($conn,$sql);
                                             while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
                                             {

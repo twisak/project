@@ -52,7 +52,7 @@
                                  '$money','$work','$date_work','$government','$that','$c_day','$title_id','$people','$mid_price','$chairman','$committee','$secretary',
                                  '$details','$date_start','$date_end','$property','$scope','$responsible','$fine','$payment','$insurance','$date_current')";
                 $db_query = mysqli_query($conn,$sql);
-                  echo $sql;
+                 // echo $sql;
                 //  echo $db_query;
                 //  echo "<br>";
                 //  echo "<br>";

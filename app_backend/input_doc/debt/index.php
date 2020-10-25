@@ -122,10 +122,7 @@
                                             $i=1;
                                             $i<="";
 
-                                            $sql ="SELECT tb_debt.doc_id , tb_project.project_name , tb_person.prefix, tb_person.firtname, tb_person.lastname FROM tb_debt
-                                            INNER JOIN tb_project ON tb_debt.project_id = tb_project.project_id
-                                            INNER JOIN tb_person ON tb_debt.person_id = tb_person.person_id
-                                            WHERE (tb_debt.doc_id LIKE '%".$strKeyword."%' or tb_project.project_name LIKE '%".$strKeyword."%' or tb_person.prefix LIKE '%".$strKeyword."%' or tb_person.firtname LIKE '%".$strKeyword."%'or tb_person.lastname LIKE '%".$strKeyword."%'  ) ";
+                                            $sql ="SELECT * FROM tb_debt";
 
 
                                             // $sql ="SELECT * FROM tb_debt GROUP BY doc_id";
@@ -133,7 +130,7 @@
                                             while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
                                             {
                                             //     $id = $row['id'];
-                                            //     $doc_id = $row['doc_id'];
+                                                 $doc_id = $row['doc_id'];
                                             //     $project_id = $row['project_id'];
                                             //     $person_id = $row['person_id'];
                                             //
@@ -146,30 +143,37 @@
                                             // {
                                             //     $project_name = $row1['project_name'];
                                             // }
-                                            // $sql2 ="SELECT * FROM tb_person WHERE person_id = '".$person_id."' ";
-                                            // $query2 = mysqli_query($conn,$sql2);
-                                            // while($row2 = mysqli_fetch_array($query2,MYSQLI_ASSOC))
-                                            // {
-                                            //     $prefix = $row2['prefix'];
-                                            //     $firtname = $row2['firtname'];
-                                            //     $lastname = $row2['lastname'];
-                                            //     //$prefix = $row2['prefix'];
-                                            // }
+                                            $sql ="SELECT * FROM tb_lend WHERE project LIKE '%".$strKeyword."%'";
+                                            $query = mysqli_query($conn,$sql);
+                                            while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
+                                            {
+                                                $project = $row['project'];
+                                                $person_id = $row['person_id'];
+                                           
+                                            $sql2 ="SELECT * FROM tb_person WHERE person_id = '".$person_id."' ";
+                                            $query2 = mysqli_query($conn,$sql2);
+                                            while($row2 = mysqli_fetch_array($query2,MYSQLI_ASSOC))
+                                            {
+                                                $prefix = $row2['prefix'];
+                                                $firtname = $row2['firtname'];
+                                                $lastname = $row2['lastname'];
+                                                //$prefix = $row2['prefix'];
+                                            }
                                         ?>
                                         <tbody>
                                             <tr>
                                                 <td><?php echo $i;?></td>
                                                 <td><?php echo $row['doc_id'];?></td>
-                                                <td><?php echo  $row['prefix'];?><?php echo $row['firtname'];?> <?php echo  $row['lastname'];?></td>
-                                                <td><?php echo  $row['project_name'];?></td>
+                                                <td><?php echo $prefix;?><?php echo $firtname;?> <?php echo $lastname;?></td>
+                                                <td><?php echo $project;?></td>
                                                 <td>
-                                                    <a href="../debt/show.php?doc_id=<?php echo  $row['doc_id'];?>"><button type="button" class="btn btn-info">รายละเอียด</button></a>
+                                                    <a href="../debt/show.php?doc_id=<?php echo $doc_id;?>"><button type="button" class="btn btn-info">รายละเอียด</button></a>
                                                 </td>
-                                                <td><a href="JavaScript:if(confirm('ยืนยันการลบ ?') == true){window.location='../debt/delete.php?doc_id=<?php echo $row["doc_id"];?>';}" class="btn btn-danger">ลบ</a></td>
+                                                <td><a href="JavaScript:if(confirm('ยืนยันการลบ ?') == true){window.location='../debt/delete.php?doc_id=<?php echo $doc_id;?>';}" class="btn btn-danger">ลบ</a></td>
                                             </tr>
                                             <?php
                                             $i++;
-                                            }
+                                            }}
                                             ?>
 
 

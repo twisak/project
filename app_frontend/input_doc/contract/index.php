@@ -94,9 +94,21 @@
 
                                         </div>
                                         <div class="col-md-4 text-right">
-                                            <div class="text-right">
-                                                <a href="../contract/add.php"><button type="button" class="btn btn-primary">กรอกเอกสารเพิ่ม</button></a>
-                                            </div>
+                                                <?php 
+                                                        $sqlA ="SELECT * FROM tb_contract WHERE person_id = '".$person_id_session."' ";
+                                                        $query3 = mysqli_query($conn,$sqlA);
+                                                        $num_rows = mysqli_num_rows($query3);
+                                            
+                                                ?>
+                                                <?php if($num_rows==1){;?>
+                                                    <div class="text-right">
+                                                        <a href="#"><button type="button" class="btn btn-danger">กรอกเอกสารเพิ่ม</button></a>
+                                                    </div>
+                                                <?php }else{;?>
+                                                    <div class="text-right">
+                                                        <a href="../contract/add.php"><button type="button" class="btn btn-primary">กรอกเอกสารเพิ่ม</button></a>
+                                                    </div>
+                                                <?php }?>
                                         </div>
                                     </div>
                                 </div>

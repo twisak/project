@@ -279,7 +279,7 @@ $strDate = explode("-", "$str_date");//วันเริ่ม
                 <td colspan="2">
                     <table width="100%" border="0" align="left">
                         <tr>
-                            <td  colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ด้วยมหาวิทยาลัคำสั่งมหาวิทยาลัยราชภัฏยะลา ได้ดำเนินโครงการ "<?php echo $project_name; ?>" ได้จัดกิจกรรม <?php echo $activity; ?> ระหว่างวันที่ <?php echo $day_thaiS;?>&nbsp;<?php echo $month_thaiS;?>&nbsp;<?php echo $year_thaiS;?>  ถึง <?php echo $day_thaiE;?>&nbsp;<?php echo $month_thaiE;?>&nbsp;<?php echo $year_thaiE;?> <?php echo $travel; ?>  </td>
+                            <td  colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ด้วยมหาวิทยาลัคำสั่งมหาวิทยาลัยราชภัฏยะลา ได้ดำเนินโครงการ "<?php echo $project_name; ?>" ได้จัดกิจกรรม <?php echo $activity; ?> ระหว่างวันที่ <?php echo $day_thaiS;?>&nbsp;<?php echo $month_thaiS;?>&nbsp;<?php echo $year_thaiS;?> <br> ถึง <?php echo $day_thaiE;?>&nbsp;<?php echo $month_thaiE;?>&nbsp;<?php echo $year_thaiE;?> <?php echo $travel; ?>  </td>
                         </tr>
 
                     </table>
@@ -289,7 +289,7 @@ $strDate = explode("-", "$str_date");//วันเริ่ม
                 <td colspan="2">
                     <table width="100%" border="0" align="left">
                         <tr>
-                            <td  colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ในการนี้ เพื่อให้การดำเนินการดังกล่าวเป็นไปได้ด้วยความเรียบร้อย มีประสิทธิภาพ อาศัยอำนาจตามความในมาตรา ๒๗ แห่งพระราชบัญญัติมหาวิทยาลัยราชภัฏ พ.ศ.๒๕๔๗ มหาวิทยาลัยราชภัฏยะลา จึงสั่งให้<td>
+                            <td  colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ในการนี้ เพื่อให้การดำเนินการดังกล่าวเป็นไปได้ด้วยความเรียบร้อย มีประสิทธิภาพ <br> อาศัยอำนาจตามความในมาตรา ๒๗ แห่งพระราชบัญญัติมหาวิทยาลัยราชภัฏ พ.ศ.๒๕๔๗ มหาวิทยาลัยราชภัฏยะลา จึงสั่งให้<td>
                         </tr>
 
                     </table>

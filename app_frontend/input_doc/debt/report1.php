@@ -45,8 +45,8 @@
             $doc_id = $result_debt['doc_id'];
             $date_current = $result_debt['date_current'];
             $name_train = $result_debt['name_train'];
-            $project_id = $result_debt['project_id'];
-            $activity_id = $result_debt['activity_id'];
+            // $project_id = $result_debt['project_id'];
+            // $activity_id = $result_debt['activity_id'];
             $person_id = $result_debt['person_id'];
             $teacher_id = $result_debt['teacher_id'];
             $money_from = $result_debt['money_from'];
@@ -86,15 +86,40 @@
             $disburse = $result_debt['disburse'];
             $payer = $result_debt['payer'];
 
-            $sql_project = "SELECT * FROM tb_project WHERE project_id = '".$project_id."' ";
-            $query_project = mysqli_query($conn,$sql_project);
-            $result_project = mysqli_fetch_assoc($query_project);
-            $project_name = $result_project['project_name'];
+            $sql ="SELECT * FROM tb_lend WHERE doc_id = '".$lend_num."'";
+            $query = mysqli_query($conn,$sql);
+            while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
+            {
+                $project = $row['project'];
+                $activity = $row['activity'];
+                $allowance = $row['allowance'];
+                $allowance_day = $row['allowance_day'];
+                $allowance_price = $row['allowance_price'];
+                $rest = $row['rest'];
+                $rest_price = $row['rest_price'];
+                $room = $row['room'];
+                $num_night = $row['num_night'];
+                $vehicle_num = $row['vehicle_num'];
+                $vehicle_price = $row['vehicle_price'];
+                $regis = $row['regis'];
+                $regis_num = $row['regis_num'];
+                $fication_day = $row['fication_day'];
+                $num_people = $row['num_people'];
+                $num_hour = $row['num_hour'];
+                $price_hour = $row['price_hour'];
+                $students_work = $row['students_work'];
+                $work_day = $row['work_day'];
+                $work_price = $row['work_price'];
 
-            $sql_activity = "SELECT * FROM tb_activity WHERE activity_id = '".$activity_id."' ";
-            $query_activity = mysqli_query($conn,$sql_activity);
-            $result_activity = mysqli_fetch_assoc($query_activity);
-            $activity = $result_activity['activity'];
+                
+                $hand_food = $row['hand_food'];
+                $num_food = $row['num_food'];
+                $food_price = $row['food_price'];
+                $snack = $row['snack'];
+                $num_snack = $row['num_snack'];
+                $snack_price = $row['snack_price'];
+            
+            }
 
             $sql_person = "SELECT * FROM tb_person WHERE person_id = '".$person_id."' ";
             $query_person = mysqli_query($conn,$sql_person);
@@ -217,7 +242,7 @@
                         <tr>
                             <td width="1" class="text-nowrap border-0 padding-0">โครงการ/หลักสูตร</td>
                             <td class="border-0 padding-0">
-                                &nbsp;&nbsp;<?php echo $project_name;?>
+                                &nbsp;&nbsp;<?php echo $project;?>
                                 <div class="line-bottom-dashed"></div>
                             </td>
                         </tr>
@@ -368,6 +393,7 @@
                         <?php
                                 $i=1;
                                 $i<="";
+
 
                                 $money_num1 = array($money_num);
 

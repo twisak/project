@@ -318,17 +318,24 @@ include('../../../config/constant.php');
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label><b>เรื่อง</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
-                                                <select name="title_id" class="form-control" required>
-                                                    <option value="">เลือกชื่อเรื่อง</option>
+                                                <label><b>เรื่อง</b></label>&nbsp;</label>
+                                                <!-- <select name="title_id" required class="form-control">
+                                                    <option value="">เลือกชื่อเรื่อง</option> -->
                                                     <?php
                                                         $sql = "SELECT * FROM tb_title";
                                                         $query = mysqli_query($conn, $sql);
                                                         while($result = mysqli_fetch_assoc($query)):
+                                                            $title_id = $result['title_id'];
+                                                            $title = $result['title'];
+                                                        endwhile; 
+
+                                                            //$new_title = iconv_substr($title,0,80,'UTF-8'). "...";
                                                     ?>
-                                                    <option value="<?=$result['title_id']?>"><?=$result['title']?></option>
-                                                    <?php endwhile; ?>
-                                                </select>
+                                                    <!-- <option value="<?php //echo $title_id;?>"><?php //echo $new_title;?></option>
+                                                    <?php //endwhile; ?>
+                                                </select> -->
+                                                <input type="text" value="<?php echo "ส่งมอบงานจ้าง";?>" readonly class="form-control form-control-line">
+                                                <input type="hidden" class="form-control" name="title_id" value="001">
                                             </div>
                                         </div>
                                     </div>

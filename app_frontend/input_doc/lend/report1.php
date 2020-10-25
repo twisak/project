@@ -300,8 +300,9 @@
                                 $rest_price;
                                 $room;
                                 $num_night;
-                                $sum_room = $rest_price * $room * $num_night;
+                                
                             }
+                            $sum_room = $rest_price * $room * $num_night;
 
                             if( $vehicle_num && $vehicle_price == "-") {
                                                         

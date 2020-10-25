@@ -80,8 +80,8 @@
                                         $id = $result_debt['id'];
                                         $doc_id = $result_debt['doc_id'];
                                         $name_train = $result_debt['name_train'];
-                                        $project_id = $result_debt['project_id'];
-                                        $activity_id = $result_debt['activity_id'];
+                                        // $project_id = $result_debt['project_id'];
+                                        // $activity_id = $result_debt['activity_id'];
                                         $person_id = $result_debt['person_id'];
                                         $teacher_id = $result_debt['teacher_id'];
                                         $money_from = $result_debt['money_from'];
@@ -120,23 +120,60 @@
                                         $disburse = $result_debt['disburse'];
                                         $payer = $result_debt['payer'];
 
+
+                                            $sqll ="SELECT * FROM tb_lend WHERE doc_id = '".$lend_num."'";
+                                            $query = mysqli_query($conn,$sqll);
+                                            while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
+                                            {
+                                                $project = $row['project'];
+                                                $activity = $row['activity'];
+                                                $allowance = $row['allowance'];
+                                                $allowance_day = $row['allowance_day'];
+                                                $allowance_price = $row['allowance_price'];
+                                                $rest = $row['rest'];
+                                                $rest_price = $row['rest_price'];
+                                                $room = $row['room'];
+                                                $num_night = $row['num_night'];
+                                                $vehicle_num = $row['vehicle_num'];
+                                                $vehicle_price = $row['vehicle_price'];
+                                                $regis = $row['regis'];
+                                                $regis_num = $row['regis_num'];
+                                                $fication_day = $row['fication_day'];
+                                                $num_people = $row['num_people'];
+                                                $num_hour = $row['num_hour'];
+                                                $price_hour = $row['price_hour'];
+                                                $students_work = $row['students_work'];
+                                                $work_day = $row['work_day'];
+                                                $work_price = $row['work_price'];
+    
+                                                
+                                                $hand_food = $row['hand_food'];
+                                                $num_food = $row['num_food'];
+                                                $food_price = $row['food_price'];
+                                                $snack = $row['snack'];
+                                                $num_snack = $row['num_snack'];
+                                                $snack_price = $row['snack_price'];
+                                            
+                                            }
+                                        
+
                                         // echo $list;
 
-                                        $sql1 ="SELECT * FROM tb_project WHERE project_id = '".$project_id."' ";
-                                        $query1 = mysqli_query($conn,$sql1);
-                                        while($row1 = mysqli_fetch_array($query1,MYSQLI_ASSOC))
-                                        {
-                                            $project_name = $row1['project_name'];
-                                            $project_id = $row1['project_id'];
-                                        }
-                                        // echo $sql1;
+                                        // $sql1 ="SELECT * FROM tb_project WHERE project_id = '".$project_id."' ";
+                                        // $query1 = mysqli_query($conn,$sql1);
+                                        // while($row1 = mysqli_fetch_array($query1,MYSQLI_ASSOC))
+                                        // {
+                                        //     $project_name = $row1['project_name'];
+                                        //     $project_id = $row1['project_id'];
+                                        // }
+                                        // // echo $sql1;
 
-                                        $sql3 ="SELECT * FROM tb_activity WHERE activity_id = '".$activity_id."' ";
-                                        $query3 = mysqli_query($conn,$sql3);
-                                        while($row3 = mysqli_fetch_array($query3,MYSQLI_ASSOC))
-                                        {
-                                            $activity = $row3['activity'];
-                                        }
+                                        // $sql3 ="SELECT * FROM tb_activity WHERE activity_id = '".$activity_id."' ";
+                                        // $query3 = mysqli_query($conn,$sql3);
+                                        // while($row3 = mysqli_fetch_array($query3,MYSQLI_ASSOC))
+                                        // {
+                                        //     $activity = $row3['activity'];
+                                        // }
 
                                         $sql_person = "SELECT * FROM tb_person WHERE person_id = '".$person_id."' ";
                                         $query_person = mysqli_query($conn,$sql_person);
@@ -151,6 +188,10 @@
                                         $t_firstname = $result_teacher['t_firstname'];
                                         $t_lastname = $result_teacher['t_lastname'];
 
+
+                                       
+
+                                       
 
 
 
@@ -203,25 +244,14 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label><b>โครงการ</b></label></label>
-                                                <select name="project_id" id="project" class="form-control">
-                                                    <option value="<?php echo $project_id?>"><?php echo $project_name?></option>
-                                                    <?php
-                                                    $sql = "SELECT * FROM tb_project";
-                                                    $query = mysqli_query($conn, $sql);
-                                                    while($result = mysqli_fetch_assoc($query)):
-                                                ?>
-                                                    <option value="<?=$result['project_id']?>"><?=$result['project_name']?></option>
-                                                    <?php endwhile; ?>
-                                                </select>
+                                                <input type="text" value="<?php echo $project;?>" name="project" class="form-control form-control-line">
                                             </div>
                                         </div>
 
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                              <label for="activity"><b>ชื่อกิจกรรม</b></label></label>
-                                                <select name="activity_id" id="activity" class="form-control">
-                                                    <option value="<?php echo $activity_id?>"><?php echo $activity?></option>
-                                                </select>
+                                              <label for=""><b>ชื่อกิจกรรม</b></label></label>
+                                                <input type="text" value="<?php echo $activity;?>" name="activity" class="form-control form-control-line">
                                             </div>
                                         </div>
                                     </div>
@@ -455,40 +485,6 @@
                                             }
                                         }
                                     </script>
-                                    <?php 
-                                            $sqll ="SELECT * FROM tb_lend WHERE doc_id = '".$lend_num."'";
-                                            $query = mysqli_query($conn,$sqll);
-                                            while($row = mysqli_fetch_array($query,MYSQLI_ASSOC))
-                                            {
-                                                $allowance = $row['allowance'];
-                                                $allowance_day = $row['allowance_day'];
-                                                $allowance_price = $row['allowance_price'];
-                                                $rest = $row['rest'];
-                                                $rest_price = $row['rest_price'];
-                                                $room = $row['room'];
-                                                $num_night = $row['num_night'];
-                                                $vehicle_num = $row['vehicle_num'];
-                                                $vehicle_price = $row['vehicle_price'];
-                                                $regis = $row['regis'];
-                                                $regis_num = $row['regis_num'];
-                                                $fication_day = $row['fication_day'];
-                                                $num_people = $row['num_people'];
-                                                $num_hour = $row['num_hour'];
-                                                $price_hour = $row['price_hour'];
-                                                $students_work = $row['students_work'];
-                                                $work_day = $row['work_day'];
-                                                $work_price = $row['work_price'];
-    
-                                                
-                                                $hand_food = $row['hand_food'];
-                                                $num_food = $row['num_food'];
-                                                $food_price = $row['food_price'];
-                                                $snack = $row['snack'];
-                                                $num_snack = $row['num_snack'];
-                                                $snack_price = $row['snack_price'];
-                                            
-                                            }
-                                    ?>
                                     <div class="row">
                                         <div class="col-md-2">
                                             <div class="form-group">

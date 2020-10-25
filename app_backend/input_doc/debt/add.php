@@ -125,7 +125,7 @@ include('../../../config/constant.php');
                                             <div class="form-group">
                                                 <label><b>ชื่อบุคลากร</b></label>
                                                 <input type="text" value="<?php echo $prefix?><?php echo $firtname?>&nbsp;&nbsp;<?php echo $lastname?>" readonly class="form-control form-control-line">
-                                                <input type="hidden" class="form-control" name="person_id" required value="<?php echo $person_id?>">
+                                                <input type="hidden" class="form-control" required name="person_id" value="<?php echo $person_id?>">
                                             </div>
                                         </div>
 
@@ -137,7 +137,7 @@ include('../../../config/constant.php');
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label><b>ชื่ออาจารย์</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
-                                                <select class="form-control" name="teacher_id">
+                                                <select class="form-control" name="teacher_id" required>
                                                     <option value="">-- เลือกรายชื่อ --</option>
                                                     <?php
                                                         while($result_teacher=mysqli_fetch_array($query_teacher))
@@ -152,19 +152,19 @@ include('../../../config/constant.php');
                                         </div>
                                     </div>
 
-                                    <div class="row">
+                                    <!-- <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label><b>โครงการ</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
                                                 <select name="project_id" id="project" required class="form-control">
                                                     <option value="">เลือกโครงการ</option>
                                                     <?php
-                                                    $sql = "SELECT * FROM tb_project";
-                                                    $query = mysqli_query($conn, $sql);
-                                                    while($result = mysqli_fetch_assoc($query)):
+                                                    // $sql = "SELECT * FROM tb_project";
+                                                    // $query = mysqli_query($conn, $sql);
+                                                    // while($result = mysqli_fetch_assoc($query)):
                                                 ?>
-                                                    <option value="<?=$result['project_id']?>"><?=$result['project_name']?></option>
-                                                    <?php endwhile; ?>
+                                                    <option value="<?//=$result['project_id']?>"><?//=$result['project_name']?></option>
+                                                    <?php //endwhile; ?>
                                                 </select>
                                             </div>
                                         </div>
@@ -177,7 +177,7 @@ include('../../../config/constant.php');
                                                 </select>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
 
                                     <div class="row">
                                         <div class="col-md-4">
@@ -280,7 +280,7 @@ include('../../../config/constant.php');
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label><b>ออกเดินทางจาก</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
-                                                <select class="form-control" name="depart_from">
+                                                <select class="form-control" name="depart_from" >
                                                     <option value="">-- เลือก --</option>
                                                     <option>บ้านพัก</option>
                                                     <option>สำนักงาน</option>
@@ -292,21 +292,21 @@ include('../../../config/constant.php');
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label><b>ตั้งแต่วันที่</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
-                                                <input type="date" class="form-control form-control-line" name="date_depart">
+                                                <input type="date" class="form-control form-control-line"  name="date_depart">
                                             </div>
                                         </div>
 
                                         <div class="col-md-1">
                                             <div class="form-group">
                                                 <label><b>เวลา</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
-                                                <input type="time" class="form-control form-control-line" name="time_depart">
+                                                <input type="time" class="form-control form-control-line"  name="time_depart">
                                             </div>
                                         </div>
 
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label><b>กลับถึง</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
-                                                <select class="form-control" name="back">
+                                                <select class="form-control" name="back" >
                                                     <option value="">-- เลือก --</option>
                                                     <option>บ้านพัก</option>
                                                     <option>สำนักงาน</option>
@@ -318,14 +318,14 @@ include('../../../config/constant.php');
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label><b>ถึงวันที่</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
-                                                <input type="date" class="form-control form-control-line" name="date_back">
+                                                <input type="date" class="form-control form-control-line"  name="date_back">
                                             </div>
                                         </div>
 
                                         <div class="col-md-1">
                                             <div class="form-group">
                                                 <label><b>เวลา</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
-                                                <input type="time" class="form-control form-control-line" name="time_back">
+                                                <input type="time" class="form-control form-control-line"  name="time_back">
                                             </div>
                                         </div>
                                     </div>
@@ -336,7 +336,7 @@ include('../../../config/constant.php');
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label><b>เบิกค่าใช้จ่ายสำหรับ</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
-                                                <select class="form-control" name="open_money">
+                                                <select class="form-control" name="open_money" >
                                                     <option value="">-- เลือก --</option>
                                                     <option>ข้าพเจ้า</option>
                                                     <option>คณะเดินทาง</option>
@@ -469,7 +469,7 @@ include('../../../config/constant.php');
                                         <div class="col-md-4">
                                             <div class="form-group">
                                               <label><b>ผู้อนุมัติให้จ่าย</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
-                                              <select class="form-control" required name="approve">
+                                              <select class="form-control" name="approve" required>
                                                   <option value="">-- เลือกรายชื่อ --</option>
                                                   <?php
                                                       while($result_teacher=mysqli_fetch_array($query_teacher))
@@ -491,7 +491,7 @@ include('../../../config/constant.php');
                                         <div class="col-md-4">
                                             <div class="form-group">
                                               <label><b>ผู้ให้เบิกจ่าย</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
-                                              <select class="form-control" required name="disburse">
+                                              <select class="form-control" name="disburse" required>
                                                   <option value="">-- เลือกรายชื่อ --</option>
                                                   <?php
                                                       while($result_teacher=mysqli_fetch_array($query_teacher))
@@ -513,7 +513,7 @@ include('../../../config/constant.php');
                                         <div class="col-md-4">
                                             <div class="form-group">
                                               <label><b>ผู้จ่ายเงิน</b></label>&nbsp;<label class="text-danger"><b>*</b></label></label>
-                                              <select class="form-control" required name="payer">
+                                              <select class="form-control" name="payer" required>
                                                   <option value="">-- เลือกรายชื่อ --</option>
                                                   <?php
                                                       while($result_teacher=mysqli_fetch_array($query_teacher))

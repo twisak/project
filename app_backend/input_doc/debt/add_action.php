@@ -9,8 +9,8 @@
     $doc_id = $_POST['doc_id'];
     $date_current = date('Y-m-d');
     $name_train = $_POST['name_train'];
-    $project_id = $_POST['project_id'];
-    $activity_id = $_POST['activity_id'];
+    // $project_id = $_POST['project_id'];
+    // $activity_id = $_POST['activity_id'];
     $person_id = $_POST['person_id'];
     $teacher_id = $_POST['teacher_id'];
     $money_from = $_POST['money_from'];
@@ -65,11 +65,11 @@
 
 // 		if($list != "")
 // 		{
-                $sql = "INSERT INTO tb_debt(doc_id, date_current, name_train, project_id, activity_id, person_id, teacher_id,
+                $sql = "INSERT INTO tb_debt(doc_id, date_current, name_train, person_id, teacher_id,
                                             money_from, lend_num, note_that, date_note, under, along_with, go_practice, depart_from,
                                             date_depart, time_depart, back, date_back, time_back, open_money,document_num,list,
                                             money_num,approve,disburse,payer )
-                                VALUES ('$doc_id','$date_current','$name_train','$project_id','$activity_id','$person_id','$teacher_id','$money_from',
+                                VALUES ('$doc_id','$date_current','$name_train','$person_id','$teacher_id','$money_from',
                                         '$lend_num','$note_that','$date_note','$under','$along_with','$go_practice',
                                         '$depart_from','$date_depart','$time_depart','$back','$date_back','$time_back','$open_money',
                                         '$document_num','$list','$money_num','$approve','$disburse','$payer')";

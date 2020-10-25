@@ -7,8 +7,7 @@
         $doc_id = $_POST['doc_id'];
         $date_current = date('Y-m-d');
         $name_train = $_POST['name_train'];
-        $project_id = $_POST['project_id'];
-        $activity_id = $_POST['activity_id'];
+        
         $person_id = $_POST['person_id'];
         $teacher_id = $_POST['teacher_id'];
         $money_from = $_POST['money_from'];
@@ -48,6 +47,8 @@
         $disburse = $_POST['disburse'];
         $payer = $_POST['payer'];
 
+        $project = $_POST['project'];
+        $activity = $_POST['activity'];
         $allowance = $_POST['allowance'];
         $allowance_day = $_POST['allowance_day'];
         $allowance_price = $_POST['allowance_price'];
@@ -94,8 +95,6 @@
                     $sql= "UPDATE tb_debt SET   doc_id     = '".$doc_id."',
                                                 date_current        = '".$date_current."',
                                                 name_train        = '".$name_train."',
-                                                project_id      = '".$project_id."',
-                                                activity_id      = '".$activity_id."',
                                                 person_id        = '".$person_id."',
                                                 teacher_id        = '".$teacher_id."',
                                                 money_from        = '".$money_from."',
@@ -127,6 +126,8 @@
                     //  echo "<br>";
 
                     $sql1= "UPDATE tb_lend SET 
+                                            project      = '".$project."',
+                                            activity      = '".$activity."',
                                             allowance = '".$allowance."',
                                             allowance_day = '".$allowance_day."',
                                             allowance_price = '".$allowance_price."',
